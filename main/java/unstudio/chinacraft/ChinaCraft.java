@@ -1,5 +1,10 @@
 package unstudio.chinacraft;
 
+import unstudio.chinacraft.block.CopperOre;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.util.StatCollector;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -7,6 +12,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = ChinaCraft.MODID, version = ChinaCraft.VERSION)
 public class ChinaCraft {
@@ -35,4 +42,14 @@ public class ChinaCraft {
 	        proxy.postInit(event);
 	    }
 	    
+	    public static CreativeTabs tabCore = new CreativeTabs(StatCollector.translateToLocal("core")) {
+	        @Override
+	        @SideOnly(Side.CLIENT)
+	        public Item getTabIconItem() {
+	            return Item.getItemFromBlock(copperOre);
+	        }
+	    };
+	    
+	    //方块
+	    public static CopperOre copperOre = new CopperOre();  //铜矿
 }
