@@ -28,7 +28,7 @@ public class CopperOre extends Block implements IWorldGenerator {
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 1) {
+		if (world.provider.dimensionId == 0) {
 			for (int i = 0; i < 16; i++) {
 				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
 				int firstBlockYCoord = random.nextInt(64);
