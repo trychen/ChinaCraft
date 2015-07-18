@@ -1,8 +1,8 @@
 [
 {
   "modid": "chinacraft",
-  "name": "ChinaCraft",
-  "description": "China mod.",
+  "name": "China Craft",
+  "description": "A mod with Chinese features.",
   "version": "0.0.1",
   "mcversion": "1.7.10",
   "url": "",
