@@ -1,2 +1,10 @@
 tile.copper_ore.name=Í­¿ó
 item.copper_ingot.name=Í­¶§
+
+tile.tin_ore.name=Îý¿ó
+item.tin_ore.name=Îý¶§
+
+tile.silver_ore.name=Òø¿ó
+item.silver_ore.name=Òø¶§
+
+item.bronze_ingot.name=ÇàÍ­¶§
