@@ -12,6 +12,7 @@ public class ClientProxy extends CommonProxy {
  
     public void init(FMLInitializationEvent event) {
     	ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
+    	ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");
     	ChinaCraft.marble.setBlockTextureName("chinacraft:marble");
     	
     	ChinaCraft.copperIngot.setTextureName("chinacraft:copper_ingot");

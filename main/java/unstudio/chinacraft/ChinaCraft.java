@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.Marble;
+import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.item.CopperIngot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -54,6 +55,7 @@ public class ChinaCraft {
 	    
 	    //方块
 	    public static CopperOre copperOre = new CopperOre();  //铜矿
+	    public static TinOre tinOre = new TinOre(); //锡矿
 	    public static Marble marble = new Marble();  //大理石
 	    
 	    //物品

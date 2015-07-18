@@ -9,16 +9,16 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import unstudio.chinacraft.ChinaCraft;
 
-public class Marble extends Block implements IWorldGenerator{
-	public Marble() {
+public class TinOre extends Block implements IWorldGenerator {
+	
+	public TinOre() {
 		super(Material.rock);
-		setBlockName(StatCollector.translateToLocal("marble"));
-		setHardness(3.5F);
-		setResistance(20.0F);
+		setBlockName(StatCollector.translateToLocal("tin_ore"));
+		setHardness(3.0F);
+		setResistance(15.0F);
 		setLightLevel(0.0F);
 		setStepSound(soundTypeStone);
 		setCreativeTab(ChinaCraft.tabCore);
@@ -28,17 +28,16 @@ public class Marble extends Block implements IWorldGenerator{
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 0&&chunkX%2==0&&chunkZ%2==0) {
-			for (int i = 0; i < 4; i++) {
-				int firstBlockXCoord = chunkX * 32 + random.nextInt(32);
-				int firstBlockYCoord = random.nextInt(32)+28;
-				int firstBlockZCoord = chunkZ * 32 + random.nextInt(32);
+		if (world.provider.dimensionId == 0) {
+			for (int i = 0; i < 8; i++) {
+				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
+				int firstBlockYCoord = random.nextInt(64);
+				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-				(new WorldGenBlockBlob(this, 2)).generate(
+				(new WorldGenMinable(this, 3, 8, Blocks.stone)).generate(
 						world, random, firstBlockXCoord, firstBlockYCoord,
 						firstBlockZCoord);
 			}
 		}
 	}
-
 }

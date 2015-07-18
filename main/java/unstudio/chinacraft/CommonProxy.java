@@ -15,8 +15,10 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event) {
     	GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre,3);
+    	GameRegistry.registerBlock(ChinaCraft.tinOre, "TinOre");
+    	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre,3);
     	GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
-    	GameRegistry.registerWorldGenerator(ChinaCraft.marble,3);
+    	GameRegistry.registerWorldGenerator(ChinaCraft.marble,127);
     	
     	GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot), 0.8f);
