@@ -2,10 +2,10 @@ tile.copper_ore.name=铜矿
 item.copper_ingot.name=铜锭
 
 tile.tin_ore.name=锡矿
-item.tin_ore.name=锡锭
+item.tin_ingot.name=锡锭
 
 tile.silver_ore.name=银矿
-item.silver_ore.name=银锭
+item.silver_ingot.name=银锭
 
 item.bronze_ingot.name=青铜锭
 
