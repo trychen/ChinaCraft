@@ -19,43 +19,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @Mod(modid = ChinaCraft.MODID, version = ChinaCraft.VERSION)
 public class ChinaCraft {
-<<<<<<< HEAD
-	public static final String MODID = "chinacraft";
-	public static final String VERSION = "0.0.1";
-
-	@SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy", serverSide = "unstudio.chinacraft.CommonProxy")
-	public static CommonProxy proxy;
-
-	@Instance("ChinaCraft")
-	public static ChinaCraft instance;
-
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		proxy.preInit(event);
-	}
-
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		proxy.init(event);
-	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit(event);
-	}
-
-	public static CreativeTabs tabCore = new CreativeTabs(
-			StatCollector.translateToLocal("core")) { // 核心
-		@Override
-		@SideOnly(Side.CLIENT)
-		public Item getTabIconItem() {
-			return Item.getItemFromBlock(copperOre);
-		}
-	};
-
-	// 方块
-	public static CopperOre copperOre = new CopperOre(); // 铜矿
-=======
 	    public static final String MODID = "chinacraft";
 	    public static final String VERSION = "0.0.1";
 	 
@@ -91,7 +54,8 @@ public class ChinaCraft {
 	    
 	    //方块
 	    public static CopperOre copperOre = new CopperOre();  //铜矿
-	    public static CopperIngot copperIngot = new CopperIngot();  //铜锭
 	    public static Marble marble = new Marble();  //大理石
->>>>>>> d82f865d2924dbe4dac6b512081a06507e5b9f0e
+	    
+	    //物品
+	    public static CopperIngot copperIngot = new CopperIngot();  //铜锭
 }
