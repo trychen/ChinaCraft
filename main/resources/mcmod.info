@@ -2,7 +2,7 @@
 {
   "modid": "chinacraft",
   "name": "China Craft",
-  "description": "China mod.",
+  "description": "A mod with Chinese features.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
