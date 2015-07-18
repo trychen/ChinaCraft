@@ -9,3 +9,6 @@ item.silver_ore.name=Silver Ingot
 
 item.bronze_ingot.name=Bronze Ingot
 
+tile.jade_ore.name=Jade Ore
+
+tile.marble.name=Marble

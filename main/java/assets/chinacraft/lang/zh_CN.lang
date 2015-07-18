@@ -1,10 +1,14 @@
-tile.copper_ore.name=Í­¿ó
-item.copper_ingot.name=Í­¶§
+tile.copper_ore.name=é“œçŸ¿
+item.copper_ingot.name=é“œé”­
 
-tile.tin_ore.name=Îı¿ó
-item.tin_ore.name=Îı¶§
+tile.tin_ore.name=é”¡çŸ¿
+item.tin_ore.name=é”¡é”­
 
-tile.silver_ore.name=Òø¿ó
-item.silver_ore.name=Òø¶§
+tile.silver_ore.name=é“¶çŸ¿
+item.silver_ore.name=é“¶é”­
 
-item.bronze_ingot.name=ÇàÍ­¶§
+item.bronze_ingot.name=é’é“œé”­
+
+tile.jade_ore.name=ç‰çŸ³çŸ¿
+
+tile.marble.name=å¤§ç†çŸ³
