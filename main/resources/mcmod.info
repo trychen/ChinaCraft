@@ -3,7 +3,6 @@
   "modid": "chinacraft",
   "name": "China Craft",
   "description": "A mod with Chinese features.",
-  "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
