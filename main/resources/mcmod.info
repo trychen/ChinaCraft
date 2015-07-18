@@ -1,0 +1,16 @@
+[
+{
+  "modid": "chinacraft",
+  "name": "China Craft",
+  "description": "China mod.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Mouse"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
