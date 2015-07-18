@@ -2,10 +2,10 @@ tile.copper_ore.name=Copper Ore
 item.copper_ingot.name=Copper Ingot
 
 tile.tin_ore.name=Tin Ore
-item.tin_ore.name=Tin Ingot
+item.tin_ingot.name=Tin Ingot
 
 tile.silver_ore.name=Silver Ore
-item.silver_ore.name=Silver Ingot
+item.silver_ingot.name=Silver Ingot
 
 item.bronze_ingot.name=Bronze Ingot
 
