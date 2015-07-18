@@ -1,14 +1,14 @@
-tile.copper_ore.name=Copper Ore
+tile.copper_ore.name=Copper Mine
 item.copper_ingot.name=Copper Ingot
 
-tile.tin_ore.name=Tin Ore
+tile.tin_ore.name=Tin Mine
 item.tin_ingot.name=Tin Ingot
 
-tile.silver_ore.name=Silver Ore
+tile.silver_ore.name=Silver Mine
 item.silver_ingot.name=Silver Ingot
 
 item.bronze_ingot.name=Bronze Ingot
 
-tile.jade_ore.name=Jade Ore
+tile.jade_ore.name=Jade Mine
 
 tile.marble.name=Marble
