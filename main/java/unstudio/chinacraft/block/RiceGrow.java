@@ -19,7 +19,6 @@ public class RiceGrow extends BlockCrops{
 	    public RiceGrow() {
 			super();
 		}
-
 	 
 	    @Override
 	    public IIcon getIcon(int par1, int par2)

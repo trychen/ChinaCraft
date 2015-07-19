@@ -1,10 +1,12 @@
 package unstudio.chinacraft;
 
+import unstudio.chinacraft.block.Buhrimill;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
+import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -41,6 +43,10 @@ public class CommonProxy {
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
     	
+    	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
+    	ClientRegistry.bindTileEntitySpecialRenderer(Buhrimill.TileEntityCustom.class, new Buhrimill.TileEntityCustomRenderer());
+    	GameRegistry.registerTileEntity(Buhrimill.TileEntityCustom.class, "tileEntityBuhrimill");
+    	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
     	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");//银锭
@@ -55,7 +61,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bronzeHoe, "BronzeHoe");//青铜锄
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {"## ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {" ##", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
-    	GameRegistry.registerItem(ChinaCraft.bronzeShovel, "BronzeShovel");//青铜锄
+    	GameRegistry.registerItem(ChinaCraft.bronzeShovel, "BronzeShovel");//青铜铲
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeShovel, 1), new Object[] {" # ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});    	
     	
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");

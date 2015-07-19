@@ -1,6 +1,7 @@
 package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.BronzeBlock;
+import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.JadeOre;
@@ -101,6 +102,8 @@ public class ChinaCraft {
 	    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); //錾制大理石块
 	    public static SilverOre silverOre = new SilverOre();  //银
 	    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
+	    
+	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
 	    //物品
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
