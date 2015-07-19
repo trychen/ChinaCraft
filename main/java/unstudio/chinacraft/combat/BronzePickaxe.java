@@ -5,13 +5,13 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.Item.ToolMaterial;
 import unstudio.chinacraft.ChinaCraft;
 
-public class CopperPickaxe extends ItemPickaxe{
+public class BronzePickaxe extends ItemPickaxe{
 
-	public CopperPickaxe() {
+	public BronzePickaxe() {
 		super(ToolMaterial.IRON);
-		setUnlocalizedName("copper_pickaxe");
+		setUnlocalizedName("bronze_pickaxe");
 		setMaxStackSize(1);
-		setMaxDamage(200);
-		setCreativeTab(ChinaCraft.tabCore);
+		setMaxDamage(251);
+		setCreativeTab(ChinaCraft.tabTool);
 	}
 }

@@ -3,12 +3,12 @@ package unstudio.chinacraft.combat;
 import net.minecraft.item.ItemSword;
 import unstudio.chinacraft.ChinaCraft;
 
-public class CopperSword  extends ItemSword{
-	public CopperSword() {
+public class BronzeSword  extends ItemSword{
+	public BronzeSword() {
 		super(ToolMaterial.IRON);
-		setUnlocalizedName("copper_sword");
+		setUnlocalizedName("bronze_sword");
 		setMaxStackSize(1);
-		setMaxDamage(200);
-		setCreativeTab(ChinaCraft.tabCore);
+		setMaxDamage(251);
+		setCreativeTab(ChinaCraft.tabTool);
 	}
 }

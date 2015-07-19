@@ -5,10 +5,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
 
-public class CopperBlock extends Block{
-	public CopperBlock() {
+public class BronzeBlock extends Block{
+	public BronzeBlock() {
 		super(Material.rock);
-		setBlockName(StatCollector.translateToLocal("copper_block"));
+		setBlockName(StatCollector.translateToLocal("bronze_block"));
 		setHardness(5.0F);
 		setResistance(20.0F);
 		setLightLevel(0.0F);

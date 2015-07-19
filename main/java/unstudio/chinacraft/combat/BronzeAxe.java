@@ -3,14 +3,14 @@ package unstudio.chinacraft.combat;
 import net.minecraft.item.ItemAxe;
 import unstudio.chinacraft.ChinaCraft;
 
-public class CopperAxe extends ItemAxe{
+public class BronzeAxe extends ItemAxe{
 
-	public CopperAxe() {
+	public BronzeAxe() {
 		super(ToolMaterial.IRON);
-		setUnlocalizedName("copper_axe");
+		setUnlocalizedName("bronze_axe");
 		setMaxStackSize(1);
-		setMaxDamage(200);
-		setCreativeTab(ChinaCraft.tabCore);
+		setMaxDamage(251);
+		setCreativeTab(ChinaCraft.tabTool);
 	}
 
 }

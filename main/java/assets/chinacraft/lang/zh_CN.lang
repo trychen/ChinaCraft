@@ -1,8 +1,9 @@
 tile.copper_ore.name=铜矿
-item.copper_ingot.name=铜锭
-item.copper_sword.name=铜剑
-item.copper_axe.name=铜斧
-item.copper_pickaxe.name=铜稿
+tile.bronze_block.name=青铜块
+item.bronze_ingot.name=青铜锭
+item.bronze_sword.name=青铜剑
+item.bronze_axe.name=青铜斧
+item.bronze_pickaxe.name=青铜稿
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
@@ -17,3 +18,4 @@ tile.jade_ore.name=玉石矿
 tile.marble.name=大理石
 
 itemGroup.core=华夏文明-核心
+itemGroup.tool=华夏文明-工具
