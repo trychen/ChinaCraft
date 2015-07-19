@@ -55,6 +55,9 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bronzeHoe, "BronzeHoe");//青铜锄
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {"## ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {" ##", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.registerItem(ChinaCraft.bronzeShovel, "BronzeShovel");//青铜锄
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeShovel, 1), new Object[] {" # ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});    	
+    	
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");
