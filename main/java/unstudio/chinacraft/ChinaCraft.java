@@ -8,6 +8,7 @@ import unstudio.chinacraft.combat.CopperAxe;
 import unstudio.chinacraft.combat.CopperPickaxe;
 import unstudio.chinacraft.combat.CopperSword;
 import unstudio.chinacraft.item.CopperIngot;
+import unstudio.chinacraft.item.TinIngot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -65,6 +66,7 @@ public class ChinaCraft {
 	    
 	    //物品
 	    public static CopperIngot copperIngot = new CopperIngot();  //铜锭
+	    public static TinIngot tinIngot = new TinIngot();  //铜锭
 	    
 	    //防具武器
 	    public static CopperSword copperSword = new CopperSword();  //铜剑
