@@ -12,13 +12,13 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import unstudio.chinacraft.ChinaCraft;
 
-public class TinOre extends Block implements IWorldGenerator {
-	
-	public TinOre() {
+public class SilverOre  extends Block implements IWorldGenerator {
+
+	public SilverOre() {
 		super(Material.rock);
-		setBlockName(StatCollector.translateToLocal("tin_ore"));
-		setHardness(3.0F);
-		setResistance(8.0F);
+		setBlockName(StatCollector.translateToLocal("silver_ore"));
+		setHardness(4.2F);
+		setResistance(15.0F);
 		setLightLevel(0.0F);
 		setStepSound(soundTypeStone);
 		setCreativeTab(ChinaCraft.tabCore);
@@ -29,12 +29,12 @@ public class TinOre extends Block implements IWorldGenerator {
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if (world.provider.dimensionId == 0) {
-			for (int i = 0; i < 8; i++) {
+			for (int i = 0; i < 7; i++) {
 				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
-				int firstBlockYCoord = random.nextInt(64);
+				int firstBlockYCoord = random.nextInt(36);
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-				(new WorldGenMinable(this, 3, 8, Blocks.stone)).generate(
+				(new WorldGenMinable(this, 3, 5, Blocks.stone)).generate(
 						world, random, firstBlockXCoord, firstBlockYCoord,
 						firstBlockZCoord);
 			}

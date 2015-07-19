@@ -4,6 +4,7 @@ item.bronze_ingot.name=青铜锭
 item.bronze_sword.name=青铜剑
 item.bronze_axe.name=青铜斧
 item.bronze_pickaxe.name=青铜稿
+item.bronze_hoe.name=青铜锄
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
