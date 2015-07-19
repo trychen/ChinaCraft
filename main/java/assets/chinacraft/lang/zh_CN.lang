@@ -21,6 +21,9 @@ item.bronze_ingot.name=青铜锭
 tile.jade_ore.name=玉原石
 
 tile.marble.name=大理石
+tile.smooth_marble.name=平滑大理石块
+tile.pillar_marble.name=条纹大理石块
+tile.chiseled_marble.name=錾制大理石块
 
 itemGroup.core=华夏文明-核心
 itemGroup.tool=华夏文明-工具

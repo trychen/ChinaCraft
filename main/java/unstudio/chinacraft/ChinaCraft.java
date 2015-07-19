@@ -1,10 +1,13 @@
 package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.BronzeBlock;
+import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.JadeOre;
 import unstudio.chinacraft.block.Marble;
+import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.SilverOre;
+import unstudio.chinacraft.block.SmoothMarble;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.combat.BronzeAxe;
 import unstudio.chinacraft.combat.BronzeChestplate;
@@ -82,6 +85,9 @@ public class ChinaCraft {
 	    public static TinOre tinOre = new TinOre(); //锡矿
 	    public static JadeOre jadeOre = new JadeOre(); //玉原石
 	    public static Marble marble = new Marble();  //大理石
+	    public static SmoothMarble smoothMarble = new SmoothMarble(); //平滑大理石块
+	    public static PillarMarble pillarMarble = new PillarMarble(); //条纹大理石块
+	    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); //錾制大理石块
 	    public static SilverOre silverOre = new SilverOre();  //银
 
 	    

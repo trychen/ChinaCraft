@@ -1,11 +1,19 @@
 package unstudio.chinacraft.block;
 
+import java.util.List;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -14,6 +22,8 @@ import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.world.gen.WorldGenBlockBlob;
 
 public class Marble extends Block implements IWorldGenerator{
+	
+	IIcon marble,smooth,chiseled,pillar_top,pillar;
 	
 	public Marble() {
 		super(Material.rock);
