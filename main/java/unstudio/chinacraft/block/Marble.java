@@ -9,9 +9,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenBlockBlob;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.world.gen.WorldGenBlockBlob;
 
 public class Marble extends Block implements IWorldGenerator{
 	public Marble() {
@@ -28,9 +28,9 @@ public class Marble extends Block implements IWorldGenerator{
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 0&&random.nextInt(3)==0) {
+		if (world.provider.dimensionId == 0&&random.nextInt(4)==0) {
 				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
-				int firstBlockYCoord = random.nextInt(64)+32;
+				int firstBlockYCoord = random.nextInt(32)+32;
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
 				(new WorldGenBlockBlob(this, 2)).generate(
