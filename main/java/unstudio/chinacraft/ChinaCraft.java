@@ -7,6 +7,7 @@ import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.combat.BronzeAxe;
+import unstudio.chinacraft.combat.BronzeHoe;
 import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.item.BronzeIngot;
@@ -89,4 +90,5 @@ public class ChinaCraft {
 	    //工具
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿
 	    public static BronzeAxe bronzeAxe =  new BronzeAxe();//青铜斧
+	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜铲
 }

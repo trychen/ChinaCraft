@@ -26,16 +26,19 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
     	
-    	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");
+    	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
-    	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");
+    	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");//银锭
     	GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
-    	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");
+    	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");////青铜剑
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1), new Object[] {" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
-    	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");
+    	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");//青铜稿
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1), new Object[] {"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
-    	GameRegistry.registerItem(ChinaCraft.bronzeAxe, "BronzeAxe");
+    	GameRegistry.registerItem(ChinaCraft.bronzeAxe, "BronzeAxe");//青铜斧
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 1), new Object[] {"## ", "#X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.registerItem(ChinaCraft.bronzeHoe, "BronzeHoe");//青铜铲
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {"## ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {" ##", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     }

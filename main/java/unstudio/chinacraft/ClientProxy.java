@@ -25,6 +25,7 @@ public class ClientProxy extends CommonProxy {
     	
     	ChinaCraft.bronzePickaxe.setTextureName("chinacraft:bronze_pickaxe");
     	ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");
+    	ChinaCraft.bronzeHoe.setTextureName("chinacraft:bronze_hoe");
     	super.init(event);
     }
  
