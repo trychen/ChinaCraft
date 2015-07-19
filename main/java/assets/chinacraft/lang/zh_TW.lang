@@ -1,5 +1,10 @@
 tile.copper_ore.name=銅礦
-item.copper_ingot.name=銅錠
+tile.bronze_block.name=青銅塊
+item.bronze_ingot.name=青銅錠
+item.bronze_sword.name=青銅劍
+item.bronze_axe.name=青銅斧
+item.bronze_pickaxe.name=青銅稿
+item.bronze_hoe.name=青銅鋤
 
 tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
@@ -9,6 +14,9 @@ item.silver_ingot.name=銀錠
 
 item.bronze_ingot.name=青銅錠
 
-tile.jade_ore.name=玉石礦
+tile.jade_ore.name=玉原石
 
 tile.marble.name=大理石
+
+itemGroup.core=華夏文明-核心
+itemGroup.tool=華夏文明-工具

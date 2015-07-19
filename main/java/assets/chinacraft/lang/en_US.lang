@@ -1,8 +1,14 @@
 tile.copper_ore.name=Copper Ore
-item.bronze_ingot.name=Copper Ingot
-item.bronze_axe.name=Copper Axe
-item.bronze_pickaxe.name=Copper Pickaxe
+tile.bronze_block.name=Bronze Block
+item.bronze_ingot.name=Bronze Ingot
+item.bronze_sword.name=Bronze Sword
+item.bronze_axe.name=Bronze Axe
+item.bronze_pickaxe.name=Bronze Pickaxe
 item.bronze_hoe.name=Bronze Hoe
+item.bronze_helmet.name=Bronze Helmet
+item.bronze_body.name=Bronze Body
+item.bronze_legs.name=Bronze Legs
+item.bronze_boots.name=Bronze Boots
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot
@@ -15,3 +21,6 @@ item.bronze_ingot.name=Bronze Ingot
 tile.jade_ore.name=Jade Ore
 
 tile.marble.name=Marble
+
+itemGroup.core=Chinese Civilization-Core
+itemGroup.tool=Chinese Civilization-Tools
