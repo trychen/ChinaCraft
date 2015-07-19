@@ -4,18 +4,11 @@ import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.TinOre;
-<<<<<<< HEAD
 import unstudio.chinacraft.combat.BronzeAxe;
 import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.item.BronzeIngot;
-=======
-import unstudio.chinacraft.combat.CopperAxe;
-import unstudio.chinacraft.combat.CopperPickaxe;
-import unstudio.chinacraft.combat.CopperSword;
-import unstudio.chinacraft.item.CopperIngot;
 import unstudio.chinacraft.item.TinIngot;
->>>>>>> 495d9b2d4ae6bc2e5d709fa8c7c317ce51f75fd9
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -80,12 +73,8 @@ public class ChinaCraft {
 	    public static Marble marble = new Marble();  //大理石
 	    
 	    //物品
-<<<<<<< HEAD
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
-=======
-	    public static CopperIngot copperIngot = new CopperIngot();  //铜锭
 	    public static TinIngot tinIngot = new TinIngot();  //铜锭
->>>>>>> 495d9b2d4ae6bc2e5d709fa8c7c317ce51f75fd9
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
