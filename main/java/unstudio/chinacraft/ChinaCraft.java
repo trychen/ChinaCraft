@@ -1,8 +1,12 @@
 package unstudio.chinacraft;
 
+import unstudio.chinacraft.block.CopperBlock;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.TinOre;
+import unstudio.chinacraft.combat.CopperAxe;
+import unstudio.chinacraft.combat.CopperPickaxe;
+import unstudio.chinacraft.combat.CopperSword;
 import unstudio.chinacraft.item.CopperIngot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -55,9 +59,17 @@ public class ChinaCraft {
 	    
 	    //方块
 	    public static CopperOre copperOre = new CopperOre();  //铜矿
+	    public static CopperBlock copperBlock = new CopperBlock();  //铜矿
 	    public static TinOre tinOre = new TinOre(); //锡矿
 	    public static Marble marble = new Marble();  //大理石
 	    
 	    //物品
 	    public static CopperIngot copperIngot = new CopperIngot();  //铜锭
+	    
+	    //防具武器
+	    public static CopperSword copperSword = new CopperSword();  //铜剑
+	    
+	    //工具
+	    public static CopperPickaxe copperPickaxe = new CopperPickaxe();//铜稿
+	    public static CopperAxe copperAxe =  new CopperAxe();//铜斧
 }

@@ -1,5 +1,7 @@
 tile.copper_ore.name=Copper Ore
 item.copper_ingot.name=Copper Ingot
+item.copper_axe.name=Copper Axe
+item.copper_pickaxe.name=Copper Pickaxe
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot

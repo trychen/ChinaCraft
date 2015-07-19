@@ -1,5 +1,8 @@
 tile.copper_ore.name=铜矿
 item.copper_ingot.name=铜锭
+item.copper_sword.name=铜剑
+item.copper_axe.name=铜斧
+item.copper_pickaxe.name=铜稿
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
