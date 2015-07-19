@@ -30,7 +30,7 @@ public class Marble extends Block implements IWorldGenerator{
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
 		if (world.provider.dimensionId == 0&&random.nextInt(3)==0) {
 				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
-				int firstBlockYCoord = random.nextInt(32)+28;
+				int firstBlockYCoord = random.nextInt(64)+32;
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
 				(new WorldGenBlockBlob(this, 2)).generate(
