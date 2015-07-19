@@ -16,6 +16,7 @@ import unstudio.chinacraft.combat.BronzeHelmet;
 import unstudio.chinacraft.combat.BronzeHoe;
 import unstudio.chinacraft.combat.BronzeLeggings;
 import unstudio.chinacraft.combat.BronzePickaxe;
+import unstudio.chinacraft.combat.BronzeShovel;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.SilverIngot;
@@ -102,7 +103,8 @@ public class ChinaCraft {
 	    //工具
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿
 	    public static BronzeAxe bronzeAxe =  new BronzeAxe();//青铜斧
-	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜铲
+	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜锄
+	    public static BronzeShovel bronzeShovel =  new BronzeShovel();//青铜铲
 	    
 	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
