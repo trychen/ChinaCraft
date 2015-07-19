@@ -4,6 +4,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -19,8 +20,10 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event) {
     	GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre,3);
+    	OreDictionary.registerOre("copperOre", ChinaCraft.copperOre);
     	GameRegistry.registerBlock(ChinaCraft.bronzeBlock, "BronzeBlock");
     	GameRegistry.registerBlock(ChinaCraft.tinOre, "TinOre");
+    	OreDictionary.registerOre("tinOre", ChinaCraft.tinOre);
     	GameRegistry.registerWorldGenerator(ChinaCraft.tinOre,3);
     	GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre,3);
@@ -35,6 +38,8 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 1), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.chiseledMarble});
     	GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
+    	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
+    	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
@@ -52,6 +57,7 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {" ##", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
+    	GameRegistry .registerItem(ChinaCraft.rices, "Rices");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});
