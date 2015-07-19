@@ -5,6 +5,10 @@ item.bronze_sword.name=青铜剑
 item.bronze_axe.name=青铜斧
 item.bronze_pickaxe.name=青铜稿
 item.bronze_hoe.name=青铜锄
+item.bronze_helmet.name=青铜头盔
+item.bronze_body.name=青铜胸甲
+item.bronze_legs.name=青铜护腿
+item.bronze_boots.name=青铜靴子
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭

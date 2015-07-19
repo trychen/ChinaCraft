@@ -42,6 +42,15 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[] {" ##", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
+    	
+    	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});
+    	GameRegistry.registerItem(ChinaCraft.bronzeChestplate, "BronzeChestplate");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeChestplate,1), new Object[] {"# #", "###", "###", '#', ChinaCraft.bronzeIngot});
+    	GameRegistry.registerItem(ChinaCraft.bronzeLeggings, "BronzeLeggings");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeLeggings,1), new Object[] {"###", "# #", "# #", '#', ChinaCraft.bronzeIngot});
+    	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBoots,1), new Object[] {"   ", "# #", "# #", '#', ChinaCraft.bronzeIngot});
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

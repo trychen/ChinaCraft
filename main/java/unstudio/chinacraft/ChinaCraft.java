@@ -7,7 +7,11 @@ import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.combat.BronzeAxe;
+import unstudio.chinacraft.combat.BronzeChestplate;
+import unstudio.chinacraft.combat.BronzeBoots;
+import unstudio.chinacraft.combat.BronzeHelmet;
 import unstudio.chinacraft.combat.BronzeHoe;
+import unstudio.chinacraft.combat.BronzeLeggings;
 import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.item.BronzeIngot;
@@ -16,7 +20,9 @@ import unstudio.chinacraft.item.TinIngot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.StatCollector;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -91,4 +97,11 @@ public class ChinaCraft {
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿
 	    public static BronzeAxe bronzeAxe =  new BronzeAxe();//青铜斧
 	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜铲
+	    
+	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
+	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
+	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲
+	    public static BronzeLeggings bronzeLeggings =  new BronzeLeggings();//青铜护腿
+	    public static BronzeBoots bronzeBoots =  new BronzeBoots();//青铜靴子
+	    
 }
