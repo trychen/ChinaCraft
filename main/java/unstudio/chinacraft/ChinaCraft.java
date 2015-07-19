@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.CopperOre;
+import unstudio.chinacraft.block.JadeOre;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.TinOre;
@@ -72,13 +73,15 @@ public class ChinaCraft {
 	    public static CopperOre copperOre = new CopperOre();  //铜矿
 	    public static BronzeBlock bronzeBlock = new BronzeBlock();  //青铜块
 	    public static TinOre tinOre = new TinOre(); //锡矿
+	    public static JadeOre jadeOre = new JadeOre(); //玉原石
 	    public static Marble marble = new Marble();  //大理石
-	    public static SilverOre silverOre = new SilverOre();  //铜矿
-	    public static SilverIngot silverIngot = new SilverIngot();  //青铜块
+	    public static SilverOre silverOre = new SilverOre();  //银
+
 	    
 	    //物品
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
 	    public static TinIngot tinIngot = new TinIngot();  //铜锭
+	    public static SilverIngot silverIngot = new SilverIngot();  //银锭
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
