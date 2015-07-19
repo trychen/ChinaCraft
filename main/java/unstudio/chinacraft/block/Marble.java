@@ -14,6 +14,7 @@ import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.world.gen.WorldGenBlockBlob;
 
 public class Marble extends Block implements IWorldGenerator{
+	
 	public Marble() {
 		super(Material.rock);
 		setBlockName(StatCollector.translateToLocal("marble"));
@@ -28,7 +29,7 @@ public class Marble extends Block implements IWorldGenerator{
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 0&&random.nextInt(4)==0) {
+		if (world.provider.dimensionId == 0&&random.nextInt(9)==0) {
 				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
 				int firstBlockYCoord = random.nextInt(32)+32;
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
