@@ -3,11 +3,13 @@ package unstudio.chinacraft;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.Marble;
+import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.combat.BronzeAxe;
 import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.item.BronzeIngot;
+import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.TinIngot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -71,6 +73,8 @@ public class ChinaCraft {
 	    public static BronzeBlock bronzeBlock = new BronzeBlock();  //青铜块
 	    public static TinOre tinOre = new TinOre(); //锡矿
 	    public static Marble marble = new Marble();  //大理石
+	    public static SilverOre silverOre = new SilverOre();  //铜矿
+	    public static SilverIngot silverIngot = new SilverIngot();  //青铜块
 	    
 	    //物品
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭

@@ -21,15 +21,19 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre,3);
     	GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
     	GameRegistry.registerWorldGenerator(ChinaCraft.marble,127);
+    	GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
+    	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
+    	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");
+    	GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
     	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 3), new Object[] {" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1), new Object[] {" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 3), new Object[] {"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1), new Object[] {"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.bronzeAxe, "BronzeAxe");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 3), new Object[] {"## ", "#X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 1), new Object[] {"## ", "#X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     }
