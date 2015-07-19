@@ -3,6 +3,7 @@ package unstudio.chinacraft;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -10,7 +11,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
-    	
+    	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+        config.load();
+        config.save();
     }
  
     public void init(FMLInitializationEvent event) {
