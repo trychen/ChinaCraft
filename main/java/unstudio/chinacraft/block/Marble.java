@@ -21,10 +21,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.world.gen.WorldGenBlockBlob;
 
-public class Marble extends Block implements IWorldGenerator{
-	
-	IIcon marble,smooth,chiseled,pillar_top,pillar;
-	
+public class Marble extends Block implements IWorldGenerator {
+
+	IIcon marble, smooth, chiseled, pillar_top, pillar;
+
 	public Marble() {
 		super(Material.rock);
 		setBlockName(StatCollector.translateToLocal("marble"));
@@ -39,14 +39,13 @@ public class Marble extends Block implements IWorldGenerator{
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world,
 			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		if (world.provider.dimensionId == 0&&random.nextInt(9)==0) {
-				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
-				int firstBlockYCoord = random.nextInt(32)+32;
-				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
+		if (world.provider.dimensionId == 0 && random.nextInt(9) == 0) {
+			int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
+			int firstBlockYCoord = random.nextInt(32) + 32;
+			int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-				(new WorldGenBlockBlob(this, 2)).generate(
-						world, random, firstBlockXCoord, firstBlockYCoord,
-						firstBlockZCoord);
+			(new WorldGenBlockBlob(this, 2)).generate(world, random,
+					firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
 		}
 	}
 }

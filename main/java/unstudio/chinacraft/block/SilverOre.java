@@ -12,7 +12,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import unstudio.chinacraft.ChinaCraft;
 
-public class SilverOre  extends Block implements IWorldGenerator {
+public class SilverOre extends Block implements IWorldGenerator {
 
 	public SilverOre() {
 		super(Material.rock);
@@ -34,8 +34,8 @@ public class SilverOre  extends Block implements IWorldGenerator {
 				int firstBlockYCoord = random.nextInt(36);
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-				(new WorldGenMinable(this, 3, 5, Blocks.stone)).generate(
-						world, random, firstBlockXCoord, firstBlockYCoord,
+				(new WorldGenMinable(this, 3, 5, Blocks.stone)).generate(world,
+						random, firstBlockXCoord, firstBlockYCoord,
 						firstBlockZCoord);
 			}
 		}

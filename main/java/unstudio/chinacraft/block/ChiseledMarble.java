@@ -5,8 +5,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
 
-public class ChiseledMarble extends Block{
-	
+public class ChiseledMarble extends Block {
+
 	public ChiseledMarble() {
 		super(Material.rock);
 		setBlockName(StatCollector.translateToLocal("chiseled_marble"));

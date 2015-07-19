@@ -5,7 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
 
-public class BronzeBlock extends Block{
+public class BronzeBlock extends Block {
 	public BronzeBlock() {
 		super(Material.rock);
 		setBlockName(StatCollector.translateToLocal("bronze_block"));

@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class JadeOre extends Block implements IWorldGenerator{
+public class JadeOre extends Block implements IWorldGenerator {
 
 	public JadeOre() {
 		super(Material.rock);
@@ -31,11 +31,11 @@ public class JadeOre extends Block implements IWorldGenerator{
 		if (world.provider.dimensionId == 0) {
 			for (int i = 0; i < 4; i++) {
 				int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
-				int firstBlockYCoord = random.nextInt(32)+32;
+				int firstBlockYCoord = random.nextInt(32) + 32;
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-				(new WorldGenMinable(this, 1, 4, Blocks.stone)).generate(
-						world, random, firstBlockXCoord, firstBlockYCoord,
+				(new WorldGenMinable(this, 1, 4, Blocks.stone)).generate(world,
+						random, firstBlockXCoord, firstBlockYCoord,
 						firstBlockZCoord);
 			}
 		}

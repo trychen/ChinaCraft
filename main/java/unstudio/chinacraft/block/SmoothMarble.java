@@ -9,8 +9,8 @@ import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class SmoothMarble  extends Block{
-	
+public class SmoothMarble extends Block {
+
 	public SmoothMarble() {
 		super(Material.rock);
 		setBlockName(StatCollector.translateToLocal("smooth_marble"));

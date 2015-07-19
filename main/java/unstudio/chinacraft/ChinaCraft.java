@@ -21,6 +21,7 @@ import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeShovel;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.item.BronzeIngot;
+import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.TinIngot;
@@ -110,6 +111,7 @@ public class ChinaCraft {
 	    public static TinIngot tinIngot = new TinIngot();  //铜锭
 	    public static SilverIngot silverIngot = new SilverIngot();  //银锭
 	    public static Rices rices = new Rices(); //米  
+	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
