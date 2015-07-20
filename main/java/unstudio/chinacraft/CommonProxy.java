@@ -31,6 +31,7 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre,3);
     	GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
     	GameRegistry.registerWorldGenerator(ChinaCraft.marble,127);
+    	GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
     	GameRegistry.registerBlock(ChinaCraft.smoothMarble, "SmoothMarble");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 1), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.marble});
     	GameRegistry.registerBlock(ChinaCraft.pillarMarble, "PillarMarble");

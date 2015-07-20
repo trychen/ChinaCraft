@@ -6,6 +6,7 @@ import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.JadeOre;
 import unstudio.chinacraft.block.Marble;
+import unstudio.chinacraft.block.MarbleStair;
 import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.RiceGrow;
 import unstudio.chinacraft.block.SilverOre;
@@ -101,6 +102,7 @@ public class ChinaCraft {
 	    public static SmoothMarble smoothMarble = new SmoothMarble(); //平滑大理石块
 	    public static PillarMarble pillarMarble = new PillarMarble(); //条纹大理石块
 	    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); //錾制大理石块
+	    public static MarbleStair marbleStair = new MarbleStair(); //錾制大理石块
 	    public static SilverOre silverOre = new SilverOre();  //银
 	    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
 	    
