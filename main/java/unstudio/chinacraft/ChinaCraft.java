@@ -15,6 +15,7 @@ import unstudio.chinacraft.block.RiceGrow;
 import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.SmoothMarble;
 import unstudio.chinacraft.block.TinOre;
+import unstudio.chinacraft.block.WoodenWindow;
 import unstudio.chinacraft.combat.BronzeAxe;
 import unstudio.chinacraft.combat.BronzeChestplate;
 import unstudio.chinacraft.combat.BronzeBoots;
@@ -112,6 +113,7 @@ public class ChinaCraft {
 	    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //大理石半砖
 	    public static SilverOre silverOre = new SilverOre();  //银
 	    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
+	    public static WoodenWindow woodenWindow = new WoodenWindow(); //木窗框 
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    

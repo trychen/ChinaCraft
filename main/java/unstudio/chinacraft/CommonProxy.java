@@ -1,6 +1,8 @@
 package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.Buhrimill;
+import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -49,10 +51,9 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
+    	GameRegistry.registerBlock(ChinaCraft.woodenWindow, "WoodenWindow");
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
-    	ClientRegistry.bindTileEntitySpecialRenderer(Buhrimill.TileEntityCustom.class, new Buhrimill.TileEntityCustomRenderer());
-    	GameRegistry.registerTileEntity(Buhrimill.TileEntityCustom.class, "tileEntityBuhrimill");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
