@@ -26,6 +26,7 @@ import unstudio.chinacraft.combat.BronzeLeggings;
 import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeShovel;
 import unstudio.chinacraft.combat.BronzeSword;
+import unstudio.chinacraft.combat.JiuQu_tang;
 import unstudio.chinacraft.combat.YanLung_Giantknife;
 import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.ItemBuhrimill;
@@ -139,6 +140,7 @@ public class ChinaCraft {
 	    public static BronzeAxe bronzeAxe =  new BronzeAxe();//青铜斧
 	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜锄
 	    public static BronzeShovel bronzeShovel =  new BronzeShovel();//青铜铲
+	    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();
 	    
 	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
