@@ -3,6 +3,7 @@ package unstudio.chinacraft;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.item.Lcker;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -61,8 +62,11 @@ public class CommonProxy {
     	GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
     	GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill, 1), new Object[] {" #X", "&#&", "&&&", '#',Item.getItemFromBlock( Blocks.cobblestone), 'X', Items.stick,'&',Item.getItemFromBlock(Blocks.stone)});
-    	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");////青铜剑
+    	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");//青铜剑
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1), new Object[] {" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.registerItem(ChinaCraft.bronzeBroadSword, "BronzeBroadSword");//青铜大刀
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1), new Object[] {" ##", "## ", "X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+    	GameRegistry.registerItem(ChinaCraft.yanLung_Giantknife, "YanLungGiantknife");//炎龙巨刀
     	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");//青铜稿
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1), new Object[] {"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.bronzeAxe, "BronzeAxe");//青铜斧
@@ -77,6 +81,8 @@ public class CommonProxy {
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");
+    	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices,6), new Object[] {ChinaCraft.lcker});
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});

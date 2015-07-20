@@ -48,17 +48,17 @@ public class RiceGrow extends BlockCrops {
 
 	@Override
 	protected Item func_149866_i() {
-		return ChinaCraft.rices;
+		return ChinaCraft.lcker;
 	}
 
 	@Override
 	protected Item func_149865_P() {
-		return ChinaCraft.rices;
+		return ChinaCraft.lcker;
 	}
 
 	@Override
 	public Item getItemDropped(int par1, Random par2Random, int par3) {
-		return par1 >= 7 ? this.func_149865_P() : par1 >= 5 ? ChinaCraft.rices
+		return par1 >= 2 ? this.func_149865_P() : par1 >= 5 ? ChinaCraft.rices
 				: this.func_149866_i();
 	}
 

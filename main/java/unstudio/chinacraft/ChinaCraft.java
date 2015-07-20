@@ -19,14 +19,17 @@ import unstudio.chinacraft.block.WoodenWindow;
 import unstudio.chinacraft.combat.BronzeAxe;
 import unstudio.chinacraft.combat.BronzeChestplate;
 import unstudio.chinacraft.combat.BronzeBoots;
+import unstudio.chinacraft.combat.BronzeBroadSword;
 import unstudio.chinacraft.combat.BronzeHelmet;
 import unstudio.chinacraft.combat.BronzeHoe;
 import unstudio.chinacraft.combat.BronzeLeggings;
 import unstudio.chinacraft.combat.BronzePickaxe;
 import unstudio.chinacraft.combat.BronzeShovel;
 import unstudio.chinacraft.combat.BronzeSword;
+import unstudio.chinacraft.combat.YanLung_Giantknife;
 import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.ItemBuhrimill;
+import unstudio.chinacraft.item.Lcker;
 import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.TinIngot;
@@ -122,10 +125,14 @@ public class ChinaCraft {
 	    public static TinIngot tinIngot = new TinIngot();  //铜锭
 	    public static SilverIngot silverIngot = new SilverIngot();  //银锭
 	    public static Rices rices = new Rices(); //米  
+	    public static Lcker lcker = new Lcker(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
+	    
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
+	    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword();  //青铜大刀
+	    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //青铜大刀
 	    
 	    //工具
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿

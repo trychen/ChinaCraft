@@ -2,6 +2,8 @@ tile.copper_ore.name=铜矿
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
 item.bronze_sword.name=青铜剑
+item.bronze_broadsword.name=青铜大刀
+item.yanlung_giantknife.name=炎龙巨刀
 item.bronze_axe.name=青铜斧
 item.bronze_pickaxe.name=青铜稿
 item.bronze_hoe.name=青铜锄
@@ -26,9 +28,10 @@ tile.smooth_marble.name=平滑大理石块
 tile.pillar_marble.name=条纹大理石块
 tile.chiseled_marble.name=錾制大理石块
 tile.marble_slab.name=大理石半砖
-tile.chiseled_stair.name=大理石楼梯
+tile.marble_stair.name=大理石楼梯
 
 item.rices.name=米
+item.lcker.name=米穗
 
 tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨
