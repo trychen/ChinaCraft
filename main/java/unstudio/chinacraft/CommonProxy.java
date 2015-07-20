@@ -55,6 +55,8 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow, "WoodenWindow");
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
+    	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+    	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);

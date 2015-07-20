@@ -49,8 +49,6 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.bronzeLeggings.setTextureName("chinacraft:bronze_leggings");
     	ChinaCraft.bronzeBoots.setTextureName("chinacraft:bronze_boots");
     	
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-    	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
     	super.init(event);
     }
  
