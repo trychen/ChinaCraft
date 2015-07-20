@@ -1,11 +1,14 @@
 package unstudio.chinacraft;
 
+import java.util.Random;
+
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.JadeOre;
 import unstudio.chinacraft.block.Marble;
+import unstudio.chinacraft.block.MarbleSlab;
 import unstudio.chinacraft.block.MarbleStair;
 import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.RiceGrow;
@@ -27,9 +30,11 @@ import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.TinIngot;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
@@ -102,7 +107,9 @@ public class ChinaCraft {
 	    public static SmoothMarble smoothMarble = new SmoothMarble(); //平滑大理石块
 	    public static PillarMarble pillarMarble = new PillarMarble(); //条纹大理石块
 	    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); //錾制大理石块
-	    public static MarbleStair marbleStair = new MarbleStair(); //錾制大理石块
+	    public static MarbleStair marbleStair = new MarbleStair(); //大理石楼梯
+	    public static MarbleSlab marbleDoubleSlab = new MarbleSlab(true); //大理石半砖
+	    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //大理石半砖
 	    public static SilverOre silverOre = new SilverOre();  //银
 	    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
 	    

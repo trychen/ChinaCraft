@@ -25,6 +25,8 @@ tile.marble.name=大理石
 tile.smooth_marble.name=平滑大理石块
 tile.pillar_marble.name=条纹大理石块
 tile.chiseled_marble.name=錾制大理石块
+tile.marble_slab.name=大理石半砖
+tile.chiseled_stair.name=大理石楼梯
 
 item.rices.name=米
 

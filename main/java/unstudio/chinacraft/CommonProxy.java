@@ -1,7 +1,9 @@
 package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.Buhrimill;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
@@ -32,13 +34,17 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
     	GameRegistry.registerWorldGenerator(ChinaCraft.marble,127);
     	GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4), new Object[] {"#  ", "## ", "###", '#', ChinaCraft.marble});
+    	GameRegistry.registerBlock(ChinaCraft.marbleSlab, "MarbleSlab");
+    	GameRegistry.registerBlock(ChinaCraft.marbleDoubleSlab, "MarbleDoubleSlab");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleSlab, 6), new Object[] {"   ", "   ", "###", '#', ChinaCraft.marble});
     	GameRegistry.registerBlock(ChinaCraft.smoothMarble, "SmoothMarble");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 1), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.marble});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 4), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.marble});
     	GameRegistry.registerBlock(ChinaCraft.pillarMarble, "PillarMarble");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.pillarMarble, 1), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.smoothMarble});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.pillarMarble, 4), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.smoothMarble});
     	GameRegistry.registerBlock(ChinaCraft.chiseledMarble, "ChiseledMarble");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 1), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.pillarMarble});
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 1), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.chiseledMarble});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.pillarMarble});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 4), new Object[] {"## ", "## ", "   ", '#', ChinaCraft.chiseledMarble});
     	GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
@@ -53,6 +59,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");//银锭
     	GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
     	GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill, 1), new Object[] {" #X", "&#&", "&&&", '#',Item.getItemFromBlock( Blocks.cobblestone), 'X', Items.stick,'&',Item.getItemFromBlock(Blocks.stone)});
     	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");////青铜剑
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1), new Object[] {" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");//青铜稿
