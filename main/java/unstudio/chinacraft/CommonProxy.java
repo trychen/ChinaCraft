@@ -52,10 +52,10 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
-    	GameRegistry.registerBlock(ChinaCraft.woodenWindow, "WoodenWindow");
+    	GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");
+    	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭

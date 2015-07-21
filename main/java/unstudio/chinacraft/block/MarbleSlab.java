@@ -10,6 +10,7 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -47,5 +48,42 @@ public class MarbleSlab extends BlockSlab{
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return Item.getItemFromBlock(ChinaCraft.marbleSlab);
+    }
+    
+    @SideOnly(Side.CLIENT)
+    private static boolean func_150003_a(Block p_150003_0_)
+    {
+        return true;
+    }
+    
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entity, int l, float m, float n, float o)
+    {
+    	if (world.getBlock(x, y, z) == ChinaCraft.marbleDoubleSlab) {
+    		super.onBlockActivated(world, x, y, z, entity, l, m, n, o);
+    		return false;
+    	}
+    	ItemStack itemstack = entity.inventory.getCurrentItem();
+    	if (itemstack != null&&itemstack.getItem() == Item.getItemFromBlock(ChinaCraft.marbleSlab)) {
+    		if(world.getBlock(x, y, z).getBlockBoundsMinY() == 0.5D&&l!=0) {
+    			super.onBlockActivated(world, x, y, z, entity, l, m, n, o);
+    			return false;
+    		}
+    		if(world.getBlock(x, y, z).getBlockBoundsMinY() == 0.0D&&l!=1) {
+    			super.onBlockActivated(world, x, y, z, entity, l, m, n, o);
+    			return false;
+    		}
+            if (!entity.capabilities.isCreativeMode)
+            {
+                --itemstack.stackSize;
+
+                if (itemstack.stackSize <= 0)
+                {
+                    entity.inventory.setInventorySlotContents(entity.inventory.currentItem, (ItemStack)null);
+                }
+            }
+    		world.setBlockToAir(x, y, z);
+    		world.setBlock(x, y, z, ChinaCraft.marbleDoubleSlab, 0, 2);
+    	}
+        return true;
     }
 }

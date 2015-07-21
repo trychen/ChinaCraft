@@ -93,11 +93,6 @@ public class Buhrimill extends BlockContainer {
         {
             p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
         }
-
-        if (p_149689_6_.hasDisplayName())
-        {
-            ((TileEntityFurnace)p_149689_1_.getTileEntity(p_149689_2_, p_149689_3_, p_149689_4_)).func_145951_a(p_149689_6_.getDisplayName());
-        }
     }
 
 

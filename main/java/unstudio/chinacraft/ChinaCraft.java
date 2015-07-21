@@ -117,7 +117,8 @@ public class ChinaCraft {
 	    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //大理石半砖
 	    public static SilverOre silverOre = new SilverOre();  //银
 	    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
-	    public static WoodenWindow woodenWindow = new WoodenWindow(); //木窗框 
+	    public static WoodenWindow woodenWindow1 = new WoodenWindow("chinacraft:wooden_window_1","chinacraft:wooden_window_top"); //木窗框1
+	    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2","chinacraft:wooden_window_top"); //木窗框2
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
