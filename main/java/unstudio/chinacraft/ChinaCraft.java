@@ -14,6 +14,7 @@ import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.RiceGrow;
 import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.SmoothMarble;
+import unstudio.chinacraft.block.SoyGrow;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.block.WoodenWindow;
 import unstudio.chinacraft.combat.BronzeAxe;
@@ -33,6 +34,8 @@ import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.Lcker;
 import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
+import unstudio.chinacraft.item.Soy;
+import unstudio.chinacraft.item.SoyPod;
 import unstudio.chinacraft.item.TinIngot;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -117,6 +120,7 @@ public class ChinaCraft {
 	    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //大理石半砖
 	    public static SilverOre silverOre = new SilverOre();  //银
 	    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
+	    public static SoyGrow soyGrow = new SoyGrow(); //水稻作物
 	    public static WoodenWindow woodenWindow = new WoodenWindow(); //木窗框 
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
@@ -127,6 +131,8 @@ public class ChinaCraft {
 	    public static SilverIngot silverIngot = new SilverIngot();  //银锭
 	    public static Rices rices = new Rices(); //米  
 	    public static Lcker lcker = new Lcker(); //米穗  
+	    public static Soy soy = new Soy(); //米穗  
+	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
 	    
 	    

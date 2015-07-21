@@ -1,13 +1,11 @@
 package unstudio.chinacraft.combat;
 
-/**
-Author 施泽
-**/
 import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemSword;
 import net.minecraft.item.Item.ToolMaterial;
 import unstudio.chinacraft.ChinaCraft;
 
-public class JiuQu_tang extends ItemSpade{
+public class JiuQu_tang extends ItemSword{
 
 	public JiuQu_tang() {
 		super(ToolMaterial.IRON);

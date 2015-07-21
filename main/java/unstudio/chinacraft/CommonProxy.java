@@ -11,6 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.Random;
+
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -25,6 +28,7 @@ public class CommonProxy {
     }
  
     public void init(FMLInitializationEvent event) {
+    	Random random = new Random();
     	GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre,3);
     	OreDictionary.registerOre("copperOre", ChinaCraft.copperOre);
@@ -52,6 +56,7 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre,3);
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
+    	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow, "WoodenWindow");
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
@@ -87,6 +92,9 @@ public class CommonProxy {
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");
     	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices,6), new Object[] {ChinaCraft.lcker});
+    	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
+    	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy,random.nextInt(2)+2), new Object[] {ChinaCraft.soyPod});
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});

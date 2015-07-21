@@ -4,6 +4,7 @@ item.bronze_ingot.name=青铜锭
 item.bronze_sword.name=青铜剑
 item.bronze_broadsword.name=青铜大刀
 item.yanlung_giantknife.name=炎龙巨刀
+item.jiuqu_tang.name=九曲镋
 item.bronze_axe.name=青铜斧
 item.bronze_pickaxe.name=青铜稿
 item.bronze_hoe.name=青铜锄
@@ -32,6 +33,8 @@ tile.marble_stair.name=大理石楼梯
 
 item.rices.name=米
 item.lcker.name=米穗
+item.soy.name=大豆
+item.soy_pod.name=豆荚
 
 tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨
