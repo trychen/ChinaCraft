@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import java.util.Random;
 
+import unstudio.chinacraft.block.BlockBamboo;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
@@ -29,6 +30,7 @@ import unstudio.chinacraft.combat.BronzeShovel;
 import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.combat.JiuQu_tang;
 import unstudio.chinacraft.combat.YanLung_Giantknife;
+import unstudio.chinacraft.item.Bamboo;
 import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.Lcker;
@@ -123,7 +125,7 @@ public class ChinaCraft {
 	    public static WoodenWindow woodenWindow1 = new WoodenWindow("chinacraft:wooden_window_1","chinacraft:wooden_window_top"); //木窗框1
 	    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2","chinacraft:wooden_window_top"); //木窗框2
 	    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
-
+	    public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
@@ -134,6 +136,7 @@ public class ChinaCraft {
 	    public static Rices rices = new Rices(); //米  
 	    public static Lcker lcker = new Lcker(); //米穗  
 	    public static Soy soy = new Soy(); //米穗  
+	    public static Bamboo bamboo = new Bamboo(); //竹子 
 	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
 	    

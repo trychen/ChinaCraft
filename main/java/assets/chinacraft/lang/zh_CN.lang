@@ -24,6 +24,9 @@ item.bronze_ingot.name=青铜锭
 
 tile.jade_ore.name=玉原石
 
+tile.bamboo.name=竹子
+item.bamboo.name=竹子
+
 tile.marble.name=大理石
 tile.smooth_marble.name=平滑大理石块
 tile.pillar_marble.name=条纹大理石块

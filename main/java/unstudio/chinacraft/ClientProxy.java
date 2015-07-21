@@ -5,6 +5,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -24,6 +25,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.smoothMarble.setBlockTextureName("chinacraft:smooth_marble");
     	ChinaCraft.chiseledMarble.setBlockTextureName("chinacraft:chiseled_marble");
     	ChinaCraft.silverOre.setBlockTextureName("chinacraft:silver_ore");
+    	ChinaCraft.blockBamboo.setBlockTextureName("chinacraft:bamboo");
     	
     	ChinaCraft.buhrimill.setBlockTextureName("chinacraft:empty");
     	
@@ -39,6 +41,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.lcker.setTextureName("chinacraft:lcker");
     	ChinaCraft.soyPod.setTextureName("chinacraft:soy_pod");
     	ChinaCraft.itemBuhrimill.setTextureName("chinacraft:item_buhrimill");
+    	ChinaCraft.bamboo.setTextureName("chinacraft:bamboo");
     	
     	ChinaCraft.bronzePickaxe.setTextureName("chinacraft:bronze_pickaxe");
     	ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");
