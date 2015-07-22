@@ -27,6 +27,8 @@ tile.jade_ore.name=玉原石
 tile.bamboo.name=竹子
 item.bamboo.name=竹子
 
+tile.wooden_window_name=木窗格
+
 tile.mulberry_log.name=桑树原木
 tile.mulberry_leaf.name=桑叶
 item.mulberry_leaf.name=桑叶
