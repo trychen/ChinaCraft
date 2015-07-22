@@ -2,6 +2,9 @@ tile.copper_ore.name=Copper Ore
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
 item.bronze_sword.name=Bronze Sword
+item.bronze_broadsword.name=Bronze Big Sword
+item.yanlung_giantknife.name=BL Giant Sword
+item.jiuqu_tang.name=Jiu Qu Sword
 item.bronze_axe.name=Bronze Axe
 item.bronze_pickaxe.name=Bronze Pickaxe
 item.bronze_hoe.name=Bronze Hoe
@@ -21,7 +24,29 @@ item.bronze_ingot.name=Bronze Ingot
 
 tile.jade_ore.name=Jade Ore
 
+tile.bamboo.name=Bamboo
+item.bamboo.name=Bamboo
+
+tile.mulberry_log.name=Mulberry Log
+tile.mulberry_leaf.name=Mulberry Leaf
+item.mulberry_leaf.name=Mulberry Leaf
+tile.mulberry_sapling.name=Mulberry Sapling
+
 tile.marble.name=Marble
+tile.smooth_marble.name=Smooth Marble
+tile.pillar_marble.name=Pillar Marble
+tile.chiseled_marble.name=Chiseled Marble
+tile.marble_slab.name=Marble Slab
+tile.marble_stair.name=Marble Stair
+
+item.rices.name=Rices
+item.lcker.name=Lcker
+item.soy.name=Soy
+item.soy_pod.name=Pod
+
+tile.buhrimill.name=Buhrimill Block
+item.buhrimill.name=Buhrimill
 
 itemGroup.core=Chinese Civilization-Core
 itemGroup.tool=Chinese Civilization-Tools
+itemGroup.plant=Chinese Civilization-Plants
