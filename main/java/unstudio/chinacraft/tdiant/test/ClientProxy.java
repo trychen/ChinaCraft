@@ -30,13 +30,13 @@ public class ClientProxy extends CommonProxy {
 
 	@SubscribeEvent
 	public void keyListener(KeyInputEvent event) {
-		//°´Bµ¯³öGUI
+		//ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½GUI
 		if (Keyboard.getEventKey() == Keyboard.KEY_B)
 	        {
 			Minecraft mc = Minecraft.getMinecraft();
 			boolean a;
-			mc.displayGuiScreen(new unstudio.chinacraft.gui.buhrimill(mc.currentScreen));a=true;
-			if (a = true){System.out.println("GUI±»³É¹¦µ÷³ö");}else {System.out.println("GUIµ÷ÓÃÊ§°Ü");}
+			mc.displayGuiScreen(new unstudio.chinacraft.gui.GuiBuhrimill(mc.currentScreen));a=true;
+			if (a = true){System.out.println("GUIï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½");}else {System.out.println("GUIï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½");}
 	        }
 	}
 }
