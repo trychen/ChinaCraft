@@ -1,5 +1,5 @@
 //Power by tdiant
-//Ê¯Ä¥GUI
+//çŸ³ç£¨GUI
 package unstudio.chinacraft.gui;
 
 import org.lwjgl.input.Keyboard;
@@ -12,12 +12,12 @@ public class buhrimill extends GuiScreen {
 	 private GuiTextField tfInput;
 	 
 	 @Override
-	 public boolean doesGuiPauseGame() {  //ÈÃGUIÔÚµ¥ÈËÄ£Ê½ÏÂ²»»áÔİÍ£ÓÎÏ·±£´æ´æµµ
+	 public boolean doesGuiPauseGame() {  //è®©GUIåœ¨å•äººæ¨¡å¼ä¸‹ä¸ä¼šæš‚åœæ¸¸æˆä¿å­˜å­˜æ¡£
 	     return false;
 	 }
 	 
 	    public buhrimill(GuiScreen currentScreen) {
-		// TODO ×Ô¶¯Éú³ÉµÄ¹¹Ôìº¯Êı´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ„é€ å‡½æ•°å­˜æ ¹
 	}
 	 
 	    public void initGui()
@@ -32,9 +32,9 @@ public class buhrimill extends GuiScreen {
 	    public void drawScreen(int par1, int par2, float par3)
 	    {
 	        drawDefaultBackground();
-	        //»á±»¿Ø¼ş(¼´°´¼ü)¸Ç×¡.
+	        //ä¼šè¢«æ§ä»¶(å³æŒ‰é”®)ç›–ä½.
 	        super.drawScreen(par1,par2,par3);
-	        //ÔÚ¿Ø¼ş(¼´°´¼ü)Ö®ÉÏ.
+	        //åœ¨æ§ä»¶(å³æŒ‰é”®)ä¹‹ä¸Š.
 	        tfInput.drawTextBox();
 	    }
 }
