@@ -3,6 +3,7 @@ package unstudio.chinacraft;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.chinacraft.item.Lcker;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -13,6 +14,8 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.Random;
+
+import javax.swing.plaf.basic.BasicMenuUI.ChangeHandler;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -60,6 +63,10 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
+    	GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
+    	GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
+    	GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
+    	GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true),1);
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");

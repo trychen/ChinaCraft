@@ -11,6 +11,9 @@ import unstudio.chinacraft.block.JadeOre;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.MarbleSlab;
 import unstudio.chinacraft.block.MarbleStair;
+import unstudio.chinacraft.block.MulberryLeaf;
+import unstudio.chinacraft.block.MulberryLog;
+import unstudio.chinacraft.block.MulberrySapling;
 import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.RiceGrow;
 import unstudio.chinacraft.block.SilverOre;
@@ -126,6 +129,9 @@ public class ChinaCraft {
 	    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2","chinacraft:wooden_window_top"); //木窗框2
 	    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
 	    public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
+	    public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
+	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
+	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
