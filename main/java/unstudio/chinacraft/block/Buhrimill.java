@@ -2,9 +2,7 @@ package unstudio.chinacraft.block;
 
 import java.util.List;
 import java.util.Random;
-
 import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.ChinaCraft;
