@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import java.util.Random;
 
+import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BlockBamboo;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
@@ -136,6 +137,7 @@ public class ChinaCraft {
 	    public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
+	    public static BambooBlock bambooBlock = new BambooBlock(); //桑树树苗
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
