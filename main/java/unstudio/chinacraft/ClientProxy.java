@@ -24,6 +24,8 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.marble.setBlockTextureName("chinacraft:marble");
     	ChinaCraft.smoothMarble.setBlockTextureName("chinacraft:smooth_marble");
     	ChinaCraft.chiseledMarble.setBlockTextureName("chinacraft:chiseled_marble");
+    	ChinaCraft.marbleSlab.setBlockTextureName("chinacraft:smooth_marble");
+    	ChinaCraft.marbleDoubleSlab.setBlockTextureName("chinacraft:smooth_marble");
     	ChinaCraft.silverOre.setBlockTextureName("chinacraft:silver_ore");
     	ChinaCraft.blockBamboo.setBlockTextureName("chinacraft:bamboo");
     	ChinaCraft.mulberrySapling.setBlockTextureName("chinacraft:mulberry_sapling");

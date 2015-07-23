@@ -32,12 +32,6 @@ public class MarbleSlab extends BlockSlab{
 	public String func_150002_b(int p_150002_1_) {
 	       return null;
 	}
-	
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_)
-    {
-        return ChinaCraft.smoothMarble.getIcon(0, 0);
-    }
 
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
@@ -80,4 +74,11 @@ public class MarbleSlab extends BlockSlab{
     	}
         return true;
     }
+    
+    @SideOnly(Side.CLIENT)
+    private static boolean func_150003_a(Block p_150003_0_)
+    {
+        return false;
+    }
+
 }
