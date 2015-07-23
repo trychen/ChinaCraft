@@ -138,8 +138,10 @@ public class Buhrimill extends BlockContainer {
         }
         else
         {
+        	if(p_149727_5_.isSneaking()) {
         	Minecraft mc = Minecraft.getMinecraft();
         	mc.displayGuiScreen(new unstudio.chinacraft.gui.GuiBuhrimill(mc.currentScreen));
+        	}
             return true;
         }
     }

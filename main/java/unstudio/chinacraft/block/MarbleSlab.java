@@ -30,7 +30,7 @@ public class MarbleSlab extends BlockSlab{
 
 	@Override
 	public String func_150002_b(int p_150002_1_) {
-	       return super.getUnlocalizedName() + ".marble_slab";
+	       return null;
 	}
 	
     @SideOnly(Side.CLIENT)
@@ -48,12 +48,6 @@ public class MarbleSlab extends BlockSlab{
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return Item.getItemFromBlock(ChinaCraft.marbleSlab);
-    }
-    
-    @SideOnly(Side.CLIENT)
-    private static boolean func_150003_a(Block p_150003_0_)
-    {
-        return true;
     }
     
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entity, int l, float m, float n, float o)
