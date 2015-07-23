@@ -43,7 +43,7 @@ public class MulberryLeaf extends BlockLeaves{
 	}
 
 	public boolean renderAsNormalBlock() {
-		return true;
+		return false;
 	}
 	
 	@Override
