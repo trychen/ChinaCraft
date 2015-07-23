@@ -7,6 +7,7 @@ import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.chinacraft.item.Lcker;
+import unstudio.chinacraft.item.Parchedwood;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -67,6 +68,7 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
+    	GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");
     	GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
     	GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
     	GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
@@ -101,13 +103,15 @@ public class CommonProxy {
     	
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
-    	GameRegistry .registerItem(ChinaCraft.rices, "Rices");
-    	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");
+    	GameRegistry .registerItem(ChinaCraft.rices, "Rices");//米
+    	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//
+    	GameRegistry.registerItem(ChinaCraft.parchedWood, "Parchedwood");//木渣QAQ
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices,6), new Object[] {ChinaCraft.lcker});
     	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
     	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy,2), new Object[] {ChinaCraft.soyPod});
     	GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");
+    	GameRegistry.addSmelting(ChinaCraft.bamboo,new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});

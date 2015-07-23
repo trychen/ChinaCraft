@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import java.util.Random;
 
+import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BlockBamboo;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
@@ -37,6 +38,7 @@ import unstudio.chinacraft.item.Bamboo;
 import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.Lcker;
+import unstudio.chinacraft.item.Parchedwood;
 import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.Soy;
@@ -47,6 +49,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -57,6 +60,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -81,6 +85,7 @@ public class ChinaCraft {
 	    public void init(FMLInitializationEvent event) {
 	        proxy.init(event);
 	    }
+	    
 	 
 	    @EventHandler
 	    public void postInit(FMLPostInitializationEvent event) {
@@ -132,6 +137,7 @@ public class ChinaCraft {
 	    public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
+	    public static BambooBlock bambooBlock = new BambooBlock(); //桑树树苗
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
@@ -145,6 +151,7 @@ public class ChinaCraft {
 	    public static Bamboo bamboo = new Bamboo(); //竹子 
 	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
+	    public static Parchedwood parchedWood = new Parchedwood(); //木渣
 	    
 	    
 	    //防具武器
