@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.block.model.ModelBuhrimill;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 
 public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
 	private final ModelBuhrimill model;
@@ -27,6 +28,7 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
         GL11.glRotatef(meta * (-90), 0.0F, 0.0F, 1.0F);
         GL11.glPopMatrix();
 }	
+	
     @Override
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
     //The PushMatrix tells the renderer to "start" doing something.
@@ -46,6 +48,7 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
             GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
     //A reference to your Model file. Again, very important.
             this.model.render((Entity)null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+            this.model.setRotationAngles(((TileBuhrimill)te).angle);
     //Tell it to stop rendering for both the PushMatrix's
             GL11.glPopMatrix();
             GL11.glPopMatrix();

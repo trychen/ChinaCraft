@@ -69,7 +69,7 @@ public class ChinaCraft {
 	            serverSide = "unstudio.chinacraft.CommonProxy")
 	    public static CommonProxy proxy;
 	 
-	    @Instance("ChinaCraft")
+	    @Instance("chinacraft")
 	    public static ChinaCraft instance;
 	 
 	    @EventHandler

@@ -1,8 +1,10 @@
 package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.Buhrimill;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.chinacraft.item.Lcker;
 import net.minecraft.init.Blocks;
@@ -21,6 +23,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
@@ -31,7 +34,8 @@ public class CommonProxy {
     }
  
     public void init(FMLInitializationEvent event) {
-    	Random random = new Random();
+    	NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
+    	
     	GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre,3);
     	OreDictionary.registerOre("copperOre", ChinaCraft.copperOre);
@@ -102,7 +106,7 @@ public class CommonProxy {
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices,6), new Object[] {ChinaCraft.lcker});
     	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
     	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");
-    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy,random.nextInt(2)+2), new Object[] {ChinaCraft.soyPod});
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy,2), new Object[] {ChinaCraft.soyPod});
     	GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");

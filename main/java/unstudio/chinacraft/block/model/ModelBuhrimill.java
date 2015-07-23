@@ -85,5 +85,13 @@ public class ModelBuhrimill extends ModelBase {
 			float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 	}
+	
+	public void setRotationAngles(int angle) {
+		if(angle>180) {
+			angle = -180+(angle-180);
+		}
+		i5.rotateAngleY = angle/180F*3.14159265F;
+		i6.rotateAngleY = angle/180F*3.14159265F;
+	}
 
 }
