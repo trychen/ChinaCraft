@@ -38,8 +38,11 @@ import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.Cocoa;
 import unstudio.chinacraft.item.Cup;
 import unstudio.chinacraft.item.CupChocolate;
+import unstudio.chinacraft.item.CupChrysanthemum;
+import unstudio.chinacraft.item.CupWater;
 import unstudio.chinacraft.item.Cup_Clay;
 import unstudio.chinacraft.item.ItemBuhrimill;
+import unstudio.chinacraft.item.Ladyfinger;
 import unstudio.chinacraft.item.Lcker;
 import unstudio.chinacraft.item.Parchedwood;
 import unstudio.chinacraft.item.Rices;
@@ -193,4 +196,7 @@ public class ChinaCraft {
 	    public static Cup_Clay cup_Clay = new Cup_Clay();
 	    public static CupChocolate cupChocolate = new CupChocolate();
 	    public static Cocoa cocoa =new Cocoa();
+	    public static Ladyfinger ladyfinger =new Ladyfinger();
+	    public static CupWater cupWater =new CupWater();
+	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
 }

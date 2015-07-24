@@ -46,6 +46,11 @@ item.rices.name=米
 item.lcker.name=米穗
 item.soy.name=大豆
 item.soy_pod.name=豆荚
+item.cocoa.name=可可粉
+item.ladyfinger.name=松脆饼
+
+item.cup.name=茶杯
+item.cup_chocolate.name=巧克力茶
 
 tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨

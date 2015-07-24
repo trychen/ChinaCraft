@@ -14,6 +14,7 @@ public class CupDrink extends ItemSoup{
 	public CupDrink(int p_i45330_1_) {
         super(p_i45330_1_);
         this.setMaxStackSize(1);
+        setCreativeTab(ChinaCraft.tabPlant);
 	}
 	
 	@Override
