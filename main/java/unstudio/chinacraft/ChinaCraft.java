@@ -36,6 +36,10 @@ import unstudio.chinacraft.combat.JiuQu_tang;
 import unstudio.chinacraft.combat.YanLung_Giantknife;
 import unstudio.chinacraft.item.Bamboo;
 import unstudio.chinacraft.item.BronzeIngot;
+import unstudio.chinacraft.item.Cocoa;
+import unstudio.chinacraft.item.Cup;
+import unstudio.chinacraft.item.CupChocolate;
+import unstudio.chinacraft.item.Cup_Clay;
 import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.Lcker;
 import unstudio.chinacraft.item.Rices;
@@ -184,4 +188,9 @@ public class ChinaCraft {
 	    public static JadePinkItem jadePinkItem = new JadePinkItem();
 	    public static JadePurpleItem jadePurpleItem =new JadePurpleItem();
 	    
+	    //Drink、Food
+	    public static Cup cup = new Cup();
+	    public static Cup_Clay cup_Clay = new Cup_Clay();
+	    public static CupChocolate cupChocolate = new CupChocolate();
+	    public static Cocoa cocoa =new Cocoa();
 }
