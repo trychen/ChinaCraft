@@ -2,7 +2,6 @@ package unstudio.chinacraft.jade;
 
 import java.util.Random;
 
-import com.sun.glass.ui.Window.Level;
 import net.minecraft.item.Item;
 import unstudio.chinacraft.ChinaCraft;
 

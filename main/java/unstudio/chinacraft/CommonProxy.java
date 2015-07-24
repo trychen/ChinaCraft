@@ -123,6 +123,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBoots,1), new Object[] {"   ", "# #", "# #", '#', ChinaCraft.bronzeIngot});
     	
+    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.rices), null,360);
     	//Jade
     	GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "GreenJade");
     	GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
