@@ -121,6 +121,8 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeLeggings,1), new Object[] {"###", "# #", "# #", '#', ChinaCraft.bronzeIngot});
     	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBoots,1), new Object[] {"   ", "# #", "# #", '#', ChinaCraft.bronzeIngot});
+    	
+    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.rices), null,360);
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

@@ -2,7 +2,10 @@ package unstudio.chinacraft.block;
 
 import java.util.List;
 import java.util.Random;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.ChinaCraft;
@@ -15,7 +18,9 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -132,21 +137,17 @@ public class Buhrimill extends BlockContainer {
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
-        if (world.isRemote)
-        {
-            return true;
-        }
-        else
-        {
+		TileBuhrimill tile = (TileBuhrimill)world.getTileEntity(x, y, z);
         	if(p_149727_5_.isSneaking()) {
             ItemStack stack = p_149727_5_.inventory.mainInventory[p_149727_5_.inventory.currentItem];
             p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
-            return true;
         	}else {
-        		TileBuhrimill tile = (TileBuhrimill)world.getTileEntity(x, y, z);
-        		tile.addAngle(10);
-                return true;
+        		tile.addAngle(10); 		
         	}
-        }
+            if (world.isRemote)
+            {
+                		TileEntityRendererDispatcher.instance.getSpecialRenderer(tile).renderTileEntityAt(tile, x, y, z, 0);
+            }
+            return true;
     }
 }

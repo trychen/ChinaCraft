@@ -51,7 +51,7 @@ public class GuiBuhrimill extends GuiContainer {
         float max= tileBuhrimill.getMaxSchedule()*1.0F;
         if (b > 0 && max > 0)
         {
-            this.drawTexturedModalRect(k + 79, l + 34, 176, 0, (int)(24 * ((float)b / max)), 16);
+            this.drawTexturedModalRect(k + 73, l + 25, 176, 0, (int)(24 * ((float)b / max)), 16);
 	}
 }
 }

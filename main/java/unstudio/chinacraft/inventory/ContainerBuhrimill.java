@@ -21,10 +21,10 @@ public class ContainerBuhrimill extends Container{
 	
 	public ContainerBuhrimill(InventoryPlayer par1InventoryPlayer, TileBuhrimill tileEntity) {
 		this.tile = tileEntity;
-		this.addSlotToContainer(new Slot(tileEntity, 0, 56, 35));
-		this.addSlotToContainer(new Slot(tileEntity, 1, 83, 13));
-		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 2, 112, 35));
-		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 3, 112, 60));
+		this.addSlotToContainer(new Slot(tileEntity, 0, 43, 25));
+		this.addSlotToContainer(new Slot(tileEntity, 1, 43, 50));
+		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 2, 112, 25));
+		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 3, 112, 50));
         int var3;
         for (var3 = 0; var3 < 3; ++var3)
         {

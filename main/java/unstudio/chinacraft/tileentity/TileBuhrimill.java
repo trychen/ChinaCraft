@@ -242,6 +242,8 @@ public class TileBuhrimill extends TileEntity implements IUpdatePlayerListBox,
 					return;
 				}
 			}
+		}else {
+			schedule = 0;
 		}
 	}
 	

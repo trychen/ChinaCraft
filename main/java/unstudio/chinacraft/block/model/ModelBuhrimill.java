@@ -6,13 +6,13 @@ import net.minecraft.entity.Entity;
 
 public class ModelBuhrimill extends ModelBase {
 	// fields
-	ModelRenderer Bottom;
-	ModelRenderer i1;
-	ModelRenderer i2;
-	ModelRenderer i3;
-	ModelRenderer i4;
-	ModelRenderer i5;
-	ModelRenderer i6;
+	public ModelRenderer Bottom;
+	public ModelRenderer i1;
+	public ModelRenderer i2;
+	public ModelRenderer i3;
+	public ModelRenderer i4;
+	public ModelRenderer i5;
+	public ModelRenderer i6;
 
 	public ModelBuhrimill() {
 		textureWidth = 128;
@@ -75,7 +75,7 @@ public class ModelBuhrimill extends ModelBase {
 		i6.render(f5);
 	}
 
-	private void setRotation(ModelRenderer model, float x, float y, float z) {
+	public void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
@@ -85,13 +85,4 @@ public class ModelBuhrimill extends ModelBase {
 			float f4, float f5, Entity e) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, e);
 	}
-	
-	public void setRotationAngles(int angle) {
-		if(angle>180) {
-			angle = -180+(angle-180);
-		}
-		i5.rotateAngleY = angle/180F*3.14159265F;
-		i6.rotateAngleY = angle/180F*3.14159265F;
-	}
-
 }
