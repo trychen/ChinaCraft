@@ -73,6 +73,7 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
     	GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
     	GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true),1);
+    	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
@@ -121,6 +122,12 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeLeggings,1), new Object[] {"###", "# #", "# #", '#', ChinaCraft.bronzeIngot});
     	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBoots,1), new Object[] {"   ", "# #", "# #", '#', ChinaCraft.bronzeIngot});
+    	
+    	//Jade
+    	GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "GreenJade");
+    	GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
+    	GameRegistry.registerItem(ChinaCraft.jadePinkItem, "GreenPink");
+    	GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

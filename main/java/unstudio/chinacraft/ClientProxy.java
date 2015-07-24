@@ -30,6 +30,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.blockBamboo.setBlockTextureName("chinacraft:bamboo");
     	ChinaCraft.mulberrySapling.setBlockTextureName("chinacraft:mulberry_sapling");
     	ChinaCraft.bambooBlock.setBlockTextureName("chinacraft:bamboo_block");
+    	ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
     	
     	ChinaCraft.buhrimill.setBlockTextureName("chinacraft:empty");
     	
@@ -57,6 +58,12 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.bronzeChestplate.setTextureName("chinacraft:bronze_chestplate");
     	ChinaCraft.bronzeLeggings.setTextureName("chinacraft:bronze_leggings");
     	ChinaCraft.bronzeBoots.setTextureName("chinacraft:bronze_boots");
+    	
+    	//Jade
+    	ChinaCraft.jadeGreenItem.setTextureName("chinacraft:jade_green");
+    	ChinaCraft.jadeGreen2Item.setTextureName("chinacraft:jade_green2");
+    	ChinaCraft.jadePinkItem.setTextureName("chinacraft:jade_pink");
+    	ChinaCraft.jadePurpleItem.setTextureName("chinacraft:jade_purple");
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
     	super.init(event);
