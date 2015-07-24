@@ -7,7 +7,6 @@ import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.chinacraft.item.Lcker;
-import unstudio.chinacraft.item.Parchedwood;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -72,6 +71,8 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
     	GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
     	GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
+    	GameRegistry.registerBlock(ChinaCraft.mulberryWood, "MulberryWood");
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood,4), Item.getItemFromBlock(ChinaCraft.mulberryLog));
     	GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true),1);
     	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
     	
@@ -80,6 +81,8 @@ public class CommonProxy {
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock,1),ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot,ChinaCraft.bronzeIngot);
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeIngot,9),Item.getItemFromBlock(ChinaCraft.bronzeBlock));
     	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");//银锭
     	GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
     	GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
@@ -105,8 +108,7 @@ public class CommonProxy {
     	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");//米
-    	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//
-    	GameRegistry.registerItem(ChinaCraft.parchedWood, "Parchedwood");//木渣QAQ
+    	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//水稻
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices,6), new Object[] {ChinaCraft.lcker});
     	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
     	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");

@@ -25,15 +25,16 @@ item.bronze_ingot.name=青铜锭
 tile.jade_ore.name=玉原石
 
 tile.bamboo.name=竹子
+tile.bamboo_block.name=竹板
 item.bamboo.name=竹子
 
-tile.wooden_window.name=木窗
-tile.wooden_window_name=木窗格
+tile.wooden_window.name=木窗格
 
 tile.mulberry_log.name=桑树原木
 tile.mulberry_leaf.name=桑叶
 item.mulberry_leaf.name=桑叶
 tile.mulberry_sapling.name=桑树苗
+tile.mulberry_wood.name=桑木板
 
 tile.marble.name=大理石
 tile.smooth_marble.name=平滑大理石块
