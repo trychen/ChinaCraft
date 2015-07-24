@@ -8,7 +8,6 @@ import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.CopperOre;
-import unstudio.chinacraft.block.JadeOre;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.MarbleSlab;
 import unstudio.chinacraft.block.MarbleStair;
@@ -44,6 +43,12 @@ import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.Soy;
 import unstudio.chinacraft.item.SoyPod;
 import unstudio.chinacraft.item.TinIngot;
+import unstudio.chinacraft.jade.JadeGreen2Item;
+import unstudio.chinacraft.jade.JadeGreenItem;
+import unstudio.chinacraft.jade.JadeOre;
+import unstudio.chinacraft.jade.JadePinkItem;
+import unstudio.chinacraft.jade.JadePurpleItem;
+import unstudio.chinacraft.jade.JadeWorkingTable;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -138,6 +143,7 @@ public class ChinaCraft {
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
 	    public static BambooBlock bambooBlock = new BambooBlock(); //桑树树苗
+	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
@@ -171,5 +177,11 @@ public class ChinaCraft {
 	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲
 	    public static BronzeLeggings bronzeLeggings =  new BronzeLeggings();//青铜护腿
 	    public static BronzeBoots bronzeBoots =  new BronzeBoots();//青铜靴子
+	    
+	    //玉石
+	    public static JadeGreenItem jadeGreenItem =  new JadeGreenItem();
+	    public static JadeGreen2Item jadeGreen2Item =  new JadeGreen2Item();
+	    public static JadePinkItem jadePinkItem = new JadePinkItem();
+	    public static JadePurpleItem jadePurpleItem =new JadePurpleItem();
 	    
 }
