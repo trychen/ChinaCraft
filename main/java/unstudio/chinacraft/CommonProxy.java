@@ -128,6 +128,13 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
     	GameRegistry.registerItem(ChinaCraft.jadePinkItem, "GreenPink");
     	GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
+    	
+    	
+    	//Drink、Food
+    	GameRegistry.registerItem(ChinaCraft.cup, "Cup");
+   	GameRegistry.registerItem(ChinaCraft.cup_Clay, "ClayCup");
+   	GameRegistry.registerItem(ChinaCraft.cupChocolate, "ChocolateDrink");
+   	GameRegistry.registerItem(ChinaCraft.cocoa, "Cocoa");
     }
 
 	public void postInit(FMLPostInitializationEvent event) {
