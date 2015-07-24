@@ -14,6 +14,7 @@ import unstudio.chinacraft.block.MarbleStair;
 import unstudio.chinacraft.block.MulberryLeaf;
 import unstudio.chinacraft.block.MulberryLog;
 import unstudio.chinacraft.block.MulberrySapling;
+import unstudio.chinacraft.block.MulberryWood;
 import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.RiceGrow;
 import unstudio.chinacraft.block.SilverOre;
@@ -44,7 +45,6 @@ import unstudio.chinacraft.item.Cup_Clay;
 import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.Ladyfinger;
 import unstudio.chinacraft.item.Lcker;
-import unstudio.chinacraft.item.Parchedwood;
 import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.Soy;
@@ -149,6 +149,7 @@ public class ChinaCraft {
 	    public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
+	    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板  
 	    public static BambooBlock bambooBlock = new BambooBlock(); //桑树树苗
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 	    
@@ -164,7 +165,6 @@ public class ChinaCraft {
 	    public static Bamboo bamboo = new Bamboo(); //竹子 
 	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
-	    public static Parchedwood parchedWood = new Parchedwood(); //木渣
 	    
 	    
 	    //防具武器
