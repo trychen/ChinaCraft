@@ -167,7 +167,7 @@ public class TileBuhrimill extends TileEntity implements IUpdatePlayerListBox,
 			if(getStackInSlot(1) != null) {
 				BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0), getStackInSlot(1));
 				if(r !=null) {
-					if((getStackInSlot(0).stackSize-r.getInput1().stackSize)>=0&&(getStackInSlot(1).stackSize-r.getInput2().stackSize)>=0&&(getStackInSlot(2) == null||getStackInSlot(2).equals(r.getOutput1()))&&(getStackInSlot(3)==null||getStackInSlot(3).equals(r.getOutput2()))) {
+					if((getStackInSlot(0).stackSize-r.getInput1().stackSize)>=0&&(getStackInSlot(1).stackSize-r.getInput2().stackSize)>=0&&(getStackInSlot(2) == null||getStackInSlot(2).equals(r.getOutput1()))&&(r.getOutput2()==null||getStackInSlot(3)==null||getStackInSlot(3).equals(r.getOutput2()))) {
 						if(schedule >= r.getTime()){
 							schedule = 0;
 							if(getStackInSlot(2) !=null) {
@@ -209,7 +209,7 @@ public class TileBuhrimill extends TileEntity implements IUpdatePlayerListBox,
 			}else{
 				BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0));
 				if(r !=null) {
-					if((getStackInSlot(0).stackSize-r.getInput1().stackSize)>=0&&(getStackInSlot(2) == null||getStackInSlot(2).equals(r.getOutput1()))&&(getStackInSlot(3)==null||getStackInSlot(3).equals(r.getOutput2()))) {
+					if((getStackInSlot(0).stackSize-r.getInput1().stackSize)>=0&&(getStackInSlot(2) == null||getStackInSlot(2).equals(r.getOutput1()))&&(r.getOutput2()==null||getStackInSlot(3)==null||getStackInSlot(3).equals(r.getOutput2()))) {
 						if(schedule >= r.getTime()){
 							schedule = 0;
 							if(getStackInSlot(2) !=null) {

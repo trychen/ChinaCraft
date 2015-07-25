@@ -115,6 +115,7 @@ public class CommonProxy {
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy,2), new Object[] {ChinaCraft.soyPod});
     	GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");
     	GameRegistry.addSmelting(ChinaCraft.bamboo,new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
+    	GameRegistry.registerItem(ChinaCraft .itemMulberryLeaf, "ItemMulberryLeaf");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});

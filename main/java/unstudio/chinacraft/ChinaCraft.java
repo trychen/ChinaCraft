@@ -41,6 +41,7 @@ import unstudio.chinacraft.item.Cup;
 import unstudio.chinacraft.item.CupChocolate;
 import unstudio.chinacraft.item.Cup_Clay;
 import unstudio.chinacraft.item.ItemBuhrimill;
+import unstudio.chinacraft.item.ItemMulberryLeaf;
 import unstudio.chinacraft.item.Lcker;
 import unstudio.chinacraft.item.Rices;
 import unstudio.chinacraft.item.SilverIngot;
@@ -162,6 +163,7 @@ public class ChinaCraft {
 	    public static Bamboo bamboo = new Bamboo(); //竹子 
 	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
+	    public static ItemMulberryLeaf itemMulberryLeaf = new ItemMulberryLeaf(); //桑叶  
 	    
 	    
 	    //防具武器

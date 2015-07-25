@@ -70,7 +70,7 @@ public class BuhrimillRecipe {
 	
 	public static BuhrimillRecipe getBuhrimillReciper(ItemStack input1,ItemStack input2) {
 		for (BuhrimillRecipe r :recipes) {
-			if(r.getInput1().isItemEqual(input1)&&r.getInput2().isItemEqual(input2)) {
+			if(r.getInput1().isItemEqual(input1)&&r.getInput2() != null&&r.getInput2().isItemEqual(input2)) {
 				return r;
 			}
 		}

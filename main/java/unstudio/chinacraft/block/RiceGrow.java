@@ -34,7 +34,7 @@ public class RiceGrow extends BlockCrops {
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
         if (meta == 5 || meta == 6) {
-            int ret = 1;
+            int ret = 2;
             for (int n = 0; n < 3 + fortune; n++) {
                 if (random.nextInt(15) <= meta) {
                     ret++;
@@ -55,8 +55,7 @@ public class RiceGrow extends BlockCrops {
     }
     @Override
     public Item getItemDropped(int par1, Random par2Random, int par3) {
-        return par1 >= 2 ? this.func_149865_P() : par1 >= 5 ? ChinaCraft.rices
-                : this.func_149866_i();
+        return par1 >= 5 ? ChinaCraft.lcker : null;
     }
 
 	@Override

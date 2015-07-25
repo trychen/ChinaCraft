@@ -50,6 +50,12 @@ public class MulberryLeaf extends BlockLeaves{
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
 		return icon;
 	}
+	
+    protected void func_150124_c(World p_150124_1_, int p_150124_2_, int p_150124_3_, int p_150124_4_, int p_150124_5_, int p_150124_6_)
+    {
+            this.dropBlockAsItem(p_150124_1_, p_150124_2_, p_150124_3_, p_150124_4_, new ItemStack(ChinaCraft.itemMulberryLeaf , p_150124_1_.rand.nextInt(3)+1));
+    }
+
 
 	@Override
 	public String[] func_150125_e() {
@@ -60,6 +66,7 @@ public class MulberryLeaf extends BlockLeaves{
     {
         return Item.getItemFromBlock(ChinaCraft.mulberrySapling);
     }
+    
     @Override
     public int getRenderColor(int par1)
     {
