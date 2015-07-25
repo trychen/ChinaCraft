@@ -47,12 +47,16 @@ item.rices.name=米
 item.lcker.name=米穗
 item.soy.name=大豆
 item.soy_pod.name=豆荚
+item.cocoa.name=可可粉
+item.ladyfinger.name=松脆饼
+
+item.cup.name=茶杯
+item.cup_chocolate.name=巧克力茶
 
 tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨
+gui.buhrimill.title=石磨
 
 itemGroup.core=华夏文明-核心
 itemGroup.tool=华夏文明-工具
 itemGroup.plant=华夏文明-作物
-
-gui.buhrimill.title=石磨

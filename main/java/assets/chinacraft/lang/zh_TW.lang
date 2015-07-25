@@ -25,6 +25,7 @@ item.bronze_ingot.name=青銅錠
 tile.jade_ore.name=玉原石
 
 tile.bamboo.name=竹子
+tile.bamboo_block.name=竹板
 item.bamboo.name=竹子
 
 tile.wooden_window.name=木窗
@@ -44,9 +45,18 @@ tile.chiseled_stair.name=大理石樓梯
 
 
 item.rices.name=米
+item.lcker.name=米輝
+item.soy.name=大豆
+item.soy_pod.name=豆莢
+item.cocoa.name=可可粉
+item.ladyfinger.name=鬆脆餅
+
+item.cup.name=茶杯
+item.cup_chocolate.name=巧克力茶
 
 tile.buhrimill.name=石磨方塊
 item.buhrimill.name=石磨
+gui.buhrimill.title=石磨
 
 itemGroup.core=華夏文明-核心
 itemGroup.tool=華夏文明-工具
