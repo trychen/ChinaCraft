@@ -25,7 +25,10 @@ item.bronze_ingot.name=Bronze Ingot
 tile.jade_ore.name=Jade Ore
 
 tile.bamboo.name=Bamboo
+tile.bamboo_block.name=Bamboo Clappers
 item.bamboo.name=Bamboo
+
+tile.wooden_window.name=Wood pane
 
 tile.mulberry_log.name=Mulberry Log
 tile.mulberry_leaf.name=Mulberry Leaf
@@ -43,9 +46,15 @@ item.rices.name=Rices
 item.lcker.name=Lcker
 item.soy.name=Soy
 item.soy_pod.name=Pod
+item.cocoa.name=Cocoa Powder
+item.ladyfinger.name=Ladyfinger
+
+item.cup.name=Tea Cup
+item.cup_chocolate.name=Chocolate Tea
 
 tile.buhrimill.name=Buhrimill Block
 item.buhrimill.name=Buhrimill
+gui.buhrimill.title=Buhrimill
 
 itemGroup.core=Chinese Civilization-Core
 itemGroup.tool=Chinese Civilization-Tools
