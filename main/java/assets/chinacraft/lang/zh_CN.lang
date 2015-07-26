@@ -45,6 +45,8 @@ tile.chiseled_marble.name=錾制大理石块
 tile.marble_slab.name=大理石半砖
 tile.marble_stair.name=大理石楼梯
 
+tile.lantern.name=灯笼
+
 item.rices.name=米
 item.lcker.name=米穗
 item.soy.name=大豆
@@ -61,6 +63,11 @@ gui.buhrimill.title=石磨
 
 gui.jade_bench.title=玉石加工台
 tile.jade_bench.name=玉石加工台
+
+item.jade_green.name=翡翠玉
+item.jade_green2.name=碧玉
+item.jade_pink.name=芙蓉石
+item.jade_purple.name=紫玉
 
 itemGroup.core=华夏文明-核心
 itemGroup.tool=华夏文明-工具
