@@ -1,5 +1,6 @@
 package unstudio.chinacraft;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.renderer.BlockLanternRenderer;
@@ -77,7 +78,6 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.ladyfinger.setTextureName("chinacraft:ladyfinger");
     	ChinaCraft.cupWater.setTextureName("chinacraft:cup_water");
     	ChinaCraft.cupChrysanthemum.setTextureName("chinacraft:cup_chrysanthemum");
-    
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
     	super.init(event);

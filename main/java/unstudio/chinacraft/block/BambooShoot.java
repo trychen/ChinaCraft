@@ -9,14 +9,17 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 import unstudio.chinacraft.ChinaCraft;
+import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BambooShoot extends Block implements IPlantable
+public class BambooShoot extends Block implements IPlantable, IWorldGenerator
 {
     public BambooShoot()
     {
@@ -161,4 +164,17 @@ public class BambooShoot extends Block implements IPlantable
     {
         return world.getBlockMetadata(x, y, z);
     }
+
+
+	@Override
+	public void generate(Random random, int chunkX, int chunkZ, World world,
+			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
+    	int l6 = chunkX*16 + random.nextInt(16);
+    	int i11 = random.nextInt(128);
+    	int l14 = chunkZ*16 + random.nextInt(16);
+    	int id = world.getBiomeGenForCoords(l6, l14).biomeID;
+    	if(id == 3||id == 4||id == 18||id == 20||id == 34||id == 27||id == 28||id == 29) {
+    		new WorldGenFlowers(ChinaCraft.bambooShoot).generate(world, random, l6, i11, l14);
+    	}
+	}
 }
