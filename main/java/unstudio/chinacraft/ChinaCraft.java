@@ -53,6 +53,7 @@ import unstudio.chinacraft.item.SoyPod;
 import unstudio.chinacraft.item.TinIngot;
 import unstudio.chinacraft.jade.JadeGreen2Item;
 import unstudio.chinacraft.jade.JadeGreenItem;
+import unstudio.chinacraft.jade.JadeKnife;
 import unstudio.chinacraft.jade.JadeOre;
 import unstudio.chinacraft.jade.JadePinkItem;
 import unstudio.chinacraft.jade.JadePurpleItem;
@@ -180,6 +181,7 @@ public class ChinaCraft {
 	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜锄
 	    public static BronzeShovel bronzeShovel =  new BronzeShovel();//青铜铲
 	    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//九曲镋
+	    public static JadeKnife jadeKnife = new JadeKnife();//九曲镋
 	    
 	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔

@@ -132,6 +132,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
     	GameRegistry.registerItem(ChinaCraft.jadePinkItem, "GreenPink");
     	GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
+    	GameRegistry.registerItem(ChinaCraft.jadeKnife, "JadeKnife");
     	
     	
     	//Drink、Food
