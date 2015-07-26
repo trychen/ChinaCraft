@@ -19,14 +19,32 @@ public class JadeBenchRepair{
 		this.out = out;
 	}
 	public ItemStack getTool(){
-		return this.tool;
+		return tool;
 	}
 	public ItemStack getItem(){
-		return this.item;
+		return item;
 	}
 	public ItemStack getOut(){
-		return this.out;
+		return out;
 	}
 	
 	private static ArrayList<JadeBenchRepair> recipes = new ArrayList<JadeBenchRepair>();
+	
+	public static void registerJadeBenchRepair(ItemStack tool,ItemStack item,ItemStack out) {
+		if(tool == null||out == null)return;
+		recipes.add(new JadeBenchRepair(tool, item, out));
+	}
+	
+	public static JadeBenchRepair getJadeBenchRepair(ItemStack tool,ItemStack item) {
+		for (JadeBenchRepair r :recipes) {
+			if(r.getTool().isItemEqual(tool)&&r.getItem().isItemEqual(item)||r == null) {
+				return r;
+			}
+		}
+		return null;
+	}
+	
+	public static void clearJadeBenchReciper() {
+		recipes.clear();
+	}
 }

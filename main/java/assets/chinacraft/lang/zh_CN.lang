@@ -13,6 +13,7 @@ item.bronze_helmet.name=青铜头盔
 item.bronze_body.name=青铜胸甲
 item.bronze_legs.name=青铜护腿
 item.bronze_boots.name=青铜靴子
+item.jade_knife.name=切割刀
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
@@ -62,7 +63,7 @@ item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
 
 gui.jade_bench.title=玉石加工台
-tile.jade_bench.name=玉石加工台
+tile.jade_table.name=玉石加工台
 
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉

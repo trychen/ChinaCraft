@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.recipes.JadeBenchRepair;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileJadeBench;
@@ -80,7 +81,6 @@ public class CommonProxy {
     	
     	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
     	GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeWorkingTable),new Object[] {"###","#X#","###","#",Item.getItemFromBlock( Blocks.stone),"X",Item.getItemFromBlock( Blocks.crafting_table)});
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
@@ -142,6 +142,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
     	GameRegistry.registerItem(ChinaCraft.jadeKnife, "JadeKnife");
     	
+    	JadeBenchRepair.registerJadeBenchRepair(new ItemStack(ChinaCraft.bronzeSword),new ItemStack( Items.apple),new ItemStack( Items.golden_apple));
     	
     	//Drink、Food
     	GameRegistry.registerItem(ChinaCraft.cup, "Cup");

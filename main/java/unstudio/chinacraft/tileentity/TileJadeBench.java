@@ -1,5 +1,9 @@
 package unstudio.chinacraft.tileentity;
 
+import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.jade.Jade;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.recipes.JadeBenchRepair;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -113,6 +117,23 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 	
 	public void updateEntity(){
 		super.updateEntity();
+		if (getStackInSlot(0) != null){
+			if (getStackInSlot(1) != null){
+				if (getStackInSlot(2) == null){
+					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));
+					if(r !=null) {
+						if (r.getOut().getItem().equals(ChinaCraft.jadeGreenItem)) {
+							setInventorySlotContents(2, r.getOut());
+						} else {
+							setInventorySlotContents(2, r.getOut());
+							setInventorySlotContents(0, null);
+							setInventorySlotContents(1, null);
+						}
+
+					}
+				}
+			}
+		}
 	}
 	
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)

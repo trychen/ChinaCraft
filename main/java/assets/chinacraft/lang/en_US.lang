@@ -62,7 +62,7 @@ item.buhrimill.name=Buhrimill
 gui.buhrimill.title=Buhrimill
 
 gui.jade_bench.title=Jade Work Table
-tile.jade_bench.name=Jade Work Table
+tile.jade_table.name=Jade Work Table
 
 item.jade_green.name=Fei Cui Jade
 item.jade_green2.name=Jasper
