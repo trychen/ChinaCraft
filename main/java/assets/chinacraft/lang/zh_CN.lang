@@ -26,6 +26,7 @@ tile.jade_ore.name=玉原石
 
 tile.bamboo.name=竹子
 tile.bamboo_block.name=竹板
+tile.bamboo_shoot.name=竹笋
 item.bamboo.name=竹子
 
 tile.wooden_window.name=木窗格

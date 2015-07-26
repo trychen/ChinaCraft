@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.renderer.BlockLanternRenderer;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -32,6 +33,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.mulberryWood.setBlockTextureName("chinacraft:mulberry_wood");
     	ChinaCraft.bambooBlock.setBlockTextureName("chinacraft:bamboo_block");
     	ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
+    	ChinaCraft.bambooShoot.setBlockTextureName("chinacraft:bamboo_shoot");
     	
     	ChinaCraft.buhrimill.setBlockTextureName("chinacraft:empty");
     	
@@ -77,6 +79,7 @@ public class ClientProxy extends CommonProxy {
     
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+    	RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
     	super.init(event);
     }
  

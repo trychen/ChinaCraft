@@ -36,7 +36,7 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
             GL11.glPushMatrix();
     //This is setting the initial location.
             GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
-            GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
+			GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
     //This is the texture of your block. It's pathed to be the same place as your other blocks here.
             //Outdated bindTextureByName("/mods/roads/textures/blocks/TrafficLightPoleRed.png");
    //Use in 1.6.2  this

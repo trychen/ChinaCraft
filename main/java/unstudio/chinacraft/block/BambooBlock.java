@@ -11,8 +11,6 @@ public class BambooBlock extends Block{
 	public BambooBlock() {
 		super (Material.wood);
 		setBlockName("bamboo_block");
-		setHardness(7.0f);
 		setCreativeTab(ChinaCraft.tabCore);
 	}
-
 }

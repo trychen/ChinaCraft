@@ -20,8 +20,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBamboo extends Block implements IPlantable
 {
-    private static final String __OBFID = "CL_00000300";
-
     public BlockBamboo()
     {
         super(Material.plants);

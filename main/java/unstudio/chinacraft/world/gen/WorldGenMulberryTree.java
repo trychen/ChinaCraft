@@ -159,17 +159,10 @@ public class WorldGenMulberryTree extends WorldGenAbstractTree implements IWorld
 		int z = chunkZ * 16 + random.nextInt(16);
 		int biomeID = world.getBiomeGenForCoords(x,z).biomeID;
 		if (biomeID == 4) {
-			int i = 64;
-			while(true) {
-				if(world.getBlock(x, i, z) == Blocks.grass) {
-					break;
-				}
-				if(i >= 75) {
-					break;
-				}
-				i++;
+			Block topBlock = world.getTopBlock(x, z);
+			if(topBlock == Blocks.grass) {
+			this.generate(world, random, x, world.getTopSolidOrLiquidBlock(x, z), z);
 			}
-			this.generate(world, random, x, i+1, z);
 		}
 	}
 

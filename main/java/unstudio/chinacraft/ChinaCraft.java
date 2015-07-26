@@ -3,11 +3,13 @@ package unstudio.chinacraft;
 import java.util.Random;
 
 import unstudio.chinacraft.block.BambooBlock;
+import unstudio.chinacraft.block.BambooShoot;
 import unstudio.chinacraft.block.BlockBamboo;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.CopperOre;
+import unstudio.chinacraft.block.Lantern;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.MarbleSlab;
 import unstudio.chinacraft.block.MarbleStair;
@@ -147,6 +149,7 @@ public class ChinaCraft {
 	    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2","chinacraft:wooden_window_top"); //木窗框2
 	    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
 	    public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
+	    public static BambooShoot bambooShoot = new BambooShoot(); //竹笋  
 	    public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
@@ -155,6 +158,8 @@ public class ChinaCraft {
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
+	    
+	    public static Lantern lantern = new Lantern(); //灯笼  
 	    
 	    //物品
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
