@@ -78,6 +78,8 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.ladyfinger.setTextureName("chinacraft:ladyfinger");
     	ChinaCraft.cupWater.setTextureName("chinacraft:cup_water");
     	ChinaCraft.cupChrysanthemum.setTextureName("chinacraft:cup_chrysanthemum");
+    	ChinaCraft.flour.setTextureName("chinacraft:flour");
+    	ChinaCraft.barleyRice.setTextureName("chinacraft:barley_rice");
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
     	super.init(event);

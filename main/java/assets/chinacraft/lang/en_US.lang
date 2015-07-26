@@ -13,6 +13,7 @@ item.bronze_helmet.name=Bronze Helmet
 item.bronze_body.name=Bronze Body
 item.bronze_legs.name=Bronze Legs
 item.bronze_boots.name=Bronze Boots
+item.jade_knife.name=Cutting Knife
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot
@@ -27,6 +28,7 @@ tile.jade_ore.name=Jade Ore
 tile.bamboo.name=Bamboo
 tile.bamboo_block.name=Bamboo Clappers
 item.bamboo.name=Bamboo
+item.bamboo_shoot.name=Bamboo Shoot
 
 tile.wooden_window.name=Wood pane
 
@@ -34,6 +36,7 @@ tile.mulberry_log.name=Mulberry Log
 tile.mulberry_leaf.name=Mulberry Leaf
 item.mulberry_leaf.name=Mulberry Leaf
 tile.mulberry_sapling.name=Mulberry Sapling
+tile.mulberry_wood.name=Mulberry Wood
 
 tile.marble.name=Marble
 tile.smooth_marble.name=Smooth Marble
@@ -41,6 +44,8 @@ tile.pillar_marble.name=Pillar Marble
 tile.chiseled_marble.name=Chiseled Marble
 tile.marble_slab.name=Marble Slab
 tile.marble_stair.name=Marble Stair
+
+tile.lantern.name=Lantern
 
 item.rices.name=Rices
 item.lcker.name=Lcker
@@ -55,6 +60,14 @@ item.cup_chocolate.name=Chocolate Tea
 tile.buhrimill.name=Buhrimill Block
 item.buhrimill.name=Buhrimill
 gui.buhrimill.title=Buhrimill
+
+gui.jade_bench.title=Jade Work Table
+tile.jade_table.name=Jade Work Table
+
+item.jade_green.name=Fei Cui Jade
+item.jade_green2.name=Jasper
+item.jade_pink.name=Ross quartz
+item.jade_purple.name=Purple Jade
 
 itemGroup.core=Chinese Civilization-Core
 itemGroup.tool=Chinese Civilization-Tools
