@@ -3,10 +3,10 @@ package unstudio.chinacraft.item;
 import net.minecraft.item.Item;
 import unstudio.chinacraft.ChinaCraft;
 
-public class Flour extends Item{
-	public Flour() {
-		setUnlocalizedName("flour");
-		setMaxDamage(64);
+public class BarleyRice extends Item{
+	public BarleyRice() {
+		setUnlocalizedName("barley_rice");
+		setMaxStackSize(64);
 		setCreativeTab(ChinaCraft.tabPlant);
 	}
 }

@@ -8,6 +8,7 @@ import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.chinacraft.item.Lcker;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -79,6 +80,7 @@ public class CommonProxy {
     	
     	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
     	GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeWorkingTable),new Object[] {"###","#X#","###","#",Item.getItemFromBlock( Blocks.stone),"X",Item.getItemFromBlock( Blocks.crafting_table)});
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
@@ -143,11 +145,13 @@ public class CommonProxy {
     	
     	//Drink、Food
     	GameRegistry.registerItem(ChinaCraft.cup, "Cup");
-   	GameRegistry.registerItem(ChinaCraft.cup_Clay, "ClayCup");
-   	GameRegistry.registerItem(ChinaCraft.cupChocolate, "ChocolateDrink");
-   	GameRegistry.registerItem(ChinaCraft.cocoa, "Cocoa");
-   	GameRegistry.registerItem(ChinaCraft.ladyfinger, "Ladyfinger");
-   	GameRegistry.registerItem(ChinaCraft.cupChrysanthemum, "ChrysanthemumDrink");
+    	GameRegistry.registerItem(ChinaCraft.cup_Clay, "ClayCup");
+    	GameRegistry.registerItem(ChinaCraft.cupChocolate, "ChocolateDrink");
+    	GameRegistry.registerItem(ChinaCraft.cocoa, "Cocoa");
+    	GameRegistry.registerItem(ChinaCraft.ladyfinger, "Ladyfinger");
+    	GameRegistry.registerItem(ChinaCraft.cupChrysanthemum, "ChrysanthemumDrink");
+    	GameRegistry.registerItem(ChinaCraft.flour, "Flour");
+    	GameRegistry.registerItem(ChinaCraft.barleyRice, "BarleyRice");
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

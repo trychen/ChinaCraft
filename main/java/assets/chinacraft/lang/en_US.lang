@@ -27,6 +27,7 @@ tile.jade_ore.name=Jade Ore
 tile.bamboo.name=Bamboo
 tile.bamboo_block.name=Bamboo Clappers
 item.bamboo.name=Bamboo
+item.bamboo_shoot.name=Bamboo Shoot
 
 tile.wooden_window.name=Wood pane
 

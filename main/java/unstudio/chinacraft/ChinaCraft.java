@@ -37,6 +37,7 @@ import unstudio.chinacraft.combat.BronzeSword;
 import unstudio.chinacraft.combat.JiuQu_tang;
 import unstudio.chinacraft.combat.YanLung_Giantknife;
 import unstudio.chinacraft.item.Bamboo;
+import unstudio.chinacraft.item.BarleyRice;
 import unstudio.chinacraft.item.BronzeIngot;
 import unstudio.chinacraft.item.Cocoa;
 import unstudio.chinacraft.item.Cup;
@@ -44,6 +45,7 @@ import unstudio.chinacraft.item.CupChocolate;
 import unstudio.chinacraft.item.CupChrysanthemum;
 import unstudio.chinacraft.item.CupWater;
 import unstudio.chinacraft.item.Cup_Clay;
+import unstudio.chinacraft.item.Flour;
 import unstudio.chinacraft.item.ItemBuhrimill;
 import unstudio.chinacraft.item.ItemMulberryLeaf;
 import unstudio.chinacraft.item.Ladyfinger;
@@ -208,4 +210,6 @@ public class ChinaCraft {
 	    public static Ladyfinger ladyfinger =new Ladyfinger();
 	    public static CupWater cupWater =new CupWater();
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
+	    public static Flour flour =new Flour();
+	    public static BarleyRice barleyRice =new BarleyRice();
 }
