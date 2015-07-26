@@ -78,6 +78,7 @@ public class CommonProxy {
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood,4), Item.getItemFromBlock(ChinaCraft.mulberryLog));
     	GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true),1);
     	GameRegistry.registerBlock(ChinaCraft.bambooShoot, "BambooShoot");
+    	GameRegistry.registerWorldGenerator(ChinaCraft .bambooShoot, 1);
     	
     	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
     	GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
