@@ -32,11 +32,6 @@ public class Lantern extends Block{
         return false;
     }
     
-    public int getRenderType()
-    {
-        return BlockLanternRenderer.renderID;
-    }
-    
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg)
     {

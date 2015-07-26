@@ -58,6 +58,8 @@ tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
 
+gui.jade_bench.title=玉石加工台
+
 itemGroup.core=华夏文明-核心
 itemGroup.tool=华夏文明-工具
 itemGroup.plant=华夏文明-作物

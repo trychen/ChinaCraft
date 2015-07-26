@@ -4,6 +4,7 @@ import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.chinacraft.item.Lcker;
@@ -74,8 +75,10 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.mulberryWood, "MulberryWood");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood,4), Item.getItemFromBlock(ChinaCraft.mulberryLog));
     	GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true),1);
-    	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
     	GameRegistry.registerBlock(ChinaCraft.bambooShoot, "BambooShoot");
+    	
+    	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
+    	GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
     	
     	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");

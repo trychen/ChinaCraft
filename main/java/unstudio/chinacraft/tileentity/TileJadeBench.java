@@ -108,11 +108,11 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+	
 	}
+	
 	public void updateEntity(){
-
+		super.updateEntity();
 	}
 	
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
@@ -130,6 +130,7 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
             }
         }
     }
+ 
     public void writeToNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.writeToNBT(par1NBTTagCompound);

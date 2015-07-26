@@ -80,7 +80,6 @@ public class ClientProxy extends CommonProxy {
     
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-    	RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
     	super.init(event);
     }
  
