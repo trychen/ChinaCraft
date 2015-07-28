@@ -45,7 +45,7 @@ tile.smooth_marble.name=平滑大理石塊
 tile.pillar_marble.name=条纹大理石塊
 tile.chiseled_marble.name=鏨製大理石塊
 tile.marble_slab.name=大理石半磚
-tile.chiseled_stair.name=大理石樓梯
+tile.marble_stair.name=大理石樓梯
 
 tile.lantern.name=燈籠
 
