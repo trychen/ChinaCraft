@@ -1,5 +1,6 @@
 package unstudio.chinacraft.inventory;
 
+import scala.tools.nsc.doc.model.Public;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 import net.minecraft.entity.player.EntityPlayer;

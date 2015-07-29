@@ -31,7 +31,7 @@ public class JadeBenchRepair{
 	private static ArrayList<JadeBenchRepair> recipes = new ArrayList<JadeBenchRepair>();
 	
 	public static void registerJadeBenchRepair(ItemStack tool,ItemStack item,ItemStack out) {
-		if(tool == null||out == null)return;
+		if(tool == null&&item == null)return;
 		recipes.add(new JadeBenchRepair(tool, item, out));
 	}
 	

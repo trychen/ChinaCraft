@@ -36,6 +36,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 public class Buhrimill extends BlockContainer {
@@ -146,4 +147,22 @@ public class Buhrimill extends BlockContainer {
         	}
             return true;
     }
+	
+	public void onBlockDestroyedByPlayer(World p_149664_1_, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_) {
+		super.onBlockDestroyedByPlayer(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, p_149664_5_);
+		TileBuhrimill tile = (TileBuhrimill) p_149664_1_.getTileEntity(p_149664_2_, p_149664_3_, p_149664_4_);
+		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(0));
+		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(1));
+		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(2));
+		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(3));
+		}
+		
+	public void onBlockDestroyedByExplosion(World p_149723_1_, int p_149723_2_, int p_149723_3_, int p_149723_4_, Explosion p_149723_5_) {
+		super.onBlockDestroyedByExplosion(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, p_149723_5_);
+		TileBuhrimill tile = (TileBuhrimill) p_149723_1_.getTileEntity(p_149723_2_, p_149723_3_, p_149723_4_);
+		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(0));
+		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(1));
+		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(2));
+		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(3));
+	}
 }
