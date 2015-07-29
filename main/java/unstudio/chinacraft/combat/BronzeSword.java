@@ -5,10 +5,9 @@ import unstudio.chinacraft.ChinaCraft;
 
 public class BronzeSword  extends ItemSword{
 	public BronzeSword() {
-		super(ToolMaterial.IRON);
+		super(ChinaCraft.BRONZE);
 		setUnlocalizedName("bronze_sword");
-		setMaxStackSize(1);
-		setMaxDamage(251);
 		setCreativeTab(ChinaCraft.tabTool);
+
 	}
 }

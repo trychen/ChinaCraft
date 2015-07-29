@@ -7,10 +7,8 @@ import unstudio.chinacraft.ChinaCraft;
 public class BronzeShovel extends ItemSpade{
 
 	public BronzeShovel() {
-		super(ToolMaterial.IRON);
+		super(ChinaCraft.BRONZE);
 		setUnlocalizedName("bronze_pickaxe");
-		setMaxStackSize(1);
-		setMaxDamage(251);
 		setCreativeTab(ChinaCraft.tabTool);
 	}
 }

@@ -8,10 +8,8 @@ import unstudio.chinacraft.ChinaCraft;
 public class BronzePickaxe extends ItemPickaxe{
 
 	public BronzePickaxe() {
-		super(ToolMaterial.IRON);
+		super(ChinaCraft.BRONZE);
 		setUnlocalizedName("bronze_pickaxe");
-		setMaxStackSize(1);
-		setMaxDamage(251);
 		setCreativeTab(ChinaCraft.tabTool);
 	}
 }

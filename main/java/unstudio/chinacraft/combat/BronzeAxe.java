@@ -6,7 +6,7 @@ import unstudio.chinacraft.ChinaCraft;
 public class BronzeAxe extends ItemAxe{
 
 	public BronzeAxe() {
-		super(ToolMaterial.IRON);
+		super(ChinaCraft.BRONZE);
 		setUnlocalizedName("bronze_axe");
 		setMaxStackSize(1);
 		setMaxDamage(251);
