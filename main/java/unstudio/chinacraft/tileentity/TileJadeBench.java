@@ -122,18 +122,24 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 				if (getStackInSlot(2) == null){
 					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));
 					if(r !=null) {
-						if (r.getOut().getItem().equals(ChinaCraft.jadeGreenItem)) {
-							setInventorySlotContents(2, r.getOut());
+						if (r.getItem().equals(ChinaCraft.jadeGreenItem)){
+							//类似合成台的方法
 						} else {
+							r.getTool().setItemDamage(r.getTool().getItemDamage() - 1);
 							setInventorySlotContents(2, r.getOut());
-							setInventorySlotContents(0, null);
-							setInventorySlotContents(1, null);
+							if (getStackInSlot(1).stackSize == 1){
+								setInventorySlotContents(1, null);
+							} else {
+							r.getItem().stackSize = r.getItem().stackSize - 1;
+							}
 						}
-
 					}
+				} else {
+					//显示数据
 				}
 			}
 		}
+		
 	}
 	
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)

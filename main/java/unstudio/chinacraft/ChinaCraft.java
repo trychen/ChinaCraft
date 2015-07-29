@@ -1,7 +1,6 @@
 package unstudio.chinacraft;
 
-import java.util.Random;
-
+import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BambooShoot;
 import unstudio.chinacraft.block.BlockBamboo;
@@ -24,18 +23,7 @@ import unstudio.chinacraft.block.SmoothMarble;
 import unstudio.chinacraft.block.SoyGrow;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.block.WoodenWindow;
-import unstudio.chinacraft.combat.BronzeAxe;
-import unstudio.chinacraft.combat.BronzeChestplate;
-import unstudio.chinacraft.combat.BronzeBoots;
-import unstudio.chinacraft.combat.BronzeBroadSword;
-import unstudio.chinacraft.combat.BronzeHelmet;
-import unstudio.chinacraft.combat.BronzeHoe;
-import unstudio.chinacraft.combat.BronzeLeggings;
-import unstudio.chinacraft.combat.BronzePickaxe;
-import unstudio.chinacraft.combat.BronzeShovel;
-import unstudio.chinacraft.combat.BronzeSword;
-import unstudio.chinacraft.combat.JiuQu_tang;
-import unstudio.chinacraft.combat.YanLung_Giantknife;
+import unstudio.chinacraft.combat.*;
 import unstudio.chinacraft.item.Bamboo;
 import unstudio.chinacraft.item.BarleyRice;
 import unstudio.chinacraft.item.BronzeIngot;
@@ -63,12 +51,7 @@ import unstudio.chinacraft.jade.JadePinkItem;
 import unstudio.chinacraft.jade.JadePurpleItem;
 import unstudio.chinacraft.jade.JadeWorkingTable;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
@@ -78,7 +61,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -133,7 +115,7 @@ public class ChinaCraft {
 	            return rices;
 	        }
 	    };
-	    
+		public static Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
 	    //方块
 	    public static CopperOre copperOre = new CopperOre();  //铜矿
 	    public static BronzeBlock bronzeBlock = new BronzeBlock();  //青铜块
@@ -188,8 +170,11 @@ public class ChinaCraft {
 	    public static BronzeHoe bronzeHoe =  new BronzeHoe();//青铜锄
 	    public static BronzeShovel bronzeShovel =  new BronzeShovel();//青铜铲
 	    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//九曲镋
-	    public static JadeKnife jadeKnife = new JadeKnife();//九曲镋
-	    
+	    public static JadeKnife jadeKnife = new JadeKnife();//玉石切割刀
+		public static HammerStone hammerStone = new HammerStone();//石锤
+		public static HammerIron hammerIron = new HammerIron();//铁锤
+		public static HammerDiamond hammerDiamond = new HammerDiamond();//铁锤
+
 	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
 	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲

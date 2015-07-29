@@ -17,7 +17,7 @@ public class ContainerJadeBench extends Container{
 		this.tile = tileEntity;
 		this.addSlotToContainer(new Slot(tileEntity, 0, 26, 17));
 		this.addSlotToContainer(new Slot(tileEntity, 1, 26, 51));
-		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 2, 71, 34));
+		this.addSlotToContainer(new Slot(tileEntity, 2, 71, 34));
         int var3;
         for (var3 = 0; var3 < 3; ++var3)
         {

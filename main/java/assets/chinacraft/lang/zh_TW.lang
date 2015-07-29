@@ -13,6 +13,7 @@ item.bronze_helmet.name=青铜頭盔
 item.bronze_body.name=青铜胸甲
 item.bronze_legs.name=青铜護腿
 item.bronze_boots.name=青铜靴子
+item.jade_knife.name=切割刀
 
 tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
@@ -26,7 +27,9 @@ tile.jade_ore.name=玉原石
 
 tile.bamboo.name=竹子
 tile.bamboo_block.name=竹板
+tile.bamboo_shoot.name=竹筍
 item.bamboo.name=竹子
+item.bamboo_shoot.name=竹筍
 
 tile.wooden_window.name=木窗
 tile.wooden_window_name=木窗格
@@ -35,14 +38,16 @@ tile.mulberry_log.name=桑樹原木
 tile.mulberry_leaf.name=桑葉
 item.mulberry_leaf.name=桑葉
 tile.mulberry_sapling.name=桑樹苗
+tile.mulberry_wood.name=桑樹板
 
 tile.marble.name=大理石
 tile.smooth_marble.name=平滑大理石塊
 tile.pillar_marble.name=条纹大理石塊
 tile.chiseled_marble.name=鏨製大理石塊
 tile.marble_slab.name=大理石半磚
-tile.chiseled_stair.name=大理石樓梯
+tile.marble_stair.name=大理石樓梯
 
+tile.lantern.name=燈籠
 
 item.rices.name=米
 item.lcker.name=米輝
@@ -57,6 +62,14 @@ item.cup_chocolate.name=巧克力茶
 tile.buhrimill.name=石磨方塊
 item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
+
+gui.jade_bench.title=玉石加工臺
+tile.jade_table.name=玉石加工臺
+
+item.jade_green.name=翡翠玉
+item.jade_green2.name=碧玉
+item.jade_pink.name=芙蓉石
+item.jade_purple.name=紫玉
 
 itemGroup.core=華夏文明-核心
 itemGroup.tool=華夏文明-工具
