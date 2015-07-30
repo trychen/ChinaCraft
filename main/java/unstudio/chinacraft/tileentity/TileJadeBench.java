@@ -1,5 +1,6 @@
 package unstudio.chinacraft.tileentity;
 
+import net.minecraft.entity.EntityLivingBase;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.jade.Jade;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
@@ -123,7 +124,7 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));
 					if(r !=null) {
 						if (r.getItem().equals(ChinaCraft.jadeGreenItem)){
-							//类似合成台的方法
+
 						} else {
 							r.getTool().setItemDamage(r.getTool().getItemDamage() - 1);
 							setInventorySlotContents(2, r.getOut());
