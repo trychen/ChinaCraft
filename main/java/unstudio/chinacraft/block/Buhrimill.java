@@ -24,11 +24,13 @@ import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
@@ -148,21 +150,53 @@ public class Buhrimill extends BlockContainer {
             return true;
     }
 	
-	public void onBlockDestroyedByPlayer(World p_149664_1_, int p_149664_2_, int p_149664_3_, int p_149664_4_, int p_149664_5_) {
-		super.onBlockDestroyedByPlayer(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, p_149664_5_);
-		TileBuhrimill tile = (TileBuhrimill) p_149664_1_.getTileEntity(p_149664_2_, p_149664_3_, p_149664_4_);
-		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(0));
-		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(1));
-		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(2));
-		dropBlockAsItem(p_149664_1_, p_149664_2_, p_149664_3_, p_149664_4_, tile.getStackInSlot(3));
-		}
-		
-	public void onBlockDestroyedByExplosion(World p_149723_1_, int p_149723_2_, int p_149723_3_, int p_149723_4_, Explosion p_149723_5_) {
-		super.onBlockDestroyedByExplosion(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, p_149723_5_);
-		TileBuhrimill tile = (TileBuhrimill) p_149723_1_.getTileEntity(p_149723_2_, p_149723_3_, p_149723_4_);
-		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(0));
-		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(1));
-		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(2));
-		dropBlockAsItem(p_149723_1_, p_149723_2_, p_149723_3_, p_149723_4_, tile.getStackInSlot(3));
-	}
+	 public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
+	    {
+
+		 TileBuhrimill tileentity = (TileBuhrimill)World.getTileEntity(x, y, z);
+		 Random random = World.rand;
+	            if (tileentity != null)
+	            {
+	                for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1)
+	                {
+	                    ItemStack itemstack = tileentity.getStackInSlot(i1);
+
+	                    if (itemstack != null)
+	                    {
+	                        float f = random.nextFloat() * 0.8F + 0.1F;
+	                        float f1 = random.nextFloat() * 0.8F + 0.1F;
+	                        float f2 = random.nextFloat() * 0.8F + 0.1F;
+
+	                        while (itemstack.stackSize > 0)
+	                        {
+	                            int j1 = random.nextInt(21) + 10;
+
+	                            if (j1 > itemstack.stackSize)
+	                            {
+	                                j1 = itemstack.stackSize;
+	                            }
+
+	                            itemstack.stackSize -= j1;
+	                            EntityItem entityitem = new EntityItem(World, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+
+	                            if (itemstack.hasTagCompound())
+	                            {
+	                                entityitem.getEntityItem().setTagCompound((NBTTagCompound)itemstack.getTagCompound().copy());
+	                            }
+
+	                            float f3 = 0.05F;
+	                            entityitem.motionX = (double)((float)random.nextGaussian() * f3);
+	                            entityitem.motionY = (double)((float)random.nextGaussian() * f3 + 0.2F);
+	                            entityitem.motionZ = (double)((float)random.nextGaussian() * f3);
+	                            World.spawnEntityInWorld(entityitem);
+	                        }
+	                    }
+	                }
+
+	                World.func_147453_f(x, y, z, Block);
+	            }
+	        
+
+	        super.breakBlock(World, x, y, z, Block, var1);
+	    }
 }
