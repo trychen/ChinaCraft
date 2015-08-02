@@ -4,6 +4,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BambooShoot;
 import unstudio.chinacraft.block.BlockBamboo;
+import unstudio.chinacraft.block.BlockWoodenBucket;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
@@ -43,6 +44,7 @@ import unstudio.chinacraft.item.SilverIngot;
 import unstudio.chinacraft.item.Soy;
 import unstudio.chinacraft.item.SoyPod;
 import unstudio.chinacraft.item.TinIngot;
+import unstudio.chinacraft.item.WoodenBucket;
 import unstudio.chinacraft.jade.JadeGreen2Item;
 import unstudio.chinacraft.jade.JadeGreenItem;
 import unstudio.chinacraft.jade.JadeKnife;
@@ -145,6 +147,7 @@ public class ChinaCraft {
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
 	    public static Lantern lantern = new Lantern(); //灯笼  
+	    public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //木桶
 	    
 	    //物品
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
@@ -157,6 +160,7 @@ public class ChinaCraft {
 	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
 	    public static ItemMulberryLeaf itemMulberryLeaf = new ItemMulberryLeaf(); //桑叶  
+	    public static WoodenBucket woodenBucket = new WoodenBucket(); //木桶  
 	    
 	    
 	    //防具武器

@@ -55,6 +55,9 @@ item.soy_pod.name=豆荚
 item.cocoa.name=可可粉
 item.ladyfinger.name=松脆饼
 
+tile.wooden_bucket.name=木桶
+item.wooden_bucket.name=木桶
+
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
 

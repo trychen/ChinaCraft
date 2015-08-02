@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.renderer.BlockLanternRenderer;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
+import unstudio.chinacraft.renderer.WoodenBucketRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -52,6 +53,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.itemBuhrimill.setTextureName("chinacraft:item_buhrimill");
     	ChinaCraft.bamboo.setTextureName("chinacraft:bamboo");
     	ChinaCraft.itemMulberryLeaf.setTextureName("chinacraft:mulberry_leaf");
+    	ChinaCraft.woodenBucket.setTextureName("chinacraft:woodenbucket");
     	
     	ChinaCraft.bronzePickaxe.setTextureName("chinacraft:bronze_pickaxe");
     	ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");
@@ -85,6 +87,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.barleyRice.setTextureName("chinacraft:barley_rice");
     	
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+    	RenderingRegistry.registerBlockHandler(new WoodenBucketRenderer());
     	super.init(event);
     }
  

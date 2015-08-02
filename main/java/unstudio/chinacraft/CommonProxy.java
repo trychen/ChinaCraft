@@ -88,6 +88,8 @@ public class CommonProxy {
     	
     	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern");
     	
+    	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
+    	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock, 1), ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);
@@ -131,6 +133,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");
     	GameRegistry.addSmelting(ChinaCraft.bamboo,new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
     	GameRegistry.registerItem(ChinaCraft .itemMulberryLeaf, "ItemMulberryLeaf");
+    	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet,1), new Object[] {"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});
