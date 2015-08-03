@@ -10,6 +10,9 @@ public class MulberryWood extends Block{
 	public MulberryWood() {
 		super(Material.wood);
 		setBlockName(StatCollector.translateToLocal("mulberry_wood"));
+		setHardness(1.5F);
+		setResistance(10.0F);
+		setStepSound(soundTypeWood);
 		setCreativeTab(ChinaCraft.tabCore);
 	}
 

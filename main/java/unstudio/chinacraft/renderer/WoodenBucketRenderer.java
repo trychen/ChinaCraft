@@ -50,8 +50,17 @@ public class WoodenBucketRenderer implements ISimpleBlockRenderingHandler{
         renderer.renderFaceXNeg(block, (double)((float)x + 1.0F - f4), (double)y, (double)z, iicon1);
         renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1.0F + f4), iicon1);
         renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1.0F - f4), iicon1);
-        renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.25F), (double)z, iicon1);
-        //renderer.renderFaceYNeg(block, (double)x, (double)((float)y + 1.0F - 0.75F), (double)z, iicon1);
+        renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.125F), (double)z, iicon1);
+        
+        int i1 = world.getBlockMetadata(x, y, z);
+
+        if (i1 == 1)
+        {
+            IIcon iicon = BlockLiquid.getLiquidIcon("water_still");
+            renderer.renderFaceYPos(block, (double)x, (double)((float)y - 1.0F + 0.875F), (double)z, iicon);
+        }else {
+        	
+        }
         return true;
 	}
 

@@ -6,12 +6,17 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.renderer.WoodenBucketRenderer;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
@@ -22,6 +27,9 @@ public class BlockWoodenBucket extends Block{
 	
 	public BlockWoodenBucket() {
 		super(Material.wood);
+		setHardness(0.5F);
+		setResistance(5.0F);
+		setStepSound(soundTypeWood);
 		setBlockName("wooden_bucket");
 	}
 	
@@ -88,6 +96,9 @@ public class BlockWoodenBucket extends Block{
     
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
+    	if(p_149650_1_ == 1) {
+    		return ChinaCraft.woodenBucket_Water;
+    	}
         return ChinaCraft.woodenBucket;
     }
     
@@ -96,4 +107,83 @@ public class BlockWoodenBucket extends Block{
     {
         return ChinaCraft.woodenBucket;
     }
+    
+    public void fillWithRain(World p_149639_1_, int p_149639_2_, int p_149639_3_, int p_149639_4_)
+    {
+        if (p_149639_1_.rand.nextInt(20) == 1)
+        {
+            int l = p_149639_1_.getBlockMetadata(p_149639_2_, p_149639_3_, p_149639_4_);
+
+            if (l == 0)
+            {
+                p_149639_1_.setBlockMetadataWithNotify(p_149639_2_, p_149639_3_, p_149639_4_, 1, 2);
+            }
+        }
+    }
+    
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
+    {
+		ItemStack item = player.inventory.getCurrentItem();
+		if (item == null)
+			return true;
+		if (world.getBlockMetadata(x, y, z) == 1) {
+			if (item.getItem() == Items.bucket) {
+				world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+				if (!player.capabilities.isCreativeMode) {
+					if (--item.stackSize <= 0) {
+						player.inventory.setInventorySlotContents(
+								player.inventory.currentItem, new ItemStack(
+										Items.water_bucket));
+					}else {
+					player.inventory.addItemStackToInventory(new ItemStack(
+							Items.water_bucket));
+					}
+				}
+				return true;
+			} else if (item.getItem() == ChinaCraft.woodenBucket) {
+				world.setBlockMetadataWithNotify(x, y, z, 0, 2);
+				if (!player.capabilities.isCreativeMode) {
+					if (--item.stackSize <= 0) {
+						player.inventory.setInventorySlotContents(player.inventory.currentItem, new ItemStack(
+								ChinaCraft.woodenBucket_Water));
+					}else {
+					player.inventory.addItemStackToInventory(new ItemStack(
+							ChinaCraft.woodenBucket_Water));
+					}
+				}
+				return true;
+			} else {
+				return true;
+			}
+		} else {
+			if (item.getItem() == Items.water_bucket) {
+				world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+				if (!player.capabilities.isCreativeMode) {
+					if (--item.stackSize <= 0) {
+						player.inventory.setInventorySlotContents(
+								player.inventory.currentItem, new ItemStack(
+										Items.bucket));
+					}else {
+					player.inventory.addItemStackToInventory(new ItemStack(
+							Items.bucket));
+					}
+				}
+				return true;
+			} else if (item.getItem() == ChinaCraft.woodenBucket_Water) {
+				world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+				if (!player.capabilities.isCreativeMode) {
+					if (--item.stackSize <= 0) {
+						player.inventory.setInventorySlotContents(player.inventory.currentItem, new ItemStack(
+								ChinaCraft.woodenBucket));
+					}else {
+					player.inventory.addItemStackToInventory(new ItemStack(
+							ChinaCraft.woodenBucket));
+					}
+				}
+				return true;
+			} else {
+				return true;
+			}
+		}
+	}
 }

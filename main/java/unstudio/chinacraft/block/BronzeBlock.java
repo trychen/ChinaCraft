@@ -11,7 +11,6 @@ public class BronzeBlock extends Block {
 		setBlockName(StatCollector.translateToLocal("bronze_block"));
 		setHardness(5.0F);
 		setResistance(20.0F);
-		setLightLevel(0.0F);
 		setStepSound(soundTypeMetal);
 		setCreativeTab(ChinaCraft.tabCore);
 		setHarvestLevel("pickaxe", 1);

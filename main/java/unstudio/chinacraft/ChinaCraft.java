@@ -53,6 +53,7 @@ import unstudio.chinacraft.jade.JadePinkItem;
 import unstudio.chinacraft.jade.JadePurpleItem;
 import unstudio.chinacraft.jade.JadeWorkingTable;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -166,8 +167,8 @@ public class ChinaCraft {
 	    public static SoyPod soyPod = new SoyPod(); //米穗  
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
 	    public static ItemMulberryLeaf itemMulberryLeaf = new ItemMulberryLeaf(); //桑叶  
-	    public static WoodenBucket woodenBucket = new WoodenBucket(); //木桶  
-	    
+	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
+	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.water); //木水桶
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
