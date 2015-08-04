@@ -17,7 +17,7 @@ public class YanLung_Giantknife extends ItemSword{
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		stack.damageItem(1, attacker);
 		if (target.worldObj.rand.nextBoolean()) {
-			target.setFire(target.worldObj.rand.nextInt(3) + 1);
+			target.setFire(target.worldObj.rand.nextInt(5) + 1);
 		}
 		return true;
 	}
