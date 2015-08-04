@@ -2,16 +2,21 @@ package unstudio.chinacraft.block;
 
 import java.util.Random;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
+
 import unstudio.chinacraft.ChinaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenFlowers;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
@@ -181,5 +186,26 @@ public class BlockBamboo extends Block implements IPlantable
     public int getPlantMetadata(IBlockAccess world, int x, int y, int z)
     {
         return world.getBlockMetadata(x, y, z);
+    }
+    
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
+    {
+		ItemStack item = player.inventory.getCurrentItem();
+		if (item == null)
+			return true;
+		if(item.getItem() == Items.dye) {
+			if(item.getItemDamage() == 15) {
+				if(!player.capabilities.isCreativeMode&&--item.stackSize <= 0) {
+					player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+				}
+				Random r = world.rand;
+				int x1 = x + r.nextInt(3)-1;
+				int z1 = z + r.nextInt(3)-1;
+				if(world.isAirBlock(x1,y,z1)&&(world.getBlock(x1, y-1, z1)==Blocks.grass||world.getBlock(x1, y-1, z1)==Blocks.dirt)) {
+					world.setBlock(x1, y, z1, ChinaCraft.bambooShoot, 0, 2);
+				}
+			}
+		}
+		return true;
     }
 }

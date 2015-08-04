@@ -173,7 +173,7 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator
     	int i11 = random.nextInt(128);
     	int l14 = chunkZ*16 + random.nextInt(16);
     	int id = world.getBiomeGenForCoords(l6, l14).biomeID;
-    	if(id == 3||id == 4||id == 18||id == 20||id == 34||id == 27||id == 28||id == 29) {
+    	if((id == 3||id == 4||id == 18||id == 20||id == 34||id == 27||id == 28||id == 29)&&random.nextInt(16)==0) {
     		new WorldGenFlowers(ChinaCraft.bambooShoot).generate(world, random, l6, i11, l14);
     	}
 	}
