@@ -1,5 +1,6 @@
 package unstudio.chinacraft;
 
+import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRepair;
@@ -152,9 +153,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.jadePinkItem, "GreenPink");
     	GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
     	GameRegistry.registerItem(ChinaCraft.jadeKnife, "JadeKnife");
-    	
-    	JadeBenchRepair.registerJadeBenchRepair(new ItemStack(ChinaCraft.bronzeSword),new ItemStack( Items.apple),new ItemStack( Items.golden_apple));
-    	
+
     	//Drink、Food
     	GameRegistry.registerItem(ChinaCraft.cup, "Cup");
     	GameRegistry.registerItem(ChinaCraft.cup_Clay, "ClayCup");
@@ -164,6 +163,10 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.cupChrysanthemum, "ChrysanthemumDrink");
     	GameRegistry.registerItem(ChinaCraft.flour, "Flour");
     	GameRegistry.registerItem(ChinaCraft.barleyRice, "BarleyRice");
+
+		//spiritual_magic_figures
+		GameRegistry.registerItem(ChinaCraft.spiritualMagicFigures,"SpiritualMagicFigures");
+		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures,2),new Object[] {Items.paper,Items.dye});
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

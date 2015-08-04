@@ -1,9 +1,7 @@
 package unstudio.chinacraft.tileentity;
 
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
 import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.jade.Jade;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRepair;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -12,6 +10,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
+
+import java.util.Random;
 
 public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, IInventory {
 	
@@ -123,21 +123,37 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 				if (getStackInSlot(2) == null){
 					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));
 					if(r !=null) {
-						if (r.getItem().equals(ChinaCraft.jadeGreenItem)){
-
-						} else {
 							r.getTool().setItemDamage(r.getTool().getItemDamage() - 1);
 							setInventorySlotContents(2, r.getOut());
 							if (getStackInSlot(1).stackSize == 1){
 								setInventorySlotContents(1, null);
 							} else {
-							r.getItem().stackSize = r.getItem().stackSize - 1;
+								setInventorySlotContents(1,new ItemStack(getStackInSlot(1).getItem(),getStackInSlot(1).stackSize--));
+							}
+					} else {
+						if (getStackInSlot(1).getItem() == Item.getItemFromBlock(ChinaCraft.jadeOre)){
+							Item out = getStackInSlot(0).getItem();
+							if (out == ChinaCraft.hammerDiamond||out == ChinaCraft.hammerIron||out == ChinaCraft.hammerStone){
+								int rn = new Random().nextInt(3);
+								if (getStackInSlot(0).stackSize == 1){
+									setInventorySlotContents(1,null);
+								} else {
+									setInventorySlotContents(1,new ItemStack(ChinaCraft.jadeOre,getStackInSlot(1).stackSize--));
+								}
+								//getStackInSlot(0).damageItem(3 ,);
+								Item out1 = rn == 0?ChinaCraft.jadeGreenItem:ChinaCraft.jadeGreen2Item;
+								setInventorySlotContents(2, new ItemStack(out1));
 							}
 						}
 					}
-				} else {
-					//显示数据
 				}
+			}
+		}
+
+		if (getStackInSlot(2) != null){
+			Item item2 = getStackInSlot(2).getItem();
+			if (item2 == ChinaCraft.jadeGreenItem||item2 == ChinaCraft.jadeGreen2Item||item2 == ChinaCraft.jadePinkItem||item2 == ChinaCraft.jadePurpleItem){
+
 			}
 		}
 		

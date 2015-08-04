@@ -25,6 +25,7 @@ import unstudio.chinacraft.block.SoyGrow;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.block.WoodenWindow;
 import unstudio.chinacraft.combat.*;
+import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.Bamboo;
 import unstudio.chinacraft.item.BarleyRice;
 import unstudio.chinacraft.item.BronzeIngot;
@@ -197,7 +198,7 @@ public class ChinaCraft {
 	    public static JadeGreen2Item jadeGreen2Item =  new JadeGreen2Item();
 	    public static JadePinkItem jadePinkItem = new JadePinkItem();
 	    public static JadePurpleItem jadePurpleItem =new JadePurpleItem();
-	    
+
 	    //Drink、Food
 	    public static Cup cup = new Cup();
 	    public static Cup_Clay cup_Clay = new Cup_Clay();
@@ -208,4 +209,7 @@ public class ChinaCraft {
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
 	    public static Flour flour =new Flour();
 	    public static BarleyRice barleyRice =new BarleyRice();
+
+		//spiritual_magic_figures灵符
+		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures();
 }

@@ -14,6 +14,7 @@ item.bronze_body.name=青铜胸甲
 item.bronze_legs.name=青铜护腿
 item.bronze_boots.name=青铜靴子
 item.jade_knife.name=切割刀
+item.spiritual_magic_figures.name=灵符
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭

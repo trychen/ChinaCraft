@@ -21,7 +21,7 @@ public class JadeBenchRepair{
 	public ItemStack getTool(){
 		return tool;
 	}
-	public ItemStack getItem(){
+	public ItemStack getIn(){
 		return item;
 	}
 	public ItemStack getOut(){
@@ -37,7 +37,7 @@ public class JadeBenchRepair{
 	
 	public static JadeBenchRepair getJadeBenchRepair(ItemStack tool,ItemStack item) {
 		for (JadeBenchRepair r :recipes) {
-			if(r.getTool().isItemEqual(tool)&&r.getItem().isItemEqual(item)||r == null) {
+			if(r.getTool().isItemEqual(tool)&&r.getIn().isItemEqual(item)||r == null) {
 				return r;
 			}
 		}
