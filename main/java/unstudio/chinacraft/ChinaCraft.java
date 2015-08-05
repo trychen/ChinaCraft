@@ -170,6 +170,7 @@ public class ChinaCraft {
 	    public static ItemMulberryLeaf itemMulberryLeaf = new ItemMulberryLeaf(); //桑叶  
 	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
 	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.water); //木水桶
+	    public static Silkworm silkworm = new Silkworm(); //蚕
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
