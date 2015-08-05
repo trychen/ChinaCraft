@@ -24,12 +24,12 @@ public class GuiJadeBench extends GuiContainer {
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 		String s = StatCollector.translateToLocal("gui.jade_bench.title"); // 设置Gui标题
-		this.fontRendererObj.drawString(s, this.xSize / 2
-				- this.fontRendererObj.getStringWidth(s) / 2, 3, 4210752);
+		this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2
+				, 3, 4210752);
 		this.fontRendererObj.drawString(
 				I18n.format("container.inventory", new Object[0]), 8,
 				this.ySize - 96 + 2, 4210752);
-		
+		this.fontRendererObj.drawString(StatCollector.translateToLocal("gui.jade_bench.info"), this.xSize / 2 + 37 - this.fontRendererObj.getStringWidth(s) / 2, 18, 4210752);
 	}
 
 	@Override
