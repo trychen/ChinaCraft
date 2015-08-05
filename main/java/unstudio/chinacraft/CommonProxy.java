@@ -167,6 +167,8 @@ public class CommonProxy {
 		//spiritual_magic_figures
 		GameRegistry.registerItem(ChinaCraft.spiritualMagicFigures,"SpiritualMagicFigures");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures,2),new Object[] {Items.paper,Items.dye});
+		GameRegistry.registerItem(ChinaCraft.smfFire,"SpiritualMagicFiguresFire");
+		GameRegistry.registerItem(ChinaCraft.smfNightVision,"SpiritualMagicFiguresNightVision");
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

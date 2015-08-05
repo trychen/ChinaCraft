@@ -1,9 +1,5 @@
 package unstudio.chinacraft;
 
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraftforge.client.MinecraftForgeClient;
-import unstudio.chinacraft.renderer.BlockLanternRenderer;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.renderer.WoodenBucketRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
@@ -12,7 +8,6 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ClientProxy extends CommonProxy { 
     public void preInit(FMLPreInitializationEvent event) {
@@ -91,6 +86,8 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.spiritualMagicFigures.setTextureName("chinacraft:spiritual_magic_figures");
     	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
     	RenderingRegistry.registerBlockHandler(new WoodenBucketRenderer());
+		ChinaCraft.smfFire.setTextureName("chinacraft:spiritual_magic_figures_fire");
+		ChinaCraft.smfNightVision.setTextureName("chinacraft:spiritual_magic_figures_night_vision");
     	super.init(event);
     }
  

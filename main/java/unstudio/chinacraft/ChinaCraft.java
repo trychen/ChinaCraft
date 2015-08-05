@@ -212,4 +212,6 @@ public class ChinaCraft {
 
 		//spiritual_magic_figures灵符
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures();
+		public static SMFFire smfFire = new SMFFire();
+		public static SMFNightVision smfNightVision = new SMFNightVision();
 }
