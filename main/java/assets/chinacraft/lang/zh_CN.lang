@@ -59,6 +59,10 @@ item.ladyfinger.name=松脆饼
 tile.wooden_bucket.name=木桶
 item.wooden_bucket.name=木桶
 
+item.silkworm_graine.name=蚕卵
+item.silkworm_young.name=幼蚕
+item.silkworm_chrysalis.name=蚕茧
+
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
 

@@ -29,7 +29,7 @@ public class Lantern extends Block{
 
     public boolean renderAsNormalBlock()
     {
-        return false;
+        return true;
     }
     
     @SideOnly(Side.CLIENT)
