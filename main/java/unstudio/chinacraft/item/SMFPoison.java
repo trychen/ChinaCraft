@@ -13,14 +13,14 @@ public class SMFPoison extends SpiritualMagicFigures{
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        target.addPotionEffect(new PotionEffect(19,50));
+        target.addPotionEffect(new PotionEffect(19,500,4));
         stack.stackSize = stack.stackSize -1;
         return false;
     }
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        player.addPotionEffect(new PotionEffect(19, 50));
+        player.addPotionEffect(new PotionEffect(19, 250,2));
         stack.stackSize = stack.stackSize -1;
         return stack;
     }

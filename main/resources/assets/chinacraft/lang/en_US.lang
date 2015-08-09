@@ -14,7 +14,16 @@ item.bronze_body.name=Bronze Body
 item.bronze_legs.name=Bronze Legs
 item.bronze_boots.name=Bronze Boots
 item.jade_knife.name=Cutting Knife
+item.silkworm_chrysalis.name=Silkworm Chrysalis
+item.silkworm_young.name=Young Silkworm
+item.silkworm_graine.name=Silkworm Graine
 item.spiritual_magic_figures.name=Spiritual Magic Figures
+item.spiritual_magic_figures_fire.name=Fire Spiritual Magic Figures
+item.spiritual_magic_figures_power.name=Power Spiritual Magic Figures
+item.spiritual_magic_figures_Poison.name=Poison Spiritual Magic Figures
+item.spiritual_magic_figures_night_vision.name=Night Vision Spiritual Magic Figures
+item.spiritual_magic_figures_heal.name=Heal Spiritual Magic Figures
+item.spiritual_magic_figures_protect.name=protect Spiritual Magic Figures
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot

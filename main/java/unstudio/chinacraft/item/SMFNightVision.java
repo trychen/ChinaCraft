@@ -13,14 +13,14 @@ public class SMFNightVision extends SpiritualMagicFigures{
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        target.addPotionEffect(new PotionEffect(16,50));
+        target.addPotionEffect(new PotionEffect(16,target.worldObj.rand.nextInt(2000)+8000));
         stack.stackSize = stack.stackSize -1;
         return false;
     }
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        player.addPotionEffect(new PotionEffect(16, 50));
+        player.addPotionEffect(new PotionEffect(16, 10000));
         stack.stackSize = stack.stackSize -1;
         return stack;
     }

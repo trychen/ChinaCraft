@@ -15,6 +15,8 @@ public class ClientProxy extends CommonProxy {
     }
  
     public void init(FMLInitializationEvent event) {
+		ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+		RenderingRegistry.registerBlockHandler(new WoodenBucketRenderer());
     	ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
     	ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
     	ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");
@@ -82,11 +84,12 @@ public class ClientProxy extends CommonProxy {
 
 		//spiritual_magic_figures
 		ChinaCraft.spiritualMagicFigures.setTextureName("chinacraft:spiritual_magic_figures");
-    	ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-    	RenderingRegistry.registerBlockHandler(new WoodenBucketRenderer());
 		ChinaCraft.smfFire.setTextureName("chinacraft:spiritual_magic_figures_fire");
 		ChinaCraft.smfNightVision.setTextureName("chinacraft:spiritual_magic_figures_night_vision");
-    	super.init(event);
+		ChinaCraft.smfPoison.setTextureName("chinacraft:spiritual_magic_figures_poison");
+		ChinaCraft.smfPower.setTextureName("chinacraft:spiritual_magic_figures_power");
+		ChinaCraft.smfHeal.setTextureName("chinacraft:spiritual_magic_figures_heal");
+		super.init(event);
     }
  
     public void postInit(FMLPostInitializationEvent event) {
