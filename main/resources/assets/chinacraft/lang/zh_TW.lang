@@ -14,6 +14,16 @@ item.bronze_body.name=青铜胸甲
 item.bronze_legs.name=青铜護腿
 item.bronze_boots.name=青铜靴子
 item.jade_knife.name=切割刀
+item.silkworm_chrysalis.name=蠶蛹
+item.silkworm_young.name=幼蠶
+item.silkworm_graine.name=蠶卵
+item.spiritual_magic_figures.name=靈符
+item.spiritual_magic_figures_fire.name=火符
+item.spiritual_magic_figures_power.name=能量符
+item.spiritual_magic_figures_Poison.name=毒符
+item.spiritual_magic_figures_night_vision.name=金睛符
+item.spiritual_magic_figures_heal.name=命符
+item.spiritual_magic_figures_protect.name=護符
 
 tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
@@ -55,6 +65,13 @@ item.soy.name=大豆
 item.soy_pod.name=豆莢
 item.cocoa.name=可可粉
 item.ladyfinger.name=鬆脆餅
+
+tile.wooden_bucket.name=木桶
+item.wooden_bucket.name=木桶
+
+item.silkworm_graine.name=蠶卵
+item.silkworm_young.name=幼蠶
+item.silkworm_chrysalis.name=蠶繭
 
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
