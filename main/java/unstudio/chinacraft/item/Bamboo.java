@@ -2,12 +2,11 @@ package unstudio.chinacraft.item;
 
 import unstudio.chinacraft.ChinaCraft;
 import net.minecraft.block.Block;
-import net.minecraft.item.ItemReed;
+import net.minecraft.item.Item;
 
-public class Bamboo extends ItemReed{
+public class Bamboo extends Item{
 
 	public Bamboo() {
-		super(ChinaCraft.blockBamboo);
 		setCreativeTab(ChinaCraft.tabPlant);
 		setUnlocalizedName("bamboo");
 	}

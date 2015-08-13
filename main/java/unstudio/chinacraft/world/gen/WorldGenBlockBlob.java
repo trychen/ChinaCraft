@@ -66,7 +66,7 @@ public class WorldGenBlockBlob extends WorldGenerator{
                             float f2 = (float)(i2 - z);
                             float f3 = (float)(j2 - y);
 
-                            if (f1 * f1 + f2 * f2 + f3 * f3 <= f * f)
+                            if (f1 * f1 + f2 * f2 + f3 * f3 <= f * f&&world.getBlock(l1, j2, i2) == Blocks.stone)
                             {
                                 world.setBlock(l1, j2, i2, this.genBlock, 0, 4);
                             }

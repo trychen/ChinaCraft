@@ -23,7 +23,7 @@ public class WoodenWindow extends BlockPane{
 		super(arg1, arg2, Material.wood, true);
 		setBlockName(StatCollector.translateToLocal("wooden_window"));
 		setHardness(0.3F);
-		setStepSound(soundTypeGlass);
+		setStepSound(soundTypeWood);
 		setCreativeTab(ChinaCraft.tabCore);
 	}
 

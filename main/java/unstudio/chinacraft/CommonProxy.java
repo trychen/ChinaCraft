@@ -6,6 +6,7 @@ import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRepair;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
@@ -88,6 +89,9 @@ public class CommonProxy {
     	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
     	
     	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern");
+    	GameRegistry.registerBlock(ChinaCraft.cooker_on, "CookerOn");
+    	GameRegistry.registerBlock(ChinaCraft.cooker_off, "CookerOff");
+    	GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
     	
     	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
     	
@@ -127,7 +131,7 @@ public class CommonProxy {
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");//米
     	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//水稻
-    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 6), new Object[]{ChinaCraft.lcker});
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 1), new Object[]{ChinaCraft.lcker});
     	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
     	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[]{ChinaCraft.soyPod});
@@ -147,7 +151,6 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBoots, 1), new Object[]{"   ", "# #", "# #", '#', ChinaCraft.bronzeIngot});
     	
-    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.rices), null, 360);
     	//Jade
     	GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "GreenJade");
     	GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
@@ -163,7 +166,12 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.ladyfinger, "Ladyfinger");
     	GameRegistry.registerItem(ChinaCraft.cupChrysanthemum, "ChrysanthemumDrink");
     	GameRegistry.registerItem(ChinaCraft.flour, "Flour");
+    	GameRegistry.registerItem(ChinaCraft.riceFlour, "RiceFlour");
     	GameRegistry.registerItem(ChinaCraft.barleyRice, "BarleyRice");
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.barleyRice), new ItemStack(Items.wheat));
+    	
+    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null, new ItemStack(ChinaCraft.flour), null, 360);
+    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.riceFlour), null, 360);
 
 		//spiritual_magic_figures
 		GameRegistry.registerItem(ChinaCraft.spiritualMagicFigures,"SpiritualMagicFigures");

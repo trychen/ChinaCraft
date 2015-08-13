@@ -8,6 +8,7 @@ import unstudio.chinacraft.block.BlockWoodenBucket;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
+import unstudio.chinacraft.block.Cooker;
 import unstudio.chinacraft.block.CopperOre;
 import unstudio.chinacraft.block.Lantern;
 import unstudio.chinacraft.block.Marble;
@@ -26,26 +27,6 @@ import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.block.WoodenWindow;
 import unstudio.chinacraft.combat.*;
 import unstudio.chinacraft.item.*;
-import unstudio.chinacraft.item.Bamboo;
-import unstudio.chinacraft.item.BarleyRice;
-import unstudio.chinacraft.item.BronzeIngot;
-import unstudio.chinacraft.item.Cocoa;
-import unstudio.chinacraft.item.Cup;
-import unstudio.chinacraft.item.CupChocolate;
-import unstudio.chinacraft.item.CupChrysanthemum;
-import unstudio.chinacraft.item.CupWater;
-import unstudio.chinacraft.item.Cup_Clay;
-import unstudio.chinacraft.item.Flour;
-import unstudio.chinacraft.item.ItemBuhrimill;
-import unstudio.chinacraft.item.ItemMulberryLeaf;
-import unstudio.chinacraft.item.Ladyfinger;
-import unstudio.chinacraft.item.Lcker;
-import unstudio.chinacraft.item.Rices;
-import unstudio.chinacraft.item.SilverIngot;
-import unstudio.chinacraft.item.Soy;
-import unstudio.chinacraft.item.SoyPod;
-import unstudio.chinacraft.item.TinIngot;
-import unstudio.chinacraft.item.WoodenBucket;
 import unstudio.chinacraft.jade.JadeGreen2Item;
 import unstudio.chinacraft.jade.JadeGreenItem;
 import unstudio.chinacraft.jade.JadeKnife;
@@ -157,15 +138,18 @@ public class ChinaCraft {
 	    public static Lantern lantern = new Lantern(); //灯笼  
 	    public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //木桶
 	    
+	    public static Cooker cooker_off = new Cooker(false); //灶台
+	    public static Cooker cooker_on	= new Cooker(true); //灶台
+	    
 	    //物品
 	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
 	    public static TinIngot tinIngot = new TinIngot();  //铜锭
 	    public static SilverIngot silverIngot = new SilverIngot();  //银锭
 	    public static Rices rices = new Rices(); //米  
 	    public static Lcker lcker = new Lcker(); //米穗  
-	    public static Soy soy = new Soy(); //米穗  
+	    public static Soy soy = new Soy(); //大豆
 	    public static Bamboo bamboo = new Bamboo(); //竹子 
-	    public static SoyPod soyPod = new SoyPod(); //米穗  
+	    public static SoyPod soyPod = new SoyPod(); //大豆荚
 	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
 	    public static ItemMulberryLeaf itemMulberryLeaf = new ItemMulberryLeaf(); //桑叶  
 	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
@@ -186,7 +170,7 @@ public class ChinaCraft {
 	    public static JadeKnife jadeKnife = new JadeKnife();//玉石切割刀
 		public static HammerStone hammerStone = new HammerStone();//石锤
 		public static HammerIron hammerIron = new HammerIron();//铁锤
-		public static HammerDiamond hammerDiamond = new HammerDiamond();//铁锤
+		public static HammerDiamond hammerDiamond = new HammerDiamond();//钻石锤
 
 	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
@@ -208,8 +192,9 @@ public class ChinaCraft {
 	    public static Ladyfinger ladyfinger =new Ladyfinger();
 	    public static CupWater cupWater =new CupWater();
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
-	    public static Flour flour =new Flour();
-	    public static BarleyRice barleyRice =new BarleyRice();
+	    public static Flour flour =new Flour(); //面粉
+	    public static RiceFlour riceFlour = new RiceFlour(); //米粉
+	    public static BarleyRice barleyRice =new BarleyRice(); //麦仁,大麦米
 
 		//spiritual_magic_figures灵符
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures();

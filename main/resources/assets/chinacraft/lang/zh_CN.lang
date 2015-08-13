@@ -65,6 +65,9 @@ item.soy.name=大豆
 item.soy_pod.name=豆荚
 item.cocoa.name=可可粉
 item.ladyfinger.name=松脆饼
+item.flour.name=面粉
+item.rice_flour.name=米粉
+item.barley_rice.name=麦仁
 
 tile.wooden_bucket.name=木桶
 item.wooden_bucket.name=木桶
@@ -82,6 +85,9 @@ gui.buhrimill.title=石磨
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
+
+tile.cooker.name=灶台
+gui.cooker.title=灶台
 
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉

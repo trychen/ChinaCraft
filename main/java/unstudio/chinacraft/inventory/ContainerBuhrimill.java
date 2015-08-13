@@ -54,20 +54,20 @@ public class ContainerBuhrimill extends Container{
 			var3 = var5.copy();
 			// 点击到Slot的ID为0-3之间的时候，将物品送回玩家的背包中
 			if (par2 >= 0 && par2 <= 3) {
-				if (!this.mergeItemStack(var5, 4, 30, false)) {
+				if (!this.mergeItemStack(var5, 4, 31, false)) {
 					return null;
 				}
 				var4.onSlotChange(var5, var3);
 			}
 			// 点击到玩家的背包的时候将物品送到玩家的快捷栏中
-			else if (par2 > 4 && par2 < 30) {
-				if (!this.mergeItemStack(var5, 30, 39, false)) {
+			else if (par2 > 3 && par2 < 31) {
+				if (!this.mergeItemStack(var5, 31, 40, false)) {
 					return null;
 				}
 			}
 			// 点击到玩家的快捷栏的时候将物品送到背包中
-			else if (par2 >= 30 && par2 < 39) {
-				if (!this.mergeItemStack(var5, 4, 30, false)) {
+			else if (par2 >= 31 && par2 < 40) {
+				if (!this.mergeItemStack(var5, 4, 31, false)) {
 					return null;
 				}
 			}
