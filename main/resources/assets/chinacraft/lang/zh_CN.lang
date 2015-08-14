@@ -81,6 +81,7 @@ gui.buhrimill.title=石磨
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
+gui.jade_table.info=玉石信息
 
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉

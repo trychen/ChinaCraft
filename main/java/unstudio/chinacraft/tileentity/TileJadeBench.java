@@ -140,7 +140,6 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 								} else {
 									setInventorySlotContents(1,new ItemStack(ChinaCraft.jadeOre,getStackInSlot(1).stackSize--));
 								}
-								//getStackInSlot(0).damageItem(3 ,);
 								Item out1 = rn == 0?ChinaCraft.jadeGreenItem:ChinaCraft.jadeGreen2Item;
 								setInventorySlotContents(2, new ItemStack(out1));
 							}
