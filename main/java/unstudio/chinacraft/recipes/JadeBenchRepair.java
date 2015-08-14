@@ -13,6 +13,13 @@ public class JadeBenchRepair{
 	private final ItemStack tool;
 	private final ItemStack item;
 	private final ItemStack out;
+
+	/**
+	 * 构造玉石配方
+	 * @param tool 工具
+	 * @param item 物品
+	 * @param out 输出
+	 */
 	public JadeBenchRepair(ItemStack tool,ItemStack item,ItemStack out){
 		this.tool = tool;
 		this.item = item;
@@ -29,12 +36,13 @@ public class JadeBenchRepair{
 	}
 	
 	private static ArrayList<JadeBenchRepair> recipes = new ArrayList<JadeBenchRepair>();
-	
+
 	public static void registerJadeBenchRepair(ItemStack tool,ItemStack item,ItemStack out) {
 		if(tool == null&&item == null)return;
 		recipes.add(new JadeBenchRepair(tool, item, out));
 	}
-	
+
+
 	public static JadeBenchRepair getJadeBenchRepair(ItemStack tool,ItemStack item) {
 		for (JadeBenchRepair r :recipes) {
 			if(r.getTool().isItemEqual(tool)&&r.getIn().isItemEqual(item)||r == null) {
