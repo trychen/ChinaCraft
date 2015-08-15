@@ -241,20 +241,16 @@ public class TileCooker extends TileEntity implements ISidedInventory{
 	                        {
 	                            --this.stack[0].stackSize;
 
-	                            if (this.stack[0].stackSize == 0)
+	                            if (this.stack[0].stackSize <= 0)
 	                            {
 	                                this.stack[0] = stack[0].getItem().getContainerItem(stack[0]);
 	                            }
 	                        }
 	                    }
 	                }
-
 	                if (this.isBurning())
 	                {
 	                        flag1 = true;
-	                }
-	                else
-	                {
 	                }
 	            }
 

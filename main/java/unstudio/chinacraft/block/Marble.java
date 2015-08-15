@@ -44,7 +44,7 @@ public class Marble extends Block implements IWorldGenerator {
 			int firstBlockYCoord = random.nextInt(32) + 32;
 			int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-			(new WorldGenBlockBlob(this, 2)).generate(world, random,
+			(new WorldGenMinable(this, 32)).generate(world, random,
 					firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
 		}
 	}

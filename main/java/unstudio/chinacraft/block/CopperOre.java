@@ -34,7 +34,7 @@ public class CopperOre extends Block implements IWorldGenerator {
 				int firstBlockYCoord = random.nextInt(64);
 				int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
 
-				(new WorldGenMinable(this, 3, 8, Blocks.stone)).generate(world,
+				(new WorldGenMinable(this, 8, Blocks.stone)).generate(world,
 						random, firstBlockXCoord, firstBlockYCoord,
 						firstBlockZCoord);
 			}
