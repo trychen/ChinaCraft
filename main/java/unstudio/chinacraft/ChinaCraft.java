@@ -10,6 +10,7 @@ import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.block.ChiseledMarble;
 import unstudio.chinacraft.block.Cooker;
 import unstudio.chinacraft.block.CopperOre;
+import unstudio.chinacraft.block.JadeWorkingTable;
 import unstudio.chinacraft.block.Lantern;
 import unstudio.chinacraft.block.Marble;
 import unstudio.chinacraft.block.MarbleSlab;
@@ -25,18 +26,33 @@ import unstudio.chinacraft.block.SmoothMarble;
 import unstudio.chinacraft.block.SoyGrow;
 import unstudio.chinacraft.block.TinOre;
 import unstudio.chinacraft.block.WoodenWindow;
-import unstudio.chinacraft.combat.*;
 import unstudio.chinacraft.item.*;
-import unstudio.chinacraft.jade.JadeGreen2Item;
-import unstudio.chinacraft.jade.JadeGreenItem;
-import unstudio.chinacraft.jade.JadeKnife;
-import unstudio.chinacraft.jade.JadeOre;
-import unstudio.chinacraft.jade.JadePinkItem;
-import unstudio.chinacraft.jade.JadePurpleItem;
-import unstudio.chinacraft.jade.JadeWorkingTable;
+import unstudio.chinacraft.item.combat.BronzeAxe;
+import unstudio.chinacraft.item.combat.BronzeBoots;
+import unstudio.chinacraft.item.combat.BronzeBroadSword;
+import unstudio.chinacraft.item.combat.BronzeChestplate;
+import unstudio.chinacraft.item.combat.BronzeHelmet;
+import unstudio.chinacraft.item.combat.BronzeHoe;
+import unstudio.chinacraft.item.combat.BronzeLeggings;
+import unstudio.chinacraft.item.combat.BronzePickaxe;
+import unstudio.chinacraft.item.combat.BronzeShovel;
+import unstudio.chinacraft.item.combat.BronzeSword;
+import unstudio.chinacraft.item.combat.HammerDiamond;
+import unstudio.chinacraft.item.combat.HammerIron;
+import unstudio.chinacraft.item.combat.HammerStone;
+import unstudio.chinacraft.item.combat.JiuQu_tang;
+import unstudio.chinacraft.item.combat.YanLung_Giantknife;
+import unstudio.chinacraft.item.jade.JadeGreen2Item;
+import unstudio.chinacraft.item.jade.JadeGreenItem;
+import unstudio.chinacraft.item.jade.JadeKnife;
+import unstudio.chinacraft.item.jade.JadeOre;
+import unstudio.chinacraft.item.jade.JadePinkItem;
+import unstudio.chinacraft.item.jade.JadePurpleItem;
+import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemReed;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Mod;
@@ -143,18 +159,18 @@ public class ChinaCraft {
 	    public static Cooker cooker_on	= new Cooker(true); //灶台
 	    
 	    //物品
-	    public static BronzeIngot bronzeIngot = new BronzeIngot();  //青铜锭
-	    public static TinIngot tinIngot = new TinIngot();  //铜锭
-	    public static SilverIngot silverIngot = new SilverIngot();  //银锭
-	    public static Rices rices = new Rices(); //米  
-	    public static Lcker lcker = new Lcker(); //米穗  
-	    public static Soy soy = new Soy(); //大豆
-	    public static Bamboo bamboo = new Bamboo(); //竹子 
-	    public static SoyPod soyPod = new SoyPod(); //大豆荚
-	    public static ItemBuhrimill itemBuhrimill = new ItemBuhrimill(); //石磨  
-	    public static ItemMulberryLeaf itemMulberryLeaf = new ItemMulberryLeaf(); //桑叶  
+	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
+	    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
+	    public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); //银锭
+	    public static CropPlant rices = (CropPlant) new CropPlant(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //米
+	    public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabPlant); //米穗  
+	    public static CropPlant soy = (CropPlant) new 	CropPlant(ChinaCraft.soyGrow).setUnlocalizedName("soy"); //大豆
+	    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //竹子 
+	    public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //大豆荚
+	    public static ItemReed itemBuhrimill = (ItemReed) new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨  
+	    public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabCore); //桑叶  
 	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
-	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.water); //木水桶
+	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
 	    public static Silkworm silkworm = new Silkworm(); //蚕
 	    
 	    //防具武器
@@ -186,16 +202,16 @@ public class ChinaCraft {
 	    public static JadePurpleItem jadePurpleItem =new JadePurpleItem();
 
 	    //Drink、Food
-	    public static Cup cup = new Cup(); //杯
-	    public static Cup_Clay cup_Clay = new Cup_Clay();
+	    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabPlant); //杯
+	    public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupChocolate cupChocolate = new CupChocolate();
-	    public static Cocoa cocoa =new Cocoa();
+	    public static Item cocoa =new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabPlant);
 	    public static Ladyfinger ladyfinger =new Ladyfinger();
 	    public static CupWater cupWater =new CupWater();
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
-	    public static Flour flour =new Flour(); //面粉
-	    public static RiceFlour riceFlour = new RiceFlour(); //米粉
-	    public static BarleyRice barleyRice =new BarleyRice(); //麦仁,大麦米
+	    public static Item flour =new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
+	    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); //米粉
+	    public static Item barleyRice =new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
 
 		//spiritual_magic_figures灵符
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符

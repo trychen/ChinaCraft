@@ -28,158 +28,126 @@ public class WoodenBucket extends Item{
 	}
     
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
-		boolean flag = this.isFull == Blocks.air;
-		MovingObjectPosition movingobjectposition = this
-				.getMovingObjectPositionFromPlayer(world, player, flag);
-
-		if (movingobjectposition == null) {
+		if(player.isSneaking()) {
 			return item;
-		} else {
-			if (player.isSneaking()) {
-				return super.onItemRightClick(item, world, player);
-//				int i = movingobjectposition.blockX;
-//				int j = movingobjectposition.blockY;
-//				int k = movingobjectposition.blockZ;
-//				if (movingobjectposition.sideHit == 0) {
-//					--j;
-//				}
-//
-//				if (movingobjectposition.sideHit == 1) {
-//					++j;
-//				}
-//
-//				if (movingobjectposition.sideHit == 2) {
-//					--k;
-//				}
-//
-//				if (movingobjectposition.sideHit == 3) {
-//					++k;
-//				}
-//
-//				if (movingobjectposition.sideHit == 4) {
-//					--i;
-//				}
-//
-//				if (movingobjectposition.sideHit == 5) {
-//					++i;
-//				}
-//
-//				if (!player.canPlayerEdit(i, j, k,
-//						movingobjectposition.sideHit, item)) {
-//					return item;
-//				}
-//
-//				if (i == (int)player.posX
-//						&& (j == (int)player.posY || j == ((int)player.posY) + 1)
-//						&& k == (int)player.posZ) {
-//					return item;
-//				}
-//
-//				if (isFull == Blocks.air) {
-//					if (world.setBlock(i, j, k, ChinaCraft.blockWoodenBucket,
-//							0, 2) && !player.capabilities.isCreativeMode) {
-//						if (--item.stackSize <= 0) {
-//							return item;
-//						}
-//					}
-//				} else if (isFull == Blocks.water) {
-//					if (world.setBlock(i, j, k, ChinaCraft.blockWoodenBucket,
-//							1, 2) && !player.capabilities.isCreativeMode) {
-//						if (--item.stackSize <= 0) {
-//							return item;
-//						}
-//					}
-//				}
-			} else {
-				FillBucketEvent event = new FillBucketEvent(player, item,
-						world, movingobjectposition);
-				if (MinecraftForge.EVENT_BUS.post(event)) {
-					return item;
-				}
-
-				if (event.getResult() == Event.Result.ALLOW) {
-					if (player.capabilities.isCreativeMode) {
-						return item;
-					}
-
-					if (--item.stackSize <= 0) {
-						return event.result;
-					}
-
-					if (!player.inventory.addItemStackToInventory(event.result)) {
-						player.dropPlayerItemWithRandomChoice(event.result,
-								false);
-					}
-
-					return item;
-				}
-				if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
-					int i = movingobjectposition.blockX;
-					int j = movingobjectposition.blockY;
-					int k = movingobjectposition.blockZ;
-
-					if (!world.canMineBlock(player, i, j, k)) {
-						return item;
-					}
-
-					if (flag) {
-						if (!player.canPlayerEdit(i, j, k,
-								movingobjectposition.sideHit, item)) {
-							return item;
-						}
-
-						Material material = world.getBlock(i, j, k)
-								.getMaterial();
-						int l = world.getBlockMetadata(i, j, k);
-
-						if (material == Material.water && l == 0) {
-							world.setBlockToAir(i, j, k);
-							return this.func_150910_a(item, player,
-									ChinaCraft.woodenBucket_Water);
-						}
-					} else {
-						if (this.isFull == Blocks.air) {
-							return new ItemStack(ChinaCraft.woodenBucket);
-						}
-
-						if (movingobjectposition.sideHit == 0) {
-							--j;
-						}
-
-						if (movingobjectposition.sideHit == 1) {
-							++j;
-						}
-
-						if (movingobjectposition.sideHit == 2) {
-							--k;
-						}
-
-						if (movingobjectposition.sideHit == 3) {
-							++k;
-						}
-
-						if (movingobjectposition.sideHit == 4) {
-							--i;
-						}
-
-						if (movingobjectposition.sideHit == 5) {
-							++i;
-						}
-
-						if (!player.canPlayerEdit(i, j, k,
-								movingobjectposition.sideHit, item)) {
-							return item;
-						}
-
-						if (this.tryPlaceContainedLiquid(world, i, j, k)
-								&& !player.capabilities.isCreativeMode) {
-							return new ItemStack(ChinaCraft.woodenBucket);
-						}
-					}
-				}
-			}
 		}
-		return item;
+	       boolean flag = this.isFull == Blocks.air;
+	        MovingObjectPosition movingobjectposition = this.getMovingObjectPositionFromPlayer(world, player, flag);
+
+	        if (movingobjectposition == null)
+	        {
+	            return item;
+	        }
+	        else
+	        {
+	            FillBucketEvent event = new FillBucketEvent(player, item, world, movingobjectposition);
+	            if (MinecraftForge.EVENT_BUS.post(event))
+	            {
+	                return item;
+	            }
+
+	            if (event.getResult() == Event.Result.ALLOW)
+	            {
+	                if (player.capabilities.isCreativeMode)
+	                {
+	                    return item;
+	                }
+
+	                if (--item.stackSize <= 0)
+	                {
+	                    return event.result;
+	                }
+
+	                if (!player.inventory.addItemStackToInventory(event.result))
+	                {
+	                    player.dropPlayerItemWithRandomChoice(event.result, false);
+	                }
+
+	                return item;
+	            }
+	            if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK)
+	            {
+	                int i = movingobjectposition.blockX;
+	                int j = movingobjectposition.blockY;
+	                int k = movingobjectposition.blockZ;
+
+	                if (!world.canMineBlock(player, i, j, k))
+	                {
+	                    return item;
+	                }
+
+	                if (flag)
+	                {
+	                    if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, item))
+	                    {
+	                        return item;
+	                    }
+
+	                    Material material = world.getBlock(i, j, k).getMaterial();
+	                    int l = world.getBlockMetadata(i, j, k);
+
+	                    if (material == Material.water && l == 0)
+	                    {
+	                        world.setBlockToAir(i, j, k);
+	                        return this.func_150910_a(item, player, Items.water_bucket);
+	                    }
+
+	                    if (material == Material.lava && l == 0)
+	                    {
+	                        world.setBlockToAir(i, j, k);
+	                        return this.func_150910_a(item, player, Items.lava_bucket);
+	                    }
+	                }
+	                else
+	                {
+	                    if (this.isFull == Blocks.air)
+	                    {
+	                        return new ItemStack(Items.bucket);
+	                    }
+
+	                    if (movingobjectposition.sideHit == 0)
+	                    {
+	                        --j;
+	                    }
+
+	                    if (movingobjectposition.sideHit == 1)
+	                    {
+	                        ++j;
+	                    }
+
+	                    if (movingobjectposition.sideHit == 2)
+	                    {
+	                        --k;
+	                    }
+
+	                    if (movingobjectposition.sideHit == 3)
+	                    {
+	                        ++k;
+	                    }
+
+	                    if (movingobjectposition.sideHit == 4)
+	                    {
+	                        --i;
+	                    }
+
+	                    if (movingobjectposition.sideHit == 5)
+	                    {
+	                        ++i;
+	                    }
+
+	                    if (!player.canPlayerEdit(i, j, k, movingobjectposition.sideHit, item))
+	                    {
+	                        return item;
+	                    }
+
+	                    if (this.tryPlaceContainedLiquid(world, i, j, k) && !player.capabilities.isCreativeMode)
+	                    {
+	                        return new ItemStack(Items.bucket);
+	                    }
+	                }
+	            }
+	            return item;
+	        }
 	}
 
     private ItemStack func_150910_a(ItemStack p_150910_1_, EntityPlayer p_150910_2_, Item p_150910_3_)
@@ -306,7 +274,7 @@ public class WoodenBucket extends Item{
             {
                 int i1 = ChinaCraft.blockWoodenBucket.onBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_, 0);
 
-                if (p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, ChinaCraft.blockWoodenBucket, isFull == Blocks.air?0:isFull == Blocks.water?1:0, 3))
+                if (p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, ChinaCraft.blockWoodenBucket, isFull == Blocks.air?0:isFull == Blocks.flowing_water?1:0, 3))
                 {
                     if (p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == ChinaCraft.blockWoodenBucket)
                     {

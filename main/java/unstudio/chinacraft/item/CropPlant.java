@@ -17,7 +17,6 @@ public class CropPlant extends Item implements IPlantable {
 	private Block bb;
 
 	public CropPlant(Block b) {
-		super();
 		this.setCreativeTab(ChinaCraft.tabPlant);
 		this.bb = b;
 	}
