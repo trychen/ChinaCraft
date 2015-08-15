@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
 import unstudio.chinacraft.block.Buhrimill;
+import unstudio.chinacraft.entity.EntityKongmingLantern;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRepair;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
@@ -28,6 +29,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
@@ -130,7 +132,7 @@ public class CommonProxy {
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");//米
     	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//水稻
-    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 1), new Object[]{ChinaCraft.lcker});
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 2), new Object[]{ChinaCraft.lcker});
     	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
     	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[]{ChinaCraft.soyPod});
@@ -189,6 +191,8 @@ public class CommonProxy {
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfFire), new Object[]{ChinaCraft.spiritualMagicFigures, Items.blaze_powder, Items.redstone, Items.glowstone_dust});
 		GameRegistry.registerItem(ChinaCraft.smfHeal, "SpiritualMagicFiguresHeal");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfFire), new Object[]{ChinaCraft.spiritualMagicFigures, Items.ghast_tear, Items.golden_apple, Items.redstone});
+		
+		EntityRegistry.registerModEntity(EntityKongmingLantern.class, "KongmingLantern", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 256, 1, true);
     }
 
 	public void postInit(FMLPostInitializationEvent event) {

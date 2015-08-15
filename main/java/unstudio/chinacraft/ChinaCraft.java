@@ -52,6 +52,7 @@ import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemReed;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -206,7 +207,7 @@ public class ChinaCraft {
 	    public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupChocolate cupChocolate = new CupChocolate();
 	    public static Item cocoa =new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabPlant);
-	    public static Ladyfinger ladyfinger =new Ladyfinger();
+	    public static ItemFood ladyfinger =(ItemFood) new ItemFood(1, true).setUnlocalizedName("ladyfinger").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupWater cupWater =new CupWater();
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
 	    public static Item flour =new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
