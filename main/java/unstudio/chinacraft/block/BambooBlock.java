@@ -12,5 +12,6 @@ public class BambooBlock extends Block{
 		super (Material.wood);
 		setBlockName("bamboo_block");
 		setCreativeTab(ChinaCraft.tabCore);
+		setStepSound(soundTypeWood);
 	}
 }

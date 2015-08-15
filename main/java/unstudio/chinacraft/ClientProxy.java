@@ -1,7 +1,7 @@
 package unstudio.chinacraft;
 
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
-import unstudio.chinacraft.renderer.WoodenBucketRenderer;
+import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -16,7 +16,7 @@ public class ClientProxy extends CommonProxy {
  
     public void init(FMLInitializationEvent event) {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-		RenderingRegistry.registerBlockHandler(new WoodenBucketRenderer());
+		RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
     	ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
     	ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
     	ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");
@@ -41,7 +41,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.jiuqu_tang.setTextureName("chinacraft:jiuqu_tang");
     	ChinaCraft.tinIngot.setTextureName("chinacraft:tin_ingot");
     	ChinaCraft.silverIngot.setTextureName("chinacraft:silver_ingot");
-    	ChinaCraft.rices.setTextureName("chinacraft:rice_item");
+    	ChinaCraft.rices.setTextureName("chinacraft:barley_rice");
     	ChinaCraft.soy.setTextureName("chinacraft:soy_item");
     	ChinaCraft.lcker.setTextureName("chinacraft:lcker");
     	ChinaCraft.soyPod.setTextureName("chinacraft:soy_pod");
@@ -80,6 +80,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.cupWater.setTextureName("chinacraft:cup_water");
     	ChinaCraft.cupChrysanthemum.setTextureName("chinacraft:cup_chrysanthemum");
     	ChinaCraft.flour.setTextureName("chinacraft:flour");
+    	ChinaCraft.riceFlour.setTextureName("chinacraft:flour");
     	ChinaCraft.barleyRice.setTextureName("chinacraft:barley_rice");
 
 		//spiritual_magic_figures
@@ -89,6 +90,7 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.smfPoison.setTextureName("chinacraft:spiritual_magic_figures_poison");
 		ChinaCraft.smfPower.setTextureName("chinacraft:spiritual_magic_figures_power");
 		ChinaCraft.smfHeal.setTextureName("chinacraft:spiritual_magic_figures_heal");
+		ChinaCraft.smfProtect.setTextureName("chinacraft:spiritual_magic_figures_protect");
 		super.init(event);
     }
  

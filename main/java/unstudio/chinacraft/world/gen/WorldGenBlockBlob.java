@@ -21,27 +21,6 @@ public class WorldGenBlockBlob extends WorldGenerator{
 
     public boolean generate(World world, Random random, int x, int y, int z)
     {
-        while (true)
-        {
-            if (y > 3)
-            {
-                label63:
-                {
-                    if (!world.isAirBlock(x, y - 1, z))
-                    {
-                        Block block = world.getBlock(x, y - 1, z);
-
-                        if (block == Blocks.stone)
-                        {
-                            break label63;
-                        }
-                    }
-
-                    --y;
-                    continue;
-                }
-            }
-
             if (y <= 3)
             {
                 return false;
@@ -66,7 +45,7 @@ public class WorldGenBlockBlob extends WorldGenerator{
                             float f2 = (float)(i2 - z);
                             float f3 = (float)(j2 - y);
 
-                            if (f1 * f1 + f2 * f2 + f3 * f3 <= f * f)
+                            if (f1 * f1 + f2 * f2 + f3 * f3 <= f * f&&world.getBlock(l1, j2, i2) == Blocks.stone)
                             {
                                 world.setBlock(l1, j2, i2, this.genBlock, 0, 4);
                             }
@@ -78,9 +57,7 @@ public class WorldGenBlockBlob extends WorldGenerator{
                 z += -(k2 + 1) + random.nextInt(2 + k2 * 2);
                 y += 0 - random.nextInt(2);
             }
-
             return true;
-        }
     }
 
 }

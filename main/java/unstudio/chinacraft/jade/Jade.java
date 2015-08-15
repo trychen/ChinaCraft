@@ -6,11 +6,19 @@ import net.minecraft.item.Item;
 import unstudio.chinacraft.ChinaCraft;
 
 public class Jade extends Item{
-	private int Level = 1; 
+	private int Level = 1;
 	private Random random = new Random();
-	public Jade () {
+	public Jade (String s) {
+		setUnlocalizedName(s);
 		setMaxStackSize(16);
 		setCreativeTab(ChinaCraft.tabCore);
+		setlevel();
+	}
+	public Jade (String s,int level) {
+		setUnlocalizedName(s);
+		setMaxStackSize(16);
+		setCreativeTab(ChinaCraft.tabCore);
+		setlevel(level);
 	}
 	public void setlevel() {
 		this.Level = random.nextInt(2)+1;

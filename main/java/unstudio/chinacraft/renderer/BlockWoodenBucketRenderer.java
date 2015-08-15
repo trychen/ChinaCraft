@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-public class WoodenBucketRenderer implements ISimpleBlockRenderingHandler{
+public class BlockWoodenBucketRenderer implements ISimpleBlockRenderingHandler{
 
 	public static int renderID = RenderingRegistry.getNextAvailableRenderId();
 	

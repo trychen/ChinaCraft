@@ -7,7 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
-import unstudio.chinacraft.renderer.WoodenBucketRenderer;
+import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -56,7 +56,7 @@ public class BlockWoodenBucket extends Block{
 
     public int getRenderType()
     {
-        return WoodenBucketRenderer.renderID;
+        return BlockWoodenBucketRenderer.renderID;
     }
     
     public boolean isOpaqueCube()

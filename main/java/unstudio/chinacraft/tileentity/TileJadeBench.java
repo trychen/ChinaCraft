@@ -121,25 +121,26 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 		if (getStackInSlot(0) != null){
 			if (getStackInSlot(1) != null){
 				if (getStackInSlot(2) == null){
-					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));
-					if(r !=null) {
+					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));//获取合成
+					if(r !=null) { //如果存在合成
 							r.getTool().setItemDamage(r.getTool().getItemDamage() - 1);
 							setInventorySlotContents(2, r.getOut());
-							if (getStackInSlot(1).stackSize == 1){
+							if (getStackInSlot(1).stackSize == 1){ //判断是否只有一个，如果是则删除
 								setInventorySlotContents(1, null);
 							} else {
 								setInventorySlotContents(1,new ItemStack(getStackInSlot(1).getItem(),getStackInSlot(1).stackSize--));
 							}
 					} else {
-						if (getStackInSlot(1).getItem() == Item.getItemFromBlock(ChinaCraft.jadeOre)){
-							Item out = getStackInSlot(0).getItem();
-							if (out == ChinaCraft.hammerDiamond||out == ChinaCraft.hammerIron||out == ChinaCraft.hammerStone){
+						Item tool = getStackInSlot(0).getItem();
+						if (getStackInSlot(1).getItem() == Item.getItemFromBlock(ChinaCraft.jadeOre) && getStackInSlot(2) == null &&tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//判断是否为打磨玉石
+							if (tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//判断slot[0]是否是锤
 								int rn = new Random().nextInt(3);
 								if (getStackInSlot(0).stackSize == 1){
 									setInventorySlotContents(1,null);
 								} else {
-									setInventorySlotContents(1,new ItemStack(ChinaCraft.jadeOre,getStackInSlot(1).stackSize--));
+									setInventorySlotContents(1, new ItemStack(ChinaCraft.jadeOre, getStackInSlot(1).stackSize--));
 								}
+								getStackInSlot(0).setItemDamage(getStackInSlot(0).getItemDamage() - 5);
 								Item out1 = rn == 0?ChinaCraft.jadeGreenItem:ChinaCraft.jadeGreen2Item;
 								setInventorySlotContents(2, new ItemStack(out1));
 							}
