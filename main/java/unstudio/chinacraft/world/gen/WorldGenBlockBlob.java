@@ -7,11 +7,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+@Deprecated
 public class WorldGenBlockBlob extends WorldGenerator{
 
+	@Deprecated
     private Block genBlock;
+	@Deprecated
     private int field_150544_b;
 
+    @Deprecated
     public WorldGenBlockBlob(Block genBlock, int p_i45450_2_)
     {
         super(false);
@@ -19,6 +23,7 @@ public class WorldGenBlockBlob extends WorldGenerator{
         this.field_150544_b = p_i45450_2_;
     }
 
+    @Deprecated
     public boolean generate(World world, Random random, int x, int y, int z)
     {
             if (y <= 3)

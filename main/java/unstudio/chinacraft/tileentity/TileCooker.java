@@ -193,7 +193,7 @@ public class TileCooker extends TileEntity implements ISidedInventory{
 	        }
 
 	        this.furnaceBurnTime = p_145839_1_.getShort("BurnTime");
-	        this.currentItemBurnTime = getItemBurnTime(this.stack[1]);
+	        this.currentItemBurnTime = getItemBurnTime(this.stack[0]);
 	    }
 
 	    public void writeToNBT(NBTTagCompound p_145841_1_)
