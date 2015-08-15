@@ -42,13 +42,9 @@ import unstudio.chinacraft.item.combat.HammerIron;
 import unstudio.chinacraft.item.combat.HammerStone;
 import unstudio.chinacraft.item.combat.JiuQu_tang;
 import unstudio.chinacraft.item.combat.YanLung_Giantknife;
-import unstudio.chinacraft.item.jade.JadeGreen2Item;
-import unstudio.chinacraft.item.jade.JadeGreenItem;
+import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadeOre;
-import unstudio.chinacraft.item.jade.JadePinkItem;
-import unstudio.chinacraft.item.jade.JadePurpleItem;
-import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -195,12 +191,12 @@ public class ChinaCraft {
 	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲
 	    public static BronzeLeggings bronzeLeggings =  new BronzeLeggings();//青铜护腿
 	    public static BronzeBoots bronzeBoots =  new BronzeBoots();//青铜靴子
-	    
+
 	    //玉石
-	    public static JadeGreenItem jadeGreenItem =  new JadeGreenItem();
-	    public static JadeGreen2Item jadeGreen2Item =  new JadeGreen2Item();
-	    public static JadePinkItem jadePinkItem = new JadePinkItem();
-	    public static JadePurpleItem jadePurpleItem =new JadePurpleItem();
+	    public static Jade jadeGreenItem =  new Jade("jade_green");
+	    public static Jade jadeGreen2Item =  new Jade("jade_green2");
+	    public static Jade jadePinkItem = new Jade("jade_pink");
+	    public static Jade jadePurpleItem =new Jade("jade_purple");
 
 	    //Drink、Food
 	    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabPlant); //杯
@@ -217,8 +213,9 @@ public class ChinaCraft {
 		//spiritual_magic_figures灵符
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符
 		public static SMFFire smfFire = new SMFFire(); //火
-		public static SMFNightVision smfNightVision = new SMFNightVision(); //夜视
-		public static SMFPoison smfPoison = new SMFPoison(); //中毒
-		public static SMFPower smfPower = new SMFPower(); //力量
-		public static SMFHeal smfHeal = new SMFHeal(); //生命回复
+		public static SMFPotion smfNightVision = new SMFPotion("spiritual_magic_figures_night_vision",new int[][]{{16,10000}}); //夜视
+		public static SMFPotion smfPoison = new SMFPotion("spiritual_magic_figures_night_poison",new int[][]{{19,450,4}}); //中毒
+		public static SMFPotion smfPower = new SMFPotion("spiritual_magic_figures_power",new int[][]{{5,7000}}); //力量
+		public static SMFPotion smfProtect = new SMFPotion("spiritual_magic_figures_protect",new int[][]{{12,3500},{11,2500,3}}); //保护
+		public static SMFPotion smfHeal = new SMFPotion("spiritual_magic_figures_night_heal",new int[][]{{6,1},{10,500}}); //生命回复
 }

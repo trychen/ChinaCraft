@@ -85,7 +85,7 @@ gui.buhrimill.title=石磨
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
-gui.jade_bench.infotile=玉石信息
+gui.jade_table.info=玉石信息
 
 tile.cooker.name=灶台
 gui.cooker.title=灶台
