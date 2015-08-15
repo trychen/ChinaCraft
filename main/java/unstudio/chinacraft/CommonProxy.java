@@ -10,7 +10,6 @@ import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
-import unstudio.chinacraft.item.Lcker;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
