@@ -141,7 +141,8 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");
     	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");
     	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");
-    	
+
+    	//青铜套
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet, 1), new Object[]{"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});
     	GameRegistry.registerItem(ChinaCraft.bronzeChestplate, "BronzeChestplate");
@@ -169,9 +170,12 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.riceFlour, "RiceFlour");
     	GameRegistry.registerItem(ChinaCraft.barleyRice, "BarleyRice");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.barleyRice), new ItemStack(Items.wheat));
-    	
+
+    	//石磨合成
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null, new ItemStack(ChinaCraft.flour), null, 360);
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.riceFlour), null, 360);
+
+		//玉石工作台合成
 
 		//spiritual_magic_figures
 		GameRegistry.registerItem(ChinaCraft.spiritualMagicFigures,"SpiritualMagicFigures");

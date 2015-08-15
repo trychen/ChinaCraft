@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import unstudio.chinacraft.ChinaCraft;
 
 public class Jade extends Item{
-	private int Level = 1; 
+	private int Level = 1;
 	private Random random = new Random();
 	public Jade () {
 		setMaxStackSize(16);

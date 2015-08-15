@@ -102,10 +102,10 @@ public class ChinaCraft {
 	    };
 	    
 		public static Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
-		public static Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5);
-		public static Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14);
-		public static Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F, 10);
-		public static Item.ToolMaterial yanlong = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10);
+		public static Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); //石锤
+		public static Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); //铁锤
+		public static Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F, 10); //钻石锤
+		public static Item.ToolMaterial yanlong = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10); //YanLung_Giantknife
 		public static Item.ToolMaterial _BRONZE = EnumHelper.addToolMaterial("BRONZEBIG", 2, 230, 6.0F, 2.5F, 1);
 
 	    //方块
@@ -186,7 +186,7 @@ public class ChinaCraft {
 	    public static JadePurpleItem jadePurpleItem =new JadePurpleItem();
 
 	    //Drink、Food
-	    public static Cup cup = new Cup();
+	    public static Cup cup = new Cup(); //杯
 	    public static Cup_Clay cup_Clay = new Cup_Clay();
 	    public static CupChocolate cupChocolate = new CupChocolate();
 	    public static Cocoa cocoa =new Cocoa();
@@ -198,10 +198,10 @@ public class ChinaCraft {
 	    public static BarleyRice barleyRice =new BarleyRice(); //麦仁,大麦米
 
 		//spiritual_magic_figures灵符
-		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures();
-		public static SMFFire smfFire = new SMFFire();
-		public static SMFNightVision smfNightVision = new SMFNightVision();
-		public static SMFPoison smfPoison = new SMFPoison();
-		public static SMFPower smfPower = new SMFPower();
-		public static SMFHeal smfHeal = new SMFHeal();
+		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符
+		public static SMFFire smfFire = new SMFFire(); //火
+		public static SMFNightVision smfNightVision = new SMFNightVision(); //夜视
+		public static SMFPoison smfPoison = new SMFPoison(); //中毒
+		public static SMFPower smfPower = new SMFPower(); //力量
+		public static SMFHeal smfHeal = new SMFHeal(); //生命回复
 }
