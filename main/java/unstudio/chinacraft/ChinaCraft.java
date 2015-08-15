@@ -42,6 +42,7 @@ import unstudio.chinacraft.item.combat.HammerIron;
 import unstudio.chinacraft.item.combat.HammerStone;
 import unstudio.chinacraft.item.combat.JiuQu_tang;
 import unstudio.chinacraft.item.combat.YanLung_Giantknife;
+import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadeOre;
 import net.minecraft.creativetab.CreativeTabs;
@@ -189,6 +190,12 @@ public class ChinaCraft {
 	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲
 	    public static BronzeLeggings bronzeLeggings =  new BronzeLeggings();//青铜护腿
 	    public static BronzeBoots bronzeBoots =  new BronzeBoots();//青铜靴子
+
+	    //玉石
+	    public static Jade jadeGreenItem =  new Jade("jade_green");
+	    public static Jade jadeGreen2Item =  new Jade("jade_green2");
+	    public static Jade jadePinkItem = new Jade("jade_pink");
+	    public static Jade jadePurpleItem =new Jade("jade_purple");
 
 	    //Drink、Food
 	    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabPlant); //杯
