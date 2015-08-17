@@ -13,7 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 
 import java.util.Random;
 
-public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, IInventory {
+public class TileJadeBench  extends TileEntity implements IInventory {
 	
 	private ItemStack stack[] = new ItemStack[3];
 	
@@ -111,29 +111,24 @@ public class TileJadeBench  extends TileEntity implements IUpdatePlayerListBox, 
 		return false;
 	}
 
-	@Override
-	public void update() {
-	
-	}
-	
 	public void updateEntity(){
 		super.updateEntity();
 		if (getStackInSlot(0) != null){
 			if (getStackInSlot(1) != null){
 				if (getStackInSlot(2) == null){
-					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));//»ñÈ¡ºÏ³É
-					if(r !=null) { //Èç¹û´æÔÚºÏ³É
+					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));//ï¿½ï¿½È¡ï¿½Ï³ï¿½
+					if(r !=null) { //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚºÏ³ï¿½
 							r.getTool().setItemDamage(r.getTool().getItemDamage() - 1);
 							setInventorySlotContents(2, r.getOut());
-							if (getStackInSlot(1).stackSize == 1){ //ÅÐ¶ÏÊÇ·ñÖ»ÓÐÒ»¸ö£¬Èç¹ûÊÇÔòÉ¾³ý
+							if (getStackInSlot(1).stackSize == 1){ //ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Ö»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½
 								setInventorySlotContents(1, null);
 							} else {
 								setInventorySlotContents(1,new ItemStack(getStackInSlot(1).getItem(),getStackInSlot(1).stackSize--));
 							}
 					} else {
 						Item tool = getStackInSlot(0).getItem();
-						if (getStackInSlot(1).getItem() == Item.getItemFromBlock(ChinaCraft.jadeOre) && getStackInSlot(2) == null &&tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//ÅÐ¶ÏÊÇ·ñÎª´òÄ¥ÓñÊ¯
-							if (tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//ÅÐ¶Ïslot[0]ÊÇ·ñÊÇ´¸
+						if (getStackInSlot(1).getItem() == Item.getItemFromBlock(ChinaCraft.jadeOre) && getStackInSlot(2) == null &&tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//ï¿½Ð¶ï¿½ï¿½Ç·ï¿½Îªï¿½ï¿½Ä¥ï¿½ï¿½Ê¯
+							if (tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//ï¿½Ð¶ï¿½slot[0]ï¿½Ç·ï¿½ï¿½Ç´ï¿½
 								int rn = new Random().nextInt(3);
 								if (getStackInSlot(0).stackSize == 1){
 									setInventorySlotContents(1,null);
