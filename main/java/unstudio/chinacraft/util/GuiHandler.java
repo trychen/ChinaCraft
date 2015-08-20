@@ -6,12 +6,15 @@ import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.inventory.ContainerBuhrimill;
 import unstudio.chinacraft.inventory.ContainerCooker;
 import unstudio.chinacraft.inventory.ContainerJadeBench;
+import unstudio.chinacraft.inventory.ContainerSericultureFrame;
 import unstudio.chinacraft.inventory.GuiBuhrimill;
 import unstudio.chinacraft.inventory.GuiCooker;
 import unstudio.chinacraft.inventory.GuiJadeBench;
+import unstudio.chinacraft.inventory.GuiSericultureFrame;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -32,6 +35,9 @@ public class GuiHandler implements IGuiHandler{
                 		
                 case GuiID.GUI_Cooker:
                 	    return new ContainerCooker(player.inventory, (TileCooker) world.getTileEntity(x, y, z));
+                	    
+                case GuiID.GUI_Sericulture_Farme:
+            	    return new ContainerSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));
                 }
                 return null;
         }
@@ -48,6 +54,9 @@ public class GuiHandler implements IGuiHandler{
                 		
                 case GuiID.GUI_Cooker:
             		return new GuiCooker(player.inventory, (TileCooker) world.getTileEntity(x, y, z));	
+            		
+                case GuiID.GUI_Sericulture_Farme:
+            	    return new GuiSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));
                 }
                 return null;
         }

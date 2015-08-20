@@ -84,42 +84,6 @@ public class ContainerBuhrimill extends Container{
 		return var3;
 	}
 	
-	@Override
-	public void addCraftingToCrafters(ICrafting par1iCrafting) {
-		// TODO Auto-generated method stub
-		super.addCraftingToCrafters(par1iCrafting);
-		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.angle);
-		par1iCrafting.sendProgressBarUpdate(this, 1, this.tile.schedule);
-	}
- 
-	@SideOnly(Side.CLIENT)
-	public void updateProgressBar(int par1, int par2) {
-		if (par1 == 0) {
-			this.tile.angle = par2;
-		}
-		if (par1 == 1) {
-			this.tile.schedule= par2;
-		}
-	}
- 
-	@Override
-	public void detectAndSendChanges() {
-		// TODO Auto-generated method stub
-		super.detectAndSendChanges();
-		Iterator var1 = this.crafters.iterator();
-		while (var1.hasNext()) {
-			ICrafting var2 = (ICrafting) var1.next();
- 
-			if (this.lastAngle != this.tile.angle) {
-				var2.sendProgressBarUpdate(this, 0, this.tile.angle);
-			}
- 
-			if (this.lastSchedule != this.tile.schedule) {
-				var2.sendProgressBarUpdate(this, 1, this.tile.schedule);
-			}
-		}
-		this.lastAngle = this.tile.angle;
-		this.lastSchedule = this.tile.schedule;
-	}
+
 
 }

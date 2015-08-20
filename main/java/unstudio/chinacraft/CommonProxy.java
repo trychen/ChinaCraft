@@ -9,6 +9,7 @@ import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import net.minecraft.block.Block;
@@ -96,6 +97,9 @@ public class CommonProxy {
     	
     	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
     	
+    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
+    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
+    	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock, 1), ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);
@@ -142,6 +146,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");
     	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");
     	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");
+    	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");
 
     	//青铜套
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
@@ -195,6 +200,8 @@ public class CommonProxy {
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.diamond, Items.redstone});
 		
 		EntityRegistry.registerModEntity(EntityKongmingLantern.class, "KongmingLantern", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 256, 1, true);
+		
+		GameRegistry.registerItem(ChinaCraft.debug, "Debug");
     }
 
 	public void postInit(FMLPostInitializationEvent event) {
