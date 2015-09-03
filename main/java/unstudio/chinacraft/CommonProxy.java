@@ -1,5 +1,6 @@
 package unstudio.chinacraft;
 
+import cpw.mods.fml.common.registry.EntityRegistry;
 import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
 import unstudio.chinacraft.block.Buhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
@@ -191,6 +192,9 @@ public class CommonProxy {
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfFire), new Object[]{ChinaCraft.spiritualMagicFigures, Items.ghast_tear, Items.golden_apple, Items.redstone});
 		GameRegistry.registerItem(ChinaCraft.smfProtect, "SpiritualMagicFiguresProtect");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.diamond, Items.redstone});
+
+		//mob
+
     }
 
 	public void postInit(FMLPostInitializationEvent event) {
