@@ -21,6 +21,7 @@ import unstudio.chinacraft.block.MulberrySapling;
 import unstudio.chinacraft.block.MulberryWood;
 import unstudio.chinacraft.block.PillarMarble;
 import unstudio.chinacraft.block.RiceGrow;
+import unstudio.chinacraft.block.SericultureFrame;
 import unstudio.chinacraft.block.SilverOre;
 import unstudio.chinacraft.block.SmoothMarble;
 import unstudio.chinacraft.block.SoyGrow;
@@ -48,6 +49,7 @@ import unstudio.chinacraft.item.jade.JadeOre;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemReed;
 import net.minecraft.util.StatCollector;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -155,6 +157,8 @@ public class ChinaCraft {
 	    public static Cooker cooker_off = new Cooker(false); //灶台
 	    public static Cooker cooker_on	= new Cooker(true); //灶台
 	    
+	    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
+	    
 	    //物品
 	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
 	    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
@@ -169,11 +173,12 @@ public class ChinaCraft {
 	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
 	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
 	    public static Silkworm silkworm = new Silkworm(); //蚕
+	    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabCore).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
 	    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword();  //青铜大刀
-	    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //青铜大刀
+	    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //炎龙巨刀
 	    
 	    //工具
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿
@@ -203,7 +208,7 @@ public class ChinaCraft {
 	    public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupChocolate cupChocolate = new CupChocolate();
 	    public static Item cocoa =new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabPlant);
-	    public static Ladyfinger ladyfinger =new Ladyfinger();
+	    public static ItemFood ladyfinger =(ItemFood) new ItemFood(1, true).setUnlocalizedName("ladyfinger").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupWater cupWater =new CupWater();
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
 	    public static Item flour =new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
@@ -219,6 +224,5 @@ public class ChinaCraft {
 		public static SMFPotion smfProtect = new SMFPotion("spiritual_magic_figures_protect",new int[][]{{12,3500},{11,2500,3}}); //保护
 		public static SMFPotion smfHeal = new SMFPotion("spiritual_magic_figures_night_heal",new int[][]{{6,1},{10,500}}); //生命回复
 
-		//mob
-
+		public static Debug debug = new Debug(); //调试物品
 }

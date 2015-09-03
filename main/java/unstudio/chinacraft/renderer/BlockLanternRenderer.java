@@ -30,15 +30,17 @@ public class BlockLanternRenderer implements ISimpleBlockRenderingHandler{
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z,
 			Block block, int modelId, RenderBlocks renderer) {
         renderer.renderStandardBlock(block, x, y, z);
+        Tessellator tessellator = Tessellator.instance;
+        tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
         IIcon iicon1 = ((Lantern)block).getIconSide();
-        float f4 = 0.1875F;
-        renderer.renderFaceXPos(block, (double)((float)x + 1.0F - f4), (double)y, (double)z, iicon1);
-        renderer.renderFaceXNeg(block, (double)((float)x - 1.0F + f4), (double)y, (double)z, iicon1);
-        renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z+ 1.0F - f4), iicon1);
-        renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z - 1.0F + f4), iicon1);
+       float  f4 = 0.0625F*13;
+        renderer.renderFaceXPos(block, (double)((float)x - 1.0F + f4), (double)y, (double)z, iicon1);
+        renderer.renderFaceXNeg(block, (double)((float)x + 1.0F - f4), (double)y, (double)z, iicon1);
+        renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1.0F + f4), iicon1);
+        renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1.0F - f4), iicon1);
         IIcon iicon2 = ((Lantern)block).getIconTop();
-        renderer.renderFaceYPos(block, (double)x, (double)((float)y + 1.0F), (double)z, iicon2);
-        renderer.renderFaceYNeg(block, (double)x, (double)((float)y - 1.0F), (double)z, iicon2);
+        renderer.renderFaceYPos(block, (double)x, (double)y, (double)z, iicon2);
+        renderer.renderFaceYNeg(block, (double)x, (double)y, (double)z, iicon2);
         return true;
 	}
 

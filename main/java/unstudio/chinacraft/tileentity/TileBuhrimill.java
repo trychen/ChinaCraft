@@ -5,9 +5,12 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -17,8 +20,7 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.block.model.ModelBuhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
-public class TileBuhrimill extends TileEntity implements IUpdatePlayerListBox,
-		IInventory {
+public class TileBuhrimill extends TileEntity implements ISidedInventory{
 
 	private ItemStack stack[] = new ItemStack[4];
 	public int angle;
@@ -116,11 +118,6 @@ public class TileBuhrimill extends TileEntity implements IUpdatePlayerListBox,
 	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
 		// TODO 自动生成的方法存根
 		return false;
-	}
-
-	@Override
-	public void update() {
-		
 	}
 	
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
@@ -275,5 +272,22 @@ public class TileBuhrimill extends TileEntity implements IUpdatePlayerListBox,
 		}else {
 			angle = angle+i;
 		}
+	}
+
+	@Override
+	public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+		return null;
+	}
+
+	@Override
+	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_,
+			int p_102007_3_) {
+		return false;
+	}
+
+	@Override
+	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_,
+			int p_102008_3_) {
+		return false;
 	}
 }

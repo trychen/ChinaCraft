@@ -52,7 +52,7 @@ public class Lantern extends Block{
     
     public int getRenderType()
     {
-        return BlockLanternRenderer.renderID;
+        return -1;
     }
     
     @SideOnly(Side.CLIENT)
@@ -61,6 +61,12 @@ public class Lantern extends Block{
     	this.top = reg.registerIcon("chinacraft:lantern_top");
     	this.side = reg.registerIcon("chinacraft:lantern");
     }
+    
+    @SideOnly(Side.CLIENT)
+	public IIcon getIcon(int i1, int i2) {
+		if(i1 == 0||i1== 1)return top;
+		else return side;
+	}
 	
     @SideOnly(Side.CLIENT)
     public IIcon getIconTop()
