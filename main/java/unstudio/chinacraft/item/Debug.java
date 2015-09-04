@@ -28,11 +28,17 @@ public class Debug extends Item{
     public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
     	if(world.isRemote) return false;
+    	player.addChatMessage(new ChatComponentText("Debug:"));
+    	player.addChatMessage(new ChatComponentText("XYZ:"+x+";"+y+";"+z+";"));
+    	player.addChatMessage(new ChatComponentText("BlockName:"+world.getBlock(x, y, z).getUnlocalizedName()));
+    	player.addChatMessage(new ChatComponentText("Metadata:"+world.getBlockMetadata(x, y, z)));
     	TileEntity tile = world.getTileEntity(x, y, z);
+    	if(world.getTileEntity(x, y, z)!=null){
+    	player.addChatMessage(new ChatComponentText("TileEntity:"+tile.getClass().getSimpleName()));
+    	}
     	if(tile instanceof TileBuhrimill) {
     		
     	}else if(tile instanceof TileSericultureFrame) {
-    		player.addChatMessage(new ChatComponentText("调试信息:"));
     		player.addChatMessage(new ChatComponentText("死亡率:"+((TileSericultureFrame)tile).mortality));
     		player.addChatMessage(new ChatComponentText("进度:"+((TileSericultureFrame)tile).schedule));
     	}
