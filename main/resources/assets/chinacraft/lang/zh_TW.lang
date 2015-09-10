@@ -3,16 +3,16 @@ tile.bronze_block.name=青銅塊
 item.bronze_ingot.name=青銅錠
 item.bronze_sword.name=青銅劍
 item.bronze_broadsword.name=青銅大刀
-item.yanlung_giantknife.name=炎龙巨刀
-item.jiuqu_tang.name=九曲鏜
+item.yanlung_giantknife.name=炎龍巨刀
+item.jiuqu_tang.name=九曲镋
 item.bronze_axe.name=青銅斧
 item.bronze_pickaxe.name=青銅稿
 item.bronze_hoe.name=青銅鋤
-item.bronze_shovel.name=青铜鏟
-item.bronze_helmet.name=青铜頭盔
-item.bronze_body.name=青铜胸甲
-item.bronze_legs.name=青铜護腿
-item.bronze_boots.name=青铜靴子
+item.bronze_shovel.name=青銅鏟
+item.bronze_helmet.name=青銅頭盔
+item.bronze_body.name=青銅胸甲
+item.bronze_legs.name=青銅護腿
+item.bronze_boots.name=青銅靴子
 item.jade_knife.name=切割刀
 item.silkworm_chrysalis.name=蠶蛹
 item.silkworm_young.name=幼蠶
@@ -42,29 +42,32 @@ item.bamboo.name=竹子
 item.bamboo_shoot.name=竹筍
 
 tile.wooden_window.name=木窗
-tile.wooden_window_name=木窗格
+tile.wooden_window.name=木窗格
 
 tile.mulberry_log.name=桑樹原木
 tile.mulberry_leaf.name=桑葉
 item.mulberry_leaf.name=桑葉
 tile.mulberry_sapling.name=桑樹苗
-tile.mulberry_wood.name=桑樹板
+tile.mulberry_wood.name=桑木板
 
 tile.marble.name=大理石
 tile.smooth_marble.name=平滑大理石塊
-tile.pillar_marble.name=条纹大理石塊
-tile.chiseled_marble.name=鏨製大理石塊
+tile.pillar_marble.name=條紋大理石塊
+tile.chiseled_marble.name=鏨制大理石塊
 tile.marble_slab.name=大理石半磚
 tile.marble_stair.name=大理石樓梯
 
 tile.lantern.name=燈籠
 
-item.rices.name=米
-item.lcker.name=米輝
+item.rices.name=大米
+item.lcker.name=米穗
 item.soy.name=大豆
 item.soy_pod.name=豆莢
 item.cocoa.name=可可粉
-item.ladyfinger.name=鬆脆餅
+item.ladyfinger.name=松脆餅
+item.flour.name=面粉
+item.rice_flour.name=米粉
+item.barley_rice.name=麥仁
 
 tile.wooden_bucket.name=木桶
 item.wooden_bucket.name=木桶
@@ -72,6 +75,8 @@ item.wooden_bucket.name=木桶
 item.silkworm_graine.name=蠶卵
 item.silkworm_young.name=幼蠶
 item.silkworm_chrysalis.name=蠶繭
+tile.sericulture_frame.name=養蠶架
+gui.sericulture_frame.title=養蠶架
 
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
@@ -82,6 +87,10 @@ gui.buhrimill.title=石磨
 
 gui.jade_bench.title=玉石加工臺
 tile.jade_table.name=玉石加工臺
+gui.jade_table.info=玉石信息
+
+tile.cooker.name=竈臺
+gui.cooker.title=竈臺
 
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉
