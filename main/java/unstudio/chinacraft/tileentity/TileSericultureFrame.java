@@ -109,20 +109,19 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 	
 	@Override
 	public void updateEntity() {
+		if(mortality == -1) {
+			mortality = getMortality();
+		}
 		if(getStackInSlot(0)!=null&&getStackInSlot(0).getItem().equals(ChinaCraft.silkworm)&&getStackInSlot(0).stackSize>0) {
-			float mortality;
-			if(this.mortality < 0) {
-				this.mortality = getMortality();
+			float m;
+			m = mortality + (worldObj.isRaining()?worldObj.getTopSolidOrLiquidBlock(xCoord, zCoord) == yCoord?0.2F:0:0);
+			if((getStackInSlot(1)==null||getStackInSlot(1).stackSize<=0||getStackInSlot(1).getItem()!=ChinaCraft.itemMulberryLeaf)&&getStackInSlot(0).getItemDamage() == 1) {
+				m = 10.0F;			
 			}
-			mortality = this.mortality + (worldObj.isRaining()?worldObj.getTopSolidOrLiquidBlock(xCoord, zCoord) == yCoord?0.2F:0:0);
-			if((getStackInSlot(1)==null||getStackInSlot(1).stackSize<=0)&&(getStackInSlot(0).getItemDamage() == 0||getStackInSlot(0).getItemDamage() == 2)) {
-				mortality = 0.9F;			
-			}else {
-				if(getStackInSlot(1)!=null&&worldObj.rand.nextInt(12000)<getStackInSlot(0).stackSize) {
-					getStackInSlot(1).stackSize--;
-					if(getStackInSlot(1).stackSize<=0) {
-						setInventorySlotContents(1, null);
-					}
+			if(getStackInSlot(1)!=null&&worldObj.rand.nextInt(12000)<getStackInSlot(0).stackSize) {
+				getStackInSlot(1).stackSize--;
+				if(getStackInSlot(1).stackSize<=0) {
+					setInventorySlotContents(1, null);
 				}
 			}
 			schedule++;
@@ -134,12 +133,21 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 				getStackInSlot(0).setItemDamage(getStackInSlot(0).getItemDamage()+1);
 				}
 			}
-			if(200*mortality>worldObj.rand.nextInt(24000)&&getStackInSlot(0).getItemDamage() != 2) {
+			if(9.325*m>worldObj.rand.nextInt(24000)) {
+				if(getStackInSlot(0).getItemDamage() == 2){
+					if(getStackInSlot(2) == null){
+						setInventorySlotContents(2, new ItemStack(ChinaCraft.silkwormChrysalis));
+					}else if(getStackInSlot(2).getItem() == ChinaCraft.itemMulberryLeaf){
+						getStackInSlot(2).stackSize++;
+					}
+				}
 				getStackInSlot(0).stackSize--;
 				if(getStackInSlot(0).stackSize<=0) {
 					setInventorySlotContents(0, null);
 				}
 			}
+		}else{
+			schedule = 0;
 		}
 	}
 	
@@ -160,11 +168,11 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 		float temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature>1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature;
 		float rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall >1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
 		int height = yCoord >128?128:yCoord;
-		float mortality = 0;
-		mortality += 16/30*temperature*temperature-0.8*temperature+0.3;
-		mortality += 16/30*rainfall*rainfall-0.8*rainfall+0.3;
-		mortality += 0.0000732421875*(rainfall-64)*(rainfall-64);
-		return mortality;
+		float m = 0;
+		m += 0.53333333F*temperature*temperature-0.8F*temperature+0.3F;
+		m += 0.53333333F*rainfall*rainfall-0.8F*rainfall+0.3F;
+		m += 0.000048828125F*(height-64F)*(height-64F);
+		return m;
 	}
 	
     public void readFromNBT(NBTTagCompound p_145839_1_)
@@ -184,12 +192,14 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
             }
         }
         this.schedule = p_145839_1_.getInteger("schedule");
+        this.mortality = p_145839_1_.getFloat("mortality");
     }
 
     public void writeToNBT(NBTTagCompound p_145841_1_)
     {
         super.writeToNBT(p_145841_1_);
         p_145841_1_.setInteger("schedule", this.schedule);
+        p_145841_1_.setFloat("mortality", this.mortality);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.stack.length; ++i)
