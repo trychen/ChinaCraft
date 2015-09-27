@@ -5,6 +5,7 @@ import java.util.List;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
@@ -28,10 +29,10 @@ public class Debug extends Item{
     public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
     	if(world.isRemote) return false;
-    	player.addChatMessage(new ChatComponentText("Debug:"));
-    	player.addChatMessage(new ChatComponentText("XYZ:"+x+";"+y+";"+z+";"));
-    	player.addChatMessage(new ChatComponentText("BlockName:"+world.getBlock(x, y, z).getUnlocalizedName()));
-    	player.addChatMessage(new ChatComponentText("Metadata:"+world.getBlockMetadata(x, y, z)));
+    	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));
+    	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.xyz")+":"+x+";"+y+";"+z+";"));
+    	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockname")+":"+world.getBlock(x, y, z).getUnlocalizedName()));
+    	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.metadata")+":"+world.getBlockMetadata(x, y, z)));
     	TileEntity tile = world.getTileEntity(x, y, z);
     	if(world.getTileEntity(x, y, z)!=null){
     	player.addChatMessage(new ChatComponentText("TileEntity:"+tile.getClass().getSimpleName()));

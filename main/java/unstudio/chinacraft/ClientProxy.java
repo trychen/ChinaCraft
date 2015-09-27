@@ -92,6 +92,8 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.smfPower.setTextureName("chinacraft:spiritual_magic_figures_power");
 		ChinaCraft.smfHeal.setTextureName("chinacraft:spiritual_magic_figures_heal");
 		ChinaCraft.smfProtect.setTextureName("chinacraft:spiritual_magic_figures_protect");
+
+		ChinaCraft.debug.setTextureName("chinacraft:debug");
 		super.init(event);
     }
  

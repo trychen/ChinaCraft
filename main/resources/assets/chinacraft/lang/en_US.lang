@@ -82,3 +82,8 @@ item.jade_purple.name=Purple Jade
 itemGroup.core=Chinese Civilization-Core
 itemGroup.tool=Chinese Civilization-Tools
 itemGroup.plant=Chinese Civilization-Plants
+
+debug.firstline=----------Debug----------
+debug.blockname=BlockName
+debug.xyz=XYZ
+debug.metadata=Metadata
