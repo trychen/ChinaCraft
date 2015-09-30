@@ -24,6 +24,7 @@ item.spiritual_magic_figures_Poison.name=毒符
 item.spiritual_magic_figures_night_vision.name=金睛符
 item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=護符
+item.debug.name=調試
 
 tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
@@ -100,3 +101,8 @@ item.jade_purple.name=紫玉
 itemGroup.core=華夏文明-核心
 itemGroup.tool=華夏文明-工具
 itemGroup.plant=華夏文明-作物
+
+debug.firstline=----------調試----------
+debug.blockname=方塊名稱
+debug.xyz=座標
+debug.metadata=中繼資料
