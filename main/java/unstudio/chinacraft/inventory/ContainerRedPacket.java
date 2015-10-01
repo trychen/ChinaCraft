@@ -15,13 +15,14 @@ public class ContainerRedPacket extends Container{
 	
 	public ContainerRedPacket(InventoryPlayer playerInv,ItemStack itemStack) {
 		this.itemStack=itemStack;
-		Slot slot0 = new Slot(new InventoryBasic("Redpacket", false, 1), 0, 80, 34);
+		Slot slot0 = new Slot(new InventoryBasic("Redpacket", false, 1), 0, 80, 25);
 		NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
 		if(par1NBTTagCompound!=null) {
         NBTTagCompound itemnbt = (NBTTagCompound)par1NBTTagCompound.getTag("Item");
         ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
         slot0.putStack(item);
 		}
+
 		this.addSlotToContainer(slot0);
         int var3;
         for (var3 = 0; var3 < 3; ++var3)

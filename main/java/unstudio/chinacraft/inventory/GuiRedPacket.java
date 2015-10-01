@@ -1,20 +1,26 @@
 package unstudio.chinacraft.inventory;
 
+import net.minecraft.nbt.NBTTagCompound;
 import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
-public class GuiRedPacket extends GuiContainer{
+import java.util.Random;
 
+public class GuiRedPacket extends GuiContainer{
+	public String wish = "Best Wishes!";
+	private NBTTagCompound par1NBTTagCompound;
+	private int wishColor = Integer.MAX_VALUE;
 	public GuiRedPacket(InventoryPlayer playerInv,ItemStack itemStack) {
-		super(new ContainerRedPacket(playerInv,itemStack));
+		super(new ContainerRedPacket(playerInv, itemStack));
+		par1NBTTagCompound = itemStack.getTagCompound();
+		if (par1NBTTagCompound != null){
+			if (par1NBTTagCompound.getString("wash") == null) par1NBTTagCompound.setString("wash", StatCollector.translateToLocal("gui.redpacket.default.wash"));
+		}
+		wishColor=new Random().nextInt(Integer.MAX_VALUE);
 	}
 
 
@@ -26,12 +32,14 @@ public class GuiRedPacket extends GuiContainer{
 	@Override
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		String s = StatCollector.translateToLocal("gui.redpacket.title"); // 设置Gui标题
+		String s = StatCollector.translateToLocal("item.redpacket.name"); // 设置Gui标题
+		if(par1NBTTagCompound!=null) {
+			wish = par1NBTTagCompound.getString("wash");
+		}
 		this.fontRendererObj.drawString(s, this.xSize / 2
-				- this.fontRendererObj.getStringWidth(s) / 2, 3, 4210752);
-		this.fontRendererObj.drawString(
-				I18n.format("container.inventory", new Object[0]), 8,
-				this.ySize - 96 + 2, 4210752);
+				- this.fontRendererObj.getStringWidth(s) / 2, 5, Integer.MAX_VALUE);
+		this.fontRendererObj.drawString(wish, this.xSize / 2
+				- this.fontRendererObj.getStringWidth(wish) / 2, 68, wishColor);
 		
 	}
 
@@ -42,5 +50,12 @@ public class GuiRedPacket extends GuiContainer{
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+	}
+
+	public void setWish(String s){
+		wish=s;
+	}
+	public String getWish(){
+		return wish;
 	}
 }

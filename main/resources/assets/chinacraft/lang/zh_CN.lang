@@ -117,3 +117,7 @@ debug.true=是
 debug.false=否
 debug.plantstage=植物生长阶段
 item.debug.lore=对着方块使用物品即可输出调试信息
+
+
+item.redpacket.name=红包
+gui.redpacket.default.wash=愿所有的幸福都陪伴着你
