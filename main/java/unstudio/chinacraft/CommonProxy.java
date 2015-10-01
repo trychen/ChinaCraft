@@ -148,6 +148,8 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");
     	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");
     	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");
+    	GameRegistry.registerItem(ChinaCraft.redPacket, "RedPacket");
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper,new ItemStack(Items.dye, 1, 1)});
 
     	//青铜套
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
