@@ -25,6 +25,7 @@ item.spiritual_magic_figures_poison.name=毒符
 item.spiritual_magic_figures_night_vision.name=金睛符
 item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=护符
+item.spiritual_magic_figures_fire.lore=燃烧 15至23秒
 item.debug.name=调试
 
 tile.tin_ore.name=锡矿
