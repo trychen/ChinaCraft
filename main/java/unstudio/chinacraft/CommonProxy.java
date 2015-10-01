@@ -198,7 +198,7 @@ public class CommonProxy {
 		GameRegistry.registerItem(ChinaCraft.smfHeal, "SpiritualMagicFiguresHeal");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfFire), new Object[]{ChinaCraft.spiritualMagicFigures, Items.ghast_tear, Items.golden_apple, Items.redstone});
 		GameRegistry.registerItem(ChinaCraft.smfProtect, "SpiritualMagicFiguresProtect");
-		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.diamond, Items.redstone});
+		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.potionitem});
 
 		
 		EntityRegistry.registerModEntity(EntityKongmingLantern.class, "KongmingLantern", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 256, 1, true);
