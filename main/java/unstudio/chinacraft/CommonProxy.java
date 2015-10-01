@@ -3,6 +3,7 @@ package unstudio.chinacraft;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
 import unstudio.chinacraft.block.Buhrimill;
+import unstudio.chinacraft.entity.EntityChineseZombie;
 import unstudio.chinacraft.entity.EntityKongmingLantern;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRepair;
@@ -39,6 +40,7 @@ public class CommonProxy {
     	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
         config.save();
+		EntityChineseZombie.mainRegister();
     }
  
     public void init(FMLInitializationEvent event) {
@@ -149,7 +151,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");
     	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");
     	GameRegistry.registerItem(ChinaCraft.redPacket, "RedPacket");
-    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper,new ItemStack(Items.dye, 1, 1)});
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper, new ItemStack(Items.dye, 1, 1)});
 
     	//青铜套
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
@@ -187,7 +189,7 @@ public class CommonProxy {
 		//玉石工作台合成
 
 		//spiritual_magic_figures
-		GameRegistry.registerItem(ChinaCraft.spiritualMagicFigures,"SpiritualMagicFigures");
+		GameRegistry.registerItem(ChinaCraft.spiritualMagicFigures, "SpiritualMagicFigures");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures, 3), new Object[]{Items.paper, Items.dye});
 		GameRegistry.registerItem(ChinaCraft.smfFire, "SpiritualMagicFiguresFire");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfFire), new Object[]{ChinaCraft.spiritualMagicFigures, Items.magma_cream, Items.redstone, Items.glowstone_dust});
@@ -204,7 +206,7 @@ public class CommonProxy {
 
 		
 		EntityRegistry.registerModEntity(EntityKongmingLantern.class, "KongmingLantern", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 256, 1, true);
-		
+
 		GameRegistry.registerItem(ChinaCraft.debug, "Debug");
     }
 

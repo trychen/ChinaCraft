@@ -2,7 +2,6 @@ package unstudio.chinacraft;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import scala.tools.nsc.NewLinePrintWriter;
 import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BambooShoot;
 import unstudio.chinacraft.block.BlockBamboo;
@@ -66,7 +65,6 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import unstudio.chinacraft.mobs.ChinaZombie;
 import unstudio.chinacraft.network.CustomMessage;
 import unstudio.chinacraft.util.Listener;
 
