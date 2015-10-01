@@ -66,7 +66,12 @@ public class SMFPotion extends SpiritualMagicFigures{
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         if (Effect == null) return;
         for(int[] i:Effect){
-            p_77624_3_.add(StatCollector.translateToLocal(new PotionEffect(i[0], i[1]).getEffectName()+""));
+            PotionEffect p = new PotionEffect(i[0], i[1]);
+            if (i.length == 2) {
+                p_77624_3_.add(StatCollector.translateToLocal(p.getEffectName()) + " " + Potion.getDurationString(p));
+            } else {
+                p_77624_3_.add(StatCollector.translateToLocal(new PotionEffect(i[0], i[1]).getEffectName()) + i[2] + " " + Potion.getDurationString(p));
+            }
         }
     }
 }

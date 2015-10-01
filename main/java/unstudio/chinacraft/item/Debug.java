@@ -31,7 +31,7 @@ public class Debug extends Item{
     {
     	if(world.isRemote) return false;
     	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));
-		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockinfo")+": "+ (StatCollector.translateToLocal(world.getBlock(x, y, z).getUnlocalizedName()+".name") +" "+ Block.getIdFromBlock(world.getBlock(x, y, z))+" "+ world.getBlock(x, y, z).getUnlocalizedName().replace("tile.",""))));
+		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockinfo")+": "+ (StatCollector.canTranslate("tile.sand.name")? StatCollector.translateToLocal(world.getBlock(x, y, z).getUnlocalizedName()+".name") : StatCollector.translateToLocal(world.getBlock(x, y, z).getUnlocalizedName()+".default.name") )+ " "+ Block.getIdFromBlock(world.getBlock(x, y, z))+" "+ world.getBlock(x, y, z).getUnlocalizedName().replace("tile.","")));
 		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.position")+": "+x+"/"+y+"/"+z+" (X/Y/Z)"));
     	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.metadata")+": "+world.getBlockMetadata(x, y, z)));
     	TileEntity tile = world.getTileEntity(x, y, z);

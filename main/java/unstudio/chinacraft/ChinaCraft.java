@@ -231,7 +231,7 @@ public class ChinaCraft {
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符
 		public static SMFFire smfFire = new SMFFire(); //火
 		public static SMFPotion smfNightVision = new SMFPotion("spiritual_magic_figures_night_vision",new int[][]{{16,10000}}); //夜视
-		public static SMFPotion smfPoison = new SMFPotion("spiritual_magic_figures_night_poison",new int[][]{{19,450,4}}); //中毒
+		public static SMFPotion smfPoison = new SMFPotion("spiritual_magic_figures_poison",new int[][]{{19,450,4}}); //中毒
 		public static SMFPotion smfPower = new SMFPotion("spiritual_magic_figures_power",new int[][]{{5,7000}}); //力量
 		public static SMFPotion smfProtect = new SMFPotion("spiritual_magic_figures_protect",new int[][]{{12,3500},{11,2500,3}}); //保护
 		public static SMFPotion smfHeal = new SMFPotion("spiritual_magic_figures_heal",new int[][]{{6,1},{10,500}}); //生命回复
