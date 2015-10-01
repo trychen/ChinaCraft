@@ -1,9 +1,13 @@
 package unstudio.chinacraft.item.combat;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
+
+import java.util.List;
 
 public class YanLung_Giantknife extends ItemSword{
 	public YanLung_Giantknife() {
@@ -20,5 +24,9 @@ public class YanLung_Giantknife extends ItemSword{
 			target.setFire(target.worldObj.rand.nextInt(5) + 1);
 		}
 		return true;
+	}
+	@Override
+	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+		p_77624_3_.add(StatCollector.translateToLocal("item.yanlung_giantknife.lore"));
 	}
 }

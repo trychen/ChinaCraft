@@ -222,7 +222,7 @@ public class ChinaCraft {
 		public static SMFPotion smfPoison = new SMFPotion("spiritual_magic_figures_night_poison",new int[][]{{19,450,4}}); //中毒
 		public static SMFPotion smfPower = new SMFPotion("spiritual_magic_figures_power",new int[][]{{5,7000}}); //力量
 		public static SMFPotion smfProtect = new SMFPotion("spiritual_magic_figures_protect",new int[][]{{12,3500},{11,2500,3}}); //保护
-		public static SMFPotion smfHeal = new SMFPotion("spiritual_magic_figures_night_heal",new int[][]{{6,1},{10,500}}); //生命回复
+		public static SMFPotion smfHeal = new SMFPotion("spiritual_magic_figures_heal",new int[][]{{6,1},{10,500}}); //生命回复
 
 		public static Debug debug = new Debug(); //调试物品
 }

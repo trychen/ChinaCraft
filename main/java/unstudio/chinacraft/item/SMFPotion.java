@@ -3,8 +3,12 @@ package unstudio.chinacraft.item;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class SMFPotion extends SpiritualMagicFigures{
 
@@ -57,5 +61,12 @@ public class SMFPotion extends SpiritualMagicFigures{
 
         --stack.stackSize;
         return stack;
+    }
+    @Override
+    public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+        if (Effect == null) return;
+        for(int[] i:Effect){
+            p_77624_3_.add(StatCollector.translateToLocal(new PotionEffect(i[0], i[1]).getEffectName()+""));
+        }
     }
 }
