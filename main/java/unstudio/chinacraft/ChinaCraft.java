@@ -1,6 +1,8 @@
 package unstudio.chinacraft;
 
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+import scala.tools.nsc.NewLinePrintWriter;
 import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BambooShoot;
 import unstudio.chinacraft.block.BlockBamboo;
@@ -60,14 +62,19 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.mobs.ChinaZombie;
+import unstudio.chinacraft.network.CustomMessage;
+import unstudio.chinacraft.util.Listener;
 
 @Mod(modid = ChinaCraft.MODID, version = ChinaCraft.VERSION)
 public class ChinaCraft {
 	    public static final String MODID = "chinacraft";
 	    public static final String VERSION = "0.0.1";
+        public static SimpleNetworkWrapper Network;
 	 
 	    @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
 	            serverSide = "unstudio.chinacraft.CommonProxy")
@@ -79,11 +86,15 @@ public class ChinaCraft {
 	    @EventHandler
 	    public void preInit(FMLPreInitializationEvent event) {
 	        proxy.preInit(event);
+	        Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
+	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 0, Side.SERVER);
+	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 1, Side.CLIENT);
 	    }
 	 
 	    @EventHandler
 	    public void init(FMLInitializationEvent event) {
 	        proxy.init(event);
+	        MinecraftForge.EVENT_BUS.register(new Listener());
 	    }
 	    
 	 
