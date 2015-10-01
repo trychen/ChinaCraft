@@ -45,7 +45,7 @@ public class ContainerJadeBench extends Container{
 		if (var4 != null && var4.getHasStack()) {
 			ItemStack var5 = var4.getStack();
 			var3 = var5.copy();
-			// 点击到Slot的ID为0-3之间的时候，将物品送回玩家的背包中
+			// 点击到Slot的ID为0-2之间的时候，将物品送回玩家的背包中
 			if (par2 >= 0 && par2 <= 2) {
 				if (!this.mergeItemStack(var5, 3, 30, false)) {
 					return null;

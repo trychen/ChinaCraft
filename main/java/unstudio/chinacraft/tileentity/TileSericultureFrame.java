@@ -129,6 +129,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 				if(getStackInSlot(0).getItemDamage() == 2) {
 					setInventorySlotContents(2, new ItemStack(ChinaCraft.silkwormChrysalis,getStackInSlot(0).stackSize));
 					getStackInSlot(0).setItemDamage(0);
+					getStackInSlot(0).stackSize=(getStackInSlot(0).stackSize*2)>=64?64:getStackInSlot(0).stackSize*2;
 				}else {
 				getStackInSlot(0).setItemDamage(getStackInSlot(0).getItemDamage()+1);
 				}
