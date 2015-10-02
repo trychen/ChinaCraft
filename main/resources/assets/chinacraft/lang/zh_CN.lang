@@ -75,8 +75,10 @@ item.flour.name=面粉
 item.rice_flour.name=米粉
 item.barley_rice.name=麦仁
 
-tile.wooden_bucket.name=木桶
-item.wooden_bucket.name=木桶
+tile.wooden_bucket.name=木桶(空)
+item.wooden_bucket.name=木桶(空)
+item.wooden_bucket_water.name=木桶(水)
+item.wooden_bucket_water.name=木桶(水)
 
 item.silkworm_graine.name=蚕卵
 item.silkworm_young.name=幼蚕
@@ -123,3 +125,4 @@ item.redpacket.name=红包
 gui.redpacket.default.wash=愿所有的幸福都陪伴着你
 gui.redpacket.from=来自
 gui.redpacket.s=的
+

@@ -24,7 +24,7 @@ public class WoodenBucket extends Item{
         this.maxStackSize = 1;
         this.isFull = p_i45331_1_;
 		setCreativeTab(ChinaCraft.tabCore);
-		setUnlocalizedName("wooden_bucket");
+		if(this.isFull == Blocks.air){setUnlocalizedName("wooden_bucket");}else{setUnlocalizedName("wooden_bucket_water");}
 	}
     
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
@@ -89,20 +89,14 @@ public class WoodenBucket extends Item{
 	                    if (material == Material.water && l == 0)
 	                    {
 	                        world.setBlockToAir(i, j, k);
-	                        return this.func_150910_a(item, player, Items.water_bucket);
-	                    }
-
-	                    if (material == Material.lava && l == 0)
-	                    {
-	                        world.setBlockToAir(i, j, k);
-	                        return this.func_150910_a(item, player, Items.lava_bucket);
+	                        return this.func_150910_a(item, player, ChinaCraft.woodenBucket_Water);
 	                    }
 	                }
 	                else
 	                {
 	                    if (this.isFull == Blocks.air)
 	                    {
-	                        return new ItemStack(Items.bucket);
+	                        return new ItemStack(ChinaCraft.woodenBucket);
 	                    }
 
 	                    if (movingobjectposition.sideHit == 0)
