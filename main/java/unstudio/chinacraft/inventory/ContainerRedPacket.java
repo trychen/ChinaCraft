@@ -8,6 +8,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.StatCollector;
+import unstudio.chinacraft.ChinaCraft;
 
 public class ContainerRedPacket extends Container{
 
@@ -70,8 +72,8 @@ public class ContainerRedPacket extends Container{
 		NBTTagCompound nbtitem = new NBTTagCompound();
 		if(getSlot(0).getStack()!=null) getSlot(0).getStack().writeToNBT(nbtitem);
 		NBTTagCompound nbtitem2 = new NBTTagCompound();
+		if(getSlot(0).getStack()!=null) nbtitem2.setString("Sender",p_75134_1_.getDisplayName());
 		nbtitem2.setTag("Item", nbtitem);
-		nbtitem2.setString("Sender",p_75134_1_.getDisplayName());
 		itemStack.setTagCompound(nbtitem2);
 		p_75134_1_.inventory.setInventorySlotContents(p_75134_1_.inventory.currentItem,itemStack);
     }
@@ -112,6 +114,7 @@ public class ContainerRedPacket extends Container{
 			}
 			var4.onPickupFromSlot(par1EntityPlayer, var5);
 		}
+
 		return var3;
 	}
 }
