@@ -101,3 +101,5 @@ item.debug.lore=Use item with block to output debug information
 
 item.redpacket.name=Red Packet
 gui.redpacket.default.wash=May all the happiness be with you
+gui.redpacket.from=From
+gui.redpacket.s='s
