@@ -14,6 +14,7 @@ public class GuiRedPacket extends GuiContainer{
 	public String wish = "Best Wishes!";
 	private NBTTagCompound par1NBTTagCompound;
 	private int wishColor = Integer.MAX_VALUE;
+	
 	public GuiRedPacket(InventoryPlayer playerInv,ItemStack itemStack) {
 		super(new ContainerRedPacket(playerInv, itemStack));
 		par1NBTTagCompound = itemStack.getTagCompound();

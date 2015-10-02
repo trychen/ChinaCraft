@@ -105,6 +105,8 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
     	
+    	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
+    	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//铜锭
     	GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock, 1), ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);

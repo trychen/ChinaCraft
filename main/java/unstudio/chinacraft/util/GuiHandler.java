@@ -6,11 +6,13 @@ import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.inventory.ContainerBuhrimill;
 import unstudio.chinacraft.inventory.ContainerCooker;
 import unstudio.chinacraft.inventory.ContainerJadeBench;
+import unstudio.chinacraft.inventory.ContainerPotteryTable;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
 import unstudio.chinacraft.inventory.ContainerSericultureFrame;
 import unstudio.chinacraft.inventory.GuiBuhrimill;
 import unstudio.chinacraft.inventory.GuiCooker;
 import unstudio.chinacraft.inventory.GuiJadeBench;
+import unstudio.chinacraft.inventory.GuiPotteryTable;
 import unstudio.chinacraft.inventory.GuiRedPacket;
 import unstudio.chinacraft.inventory.GuiSericultureFrame;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
@@ -40,6 +42,9 @@ public class GuiHandler implements IGuiHandler{
                 	    
                 case GuiID.GUI_Sericulture_Farme:
             	    return new ContainerSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));
+            	   
+                case GuiID.GUI_PotteryTable:
+            	    return new ContainerPotteryTable(player);
             	    
                 case GuiID.GUI_RedPacket:
             	    return new ContainerRedPacket(player.inventory, player.inventory.getCurrentItem());
@@ -62,6 +67,9 @@ public class GuiHandler implements IGuiHandler{
             		
                 case GuiID.GUI_Sericulture_Farme:
             	    return new GuiSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));
+            	    
+                case GuiID.GUI_PotteryTable:
+            	    return new GuiPotteryTable(player);
             	    
                 case GuiID.GUI_RedPacket:
             	    return new GuiRedPacket(player.inventory, player.inventory.getCurrentItem());
