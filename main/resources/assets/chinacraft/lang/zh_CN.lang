@@ -121,3 +121,5 @@ item.debug.lore=对着方块使用物品即可输出调试信息
 
 item.redpacket.name=红包
 gui.redpacket.default.wash=愿所有的幸福都陪伴着你
+gui.redpacket.from=来自
+gui.redpacket.s= 的红包

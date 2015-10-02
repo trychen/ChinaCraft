@@ -12,15 +12,19 @@ import net.minecraft.nbt.NBTTagList;
 public class ContainerRedPacket extends Container{
 
 	private ItemStack itemStack;
-	
+	private String Sender;
+
 	public ContainerRedPacket(InventoryPlayer playerInv,ItemStack itemStack) {
 		this.itemStack=itemStack;
 		Slot slot0 = new Slot(new InventoryBasic("Redpacket", false, 1), 0, 80, 25);
 		NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
 		if(par1NBTTagCompound!=null) {
-        NBTTagCompound itemnbt = (NBTTagCompound)par1NBTTagCompound.getTag("Item");
-        ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
-        slot0.putStack(item);
+			NBTTagCompound itemnbt = (NBTTagCompound)par1NBTTagCompound.getTag("Item");
+			if (itemnbt!=null){
+				ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
+				slot0.putStack(item);
+			}
+			String Sender = par1NBTTagCompound.getString("Sender");
 		}
 
 		this.addSlotToContainer(slot0);
@@ -67,6 +71,7 @@ public class ContainerRedPacket extends Container{
 		if(getSlot(0).getStack()!=null) getSlot(0).getStack().writeToNBT(nbtitem);
 		NBTTagCompound nbtitem2 = new NBTTagCompound();
 		nbtitem2.setTag("Item", nbtitem);
+		nbtitem2.setString("Sender",p_75134_1_.getDisplayName());
 		itemStack.setTagCompound(nbtitem2);
 		p_75134_1_.inventory.setInventorySlotContents(p_75134_1_.inventory.currentItem,itemStack);
     }
