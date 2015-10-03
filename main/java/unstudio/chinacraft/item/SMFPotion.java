@@ -62,6 +62,7 @@ public class SMFPotion extends SpiritualMagicFigures{
         --stack.stackSize;
         return stack;
     }
+    
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         if (Effect == null) return;

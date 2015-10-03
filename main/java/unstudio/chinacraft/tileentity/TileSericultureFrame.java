@@ -155,13 +155,13 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 	public int getMaxSchedule(int i) {
 		switch (i) {
 		case 0:
-			return 24000;
+			return 16000;
 		case 1:
-			return 60000;
+			return 45000;
 		case 2:
-			return 12000;
+			return 9000;
 		default:
-			return 60000;
+			return 1;
 		}
 	}
 	

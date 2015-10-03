@@ -2,9 +2,10 @@ package unstudio.chinacraft;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import unstudio.chinacraft.block.BambooBlock;
 import unstudio.chinacraft.block.BambooShoot;
 import unstudio.chinacraft.block.BlockBamboo;
+import unstudio.chinacraft.block.BlockBase;
+import unstudio.chinacraft.block.BlockPotteryKiln;
 import unstudio.chinacraft.block.BlockWoodenBucket;
 import unstudio.chinacraft.block.BronzeBlock;
 import unstudio.chinacraft.block.Buhrimill;
@@ -48,6 +49,8 @@ import unstudio.chinacraft.item.combat.YanLung_Giantknife;
 import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadeOre;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -158,7 +161,7 @@ public class ChinaCraft {
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
 	    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板  
-	    public static BambooBlock bambooBlock = new  BambooBlock(); //竹木板
+	    public static BlockBase bambooBlock = (BlockBase) new  BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 	    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
 	    
@@ -171,6 +174,9 @@ public class ChinaCraft {
 	    public static Cooker cooker_on	= new Cooker(true); //灶台
 	    
 	    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
+	    
+	    public static BlockPotteryKiln blockPotteryKiln_off = new BlockPotteryKiln(false); //窑炉
+	    public static BlockPotteryKiln blockPotteryKiln_on = new BlockPotteryKiln(true); 
 	    
 	    //物品
 	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
