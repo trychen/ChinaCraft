@@ -1,5 +1,13 @@
 package unstudio.chinacraft;
 
+import net.minecraft.client.model.ModelWolf;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import unstudio.chinacraft.entity.EntityBlackDogMob;
+import unstudio.chinacraft.entity.EntityChinaZombie;
+import unstudio.chinacraft.entity.EntityChinaZombieMob;
+import unstudio.chinacraft.entity.model.ModelChinaZombie;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
@@ -17,8 +25,19 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
-		
-    	ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityChinaZombieMob.class, new RenderLiving(new ModelChinaZombie(), 0) {
+			protected ResourceLocation getEntityTexture(Entity par1Entity) {
+				return new ResourceLocation("chinacraft", "textures/entity/chinazombie/chinazombie.png");
+			}
+		});
+		RenderingRegistry.registerEntityRenderingHandler(EntityBlackDogMob.class, new RenderLiving(new ModelWolf(), 0) {
+			@Override
+			protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
+				return new ResourceLocation("chinacraft","textures/entity/blackwolf/blackwolf.png");
+			}
+		});
+		ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
     	ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
     	ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");
     	ChinaCraft.jadeOre.setBlockTextureName("chinacraft:jade_ore");

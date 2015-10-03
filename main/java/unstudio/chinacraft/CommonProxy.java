@@ -1,38 +1,25 @@
 package unstudio.chinacraft;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
-import io.netty.handler.codec.serialization.ObjectDecoderInputStream;
-import unstudio.chinacraft.block.Buhrimill;
-import unstudio.chinacraft.entity.EntityChineseZombie;
-import unstudio.chinacraft.entity.EntityKongmingLantern;
+import unstudio.chinacraft.entity.EntityBlackDog;
+import unstudio.chinacraft.entity.EntityChinaZombie;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
-import unstudio.chinacraft.recipes.JadeBenchRepair;
-import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.Random;
-
-import javax.swing.plaf.basic.BasicMenuUI.ChangeHandler;
-
-import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
@@ -40,12 +27,11 @@ public class CommonProxy {
     	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
         config.save();
-		EntityChineseZombie.mainRegister();
     }
  
     public void init(FMLInitializationEvent event) {
     	NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
-    	
+
     	GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
     	OreDictionary.registerOre("copperOre", ChinaCraft.copperOre);
@@ -208,8 +194,10 @@ public class CommonProxy {
 		GameRegistry.registerItem(ChinaCraft.smfProtect, "SpiritualMagicFiguresProtect");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.potionitem});
 
-		
-		EntityRegistry.registerModEntity(EntityKongmingLantern.class, "KongmingLantern", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 256, 1, true);
+		EntityBlackDog.mainRegister();
+
+		EntityChinaZombie.mainRegister();
+
 
 		GameRegistry.registerItem(ChinaCraft.debug, "Debug");
     }

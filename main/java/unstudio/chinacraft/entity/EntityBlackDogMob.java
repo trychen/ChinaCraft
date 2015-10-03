@@ -11,4 +11,6 @@ public class EntityBlackDogMob extends EntityWolf{
     public EntityBlackDogMob(World p_i1696_1_) {
         super(p_i1696_1_);
     }
+
+
 }
