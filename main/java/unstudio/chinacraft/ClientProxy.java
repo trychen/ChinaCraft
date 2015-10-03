@@ -34,7 +34,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBlackDogMob.class, new RenderLiving(new ModelWolf(), 0) {
 			@Override
 			protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
-				return new ResourceLocation("chinacraft","textures/entity/blackwolf/blackwolf.png");
+				return new ResourceLocation("chinacraft", "textures/entity/blackwolf/blackwolf.png");
 			}
 		});
 		ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
@@ -92,9 +92,13 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.jadeGreen2Item.setTextureName("chinacraft:jade_green2");
     	ChinaCraft.jadePinkItem.setTextureName("chinacraft:jade_pink");
     	ChinaCraft.jadePurpleItem.setTextureName("chinacraft:jade_purple");
-    	
-    	//Drink、Food
-    	ChinaCraft.cup.setTextureName("chinacraft:cup");
+
+		//耐火砖
+		ChinaCraft.blockFirebrick.setBlockTextureName("chinacraft:blockfirebrick");
+		ChinaCraft.firebrick.setTextureName("chinacraft:firebrick");
+
+		//Drink、Food
+		ChinaCraft.cup.setTextureName("chinacraft:cup");
     	ChinaCraft.cup_Clay.setTextureName("chinacraft:cup_clay");
     	ChinaCraft.cupChocolate.setTextureName("chinacraft:cup_chocolate");
     	ChinaCraft.cocoa.setTextureName("chinacraft:cocoa");

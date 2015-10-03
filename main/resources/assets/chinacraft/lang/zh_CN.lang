@@ -100,6 +100,9 @@ gui.jade_table.info=玉石信息
 tile.cooker.name=灶台
 gui.cooker.title=灶台
 
+tile.blockfirebrick.title=耐火砖
+item.blockfirebrick.name=耐火砖
+
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉
 item.jade_pink.name=芙蓉石

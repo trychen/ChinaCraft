@@ -2,34 +2,7 @@ package unstudio.chinacraft;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import unstudio.chinacraft.block.BambooShoot;
-import unstudio.chinacraft.block.BlockBamboo;
-import unstudio.chinacraft.block.BlockBase;
-import unstudio.chinacraft.block.BlockPotteryKiln;
-import unstudio.chinacraft.block.BlockWoodenBucket;
-import unstudio.chinacraft.block.BronzeBlock;
-import unstudio.chinacraft.block.Buhrimill;
-import unstudio.chinacraft.block.ChiseledMarble;
-import unstudio.chinacraft.block.Cooker;
-import unstudio.chinacraft.block.CopperOre;
-import unstudio.chinacraft.block.JadeWorkingTable;
-import unstudio.chinacraft.block.Lantern;
-import unstudio.chinacraft.block.Marble;
-import unstudio.chinacraft.block.MarbleSlab;
-import unstudio.chinacraft.block.MarbleStair;
-import unstudio.chinacraft.block.MulberryLeaf;
-import unstudio.chinacraft.block.MulberryLog;
-import unstudio.chinacraft.block.MulberrySapling;
-import unstudio.chinacraft.block.MulberryWood;
-import unstudio.chinacraft.block.PillarMarble;
-import unstudio.chinacraft.block.PotteryTable;
-import unstudio.chinacraft.block.RiceGrow;
-import unstudio.chinacraft.block.SericultureFrame;
-import unstudio.chinacraft.block.SilverOre;
-import unstudio.chinacraft.block.SmoothMarble;
-import unstudio.chinacraft.block.SoyGrow;
-import unstudio.chinacraft.block.TinOre;
-import unstudio.chinacraft.block.WoodenWindow;
+import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.BronzeAxe;
 import unstudio.chinacraft.item.combat.BronzeBoots;
@@ -234,6 +207,10 @@ public class ChinaCraft {
 	    public static Item flour =new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
 	    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); //米粉
 	    public static Item barleyRice =new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
+
+		//耐火砖
+		public static BlockFirebrick blockFirebrick = new BlockFirebrick();
+		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore);
 
 		//spiritual_magic_figures灵符
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符

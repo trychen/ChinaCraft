@@ -79,6 +79,9 @@ gui.buhrimill.title=Buhrimill
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
 
+tile.blockfirebrick.title=Firebrick
+item.blockfirebrick.name=Firebrick
+
 item.jade_green.name=Fei Cui Jade
 item.jade_green2.name=Jasper
 item.jade_pink.name=Ross quartz
