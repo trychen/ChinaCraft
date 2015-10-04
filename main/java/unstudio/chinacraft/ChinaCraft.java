@@ -2,6 +2,7 @@ package unstudio.chinacraft;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+import scala.reflect.internal.Trees.If;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.BronzeAxe;
@@ -24,6 +25,7 @@ import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadeOre;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -65,13 +67,11 @@ public class ChinaCraft {
 	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 0, Side.SERVER);
 	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 1, Side.CLIENT);
 	    }
-	 
 	    @EventHandler
 	    public void init(FMLInitializationEvent event) {
 	        proxy.init(event);
 	        MinecraftForge.EVENT_BUS.register(new Listener());
-	    }
-	    
+	    }   
 	 
 	    @EventHandler
 	    public void postInit(FMLPostInitializationEvent event) {
@@ -184,11 +184,11 @@ public class ChinaCraft {
 		public static HammerIron hammerIron = new HammerIron();//铁锤
 		public static HammerDiamond hammerDiamond = new HammerDiamond();//钻石锤
 
-	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
-	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
-	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲
-	    public static BronzeLeggings bronzeLeggings =  new BronzeLeggings();//青铜护腿
-	    public static BronzeBoots bronzeBoots =  new BronzeBoots();//青铜靴子
+		public static int bronzeArmorTexture = -1; //青铜套装外部材质注册
+	    public static BronzeHelmet bronzeHelmet;//青铜头盔
+	    public static BronzeChestplate bronzeChestplate;//青铜胸甲
+	    public static BronzeLeggings bronzeLeggings;//青铜护腿
+	    public static BronzeBoots bronzeBoots;//青铜靴子
 
 	    //玉石
 	    public static Jade jadeGreenItem =  new Jade("jade_green");

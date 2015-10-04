@@ -1,7 +1,10 @@
 package unstudio.chinacraft.inventory;
 
 import net.minecraft.nbt.NBTTagCompound;
+
 import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,9 +17,11 @@ public class GuiRedPacket extends GuiContainer {
     public String wish = "Best Wishes!";
     private int wishColor = Integer.MAX_VALUE;
     private String sender;
+    private int currentItem;
 
     public GuiRedPacket(InventoryPlayer playerInv, ItemStack itemStack) {
         super(new ContainerRedPacket(playerInv, itemStack));
+        currentItem = playerInv.currentItem;
         wishColor = new Random().nextInt(Integer.MAX_VALUE);
         NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
         if (par1NBTTagCompound != null) {
@@ -60,8 +65,15 @@ public class GuiRedPacket extends GuiContainer {
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
-
     }
+    
+    @Override
+    protected boolean checkHotbarKeys(int p_146983_1_)
+    {
+    	if(p_146983_1_ == currentItem+2)return false;
+    	else return super.checkHotbarKeys(p_146983_1_);
+    }
+
 
     public void setWish(String s) {
         wish = s;

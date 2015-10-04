@@ -2,6 +2,10 @@ package unstudio.chinacraft;
 
 import unstudio.chinacraft.entity.EntityBlackDog;
 import unstudio.chinacraft.entity.EntityChinaZombie;
+import unstudio.chinacraft.item.combat.BronzeBoots;
+import unstudio.chinacraft.item.combat.BronzeChestplate;
+import unstudio.chinacraft.item.combat.BronzeHelmet;
+import unstudio.chinacraft.item.combat.BronzeLeggings;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
@@ -15,7 +19,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
-
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -27,6 +31,11 @@ public class CommonProxy {
     	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
         config.load();
         config.save();
+        
+		ChinaCraft.bronzeHelmet =  new BronzeHelmet();//青铜头盔
+		ChinaCraft.bronzeChestplate =  new BronzeChestplate();//青铜胸甲
+		ChinaCraft.bronzeLeggings =  new BronzeLeggings();//青铜护腿
+		ChinaCraft.bronzeBoots =  new BronzeBoots();//青铜靴子
     }
  
     public void init(FMLInitializationEvent event) {
