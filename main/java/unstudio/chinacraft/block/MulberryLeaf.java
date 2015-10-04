@@ -28,7 +28,7 @@ public class MulberryLeaf extends BlockLeaves{
 	private boolean graphicsLevel;
 	
 	public MulberryLeaf() {
-		setCreativeTab(ChinaCraft.tabCore);
+		setCreativeTab(ChinaCraft.tabPlant);
 		setBlockName(StatCollector.translateToLocal("mulberry_leaf"));
 	}
 	

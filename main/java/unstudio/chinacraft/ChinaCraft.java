@@ -1,8 +1,8 @@
 package unstudio.chinacraft;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import scala.reflect.internal.Trees.If;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.BronzeAxe;
@@ -52,7 +52,7 @@ public class ChinaCraft {
 	    public static final String MODID = "chinacraft";
 	    public static final String VERSION = "0.0.1";
         public static SimpleNetworkWrapper Network;
-	 
+	 	private Listener listener = new Listener();
 	    @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
 	            serverSide = "unstudio.chinacraft.CommonProxy")
 	    public static CommonProxy proxy;
@@ -70,8 +70,9 @@ public class ChinaCraft {
 	    @EventHandler
 	    public void init(FMLInitializationEvent event) {
 	        proxy.init(event);
-	        MinecraftForge.EVENT_BUS.register(new Listener());
-	    }   
+			FMLCommonHandler.instance().bus().register(listener);
+	        MinecraftForge.EVENT_BUS.register(listener);
+	    }
 	 
 	    @EventHandler
 	    public void postInit(FMLPostInitializationEvent event) {
@@ -161,12 +162,13 @@ public class ChinaCraft {
 	    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //竹子 
 	    public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //大豆荚
 	    public static ItemReed itemBuhrimill = (ItemReed) new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨  
-	    public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabCore); //桑叶  
+	    public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabPlant); //桑叶
 	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
 	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
 	    public static Silkworm silkworm = new Silkworm(); //蚕
 	    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabCore).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
 	    public static RedPacket redPacket = new RedPacket(); //红包
+		public static BlackDogBlood blackDogBlood = new BlackDogBlood();
 	    
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
