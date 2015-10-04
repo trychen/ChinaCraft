@@ -3,7 +3,6 @@ package unstudio.chinacraft;
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.BronzeAxe;
@@ -188,7 +187,7 @@ public class ChinaCraft {
 		public static HammerIron hammerIron = new HammerIron();//铁锤
 		public static HammerDiamond hammerDiamond = new HammerDiamond();//钻石锤
 
-	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
+	    public static int bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze");; //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet =  new BronzeHelmet();//青铜头盔
 	    public static BronzeChestplate bronzeChestplate =  new BronzeChestplate();//青铜胸甲
 	    public static BronzeLeggings bronzeLeggings =  new BronzeLeggings();//青铜护腿
