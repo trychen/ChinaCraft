@@ -72,6 +72,7 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
+    	GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon");
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
     	GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");

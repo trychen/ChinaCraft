@@ -128,6 +128,7 @@ public class ChinaCraft {
 	    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2","chinacraft:wooden_window_top"); //木窗框2
 	    public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3","chinacraft:wooden_window_top"); //木窗框3
 	    public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4","chinacraft:wooden_window_top"); //木窗框3
+	    public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon","chinacraft:wooden_window_top"); //木窗框Logo
 	    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
 	    public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
 	    public static BambooShoot bambooShoot = new BambooShoot(); //竹笋  

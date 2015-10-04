@@ -22,7 +22,7 @@ item.spiritual_magic_figures.name=Spiritual Magic Paper
 item.spiritual_magic_figures_fire.name=Fire Spiritual Magic Paper
 item.spiritual_magic_figures_fire.lore=To Make Entity be Burn
 item.spiritual_magic_figures_power.name=Power Spiritual Magic Paper
-item.spiritual_magic_figures_Poison.name=Poison Spiritual Magic Paper
+item.spiritual_magic_figures_poison.name=Poison Spiritual Magic Paper
 item.spiritual_magic_figures_night_vision.name=Night Vision Spiritual Magic Paper
 item.spiritual_magic_figures_heal.name=Heal Spiritual Magic Paper
 item.spiritual_magic_figures_protect.name=Protect Spiritual Magic Paper
@@ -59,6 +59,7 @@ tile.pillar_marble.name=Pillar Marble
 tile.chiseled_marble.name=Chiseled Marble
 tile.marble_slab.name=Marble Slab
 tile.marble_stair.name=Marble Stair
+tile.firebrick.name=Firebrick
 
 tile.lantern.name=Lantern
 
@@ -103,6 +104,7 @@ debug.plantstage=Plant Stage
 item.debug.lore=Use item with block to output debug information
 
 item.redpacket.name=Red Packet
-gui.redpacket.default.wash=May all the happiness be with you
+gui.redpacket.default.wash.1=Our luck is turning around
+gui.redpacket.default.wash.2=May happiness always be with us.
 gui.redpacket.from=From
 gui.redpacket.s='s
