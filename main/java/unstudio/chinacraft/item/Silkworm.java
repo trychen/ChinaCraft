@@ -23,7 +23,7 @@ public class Silkworm extends Item{
 		setMaxStackSize(64);
 		setHasSubtypes(true);
 		setMaxDamage(0);
-		setCreativeTab(ChinaCraft.tabCore);
+		setCreativeTab(ChinaCraft.tabPlant);
 		setUnlocalizedName("silkworm");
 	}
 	
