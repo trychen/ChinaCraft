@@ -212,6 +212,7 @@ public class CommonProxy {
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfFire), new Object[]{ChinaCraft.spiritualMagicFigures, Items.ghast_tear, Items.golden_apple, Items.redstone});
 		GameRegistry.registerItem(ChinaCraft.smfProtect, "SpiritualMagicFiguresProtect");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.potionitem});
+		GameRegistry.registerItem(ChinaCraft.smfSuper, "SpiritualMagicFiguresSuper");
 
 		EntityBlackDog.mainRegister();
 
