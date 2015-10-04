@@ -5,6 +5,9 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.WorldManager;
+import net.minecraft.world.WorldServer;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
@@ -194,7 +197,7 @@ public class Cooker extends BlockContainer{
 
     public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
     {
-        return Container.calcRedstoneFromInventory((IInventory)p_149736_1_.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
+        return Container.calcRedstoneFromInventory((IInventory) p_149736_1_.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
     }
 	
     @SideOnly(Side.CLIENT)
@@ -235,5 +238,6 @@ public class Cooker extends BlockContainer{
             tileentity.validate();
             p_149931_1_.setTileEntity(p_149931_2_, p_149931_3_, p_149931_4_, tileentity);
         }
+
     }
 }

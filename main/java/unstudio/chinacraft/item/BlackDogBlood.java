@@ -15,7 +15,7 @@ public class BlackDogBlood extends ItemFood {
         super(0, false);
         this.setMaxStackSize(1);
         setCreativeTab(ChinaCraft.tabCore);
-        setUnlocalizedName("BlackDogBlood");
+        setUnlocalizedName("black_dog_blood");
     }
 
     public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_)

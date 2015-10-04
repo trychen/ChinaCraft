@@ -15,6 +15,9 @@ item.bronze_body.name=Bronze Body
 item.bronze_legs.name=Bronze Legs
 item.bronze_boots.name=Bronze Boots
 item.jade_knife.name=Cutting Knife
+tile.wooden_bucket.name=Wooden Bucket
+item.wooden_bucket.name=Wooden Bucket
+item.wooden_bucket_water.name=Wooden Water Bucket
 item.silkworm_chrysalis.name=Silkworm Chrysalis
 item.silkworm_young.name=Young Silkworm
 item.silkworm_graine.name=Silkworm Graine
@@ -28,7 +31,11 @@ item.spiritual_magic_figures_heal.name=Heal Spiritual Magic Paper
 item.spiritual_magic_figures_protect.name=Protect Spiritual Magic Paper
 item.spiritual_magic_figures_fire.lore=Burn 15-23 Second
 item.debug.name=Debug
-
+item.black_dog_blood.name=Black Dog Blood
+item.flour.name=Flour
+item.rice_flour.name=Rice Flour
+item.barley_rice.name=Barley Rice
+item.mooncake.name=Mooncake
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot
@@ -80,8 +87,12 @@ gui.buhrimill.title=Buhrimill
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
 
+tile.cooker.name=Furnace Platform
+gui.cooker.title=Furnace Platform
+
 tile.blockfirebrick.title=Firebrick
-item.blockfirebrick.name=Firebrick
+item.firebrick.name=Firebrick
+item.clay_sand_mixture.name=Clay Sand Mixture
 
 item.jade_green.name=Fei Cui Jade
 item.jade_green2.name=Jasper
@@ -108,3 +119,6 @@ gui.redpacket.default.wash.1=Our luck is turning around
 gui.redpacket.default.wash.2=May happiness always be with us.
 gui.redpacket.from=From
 gui.redpacket.s='s
+
+entity.black_dog.name=Black Dog
+entity.chinazombie.name=China Zombie
