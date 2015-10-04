@@ -67,6 +67,7 @@ public class ChinaCraft {
 	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 0, Side.SERVER);
 	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 1, Side.CLIENT);
 	    }
+	    
 	    @EventHandler
 	    public void init(FMLInitializationEvent event) {
 	        proxy.init(event);
@@ -150,8 +151,7 @@ public class ChinaCraft {
 	    
 	    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
 	    
-	    public static BlockPotteryKiln blockPotteryKiln_off = new BlockPotteryKiln(false); //窑炉
-	    public static BlockPotteryKiln blockPotteryKiln_on = new BlockPotteryKiln(true); 
+	    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //窑炉
 	    
 	    //物品
 	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
@@ -214,6 +214,7 @@ public class ChinaCraft {
 
 		//耐火砖
 		public static BlockFirebrick blockFirebrick = new BlockFirebrick();
+		public static BlockFirebrickStructure	blockFirebrickStructure = new BlockFirebrickStructure(); 
 		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore);
 		public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore);
 

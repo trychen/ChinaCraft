@@ -3,10 +3,14 @@ package unstudio.chinacraft.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import unstudio.chinacraft.ChinaCraft;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public class BlocksChecker {
+	
+	public static final BlocksChecker Pottery_Kiln = new BlocksChecker(new String[][]{{"AAA","AAA","AAA"},{"AAA","ABA","AAA"},{"AAA","AAA","AAA"}},'A',new BlockRule(ChinaCraft.blockFirebrick),'B',new BlockRule(Blocks.air)).setOffset(0, 0, 0);
 
 	private BlockRule[][][] data;
 
@@ -14,9 +18,9 @@ public class BlocksChecker {
 	private int widthZ;
 	private int height;
 
-	private int offsetX;
-	private int offsetZ;
-	private int offsetY;
+	private int offsetX=0;
+	private int offsetZ=0;
+	private int offsetY=0;
 	
 	private BlocksChecker() {}
 
@@ -103,7 +107,8 @@ public class BlocksChecker {
 	}
 
 	/**
-	 * 检查该方块
+	 * 检查该多方块结构
+	 * 请输入结构左上角的坐标
 	 * @param world 世界
 	 * @param X X坐标
 	 * @param Y Y坐标
@@ -115,15 +120,14 @@ public class BlocksChecker {
 		Y+=this.offsetY;
 		Z+=this.offsetZ;
 
-		for (int y = 0; y < this.height; y++)
-			for (int z = 0; z < this.widthZ; z++)
+		for (int y = 0; y < this.height; y++) {
+			for (int z = 0; z < this.widthZ; z++) {
 				for (int x = 0; x < this.widthX; x++) {
 					BlockRule rule = this.data[y][z][x];
-
-					if (rule != null && !rule.check(world,X+x, Y-y, Z+z))
-						return false;
+					if (rule != null && !rule.check(world,X+x, Y-y, Z+z))return false;
 				}
-
+			}
+		}
 		return true;
 	}
 	
@@ -132,50 +136,20 @@ public class BlocksChecker {
 		object.data = this.data;
 		return object;
 	}
+	
+	public BlockRule[][][] getBlockRule() {
+		return data;
+	}
+	
+	public int getHeight() {
+		return height;
+	}
 
-	public class BlockRule {
+	public int getWidthX() {
+		return widthX;
+	}
 
-		private Block block;
-		private int data;
-		
-		public BlockRule(Block block) {
-			this.setRule(block, 0);
-		}
-
-		public BlockRule(Block block, int data) {
-			this.setRule(block, data);
-		}
-
-		public Block getBlock() {
-			return this.block;
-		}
-
-		public int getData() {
-			return this.data;
-		}
-
-		public void setRule(Block block, int data) {
-			this.block = block;
-			this.data = data;
-		}
-
-		public boolean check(World world,int X,int Y,int Z) {
-			return this.check(world.getBlock(X, Y, Z),world.getBlockMetadata(X, Y, Z));
-		}
-
-		public boolean check(Block block,int data) {
-			if (block == null)
-				return false;
-			if (block != this.block)
-				return false;
-			if (this.data != -1 && data != this.data)
-				return false;
-
-			return true;
-		}
-
-		public BlockRule copy() {
-			return new BlockRule(this.block, this.data);
-		}
+	public int getWidthZ() {
+		return widthZ;
 	}
 }

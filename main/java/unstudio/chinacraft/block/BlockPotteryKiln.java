@@ -21,25 +21,23 @@ import net.minecraft.world.World;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.tileentity.TileCooker;
+import unstudio.chinacraft.tileentity.TileFirebrickStructure;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.util.BlockRule;
+import unstudio.chinacraft.util.BlocksChecker;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPotteryKiln extends BlockContainer{
-
-	private boolean fire;
-	private IIcon top_off,top_on,side,bottom,front_off,front_on;
-	private static boolean update;
 	
-	public BlockPotteryKiln(boolean fire) {
+	public BlockPotteryKiln() {
 		super(Material.rock);
-		this.fire = fire;
-		setBlockName("cooker");
+		setBlockName("firebrick");
 		setHardness(1.5F);
 		setResistance(10.0F);
-		setLightLevel(fire?1.0F:0.0F);
+		setLightLevel(0.0F);
 		setStepSound(soundTypeStone);
 		setHarvestLevel("pickaxe", 0);
-		if(!fire)setCreativeTab(ChinaCraft.tabCore);
 	}
 	
     public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
@@ -67,75 +65,14 @@ public class BlockPotteryKiln extends BlockContainer{
         }
     }
 
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIcon(int i, int par2) {
-		if (i == 0)
-			return bottom;
-		else if (i == 1)
-			return fire?top_on:top_off;
-		else if (i == par2)
-			return fire?front_on:front_off;
-		else 
-			return side;
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerBlockIcons(IIconRegister reg) {
-		this.bottom = reg.registerIcon("chinacraft:cooker_bottom");
-		this.top_off = reg.registerIcon("chinacraft:cooker_top_off");
-		this.top_on = reg.registerIcon("chinacraft:cooker_top_on");
-		this.side = reg.registerIcon("chinacraft:cooker_side");
-		this.front_off = reg.registerIcon("chinacraft:cooker_front_off");
-		this.front_on = reg.registerIcon("chinacraft:cooker_front_on");
-	}
-
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-		return new TileCooker();
+		return new TilePotteryKiln();
 	}
-
-    @SideOnly(Side.CLIENT)
-    public void randomDisplayTick(World p_149734_1_, int p_149734_2_, int p_149734_3_, int p_149734_4_, Random p_149734_5_)
-    {
-        if (this.fire)
-        {
-            int l = p_149734_1_.getBlockMetadata(p_149734_2_, p_149734_3_, p_149734_4_);
-            float f = (float)p_149734_2_ + 0.5F;
-            float f1 = (float)p_149734_3_ + 0.0F + p_149734_5_.nextFloat() * 6.0F / 16.0F;
-            float f2 = (float)p_149734_4_ + 0.5F;
-            float f3 = 0.52F;
-            float f4 = p_149734_5_.nextFloat() * 0.6F - 0.3F;
-
-            if (l == 4)
-            {
-                p_149734_1_.spawnParticle("smoke", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f - f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-            }
-            else if (l == 5)
-            {
-                p_149734_1_.spawnParticle("smoke", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f + f3), (double)f1, (double)(f2 + f4), 0.0D, 0.0D, 0.0D);
-            }
-            else if (l == 2)
-            {
-                p_149734_1_.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 - f3), 0.0D, 0.0D, 0.0D);
-            }
-            else if (l == 3)
-            {
-                p_149734_1_.spawnParticle("smoke", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
-                p_149734_1_.spawnParticle("flame", (double)(f + f4), (double)f1, (double)(f2 + f3), 0.0D, 0.0D, 0.0D);
-            }
-        }
-    }
     
 	 public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
 	    {
-		 if(update)return;
-		 TileCooker tileentity = (TileCooker) World.getTileEntity(x, y, z);
+		 TilePotteryKiln tileentity = (TilePotteryKiln) World.getTileEntity(x, y, z);
 		 Random random = World.rand;
 	            if (tileentity != null)
 	            {
@@ -195,40 +132,53 @@ public class BlockPotteryKiln extends BlockContainer{
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
-        return Item.getItemFromBlock(ChinaCraft.cooker_off);
+        return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
     }
     
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,
 			int p_149650_3_) {
-		return Item.getItemFromBlock(ChinaCraft.cooker_off);
+		return Item.getItemFromBlock(ChinaCraft.blockPotteryKiln);
 	}
 	
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
 		if(world.isRemote) return true;
-            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Cooker, world, x, y, z);
+            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_PotteryKiln, world, x, y, z);
             return true;
     }
-	
-    public static void updateFurnaceBlockState(boolean p_149931_0_, World p_149931_1_, int p_149931_2_, int p_149931_3_, int p_149931_4_)
-    {
-        int l = p_149931_1_.getBlockMetadata(p_149931_2_, p_149931_3_, p_149931_4_);
-        TileEntity tileentity = p_149931_1_.getTileEntity(p_149931_2_, p_149931_3_, p_149931_4_);
-        update = true;
-        if (p_149931_0_)
-        {
-            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ChinaCraft.cooker_on);
-        }
-        else
-        {
-            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ChinaCraft.cooker_off);
-        }
-        update = false;
-        p_149931_1_.setBlockMetadataWithNotify(p_149931_2_, p_149931_3_, p_149931_4_, l, 2);
-        if (tileentity != null)
-        {
-            tileentity.validate();
-            p_149931_1_.setTileEntity(p_149931_2_, p_149931_3_, p_149931_4_, tileentity);
-        }
+    
+    public static void generatePotteryKiln(World world,int x,int y,int z,int type) {
+    	TileFirebrickStructure tile = (TileFirebrickStructure) ChinaCraft.blockFirebrickStructure.createNewTileEntity(world, 0);
+    	tile.setPosition(x, y, z);
+    	world.setBlock(x, y, z, ChinaCraft.blockPotteryKiln, type, 2);
+    	System.out.println(type);
+    	if(type == 0) {
+    		world.setBlock(x, y, z-1, ChinaCraft.blockFirebrickStructure, 1, 2);
+    	}else if(type == 1) {
+    		world.setBlock(x+1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
+    	}else if(type == 2) {
+    		world.setBlock(x, y, z+1, ChinaCraft.blockFirebrickStructure, 1, 2);
+    	}else if(type == 3) {
+    		world.setBlock(x-1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
+    	}
+    	BlocksChecker checker = BlocksChecker.Pottery_Kiln.copy();
+    	int tx=x-1;
+    	int ty=y+2;
+    	int tz=z-1;
+		for (int Y = 0; y < checker.getHeight(); y++) {
+			for (int Z = 0; z < checker.getWidthZ(); z++) {
+				for (int  X= 0; x < checker.getWidthX(); x++) {
+					BlockRule rule = checker.getBlockRule()[y][z][x];
+					if (rule != null && !rule.check(world,X+tx, Y-ty, Z+tz)&&rule.getBlock().equals(ChinaCraft.blockFirebrick)) {
+						world.setBlock(X+tx, Y-ty, Z+tz, ChinaCraft.blockFirebrickStructure, 0, 2);
+						world.setTileEntity(X+tx, Y-ty, Z+tz, tile);
+					}
+				}
+			}
+		}
+    }
+    
+    public static void destroyPotteryKiln(World world,int x,int y,int z) {
+    	
     }
 }
