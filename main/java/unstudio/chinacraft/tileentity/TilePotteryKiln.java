@@ -253,7 +253,6 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	            if (flag != this.furnaceBurnTime > 0)
 	            {
 	                flag1 = true;
-	                BlockPotteryKiln.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
 	            }
 	        }
 

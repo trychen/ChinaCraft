@@ -6,18 +6,21 @@ import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.inventory.ContainerBuhrimill;
 import unstudio.chinacraft.inventory.ContainerCooker;
 import unstudio.chinacraft.inventory.ContainerJadeBench;
+import unstudio.chinacraft.inventory.ContainerPotteryKiln;
 import unstudio.chinacraft.inventory.ContainerPotteryTable;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
 import unstudio.chinacraft.inventory.ContainerSericultureFrame;
 import unstudio.chinacraft.inventory.GuiBuhrimill;
 import unstudio.chinacraft.inventory.GuiCooker;
 import unstudio.chinacraft.inventory.GuiJadeBench;
+import unstudio.chinacraft.inventory.GuiPotteryKiln;
 import unstudio.chinacraft.inventory.GuiPotteryTable;
 import unstudio.chinacraft.inventory.GuiRedPacket;
 import unstudio.chinacraft.inventory.GuiSericultureFrame;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -46,6 +49,9 @@ public class GuiHandler implements IGuiHandler{
                 case GuiID.GUI_PotteryTable:
             	    return new ContainerPotteryTable(player);
             	    
+                case GuiID.GUI_PotteryKiln:
+            	    return new ContainerPotteryKiln(player.inventory, (TilePotteryKiln) world.getTileEntity(x, y, z));
+            	    
                 case GuiID.GUI_RedPacket:
             	    return new ContainerRedPacket(player.inventory, player.inventory.getCurrentItem());
                 }
@@ -70,6 +76,9 @@ public class GuiHandler implements IGuiHandler{
             	    
                 case GuiID.GUI_PotteryTable:
             	    return new GuiPotteryTable(player);
+            	    
+                case GuiID.GUI_PotteryKiln:
+            	    return new GuiPotteryKiln(player.inventory, (TilePotteryKiln) world.getTileEntity(x, y, z));
             	    
                 case GuiID.GUI_RedPacket:
             	    return new GuiRedPacket(player.inventory, player.inventory.getCurrentItem());
