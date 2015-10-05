@@ -74,7 +74,9 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.silkwormChrysalis.setTextureName("chinacraft:silkworm_chrysalis");
     	ChinaCraft.redPacket.setTextureName("chinacraft:redpacket");
 		ChinaCraft.blackDogBlood.setTextureName("chinacraft:blackdogblood");
+		ChinaCraft.moonCake.setTextureName("chinacraft:mooncake");
 
+		//青铜
     	ChinaCraft.bronzePickaxe.setTextureName("chinacraft:bronze_pickaxe");
     	ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");
     	ChinaCraft.bronzeHoe.setTextureName("chinacraft:bronze_hoe");
@@ -99,7 +101,8 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.blockFirebrick.setBlockTextureName("chinacraft:firebrick");
 		ChinaCraft.firebrick.setTextureName("chinacraft:firebrick");
 		ChinaCraft.blockPotteryKiln.setBlockTextureName("chinacraft:firebrick");
-		
+		ChinaCraft.claySandMixture.setTextureName("chinacraft:clay_sand_mixture");
+
 		//Drink、Food
 		ChinaCraft.cup.setTextureName("chinacraft:cup");
     	ChinaCraft.cup_Clay.setTextureName("chinacraft:cup_clay");

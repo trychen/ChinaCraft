@@ -129,6 +129,7 @@ public class ChinaCraft {
 	    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2","chinacraft:wooden_window_top"); //木窗框2
 	    public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3","chinacraft:wooden_window_top"); //木窗框3
 	    public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4","chinacraft:wooden_window_top"); //木窗框3
+	    public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon","chinacraft:wooden_window_top"); //木窗框Logo
 	    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
 	    public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
 	    public static BambooShoot bambooShoot = new BambooShoot(); //竹笋  
@@ -166,10 +167,11 @@ public class ChinaCraft {
 	    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶  
 	    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
 	    public static Silkworm silkworm = new Silkworm(); //蚕
-	    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabCore).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
+	    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
 	    public static RedPacket redPacket = new RedPacket(); //红包
 		public static BlackDogBlood blackDogBlood = new BlackDogBlood();
-	    
+		public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabCore);
+
 	    //防具武器
 	    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
 	    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword();  //青铜大刀
@@ -203,7 +205,7 @@ public class ChinaCraft {
 	    public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupChocolate cupChocolate = new CupChocolate();
 	    public static Item cocoa =new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabPlant);
-	    public static ItemFood ladyfinger =(ItemFood) new ItemFood(1, true).setUnlocalizedName("ladyfinger").setCreativeTab(ChinaCraft.tabPlant);
+	    public static ItemFood ladyfinger =(ItemFood) new ItemFood(2, false).setUnlocalizedName("ladyfinger").setCreativeTab(ChinaCraft.tabPlant);
 	    public static CupWater cupWater =new CupWater();
 	    public static CupChrysanthemum cupChrysanthemum =new CupChrysanthemum();
 	    public static Item flour =new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
@@ -214,6 +216,8 @@ public class ChinaCraft {
 		public static BlockFirebrick blockFirebrick = new BlockFirebrick();
 		public static BlockFirebrickStructure	blockFirebrickStructure = new BlockFirebrickStructure(); 
 		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore);
+		public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore);
+
 
 		//spiritual_magic_figures灵符
 		public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符

@@ -1,5 +1,6 @@
 package unstudio.chinacraft;
 
+import io.netty.util.internal.chmv8.ConcurrentHashMapV8;
 import unstudio.chinacraft.entity.EntityBlackDog;
 import unstudio.chinacraft.entity.EntityChinaZombie;
 import unstudio.chinacraft.item.combat.BronzeBoots;
@@ -72,6 +73,7 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
+    	GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon");
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
     	GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");
@@ -134,55 +136,58 @@ public class CommonProxy {
 		GameRegistry.registerItem(ChinaCraft.hammerDiamond, "DiamondHammer");//钻石锤
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerDiamond, 1), new Object[]{"###", "#X#", " X ", '#', Items.diamond, 'X', Items.stick});
 
-    	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");
+    	GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");//锡锭
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");//米
     	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//水稻
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 2), new Object[]{ChinaCraft.lcker});
-    	GameRegistry .registerItem(ChinaCraft.soy, "Soy");
-    	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");
+    	GameRegistry .registerItem(ChinaCraft.soy, "Soy"); //大豆
+    	GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");//大豆荚
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[]{ChinaCraft.soyPod});
-    	GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");
+    	GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");//竹子
     	GameRegistry.addSmelting(ChinaCraft.bamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
-    	GameRegistry.registerItem(ChinaCraft.itemMulberryLeaf, "ItemMulberryLeaf");
-    	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");
-    	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");
-    	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");
+    	GameRegistry.registerItem(ChinaCraft.itemMulberryLeaf, "ItemMulberryLeaf");//桑叶
+    	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");//木桶
+    	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");//木桶 (水)
+    	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");//蚕
     	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");
-    	GameRegistry.registerItem(ChinaCraft.redPacket, "RedPacket");
+    	GameRegistry.registerItem(ChinaCraft.redPacket, "RedPacket");//红包
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper, new ItemStack(Items.dye, 1, 1)});
-		GameRegistry.registerItem(ChinaCraft.blackDogBlood,"BlackDogBlood");
+		GameRegistry.registerItem(ChinaCraft.blackDogBlood, "BlackDogBlood");//黑狗血
+		GameRegistry.registerItem(ChinaCraft.moonCake, "MoonCake");//月饼
 
     	//青铜套
-    	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");
+    	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");//青铜头盔
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet, 1), new Object[]{"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});
-    	GameRegistry.registerItem(ChinaCraft.bronzeChestplate, "BronzeChestplate");
+    	GameRegistry.registerItem(ChinaCraft.bronzeChestplate, "BronzeChestplate");//青铜护胸
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeChestplate, 1), new Object[]{"# #", "###", "###", '#', ChinaCraft.bronzeIngot});
-    	GameRegistry.registerItem(ChinaCraft.bronzeLeggings, "BronzeLeggings");
+    	GameRegistry.registerItem(ChinaCraft.bronzeLeggings, "BronzeLeggings");//青铜护腿
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeLeggings, 1), new Object[]{"###", "# #", "# #", '#', ChinaCraft.bronzeIngot});
-    	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");
+    	GameRegistry.registerItem(ChinaCraft.bronzeBoots, "BronzeBoots");//青铜鞋
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBoots, 1), new Object[]{"   ", "# #", "# #", '#', ChinaCraft.bronzeIngot});
     	
     	//耐火砖
-		GameRegistry.registerBlock(ChinaCraft.blockFirebrick,"blockFirebrick");
 		GameRegistry.registerBlock(ChinaCraft.blockFirebrickStructure, "blockFirebrickStructure");
 		GameRegistry.registerBlock(ChinaCraft.blockPotteryKiln, "blockPotteryKiln");
-		GameRegistry.registerItem(ChinaCraft.firebrick,"firebrick");
+		GameRegistry.registerBlock(ChinaCraft.blockFirebrick, "BlockFirebrick");//耐火砖方块
+		GameRegistry.registerItem(ChinaCraft.firebrick, "Firebrick");//耐火砖物品
+		GameRegistry.registerItem(ChinaCraft.claySandMixture,"ClaySandMixture");//粘土沙子混合物
 		
     	//Jade
     	GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "GreenJade");
     	GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
     	GameRegistry.registerItem(ChinaCraft.jadePinkItem, "GreenPink");
     	GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
-    	GameRegistry.registerItem(ChinaCraft.jadeKnife, "JadeKnife");
+    	GameRegistry.registerItem(ChinaCraft.jadeKnife, "JadeKnife");//玉石切割刀
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeKnife, 1), new Object[]{" X ", "X#X", " # ", '#', Items.stick,'X', Items.iron_ingot });
 
     	//Drink、Food
-    	GameRegistry.registerItem(ChinaCraft.cup, "Cup");
-    	GameRegistry.registerItem(ChinaCraft.cup_Clay, "ClayCup");
-    	GameRegistry.registerItem(ChinaCraft.cupChocolate, "ChocolateDrink");
-    	GameRegistry.registerItem(ChinaCraft.cocoa, "Cocoa");
-    	GameRegistry.registerItem(ChinaCraft.ladyfinger, "Ladyfinger");
-    	GameRegistry.registerItem(ChinaCraft.cupChrysanthemum, "ChrysanthemumDrink");
+//    	GameRegistry.registerItem(ChinaCraft.cup, "Cup");
+//    	GameRegistry.registerItem(ChinaCraft.cup_Clay, "ClayCup");
+//    	GameRegistry.registerItem(ChinaCraft.cupChocolate, "ChocolateDrink");
+//		GameRegistry.registerItem(ChinaCraft.cupChrysanthemum, "ChrysanthemumDrink");
+		GameRegistry.registerItem(ChinaCraft.cocoa, "Cocoa");
+		GameRegistry.registerItem(ChinaCraft.ladyfinger, "Ladyfinger");
     	GameRegistry.registerItem(ChinaCraft.flour, "Flour");
     	GameRegistry.registerItem(ChinaCraft.riceFlour, "RiceFlour");
     	GameRegistry.registerItem(ChinaCraft.barleyRice, "BarleyRice");

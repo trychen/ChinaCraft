@@ -27,6 +27,8 @@ item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=护符
 item.spiritual_magic_figures_fire.lore=燃烧 15至23秒
 item.debug.name=调试
+item.black_dog_blood.name=黑狗血
+item.mooncake.name=月饼
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
@@ -59,6 +61,7 @@ tile.pillar_marble.name=条纹大理石块
 tile.chiseled_marble.name=錾制大理石块
 tile.marble_slab.name=大理石半砖
 tile.marble_stair.name=大理石楼梯
+tile.firebrick.name=耐火砖
 
 tile.lantern.name=灯笼
 
@@ -71,14 +74,13 @@ item.soy.name=大豆
 item.soy_pod.name=豆荚
 item.cocoa.name=可可粉
 item.ladyfinger.name=松脆饼
-item.flour.name=面粉
+item..name=面粉
 item.rice_flour.name=米粉
 item.barley_rice.name=麦仁
 
-tile.wooden_bucket.name=木桶(空)
-item.wooden_bucket.name=木桶(空)
-item.wooden_bucket_water.name=木桶(水)
-item.wooden_bucket_water.name=木桶(水)
+tile.wooden_bucket.name=木桶
+item.wooden_bucket.name=木桶
+item.wooden_bucket_water.name=木水桶
 
 item.silkworm_graine.name=蚕卵
 item.silkworm_young.name=幼蚕
@@ -101,7 +103,8 @@ tile.cooker.name=灶台
 gui.cooker.title=灶台
 
 tile.blockfirebrick.title=耐火砖
-item.blockfirebrick.name=耐火砖
+item.firebrick.name=耐火砖
+item.clay_sand_mixture.name=黏土沙混合物
 
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉
@@ -125,7 +128,11 @@ item.debug.lore=对着方块使用物品即可输出调试信息
 
 
 item.redpacket.name=红包
-gui.redpacket.default.wash=愿所有的幸福都陪伴着你
+gui.redpacket.default.wash.0=愿所有的幸福都陪伴着你
+gui.redpacket.default.wash.1=好运终归来
+gui.redpacket.default.wash.2=愿快乐常伴吾身
 gui.redpacket.from=来自
 gui.redpacket.s=的
 
+entity.black_dog.name=黑狗
+entity.chinazombie.name=中国僵尸

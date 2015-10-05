@@ -7,6 +7,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.entity.EntityBlackDogMob;
 
@@ -29,6 +30,7 @@ public class Listener
                 if (attackSource.getHeldItem() != null){
                     if (attackSource.getHeldItem().getItem().equals(Items.bowl)){
                         EntityBlackDogMob entityBlackDogMob = (EntityBlackDogMob) attackedEnt;
+                        entityBlackDogMob.setHealth(entityBlackDogMob.getHealth() - 4.0f);
                         entityBlackDogMob.setAngry(true);
                         entityBlackDogMob.attackEntityFrom(new DamageSource("withoutBloor"),5);
                         attackSource.inventory.mainInventory[attackSource.inventory.currentItem] = new ItemStack(Items.bowl,attackSource.getHeldItem().stackSize - 1);

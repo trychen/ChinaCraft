@@ -15,6 +15,9 @@ item.bronze_body.name=Bronze Body
 item.bronze_legs.name=Bronze Legs
 item.bronze_boots.name=Bronze Boots
 item.jade_knife.name=Cutting Knife
+tile.wooden_bucket.name=Wooden Bucket
+item.wooden_bucket.name=Wooden Bucket
+item.wooden_bucket_water.name=Wooden Water Bucket
 item.silkworm_chrysalis.name=Silkworm Chrysalis
 item.silkworm_young.name=Young Silkworm
 item.silkworm_graine.name=Silkworm Graine
@@ -22,13 +25,17 @@ item.spiritual_magic_figures.name=Spiritual Magic Paper
 item.spiritual_magic_figures_fire.name=Fire Spiritual Magic Paper
 item.spiritual_magic_figures_fire.lore=To Make Entity be Burn
 item.spiritual_magic_figures_power.name=Power Spiritual Magic Paper
-item.spiritual_magic_figures_Poison.name=Poison Spiritual Magic Paper
+item.spiritual_magic_figures_poison.name=Poison Spiritual Magic Paper
 item.spiritual_magic_figures_night_vision.name=Night Vision Spiritual Magic Paper
 item.spiritual_magic_figures_heal.name=Heal Spiritual Magic Paper
 item.spiritual_magic_figures_protect.name=Protect Spiritual Magic Paper
 item.spiritual_magic_figures_fire.lore=Burn 15-23 Second
 item.debug.name=Debug
-
+item.black_dog_blood.name=Black Dog Blood
+item.flour.name=Flour
+item.rice_flour.name=Rice Flour
+item.barley_rice.name=Barley Rice
+item.mooncake.name=Mooncake
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot
@@ -59,6 +66,7 @@ tile.pillar_marble.name=Pillar Marble
 tile.chiseled_marble.name=Chiseled Marble
 tile.marble_slab.name=Marble Slab
 tile.marble_stair.name=Marble Stair
+tile.firebrick.name=Firebrick
 
 tile.lantern.name=Lantern
 
@@ -79,8 +87,12 @@ gui.buhrimill.title=Buhrimill
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
 
+tile.cooker.name=Furnace Platform
+gui.cooker.title=Furnace Platform
+
 tile.blockfirebrick.title=Firebrick
-item.blockfirebrick.name=Firebrick
+item.firebrick.name=Firebrick
+item.clay_sand_mixture.name=Clay Sand Mixture
 
 item.jade_green.name=Fei Cui Jade
 item.jade_green2.name=Jasper
@@ -103,6 +115,10 @@ debug.plantstage=Plant Stage
 item.debug.lore=Use item with block to output debug information
 
 item.redpacket.name=Red Packet
-gui.redpacket.default.wash=May all the happiness be with you
+gui.redpacket.default.wash.1=Our luck is turning around
+gui.redpacket.default.wash.2=May happiness always be with us.
 gui.redpacket.from=From
 gui.redpacket.s='s
+
+entity.black_dog.name=Black Dog
+entity.chinazombie.name=China Zombie
