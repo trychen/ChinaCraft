@@ -22,8 +22,8 @@ public class ContainerPotteryKiln extends Container{
 	
 	public ContainerPotteryKiln(InventoryPlayer par1InventoryPlayer, TilePotteryKiln tileEntity) {
 		this.tile = tileEntity;
-		this.addSlotToContainer(new Slot(tileEntity, 0, 80, 17));
-		this.addSlotToContainer(new Slot(tileEntity, 1, 80, 53));
+		this.addSlotToContainer(new Slot(tileEntity, 0, 80, 53));
+		this.addSlotToContainer(new Slot(tileEntity, 1, 80, 17));
         int var3;
         for (var3 = 0; var3 < 3; ++var3)
         {

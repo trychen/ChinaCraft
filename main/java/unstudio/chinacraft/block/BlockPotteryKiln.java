@@ -18,6 +18,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import scala.reflect.internal.Trees.If;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.tileentity.TileCooker;
@@ -70,10 +71,10 @@ public class BlockPotteryKiln extends BlockContainer{
 		return new TilePotteryKiln();
 	}
     
-	 public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
-	    {
-		 TilePotteryKiln tileentity = (TilePotteryKiln) World.getTileEntity(x, y, z);
-		 Random random = World.rand;
+	@Override
+	public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_,int p_149749_4_, Block p_149749_5_, int p_149749_6_) {
+			TilePotteryKiln tileentity = (TilePotteryKiln) p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
+			 Random random = p_149749_1_.rand;
 	            if (tileentity != null)
 	            {
 	                for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1)
@@ -96,7 +97,7 @@ public class BlockPotteryKiln extends BlockContainer{
 	                            }
 
 	                            itemstack.stackSize -= j1;
-	                            EntityItem entityitem = new EntityItem(World, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+	                            EntityItem entityitem = new EntityItem(p_149749_1_, (double)((float)p_149749_2_ + f), (double)((float)p_149749_3_ + f1), (double)((float)p_149749_4_ + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 	                            if (itemstack.hasTagCompound())
 	                            {
@@ -107,17 +108,15 @@ public class BlockPotteryKiln extends BlockContainer{
 	                            entityitem.motionX = (double)((float)random.nextGaussian() * f3);
 	                            entityitem.motionY = (double)((float)random.nextGaussian() * f3 + 0.2F);
 	                            entityitem.motionZ = (double)((float)random.nextGaussian() * f3);
-	                            World.spawnEntityInWorld(entityitem);
+	                            p_149749_1_.spawnEntityInWorld(entityitem);
 	                        }
 	                    }
 	                }
-
-	                World.func_147453_f(x, y, z, Block);
+	                p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
 	            }
-	        
-
-	        super.breakBlock(World, x, y, z, Block, var1);
-	    }
+		BlockPotteryKiln.destroyPotteryKiln(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_);
+		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_,p_149749_5_, p_149749_6_);
+	}
 
     public boolean hasComparatorInputOverride()
     {
@@ -151,27 +150,28 @@ public class BlockPotteryKiln extends BlockContainer{
     	TileFirebrickStructure tile = (TileFirebrickStructure) ChinaCraft.blockFirebrickStructure.createNewTileEntity(world, 0);
     	tile.setPosition(x, y, z);
     	world.setBlock(x, y, z, ChinaCraft.blockPotteryKiln, type, 2);
-    	System.out.println(type);
     	if(type == 0) {
     		world.setBlock(x, y, z-1, ChinaCraft.blockFirebrickStructure, 1, 2);
+    		((TileFirebrickStructure) world.getTileEntity(x, y, z-1)).setPosition(x, y, z);
     	}else if(type == 1) {
     		world.setBlock(x+1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
+    		((TileFirebrickStructure) world.getTileEntity(x+1, y, z)).setPosition(x, y, z);
     	}else if(type == 2) {
     		world.setBlock(x, y, z+1, ChinaCraft.blockFirebrickStructure, 1, 2);
+    		((TileFirebrickStructure) world.getTileEntity(x, y, z+1)).setPosition(x, y, z);
     	}else if(type == 3) {
     		world.setBlock(x-1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
+    		((TileFirebrickStructure) world.getTileEntity(x-1, y, z)).setPosition(x, y, z);
     	}
-    	BlocksChecker checker = BlocksChecker.Pottery_Kiln.copy();
     	int tx=x-1;
-    	int ty=y+2;
+    	int ty=y;
     	int tz=z-1;
-		for (int Y = 0; y < checker.getHeight(); y++) {
-			for (int Z = 0; z < checker.getWidthZ(); z++) {
-				for (int  X= 0; x < checker.getWidthX(); x++) {
-					BlockRule rule = checker.getBlockRule()[y][z][x];
-					if (rule != null && !rule.check(world,X+tx, Y-ty, Z+tz)&&rule.getBlock().equals(ChinaCraft.blockFirebrick)) {
-						world.setBlock(X+tx, Y-ty, Z+tz, ChinaCraft.blockFirebrickStructure, 0, 2);
-						world.setTileEntity(X+tx, Y-ty, Z+tz, tile);
+		for (int Y = 0; Y < 3; Y++) {
+			for (int Z = 0; Z < 3; Z++) {
+				for (int  X= 0; X < 3; X++) {
+					if (world.getBlock(X+tx, ty+Y, Z+tz).equals(ChinaCraft.blockFirebrick)) {
+						world.setBlock(X+tx, ty+Y, Z+tz, ChinaCraft.blockFirebrickStructure, 0, 2);
+						((TileFirebrickStructure) world.getTileEntity(X+tx, ty+Y, Z+tz)).setPosition(x, y, z);
 					}
 				}
 			}
@@ -179,6 +179,17 @@ public class BlockPotteryKiln extends BlockContainer{
     }
     
     public static void destroyPotteryKiln(World world,int x,int y,int z) {
-    	
+    	int tx=x-1;
+    	int ty=y;
+    	int tz=z-1;
+		for (int Y = 0; Y < 3; Y++) {
+			for (int Z = 0; Z < 3; Z++) {
+				for (int  X= 0; X < 3; X++) {
+					if (world.getBlock(X+tx, ty+Y, Z+tz).equals(ChinaCraft.blockFirebrickStructure)||world.getBlock(X+tx, ty+Y, Z+tz).equals(ChinaCraft.blockPotteryKiln)) {
+						world.setBlock(X+tx, ty+Y, Z+tz, ChinaCraft.blockFirebrick, 0, 2);
+					}
+				}
+			}
+		}
     }
 }

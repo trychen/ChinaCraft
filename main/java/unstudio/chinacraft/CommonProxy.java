@@ -10,7 +10,9 @@ import unstudio.chinacraft.item.combat.BronzeLeggings;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
+import unstudio.chinacraft.tileentity.TileFirebrickStructure;
 import unstudio.chinacraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
@@ -96,6 +98,7 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.cooker_on, "CookerOn");
     	GameRegistry.registerBlock(ChinaCraft.cooker_off, "CookerOff");
     	GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
     	
     	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
     	
@@ -168,10 +171,15 @@ public class CommonProxy {
     	
     	//耐火砖
 		GameRegistry.registerBlock(ChinaCraft.blockFirebrickStructure, "blockFirebrickStructure");
+		GameRegistry.registerTileEntity(TileFirebrickStructure.class, "tileFirebrickStructure");
 		GameRegistry.registerBlock(ChinaCraft.blockPotteryKiln, "blockPotteryKiln");
+		GameRegistry.registerTileEntity(TilePotteryKiln.class, "tilePotteryKiln");
 		GameRegistry.registerBlock(ChinaCraft.blockFirebrick, "BlockFirebrick");//耐火砖方块
 		GameRegistry.registerItem(ChinaCraft.firebrick, "Firebrick");//耐火砖物品
 		GameRegistry.registerItem(ChinaCraft.claySandMixture,"ClaySandMixture");//粘土沙子混合物
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockFirebrick), new Object[]{"   ", " ##", " ##", '#', ChinaCraft.firebrick});
+		GameRegistry.addSmelting(ChinaCraft.claySandMixture, new ItemStack(ChinaCraft.firebrick), 0);
+		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.claySandMixture, 1), new Object[] {Items.clay_ball,Items.clay_ball,Item.getItemFromBlock(Blocks.sand)});
 		
     	//Jade
     	GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "GreenJade");
