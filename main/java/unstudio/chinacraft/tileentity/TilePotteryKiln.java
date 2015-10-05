@@ -1,5 +1,7 @@
 package unstudio.chinacraft.tileentity;
 
+import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.block.BlockFirebrickStructure;
 import unstudio.chinacraft.block.BlockPotteryKiln;
 import unstudio.chinacraft.block.Cooker;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -259,6 +261,15 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	        if (flag1)
 	        {
 	            this.markDirty();
+	        	if(this.blockMetadata == 0) {
+	        		 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord-1);
+	        	}else if(blockMetadata == 1) {
+	        		 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord+1, this.yCoord, this.zCoord);
+	        	}else if(blockMetadata == 2) {
+	        		 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord+1);
+	        	}else if(blockMetadata == 3) {
+	        		 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord-1, this.yCoord, this.zCoord);
+	        	}
 	        }
 	    }
 
