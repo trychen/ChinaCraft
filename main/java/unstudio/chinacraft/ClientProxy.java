@@ -3,14 +3,19 @@ package unstudio.chinacraft;
 import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.entity.EntityBlackDogMob;
 import unstudio.chinacraft.entity.EntityChinaZombie;
 import unstudio.chinacraft.entity.EntityChinaZombieMob;
 import unstudio.chinacraft.entity.model.ModelChinaZombie;
+import unstudio.chinacraft.renderer.ItemPotteryBlockRenderer;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
+import unstudio.chinacraft.renderer.TileEntityPotteryBlockRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TilePotteryBase;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -26,6 +31,8 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
+//		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
+//		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityChinaZombieMob.class, new RenderLiving(new ModelChinaZombie(), 0) {
 			protected ResourceLocation getEntityTexture(Entity par1Entity) {
@@ -56,6 +63,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.bambooShoot.setBlockTextureName("chinacraft:bamboo_shoot");
     	
     	ChinaCraft.bronzeIngot.setTextureName("chinacraft:bronze_ingot");
+    	ChinaCraft.copperTinMixedPowder.setTextureName("chinacraft:copper_tin_mixed_powder");
     	ChinaCraft.bronzeSword.setTextureName("chinacraft:bronze_sword");
     	ChinaCraft.bronzeBroadSword.setTextureName("chinacraft:bronze_broadsword");
     	ChinaCraft.yanLung_Giantknife.setTextureName("chinacraft:yanlung_giantknife");

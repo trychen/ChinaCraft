@@ -47,7 +47,7 @@ public class Buhrimill extends BlockContainer {
 
 	public Buhrimill() {
 		super(Material.rock);
-		setBlockName(StatCollector.translateToLocal("buhrimill"));
+		setBlockName("buhrimill");
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setLightLevel(0.0F);

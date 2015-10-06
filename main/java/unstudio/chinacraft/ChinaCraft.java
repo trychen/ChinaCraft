@@ -125,7 +125,9 @@ public class ChinaCraft {
 	    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板  
 	    public static BlockBase bambooBlock = (BlockBase) new  BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
+	    
 	    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
+	    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); //陶瓷
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
@@ -143,6 +145,7 @@ public class ChinaCraft {
 	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
 	    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
 	    public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); //银锭
+	    public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder").setCreativeTab(ChinaCraft.tabCore); //铜锡混合矿粉
 	    public static CropPlant rices = (CropPlant) new CropPlant(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //米
 	    public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabPlant); //米穗  
 	    public static CropPlant soy = (CropPlant) new 	CropPlant(ChinaCraft.soyGrow).setUnlocalizedName("soy"); //大豆
