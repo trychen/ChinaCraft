@@ -1,6 +1,7 @@
 tile.copper_ore.name=铜矿
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
+item.copper_tin_mixed_powder.name=铜锡混合矿粉
 item.bronze_sword.name=青铜剑
 item.bronze_broadsword.name=青铜大刀
 item.yanlung_giantknife.name=炎龙巨刀
@@ -64,6 +65,10 @@ tile.marble_slab.name=大理石半砖
 tile.marble_stair.name=大理石楼梯
 tile.firebrick.name=耐火砖
 
+tile.potterytable.name=陶瓷工作台
+gui.potterytable.title=陶瓷工作台
+gui.potterykiln.title=陶瓷窑
+
 tile.lantern.name=灯笼
 
 item.redpacket.name=红包
@@ -75,7 +80,7 @@ item.soy.name=大豆
 item.soy_pod.name=豆荚
 item.cocoa.name=可可粉
 item.ladyfinger.name=松脆饼
-item..name=面粉
+item.flour.name=面粉
 item.rice_flour.name=米粉
 item.barley_rice.name=麦仁
 
