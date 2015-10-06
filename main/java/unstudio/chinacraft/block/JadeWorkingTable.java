@@ -1,9 +1,11 @@
 package unstudio.chinacraft.block;
 
 import java.util.List;
+import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockWorkbench;
 import net.minecraft.block.material.Material;
@@ -13,6 +15,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -32,6 +35,7 @@ public class JadeWorkingTable extends BlockContainer {
 	public JadeWorkingTable() {
 		super(Material.rock);
         this.setCreativeTab(ChinaCraft.tabCore);
+        setHardness(2.0F);
         setBlockName("jade_table");
 	}
 	
@@ -69,5 +73,10 @@ public class JadeWorkingTable extends BlockContainer {
 	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TileJadeBench();
 	}
-	
+
+    @Override
+    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    {
+        return Item.getItemFromBlock(this);
+    }
 }
