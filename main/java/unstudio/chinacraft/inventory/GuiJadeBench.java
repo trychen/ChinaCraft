@@ -29,7 +29,8 @@ public class GuiJadeBench extends GuiContainer {
 		this.fontRendererObj.drawString(
 				I18n.format("container.inventory", new Object[0]), 8,
 				this.ySize - 96 + 2, 4210752);
-		this.fontRendererObj.drawString(StatCollector.translateToLocal("gui.jade_bench.infotile"), this.xSize / 2 + 37 - this.fontRendererObj.getStringWidth(s) / 2, 18, 4210752);
+		//StatCollector.translateToLocal("gui.jade_bench.infotile")
+		this.fontRendererObj.drawString("玉石", this.xSize / 2 + 37 - this.fontRendererObj.getStringWidth(s) / 2, 18, 4210752);
 	}
 
 	@Override
