@@ -79,7 +79,8 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
     	GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");
-    	GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
+		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooBlock), ChinaCraft.bamboo,ChinaCraft.bamboo,ChinaCraft.bamboo,ChinaCraft.bamboo);
+		GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
     	GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
     	GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
     	GameRegistry.registerBlock(ChinaCraft.mulberryWood, "MulberryWood");
@@ -89,10 +90,12 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.bambooShoot, 1);
     	
     	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeWorkingTable), new Object[]{"###", "#X#", "###", '#', Item.getItemFromBlock(Blocks.stone),'X' ,Item.getItemFromBlock(Blocks.crafting_table)});
     	GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
-    	
-    	GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
-    	GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
+
+		GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', Items.iron_ingot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
+		GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
     	
     	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern");
     	GameRegistry.registerBlock(ChinaCraft.cooker_on, "CookerOn");
@@ -101,7 +104,9 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
     	
     	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
-    	
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"# #", " # ", "   ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{ "   ","# #", " # ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
+
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
     	
@@ -209,6 +214,7 @@ public class CommonProxy {
     	//石磨合成
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null, new ItemStack(ChinaCraft.flour), null, 360);
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.riceFlour), null, 360);
+    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(Item.getItemFromBlock(Blocks.cocoa)), null, new ItemStack(ChinaCraft.cocoa), null, 180);
 
 		//玉石工作台合成
 
@@ -228,6 +234,7 @@ public class CommonProxy {
 		GameRegistry.registerItem(ChinaCraft.smfProtect, "SpiritualMagicFiguresProtect");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.potionitem});
 		GameRegistry.registerItem(ChinaCraft.smfSuper, "SpiritualMagicFiguresSuper");
+		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.blackDogBlood, ChinaCraft.spiritualMagicFigures});
 
 		EntityBlackDog.mainRegister();
 
