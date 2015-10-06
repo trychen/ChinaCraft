@@ -26,7 +26,7 @@ item.spiritual_magic_figures_poison.name=毒符
 item.spiritual_magic_figures_night_vision.name=金睛符
 item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=护符
-item.SMFSuper.name=捉妖符
+item.SMFSuper.name=混乱符
 item.spiritual_magic_figures_fire.lore=燃烧 15至23秒
 item.debug.name=调试
 item.black_dog_blood.name=黑狗血
@@ -41,6 +41,7 @@ item.silver_ingot.name=银锭
 item.bronze_ingot.name=青铜锭
 
 tile.jade_ore.name=玉原石
+item.jade.lore=等级:
 
 tile.bamboo.name=竹子
 tile.bamboo_block.name=竹板
