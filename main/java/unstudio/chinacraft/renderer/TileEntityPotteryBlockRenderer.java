@@ -15,16 +15,19 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.block.model.ModelBuhrimill;
 import unstudio.chinacraft.block.model.ModelPotteryBase;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TilePotteryBase;
+import unstudio.chinacraft.util.PotteryManager;
 
 public class TileEntityPotteryBlockRenderer extends TileEntitySpecialRenderer {
-	public ModelPotteryBase model;
-	public ResourceLocation textures;
+	
+	public ResourceLocation textures = new ResourceLocation("") ;
 
 	public TileEntityPotteryBlockRenderer() {
 	}
 	
     @Override
-    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
+    public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float scale) {
+    	ModelPotteryBase model = PotteryManager.Instance().getBlockPottery(((TilePotteryBase)tile).getPotteryType()).getModel();
 		GL11.glPushMatrix();
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
@@ -32,7 +35,7 @@ public class TileEntityPotteryBlockRenderer extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
 		GL11.glPushMatrix();
-		GL11.glRotatef(te.getBlockMetadata() * 90, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(tile.getBlockMetadata() * 90, 0.0F, 1.0F, 0.0F);
 		model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();

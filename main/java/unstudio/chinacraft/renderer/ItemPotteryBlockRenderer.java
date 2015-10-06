@@ -1,12 +1,19 @@
 package unstudio.chinacraft.renderer;
 
+import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.IItemRenderer.ItemRenderType;
 import net.minecraftforge.client.IItemRenderer.ItemRendererHelper;
 import unstudio.chinacraft.block.model.ModelPotteryBase;
+import unstudio.chinacraft.tileentity.TilePotteryBase;
+import unstudio.chinacraft.util.PotteryManager;
 
 public class ItemPotteryBlockRenderer implements IItemRenderer {
 
@@ -15,7 +22,6 @@ public class ItemPotteryBlockRenderer implements IItemRenderer {
 	private double x, y, z;
 
 	public ItemPotteryBlockRenderer(TileEntity tileentity, double xloc, double yloc, double zloc) {
-		model = new ModelPotteryBase();
 		if (tileentity == null) {
 			return;
 		}
@@ -34,6 +40,10 @@ public class ItemPotteryBlockRenderer implements IItemRenderer {
 	}
 
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
-		TileEntityRendererDispatcher.instance.renderTileEntityAt(tile, x, y, z, 0.0F);
+		if(item.hasTagCompound()) model = PotteryManager.Instance().getBlockPottery(item.getTagCompound().getString("PotteryType")).getModel();
+		GL11.glPushMatrix();
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(""));
+		model.render((Entity)data[1], 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		GL11.glPopMatrix();
 	}
 }

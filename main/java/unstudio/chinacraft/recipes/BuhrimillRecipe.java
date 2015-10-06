@@ -76,8 +76,4 @@ public class BuhrimillRecipe {
 		}
 		return null;
 	}
-	
-	public static void clearBuhrimillReciper() {
-		recipes.clear();
-	}
 }
