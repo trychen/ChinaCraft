@@ -42,7 +42,7 @@ public class ItemPotteryBlockRenderer implements IItemRenderer {
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		if(item.hasTagCompound()) model = PotteryManager.Instance().getBlockPottery(item.getTagCompound().getString("PotteryType")).getModel();
 		GL11.glPushMatrix();
-		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(""));
+		Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("chinacraft:textures/models/block/empty.png"));
 		model.render((Entity)data[1], 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		GL11.glPopMatrix();
 	}

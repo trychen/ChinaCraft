@@ -20,7 +20,7 @@ import unstudio.chinacraft.util.PotteryManager;
 
 public class TileEntityPotteryBlockRenderer extends TileEntitySpecialRenderer {
 	
-	public ResourceLocation textures = new ResourceLocation("") ;
+	public ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/empty.png") ;
 
 	public TileEntityPotteryBlockRenderer() {
 	}

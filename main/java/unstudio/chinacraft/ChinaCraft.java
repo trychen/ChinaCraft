@@ -142,6 +142,7 @@ public class ChinaCraft {
 	    
 	    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
 	    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); //陶瓷
+	    public static BlockBuckpot blockBuckpot = new BlockBuckpot(); //陶锅
 	    
 	    public static Buhrimill buhrimill = new Buhrimill(); //石磨
 	    
