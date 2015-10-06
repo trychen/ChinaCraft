@@ -136,6 +136,8 @@ public class CommonProxy {
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerStone, 1), new Object[]{"###", "#X#", " X ", '#', Item.getItemFromBlock(Blocks.cobblestone), 'X', Items.stick});
 		GameRegistry.registerItem(ChinaCraft.hammerIron, "IronHammer");//铁锤
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerIron, 1), new Object[]{"###", "#X#", " X ", '#', Items.iron_ingot, 'X', Items.stick});
+		GameRegistry.registerItem(ChinaCraft.hammerBronze, "DiamondBronze");//Bronze锤
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerBronze, 1), new Object[]{"###", "#X#", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
 		GameRegistry.registerItem(ChinaCraft.hammerDiamond, "DiamondHammer");//钻石锤
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerDiamond, 1), new Object[]{"###", "#X#", " X ", '#', Items.diamond, 'X', Items.stick});
 

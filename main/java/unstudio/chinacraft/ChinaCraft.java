@@ -5,21 +5,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.item.*;
-import unstudio.chinacraft.item.combat.BronzeAxe;
-import unstudio.chinacraft.item.combat.BronzeBoots;
-import unstudio.chinacraft.item.combat.BronzeBroadSword;
-import unstudio.chinacraft.item.combat.BronzeChestplate;
-import unstudio.chinacraft.item.combat.BronzeHelmet;
-import unstudio.chinacraft.item.combat.BronzeHoe;
-import unstudio.chinacraft.item.combat.BronzeLeggings;
-import unstudio.chinacraft.item.combat.BronzePickaxe;
-import unstudio.chinacraft.item.combat.BronzeShovel;
-import unstudio.chinacraft.item.combat.BronzeSword;
-import unstudio.chinacraft.item.combat.HammerDiamond;
-import unstudio.chinacraft.item.combat.HammerIron;
-import unstudio.chinacraft.item.combat.HammerStone;
-import unstudio.chinacraft.item.combat.JiuQu_tang;
-import unstudio.chinacraft.item.combat.YanLung_Giantknife;
+import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadeOre;
@@ -184,9 +170,10 @@ public class ChinaCraft {
 	    public static BronzeShovel bronzeShovel =  new BronzeShovel();//青铜铲
 	    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//九曲镋
 	    public static JadeKnife jadeKnife = new JadeKnife();//玉石切割刀
-		public static HammerStone hammerStone = new HammerStone();//石锤
-		public static HammerIron hammerIron = new HammerIron();//铁锤
-		public static HammerDiamond hammerDiamond = new HammerDiamond();//钻石锤
+		public static Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE,"stone");//石锤
+		public static Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON,"iron");//铁锤
+		public static Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND,"diamond");//钻石锤
+		public static Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON,"bronze");//钻石锤
 
 		public static int bronzeArmorTexture = -1; //青铜套装外部材质注册
 	    public static BronzeHelmet bronzeHelmet;//青铜头盔

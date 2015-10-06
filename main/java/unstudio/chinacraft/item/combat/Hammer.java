@@ -9,6 +9,6 @@ public class Hammer extends ItemSword {
         super(toolMaterial);
         setUnlocalizedName("hammer_" + name);
         setCreativeTab(ChinaCraft.tabTool);
-        damageVsEntity = 2000.0f;
+        damageVsEntity = 1600.0f;
     }
 }
