@@ -84,7 +84,7 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
     	GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");
-		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooBlock), ChinaCraft.bamboo,ChinaCraft.bamboo,ChinaCraft.bamboo,ChinaCraft.bamboo);
+		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooBlock), ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo);
 		GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
     	GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
     	GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
@@ -95,7 +95,7 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.bambooShoot, 1);
     	
     	GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
-		GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeWorkingTable), new Object[]{"###", "#X#", "###", '#', Item.getItemFromBlock(Blocks.stone),'X' ,Item.getItemFromBlock(Blocks.crafting_table)});
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeWorkingTable), new Object[]{"###", "#X#", "###", '#', Item.getItemFromBlock(Blocks.stone), 'X', Item.getItemFromBlock(Blocks.crafting_table)});
     	GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
 
 		GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
@@ -110,7 +110,7 @@ public class CommonProxy {
     	
     	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"# #", " # ", "   ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
-		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{ "   ","# #", " # ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
 
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
@@ -119,7 +119,7 @@ public class CommonProxy {
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//青铜锭
     	GameRegistry.registerItem(ChinaCraft.copperTinMixedPowder, "CopperTinMixedPowder");
-    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder,4),ChinaCraft.copperOre,ChinaCraft.copperOre,ChinaCraft.copperOre,ChinaCraft.tinOre);
+    	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.tinOre);
     	GameRegistry.addSmelting(ChinaCraft.copperTinMixedPowder, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock, 1), ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeIngot, 9), Item.getItemFromBlock(ChinaCraft.bronzeBlock));
@@ -130,6 +130,10 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");//青铜剑
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1), new Object[]{" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.bronzeBroadSword, "BronzeBroadSword");//青铜大刀
+    	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordGreen, "bronzeBroadSwordGreen");//青铜大刀
+    	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordGreen2, "bronzeBroadSwordGreen2");//青铜大刀
+    	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordPink, "bronzeBroadSwordPink");//青铜大刀
+    	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordPurple, "bronzeBroadSwordPurple");//青铜大刀
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.jiuqu_tang, 1), new Object[]{" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.jiuqu_tang, "JiuQuTang");//九曲镋刀
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1), new Object[]{" ##", "## ", "X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
