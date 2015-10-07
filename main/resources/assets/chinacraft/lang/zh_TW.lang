@@ -106,3 +106,5 @@ debug.firstline=----------調試----------
 debug.blockname=方塊名稱
 debug.xyz=座標
 debug.metadata=中繼資料
+
+item.debug.lore=拿著本物品對方塊右鍵即可輸出調試信息
