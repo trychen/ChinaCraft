@@ -24,26 +24,11 @@ public class Jade extends Item{
 		setUnlocalizedName(s);
 		setMaxStackSize(16);
 		setCreativeTab(ChinaCraft.tabCore);
-		setlevel();
 	}
 	public Jade (String s,int level) {
 		setUnlocalizedName(s);
 		setMaxStackSize(16);
 		setCreativeTab(ChinaCraft.tabCore);
-		setlevel(level);
-	}
-	public void setlevel() {
-		this.Level = random.nextInt(2)+1;
-	}
-	public void setlevel(int level) {
-		this.Level = level;
-	}
-	public int getlevel() {
-		return this.Level;
-	}
-	@Override
-	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-		p_77624_3_.add(StatCollector.translateToLocal("item.jade.lore") + this.getlevel());
 	}
 
 	public int getEnchantability()
