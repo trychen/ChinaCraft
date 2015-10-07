@@ -136,7 +136,7 @@ public class WoodenBucket extends Item{
 
 	                    if (this.tryPlaceContainedLiquid(world, i, j, k) && !player.capabilities.isCreativeMode)
 	                    {
-	                        return new ItemStack(Items.bucket);
+	                        return new ItemStack(ChinaCraft.woodenBucket);
 	                    }
 	                }
 	            }
