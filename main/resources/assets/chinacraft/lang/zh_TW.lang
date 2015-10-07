@@ -109,5 +109,12 @@ debug.metadata=中繼資料
 
 item.debug.lore=拿著本物品對方塊右鍵即可輸出調試信息
 item.redpacket.name=紅包
+
 gui.redpacket.default.wash.0=願所有幸福都陪伴著你
 gui.redpacket.default.wash.1=好運終歸來
+gui.redpacket.default.wash.2=願快樂常伴吾身
+gui.redpacket.from=來自
+gui.redpacket.s=的
+
+entity.black_dog.name=黑狗
+entity.chinazombie.name=清朝僵屍
