@@ -71,11 +71,16 @@ public class CommonProxy {
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
-    	GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");
+    	GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");//木窗户
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 1), new Object[]{" A ","A#A"," A ",'A', Item.getItemFromBlock(Blocks.planks),'#',ChinaCraft.artKnife});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow2, 1), new Object[]{"###","#A#","###",'A', ChinaCraft.artKnife,'#',Items.stick});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow3, 1), new Object[]{"B#B","#A#","B#B",'A', ChinaCraft.artKnife,'#',Items.stick,'B',Item.getItemFromBlock(Blocks.log)});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow4, 1), new Object[]{" # ","#A#"," # ",'A', ChinaCraft.artKnife,'#',Items.stick});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1), new Object[]{"HHH","B#A","HHH",'H', Item.getItemFromBlock(Blocks.log),'#',ChinaCraft.artKnife,'A',ChinaCraft.woodenWindow4,'B',ChinaCraft.woodenWindow2});
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
     	GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
     	GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");
@@ -160,7 +165,7 @@ public class CommonProxy {
     	GameRegistry.addSmelting(ChinaCraft.bamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
     	GameRegistry.registerItem(ChinaCraft.itemMulberryLeaf, "ItemMulberryLeaf");//桑叶
     	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");//木桶
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.planks)});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.log)});
     	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");//木桶 (水)
     	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");//蚕
     	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");
@@ -168,7 +173,8 @@ public class CommonProxy {
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper, new ItemStack(Items.dye, 1, 1)});
 		GameRegistry.registerItem(ChinaCraft.blackDogBlood, "BlackDogBlood");//黑狗血
 		GameRegistry.registerItem(ChinaCraft.moonCake, "MoonCake");//月饼
-
+		GameRegistry.registerItem(ChinaCraft.artKnife, "ArtKnife");//美工切割刀
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.artKnife, 1), new Object[]{"   "," Z "," # ",'#',Items.stick,'Z',Items.iron_ingot});
     	//青铜套
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");//青铜头盔
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHelmet, 1), new Object[]{"###", "# #", "   ", '#', ChinaCraft.bronzeIngot});
@@ -215,7 +221,7 @@ public class CommonProxy {
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null, new ItemStack(ChinaCraft.flour), null, 360);
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.riceFlour), null, 360);
     	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(Item.getItemFromBlock(Blocks.cocoa)), null, new ItemStack(ChinaCraft.cocoa), null, 180);
-
+    	BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(Item.getItemFromBlock(ChinaCraft.copperOre)), new ItemStack(ChinaCraft.tinIngot), new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
 		//玉石工作台合成
 
 		//spiritual_magic_figures

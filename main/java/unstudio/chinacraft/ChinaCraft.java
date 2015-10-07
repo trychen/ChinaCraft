@@ -174,6 +174,8 @@ public class ChinaCraft {
 	    public static BronzeShovel bronzeShovel =  new BronzeShovel();//青铜铲
 	    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//九曲镋
 	    public static JadeKnife jadeKnife = new JadeKnife();//玉石切割刀
+	    public static ArtKnife artKnife = new ArtKnife();//美工切割刀
+	    
 		public static Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE,"stone");//石锤
 		public static Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON,"iron");//铁锤
 		public static Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND,"diamond");//钻石锤
