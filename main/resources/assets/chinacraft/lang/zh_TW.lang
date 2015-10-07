@@ -108,3 +108,6 @@ debug.xyz=座標
 debug.metadata=中繼資料
 
 item.debug.lore=拿著本物品對方塊右鍵即可輸出調試信息
+item.redpacket.name=紅包
+gui.redpacket.default.wash.0=願所有幸福都陪伴著你
+gui.redpacket.default.wash.1=好運終歸來
