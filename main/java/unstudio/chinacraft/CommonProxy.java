@@ -72,13 +72,13 @@ public class CommonProxy {
     	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");//木窗户
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 1), new Object[]{" A ","A#A"," A ",'A', Item.getItemFromBlock(Blocks.planks),'#',ChinaCraft.artKnife});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ","A#A"," A ",'A', Item.getItemFromBlock(Blocks.planks),'#',ChinaCraft.artKnife});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow2, 1), new Object[]{"###","#A#","###",'A', ChinaCraft.artKnife,'#',Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4), new Object[]{"###","#A#","###",'A', ChinaCraft.artKnife,'#',Items.stick});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow3, 1), new Object[]{"B#B","#A#","B#B",'A', ChinaCraft.artKnife,'#',Items.stick,'B',Item.getItemFromBlock(Blocks.log)});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), new Object[]{"B#B","#A#","B#B",'A', ChinaCraft.artKnife,'#',Items.stick,'B',Item.getItemFromBlock(Blocks.log)});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow4, 1), new Object[]{" # ","#A#"," # ",'A', ChinaCraft.artKnife,'#',Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4), new Object[]{" # ","#A#"," # ",'A', ChinaCraft.artKnife,'#',Items.stick});
     	GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1), new Object[]{"HHH","B#A","HHH",'H', Item.getItemFromBlock(Blocks.log),'#',ChinaCraft.artKnife,'A',ChinaCraft.woodenWindow4,'B',ChinaCraft.woodenWindow2});
     	GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
