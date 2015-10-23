@@ -123,7 +123,7 @@ public class ChinaCraft {
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
 	    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板  
-	    public static BlockBase bambooBlock = (BlockBase) new  BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
+	    public static Block bambooBlock = new BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 	    
 	    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
