@@ -140,8 +140,6 @@ public class ChinaCraft {
 	    
 	    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
 	    
-	    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //窑炉
-	    
 	    //物品
 	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
 	    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
@@ -210,10 +208,11 @@ public class ChinaCraft {
 	    public static Item barleyRice =new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
 
 		//耐火砖
-		public static BlockFirebrick blockFirebrick = new BlockFirebrick();
-		public static BlockFirebrickStructure	blockFirebrickStructure = new BlockFirebrickStructure(); 
-		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore);
-		public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore);
+		public static BlockFirebrick blockFirebrick = new BlockFirebrick(); //耐火砖块
+		public static BlockFirebrickStructure	blockFirebrickStructure = new BlockFirebrickStructure(); //耐火砖块(多方块结构)
+	    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //窑炉核心方块
+		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore); //耐火砖
+		public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore); //粘土沙子混合物
 
 
 		//spiritual_magic_figures灵符
