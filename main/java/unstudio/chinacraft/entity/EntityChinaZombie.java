@@ -27,6 +27,6 @@ public class EntityChinaZombie {
     }
 
     public static void createEgg(int randomId,int solidColor, int spotColor){
-        EntityList.entityEggs.put(Integer.valueOf(randomId),new EntityList.EntityEggInfo(randomId,solidColor,spotColor));
+       // EntityList.entityEggs.put(Integer.valueOf(randomId),new EntityList.EntityEggInfo(randomId,solidColor,spotColor));
     }
 }

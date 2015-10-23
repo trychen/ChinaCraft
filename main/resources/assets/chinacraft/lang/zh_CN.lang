@@ -19,7 +19,8 @@ item.hammer_diamond.name=钻石锤子
 item.hammer_iron.name=铁锤子
 item.hammer_bronze.name=青铜锤子
 item.hammer_stone.name=石头锤子
-item.jade_knife.name=切割刀
+item.jade_knife.name=玉石切割刀
+item.art_knife.name=美术切割刀
 item.silkworm_chrysalis.name=蚕蛹
 item.silkworm_young.name=幼蚕
 item.silkworm_graine.name=蚕卵
@@ -126,7 +127,7 @@ itemGroup.core=华夏文明-核心
 itemGroup.tool=华夏文明-工具
 itemGroup.plant=华夏文明-作物
 
-debug.firstline=----------调试----------
+debug.firstline=调试工具
 debug.blockinfo=方块信息
 debug.position=位置信息
 debug.metadata=元数据
@@ -135,7 +136,7 @@ debug.progress=进度
 debug.true=是
 debug.false=否
 debug.plantstage=植物生长阶段
-item.debug.lore=对着方块使用物品即可输出调试信息
+item.debug.lore=拿着本物品对方块右键即可输出调试信息
 
 
 item.redpacket.name=红包
@@ -146,4 +147,4 @@ gui.redpacket.from=来自
 gui.redpacket.s=的
 
 entity.black_dog.name=黑狗
-entity.chinazombie.name=中国僵尸
+entity.chinazombie.name=清朝僵尸

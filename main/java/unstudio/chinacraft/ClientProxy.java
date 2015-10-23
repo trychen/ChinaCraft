@@ -65,7 +65,11 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.bronzeIngot.setTextureName("chinacraft:bronze_ingot");
     	ChinaCraft.copperTinMixedPowder.setTextureName("chinacraft:copper_tin_mixed_powder");
     	ChinaCraft.bronzeSword.setTextureName("chinacraft:bronze_sword");
-    	ChinaCraft.bronzeBroadSword.setTextureName("chinacraft:bronze_broadsword");
+    	ChinaCraft.bronzeBroadSword.setTextureName("chinacraft:bronze_bigsword");
+    	ChinaCraft.bronzeBroadSwordGreen.setTextureName("chinacraft:bronze_bigsword_green");
+    	ChinaCraft.bronzeBroadSwordGreen2.setTextureName("chinacraft:bronze_bigsword_green2");
+    	ChinaCraft.bronzeBroadSwordPink.setTextureName("chinacraft:bronze_bigsword_pink");
+    	ChinaCraft.bronzeBroadSwordPurple.setTextureName("chinacraft:bronze_bigsword_purple");
     	ChinaCraft.yanLung_Giantknife.setTextureName("chinacraft:yanlung_giantknife");
     	ChinaCraft.jiuqu_tang.setTextureName("chinacraft:jiuqu_tang");
     	ChinaCraft.tinIngot.setTextureName("chinacraft:tin_ingot");
@@ -89,7 +93,6 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");
     	ChinaCraft.bronzeHoe.setTextureName("chinacraft:bronze_hoe");
     	ChinaCraft.bronzeShovel.setTextureName("chinacraft:bronze_shovel");
-    	ChinaCraft.jadeKnife.setTextureName("chinacraft:jade_knife");
     	
     	ChinaCraft.bronzeHelmet.setTextureName("chinacraft:bronze_helmet");
     	ChinaCraft.bronzeChestplate.setTextureName("chinacraft:bronze_chestplate");
@@ -100,11 +103,13 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.hammerDiamond.setTextureName("chinacraft:hammer_diamond");
     	ChinaCraft.hammerBronze.setTextureName("chinacraft:hammer_bronze");
 
-    	//Jade
+    	//玉
     	ChinaCraft.jadeGreenItem.setTextureName("chinacraft:jade_green");
     	ChinaCraft.jadeGreen2Item.setTextureName("chinacraft:jade_green2");
     	ChinaCraft.jadePinkItem.setTextureName("chinacraft:jade_pink");
     	ChinaCraft.jadePurpleItem.setTextureName("chinacraft:jade_purple");
+    	ChinaCraft.jadeKnife.setTextureName("chinacraft:jade_knife");
+    	ChinaCraft.artKnife.setTextureName("chinacraft:art_knife");
 
 		//耐火砖
 		ChinaCraft.blockFirebrick.setBlockTextureName("chinacraft:firebrick");
@@ -112,7 +117,7 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.blockPotteryKiln.setBlockTextureName("chinacraft:firebrick");
 		ChinaCraft.claySandMixture.setTextureName("chinacraft:clay_sand_mixture");
 
-		//Drink、Food
+		//饮品、食物
 		ChinaCraft.cup.setTextureName("chinacraft:cup");
     	ChinaCraft.cup_Clay.setTextureName("chinacraft:cup_clay");
     	ChinaCraft.cupChocolate.setTextureName("chinacraft:cup_chocolate");
@@ -124,7 +129,7 @@ public class ClientProxy extends CommonProxy {
     	ChinaCraft.riceFlour.setTextureName("chinacraft:riceflour");
     	ChinaCraft.barleyRice.setTextureName("chinacraft:barley_rice");
 
-		//spiritual_magic_figures
+		//靈符
 		ChinaCraft.spiritualMagicFigures.setTextureName("chinacraft:spiritual_magic_figures");
 		ChinaCraft.smfFire.setTextureName("chinacraft:spiritual_magic_figures_fire");
 		ChinaCraft.smfNightVision.setTextureName("chinacraft:spiritual_magic_figures_night_vision");

@@ -2,10 +2,13 @@ package unstudio.chinacraft.tileentity;
 
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSword;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.IChatComponent;
 import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.item.combat.BronzeBroadSword;
 import unstudio.chinacraft.item.combat.Hammer;
+import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeOre;
 import unstudio.chinacraft.recipes.JadeBenchRepair;
 import net.minecraft.entity.player.EntityPlayer;
@@ -129,11 +132,9 @@ public class TileJadeBench  extends TileEntity implements IInventory {
 		if (getStackInSlot(0) != null){
 			if (getStackInSlot(1) != null){
 				if (getStackInSlot(2) == null){
-					//Start
 					if (getStackInSlot(0).getItem() instanceof Hammer){
 							if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(ChinaCraft.jadeOre))){
-								setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
-								ItemStack newhammer = new ItemStack(getStackInSlot(0).getItem(), 1, (getStackInSlot(0).getItemDamage() - 1));
+								ItemStack newhammer = new ItemStack(getStackInSlot(0).getItem(), 1, (getStackInSlot(0).getItemDamage() - 5));
 								setInventorySlotContents(0,newhammer);
 								if (getStackInSlot(1).stackSize == 1){
 									setInventorySlotContents(1,null);
@@ -141,36 +142,53 @@ public class TileJadeBench  extends TileEntity implements IInventory {
 									ItemStack newJadeOre = new ItemStack(getStackInSlot(1).getItem(),getStackInSlot(1).stackSize - 1);
 									setInventorySlotContents(1,newJadeOre);
 								}
+								switch (new Random().nextInt(3)){
+									case 0:
+										setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
+										break;
+									case 1:
+										setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreen2Item));
+										break;
+									case 2:
+										setInventorySlotContents(2, new ItemStack(ChinaCraft.jadePurpleItem));
+										break;
+									case 3:
+										setInventorySlotContents(2, new ItemStack(ChinaCraft.jadePinkItem));
+										break;
+									default:
+										setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
+										break;
+								}
 							}
 						}
-					//End
-					//Important Start
-//					JadeBenchRepair r = JadeBenchRepair.getJadeBenchRepair(getStackInSlot(0), getStackInSlot(1));//��ȡ�ϳ�
-//					if(r !=null) {
-//							r.getTool().setItemDamage(r.getTool().getItemDamage() - 1);
-//							setInventorySlotContents(2, r.getOut());
-//							if (getStackInSlot(1).stackSize == 1){
-//								setInventorySlotContents(1, null);
-//							} else {
-//								setInventorySlotContents(1,new ItemStack(getStackInSlot(1).getItem(),getStackInSlot(1).stackSize--));
-//							}
-//					} else {
-//						Item tool = getStackInSlot(0).getItem();
-//						if (getStackInSlot(1).getItem() == Item.getItemFromBlock(ChinaCraft.jadeOre) && getStackInSlot(2) == null &&tool == ChinaCraft.hammerDiamond||tool == ChinaCraft.hammerIron||tool == ChinaCraft.hammerStone){//�ж��Ƿ�Ϊ��ĥ��ʯ
-//							if (tool instanceof Hammer){
-//								int rn = new Random().nextInt(3);
-//								if (getStackInSlot(0).stackSize == 1){
-//									setInventorySlotContents(1,null);
-//								} else {
-//									setInventorySlotContents(1, new ItemStack(ChinaCraft.jadeOre, getStackInSlot(1).stackSize--));
-//								}
-//								getStackInSlot(0).setItemDamage(getStackInSlot(0).getItemDamage() - 5);
-//								Item out1 = rn == 0?ChinaCraft.jadeGreenItem:ChinaCraft.jadeGreen2Item;
-//								setInventorySlotContents(2, new ItemStack(out1));
-//							}
-//						}
-//					}
-					//Important End
+				} else {
+					if (getStackInSlot(2).getItem() instanceof Jade && getStackInSlot(0).getItem() instanceof Hammer && getStackInSlot(1).getItem() instanceof ItemSword){
+						if (getStackInSlot(1).getItem() instanceof BronzeBroadSword){
+							ItemStack newhammer = new ItemStack(getStackInSlot(0).getItem(), 1, (getStackInSlot(0).getItemDamage() - 5));
+							ItemStack sword = getStackInSlot(1).copy();
+							Item jade = getStackInSlot(2).getItem();
+							setInventorySlotContents(0,newhammer);
+							if (getStackInSlot(2).stackSize == 1) {
+								setInventorySlotContents(1, null);
+							} else {
+								setInventorySlotContents(1, new ItemStack(getStackInSlot(2).getItem(),getStackInSlot(2).stackSize - 1));
+							}
+							if (new Random().nextInt(19) == 3){
+								ItemStack newSword = new ItemStack(ChinaCraft.yanLung_Giantknife, 1);
+								setInventorySlotContents(2,newSword);
+							} else {
+								if (jade.equals(ChinaCraft.jadeGreenItem)){
+									setInventorySlotContents(2,new ItemStack(ChinaCraft.bronzeBroadSwordGreen,1,sword.getItemDamage()));
+								} else if (jade.equals(ChinaCraft.jadeGreen2Item)){
+									setInventorySlotContents(2,new ItemStack(ChinaCraft.bronzeBroadSwordGreen2,1,sword.getItemDamage()));
+								} else if (jade.equals(ChinaCraft.jadePinkItem)){
+									setInventorySlotContents(2,new ItemStack(ChinaCraft.bronzeBroadSwordPink,1,sword.getItemDamage()));
+								} else if (jade.equals(ChinaCraft.jadeGreen2Item)){
+									setInventorySlotContents(2,new ItemStack(ChinaCraft.bronzeBroadSwordPurple,1,sword.getItemDamage()));
+								}
+							}
+						}
+					}
 				}
 			}
 		}
