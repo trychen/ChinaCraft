@@ -2,11 +2,9 @@ package unstudio.chinacraft.block;
 
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class PotteryTable extends Block{
@@ -21,6 +19,7 @@ public class PotteryTable extends Block{
 		setCreativeTab(ChinaCraft.tabCore);
 	}
 	
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
         	if(world.isRemote) return true;

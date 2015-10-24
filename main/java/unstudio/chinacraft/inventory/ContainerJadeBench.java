@@ -1,13 +1,10 @@
 package unstudio.chinacraft.inventory;
 
-import scala.tools.nsc.doc.model.Public;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
 public class ContainerJadeBench extends Container{

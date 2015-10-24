@@ -1,9 +1,6 @@
 package unstudio.chinacraft.tileentity;
 
-import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.block.BlockFirebrickStructure;
-import unstudio.chinacraft.block.BlockPotteryKiln;
-import unstudio.chinacraft.block.Cooker;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -116,7 +113,8 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	@Override
 	public void closeInventory() {}
 
-    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_)
+    @Override
+	public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_)
     {
         return p_94041_1_ == 2 ? false : (p_94041_1_ == 1 ? isItemFuel(p_94041_2_) : true);
     }
@@ -173,7 +171,8 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	        return this.furnaceBurnTime > 0;
 	    }
 	    
-	    public void readFromNBT(NBTTagCompound p_145839_1_)
+	    @Override
+		public void readFromNBT(NBTTagCompound p_145839_1_)
 	    {
 	        super.readFromNBT(p_145839_1_);
 	        NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
@@ -194,7 +193,8 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	        this.currentItemBurnTime = getItemBurnTime(this.stack[0]);
 	    }
 
-	    public void writeToNBT(NBTTagCompound p_145841_1_)
+	    @Override
+		public void writeToNBT(NBTTagCompound p_145841_1_)
 	    {
 	        super.writeToNBT(p_145841_1_);
 	        p_145841_1_.setShort("BurnTime", (short)this.furnaceBurnTime);
@@ -213,7 +213,8 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	        p_145841_1_.setTag("Items", nbttaglist);
 	    }
 
-	    public void updateEntity()
+	    @Override
+		public void updateEntity()
 	    {
 	        boolean flag = this.furnaceBurnTime > 0;
 	        boolean flag1 = false;
@@ -273,17 +274,20 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 	        }
 	    }
 
-	    public int[] getAccessibleSlotsFromSide(int p_94128_1_)
+	    @Override
+		public int[] getAccessibleSlotsFromSide(int p_94128_1_)
 	    {
 	        return null;
 	    }
 
-	    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_)
+	    @Override
+		public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_)
 	    {
 	        return false;
 	    }
 
-	    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_)
+	    @Override
+		public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_)
 	    {
 	        return false;
 	    }

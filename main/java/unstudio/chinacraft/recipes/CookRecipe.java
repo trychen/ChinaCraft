@@ -1,9 +1,5 @@
 package unstudio.chinacraft.recipes;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import unstudio.chinacraft.util.BlockPottery;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

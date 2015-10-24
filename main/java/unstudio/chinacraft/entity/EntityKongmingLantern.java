@@ -6,7 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityKongmingLantern extends Entity{
@@ -25,24 +24,28 @@ public class EntityKongmingLantern extends Entity{
 	}
 	
 	//返回碰撞箱
-    public AxisAlignedBB getCollisionBox(Entity p_70114_1_)
+    @Override
+	public AxisAlignedBB getCollisionBox(Entity p_70114_1_)
     {
         return p_70114_1_.boundingBox;
     }
     
     //返回边界箱
-    public AxisAlignedBB getBoundingBox()
+    @Override
+	public AxisAlignedBB getBoundingBox()
     {
         return this.boundingBox;
     }
     
     //如果为true,则该实体可以被推动
-    public boolean canBePushed()
+    @Override
+	public boolean canBePushed()
     {
         return true;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void setVelocity(double p_70016_1_, double p_70016_3_, double p_70016_5_)
     {
         this.velocityX = this.motionX = p_70016_1_;
@@ -50,12 +53,14 @@ public class EntityKongmingLantern extends Entity{
         this.velocityZ = this.motionZ = p_70016_5_;
     }
     
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    @Override
+	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
     {
     	return false;
     }
 
-    public void onUpdate()
+    @Override
+	public void onUpdate()
     {
     	super.onUpdate();
     }

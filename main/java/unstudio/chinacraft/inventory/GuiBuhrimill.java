@@ -1,16 +1,12 @@
 //石磨GUI
 package unstudio.chinacraft.inventory;
 
-import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.tileentity.TileBuhrimill;
-import net.minecraft.client.gui.GuiScreen;
-import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
@@ -51,7 +47,7 @@ public class GuiBuhrimill extends GuiContainer {
         float max= tileBuhrimill.getMaxSchedule()*1.0F;
         if (b > 0 && max > 0)
         {
-            this.drawTexturedModalRect(k + 73, l + 25, 176, 0, (int)(24 * ((float)b / max)), 16);
+            this.drawTexturedModalRect(k + 73, l + 25, 176, 0, (int)(24 * (b / max)), 16);
 	}
 }
 }

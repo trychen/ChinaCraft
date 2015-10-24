@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,17 +14,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import scala.reflect.internal.Trees.If;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
-import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileFirebrickStructure;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
-import unstudio.chinacraft.util.BlockRule;
-import unstudio.chinacraft.util.BlocksChecker;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -41,9 +35,10 @@ public class BlockPotteryKiln extends BlockContainer{
 		setHarvestLevel("pickaxe", 0);
 	}
 	
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
+    @Override
+	public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
     {
-        int l = MathHelper.floor_double((double)(p_149689_5_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
         if (l == 0)
         {
@@ -97,7 +92,7 @@ public class BlockPotteryKiln extends BlockContainer{
 	                            }
 
 	                            itemstack.stackSize -= j1;
-	                            EntityItem entityitem = new EntityItem(p_149749_1_, (double)((float)p_149749_2_ + f), (double)((float)p_149749_3_ + f1), (double)((float)p_149749_4_ + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+	                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 	                            if (itemstack.hasTagCompound())
 	                            {
@@ -105,9 +100,9 @@ public class BlockPotteryKiln extends BlockContainer{
 	                            }
 
 	                            float f3 = 0.05F;
-	                            entityitem.motionX = (double)((float)random.nextGaussian() * f3);
-	                            entityitem.motionY = (double)((float)random.nextGaussian() * f3 + 0.2F);
-	                            entityitem.motionZ = (double)((float)random.nextGaussian() * f3);
+	                            entityitem.motionX = (float)random.nextGaussian() * f3;
+	                            entityitem.motionY = (float)random.nextGaussian() * f3 + 0.2F;
+	                            entityitem.motionZ = (float)random.nextGaussian() * f3;
 	                            p_149749_1_.spawnEntityInWorld(entityitem);
 	                        }
 	                    }
@@ -118,27 +113,32 @@ public class BlockPotteryKiln extends BlockContainer{
 		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_,p_149749_5_, p_149749_6_);
 	}
 
-    public boolean hasComparatorInputOverride()
+    @Override
+	public boolean hasComparatorInputOverride()
     {
         return true;
     }
 
-    public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
+    @Override
+	public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_, int p_149736_5_)
     {
         return Container.calcRedstoneFromInventory((IInventory)p_149736_1_.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
     }
 	
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
     }
     
+	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,
 			int p_149650_3_) {
 		return Item.getItemFromBlock(ChinaCraft.blockPotteryKiln);
 	}
 	
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
 		if(world.isRemote) return true;

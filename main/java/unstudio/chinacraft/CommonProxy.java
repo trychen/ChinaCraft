@@ -1,6 +1,5 @@
 package unstudio.chinacraft;
 
-import io.netty.util.internal.chmv8.ConcurrentHashMapV8;
 import unstudio.chinacraft.entity.EntityBlackDog;
 import unstudio.chinacraft.entity.EntityChinaZombie;
 import unstudio.chinacraft.item.combat.BronzeBoots;
@@ -22,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;

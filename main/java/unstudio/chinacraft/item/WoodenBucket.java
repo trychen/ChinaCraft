@@ -7,9 +7,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
@@ -27,6 +25,7 @@ public class WoodenBucket extends Item{
 		if(this.isFull == Blocks.air){setUnlocalizedName("wooden_bucket");}else{setUnlocalizedName("wooden_bucket_water");}
 	}
     
+	@Override
 	public ItemStack onItemRightClick(ItemStack item, World world, EntityPlayer player) {
 		if(player.isSneaking()) {
 			return item;
@@ -187,11 +186,11 @@ public class WoodenBucket extends Item{
             {
                 if (p_77875_1_.provider.isHellWorld && this.isFull == Blocks.flowing_water)
                 {
-                    p_77875_1_.playSoundEffect((double)((float)p_77875_2_ + 0.5F), (double)((float)p_77875_3_ + 0.5F), (double)((float)p_77875_4_ + 0.5F), "random.fizz", 0.5F, 2.6F + (p_77875_1_.rand.nextFloat() - p_77875_1_.rand.nextFloat()) * 0.8F);
+                    p_77875_1_.playSoundEffect(p_77875_2_ + 0.5F, p_77875_3_ + 0.5F, p_77875_4_ + 0.5F, "random.fizz", 0.5F, 2.6F + (p_77875_1_.rand.nextFloat() - p_77875_1_.rand.nextFloat()) * 0.8F);
 
                     for (int l = 0; l < 8; ++l)
                     {
-                        p_77875_1_.spawnParticle("largesmoke", (double)p_77875_2_ + Math.random(), (double)p_77875_3_ + Math.random(), (double)p_77875_4_ + Math.random(), 0.0D, 0.0D, 0.0D);
+                        p_77875_1_.spawnParticle("largesmoke", p_77875_2_ + Math.random(), p_77875_3_ + Math.random(), p_77875_4_ + Math.random(), 0.0D, 0.0D, 0.0D);
                     }
                 }
                 else
@@ -209,7 +208,8 @@ public class WoodenBucket extends Item{
         }
     }
     
-    public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
+    @Override
+	public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_)
     {
     	if(!p_77648_2_.isSneaking()) {
     		return false;
@@ -276,7 +276,7 @@ public class WoodenBucket extends Item{
                     	ChinaCraft.blockWoodenBucket.onPostBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_, i1);
                     }
 
-                    p_77648_3_.playSoundEffect((double)((float)p_77648_4_ + 0.5F), (double)((float)p_77648_5_ + 0.5F), (double)((float)p_77648_6_ + 0.5F), ChinaCraft.blockWoodenBucket.stepSound.func_150496_b(), (ChinaCraft.blockWoodenBucket.stepSound.getVolume() + 1.0F) / 2.0F, ChinaCraft.blockWoodenBucket.stepSound.getPitch() * 0.8F);
+                    p_77648_3_.playSoundEffect(p_77648_4_ + 0.5F, p_77648_5_ + 0.5F, p_77648_6_ + 0.5F, ChinaCraft.blockWoodenBucket.stepSound.func_150496_b(), (ChinaCraft.blockWoodenBucket.stepSound.getVolume() + 1.0F) / 2.0F, ChinaCraft.blockWoodenBucket.stepSound.getPitch() * 0.8F);
                     --p_77648_1_.stackSize;
                 }
             }

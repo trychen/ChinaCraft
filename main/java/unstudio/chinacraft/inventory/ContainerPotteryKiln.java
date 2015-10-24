@@ -7,9 +7,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -91,6 +89,7 @@ public class ContainerPotteryKiln extends Container{
 		par1iCrafting.sendProgressBarUpdate(this, 1, this.tile.currentItemBurnTime);
 	}
  
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int par1, int par2) {
 		if (par1 == 0) {

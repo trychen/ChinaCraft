@@ -1,7 +1,6 @@
 package unstudio.chinacraft.entity;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
-import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import unstudio.chinacraft.ChinaCraft;

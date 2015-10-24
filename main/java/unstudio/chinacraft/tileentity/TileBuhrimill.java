@@ -1,23 +1,11 @@
 package unstudio.chinacraft.tileentity;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.Packet;
-import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.block.model.ModelBuhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
 public class TileBuhrimill extends TileEntity implements ISidedInventory{
@@ -120,6 +108,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory{
 		return false;
 	}
 	
+	@Override
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.readFromNBT(par1NBTTagCompound);
@@ -127,7 +116,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory{
         this.stack = new ItemStack[this.getSizeInventory()];
         for (int var3 = 0; var3 < var2.tagCount(); ++var3)
         {
-            NBTTagCompound var4 = (NBTTagCompound)var2.getCompoundTagAt(var3);
+            NBTTagCompound var4 = var2.getCompoundTagAt(var3);
             byte var5 = var4.getByte("Slot");
             if (var5 >= 0 && var5 < this.stack.length)
             {
@@ -138,7 +127,8 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory{
         this.schedule = par1NBTTagCompound.getShort("schedule");
     }
  
-    public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+    @Override
+	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.writeToNBT(par1NBTTagCompound);
         par1NBTTagCompound.setShort("angle", (short)this.angle);

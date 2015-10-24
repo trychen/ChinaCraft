@@ -17,20 +17,23 @@ public class MulberryLog extends BlockLog{
 		setBlockName(StatCollector.translateToLocal("mulberry_log"));
 	}
 	
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg)
     {
     	this.top = reg.registerIcon("chinacraft:mulberry_log_top");
     	this.side = reg.registerIcon("chinacraft:mulberry_log");
     }
 	
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     protected IIcon getSideIcon(int p_150163_1_)
     {
         return side;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     protected IIcon getTopIcon(int p_150161_1_)
     {
         return top;

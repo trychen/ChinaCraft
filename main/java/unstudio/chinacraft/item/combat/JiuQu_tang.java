@@ -1,8 +1,6 @@
 package unstudio.chinacraft.item.combat;
 
-import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemSword;
-import net.minecraft.item.Item.ToolMaterial;
 import unstudio.chinacraft.ChinaCraft;
 /**
  * Created by Huangshize .

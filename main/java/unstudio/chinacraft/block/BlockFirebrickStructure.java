@@ -77,7 +77,7 @@ public class BlockFirebrickStructure extends BlockContainer {
 	                            }
 
 	                            itemstack.stackSize -= j1;
-	                            EntityItem entityitem = new EntityItem(p_149749_1_, (double)((float)p_149749_2_ + f), (double)((float)p_149749_3_ + f1), (double)((float)p_149749_4_ + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+	                            EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1, p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 	                            if (itemstack.hasTagCompound())
 	                            {
@@ -85,9 +85,9 @@ public class BlockFirebrickStructure extends BlockContainer {
 	                            }
 
 	                            float f3 = 0.05F;
-	                            entityitem.motionX = (double)((float)random.nextGaussian() * f3);
-	                            entityitem.motionY = (double)((float)random.nextGaussian() * f3 + 0.2F);
-	                            entityitem.motionZ = (double)((float)random.nextGaussian() * f3);
+	                            entityitem.motionX = (float)random.nextGaussian() * f3;
+	                            entityitem.motionY = (float)random.nextGaussian() * f3 + 0.2F;
+	                            entityitem.motionZ = (float)random.nextGaussian() * f3;
 	                            p_149749_1_.spawnEntityInWorld(entityitem);
 	                        }
 	                    }
@@ -99,10 +99,12 @@ public class BlockFirebrickStructure extends BlockContainer {
 		super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_,p_149749_5_, p_149749_6_);
 	}
 	
+	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,int p_149650_3_) {
 		return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_,int p_149694_4_) {
 		return Item.getItemFromBlock(ChinaCraft.blockFirebrick);

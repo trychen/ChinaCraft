@@ -2,12 +2,7 @@ package unstudio.chinacraft.recipes;
 
 import java.util.ArrayList;
 
-import scala.annotation.meta.getter;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 
 public class JadeBenchRepair{
 	private final ItemStack tool;
@@ -15,10 +10,10 @@ public class JadeBenchRepair{
 	private final ItemStack out;
 
 	/**
-	 * ¹¹ÔìÓñÊ¯Åä·½
-	 * @param tool ¹¤¾ß
-	 * @param item ÎïÆ·
-	 * @param out Êä³ö
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¯ï¿½ä·½
+	 * @param tool ï¿½ï¿½ï¿½ï¿½
+	 * @param item ï¿½ï¿½Æ·
+	 * @param out ï¿½ï¿½ï¿½
 	 */
 	public JadeBenchRepair(ItemStack tool,ItemStack item,ItemStack out){
 		this.tool = tool;

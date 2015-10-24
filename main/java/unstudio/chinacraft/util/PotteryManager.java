@@ -3,8 +3,6 @@ package unstudio.chinacraft.util;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.sun.org.apache.xml.internal.security.Init;
-
 public class PotteryManager {
 
 	private static PotteryManager  instance = new PotteryManager();

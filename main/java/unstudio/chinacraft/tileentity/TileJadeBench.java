@@ -1,22 +1,16 @@
 package unstudio.chinacraft.tileentity;
 
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.ChunkCoordinates;
-import net.minecraft.util.IChatComponent;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.item.combat.BronzeBroadSword;
 import unstudio.chinacraft.item.combat.Hammer;
 import unstudio.chinacraft.item.jade.Jade;
-import unstudio.chinacraft.item.jade.JadeOre;
-import unstudio.chinacraft.recipes.JadeBenchRepair;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.server.gui.IUpdatePlayerListBox;
 import net.minecraft.tileentity.TileEntity;
 
 import java.util.Random;
@@ -202,6 +196,7 @@ public class TileJadeBench  extends TileEntity implements IInventory {
 		
 	}
 	
+	@Override
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.readFromNBT(par1NBTTagCompound);
@@ -209,7 +204,7 @@ public class TileJadeBench  extends TileEntity implements IInventory {
         this.stack = new ItemStack[this.getSizeInventory()];
         for (int var3 = 0; var3 < var2.tagCount(); ++var3)
         {
-            NBTTagCompound var4 = (NBTTagCompound)var2.getCompoundTagAt(var3);
+            NBTTagCompound var4 = var2.getCompoundTagAt(var3);
             byte var5 = var4.getByte("Slot");
             if (var5 >= 0 && var5 < this.stack.length)
             {
@@ -218,7 +213,8 @@ public class TileJadeBench  extends TileEntity implements IInventory {
         }
     }
  
-    public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+    @Override
+	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
     {
         super.writeToNBT(par1NBTTagCompound);
         NBTTagList var2 = new NBTTagList();

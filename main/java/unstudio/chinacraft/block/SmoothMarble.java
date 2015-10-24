@@ -2,12 +2,8 @@ package unstudio.chinacraft.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class SmoothMarble extends Block {
 

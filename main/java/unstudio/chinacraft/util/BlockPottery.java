@@ -2,8 +2,6 @@ package unstudio.chinacraft.util;
 
 import unstudio.chinacraft.block.BlockPotteryBase;
 import unstudio.chinacraft.block.model.ModelPotteryBase;
-import unstudio.chinacraft.item.ItemPotteryBase;
-import unstudio.chinacraft.tileentity.TilePotteryBase;
 
 public class BlockPottery {
 

@@ -1,8 +1,6 @@
 package unstudio.chinacraft.item.combat;
 
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemPickaxe;
-import net.minecraft.item.Item.ToolMaterial;
 import unstudio.chinacraft.ChinaCraft;
 
 public class BronzePickaxe extends ItemPickaxe{

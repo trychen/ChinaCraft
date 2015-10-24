@@ -4,7 +4,6 @@ import java.util.Random;
 
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -14,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class SericultureFrame extends BlockContainer{
@@ -33,6 +31,7 @@ public class SericultureFrame extends BlockContainer{
 		return new TileSericultureFrame();
 	}
 
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
 		if(world.isRemote) return true;
@@ -40,7 +39,8 @@ public class SericultureFrame extends BlockContainer{
             return true;
     }
 	
-	 public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
+	 @Override
+	public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
 	    {
 
 		 TileSericultureFrame tileentity = (TileSericultureFrame)World.getTileEntity(x, y, z);
@@ -67,7 +67,7 @@ public class SericultureFrame extends BlockContainer{
 	                            }
 
 	                            itemstack.stackSize -= j1;
-	                            EntityItem entityitem = new EntityItem(World, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+	                            EntityItem entityitem = new EntityItem(World, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 	                            if (itemstack.hasTagCompound())
 	                            {
@@ -75,9 +75,9 @@ public class SericultureFrame extends BlockContainer{
 	                            }
 
 	                            float f3 = 0.05F;
-	                            entityitem.motionX = (double)((float)random.nextGaussian() * f3);
-	                            entityitem.motionY = (double)((float)random.nextGaussian() * f3 + 0.2F);
-	                            entityitem.motionZ = (double)((float)random.nextGaussian() * f3);
+	                            entityitem.motionX = (float)random.nextGaussian() * f3;
+	                            entityitem.motionY = (float)random.nextGaussian() * f3 + 0.2F;
+	                            entityitem.motionZ = (float)random.nextGaussian() * f3;
 	                            World.spawnEntityInWorld(entityitem);
 	                        }
 	                    }

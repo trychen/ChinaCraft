@@ -1,10 +1,7 @@
 package unstudio.chinacraft.item;
 
-import java.util.Iterator;
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.ChinaCraft;
@@ -15,8 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.ChatStyle;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class Debug extends Item{
@@ -27,7 +22,8 @@ public class Debug extends Item{
 		setMaxStackSize(1);
 	}
 	
-    public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
+    @Override
+	public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
     {
     	if(world.isRemote) return false;
     	player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import unstudio.chinacraft.ChinaCraft;
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 

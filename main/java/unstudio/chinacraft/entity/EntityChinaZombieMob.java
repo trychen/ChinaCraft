@@ -2,8 +2,6 @@ package unstudio.chinacraft.entity;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 /**
  * Created by Try on 2015/10/2.

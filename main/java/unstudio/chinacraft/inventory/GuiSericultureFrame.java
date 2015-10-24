@@ -8,7 +8,6 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class GuiSericultureFrame extends GuiContainer {
