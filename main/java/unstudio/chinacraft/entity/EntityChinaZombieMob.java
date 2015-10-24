@@ -2,18 +2,16 @@ package unstudio.chinacraft.entity;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
-/**
- * Created by Try on 2015/10/2.
- * Fixed by Mcdarc on 2015/10/7.
- * 说明：本代码依然无法召唤僵尸= -
- */
 
 public class EntityChinaZombieMob extends EntityZombie
 {
     public EntityChinaZombieMob(World var1)
     {
         super(var1);
+        experienceValue = 10;
     }
     
     public EntityZombie createChild (EntityAgeable p_90011_1_)
@@ -28,5 +26,9 @@ public class EntityChinaZombieMob extends EntityZombie
     	
     	return entityzombie;
     }
-
+    public void onUpdate()
+    {
+        if (targetTasks != null) isJumping = true;
+        super.onUpdate();
+    }
 }

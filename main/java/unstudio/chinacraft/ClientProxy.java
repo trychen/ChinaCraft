@@ -1,8 +1,5 @@
 package unstudio.chinacraft;
 
-import net.minecraft.client.audio.SoundCategory;
-import net.minecraft.client.audio.SoundEventAccessorComposite;
-import net.minecraft.client.audio.SoundRegistry;
 import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
