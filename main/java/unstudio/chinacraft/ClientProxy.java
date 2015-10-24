@@ -1,5 +1,8 @@
 package unstudio.chinacraft;
 
+import net.minecraft.client.audio.SoundCategory;
+import net.minecraft.client.audio.SoundEventAccessorComposite;
+import net.minecraft.client.audio.SoundRegistry;
 import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -138,7 +141,6 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.smfHeal.setTextureName("chinacraft:spiritual_magic_figures_heal");
 		ChinaCraft.smfProtect.setTextureName("chinacraft:spiritual_magic_figures_protect");
 		ChinaCraft.smfSuper.setTextureName("chinacraft:spiritual_magic_figures_super");
-
 		ChinaCraft.debug.setTextureName("chinacraft:debug");
 		super.init(event);
     }

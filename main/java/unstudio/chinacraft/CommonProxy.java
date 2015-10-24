@@ -111,7 +111,7 @@ public class CommonProxy {
 
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab),'@',Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
     	
     	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
     	
@@ -136,7 +136,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.jiuqu_tang, "JiuQuTang");//九曲镋刀
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1), new Object[]{" ##", "## ", "X", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.yanLung_Giantknife, "YanLungGiantknife");//炎龙巨刀
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.yanLung_Giantknife, 1), new Object[]{"#B#","EDE", "CAC", '#', Item.getItemFromBlock(Blocks.obsidian), 'A', Items.stick, 'B', Items.lava_bucket, 'C',Items.iron_ingot,'D',Item.getItemFromBlock(Blocks.soul_sand),'E',ChinaCraft.bronzeBlock});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.yanLung_Giantknife, 1), new Object[]{"#B#", "EDE", "CAC", '#', Item.getItemFromBlock(Blocks.obsidian), 'A', Items.stick, 'B', Items.lava_bucket, 'C', Items.iron_ingot, 'D', Item.getItemFromBlock(Blocks.soul_sand), 'E', ChinaCraft.bronzeBlock});
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.yanLung_Giantknife), new ItemStack(Items.bucket));
     	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");//青铜稿
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1), new Object[]{"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
@@ -248,7 +248,6 @@ public class CommonProxy {
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.potionitem});
 		GameRegistry.registerItem(ChinaCraft.smfSuper, "SpiritualMagicFiguresSuper");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.blackDogBlood, ChinaCraft.spiritualMagicFigures});
-
 		EntityBlackDog.mainRegister();
 
 		EntityChinaZombie.mainRegister();
