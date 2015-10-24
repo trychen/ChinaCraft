@@ -111,7 +111,7 @@ public class CommonProxy {
 
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"|#|", "|#|", "|#|", '#', Item.getItemFromBlock(Blocks.wooden_slab),"|",Items.stick});
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab),'@',Items.stick});
     	
     	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
     	

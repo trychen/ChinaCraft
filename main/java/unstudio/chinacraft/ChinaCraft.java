@@ -36,7 +36,7 @@ import unstudio.chinacraft.util.Listener;
 @Mod(modid = ChinaCraft.MODID, version = ChinaCraft.VERSION)
 public class ChinaCraft {
 	    public static final String MODID = "chinacraft";
-	    public static final String VERSION = "0.0.1";
+	    public static final String VERSION = "0.1.0.150";
         public static SimpleNetworkWrapper Network;
 	 	private Listener listener = new Listener();
 	    @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
