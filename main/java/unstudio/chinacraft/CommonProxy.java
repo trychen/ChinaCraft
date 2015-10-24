@@ -100,6 +100,7 @@ public class CommonProxy {
 
 		GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', Items.iron_ingot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', ChinaCraft.bronzeIngot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
 		GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
     	
     	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern");
@@ -107,13 +108,10 @@ public class CommonProxy {
     	GameRegistry.registerBlock(ChinaCraft.cooker_off, "CookerOff");
     	GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
-    	
-    	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");
-		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"# #", " # ", "   ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
-		GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
 
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab),'@',Items.stick});
     	
     	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
     	
@@ -172,6 +170,9 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.itemMulberryLeaf, "ItemMulberryLeaf");//桑叶
     	GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");//木桶
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.log)});
+    	GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");//木桶(方块)
+		//GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"# #", " # ", "   ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
+		//GameRegistry.addRecipe(new ItemStack(ChinaCraft.blockWoodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.wooden_slab)});
     	GameRegistry.registerItem(ChinaCraft.woodenBucket_Water, "WoodenBucket_Water");//木桶 (水)
     	GameRegistry.registerItem(ChinaCraft.silkworm, "Silkworm");//蚕
     	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");

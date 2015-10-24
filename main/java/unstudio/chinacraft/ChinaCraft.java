@@ -36,7 +36,7 @@ import unstudio.chinacraft.util.Listener;
 @Mod(modid = ChinaCraft.MODID, version = ChinaCraft.VERSION)
 public class ChinaCraft {
 	    public static final String MODID = "chinacraft";
-	    public static final String VERSION = "0.0.1";
+	    public static final String VERSION = "0.1.0.150";
         public static SimpleNetworkWrapper Network;
 	 	private Listener listener = new Listener();
 	    @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
@@ -123,7 +123,7 @@ public class ChinaCraft {
 	    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
 	    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
 	    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板  
-	    public static BlockBase bambooBlock = (BlockBase) new  BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
+	    public static Block bambooBlock = new BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 	    
 	    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
@@ -139,8 +139,6 @@ public class ChinaCraft {
 	    public static Cooker cooker_on	= new Cooker(true); //灶台
 	    
 	    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
-	    
-	    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //窑炉
 	    
 	    //物品
 	    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
@@ -210,10 +208,11 @@ public class ChinaCraft {
 	    public static Item barleyRice =new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
 
 		//耐火砖
-		public static BlockFirebrick blockFirebrick = new BlockFirebrick();
-		public static BlockFirebrickStructure	blockFirebrickStructure = new BlockFirebrickStructure(); 
-		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore);
-		public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore);
+		public static BlockFirebrick blockFirebrick = new BlockFirebrick(); //耐火砖块
+		public static BlockFirebrickStructure	blockFirebrickStructure = new BlockFirebrickStructure(); //耐火砖块(多方块结构)
+	    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //窑炉核心方块
+		public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore); //耐火砖
+		public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore); //粘土沙子混合物
 
 
 		//spiritual_magic_figures灵符
