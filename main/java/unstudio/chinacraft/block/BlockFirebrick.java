@@ -3,14 +3,9 @@ package unstudio.chinacraft.block;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.util.BlocksChecker;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -58,7 +53,7 @@ public class BlockFirebrick extends Block{
 			}
 		}
 		if(BlocksChecker.Pottery_Kiln.check(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_)) {
-	        int l = MathHelper.floor_double((double)(p_149689_5_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+	        int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 	        BlockPotteryKiln.generatePotteryKiln(p_149689_1_, p_149689_2_+1, p_149689_3_-2, p_149689_4_+1, l);
 		}
 	}

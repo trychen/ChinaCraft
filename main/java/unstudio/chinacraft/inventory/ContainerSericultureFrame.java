@@ -11,7 +11,6 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class ContainerSericultureFrame extends Container{
@@ -89,6 +88,7 @@ public class ContainerSericultureFrame extends Container{
 		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.schedule);
 	}
  
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int par1, int par2) {
 		if (par1 == 0) {

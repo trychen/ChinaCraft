@@ -2,16 +2,10 @@ package unstudio.chinacraft.renderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.block.BlockWoodenBucket;
 import unstudio.chinacraft.block.Lantern;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockCauldron;
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -34,13 +28,13 @@ public class BlockLanternRenderer implements ISimpleBlockRenderingHandler{
         tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
         IIcon iicon1 = ((Lantern)block).getIconSide();
        float  f4 = 0.0625F*13;
-        renderer.renderFaceXPos(block, (double)((float)x - 1.0F + f4), (double)y, (double)z, iicon1);
-        renderer.renderFaceXNeg(block, (double)((float)x + 1.0F - f4), (double)y, (double)z, iicon1);
-        renderer.renderFaceZPos(block, (double)x, (double)y, (double)((float)z - 1.0F + f4), iicon1);
-        renderer.renderFaceZNeg(block, (double)x, (double)y, (double)((float)z + 1.0F - f4), iicon1);
+        renderer.renderFaceXPos(block, x - 1.0F + f4, y, z, iicon1);
+        renderer.renderFaceXNeg(block, x + 1.0F - f4, y, z, iicon1);
+        renderer.renderFaceZPos(block, x, y, z - 1.0F + f4, iicon1);
+        renderer.renderFaceZNeg(block, x, y, z + 1.0F - f4, iicon1);
         IIcon iicon2 = ((Lantern)block).getIconTop();
-        renderer.renderFaceYPos(block, (double)x, (double)y, (double)z, iicon2);
-        renderer.renderFaceYNeg(block, (double)x, (double)y, (double)z, iicon2);
+        renderer.renderFaceYPos(block, x, y, z, iicon2);
+        renderer.renderFaceYNeg(block, x, y, z, iicon2);
         return true;
 	}
 

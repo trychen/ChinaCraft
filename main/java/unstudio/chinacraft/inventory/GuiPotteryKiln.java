@@ -8,8 +8,6 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.tileentity.TileCooker;
-import unstudio.chinacraft.tileentity.TilePotteryBase;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
 
 public class GuiPotteryKiln extends GuiContainer {

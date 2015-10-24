@@ -1,7 +1,5 @@
 package unstudio.chinacraft.util;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.inventory.ContainerBuhrimill;
 import unstudio.chinacraft.inventory.ContainerCooker;
@@ -22,7 +20,6 @@ import unstudio.chinacraft.tileentity.TileCooker;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
-import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import cpw.mods.fml.common.network.IGuiHandler;

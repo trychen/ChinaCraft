@@ -7,7 +7,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.entity.EntityBlackDogMob;
 

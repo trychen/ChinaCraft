@@ -12,9 +12,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.block.model.ModelBuhrimill;
 import unstudio.chinacraft.block.model.ModelPotteryBase;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TilePotteryBase;
 import unstudio.chinacraft.util.PotteryManager;
 
@@ -51,6 +49,6 @@ public class TileEntityPotteryBlockRenderer extends TileEntitySpecialRenderer {
         int modulousModifier = skyLight % 65536;
         int divModifier = skyLight / 65536;
         tess.setColorOpaque_F(brightness, brightness, brightness);
-        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit,  (float) modulousModifier,  divModifier);
+        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit,  modulousModifier,  divModifier);
 }
 }

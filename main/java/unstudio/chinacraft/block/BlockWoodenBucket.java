@@ -6,9 +6,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -33,7 +31,8 @@ public class BlockWoodenBucket extends Block{
 		setBlockName("wooden_bucket");
 	}
 	
-    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_)
+    @Override
+	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_)
     {
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
         super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
@@ -49,22 +48,26 @@ public class BlockWoodenBucket extends Block{
         this.setBlockBoundsForItemRender();
     }
     
-    public void setBlockBoundsForItemRender()
+    @Override
+	public void setBlockBoundsForItemRender()
     {
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
-    public int getRenderType()
+    @Override
+	public int getRenderType()
     {
         return BlockWoodenBucketRenderer.renderID;
     }
     
-    public boolean isOpaqueCube()
+    @Override
+	public boolean isOpaqueCube()
     {
         return false;
     }
 
-    public boolean renderAsNormalBlock()
+    @Override
+	public boolean renderAsNormalBlock()
     {
         return false;
     } 
@@ -94,7 +97,8 @@ public class BlockWoodenBucket extends Block{
 		this.inner = reg.registerIcon("chinacraft:woodenbucket_inner");
 	}
     
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    @Override
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
     	if(p_149650_1_ == 1) {
     		return ChinaCraft.woodenBucket_Water;
@@ -102,13 +106,15 @@ public class BlockWoodenBucket extends Block{
         return ChinaCraft.woodenBucket;
     }
     
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_)
     {
         return ChinaCraft.woodenBucket;
     }
     
-    public void fillWithRain(World p_149639_1_, int p_149639_2_, int p_149639_3_, int p_149639_4_)
+    @Override
+	public void fillWithRain(World p_149639_1_, int p_149639_2_, int p_149639_3_, int p_149639_4_)
     {
         if (p_149639_1_.rand.nextInt(20) == 1)
         {
@@ -121,6 +127,7 @@ public class BlockWoodenBucket extends Block{
         }
     }
     
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
 		ItemStack item = player.inventory.getCurrentItem();

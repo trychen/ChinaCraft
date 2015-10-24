@@ -16,10 +16,12 @@ public class BlockBuckpot extends Block {
 		setStepSound(soundTypeStone);
 	}
 
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
 
+	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}

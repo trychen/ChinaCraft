@@ -8,7 +8,6 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.Container;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -42,6 +41,7 @@ public class GuiPotteryTable extends GuiContainer{
         this.buttonList.add(new GuiButton(0, k+106, l+22, 10, 20, ">"));
 	}
 	
+	@Override
 	protected void actionPerformed(GuiButton button) {
 		MinecraftServer server = FMLCommonHandler.instance()
 				.getMinecraftServerInstance();
@@ -50,6 +50,7 @@ public class GuiPotteryTable extends GuiContainer{
 		}
 	}
 	
+	@Override
 	protected void keyTyped(char par1, int par2) {
 		if (par2 != 28 && par2 != 156) {
 			if (par2 == 1) {
@@ -58,6 +59,7 @@ public class GuiPotteryTable extends GuiContainer{
 		}
 	}
 	
+	@Override
 	protected void mouseClicked(int par1, int par2, int par3) {
 		super.mouseClicked(par1, par2, par3);
 	}

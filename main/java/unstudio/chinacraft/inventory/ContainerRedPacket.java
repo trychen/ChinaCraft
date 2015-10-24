@@ -7,9 +7,6 @@ import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.StatCollector;
-import unstudio.chinacraft.ChinaCraft;
 
 public class ContainerRedPacket extends Container{
 

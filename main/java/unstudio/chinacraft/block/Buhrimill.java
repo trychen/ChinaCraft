@@ -3,42 +3,26 @@ package unstudio.chinacraft.block;
 import java.util.List;
 import java.util.Random;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
-import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
-import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
 public class Buhrimill extends BlockContainer {
@@ -55,6 +39,7 @@ public class Buhrimill extends BlockContainer {
 		setHarvestLevel("pickaxe", 1);
 	}
 
+	@Override
 	public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_,
 			int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_,
 			List p_149743_6_, Entity p_149743_7_) {
@@ -67,21 +52,25 @@ public class Buhrimill extends BlockContainer {
 		this.setBlockBoundsForItemRender();
 	}
 
+	@Override
 	public void setBlockBoundsForItemRender() {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
 
+	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
 	
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
+    @Override
+	public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_)
     {
-        int l = MathHelper.floor_double((double)(p_149689_5_.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+        int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
         if (l == 0)
         {
@@ -123,21 +112,25 @@ public class Buhrimill extends BlockContainer {
 		this.down = reg.registerIcon("minecraft:stone");
 	}
 
+	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,
 			int p_149650_3_) {
 		return ChinaCraft.itemBuhrimill;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_,
 			int p_149694_4_) {
 		return ChinaCraft.itemBuhrimill;
 	}
 
+	@Override
 	public TileEntity createNewTileEntity(World var1, int var2) {
 		return new TileBuhrimill();
 	}
 	
+	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
 		
@@ -152,7 +145,8 @@ public class Buhrimill extends BlockContainer {
             return true;
     }
 	
-	 public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
+	 @Override
+	public void breakBlock(World World, int x, int y, int z, Block Block, int var1)
 	    {
 
 		 TileBuhrimill tileentity = (TileBuhrimill)World.getTileEntity(x, y, z);
@@ -179,7 +173,7 @@ public class Buhrimill extends BlockContainer {
 	                            }
 
 	                            itemstack.stackSize -= j1;
-	                            EntityItem entityitem = new EntityItem(World, (double)((float)x + f), (double)((float)y + f1), (double)((float)z + f2), new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+	                            EntityItem entityitem = new EntityItem(World, x + f, y + f1, z + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
 	                            if (itemstack.hasTagCompound())
 	                            {
@@ -187,9 +181,9 @@ public class Buhrimill extends BlockContainer {
 	                            }
 
 	                            float f3 = 0.05F;
-	                            entityitem.motionX = (double)((float)random.nextGaussian() * f3);
-	                            entityitem.motionY = (double)((float)random.nextGaussian() * f3 + 0.2F);
-	                            entityitem.motionZ = (double)((float)random.nextGaussian() * f3);
+	                            entityitem.motionX = (float)random.nextGaussian() * f3;
+	                            entityitem.motionY = (float)random.nextGaussian() * f3 + 0.2F;
+	                            entityitem.motionZ = (float)random.nextGaussian() * f3;
 	                            World.spawnEntityInWorld(entityitem);
 	                        }
 	                    }

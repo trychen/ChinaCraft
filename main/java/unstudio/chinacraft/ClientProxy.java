@@ -3,19 +3,13 @@ package unstudio.chinacraft;
 import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.entity.EntityBlackDogMob;
-import unstudio.chinacraft.entity.EntityChinaZombie;
 import unstudio.chinacraft.entity.EntityChinaZombieMob;
 import unstudio.chinacraft.entity.model.ModelChinaZombie;
-import unstudio.chinacraft.renderer.ItemPotteryBlockRenderer;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
-import unstudio.chinacraft.renderer.TileEntityPotteryBlockRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
-import unstudio.chinacraft.tileentity.TilePotteryBase;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -23,18 +17,21 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 public class ClientProxy extends CommonProxy { 
-    public void preInit(FMLPreInitializationEvent event) {
+    @Override
+	public void preInit(FMLPreInitializationEvent event) {
 		ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
     	super.preInit(event);
     }
  
-    public void init(FMLInitializationEvent event) {
+    @Override
+	public void init(FMLInitializationEvent event) {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityChinaZombieMob.class, new RenderLiving(new ModelChinaZombie(), 0) {
+			@Override
 			protected ResourceLocation getEntityTexture(Entity par1Entity) {
 				return new ResourceLocation("chinacraft", "textures/entity/chinazombie/chinazombie.png");
 			}
@@ -143,7 +140,8 @@ public class ClientProxy extends CommonProxy {
 		super.init(event);
     }
  
-    public void postInit(FMLPostInitializationEvent event) {
+    @Override
+	public void postInit(FMLPostInitializationEvent event) {
     	super.postInit(event);
     }
 }

@@ -1,12 +1,7 @@
 package unstudio.chinacraft.recipes;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import com.sun.org.apache.bcel.internal.generic.ReturnInstruction;
-
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.RecipesArmor;
 
 public class BuhrimillRecipe {
 	

@@ -23,7 +23,8 @@ public class WorldGenBlockBlob extends WorldGenerator{
         this.field_150544_b = p_i45450_2_;
     }
 
-    @Deprecated
+    @Override
+	@Deprecated
     public boolean generate(World world, Random random, int x, int y, int z)
     {
             if (y <= 3)
@@ -38,7 +39,7 @@ public class WorldGenBlockBlob extends WorldGenerator{
                 int i1 = k2 + random.nextInt(2);
                 int j1 = k2 + random.nextInt(2);
                 int k1 = k2 + random.nextInt(2);
-                float f = (float)(i1 + j1 + k1) * 0.333F + 0.5F;
+                float f = (i1 + j1 + k1) * 0.333F + 0.5F;
 
                 for (int l1 = x - i1; l1 <= x + i1; ++l1)
                 {
@@ -46,9 +47,9 @@ public class WorldGenBlockBlob extends WorldGenerator{
                     {
                         for (int j2 = y - j1; j2 <= y + j1; ++j2)
                         {
-                            float f1 = (float)(l1 - x);
-                            float f2 = (float)(i2 - z);
-                            float f3 = (float)(j2 - y);
+                            float f1 = l1 - x;
+                            float f2 = i2 - z;
+                            float f3 = j2 - y;
 
                             if (f1 * f1 + f2 * f2 + f3 * f3 <= f * f&&world.getBlock(l1, j2, i2) == Blocks.stone)
                             {

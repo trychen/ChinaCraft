@@ -3,16 +3,12 @@ package unstudio.chinacraft.renderer;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.IItemRenderer.ItemRenderType;
-import net.minecraftforge.client.IItemRenderer.ItemRendererHelper;
 import unstudio.chinacraft.block.model.ModelPotteryBase;
-import unstudio.chinacraft.tileentity.TilePotteryBase;
 import unstudio.chinacraft.util.PotteryManager;
 
 public class ItemPotteryBlockRenderer implements IItemRenderer {
@@ -31,14 +27,17 @@ public class ItemPotteryBlockRenderer implements IItemRenderer {
 		z = zloc;
 	}
 
+	@Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
 		return true;
 	}
 
+	@Override
 	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
 		return true;
 	}
 
+	@Override
 	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
 		if(item.hasTagCompound()) model = PotteryManager.Instance().getBlockPottery(item.getTagCompound().getString("PotteryType")).getModel();
 		GL11.glPushMatrix();

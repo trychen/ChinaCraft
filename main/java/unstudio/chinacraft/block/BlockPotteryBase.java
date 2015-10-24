@@ -3,7 +3,6 @@ package unstudio.chinacraft.block;
 import java.util.Random;
 
 import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TilePotteryBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -28,10 +27,12 @@ public class BlockPotteryBase extends BlockContainer {
 		setStepSound(soundTypeStone);
 	}
 
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
 
+	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
@@ -53,6 +54,7 @@ public class BlockPotteryBase extends BlockContainer {
 		}
 	}
 
+	@Override
 	public void breakBlock(World World, int x, int y, int z, Block Block,
 			int var1) {
 		TilePotteryBase tileentity = (TilePotteryBase) World.getTileEntity(x,
@@ -69,8 +71,8 @@ public class BlockPotteryBase extends BlockContainer {
 				float f1 = random.nextFloat() * 0.8F + 0.1F;
 				float f2 = random.nextFloat() * 0.8F + 0.1F;
 				EntityItem entityitem = new EntityItem(World,
-						(double) ((float) x + f), (double) ((float) y + f1),
-						(double) ((float) z + f2), new ItemStack(
+						x + f, y + f1,
+						z + f2, new ItemStack(
 								itemstack.getItem(), itemstack.stackSize,
 								itemstack.getItemDamage()));
 
@@ -80,10 +82,10 @@ public class BlockPotteryBase extends BlockContainer {
 				}
 
 				float f3 = 0.05F;
-				entityitem.motionX = (double) ((float) random.nextGaussian() * f3);
-				entityitem.motionY = (double) ((float) random.nextGaussian()
-						* f3 + 0.2F);
-				entityitem.motionZ = (double) ((float) random.nextGaussian() * f3);
+				entityitem.motionX = (float) random.nextGaussian() * f3;
+				entityitem.motionY = (float) random.nextGaussian()
+						* f3 + 0.2F;
+				entityitem.motionZ = (float) random.nextGaussian() * f3;
 				World.spawnEntityInWorld(entityitem);
 			}
 		}

@@ -2,7 +2,6 @@ package unstudio.chinacraft.tileentity;
 
 import unstudio.chinacraft.ChinaCraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -176,7 +175,8 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 		return m;
 	}
 	
-    public void readFromNBT(NBTTagCompound p_145839_1_)
+    @Override
+	public void readFromNBT(NBTTagCompound p_145839_1_)
     {
         super.readFromNBT(p_145839_1_);
         NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
@@ -196,7 +196,8 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
         this.mortality = p_145839_1_.getFloat("mortality");
     }
 
-    public void writeToNBT(NBTTagCompound p_145841_1_)
+    @Override
+	public void writeToNBT(NBTTagCompound p_145841_1_)
     {
         super.writeToNBT(p_145841_1_);
         p_145841_1_.setInteger("schedule", this.schedule);
@@ -221,17 +222,20 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 		return true;
 	}
 
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_)
+    @Override
+	public int[] getAccessibleSlotsFromSide(int p_94128_1_)
     {
         return p_94128_1_ == 0 ? slotsBottom : slotsTop;
     }
 
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_)
+    @Override
+	public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_)
     {
         return this.isItemValidForSlot(p_102007_1_, p_102007_2_);
     }
 
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_)
+    @Override
+	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_)
     {
         return p_102008_3_ != 0 || p_102008_1_ != 0;
     }
