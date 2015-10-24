@@ -4,9 +4,11 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.client.audio.SoundList;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
@@ -17,6 +19,8 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.player.PlayerFlyableFallEvent;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.entity.EntityBlackDogMob;
+
+import java.util.List;
 
 /**
  * Name and cast of this class are irrelevant
@@ -90,7 +94,7 @@ public class Listener {
         if (e.player.getHeldItem() != null) {
             if (e.player.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                 if (e.player.isAirBorne && e.player.isSneaking()) {
-                    e.player.motionY = -0.1;
+                    e.player.motionY = -0.02;
                 }
             }
         }
@@ -102,12 +106,28 @@ public class Listener {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (entityPlayer.getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                    event.setCanceled(true);
-                    if (event.distance > 5.0f) {
+                    if (event.distance > 15){
+                        entityPlayer.attackEntityFrom(DamageSource.fall,2.0f);
+                        event.setCanceled(true);
+                    } else {
+                        event.setCanceled(true);
+                    }
+                    if (event.distance > 4.0f) {
                         entityPlayer.worldObj.spawnParticle("largeexplode", event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(), event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
-                        entityPlayer.worldObj.playSound(entityPlayer.posX,entityPlayer.posY,entityPlayer.posZ,"chinacraft:wave_attack", 0.1f, 0.3f, false);
+//                        entityPlayer.worldObj.playSound(entityPlayer.posX,entityPlayer.posY,entityPlayer.posZ,"chinacraft:wave_attack", 0.1f, 0.3f, false);
+                        List<EntityMob> nearbyMobsList = findNearbyMobs(entityPlayer,entityPlayer.posX,entityPlayer.posY,entityPlayer.posZ);
+                        for(EntityMob entityMob:nearbyMobsList){
+                            entityMob.attackEntityFrom(DamageSource.causePlayerDamage(entityPlayer),4.0f);
+                        }
                     }
                     return;
+                } else if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.yanLung_Giantknife) && event.distance > 3.0f){
+                    entityPlayer.worldObj.spawnParticle("largeexplode", event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(), event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
+                    List<EntityMob> nearbyMobsList = findNearbyMobs(entityPlayer,entityPlayer.posX,entityPlayer.posY,entityPlayer.posZ);
+                    for(EntityMob entityMob:nearbyMobsList){
+                        entityMob.setFire(3);
+                        entityMob.attackEntityFrom(DamageSource.causePlayerDamage(entityPlayer), 3.0f);
+                    }
                 }
             }
             if (event.distance > 2.0f) {
@@ -137,5 +157,11 @@ public class Listener {
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1, zCoord + worldObj.rand.nextFloat(), 0, 0, 0);
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1, zCoord + worldObj.rand.nextFloat(), 0, 0, 0);
         worldObj.spawnParticle(kind, xCoord + 0.5, yCoord + 1.1, zCoord + 0.5, 0, 0, 0);
+    }
+    public static List<EntityMob> findNearbyMobs(EntityPlayer player, double x, double y, double z)
+    {
+        double d0 = 3.0D;
+        double d1 = 2.0D;
+        return player.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox(x - d0, y - d1, z - d0, x + d0, y + d1, z + d0));
     }
 }
