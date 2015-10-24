@@ -52,15 +52,6 @@ public class GuiPotteryTable extends GuiContainer{
 	
 	@Override
 	protected void keyTyped(char par1, int par2) {
-		if (par2 != 28 && par2 != 156) {
-			if (par2 == 1) {
-				this.mc.displayGuiScreen((GuiScreen) null);
-			}
-		}
-	}
-	
-	@Override
-	protected void mouseClicked(int par1, int par2, int par3) {
-		super.mouseClicked(par1, par2, par3);
+		super.keyTyped(par1, par2);
 	}
 }

@@ -1,5 +1,6 @@
 package unstudio.chinacraft.inventory;
 
+import unstudio.chinacraft.ChinaCraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -66,13 +67,17 @@ public class ContainerRedPacket extends Container{
     public void onContainerClosed(EntityPlayer p_75134_1_)
     {
 		super.onContainerClosed(p_75134_1_);
-		NBTTagCompound nbtitem = new NBTTagCompound();
-		if(getSlot(0).getStack()!=null) getSlot(0).getStack().writeToNBT(nbtitem);
-		NBTTagCompound nbtitem2 = new NBTTagCompound();
-		if(getSlot(0).getStack()!=null) nbtitem2.setString("Sender",p_75134_1_.getDisplayName());
-		nbtitem2.setTag("Item", nbtitem);
-		itemStack.setTagCompound(nbtitem2);
-		p_75134_1_.inventory.setInventorySlotContents(p_75134_1_.inventory.currentItem,itemStack);
+		if(p_75134_1_.inventory.getCurrentItem()!=null&&p_75134_1_.inventory.getCurrentItem().getItem().equals(ChinaCraft.redPacket)) {
+			NBTTagCompound nbtitem = new NBTTagCompound();
+			NBTTagCompound nbtitem2 = new NBTTagCompound();
+			if(getSlot(0).getStack()!=null) {
+				getSlot(0).getStack().writeToNBT(nbtitem);
+				nbtitem2.setString("Sender",p_75134_1_.getDisplayName());
+			}
+			nbtitem2.setTag("Item", nbtitem);
+			itemStack.setTagCompound(nbtitem2);
+			p_75134_1_.inventory.setInventorySlotContents(p_75134_1_.inventory.currentItem,itemStack);
+		}
     }
 	
 	@Override
