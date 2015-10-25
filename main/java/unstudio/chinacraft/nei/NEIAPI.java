@@ -8,9 +8,9 @@ public class NEIAPI implements codechicken.nei.api.IConfigureNEI{
 
 	@Override
 	public void loadConfig() {
-//        API.registerRecipeHandler(new BuhrimillRecipeHandler());
-//        API.registerUsageHandler(new BuhrimillRecipeHandler());
-//        API.registerGuiOverlay(GuiBuhrimill.class, "buhrimill");
+        API.registerRecipeHandler(new BuhrimillRecipeHandler());
+        API.registerUsageHandler(new BuhrimillRecipeHandler());
+        API.registerGuiOverlay(GuiBuhrimill.class, "buhrimill");
 	}
 
 	@Override

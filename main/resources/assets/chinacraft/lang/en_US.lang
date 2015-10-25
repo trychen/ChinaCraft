@@ -90,6 +90,7 @@ item.cup_chocolate.name=Chocolate Tea
 tile.buhrimill.name=Buhrimill Block
 item.buhrimill.name=Buhrimill
 gui.buhrimill.title=Buhrimill
+nei.gui.buhrimill.title=Buhrimill Recipes
 
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table

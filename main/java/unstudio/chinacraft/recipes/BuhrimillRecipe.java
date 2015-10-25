@@ -71,4 +71,23 @@ public class BuhrimillRecipe {
 		}
 		return null;
 	}
+
+	public static int getBuhrimillReciperTime(ItemStack input1,ItemStack input2){
+		for (BuhrimillRecipe r :recipes) {
+			if(r.getInput1().isItemEqual(input1)&&r.getInput2() != null) {
+				if (r.getInput2() == null&&input2 == null) {
+					return r.getTime();
+				} else {
+					if (input2 != null&&r.getInput2() != null&&r.getInput2().isItemEqual(input2)){
+						return r.getTime();
+					}
+				}
+			}
+		}
+		return 0;
+	}
+
+	public static ArrayList<BuhrimillRecipe> getRecipes(){
+		return recipes;
+	}
 }

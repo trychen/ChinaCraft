@@ -12,11 +12,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EntityDamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerFlyableFallEvent;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.api.EntityMethod;
@@ -24,6 +27,8 @@ import unstudio.chinacraft.entity.EntityBlackDogMob;
 import unstudio.chinacraft.entity.EntityChinaZombieMob;
 
 import java.util.List;
+import java.util.Queue;
+import java.util.Random;
 
 /**
  * Name and cast of this class are irrelevant
@@ -97,8 +102,34 @@ public class Listener {
         if (e.player.getHeldItem() != null) {
             if (e.player.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                 if (e.player.isAirBorne && e.player.isSneaking()) {
-                    e.player.motionY = -0.02;
+                    e.player.motionY = -0.1;
+                    e.player.motionX *= 1.00000000000000002D;
+                    e.player.motionZ *= 1.00000000000000002D;
                 }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void AttackEntityEvent(LivingHurtEvent event) {
+        if (event.entity instanceof EntityPlayer) {
+            EntityPlayer entityPlayer = (EntityPlayer) event.entity;
+            if (event.entity.worldObj.rand.nextInt(5) == 3||true) {
+                if (entityPlayer.getHeldItem() != null&&entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
+                        spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY, event.entity.posZ - 0.5);
+                        System.out.println("TEST");
+                        event.setCanceled(true);
+                    } else {
+                        for (int time = 0; time < 9; time++) {
+                            if (entityPlayer.inventory.mainInventory[time] != null) {
+                                if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
+                                    spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2, event.entity.posZ - 0.5);
+                                    System.out.println("TEST");
+                                    event.setCanceled(true);
+                                }
+                            }
+                        }
+                    }
             }
         }
     }
@@ -109,17 +140,17 @@ public class Listener {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (entityPlayer.getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                    if (event.distance > 15){
-                        entityPlayer.attackEntityFrom(DamageSource.fall,2.0f);
+                    if (event.distance > 15) {
+                        entityPlayer.attackEntityFrom(DamageSource.fall, 2.0f);
                         event.setCanceled(true);
                     } else {
                         event.setCanceled(true);
                     }
                     if (event.distance > 4.0f) {
                         entityPlayer.worldObj.spawnParticle("largeexplode", event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(), event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
-                        if (event.distance < 6f){
-                            EntityMethod.attackAroundEntity(entityPlayer,entityPlayer.posX,entityPlayer.posY,entityPlayer.posZ,DamageSource.causePlayerDamage(entityPlayer),4.0f);
-                        }else {
+                        if (event.distance < 6f) {
+                            EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY, entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 4.0f);
+                        } else {
                             if (event.distance < 30f) {
                                 EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY, entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 9.0f);
                             } else {
@@ -128,10 +159,10 @@ public class Listener {
                         }
                     }
                     return;
-                } else if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.yanLung_Giantknife) && event.distance > 3.0f){
+                } else if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.yanLung_Giantknife) && event.distance > 3.0f) {
                     entityPlayer.worldObj.spawnParticle("largeexplode", event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(), event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
-                    List<EntityMob> nearbyMobsList = EntityMethod.findNearbyMobs(entityPlayer,entityPlayer.posX,entityPlayer.posY,entityPlayer.posZ);
-                    for(EntityMob entityMob:nearbyMobsList){
+                    List<EntityMob> nearbyMobsList = EntityMethod.findNearbyMobs(entityPlayer, entityPlayer.posX, entityPlayer.posY, entityPlayer.posZ);
+                    for (EntityMob entityMob : nearbyMobsList) {
                         entityMob.setFire(3);
                     }
                 }
@@ -152,16 +183,19 @@ public class Listener {
             }
         }
     }
+
     @SubscribeEvent
-    public void EntityMove(LivingEvent.LivingUpdateEvent event){
-        if (event.entity instanceof EntityChinaZombieMob){
+    public void EntityMove(LivingEvent.LivingUpdateEvent event) {
+        if (event.entity instanceof EntityChinaZombieMob) {
             ((EntityChinaZombieMob) event.entity).setJumping(true);
         }
     }
+
     public void spawnEffects(World worldObj, double xCoord, double yCoord, double zCoord) {
         spawnEffects("mobSpellAmbient", worldObj, xCoord, yCoord, zCoord);
     }
-    public void spawnEffects(String kind,World worldObj, double xCoord, double yCoord, double zCoord) {
+
+    public void spawnEffects(String kind, World worldObj, double xCoord, double yCoord, double zCoord) {
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1, zCoord + worldObj.rand.nextFloat(), 0, 0, 0);
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1, zCoord + worldObj.rand.nextFloat(), 0, 0, 0);
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1, zCoord + worldObj.rand.nextFloat(), 0, 0, 0);

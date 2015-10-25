@@ -6,6 +6,7 @@ import unstudio.chinacraft.item.combat.BronzeBoots;
 import unstudio.chinacraft.item.combat.BronzeChestplate;
 import unstudio.chinacraft.item.combat.BronzeHelmet;
 import unstudio.chinacraft.item.combat.BronzeLeggings;
+import unstudio.chinacraft.nei.NEIAPI;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import unstudio.chinacraft.tileentity.TileCooker;
@@ -246,7 +247,6 @@ public class CommonProxy {
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.spiritualMagicFigures, Items.potionitem});
 		GameRegistry.registerItem(ChinaCraft.smfSuper, "SpiritualMagicFiguresSuper");
 		GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfProtect), new Object[]{ChinaCraft.blackDogBlood, ChinaCraft.spiritualMagicFigures});
-
 		EntityBlackDog.mainRegister();
 		EntityChinaZombie.mainRegister();
 

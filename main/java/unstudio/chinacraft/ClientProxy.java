@@ -141,6 +141,9 @@ public class ClientProxy extends CommonProxy {
 		ChinaCraft.smfProtect.setTextureName("chinacraft:spiritual_magic_figures_protect");
 		ChinaCraft.smfSuper.setTextureName("chinacraft:spiritual_magic_figures_super");
 		ChinaCraft.debug.setTextureName("chinacraft:debug");
+		if (ChinaCraft.NEIIsLoad){
+			new NEIAPI().loadConfig();
+		}
 		super.init(event);
     }
  

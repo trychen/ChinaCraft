@@ -5,56 +5,54 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
-
 import unstudio.chinacraft.inventory.GuiBuhrimill;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import codechicken.nei.ItemList;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import codechicken.nei.recipe.TemplateRecipeHandler.CachedRecipe;
-import codechicken.nei.recipe.TemplateRecipeHandler.RecipeTransferRect;
 
 public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 	//*********************************************************************************************************************************************************************
 	public class SmeltingPair extends CachedRecipe
     {
-        public SmeltingPair(ItemStack ingred, ItemStack result) {
-            ingred.stackSize = 1;
-            this.ingred = new PositionedStack(ingred, 49 - 5, 19 - 11);
-            this.result = new PositionedStack(result, 112 - 5, 19 - 11);
+        public SmeltingPair(ItemStack in1, ItemStack out1 ,ItemStack in2, ItemStack out2) {
+            in1.stackSize = 1;
+            this.input1 = new PositionedStack(in1, 38, 14);
+            this.output1 = new PositionedStack(out1, 112-5, 14);
+            if (in2 != null) {
+                this.input2 = new PositionedStack(in2, 38, 28);
+            }
+            if (out2 != null) {
+                this.output2 = new PositionedStack(out2, 112-5, 28);
+            }
         }
 
         public List<PositionedStack> getIngredients() {
-            return getCycledIngredients(cycleticks / 48, Arrays.asList(ingred));
+            return getCycledIngredients(cycleticks / 48, Arrays.asList(input1));
         }
 
         public PositionedStack getResult() {
-            return result;
+            return output1;
         }
 
-        public PositionedStack getOtherStack() {
-        	
-            return afuels.get((cycleticks / 48) % afuels.size()).stack;
-        }
 
-        PositionedStack ingred;
-        PositionedStack result;
+        PositionedStack input1;
+        PositionedStack input2;
+        PositionedStack output1;
+        PositionedStack output2;
     }
 	//*********************************************************************************************************************************************************************
     public static class FuelPair
     {
         public FuelPair(ItemStack ingred, int burnTime) {
-            this.stack = new PositionedStack(ingred, 80 - 5, 54 - 11, false);
+            this.stack = new PositionedStack(ingred, 0,0, false);
             this.burnTime = burnTime;
         }
 
@@ -81,33 +79,26 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     }
 
     @Override
-    public TemplateRecipeHandler newInstance() {
-        if (afuels == null || afuels.isEmpty())
-            findFuels();
-        return super.newInstance();
-    }
-
-    @Override
     public void loadCraftingRecipes(String outputId, Object... results) {
         if (outputId.equals("buhrimill") && getClass() == BuhrimillRecipeHandler.class) {//don't want subclasses getting a hold of this
-            Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) Nmjrecipe.smelting().getSmeltingList();
-            for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
-                arecipes.add(new SmeltingPair(recipe.getKey(), recipe.getValue()));
+            ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
+            for (BuhrimillRecipe recipe : recipes)
+                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getInput2(),recipe.getInput2(),recipe.getOutput2()));
         } else
             super.loadCraftingRecipes(outputId, results);
     }
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) Nmjrecipe.smelting().getSmeltingList();
-        for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
-            if (NEIServerUtils.areStacksSameType(recipe.getValue(), result))
-                arecipes.add(new SmeltingPair(recipe.getKey(), recipe.getValue()));
+        ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
+        for (BuhrimillRecipe recipe : recipes)
+            if (NEIServerUtils.areStacksSameType(recipe.getOutput1(), result))
+                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(),recipe.getInput2(),recipe.getOutput2()));
     }
 
     @Override
     public void loadUsageRecipes(String inputId, Object... ingredients) {
-        if (inputId.equals("fuel") && getClass() == NmjRecipeHandler.class)//don't want subclasses getting a hold of this
+        if (inputId.equals("fuel") && getClass() == BuhrimillRecipeHandler.class)//don't want subclasses getting a hold of this
             loadCraftingRecipes("buhrimill");
         else
             super.loadUsageRecipes(inputId, ingredients);
@@ -115,18 +106,18 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadUsageRecipes(ItemStack ingredient) {
-        Map<ItemStack, ItemStack> recipes = (Map<ItemStack, ItemStack>) Nmjrecipe.smelting().getSmeltingList();
-        for (Entry<ItemStack, ItemStack> recipe : recipes.entrySet())
-            if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getKey(), ingredient)) {
-                SmeltingPair arecipe = new SmeltingPair(recipe.getKey(), recipe.getValue());
-                arecipe.setIngredientPermutation(Arrays.asList(arecipe.ingred), ingredient);
+        ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
+        for (BuhrimillRecipe recipe : recipes)
+            if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getInput1(), ingredient)) {
+                SmeltingPair arecipe = new SmeltingPair(recipe.getInput1(), recipe.getOutput1(),recipe.getInput2(),recipe.getOutput2());
+                arecipe.setIngredientPermutation(Arrays.asList(arecipe.input1), ingredient);
                 arecipes.add(arecipe);
             }
     }
 
     @Override
     public String getGuiTexture() {
-        return "foodcraft:textures/gui/nei/buhrimill.png";
+        return "chinacraft:textures/gui/nei/buhrimill.png";
     }
 
     @Override
@@ -147,16 +138,6 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         return efuels;
     }
 
-    private static void findFuels() {
-        afuels = new ArrayList<FuelPair>();
-        Set<Item> efuels = excludedFuels();
-        for (ItemStack item : ItemList.items)
-            if (!efuels.contains(item.getItem())) {
-                int burnTime = TileBuhrimill.getItemBurnTime(item);
-                if (burnTime > 0)
-                    afuels.add(new FuelPair(item.copy(), burnTime));
-            }
-    }
 
     @Override
     public String getOverlayIdentifier() {

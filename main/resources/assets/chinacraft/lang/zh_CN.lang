@@ -106,6 +106,7 @@ item.cup_chocolate.name=巧克力茶
 tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
+nei.gui.buhrimill.title=石磨合成
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
