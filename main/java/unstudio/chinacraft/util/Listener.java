@@ -114,22 +114,24 @@ public class Listener {
     public void AttackEntityEvent(LivingHurtEvent event) {
         if (event.entity instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
-            if (event.entity.worldObj.rand.nextInt(5) == 3||true) {
-                if (entityPlayer.getHeldItem() != null&&entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
-                        spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY, event.entity.posZ - 0.5);
-                        System.out.println("TEST");
-                        event.setCanceled(true);
-                    } else {
-                        for (int time = 0; time < 9; time++) {
-                            if (entityPlayer.inventory.mainInventory[time] != null) {
-                                if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
-                                    spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2, event.entity.posZ - 0.5);
-                                    System.out.println("TEST");
-                                    event.setCanceled(true);
-                                }
+            if (event.entity.worldObj.rand.nextInt(6) == 3) {
+                if (entityPlayer.getHeldItem() != null && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
+                    spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY, event.entity.posZ - 0.5);
+                    System.out.println("TEST");
+                    event.ammount = 0.0f;
+                    event.setCanceled(true);
+                } else {
+                    for (int time = 0; time < 9; time++) {
+                        if (entityPlayer.inventory.mainInventory[time] != null) {
+                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
+                                spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2, event.entity.posZ - 0.5);
+                                System.out.println("TEST");
+                                event.ammount = 0.0f;
+                                event.setCanceled(true);
                             }
                         }
                     }
+                }
             }
         }
     }
