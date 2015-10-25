@@ -1,6 +1,7 @@
 package unstudio.chinacraft;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Loader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
@@ -28,15 +29,20 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import unstudio.chinacraft.network.CustomMessage;
+import unstudio.chinacraft.network.BaseMessage;
 import unstudio.chinacraft.util.Listener;
 
-@Mod(modid = ChinaCraft.MODID, version = ChinaCraft.VERSION)
+@Mod(modid = ChinaCraft.MODID, name=ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft {
 	    public static final String MODID = "chinacraft";
-	    public static final String VERSION = "0.1.0.150";
+	    public static final String NAME = "ChinaCraft";
+	    public static final String VERSION = "0.1.0.155";
+	    
+	    public static boolean NEIIsLoad = false;
+	    
         public static SimpleNetworkWrapper Network;
 	 	private Listener listener = new Listener();
+	 	
 	    @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
 	            serverSide = "unstudio.chinacraft.CommonProxy")
 	    public static CommonProxy proxy;
@@ -47,9 +53,10 @@ public class ChinaCraft {
 	    @EventHandler
 	    public void preInit(FMLPreInitializationEvent event) {
 	        proxy.preInit(event);
+	        NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
 	        Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
-	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 0, Side.SERVER);
-	        Network.registerMessage(CustomMessage.Handler.class, CustomMessage.class, 1, Side.CLIENT);
+	        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 0, Side.SERVER);
+	        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 1, Side.CLIENT);
 	    }
 	    
 	    @EventHandler

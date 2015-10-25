@@ -6,11 +6,11 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 
-public class CustomMessage implements IMessage { //包类
+public class BaseMessage implements IMessage { //包类
 	    
 	    private String text;
 
-	    public CustomMessage(String text) {
+	    public BaseMessage(String text) {
 	        this.text = text;
 	    }
 
@@ -24,9 +24,9 @@ public class CustomMessage implements IMessage { //包类
 	        ByteBufUtils.writeUTF8String(buf, text);
 	    }
 
-	    public static class Handler implements IMessageHandler<CustomMessage, IMessage> { //包处理类
+	    public static class Handler implements IMessageHandler<BaseMessage, IMessage> { //包处理类
 			@Override
-			public IMessage onMessage(CustomMessage message, MessageContext ctx) {
+			public IMessage onMessage(BaseMessage message, MessageContext ctx) {
 				System.out.println(String.format("Received %s from %s", message.text, ctx.getServerHandler().playerEntity.getDisplayName()));
 	            return null; 
 			}

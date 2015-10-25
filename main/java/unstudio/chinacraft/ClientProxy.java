@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import unstudio.chinacraft.entity.EntityBlackDogMob;
 import unstudio.chinacraft.entity.EntityChinaZombieMob;
 import unstudio.chinacraft.entity.model.ModelChinaZombie;
+import unstudio.chinacraft.nei.NEIAPI;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
@@ -25,6 +26,10 @@ public class ClientProxy extends CommonProxy {
  
     @Override
 	public void init(FMLInitializationEvent event) {
+    	if(ChinaCraft.NEIIsLoad){
+        new NEIAPI().loadConfig();
+		}
+    	
 		ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
 		RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
