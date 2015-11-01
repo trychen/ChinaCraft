@@ -28,7 +28,7 @@ public class GuiJadeBench extends GuiContainer {
 				I18n.format("container.inventory", new Object[0]), 8,
 				this.ySize - 96 + 2, 4210752);
 		//StatCollector.translateToLocal("gui.jade_bench.infotile")
-		this.fontRendererObj.drawString("玉石", this.xSize / 2 + 37 - this.fontRendererObj.getStringWidth(s) / 2, 18, 4210752);
+//		this.fontRendererObj.drawString("玉石", this.xSize / 2 + 37 - this.fontRendererObj.getStringWidth(s) / 2, 18, 4210752);
 	}
 
 	@Override
@@ -43,17 +43,5 @@ public class GuiJadeBench extends GuiContainer {
 	@Override
 	public boolean doesGuiPauseGame() { // 让GUI在单人模式下不会暂停游戏保存存档
 		return false;
-	}
-
-	/**
-	 * 画出信息
-	 * @param l1 第一行文本
-	 * @param l2 第二行文本
-	 * @param level 等级
-	 */
-	public void drawJadeMessage(String l1,String l2,int level){
-		if (l1!= null&&l2!=null){
-
-		}
 	}
 }

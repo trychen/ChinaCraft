@@ -190,6 +190,7 @@ public class ChinaCraft {
 	    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword();  //青铜大刀purple
 	    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //炎龙巨刀
 	    public static ChinaCrown chinaCrown = new ChinaCrown();
+		public static Mace mace = new Mace();
 
 	    //工具
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿

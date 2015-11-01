@@ -1,6 +1,5 @@
 package unstudio.chinacraft.item.combat;
 
-import com.sun.deploy.util.SessionState;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
@@ -13,7 +12,6 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.ClientProxy;
 
 
 public class ChinaCrown extends ItemArmor {
