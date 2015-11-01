@@ -2,6 +2,9 @@ package unstudio.chinacraft;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
+import net.minecraft.block.BlockCake;
+import net.minecraft.block.BlockCarpet;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
@@ -31,6 +34,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.network.BaseMessage;
 import unstudio.chinacraft.util.Listener;
+
+import java.util.HashMap;
 
 @Mod(modid = ChinaCraft.MODID, name=ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft {
@@ -94,7 +99,9 @@ public class ChinaCraft {
 	            return rices;
 	        }
 	    };
-	    
+	    //特殊变量
+		public static HashMap<EntityPlayer,Integer> JadehasHeal = new HashMap<EntityPlayer, Integer>();
+		//Material
 		public static Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
 		public static Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); //石锤
 		public static Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); //铁锤
@@ -130,7 +137,16 @@ public class ChinaCraft {
 	    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板  
 	    public static Block bambooBlock = new BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
 	    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
-	    
+	    //TraditionalCarpet
+		public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet","chinacraft:red_carpet");
+		public static TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet","chinacraft:slik_carpet");
+		public static TraditionalCarpet slik_right = new TraditionalCarpet("slik_right","chinacraft:slik_right");
+		public static TraditionalCarpet slik_left = new TraditionalCarpet("slik_left","chinacraft:slik_left");
+		public static TraditionalCarpet silk_right_down = new TraditionalCarpet("silk_right_down","chinacraft:silk_right_down");
+		public static TraditionalCarpet silk_right_up = new TraditionalCarpet("silk_right_up","chinacraft:silk_right_up");
+		public static TraditionalCarpet silk_left_up = new TraditionalCarpet("silk_left_up","chinacraft:silk_left_up");
+		public static TraditionalCarpet silk_left_down = new TraditionalCarpet("silk_left_down","chinacraft:silk_left_down");
+
 	    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
 	    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); //陶瓷
 	    public static BlockBuckpot blockBuckpot = new BlockBuckpot(); //陶锅
@@ -173,7 +189,8 @@ public class ChinaCraft {
 	    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword();  //青铜大刀Pink
 	    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword();  //青铜大刀purple
 	    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //炎龙巨刀
-	    
+	    public static ChinaCrown chinaCrown = new ChinaCrown();
+
 	    //工具
 	    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿
 	    public static BronzeAxe bronzeAxe =  new BronzeAxe();//青铜斧
@@ -211,6 +228,7 @@ public class ChinaCraft {
 	    public static Item flour =new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
 	    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); //米粉
 	    public static Item barleyRice =new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
+	    public static XinjiangNutCake xinjiangNutCake =new XinjiangNutCake();
 
 		//耐火砖
 		public static BlockFirebrick blockFirebrick = new BlockFirebrick(); //耐火砖块
@@ -231,4 +249,7 @@ public class ChinaCraft {
 		public static SMFSuper smfSuper = new SMFSuper(); //捉妖符
 
 		public static Debug debug = new Debug(); //调试物品
+
+		public static ModelCrown modelCrown;
+
 }

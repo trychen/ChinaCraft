@@ -22,7 +22,6 @@ public class EntityKongmingLantern extends Entity{
 		preventEntitySpawning = true;
 		setSize(1.0F, 1.5F);
 	}
-	
 	//返回碰撞箱
     @Override
 	public AxisAlignedBB getCollisionBox(Entity p_70114_1_)

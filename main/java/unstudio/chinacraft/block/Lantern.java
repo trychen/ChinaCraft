@@ -68,7 +68,7 @@ public class Lantern extends Block{
     @Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int i1, int i2) {
-		if(i1 == 0||i1== 1)return top;
+        if(i1 == 0||i1== 1)return top;
 		else return side;
 	}
 	

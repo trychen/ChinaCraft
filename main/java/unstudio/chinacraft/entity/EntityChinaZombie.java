@@ -1,32 +1,71 @@
 package unstudio.chinacraft.entity;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
-import unstudio.chinacraft.ChinaCraft;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EnumCreatureAttribute;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntityZombie;
+import net.minecraft.entity.passive.EntityVillager;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.World;
 
-/**
- * Created by Trychen on 2015/10/3.
- */
-public class EntityChinaZombie {
-    public static void mainRegister() {
-        registerEntity();
+public class EntityChinaZombie extends EntityZombie
+{
+    public EntityChinaZombie(World var1)
+    {
+        super(var1);
+//        this.setSize(0.9f, 1.9f);
     }
 
-    public static void registerEntity() {
-        createEntiy(EntityChinaZombieMob.class,"chinazombie",0x0504FF,0x0025FF);
-    }
+    protected void dropFewItems(boolean par1, int par2){
+        int random = this.rand.nextInt(15) + this.rand.nextInt(1 + par2);
 
-    public static void createEntiy(Class entityClass, String entityName, int solidColor, int spotColor) {
-        int randomId= EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerGlobalEntityID(entityClass,entityName,randomId);
-        EntityRegistry.registerModEntity(entityClass, entityName, randomId, ChinaCraft.MODID, 64, 1, true);
-        EntityRegistry.addSpawn(entityClass, 2, 0, 1, EnumCreatureType.creature, BiomeGenBase.forest);
-        createEgg(randomId,solidColor,spotColor);
+        for(int k = 0; k<random-1; k++){
+            if(k==8){
+                this.dropItem(Items.gunpowder, 1);
+            }else if(k==1){
+                this.dropItem(Items.rotten_flesh, 1);
+            }else if(k==14){
+                this.dropItem(Item.getItemFromBlock(Blocks.tnt), 1);
+            }
+        }
     }
-
-    public static void createEgg(int randomId,int solidColor, int spotColor){
-       EntityList.entityEggs.put(Integer.valueOf(randomId),new EntityList.EntityEggInfo(randomId,solidColor,spotColor));
+    public EntityMob createChild (EntityAgeable p_90011_1_)
+    {
+    	EntityChinaZombie entityzombie = new EntityChinaZombie(this.worldObj);
+    	String s = this.func_146067_o(arrowHitTimer);
+    	
+    	if (s != null && s.trim().length() > 0){
+    		entityzombie.func_142017_o(getAge());
+    		entityzombie.canPickUpLoot();
+    	}
+    	
+    	return entityzombie;
+    }
+    public void onUpdate()
+    {
+        if (targetTasks != null) new EntityJumpHelper(this).doJump();
+        if (isJumping == true) {
+            motionY *= 1.6;
+            motionX *= 1.002D;
+            motionZ *= 1.002D;
+        }
+        super.onUpdate();
+    }
+    protected void applyEntityAttributes(){
+        super.applyEntityAttributes();
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.28000000417232513D);
+        this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.7D);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
+    }
+    public static ResourceLocation getResourceLocation(){
+        return new ResourceLocation("chinacraft", "textures/entity/blackwolf/blackwolf.png");
     }
 }

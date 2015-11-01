@@ -35,7 +35,9 @@ item.SMFSuper.name=混乱符
 item.spiritual_magic_figures_fire.lore=燃烧 15至23秒
 item.debug.name=调试
 item.black_dog_blood.name=黑狗血
-item.mooncake.name=月饼
+item.moon_cake.name=月饼
+item.china_crown.name=冕冠
+tile.xinjiang_nut_cake.name=切糕
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭

@@ -1,32 +1,30 @@
 package unstudio.chinacraft.entity;
 
-import cpw.mods.fml.common.registry.EntityRegistry;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
-import unstudio.chinacraft.ChinaCraft;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.passive.EntityWolf;
+import net.minecraft.world.World;
 
 /**
  * Created by Trychen on 2015/10/2.
  */
-public class EntityBlackDog {
-    public static void mainRegister() {
-        registerEntity();
+public class EntityBlackDog extends EntityWolf{
+
+    public EntityBlackDog(World p_i1696_1_) {
+        super(p_i1696_1_);
     }
 
-    public static void registerEntity() {
-        createEntiy(EntityBlackDogMob.class,"black_dog",0x0004FF,0xFF00E1);
-    }
+    @Override
+    public EntityWolf createChild(EntityAgeable p_90011_1_)
+    {
+        EntityBlackDog entitywolf = new EntityBlackDog(this.worldObj);
+        String s = this.func_152113_b();
 
-    public static void createEntiy(Class entityClass, String entityName, int solidColor, int spotColor) {
-        int randomId= EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerGlobalEntityID(entityClass,entityName,randomId);
-        EntityRegistry.registerModEntity(entityClass, entityName, randomId, ChinaCraft.MODID, 64, 1, true);
-        EntityRegistry.addSpawn(entityClass, 2, 0, 1, EnumCreatureType.creature, BiomeGenBase.forest);
-        createEgg(randomId,solidColor,spotColor);
-    }
+        if (s != null && s.trim().length() > 0)
+        {
+            entitywolf.func_152115_b(s);
+            entitywolf.setTamed(true);
+        }
 
-    public static void createEgg(int randomId,int solidColor, int spotColor){
-        EntityList.entityEggs.put(Integer.valueOf(randomId),new EntityList.EntityEggInfo(randomId,solidColor,spotColor));
+        return entitywolf;
     }
 }

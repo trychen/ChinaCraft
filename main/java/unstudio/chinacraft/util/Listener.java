@@ -2,33 +2,25 @@ package unstudio.chinacraft.util;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import net.minecraft.client.audio.SoundList;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EntityDamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import net.minecraftforge.event.entity.player.PlayerFlyableFallEvent;
+import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.api.EntityMethod;
-import unstudio.chinacraft.entity.EntityBlackDogMob;
-import unstudio.chinacraft.entity.EntityChinaZombieMob;
+import unstudio.chinacraft.entity.EntityBlackDog;
+import unstudio.chinacraft.entity.EntityChinaZombie;
 
 import java.util.List;
-import java.util.Queue;
-import java.util.Random;
 
 /**
  * Name and cast of this class are irrelevant
@@ -41,15 +33,15 @@ public class Listener {
     @SubscribeEvent
     public void entityAttacked(LivingAttackEvent event) {
         EntityLivingBase attackedEnt = event.entityLiving;
-        if (attackedEnt instanceof EntityBlackDogMob) {
+        if (attackedEnt instanceof EntityBlackDog) {
             if (event.source.getEntity() instanceof EntityPlayer) {
                 EntityPlayer attackSource = (EntityPlayer) event.source.getEntity();
                 if (attackSource.getHeldItem() != null) {
                     if (attackSource.getHeldItem().getItem().equals(Items.bowl)) {
-                        EntityBlackDogMob entityBlackDogMob = (EntityBlackDogMob) attackedEnt;
-                        entityBlackDogMob.setHealth(entityBlackDogMob.getHealth() - 4.0f);
-                        entityBlackDogMob.setAngry(true);
-                        entityBlackDogMob.attackEntityFrom(new DamageSource("withoutBloor"), 5);
+                        EntityBlackDog entityBlackDog = (EntityBlackDog) attackedEnt;
+                        entityBlackDog.setHealth(entityBlackDog.getHealth() - 4.0f);
+                        entityBlackDog.setAngry(true);
+                        entityBlackDog.attackEntityFrom(new DamageSource("withoutBloor"), 5);
                         attackSource.inventory.mainInventory[attackSource.inventory.currentItem] = new ItemStack(Items.bowl, attackSource.getHeldItem().stackSize - 1);
                         attackSource.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.blackDogBlood));
                     }
@@ -103,10 +95,25 @@ public class Listener {
             if (e.player.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                 if (e.player.isAirBorne && e.player.isSneaking()) {
                     e.player.motionY = -0.1;
-                    e.player.motionX *= 1.00000000000000002D;
-                    e.player.motionZ *= 1.00000000000000002D;
+                    e.player.motionX *= 1.02D;
+                    e.player.motionZ *= 1.02D;
                 }
             }
+        }
+
+    }
+    @SubscribeEvent
+    public void tick(TickEvent.PlayerTickEvent e){
+        for (EntityPlayer entityPlayer:ChinaCraft.JadehasHeal.keySet()){
+            if (ChinaCraft.JadehasHeal.get(entityPlayer) != 0){
+                ChinaCraft.JadehasHeal.put(entityPlayer,(ChinaCraft.JadehasHeal.get(entityPlayer)-1));
+            }
+        }
+    }
+    @SubscribeEvent
+    public void EntityJoinWorldEvent(EntityJoinWorldEvent e){
+        if (e.entity instanceof EntityPlayer){
+            ChinaCraft.JadehasHeal.put((EntityPlayer)e.entity,0);
         }
     }
 
@@ -117,7 +124,6 @@ public class Listener {
             if (event.entity.worldObj.rand.nextInt(6) == 3) {
                 if (entityPlayer.getHeldItem() != null && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
                     spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY, event.entity.posZ - 0.5);
-                    System.out.println("TEST");
                     event.ammount = 0.0f;
                     event.setCanceled(true);
                 } else {
@@ -125,12 +131,17 @@ public class Listener {
                         if (entityPlayer.inventory.mainInventory[time] != null) {
                             if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
                                 spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2, event.entity.posZ - 0.5);
-                                System.out.println("TEST");
                                 event.ammount = 0.0f;
                                 event.setCanceled(true);
                             }
                         }
                     }
+                }
+                return;
+            }
+            if (entityPlayer.getHeldItem() != null && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreen2Item)){
+                if (entityPlayer.getHeldItem().getMaxDamage() != 0){
+                    entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 1);
                 }
             }
         }
@@ -183,13 +194,6 @@ public class Listener {
                     }
                 }
             }
-        }
-    }
-
-    @SubscribeEvent
-    public void EntityMove(LivingEvent.LivingUpdateEvent event) {
-        if (event.entity instanceof EntityChinaZombieMob) {
-            ((EntityChinaZombieMob) event.entity).setJumping(true);
         }
     }
 
