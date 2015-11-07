@@ -2,6 +2,7 @@ package unstudio.chinacraft.block;
 
 import java.util.Random;
 
+import net.minecraft.util.IIcon;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.GuiID;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
@@ -24,6 +25,26 @@ public class SericultureFrame extends BlockContainer{
 		setResistance(10.0F);
 		setStepSound(soundTypeWood);
 		setCreativeTab(ChinaCraft.tabCore);
+	}
+
+	@Override
+	public void setBlockBoundsForItemRender() {
+		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+	}
+
+	@Override
+	public int getRenderType() {
+		return -1;
+	}
+
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
 	}
 
 	@Override

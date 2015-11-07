@@ -108,9 +108,9 @@ public class CommonProxy {
     	GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
 
-//    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
-//    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
-//    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
+    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
+    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
+    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
     	
 //    	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
     	
@@ -157,6 +157,10 @@ public class CommonProxy {
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerDiamond, 1), new Object[]{"###", "#X#", " X ", '#', Items.diamond, 'X', Items.stick});
 		GameRegistry.registerItem(ChinaCraft.chinaCrown, "ChinaCrown");
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.chinaCrown, 1), new Object[]{"TET", "#X#", "S#S", '#', Item.getItemFromBlock(Blocks.log), 'X', Items.nether_star.setContainerItem(Items.nether_star), 'T', ChinaCraft.tinIngot, 'E', Item.getItemFromBlock(Blocks.dragon_egg).setContainerItem(Item.getItemFromBlock(Blocks.dragon_egg)), 'S', Items.stick});
+		GameRegistry.registerItem(ChinaCraft.nightClothesHead, "NightClothesHead");
+		GameRegistry.registerItem(ChinaCraft.nightClothesBody, "NightClothesBody");
+		GameRegistry.registerItem(ChinaCraft.nightClothesLeg, "NightClothesLeg");
+		GameRegistry.registerItem(ChinaCraft.nightClothesShoe, "NightClothesShoe");
 
 		GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");//锡锭
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);

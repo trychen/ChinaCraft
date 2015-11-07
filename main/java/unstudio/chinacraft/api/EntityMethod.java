@@ -8,9 +8,6 @@ import net.minecraft.util.DamageSource;
 
 import java.util.List;
 
-/**
- * Created by Trychen on 2015/10/24.
- */
 public class EntityMethod {
 
     public static List<EntityMob> findNearbyMobs(EntityPlayer player, double x, double y, double z)

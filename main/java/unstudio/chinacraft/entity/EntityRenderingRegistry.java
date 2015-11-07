@@ -6,13 +6,14 @@ import net.minecraft.client.model.ModelWolf;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import unstudio.chinacraft.entity.model.ModelBlackDog;
 import unstudio.chinacraft.entity.model.ModelChinaZombie;
 import unstudio.chinacraft.entity.model.ModelKongmingLantern;
 
 public class EntityRenderingRegistry {
     public static void registerRendering() {
 
-        EntityRenderingHandler(EntityBlackDog.class, new ModelWolf(), "chinacraft", "textures/entity/blackwolf/blackwolf.png");
+        EntityRenderingHandler(EntityBlackDog.class, new ModelBlackDog(), "chinacraft", "textures/entity/blackwolf/blackwolf.png");
         EntityRenderingHandler(EntityChinaZombie.class,new ModelChinaZombie(),"chinacraft", "textures/entity/chinazombie/chinazombie.png");
         EntityRenderingHandler(EntityKongmingLantern.class,new ModelKongmingLantern(),"chinacraft", "textures/entity/kongminglantern/kongminglantern.png");
     }

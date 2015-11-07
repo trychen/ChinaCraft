@@ -1,10 +1,10 @@
-package unstudio.chinacraft.item.combat;
+package unstudio.chinacraft.item.combat.models;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelCrown extends ModelBiped {
+public class ModelChinaCrown extends ModelBiped {
     ModelRenderer Shape1;
     ModelRenderer Shape2;
     ModelRenderer Shape3;
@@ -59,7 +59,7 @@ public class ModelCrown extends ModelBiped {
     ModelRenderer Shape28;
     ModelRenderer Shape29;
 
-    public ModelCrown(float expand) {
+    public ModelChinaCrown(float expand) {
         super(expand,0,128,128);
         Shape1 = new ModelRenderer(this, 0, 38);
         Shape1.addBox(1F, 0F, 0F, 10, 1, 10);

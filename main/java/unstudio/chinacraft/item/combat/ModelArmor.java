@@ -14,10 +14,22 @@ import net.minecraft.util.IIcon;
 import unstudio.chinacraft.ChinaCraft;
 
 
-public class ChinaCrown extends ItemArmor {
-    public ChinaCrown() {
-        super(ArmorMaterial.CLOTH, 1, 0);
-        setUnlocalizedName("china_crown");
+public class ModelArmor extends ItemArmor{
+    private String TextureName = "";
+    private ModelBiped armorModel;
+    /**
+     * ModelArmor BasicClass
+     * @param armorMaterial ¿ø¼×²ÄÁÏ
+     * @param name ¿ø¼×Ãû³Æ
+     * @param textureName ²ÄÖÊÃû³Æ
+     * @param type ¿ø¼×ÀàÐÍ
+     * @param render_idx äÖÈ¾ID
+     */
+    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName,int type,int render_idx) {
+        super(armorMaterial, render_idx, type);
+        setUnlocalizedName(name);
+        TextureName = textureName;
+        setMaxStackSize(1);
         setCreativeTab(ChinaCraft.tabTool);
     }
 
@@ -33,7 +45,6 @@ public class ChinaCrown extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot) {
-        ModelBiped armorModel = ChinaCraft.modelChinaCrown;
         if(armorModel != null){
             armorModel.bipedHead.showModel = armorSlot == 0;
             armorModel.bipedHeadwear.showModel = false;
@@ -82,7 +93,7 @@ public class ChinaCrown extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon("chinacraft:china_crown");
+        this.itemIcon = iconRegister.registerIcon("chinacraft:"+TextureName);
     }
 
     @Override
@@ -102,6 +113,10 @@ public class ChinaCrown extends ItemArmor {
         String name = this.getUnwrappedUnlocalizedName(super.getUnlocalizedName());
         name = name.substring(0, name.indexOf('_'));
 
-        return String.format("%s:textures/models/armor/chinacrown.png", "chinacraft", name, slot == 2 ? 2 : 1);
+        return String.format("%s:textures/models/armor/"+TextureName+".png", "chinacraft", name, slot == 2 ? 2 : 1);
+    }
+
+    public void setArmorModel(ModelBiped armorModel){
+        this.armorModel = armorModel;
     }
 }

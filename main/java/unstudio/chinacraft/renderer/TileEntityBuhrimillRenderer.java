@@ -26,30 +26,24 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
 		ModelBuhrimill modelBuhrimill = this.model;
 		GL11.glPushMatrix();
-		Tessellator tessellator = Tessellator.instance;
 		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
 		Minecraft.getMinecraft().renderEngine.bindTexture(textures);
 		GL11.glPushMatrix();
 		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
 		GL11.glPushMatrix();
 		GL11.glRotatef(te.getBlockMetadata() * 90, 0.0F, 1.0F, 0.0F);
-		modelBuhrimill.i5.rotateAngleY = ((TileBuhrimill) te).angle / 180F * 3.14159265F;
-		modelBuhrimill.i6.rotateAngleY = ((TileBuhrimill) te).angle / 180F * 3.14159265F;
+		modelBuhrimill.i1.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i2.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i3.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i4.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i5.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i6.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i7.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
+		modelBuhrimill.i8.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float)Math.PI;
 		modelBuhrimill.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
     }
-    
-    private void adjustLightFixture(World world, int i, int j, int k, Block block) {
-        Tessellator tess = Tessellator.instance;
-        //float brightness = block.getBlockBrightness(world, i, j, k);
-        //As of MC 1.7+ block.getBlockBrightness() has become block.getLightValue():
-        float brightness = block.getLightValue(world, i, j, k);
-        int skyLight = world.getLightBrightnessForSkyBlocks(i, j, k, 0);
-        int modulousModifier = skyLight % 65536;
-        int divModifier = skyLight / 65536;
-        tess.setColorOpaque_F(brightness, brightness, brightness);
-        OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit,  modulousModifier,  divModifier);
-}
+
 }

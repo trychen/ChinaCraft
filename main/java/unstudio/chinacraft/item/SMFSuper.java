@@ -27,7 +27,7 @@ public class SMFSuper extends SpiritualMagicFigures{
                         new Timer().schedule(new TimerTask() {
                             @Override
                             public void run() {
-                                mob.setHealth(0);
+                                if (mob!=null&&mob.isDead == false) mob.setDead();
                             }
                         }, 15 * 1000);
                     }

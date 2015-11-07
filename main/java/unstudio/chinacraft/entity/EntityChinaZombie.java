@@ -14,6 +14,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import unstudio.chinacraft.ChinaCraft;
 
 public class EntityChinaZombie extends EntityZombie
 {
@@ -24,16 +25,12 @@ public class EntityChinaZombie extends EntityZombie
     }
 
     protected void dropFewItems(boolean par1, int par2){
-        int random = this.rand.nextInt(15) + this.rand.nextInt(1 + par2);
-
-        for(int k = 0; k<random-1; k++){
-            if(k==8){
-                this.dropItem(Items.gunpowder, 1);
-            }else if(k==1){
-                this.dropItem(Items.rotten_flesh, 1);
-            }else if(k==14){
-                this.dropItem(Item.getItemFromBlock(Blocks.tnt), 1);
-            }
+        int random = this.rand.nextInt(30)+par2;
+        if (random == 0){
+            dropItem(ChinaCraft.smfSuper,1);
+            dropItem(Items.rotten_flesh,1);
+        } else {
+            dropItem(Items.rotten_flesh,this.rand.nextInt(1)+1);
         }
     }
     public EntityMob createChild (EntityAgeable p_90011_1_)
@@ -64,8 +61,5 @@ public class EntityChinaZombie extends EntityZombie
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.28000000417232513D);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(32.7D);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
-    }
-    public static ResourceLocation getResourceLocation(){
-        return new ResourceLocation("chinacraft", "textures/entity/blackwolf/blackwolf.png");
     }
 }

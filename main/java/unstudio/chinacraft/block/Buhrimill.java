@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 
 public class Buhrimill extends BlockContainer {
 
-	IIcon top, down;
+	IIcon empty;
 
 	public Buhrimill() {
 		super(Material.rock);
@@ -56,6 +56,12 @@ public class Buhrimill extends BlockContainer {
 	public void setBlockBoundsForItemRender() {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 	}
+
+	@Override
+	public int getRenderType() {
+		return -1;
+	}
+
 
 	@Override
 	public boolean isOpaqueCube() {
@@ -97,21 +103,21 @@ public class Buhrimill extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int par2) {
-		if (i == 0)
-			return down;
-		else if (i >= 1 && i <= 6)
-			return top;
-		else
-			return top;
+//		if (i == 0)
+//			return down;
+//		else if (i >= 1 && i <= 6)
+//			return top;
+//		else
+//			return top;
+		return empty;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
-		this.top = reg.registerIcon("chinacraft:empty");
-		this.down = reg.registerIcon("minecraft:stone");
+		this.blockIcon = reg.registerIcon("chinacraft:buhrimill");
 	}
-
+	
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,
 			int p_149650_3_) {

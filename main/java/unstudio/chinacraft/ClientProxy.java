@@ -1,22 +1,20 @@
 package unstudio.chinacraft;
 
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.item.Item;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
-import unstudio.chinacraft.item.combat.ModelCrown;
+import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
+import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 import unstudio.chinacraft.nei.NEIAPI;
 import unstudio.chinacraft.renderer.BlockLanternRenderer;
 import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
+import unstudio.chinacraft.renderer.TileEntitySericultureFrameRenderer;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-
-import java.util.HashMap;
-import java.util.Map;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class ClientProxy extends CommonProxy {
 
@@ -32,10 +30,17 @@ public class ClientProxy extends CommonProxy {
         if (ChinaCraft.NEIIsLoad) {
             new NEIAPI().loadConfig();
         }
-        ChinaCraft.modelCrown = new ModelCrown(1.0f);
+        ChinaCraft.modelChinaCrown = new ModelChinaCrown(0.5f);
+        ChinaCraft.chinaCrown.setArmorModel(ChinaCraft.modelChinaCrown);
+        ChinaCraft.modelNightClothes = new ModelNightClothes(1.0f);
+        ChinaCraft.modelNightClothesleg = new ModelNightClothes(0.5f);
+        ChinaCraft.nightClothesHead.setArmorModel(ChinaCraft.modelNightClothes);
+        ChinaCraft.nightClothesBody.setArmorModel(ChinaCraft.modelNightClothes);
+        ChinaCraft.nightClothesLeg.setArmorModel(ChinaCraft.modelNightClothesleg);
+        ChinaCraft.nightClothesShoe.setArmorModel(ChinaCraft.modelNightClothes);
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-
+        ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
