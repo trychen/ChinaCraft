@@ -1,5 +1,6 @@
 package unstudio.chinacraft.item.combat;
 
+import com.typesafe.config.ConfigException;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
@@ -14,38 +15,37 @@ import net.minecraft.util.IIcon;
 import unstudio.chinacraft.ChinaCraft;
 
 
-public class ModelArmor extends ItemArmor{
+public class ModelArmor extends ItemArmor {
     private String TextureName = "";
     private ModelBiped armorModel;
+    private int textureType;
+
+    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int type, int render_idx) {
+        this(armorMaterial,name,textureName,0,type,render_idx);
+    }
+
     /**
      * ModelArmor BasicClass
      * @param armorMaterial ¿ø¼×²ÄÁÏ
-     * @param name ¿ø¼×Ãû³Æ
-     * @param textureName ²ÄÖÊÃû³Æ
-     * @param type ¿ø¼×ÀàÐÍ
-     * @param render_idx äÖÈ¾ID
+     * @param name          ¿ø¼×Ãû³Æ
+     * @param textureName   ²ÄÖÊÃû³Æ
+     * @param textureType   ²ÄÖÊÃû³Æ
+     * @param type          ¿ø¼×ÀàÐÍ
+     * @param render_idx    äÖÈ¾ID
      */
-    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName,int type,int render_idx) {
+    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName,int textureType, int type, int render_idx) {
         super(armorMaterial, render_idx, type);
         setUnlocalizedName(name);
         TextureName = textureName;
+        this.textureType=textureType;
         setMaxStackSize(1);
         setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override
-    public String getUnlocalizedName() {
-        return String.format("item.%s%s", "chinacraft:", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
-    }
-
-    protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
-        return unlocalizedName.substring(unlocalizedName.indexOf('.') + 1);
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot) {
-        if(armorModel != null){
+        if (armorModel != null) {
             armorModel.bipedHead.showModel = armorSlot == 0;
             armorModel.bipedHeadwear.showModel = false;
             armorModel.bipedBody.showModel = armorSlot == 1 || armorSlot == 2;
@@ -61,20 +61,20 @@ public class ModelArmor extends ItemArmor{
             armorModel.heldItemRight = 0;
             armorModel.aimedBow = false;
 
-            EntityPlayer player = (EntityPlayer)entityLiving;
+            EntityPlayer player = (EntityPlayer) entityLiving;
 
             ItemStack held_item = player.getEquipmentInSlot(0);
 
-            if (held_item != null){
+            if (held_item != null) {
                 armorModel.heldItemRight = 1;
 
-                if (player.getItemInUseCount() > 0){
+                if (player.getItemInUseCount() > 0) {
 
                     EnumAction enumaction = held_item.getItemUseAction();
 
-                    if (enumaction == EnumAction.bow){
+                    if (enumaction == EnumAction.bow) {
                         armorModel.aimedBow = true;
-                    }else if (enumaction == EnumAction.block){
+                    } else if (enumaction == EnumAction.block) {
                         armorModel.heldItemRight = 3;
                     }
 
@@ -93,30 +93,18 @@ public class ModelArmor extends ItemArmor{
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon("chinacraft:"+TextureName);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
-        return this.itemIcon;
-    }
-
-    @Override
-    public IIcon getIcon(ItemStack stack, int pass) {
-        return this.itemIcon;
+        this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
     }
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
-
-        String name = this.getUnwrappedUnlocalizedName(super.getUnlocalizedName());
-        name = name.substring(0, name.indexOf('_'));
-
-        return String.format("%s:textures/models/armor/"+TextureName+".png", "chinacraft", name, slot == 2 ? 2 : 1);
+        if (textureType == 0) {
+            return String.format("chinacraft:textures/models/armor/%s.png", TextureName);
+        }
+        return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
     }
 
-    public void setArmorModel(ModelBiped armorModel){
+    public void setArmorModel(ModelBiped armorModel) {
         this.armorModel = armorModel;
     }
 }

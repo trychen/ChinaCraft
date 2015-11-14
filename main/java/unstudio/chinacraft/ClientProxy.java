@@ -1,5 +1,7 @@
 package unstudio.chinacraft;
 
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.item.Item;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;
@@ -16,8 +18,10 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
-public class ClientProxy extends CommonProxy {
+import java.util.HashMap;
+import java.util.Map;
 
+public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
@@ -30,10 +34,12 @@ public class ClientProxy extends CommonProxy {
         if (ChinaCraft.NEIIsLoad) {
             new NEIAPI().loadConfig();
         }
+
         ChinaCraft.modelChinaCrown = new ModelChinaCrown(0.5f);
         ChinaCraft.chinaCrown.setArmorModel(ChinaCraft.modelChinaCrown);
-        ChinaCraft.modelNightClothes = new ModelNightClothes(1.0f);
-        ChinaCraft.modelNightClothesleg = new ModelNightClothes(0.5f);
+
+        ChinaCraft.modelNightClothes = new ModelNightClothes(1F);
+        ChinaCraft.modelNightClothesleg = new ModelNightClothes(0.5F);
         ChinaCraft.nightClothesHead.setArmorModel(ChinaCraft.modelNightClothes);
         ChinaCraft.nightClothesBody.setArmorModel(ChinaCraft.modelNightClothes);
         ChinaCraft.nightClothesLeg.setArmorModel(ChinaCraft.modelNightClothesleg);
