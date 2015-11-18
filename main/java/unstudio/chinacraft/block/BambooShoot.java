@@ -1,7 +1,8 @@
 package unstudio.chinacraft.block;
 
-import java.util.Random;
-
+import cpw.mods.fml.common.IWorldGenerator;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -15,9 +16,8 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 import unstudio.chinacraft.ChinaCraft;
-import cpw.mods.fml.common.IWorldGenerator;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BambooShoot extends Block implements IPlantable, IWorldGenerator
 {

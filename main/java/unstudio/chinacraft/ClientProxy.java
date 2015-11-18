@@ -6,10 +6,7 @@ import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 import unstudio.chinacraft.nei.NEIAPI;
-import unstudio.chinacraft.renderer.BlockLanternRenderer;
-import unstudio.chinacraft.renderer.TileEntityBuhrimillRenderer;
-import unstudio.chinacraft.renderer.BlockWoodenBucketRenderer;
-import unstudio.chinacraft.renderer.TileEntitySericultureFrameRenderer;
+import unstudio.chinacraft.renderer.*;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -19,9 +16,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class ClientProxy extends CommonProxy {
+    public static HashMap<Item,ModelBiped> arrmorModel = new HashMap<Item, ModelBiped>();
+
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
@@ -34,22 +32,29 @@ public class ClientProxy extends CommonProxy {
         if (ChinaCraft.NEIIsLoad) {
             new NEIAPI().loadConfig();
         }
+        ModelChinaCrown modelChinaCrown;
+        ModelNightClothes modelNightClothes;
+        ModelNightClothes modelNightClothesleg;
+        modelChinaCrown = new ModelChinaCrown(0.5f);
+        ChinaCraft.chinaCrown.setArmorModel(modelChinaCrown);
 
-        ChinaCraft.modelChinaCrown = new ModelChinaCrown(0.5f);
-        ChinaCraft.chinaCrown.setArmorModel(ChinaCraft.modelChinaCrown);
+        modelNightClothes = new ModelNightClothes(1F);
+        modelNightClothesleg = new ModelNightClothes(0.5F);
 
-        ChinaCraft.modelNightClothes = new ModelNightClothes(1F);
-        ChinaCraft.modelNightClothesleg = new ModelNightClothes(0.5F);
-        ChinaCraft.nightClothesHead.setArmorModel(ChinaCraft.modelNightClothes);
-        ChinaCraft.nightClothesBody.setArmorModel(ChinaCraft.modelNightClothes);
-        ChinaCraft.nightClothesLeg.setArmorModel(ChinaCraft.modelNightClothesleg);
-        ChinaCraft.nightClothesShoe.setArmorModel(ChinaCraft.modelNightClothes);
+        ChinaCraft.nightClothesHead.setArmorModel(modelNightClothes);
+        ChinaCraft.nightClothesBody.setArmorModel(modelNightClothes);
+        ChinaCraft.nightClothesLeg.setArmorModel(modelNightClothesleg);
+        ChinaCraft.nightClothesShoe.setArmorModel(modelNightClothes);
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
+
+//        ItemBroadRenderer giantRenderer = new ItemBroadRenderer(mc.gameSettings, mc.getTextureManager());
+//        MinecraftForgeClient.registerItemRenderer(ChinaCraft.bronzeBroadSword, giantRenderer);
+
         RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
 
         EntityRenderingRegistry.registerRendering();

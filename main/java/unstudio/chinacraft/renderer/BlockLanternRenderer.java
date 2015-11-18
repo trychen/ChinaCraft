@@ -1,15 +1,14 @@
 package unstudio.chinacraft.renderer;
 
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.block.Lantern;
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
+import org.lwjgl.opengl.GL11;
+import unstudio.chinacraft.block.Lantern;
 
 public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
 

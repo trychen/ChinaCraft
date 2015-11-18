@@ -16,8 +16,8 @@ public class Mace extends ItemSword{
     public boolean hitEntity(ItemStack p_77644_1_, EntityLivingBase target, EntityLivingBase p_77644_3_)
     {
         p_77644_1_.damageItem(1, p_77644_3_);
-        target.addPotionEffect(new PotionEffect(4,50));
-        target.addPotionEffect(new PotionEffect(2,50));
+        target.addPotionEffect(new PotionEffect(4,10));
+        target.addPotionEffect(new PotionEffect(2,10));
         return true;
     }
 }

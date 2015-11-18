@@ -1,43 +1,32 @@
 package unstudio.chinacraft;
 
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.item.ItemCarrotOnAStick;
-import unstudio.chinacraft.entity.EntityRegister;
-import unstudio.chinacraft.item.combat.BronzeBoots;
-import unstudio.chinacraft.item.combat.BronzeChestplate;
-import unstudio.chinacraft.item.combat.BronzeHelmet;
-import unstudio.chinacraft.item.combat.BronzeLeggings;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
-import unstudio.chinacraft.tileentity.TileCooker;
-import unstudio.chinacraft.tileentity.TileFirebrickStructure;
-import unstudio.chinacraft.tileentity.TileJadeBench;
-import unstudio.chinacraft.tileentity.TilePotteryKiln;
-import unstudio.chinacraft.tileentity.TileSericultureFrame;
-import unstudio.chinacraft.util.GuiHandler;
-import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.oredict.OreDictionary;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.oredict.OreDictionary;
+import unstudio.chinacraft.entity.EntityRegister;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.tileentity.*;
+import unstudio.chinacraft.util.GuiHandler;
+import unstudio.chinacraft.util.config.ConfigLoader;
+import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
-    	Configuration config = new Configuration(event.getSuggestedConfigurationFile());
-        config.load();
-        config.save();
+		new ConfigLoader(new Configuration(event.getSuggestedConfigurationFile()));
         
-		ChinaCraft.bronzeHelmet =  new BronzeHelmet();//青铜头盔
-		ChinaCraft.bronzeChestplate =  new BronzeChestplate();//青铜胸甲
-		ChinaCraft.bronzeLeggings =  new BronzeLeggings();//青铜护腿
-		ChinaCraft.bronzeBoots =  new BronzeBoots();//青铜靴子
+		ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,ChinaCraft.bronzeArmorTexture,0).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);//青铜头盔
+		ChinaCraft.bronzeChestplate =   (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,ChinaCraft.bronzeArmorTexture,1).setUnlocalizedName("bronze_body").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);//青铜胸甲
+		ChinaCraft.bronzeLeggings = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,ChinaCraft.bronzeArmorTexture,2).setUnlocalizedName("bronze_legs").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);//青铜护腿
+		ChinaCraft.bronzeBoots =   (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,ChinaCraft.bronzeArmorTexture,3).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);//青铜靴子
     }
  
     public void init(FMLInitializationEvent event) {
@@ -45,12 +34,14 @@ public class CommonProxy {
 
     	GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
-    	OreDictionary.registerOre("copperOre", ChinaCraft.copperOre);
+    	OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);
+		GameRegistry.addSmelting(ChinaCraft.copperOre,new ItemStack(ChinaCraft.bronzeIngot,1),1.2f);
     	GameRegistry.registerBlock(ChinaCraft.bronzeBlock, "BronzeBlock");
     	GameRegistry.registerBlock(ChinaCraft.tinOre, "TinOre");
     	OreDictionary.registerOre("tinOre", ChinaCraft.tinOre);
     	GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
     	GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
+		OreDictionary.registerOre("oreJade",ChinaCraft.jadeOre);
     	GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
     	GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
     	GameRegistry.registerWorldGenerator(ChinaCraft.marble, 127);
@@ -68,7 +59,7 @@ public class CommonProxy {
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.chiseledMarble});
     	GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
     	GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
-    	OreDictionary.registerOre("silverOre", ChinaCraft.silverOre);
+    	OreDictionary.registerOre("oreSilver", ChinaCraft.silverOre);
     	GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
     	GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");//木窗户
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A', Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife});
@@ -108,19 +99,21 @@ public class CommonProxy {
     	GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
 
-    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
-    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
-    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
+//    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
+//    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
+//    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
     	
-    	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
+//    	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
     	
     	GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//青铜锭
+		OreDictionary.registerOre("ingotCopper",ChinaCraft.bronzeIngot);
     	GameRegistry.registerItem(ChinaCraft.copperTinMixedPowder, "CopperTinMixedPowder");
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.tinOre);
     	GameRegistry.addSmelting(ChinaCraft.copperTinMixedPowder, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock, 1), ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeIngot, 9), Item.getItemFromBlock(ChinaCraft.bronzeBlock));
     	GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");//银锭
+		OreDictionary.registerOre("ingotSilver",ChinaCraft.silverOre);
     	GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
     	GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill, 1), new Object[]{" #X", "&#&", "&&&", '#', Item.getItemFromBlock(Blocks.cobblestone), 'X', Items.stick, '&', Item.getItemFromBlock(Blocks.stone)});
@@ -131,10 +124,11 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordGreen2, "bronzeBroadSwordGreen2");//青铜大刀
     	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordPink, "bronzeBroadSwordPink");//青铜大刀
     	GameRegistry.registerItem(ChinaCraft.bronzeBroadSwordPurple, "bronzeBroadSwordPurple");//青铜大刀
-		GameRegistry.addRecipe(new ItemStack(ChinaCraft.jiuqu_tang, 1), new Object[]{"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
 		GameRegistry.registerItem(ChinaCraft.jiuqu_tang, "JiuQuTang");//九曲镋刀
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.jiuqu_tang, 1), new Object[]{"#T#", "###", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick,'T',ChinaCraft.tinIngot});
 		GameRegistry.registerItem(ChinaCraft.mace, "Mace");
-		GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1), new Object[]{" ##", "## ", "X", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.mace, 1), new Object[]{" #O", " X#", "X  ", '#', Items.coal, 'X', Items.stick,'O',Item.getItemFromBlock(Blocks.obsidian)});
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1), new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
     	GameRegistry.registerItem(ChinaCraft.yanLung_Giantknife, "YanLungGiantknife");//炎龙巨刀
     	GameRegistry.addRecipe(new ItemStack(ChinaCraft.yanLung_Giantknife, 1), new Object[]{"#B#", "EDE", "CAC", '#', Item.getItemFromBlock(Blocks.obsidian), 'A', Items.stick, 'B', Items.lava_bucket.setContainerItem(Items.bucket), 'C', Items.iron_ingot, 'D', Item.getItemFromBlock(Blocks.soul_sand), 'E', ChinaCraft.bronzeBlock});
     	GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");//青铜稿
@@ -163,7 +157,9 @@ public class CommonProxy {
 		GameRegistry.registerItem(ChinaCraft.nightClothesShoe, "NightClothesShoe");
 
 		GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");//锡锭
+		OreDictionary.registerOre("ingotTin",ChinaCraft.tinIngot);
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
+		OreDictionary.registerOre("oreTin",ChinaCraft.tinOre);
     	GameRegistry .registerItem(ChinaCraft.rices, "Rices");//米
     	GameRegistry .registerItem(ChinaCraft.lcker, "Lckers");//水稻
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 2), new Object[]{ChinaCraft.lcker});
@@ -185,7 +181,7 @@ public class CommonProxy {
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper, new ItemStack(Items.dye, 1, 1)});
 		GameRegistry.registerItem(ChinaCraft.blackDogBlood, "BlackDogBlood");//黑狗血
 		GameRegistry.registerItem(ChinaCraft.moonCake, "MoonCake");//月饼
-		GameRegistry.registerItem(ChinaCraft.artKnife, "ArtKnife");//美工切割刀
+		GameRegistry.registerItem(ChinaCraft.artKnife, "ItemArtKnife");//美工切割刀
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.artKnife, 1), new Object[]{"   ", " Z ", " # ", '#', Items.stick, 'Z', Items.iron_ingot});
 		GameRegistry.registerBlock(ChinaCraft.xinjiangNutCake, "XinjiangNutCake");
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.xinjiangNutCake, 1), new Object[]{"FWF", "HFH", "E#E", 'W', Items.water_bucket.setContainerItem(Items.bucket), 'F', ChinaCraft.flour, 'H', Items.carrot, '#', Item.getItemFromBlock(Blocks.pumpkin), 'E', Items.egg});

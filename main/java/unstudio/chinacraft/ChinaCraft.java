@@ -2,15 +2,12 @@ package unstudio.chinacraft;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.*;
-import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
-import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadeOre;
@@ -34,20 +31,26 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.network.BaseMessage;
-import unstudio.chinacraft.util.Listener;
-
-import java.util.HashMap;
+import unstudio.chinacraft.util.Listener.ListenerPlayer;
+import unstudio.chinacraft.util.Listener.ListenerWorld;
+import unstudio.chinacraft.util.VersionChecker;
+import javax.swing.*;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft {
+    public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null,"This is a Minecraft Forge Mod , you can't run it!","Chinacraft : mccraft.cn",JOptionPane.OK_OPTION);
+        System.exit(0);
+    }
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "0.1.0.155";
-
+    public static final String VERSION = "170";
+    public static final int OutPutVERSION = 170;
     public static boolean NEIIsLoad = false;
 
     public static SimpleNetworkWrapper Network;
-    private Listener listener = new Listener();
+    private ListenerPlayer listenerPlayer = new ListenerPlayer();
+    private ListenerWorld listenerWorld = new ListenerWorld();
 
     @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
             serverSide = "unstudio.chinacraft.CommonProxy")
@@ -63,13 +66,16 @@ public class ChinaCraft {
         Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
         Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 0, Side.SERVER);
         Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 1, Side.CLIENT);
+        new Thread(versionChecker).start();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        FMLCommonHandler.instance().bus().register(listener);
-        MinecraftForge.EVENT_BUS.register(listener);
+        FMLCommonHandler.instance().bus().register(listenerPlayer);
+        FMLCommonHandler.instance().bus().register(listenerWorld);
+        MinecraftForge.EVENT_BUS.register(listenerPlayer);
+        MinecraftForge.EVENT_BUS.register(listenerWorld);
     }
 
     @EventHandler
@@ -101,7 +107,10 @@ public class ChinaCraft {
         }
     };
     //特殊变量
-    public static HashMap<EntityPlayer, Integer> JadehasHeal = new HashMap<EntityPlayer, Integer>();
+    public static int jadehasHealTicker = 0;
+    public static VersionChecker versionChecker= new VersionChecker();
+    public static boolean haveWarnedVersionOutOfDate = false;
+
     //Material
     public static Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
     public static Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); //石锤
@@ -178,21 +187,19 @@ public class ChinaCraft {
     public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
     public static Silkworm silkworm = new Silkworm(); //蚕
     public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
-    public static RedPacket redPacket = new RedPacket(); //红包
+    public static ItemRedPacket redPacket = new ItemRedPacket(); //红包
     public static BlackDogBlood blackDogBlood = new BlackDogBlood();
     public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabCore);
 
     //防具武器
     public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
-    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword();  //青铜大刀
-    public static BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword();  //青铜大刀Green
-    public static BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword();  //青铜大刀Green2
-    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword();  //青铜大刀Pink
-    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword();  //青铜大刀purple
+    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword("bronze_bigsword");  //青铜大刀
+    public static BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword("bronze_bigsword_green");  //青铜大刀Green
+    public static BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword("bronze_bigsword_green2");  //青铜大刀Green2
+    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword("bronze_bigsword_pink");  //青铜大刀Pink
+    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword("bronze_bigsword_purple");  //青铜大刀purple
     public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //炎龙巨刀
-    public static ModelChinaCrown modelChinaCrown;
-    public static ModelNightClothes modelNightClothes;
-    public static ModelNightClothes modelNightClothesleg;
+
     public static ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown",0,1);
     public static ModelArmor nightClothesHead = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes",1,0,1);
     public static ModelArmor nightClothesBody = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes",1,1,1);
@@ -207,7 +214,7 @@ public class ChinaCraft {
     public static BronzeShovel bronzeShovel = new BronzeShovel();//青铜铲
     public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//九曲镋
     public static JadeKnife jadeKnife = new JadeKnife();//玉石切割刀
-    public static ArtKnife artKnife = new ArtKnife();//美工切割刀
+    public static ItemArtKnife artKnife = new ItemArtKnife();//美工切割刀
 
     public static Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");//石锤
     public static Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");//铁锤
@@ -215,10 +222,10 @@ public class ChinaCraft {
     public static Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");//钻石锤
 
     public static int bronzeArmorTexture = -1; //青铜套装外部材质注册
-    public static BronzeHelmet bronzeHelmet;//青铜头盔
-    public static BronzeChestplate bronzeChestplate;//青铜胸甲
-    public static BronzeLeggings bronzeLeggings;//青铜护腿
-    public static BronzeBoots bronzeBoots;//青铜靴子
+    public static ItemArmor bronzeHelmet;//青铜头盔
+    public static ItemArmor bronzeChestplate;//青铜胸甲
+    public static ItemArmor bronzeLeggings;//青铜护腿
+    public static ItemArmor bronzeBoots;//青铜靴子
 
     //玉石
     public static Jade jadeGreenItem = new Jade("jade_green");
@@ -248,15 +255,15 @@ public class ChinaCraft {
 
 
     //spiritual_magic_figures灵符
-    public static SpiritualMagicFigures spiritualMagicFigures = new SpiritualMagicFigures(); //基本灵符
-    public static SMFFire smfFire = new SMFFire(); //火
-    public static SMFPotion smfNightVision = new SMFPotion("spiritual_magic_figures_night_vision", new int[][]{{16, 10000}}); //夜视
-    public static SMFPotion smfPoison = new SMFPotion("spiritual_magic_figures_poison", new int[][]{{19, 450, 4}}); //中毒
-    public static SMFPotion smfPower = new SMFPotion("spiritual_magic_figures_power", new int[][]{{5, 7000}}); //力量
-    public static SMFPotion smfProtect = new SMFPotion("spiritual_magic_figures_protect", new int[][]{{12, 3500}, {11, 2500, 3}}); //保护
-    public static SMFPotion smfHeal = new SMFPotion("spiritual_magic_figures_heal", new int[][]{{6, 1}, {10, 500}}); //生命回复
-    public static SMFSuper smfSuper = new SMFSuper(); //捉妖符
+    public static ItemSpiritualMagicFigures spiritualMagicFigures = new ItemSpiritualMagicFigures(); //基本灵符
+    public static ItemSMFFire smfFire = new ItemSMFFire(); //火
+    public static ItemSMFPotion smfNightVision = new ItemSMFPotion("spiritual_magic_figures_night_vision", new int[][]{{16, 10000}}); //夜视
+    public static ItemSMFPotion smfPoison = new ItemSMFPotion("spiritual_magic_figures_poison", new int[][]{{19, 450, 4}}); //中毒
+    public static ItemSMFPotion smfPower = new ItemSMFPotion("spiritual_magic_figures_power", new int[][]{{5, 7000}}); //力量
+    public static ItemSMFPotion smfProtect = new ItemSMFPotion("spiritual_magic_figures_protect", new int[][]{{12, 3500}, {11, 2500, 3}}); //保护
+    public static ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal", new int[][]{{6, 1}, {10, 500}}); //生命回复
+    public static ItemSMFSuper smfSuper = new ItemSMFSuper(); //捉妖符
 
-    public static Debug debug = new Debug(); //调试物品
-    
+    public static ItemDebug debug = new ItemDebug(); //调试物品
+
 }

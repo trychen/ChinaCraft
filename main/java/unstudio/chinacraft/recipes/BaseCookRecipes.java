@@ -1,8 +1,8 @@
 package unstudio.chinacraft.recipes;
 
-import java.util.ArrayList;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
 
 public class BaseCookRecipes {
 	private ArrayList<CookRecipe> recipes = new ArrayList<CookRecipe>();

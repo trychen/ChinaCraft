@@ -17,6 +17,12 @@ public class YanLung_Giantknife extends ItemSword{
 		setMaxDamage(1500);
 		setCreativeTab(ChinaCraft.tabTool);
 	}
+
+	@Override
+	public boolean getIsRepairable(ItemStack p_82789_1_, ItemStack p_82789_2_) {
+		return false;
+	}
+
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		stack.damageItem(1, attacker);

@@ -14,14 +14,14 @@ public class EntityRegister {
         createEntiy(EntityBlackDog.class,"black_dog",0x0004FF,0xFF00E1);
         EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1, EnumCreatureType.monster, BiomeGenBase.forest);
         createEntiy(EntityChinaZombie.class,"chinazombie",0x0504FF,0x0025FF);
-        createEntiy(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
+//        createEntiy(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
     }
     /**
-     * ×¢²áÊµÌå
-     * @param entityClass ¹ÖÎïÖ÷Àà
-     * @param entityName ¹ÖÎïÃû×Ö
-     * @param solidColor ¹ÖÎïµ°ÑÕÉ«1
-     * @param spotColor ¹ÖÎïµ°ÑÕÉ«2
+     * ×¢ï¿½ï¿½Êµï¿½ï¿½
+     * @param entityClass ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param entityName ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * @param solidColor ï¿½ï¿½ï¿½ïµ°ï¿½ï¿½É«1
+     * @param spotColor ï¿½ï¿½ï¿½ïµ°ï¿½ï¿½É«2
      */
     public static void createEntiy(Class entityClass, String entityName, int solidColor, int spotColor) {
         int randomId= EntityRegistry.findGlobalUniqueEntityId();

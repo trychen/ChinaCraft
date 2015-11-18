@@ -3,10 +3,10 @@ package unstudio.chinacraft.item;
 import net.minecraft.item.Item;
 import unstudio.chinacraft.ChinaCraft;
 
-public class SpiritualMagicFigures extends Item{
-    public SpiritualMagicFigures(){
-        setUnlocalizedName("spiritual_magic_figures");
-        setCreativeTab(ChinaCraft.tabCore);
-    }
 
+public class ItemSpiritualMagicFigures extends Item {
+    public ItemSpiritualMagicFigures(){
+        setCreativeTab(ChinaCraft.tabCore);
+        setMaxStackSize(8);
+    }
 }

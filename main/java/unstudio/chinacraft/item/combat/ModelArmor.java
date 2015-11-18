@@ -1,6 +1,5 @@
 package unstudio.chinacraft.item.combat;
 
-import com.typesafe.config.ConfigException;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
@@ -20,19 +19,13 @@ public class ModelArmor extends ItemArmor {
     private ModelBiped armorModel;
     private int textureType;
 
+    @SideOnly(Side.CLIENT)
+    protected IIcon itemIcon;
+
     public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int type, int render_idx) {
-        this(armorMaterial,name,textureName,0,type,render_idx);
+        this(armorMaterial, name, textureName, 0, type, render_idx);
     }
 
-    /**
-     * ModelArmor BasicClass
-     * @param armorMaterial 盔甲材料
-     * @param name          盔甲名称
-     * @param textureName   材质名称
-     * @param textureType   材质名称
-     * @param type          盔甲类型
-     * @param render_idx    渲染ID
-     */
     public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName,int textureType, int type, int render_idx) {
         super(armorMaterial, render_idx, type);
         setUnlocalizedName(name);
@@ -94,6 +87,11 @@ public class ModelArmor extends ItemArmor {
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
+    }
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(ItemStack stack, int pass) {
+        return this.itemIcon;
     }
 
     @Override

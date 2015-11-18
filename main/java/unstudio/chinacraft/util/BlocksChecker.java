@@ -1,11 +1,11 @@
 package unstudio.chinacraft.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import unstudio.chinacraft.ChinaCraft;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import unstudio.chinacraft.ChinaCraft;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class BlocksChecker {
 	
