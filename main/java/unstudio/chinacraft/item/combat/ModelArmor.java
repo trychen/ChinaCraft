@@ -13,6 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import unstudio.chinacraft.ChinaCraft;
 
+import java.io.File;
+
 
 public class ModelArmor extends ItemArmor {
     private String TextureName = "";
@@ -97,9 +99,9 @@ public class ModelArmor extends ItemArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         if (textureType == 0) {
-            return String.format("chinacraft:textures/models/armor/%s.png", TextureName);
+            return String.format("chinacraft:textures"+ File.separator + "models"+ File.separator + "armor"+ File.separator + "%s.png", TextureName);
         }
-        return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
+        return String.format("chinacraft:textures"+ File.separator + "models"+ File.separator + "armor"+ File.separator + "%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
     }
 
     public void setArmorModel(ModelBiped armorModel) {

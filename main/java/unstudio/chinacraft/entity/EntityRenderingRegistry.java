@@ -10,7 +10,7 @@ import unstudio.chinacraft.entity.model.ModelChinaZombie;
 import unstudio.chinacraft.entity.model.ModelKongmingLantern;
 
 public class EntityRenderingRegistry {
-    public static void registerRendering() {
+    public static void init() {
 
         EntityRenderingHandler(EntityBlackDog.class, new ModelBlackDog(), "chinacraft", "textures/entity/blackwolf/blackwolf.png");
         EntityRenderingHandler(EntityChinaZombie.class,new ModelChinaZombie(),"chinacraft", "textures/entity/chinazombie/chinazombie.png");

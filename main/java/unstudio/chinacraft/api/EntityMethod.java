@@ -5,6 +5,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
+import net.minecraft.world.World;
 
 import java.util.List;
 
@@ -36,5 +37,6 @@ public class EntityMethod {
             entityMob.attackEntityFrom(damageSource,damage);
         }
     }
+
 }
 

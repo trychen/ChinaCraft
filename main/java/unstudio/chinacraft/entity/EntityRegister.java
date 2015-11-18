@@ -10,19 +10,13 @@ import unstudio.chinacraft.ChinaCraft;
  * Created by Trychen on 2015/10/30.
  */
 public class EntityRegister {
-    public static void registerEntity() {
+    public static void init() {
         createEntiy(EntityBlackDog.class,"black_dog",0x0004FF,0xFF00E1);
         EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1, EnumCreatureType.monster, BiomeGenBase.forest);
         createEntiy(EntityChinaZombie.class,"chinazombie",0x0504FF,0x0025FF);
 //        createEntiy(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
     }
-    /**
-     * ע��ʵ��
-     * @param entityClass ��������
-     * @param entityName ��������
-     * @param solidColor ���ﵰ��ɫ1
-     * @param spotColor ���ﵰ��ɫ2
-     */
+
     public static void createEntiy(Class entityClass, String entityName, int solidColor, int spotColor) {
         int randomId= EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(entityClass, entityName, randomId);

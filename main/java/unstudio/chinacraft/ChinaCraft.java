@@ -2,10 +2,13 @@ package unstudio.chinacraft;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
+import unstudio.chinacraft.entity.EntityRegister;
+import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
@@ -31,8 +34,6 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.network.BaseMessage;
-import unstudio.chinacraft.util.Listener.ListenerPlayer;
-import unstudio.chinacraft.util.Listener.ListenerWorld;
 import unstudio.chinacraft.util.VersionChecker;
 import javax.swing.*;
 
@@ -49,8 +50,6 @@ public class ChinaCraft {
     public static boolean NEIIsLoad = false;
 
     public static SimpleNetworkWrapper Network;
-    private ListenerPlayer listenerPlayer = new ListenerPlayer();
-    private ListenerWorld listenerWorld = new ListenerWorld();
 
     @SidedProxy(clientSide = "unstudio.chinacraft.ClientProxy",
             serverSide = "unstudio.chinacraft.CommonProxy")
@@ -72,10 +71,8 @@ public class ChinaCraft {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);
-        FMLCommonHandler.instance().bus().register(listenerPlayer);
-        FMLCommonHandler.instance().bus().register(listenerWorld);
-        MinecraftForge.EVENT_BUS.register(listenerPlayer);
-        MinecraftForge.EVENT_BUS.register(listenerWorld);
+        ListenerRegister.init();
+        EntityRegister.init();
     }
 
     @EventHandler

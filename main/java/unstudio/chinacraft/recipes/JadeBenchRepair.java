@@ -10,10 +10,10 @@ public class JadeBenchRepair{
 	private final ItemStack out;
 
 	/**
-	 * ������ʯ�䷽
-	 * @param tool ����
-	 * @param item ��Ʒ
-	 * @param out ���
+	 * 锟斤拷锟斤拷锟斤拷石锟戒方
+	 * @param tool 锟斤拷锟斤拷
+	 * @param item 锟斤拷品
+	 * @param out 锟斤拷锟�
 	 */
 	public JadeBenchRepair(ItemStack tool,ItemStack item,ItemStack out){
 		this.tool = tool;

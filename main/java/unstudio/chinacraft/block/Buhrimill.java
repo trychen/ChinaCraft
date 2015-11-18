@@ -1,5 +1,6 @@
 package unstudio.chinacraft.block;
 
+import java.io.File;
 import java.util.List;
 import java.util.Random;
 
@@ -58,6 +59,11 @@ public class Buhrimill extends BlockContainer {
 	}
 
 	@Override
+	protected String getTextureName() {
+		return "chinacraft:textures"+ File.separator + "models"+ File.separator + "block"+ File.separator + "Buhrimill.png";
+	}
+
+	@Override
 	public int getRenderType() {
 		return -1;
 	}
@@ -100,24 +106,24 @@ public class Buhrimill extends BlockContainer {
     }
 
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIcon(int i, int par2) {
-//		if (i == 0)
-//			return down;
-//		else if (i >= 1 && i <= 6)
-//			return top;
-//		else
-//			return top;
-		return empty;
-	}
+//	@SideOnly(Side.CLIENT)
+//	@Override
+//	public IIcon getIcon(int i, int par2) {
+////		if (i == 0)
+////			return down;
+////		else if (i >= 1 && i <= 6)
+////			return top;
+////		else
+////			return top;
+//		return empty;
+//	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister reg) {
 		this.blockIcon = reg.registerIcon("chinacraft:buhrimill");
 	}
-	
+
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,
 			int p_149650_3_) {
