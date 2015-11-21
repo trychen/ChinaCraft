@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity.model;
+package unstudio.chinacraft.entity.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -62,7 +62,7 @@ public class ModelBlackDog  extends ModelBase
     }
 
     /**
-     * Sets the models various rotation angles then renders the model.
+     * Sets the models various rotation angles then renders the render.
      */
     public void render(Entity p_78088_1_, float p_78088_2_, float p_78088_3_, float p_78088_4_, float p_78088_5_, float p_78088_6_, float p_78088_7_)
     {
@@ -159,7 +159,7 @@ public class ModelBlackDog  extends ModelBase
     }
 
     /**
-     * Sets the model's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms
+     * Sets the render's various rotation angles. For bipeds, par1 and par2 are used for animating the movement of arms
      * and legs, where par1 represents the time(so that arms and legs swing back and forth) and par2 represents how
      * "far" arms and legs can swing at most.
      */

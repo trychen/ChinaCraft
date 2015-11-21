@@ -1,4 +1,4 @@
-package unstudio.chinacraft.item;
+package unstudio.HugeSword;
 
 import net.minecraft.util.IIcon;
 

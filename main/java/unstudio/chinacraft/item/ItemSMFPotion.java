@@ -7,6 +7,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import unstudio.chinacraft.api.ItemMethod;
 
 import java.util.List;
 
@@ -29,38 +30,40 @@ public class ItemSMFPotion extends ItemSpiritualMagicFigures{
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        if (Effect != null) {
-            return false;
+        if (target.worldObj.isRemote) {
+            if (Effect != null) {
+                return false;
+            }
+            if (((EntityPlayer) attacker).experienceLevel < b) {
+                return false;
+            } else {
+                ((EntityPlayer) attacker).addExperience(-5);
+            }
+            for (int[] a : Effect) {
+                target.addPotionEffect(a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
+            }
+            --stack.stackSize;
         }
-        if (((EntityPlayer)attacker).experienceLevel < b){
-            return false;
-        } else {
-            ((EntityPlayer)attacker).addExperience(-5);
-        }
-        for (int[] a : Effect) {
-            target.addPotionEffect(a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
-        }
-        --stack.stackSize;
         return false;
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        if (Effect != null) {
-            return stack;
+        if (world.isRemote) {
+            if (Effect != null) {
+                return stack;
+            }
+            if (player.experienceLevel < b) {
+                return stack;
+            } else {
+                player.addExperience(-5);
+            }
+            for (int[] a : Effect) {
+                player.addPotionEffect(a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
+            }
         }
-        if (player.experienceLevel < b){
-            return stack;
-        } else {
-            player.addExperience(-5);
-        }
-        for (int[] a : Effect) {
-            player.addPotionEffect(a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
-        }
-
-        --stack.stackSize;
-        return stack;
+        return ItemMethod.cutItemStack(stack,player);
     }
     
     @Override

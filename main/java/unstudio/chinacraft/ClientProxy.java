@@ -57,7 +57,7 @@ public class ClientProxy extends CommonProxy {
 
         RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
 
-        EntityRenderingRegistry.registerRendering();
+        EntityRenderingRegistry.init();
         ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
         ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");
@@ -99,6 +99,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.woodenBucket_Water.setTextureName("chinacraft:woodenbucket_water");
         ChinaCraft.silkwormChrysalis.setTextureName("chinacraft:silkworm_chrysalis");
         ChinaCraft.redPacket.setTextureName("chinacraft:redpacket");
+        ChinaCraft.firecracker.setTextureName("chinacraft:firecracker");
         ChinaCraft.blackDogBlood.setTextureName("chinacraft:blackdogblood");
         ChinaCraft.moonCake.setTextureName("chinacraft:mooncake");
         ChinaCraft.xinjiangNutCake.setBlockTextureName("chinacraft:xinjiang_nut_cake");

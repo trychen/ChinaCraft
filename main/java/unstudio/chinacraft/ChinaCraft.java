@@ -1,10 +1,7 @@
 package unstudio.chinacraft;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.item.ItemArmor;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.entity.EntityRegister;
@@ -185,8 +182,9 @@ public class ChinaCraft {
     public static Silkworm silkworm = new Silkworm(); //蚕
     public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
     public static ItemRedPacket redPacket = new ItemRedPacket(); //红包
-    public static BlackDogBlood blackDogBlood = new BlackDogBlood();
-    public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabCore);
+    public static ItemFirecracker firecracker = new ItemFirecracker();
+    public static ItemBlackDogBlood blackDogBlood = new ItemBlackDogBlood();
+    public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabPlant);
 
     //防具武器
     public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑

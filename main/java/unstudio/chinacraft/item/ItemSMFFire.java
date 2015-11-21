@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import unstudio.chinacraft.api.ItemMethod;
 
 import java.util.List;
 
@@ -17,15 +18,19 @@ public class ItemSMFFire extends ItemSpiritualMagicFigures {
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker)
     {
-        target.setFire(target.worldObj.rand.nextInt(8) + 15);
-        stack.stackSize = stack.stackSize -1;
+        if (target.worldObj.isRemote) {
+            target.setFire(target.worldObj.rand.nextInt(8) + 15);
+            stack.stackSize--;
+        }
         return false;
     }
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
-        stack.stackSize = stack.stackSize -1;
-        player.setFire(15);
+        if (world.isRemote) {
+            player.setFire(15);
+            return ItemMethod.cutItemStack(stack, player);
+        }
         return stack;
     }
     

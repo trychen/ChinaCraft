@@ -6,6 +6,7 @@ import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import unstudio.chinacraft.api.ItemMethod;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -32,9 +33,7 @@ public class ItemSMFSuper extends ItemSpiritualMagicFigures{
                         }, 15 * 1000);
                     }
                 }
-                if (!((EntityPlayer) attacker).capabilities.isCreativeMode) {
-                    --stack.stackSize;
-                }
+                ItemMethod.cutItemStack(stack, (EntityPlayer) target);
             }
         }
 //        if (!attacker.worldObj.isRemote) {

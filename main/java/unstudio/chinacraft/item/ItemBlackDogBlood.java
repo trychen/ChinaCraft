@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 import unstudio.chinacraft.ChinaCraft;
 
 
-public class BlackDogBlood extends ItemFood {
-    public BlackDogBlood() {
+public class ItemBlackDogBlood extends ItemFood {
+    public ItemBlackDogBlood() {
         super(0, false);
         this.setMaxStackSize(1);
         setCreativeTab(ChinaCraft.tabCore);

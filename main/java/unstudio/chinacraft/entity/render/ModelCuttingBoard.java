@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity.model;
+package unstudio.chinacraft.entity.render;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

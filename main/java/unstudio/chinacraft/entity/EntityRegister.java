@@ -15,6 +15,9 @@ public class EntityRegister {
         EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1, EnumCreatureType.monster, BiomeGenBase.forest);
         createEntiy(EntityChinaZombie.class,"chinazombie",0x0504FF,0x0025FF);
 //        createEntiy(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
+
+
+        EntityRegistry.registerModEntity(EntityThrownFirecracker.class, "Entity_Thron_Firecracker", 2, ChinaCraft.instance, 350, 30, true);
     }
 
     public static void createEntiy(Class entityClass, String entityName, int solidColor, int spotColor) {

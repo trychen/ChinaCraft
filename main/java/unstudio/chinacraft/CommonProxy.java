@@ -12,7 +12,6 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
-import unstudio.chinacraft.entity.EntityRegister;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
@@ -155,7 +154,6 @@ public class CommonProxy {
 		GameRegistry.registerItem(ChinaCraft.nightClothesBody, "NightClothesBody");
 		GameRegistry.registerItem(ChinaCraft.nightClothesLeg, "NightClothesLeg");
 		GameRegistry.registerItem(ChinaCraft.nightClothesShoe, "NightClothesShoe");
-
 		GameRegistry .registerItem(ChinaCraft.tinIngot, "TinIngot");//锡锭
 		OreDictionary.registerOre("ingotTin",ChinaCraft.tinIngot);
     	GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
@@ -179,6 +177,7 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.silkwormChrysalis, "SilkwormChrysalis");
     	GameRegistry.registerItem(ChinaCraft.redPacket, "RedPacket");//红包
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper, new ItemStack(Items.dye, 1, 1)});
+		GameRegistry.registerItem(ChinaCraft.firecracker,"Firecracker");
 		GameRegistry.registerItem(ChinaCraft.blackDogBlood, "BlackDogBlood");//黑狗血
 		GameRegistry.registerItem(ChinaCraft.moonCake, "MoonCake");//月饼
 		GameRegistry.registerItem(ChinaCraft.artKnife, "ItemArtKnife");//美工切割刀
@@ -262,7 +261,6 @@ public class CommonProxy {
 		GameRegistry.registerBlock(ChinaCraft.silk_left_down, "silk_left_down");
 
 		GameRegistry.registerItem(ChinaCraft.debug, "Debug");
-		EntityRegister.registerEntity();
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
