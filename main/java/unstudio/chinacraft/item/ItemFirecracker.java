@@ -17,7 +17,9 @@ public class ItemFirecracker extends Item{
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        world.spawnEntityInWorld(new EntityThrownFirecracker(world,player));
+        if (world.isRemote) {
+            world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
+        }
         return ItemMethod.cutItemStack(stack,player);
     }
 }

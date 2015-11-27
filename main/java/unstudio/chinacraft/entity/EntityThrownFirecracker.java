@@ -26,7 +26,6 @@ public class EntityThrownFirecracker extends EntityThrowable{
     {
         super.onUpdate();
         this.worldObj.spawnParticle("mobSpell", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
-//        for (int i = 0; i < 2; ++i);
     }
 
     public void readEntityFromNBT(NBTTagCompound nbttagcompound)
@@ -41,7 +40,6 @@ public class EntityThrownFirecracker extends EntityThrowable{
     {
         if (this.worldObj.isRemote)
         {
-//            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 0.346881245F, true);
             Explosion explosion = new Explosion(this.worldObj,this, this.posX, this.posY, this.posZ, 0.3945875F);
             explosion.isFlaming = true;
             explosion.isSmoking = true;

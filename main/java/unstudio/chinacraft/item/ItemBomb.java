@@ -17,7 +17,9 @@ public class ItemBomb extends Item{
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        world.spawnEntityInWorld(new EntityThrownBomb(world,player));
-        return ItemMethod.cutItemStack(stack,player);
+//        if (world.isRemote) {
+            world.spawnEntityInWorld(new EntityThrownBomb(world, player));
+//        }
+        return ItemMethod.cutItemStack(stack, player);
     }
 }
