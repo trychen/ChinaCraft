@@ -52,9 +52,6 @@ public class ClientProxy extends CommonProxy {
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
 
-//        ItemBroadRenderer giantRenderer = new ItemBroadRenderer(mc.gameSettings, mc.getTextureManager());
-//        MinecraftForgeClient.registerItemRenderer(ChinaCraft.bronzeBroadSword, giantRenderer);
-
         RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
 
         EntityRenderingRegistry.init();
@@ -100,9 +97,12 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.silkwormChrysalis.setTextureName("chinacraft:silkworm_chrysalis");
         ChinaCraft.redPacket.setTextureName("chinacraft:redpacket");
         ChinaCraft.firecracker.setTextureName("chinacraft:firecracker");
+        ChinaCraft.bomb.setTextureName("chinacraft:bomb");
         ChinaCraft.blackDogBlood.setTextureName("chinacraft:blackdogblood");
         ChinaCraft.moonCake.setTextureName("chinacraft:mooncake");
         ChinaCraft.xinjiangNutCake.setBlockTextureName("chinacraft:xinjiang_nut_cake");
+        ChinaCraft.appleCake.setBlockTextureName("chinacraft:apple_cake");
+        ChinaCraft.itemAppleCake.setTextureName("chinacraft:apple_cake");
         //青铜
         ChinaCraft.bronzePickaxe.setTextureName("chinacraft:bronze_pickaxe");
         ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");

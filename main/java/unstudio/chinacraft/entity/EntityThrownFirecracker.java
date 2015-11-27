@@ -1,21 +1,12 @@
 package unstudio.chinacraft.entity;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
-
-/**
- * Created by trychen on 15/11/21.
- */
 public class EntityThrownFirecracker extends EntityThrowable{
 
     public EntityThrownFirecracker(World par1World)
@@ -35,7 +26,7 @@ public class EntityThrownFirecracker extends EntityThrowable{
     {
         super.onUpdate();
         this.worldObj.spawnParticle("mobSpell", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
-        for (int i = 0; i < 2; ++i);
+//        for (int i = 0; i < 2; ++i);
     }
 
     public void readEntityFromNBT(NBTTagCompound nbttagcompound)
@@ -51,7 +42,7 @@ public class EntityThrownFirecracker extends EntityThrowable{
         if (this.worldObj.isRemote)
         {
 //            this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 0.346881245F, true);
-            Explosion explosion = new Explosion(this.worldObj,this, this.posX, this.posY, this.posZ, 0.346881245F);
+            Explosion explosion = new Explosion(this.worldObj,this, this.posX, this.posY, this.posZ, 0.3945875F);
             explosion.isFlaming = true;
             explosion.isSmoking = true;
             this.worldObj.playSound(this.posX, this.posY, this.posZ, "chinacraft:firecracker", 0.5F, 0.40000000596046447754F / (this.worldObj.rand.nextFloat() * 0.40000000596046447754F + 0.80000001192092895508F),true);

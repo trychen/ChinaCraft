@@ -6,18 +6,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import unstudio.chinacraft.ChinaCraft;
 import unstudio.chinacraft.api.ItemMethod;
-import unstudio.chinacraft.entity.EntityThrownFirecracker;
+import unstudio.chinacraft.entity.EntityThrownBomb;
 
-public class ItemFirecracker extends Item{
-    public ItemFirecracker(){
-        setUnlocalizedName("firecracker");
+public class ItemBomb extends Item{
+    public ItemBomb(){
+        setUnlocalizedName("bomb");
         setCreativeTab(ChinaCraft.tabTool);
         setMaxStackSize(16);
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        world.spawnEntityInWorld(new EntityThrownFirecracker(world,player));
+        world.spawnEntityInWorld(new EntityThrownBomb(world,player));
         return ItemMethod.cutItemStack(stack,player);
     }
 }

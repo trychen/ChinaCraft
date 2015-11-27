@@ -1,6 +1,7 @@
 package unstudio.chinacraft;
 
 import cpw.mods.fml.common.Loader;
+import net.minecraft.block.BlockCake;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
@@ -183,6 +184,7 @@ public class ChinaCraft {
     public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
     public static ItemRedPacket redPacket = new ItemRedPacket(); //红包
     public static ItemFirecracker firecracker = new ItemFirecracker();
+    public static ItemBomb bomb = new ItemBomb();
     public static ItemBlackDogBlood blackDogBlood = new ItemBlackDogBlood();
     public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabPlant);
 
@@ -239,7 +241,9 @@ public class ChinaCraft {
     public static Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
     public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); //米粉
     public static Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
-    public static XinjiangNutCake xinjiangNutCake = new XinjiangNutCake();
+    public static BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake").setCreativeTab(ChinaCraft.tabPlant);
+    public static BlockCake appleCake = new BlockCCCake("apple_cake");
+    public static ItemReed itemAppleCake = (ItemReed) new ItemReed(ChinaCraft.appleCake).setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabPlant);
 
     //耐火砖
     public static BlockFirebrick blockFirebrick = new BlockFirebrick(); //耐火砖块

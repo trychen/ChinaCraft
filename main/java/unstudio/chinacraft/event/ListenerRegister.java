@@ -8,11 +8,10 @@ import unstudio.chinacraft.event.jade.ListenerGreenJade;
 
 public class ListenerRegister {
     public static void init(){
-        registerListener(ListenerVersionChecker.class); //版本检查事件注册
+        registerListener(new ListenerVersionChecker()); //版本检查事件注册
+        registerListener(new ListenerGreenJade());
 
-        registerListener(ListenerGreenJade.class);
-
-        registerListener(ListenerEntityBlackDog.class);
+        registerListener(new ListenerEntityBlackDog());
     }
     public static void registerListener(Object listener){
         FMLCommonHandler.instance().bus().register(listener);

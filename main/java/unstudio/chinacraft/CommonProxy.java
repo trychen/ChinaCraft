@@ -178,12 +178,16 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.redPacket, "RedPacket");//红包
     	GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.redPacket, 1), new Object[]{Items.paper, new ItemStack(Items.dye, 1, 1)});
 		GameRegistry.registerItem(ChinaCraft.firecracker,"Firecracker");
+		GameRegistry.registerItem(ChinaCraft.bomb,"Bomb");
 		GameRegistry.registerItem(ChinaCraft.blackDogBlood, "BlackDogBlood");//黑狗血
 		GameRegistry.registerItem(ChinaCraft.moonCake, "MoonCake");//月饼
 		GameRegistry.registerItem(ChinaCraft.artKnife, "ItemArtKnife");//美工切割刀
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.artKnife, 1), new Object[]{"   ", " Z ", " # ", '#', Items.stick, 'Z', Items.iron_ingot});
 		GameRegistry.registerBlock(ChinaCraft.xinjiangNutCake, "XinjiangNutCake");
 		GameRegistry.addRecipe(new ItemStack(ChinaCraft.xinjiangNutCake, 1), new Object[]{"FWF", "HFH", "E#E", 'W', Items.water_bucket.setContainerItem(Items.bucket), 'F', ChinaCraft.flour, 'H', Items.carrot, '#', Item.getItemFromBlock(Blocks.pumpkin), 'E', Items.egg});
+		GameRegistry.registerBlock(ChinaCraft.appleCake, "BLockAppleCake");
+		GameRegistry.registerItem(ChinaCraft.itemAppleCake, "AppleCake");
+		GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemAppleCake, 1), new Object[]{"FWF", "FFF", "E#E", 'W', Items.water_bucket.setContainerItem(Items.bucket), 'F', Items.apple, '#', Item.getItemFromBlock(Blocks.pumpkin), 'E', Items.egg});
 
 		//青铜套
     	GameRegistry.registerItem(ChinaCraft.bronzeHelmet, "BronzeHelmet");//青铜头盔
