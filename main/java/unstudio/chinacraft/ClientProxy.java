@@ -2,6 +2,10 @@ package unstudio.chinacraft;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.nevermine.block.modelblocks.statue.RenderStatueItem;
+import unstudio.chinacraft.block.model.ModelBuhrimill;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;
@@ -45,15 +49,14 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.nightClothesBody.setArmorModel(modelNightClothes);
         ChinaCraft.nightClothesLeg.setArmorModel(modelNightClothesleg);
         ChinaCraft.nightClothesShoe.setArmorModel(modelNightClothes);
-
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new ModelBlockItemRenderer(new ModelBuhrimill(),new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
 
         RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
-
         EntityRenderingRegistry.init();
         ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
