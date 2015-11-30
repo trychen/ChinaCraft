@@ -83,7 +83,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         if (outputId.equals("buhrimill") && getClass() == BuhrimillRecipeHandler.class) {//don't want subclasses getting a hold of this
             ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
             for (BuhrimillRecipe recipe : recipes)
-                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getInput2(),recipe.getInput2(),recipe.getOutput2()));
+                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput2(),recipe.getInput2(),recipe.getOutput2()));
         } else
             super.loadCraftingRecipes(outputId, results);
     }
