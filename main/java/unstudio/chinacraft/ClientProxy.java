@@ -4,6 +4,10 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
+<<<<<<< HEAD
+=======
+import net.nevermine.block.modelblocks.statue.RenderStatueItem;
+>>>>>>> dadbdb5955ba575a46e6d239d06d7e5d90f44c57
 import unstudio.chinacraft.block.model.ModelBuhrimill;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
