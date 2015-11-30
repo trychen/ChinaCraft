@@ -101,47 +101,47 @@ public class ChinaCraft {
             return rices;
         }
     };
-    //特殊变量
+    //鐗规畩鍙橀噺
     public static int jadehasHealTicker = 0;
     public static VersionChecker versionChecker= new VersionChecker();
     public static boolean haveWarnedVersionOutOfDate = false;
 
     //Material
     public static Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
-    public static Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); //石锤
-    public static Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); //铁锤
-    public static Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F, 10); //钻石锤
+    public static Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); //鐭抽敜
+    public static Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); //閾侀敜
+    public static Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F, 10); //閽荤煶閿�
     public static Item.ToolMaterial yanlong = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10); //YanLung_Giantknife
     public static Item.ToolMaterial _BRONZE = EnumHelper.addToolMaterial("BRONZEBIG", 2, 230, 6.0F, 2.5F, 1);
 
-    //方块
-    public static CopperOre copperOre = new CopperOre();  //铜矿
-    public static BronzeBlock bronzeBlock = new BronzeBlock();  //青铜块
-    public static TinOre tinOre = new TinOre(); //锡矿
-    public static JadeOre jadeOre = new JadeOre(); //玉原石
-    public static Marble marble = new Marble();  //大理石
-    public static SmoothMarble smoothMarble = new SmoothMarble(); //平滑大理石块
-    public static PillarMarble pillarMarble = new PillarMarble(); //条纹大理石块
-    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); //錾制大理石块
-    public static MarbleStair marbleStair = new MarbleStair(); //大理石楼梯
-    public static MarbleSlab marbleDoubleSlab = new MarbleSlab(true); //大理石半砖
-    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //大理石半砖
-    public static SilverOre silverOre = new SilverOre();  //银
-    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
-    public static WoodenWindow woodenWindow1 = new WoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); //木窗框1
-    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); //木窗框2
-    public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); //木窗框3
-    public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); //木窗框3
-    public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); //木窗框Logo
-    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
-    public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
-    public static BambooShoot bambooShoot = new BambooShoot(); //竹笋
-    public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
-    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
-    public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
-    public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板
-    public static Block bambooBlock = new BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
-    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
+    //鏂瑰潡
+    public static CopperOre copperOre = new CopperOre();  //閾滅熆
+    public static BronzeBlock bronzeBlock = new BronzeBlock();  //闈掗摐鍧�
+    public static TinOre tinOre = new TinOre(); //閿＄熆
+    public static JadeOre jadeOre = new JadeOre(); //鐜夊師鐭�
+    public static Marble marble = new Marble();  //澶х悊鐭�
+    public static SmoothMarble smoothMarble = new SmoothMarble(); //骞虫粦澶х悊鐭冲潡
+    public static PillarMarble pillarMarble = new PillarMarble(); //鏉＄汗澶х悊鐭冲潡
+    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); //閷惧埗澶х悊鐭冲潡
+    public static MarbleStair marbleStair = new MarbleStair(); //澶х悊鐭虫ゼ姊�
+    public static MarbleSlab marbleDoubleSlab = new MarbleSlab(true); //澶х悊鐭冲崐鐮�
+    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //澶х悊鐭冲崐鐮�
+    public static SilverOre silverOre = new SilverOre();  //閾�
+    public static RiceGrow riceGrow = new RiceGrow(); //姘寸ɑ浣滅墿
+    public static WoodenWindow woodenWindow1 = new WoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); //鏈ㄧ獥妗�1
+    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); //鏈ㄧ獥妗�2
+    public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); //鏈ㄧ獥妗�3
+    public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); //鏈ㄧ獥妗�3
+    public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); //鏈ㄧ獥妗哃ogo
+    public static SoyGrow soyGrow = new SoyGrow(); //澶ц眴浣滅墿
+    public static BlockBamboo blockBamboo = new BlockBamboo();  //绔瑰瓙鏂瑰潡
+    public static BambooShoot bambooShoot = new BambooShoot(); //绔圭瑡
+    public static MulberryLog mulberryLog = new MulberryLog(); //妗戞爲鍘熸湪
+    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //妗戞爲鏍戝彾
+    public static MulberrySapling mulberrySapling = new MulberrySapling(); //妗戞爲鏍戣嫍
+    public static MulberryWood mulberryWood = new MulberryWood(); //妗戞爲鏈ㄦ澘
+    public static Block bambooBlock = new BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //绔规湪鏉�
+    public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //鐜夌煶宸ヤ綔鍙�
     //TraditionalCarpet
     public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
     public static TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "chinacraft:slik_carpet");
@@ -152,50 +152,53 @@ public class ChinaCraft {
     public static TraditionalCarpet silk_left_up = new TraditionalCarpet("silk_left_up", "chinacraft:silk_left_up");
     public static TraditionalCarpet silk_left_down = new TraditionalCarpet("silk_left_down", "chinacraft:silk_left_down");
 
-    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
-    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); //陶瓷
-    public static BlockBuckpot blockBuckpot = new BlockBuckpot(); //陶锅
+    public static PotteryTable potteryTable = new PotteryTable(); //闄剁摲宸ヤ綔鍙�
+    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); //闄剁摲
+    public static BlockBuckpot blockBuckpot = new BlockBuckpot(); //闄堕攨
 
-    public static Buhrimill buhrimill = new Buhrimill(); //石磨
+    public static Buhrimill buhrimill = new Buhrimill(); //鐭崇（
 
-    public static Lantern lantern = new Lantern(); //灯笼
-    public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //木桶
+    public static Lantern lantern = new Lantern(); //鐏
+    public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //鏈ㄦ《
 
-    public static Cooker cooker_off = new Cooker(false); //灶台
-    public static Cooker cooker_on = new Cooker(true); //灶台
+    public static Cooker cooker_off = new Cooker(false); //鐏跺彴
+    public static Cooker cooker_on = new Cooker(true); //鐏跺彴
 
-    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
+    public static SericultureFrame sericultureFrame = new SericultureFrame(); //鍏昏殨鏋�
 
-    //物品
-    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
-    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
-    public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); //银锭
-    public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder").setCreativeTab(ChinaCraft.tabCore); //铜锡混合矿粉
-    public static CropPlant rices = (CropPlant) new CropPlant(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //米
-    public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabPlant); //米穗
-    public static CropPlant soy = (CropPlant) new CropPlant(ChinaCraft.soyGrow).setUnlocalizedName("soy"); //大豆
-    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //竹子
-    public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //大豆荚
-    public static ItemReed itemBuhrimill = (ItemReed) new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨
-    public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabPlant); //桑叶
-    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶
-    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
-    public static Silkworm silkworm = new Silkworm(); //蚕
-    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
-    public static ItemRedPacket redPacket = new ItemRedPacket(); //红包
+    //鐗╁搧
+    public static Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore);
+    public static Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(ChinaCraft.tabCore); 
+    public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore);
+    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //闈掗摐閿�
+    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //閾滈敪
+    public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); //閾堕敪
+    public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder").setCreativeTab(ChinaCraft.tabCore); //閾滈敗娣峰悎鐭跨矇
+    public static CropPlant rices = (CropPlant) new CropPlant(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //绫�
+    public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabPlant); //绫崇
+    public static CropPlant soy = (CropPlant) new CropPlant(ChinaCraft.soyGrow).setUnlocalizedName("soy"); //澶ц眴
+    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //绔瑰瓙
+    public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //澶ц眴鑽�
+    public static ItemReed itemBuhrimill = (ItemReed) new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //鐭崇（
+    public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabPlant); //妗戝彾
+    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //鏈ㄦ《
+    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //鏈ㄦ按妗�
+    public static Silkworm silkworm = new Silkworm(); //铓�
+    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //铓曡導
+    public static ItemRedPacket redPacket = new ItemRedPacket(); //绾㈠寘
     public static ItemFirecracker firecracker = new ItemFirecracker();
     public static ItemBomb bomb = new ItemBomb();
     public static ItemBlackDogBlood blackDogBlood = new ItemBlackDogBlood();
     public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabPlant);
 
-    //防具武器
-    public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
-    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword("bronze_bigsword");  //青铜大刀
-    public static BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword("bronze_bigsword_green");  //青铜大刀Green
-    public static BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword("bronze_bigsword_green2");  //青铜大刀Green2
-    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword("bronze_bigsword_pink");  //青铜大刀Pink
-    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword("bronze_bigsword_purple");  //青铜大刀purple
-    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //炎龙巨刀
+    //闃插叿姝﹀櫒
+    public static BronzeSword bronzeSword = new BronzeSword();  //闈掗摐鍓�
+    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword("bronze_bigsword");  //闈掗摐澶у垁
+    public static BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword("bronze_bigsword_green");  //闈掗摐澶у垁Green
+    public static BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword("bronze_bigsword_green2");  //闈掗摐澶у垁Green2
+    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword("bronze_bigsword_pink");  //闈掗摐澶у垁Pink
+    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword("bronze_bigsword_purple");  //闈掗摐澶у垁purple
+    public static YanLung_Giantknife yanLung_Giantknife = new YanLung_Giantknife();  //鐐庨緳宸ㄥ垁
 
     public static ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown",0,1);
     public static ModelArmor nightClothesHead = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes",1,0,1);
@@ -204,65 +207,65 @@ public class ChinaCraft {
     public static ModelArmor nightClothesShoe = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes",1,3,1);
     public static Mace mace = new Mace();
 
-    //工具
-    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//青铜稿
-    public static BronzeAxe bronzeAxe = new BronzeAxe();//青铜斧
-    public static BronzeHoe bronzeHoe = new BronzeHoe();//青铜锄
-    public static BronzeShovel bronzeShovel = new BronzeShovel();//青铜铲
-    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//九曲镋
-    public static JadeKnife jadeKnife = new JadeKnife();//玉石切割刀
-    public static ItemArtKnife artKnife = new ItemArtKnife();//美工切割刀
+    //宸ュ叿
+    public static BronzePickaxe bronzePickaxe = new BronzePickaxe();//闈掗摐绋�
+    public static BronzeAxe bronzeAxe = new BronzeAxe();//闈掗摐鏂�
+    public static BronzeHoe bronzeHoe = new BronzeHoe();//闈掗摐閿�
+    public static BronzeShovel bronzeShovel = new BronzeShovel();//闈掗摐閾�
+    public static JiuQu_tang jiuqu_tang = new JiuQu_tang();//涔濇洸闀�
+    public static JadeKnife jadeKnife = new JadeKnife();//鐜夌煶鍒囧壊鍒�
+    public static ItemArtKnife artKnife = new ItemArtKnife();//缇庡伐鍒囧壊鍒�
 
-    public static Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");//石锤
-    public static Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");//铁锤
-    public static Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");//钻石锤
-    public static Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");//钻石锤
+    public static Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");//鐭抽敜
+    public static Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");//閾侀敜
+    public static Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");//閽荤煶閿�
+    public static Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");//閽荤煶閿�
 
-    public static int bronzeArmorTexture = -1; //青铜套装外部材质注册
-    public static ItemArmor bronzeHelmet;//青铜头盔
-    public static ItemArmor bronzeChestplate;//青铜胸甲
-    public static ItemArmor bronzeLeggings;//青铜护腿
-    public static ItemArmor bronzeBoots;//青铜靴子
+    public static int bronzeArmorTexture = -1; //闈掗摐濂楄澶栭儴鏉愯川娉ㄥ唽
+    public static ItemArmor bronzeHelmet;//闈掗摐澶寸洈
+    public static ItemArmor bronzeChestplate;//闈掗摐鑳哥敳
+    public static ItemArmor bronzeLeggings;//闈掗摐鎶よ吙
+    public static ItemArmor bronzeBoots;//闈掗摐闈村瓙
 
-    //玉石
+    //鐜夌煶
     public static Jade jadeGreenItem = new Jade("jade_green");
     public static Jade jadeGreen2Item = new Jade("jade_green2");
     public static Jade jadePinkItem = new Jade("jade_pink");
     public static Jade jadePurpleItem = new Jade("jade_purple");
 
-    //Drink、Food
-    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabPlant); //杯
+    //Drink銆丗ood
+    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabPlant); //鏉�
     public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabPlant);
     public static CupChocolate cupChocolate = new CupChocolate();
     public static Item cocoa = new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabPlant);
     public static ItemFood ladyfinger = (ItemFood) new ItemFood(2, false).setUnlocalizedName("ladyfinger").setCreativeTab(ChinaCraft.tabPlant);
     public static CupWater cupWater = new CupWater();
     public static CupChrysanthemum cupChrysanthemum = new CupChrysanthemum();
-    public static Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //面粉
-    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); //米粉
-    public static Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //麦仁,大麦米
+    public static Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); //闈㈢矇
+    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); //绫崇矇
+    public static Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); //楹︿粊,澶ч害绫�
     public static BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake").setCreativeTab(ChinaCraft.tabPlant);
     public static BlockCake appleCake = new BlockCCCake("apple_cake");
     public static ItemReed itemAppleCake = (ItemReed) new ItemReed(ChinaCraft.appleCake).setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabPlant);
 
-    //耐火砖
-    public static BlockFirebrick blockFirebrick = new BlockFirebrick(); //耐火砖块
-    public static BlockFirebrickStructure blockFirebrickStructure = new BlockFirebrickStructure(); //耐火砖块(多方块结构)
-    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //窑炉核心方块
-    public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore); //耐火砖
-    public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore); //粘土沙子混合物
+    //鑰愮伀鐮�
+    public static BlockFirebrick blockFirebrick = new BlockFirebrick(); //鑰愮伀鐮栧潡
+    public static BlockFirebrickStructure blockFirebrickStructure = new BlockFirebrickStructure(); //鑰愮伀鐮栧潡(澶氭柟鍧楃粨鏋�)
+    public static BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); //绐戠倝鏍稿績鏂瑰潡
+    public static Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore); //鑰愮伀鐮�
+    public static Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture").setCreativeTab(ChinaCraft.tabCore); //绮樺湡娌欏瓙娣峰悎鐗�
 
 
-    //spiritual_magic_figures灵符
-    public static ItemSpiritualMagicFigures spiritualMagicFigures = new ItemSpiritualMagicFigures(); //基本灵符
-    public static ItemSMFFire smfFire = new ItemSMFFire(); //火
-    public static ItemSMFPotion smfNightVision = new ItemSMFPotion("spiritual_magic_figures_night_vision", new int[][]{{16, 10000}}); //夜视
-    public static ItemSMFPotion smfPoison = new ItemSMFPotion("spiritual_magic_figures_poison", new int[][]{{19, 450, 4}}); //中毒
-    public static ItemSMFPotion smfPower = new ItemSMFPotion("spiritual_magic_figures_power", new int[][]{{5, 7000}}); //力量
-    public static ItemSMFPotion smfProtect = new ItemSMFPotion("spiritual_magic_figures_protect", new int[][]{{12, 3500}, {11, 2500, 3}}); //保护
-    public static ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal", new int[][]{{6, 1}, {10, 500}}); //生命回复
-    public static ItemSMFSuper smfSuper = new ItemSMFSuper(); //捉妖符
+    //spiritual_magic_figures鐏电
+    public static ItemSpiritualMagicFigures spiritualMagicFigures = new ItemSpiritualMagicFigures(); //鍩烘湰鐏电
+    public static ItemSMFFire smfFire = new ItemSMFFire(); //鐏�
+    public static ItemSMFPotion smfNightVision = new ItemSMFPotion("spiritual_magic_figures_night_vision", new int[][]{{16, 10000}}); //澶滆
+    public static ItemSMFPotion smfPoison = new ItemSMFPotion("spiritual_magic_figures_poison", new int[][]{{19, 450, 4}}); //涓瘨
+    public static ItemSMFPotion smfPower = new ItemSMFPotion("spiritual_magic_figures_power", new int[][]{{5, 7000}}); //鍔涢噺
+    public static ItemSMFPotion smfProtect = new ItemSMFPotion("spiritual_magic_figures_protect", new int[][]{{12, 3500}, {11, 2500, 3}}); //淇濇姢
+    public static ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal", new int[][]{{6, 1}, {10, 500}}); //鐢熷懡鍥炲
+    public static ItemSMFSuper smfSuper = new ItemSMFSuper(); //鎹夊绗�
 
-    public static ItemDebug debug = new ItemDebug(); //调试物品
+    public static ItemDebug debug = new ItemDebug(); //璋冭瘯鐗╁搧
 
 }

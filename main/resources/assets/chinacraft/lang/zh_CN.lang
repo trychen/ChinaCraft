@@ -1,4 +1,4 @@
-tile.copper_ore.name=铜矿
+﻿tile.copper_ore.name=铜矿
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
 item.copper_tin_mixed_powder.name=铜锡混合矿粉
@@ -50,9 +50,13 @@ tile.xinjiang_nut_cake.name=切糕
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
+item.tin_powder.name=锡粉
 
 tile.silver_ore.name=银矿
 item.silver_ingot.name=银锭
+
+item.copper_ingot.name=铜锭
+item.copper_powder.name=铜粉
 
 item.bronze_ingot.name=青铜锭
 
