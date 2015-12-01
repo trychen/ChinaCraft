@@ -127,16 +127,16 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         drawProgressBar(81 - 5, 37 - 11, 176, 0, 14, 14, 48, 7);
     }
 
-    private static Set<Item> excludedFuels() {
-        Set<Item> efuels = new HashSet<Item>();
-        efuels.add(Item.getItemFromBlock(Blocks.brown_mushroom));
-        efuels.add(Item.getItemFromBlock(Blocks.red_mushroom));
-        efuels.add(Item.getItemFromBlock(Blocks.standing_sign));
-        efuels.add(Item.getItemFromBlock(Blocks.wall_sign));
-        efuels.add(Item.getItemFromBlock(Blocks.wooden_door));
-        efuels.add(Item.getItemFromBlock(Blocks.trapped_chest));
-        return efuels;
-    }
+//    private static Set<Item> excludedFuels() {
+//        Set<Item> efuels = new HashSet<Item>();
+//        efuels.add(Item.getItemFromBlock(Blocks.brown_mushroom));
+//        efuels.add(Item.getItemFromBlock(Blocks.red_mushroom));
+//        efuels.add(Item.getItemFromBlock(Blocks.standing_sign));
+//        efuels.add(Item.getItemFromBlock(Blocks.wall_sign));
+//        efuels.add(Item.getItemFromBlock(Blocks.wooden_door));
+//        efuels.add(Item.getItemFromBlock(Blocks.trapped_chest));
+//        return efuels;
+//    }
 
 
     @Override
