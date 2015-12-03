@@ -60,9 +60,9 @@ public class ChinaCraft {
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
         NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
-        Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
-        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 0, Side.SERVER);
-        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 1, Side.CLIENT);
+//        Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
+//        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 0, Side.SERVER);
+//        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 1, Side.CLIENT);
         new Thread(versionChecker).start();
     }
 
