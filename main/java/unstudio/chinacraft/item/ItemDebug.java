@@ -4,9 +4,9 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.util.StatCollector;
-import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.tileentity.TileBuhrimill;
-import unstudio.chinacraft.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.block.tileentity.TileBuhrimill;
+import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

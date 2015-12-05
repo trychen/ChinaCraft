@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.util.List;
 

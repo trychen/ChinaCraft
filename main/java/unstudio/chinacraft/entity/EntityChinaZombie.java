@@ -7,7 +7,7 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class EntityChinaZombie extends EntityZombie
 {

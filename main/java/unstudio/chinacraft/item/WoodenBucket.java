@@ -1,7 +1,7 @@
 package unstudio.chinacraft.item;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;

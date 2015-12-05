@@ -1,6 +1,6 @@
 package unstudio.chinacraft.item;
 
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.item.ItemSword;
 
 public class ItemArtKnife extends ItemSword{

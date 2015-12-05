@@ -1,7 +1,7 @@
 package unstudio.chinacraft.item;
 
-import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.client.gui.GuiID;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

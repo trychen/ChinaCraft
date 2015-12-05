@@ -11,7 +11,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import unstudio.chinacraft.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
 
 public class ContainerSericultureFrame extends Container{
 	private TileSericultureFrame tile;

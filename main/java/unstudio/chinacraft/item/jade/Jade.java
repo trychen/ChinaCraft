@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class Jade extends Item {
     private int Level = 1;

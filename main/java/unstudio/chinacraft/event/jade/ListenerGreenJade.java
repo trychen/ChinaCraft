@@ -7,8 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.EntityFX.FXMethod;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.fx.FXMethod;
 import unstudio.chinacraft.api.EntityMethod;
 
 import java.util.List;

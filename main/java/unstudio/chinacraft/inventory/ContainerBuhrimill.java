@@ -1,6 +1,6 @@
 package unstudio.chinacraft.inventory;
 
-import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.block.tileentity.TileBuhrimill;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

@@ -1,7 +1,7 @@
 package unstudio.chinacraft.util;
 
 import org.apache.commons.io.IOUtils;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.io.IOException;
 import java.io.InputStream;

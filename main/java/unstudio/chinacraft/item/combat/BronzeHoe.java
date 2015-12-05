@@ -1,7 +1,7 @@
 package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemHoe;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeHoe extends ItemHoe{
 	public BronzeHoe() {

@@ -2,7 +2,7 @@ package unstudio.chinacraft.item.jade;
 
 import java.util.Random;
 
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

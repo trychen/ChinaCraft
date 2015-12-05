@@ -2,7 +2,7 @@ package unstudio.chinacraft.util;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.util.HashMap;
 import java.util.Map;

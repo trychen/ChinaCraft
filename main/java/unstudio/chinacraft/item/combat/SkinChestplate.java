@@ -1,7 +1,7 @@
 package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemArmor;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by Trychen on 2015/11/7.

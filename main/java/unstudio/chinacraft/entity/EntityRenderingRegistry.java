@@ -6,10 +6,10 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import unstudio.chinacraft.ChinaCraft;
-import unstudio.chinacraft.entity.render.ModelBlackDog;
-import unstudio.chinacraft.entity.render.ModelChinaZombie;
-import unstudio.chinacraft.entity.render.ModelKongmingLantern;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.client.model.ModelBlackDog;
+import unstudio.chinacraft.client.model.ModelChinaZombie;
+import unstudio.chinacraft.client.model.ModelKongmingLantern;
 
 public class EntityRenderingRegistry {
     public static void init() {

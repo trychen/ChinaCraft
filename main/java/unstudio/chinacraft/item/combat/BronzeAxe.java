@@ -2,7 +2,7 @@ package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeAxe extends ItemAxe{
 

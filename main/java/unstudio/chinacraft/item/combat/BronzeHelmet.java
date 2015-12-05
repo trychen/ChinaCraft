@@ -1,6 +1,6 @@
 package unstudio.chinacraft.item.combat;
 
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.item.ItemArmor;
 
 public class BronzeHelmet extends ItemArmor{

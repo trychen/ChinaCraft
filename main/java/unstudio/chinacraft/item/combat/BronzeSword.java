@@ -1,7 +1,7 @@
 package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemSword;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeSword  extends ItemSword{
 	public BronzeSword() {

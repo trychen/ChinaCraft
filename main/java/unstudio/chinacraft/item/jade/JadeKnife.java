@@ -1,6 +1,6 @@
 package unstudio.chinacraft.item.jade;
 
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.item.ItemSword;
 
 public class JadeKnife extends ItemSword{

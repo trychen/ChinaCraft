@@ -3,7 +3,7 @@ package unstudio.chinacraft.world.gen;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

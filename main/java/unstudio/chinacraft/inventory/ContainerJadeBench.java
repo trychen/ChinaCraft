@@ -1,6 +1,6 @@
 package unstudio.chinacraft.inventory;
 
-import unstudio.chinacraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.block.tileentity.TileJadeBench;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

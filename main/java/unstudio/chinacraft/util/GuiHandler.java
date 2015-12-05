@@ -3,9 +3,10 @@ package unstudio.chinacraft.util;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-import unstudio.chinacraft.GuiID;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.client.gui.*;
 import unstudio.chinacraft.inventory.*;
-import unstudio.chinacraft.tileentity.*;
+import unstudio.chinacraft.block.tileentity.*;
 
 
 public class GuiHandler implements IGuiHandler{
@@ -46,10 +47,10 @@ public class GuiHandler implements IGuiHandler{
                         return new GuiBuhrimill(player.inventory, (TileBuhrimill) world.getTileEntity(x, y, z));
                         
                 case GuiID.GUI_JadeBench:
-                		return new GuiJadeBench(player.inventory, (TileJadeBench) world.getTileEntity(x, y, z));	
+                		return new GuiJadeBench(player.inventory, (TileJadeBench) world.getTileEntity(x, y, z));
                 		
                 case GuiID.GUI_Cooker:
-            		return new GuiCooker(player.inventory, (TileCooker) world.getTileEntity(x, y, z));	
+            		return new GuiCooker(player.inventory, (TileCooker) world.getTileEntity(x, y, z));
             		
                 case GuiID.GUI_Sericulture_Farme:
             	    return new GuiSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));

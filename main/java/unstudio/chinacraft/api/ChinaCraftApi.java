@@ -1,6 +1,6 @@
 package unstudio.chinacraft.api;
 
-import unstudio.chinacraft.ChinaCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.util.VersionChecker;
 
 /**
