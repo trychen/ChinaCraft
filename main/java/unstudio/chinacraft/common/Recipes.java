@@ -14,7 +14,88 @@ import unstudio.chinacraft.recipes.BuhrimillRecipe;
  */
 public class Recipes {
     public static void init(){
-        //
+        //Copper
+        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot, 1), 1.2f);
+
+        //大理石
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.pillarMarble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.chiseledMarble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.pillarMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.smoothMarble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.marble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleSlab, 6), new Object[]{"   ", "   ", "###", '#', ChinaCraft.marble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4), new Object[]{"#  ", "## ", "###", '#', ChinaCraft.marble});
+
+        //木窗格
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1), new Object[]{"HHH", "B#A", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', ChinaCraft.artKnife, 'A', ChinaCraft.woodenWindow4, 'B', ChinaCraft.woodenWindow2});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4), new Object[]{" # ", "#A#", " # ", 'A', ChinaCraft.artKnife, '#', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), new Object[]{"B#B", "#A#", "B#B", 'A', ChinaCraft.artKnife, '#', Items.stick, 'B', Item.getItemFromBlock(Blocks.log)});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4), new Object[]{"###", "#A#", "###", 'A', ChinaCraft.artKnife, '#', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A', Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife});
+
+        //竹子
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooBlock), ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo);
+
+        //mulberry
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4), Item.getItemFromBlock(ChinaCraft.mulberryLog));
+
+        //玉石
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeWorkingTable), new Object[]{"###", "#X#", "###", '#', Item.getItemFromBlock(Blocks.stone), 'X', Item.getItemFromBlock(Blocks.crafting_table)});
+
+        //养蚕架
+        //    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
+
+        //Cooker
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
+
+        //混合粉末
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.tinOre);
+        GameRegistry.addSmelting(ChinaCraft.copperTinMixedPowder, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
+
+        //银矿
+        GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
+
+        //石磨
+//        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', Items.iron_ingot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
+//        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', ChinaCraft.bronzeIngot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
+//        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill, 1), new Object[]{" #X", "&#&", "&&&", '#', Item.getItemFromBlock(Blocks.cobblestone), 'X', Items.stick, '&', Item.getItemFromBlock(Blocks.stone)});
+
+        //九曲镋刀
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.jiuqu_tang, 1), new Object[]{"#T#", "###", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick, 'T', ChinaCraft.tinIngot});
+
+        //青铜
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeBlock, 1), ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeIngot, 9), Item.getItemFromBlock(ChinaCraft.bronzeBlock));
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1), new Object[]{" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.mace, 1), new Object[]{" #O", " X#", "X  ", '#', Items.coal, 'X', Items.stick, 'O', Item.getItemFromBlock(Blocks.obsidian)});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1), new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blGiantSword, 1), new Object[]{"#B#", "EDE", "CAC", '#', Item.getItemFromBlock(Blocks.obsidian), 'A', Items.stick, 'B', Items.lava_bucket.setContainerItem(Items.bucket), 'C', Items.iron_ingot, 'D', Item.getItemFromBlock(Blocks.soul_sand), 'E', ChinaCraft.bronzeBlock});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1), new Object[]{"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 1), new Object[]{"## ", "#X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 1), new Object[]{" ##", " X#", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[]{"## ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeHoe, 1), new Object[]{" ##", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeShovel, 1), new Object[]{" # ", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+
+        //锤
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerDiamond, 1), new Object[]{"###", "#X#", " X ", '#', Items.diamond, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerBronze, 1), new Object[]{"###", "#X#", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerIron, 1), new Object[]{"###", "#X#", " X ", '#', Items.iron_ingot, 'X', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.hammerStone, 1), new Object[]{"###", "#X#", " X ", '#', Item.getItemFromBlock(Blocks.cobblestone), 'X', Items.stick});
+
+        //冕冠
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.chinaCrown, 1), new Object[]{"TET", "#X#", "S#S", '#', Item.getItemFromBlock(Blocks.log), 'X', Items.nether_star.setContainerItem(Items.nether_star), 'T', ChinaCraft.tinIngot, 'E', Item.getItemFromBlock(Blocks.dragon_egg).setContainerItem(Item.getItemFromBlock(Blocks.dragon_egg)), 'S', Items.stick});
+
+        //TinOre
+        GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
+
+        //水稻
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.rices, 2), new Object[]{ChinaCraft.lcker});
+
+        //大豆荚
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[]{ChinaCraft.soyPod});
+
+        //竹子
+        GameRegistry.addSmelting(ChinaCraft.bamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
 
         //木桶
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1), new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.log)});
