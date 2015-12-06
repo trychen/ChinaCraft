@@ -20,7 +20,8 @@ public class EntityRegister {
 
 
         EntityRegistry.registerModEntity(EntityThrownFirecracker.class, "Entity_Thrown_Firecracker", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 350, 30, true);
-        EntityRegistry.registerModEntity(EntityThrownBomb.class, "Entity_Thrown_Bomb", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 350, 30, true);
+
+        EntityRegistry.registerModEntity(EntityThrownBomb.class, "Entity_Thrown_Bomb", EntityRegistry.findGlobalUniqueEntityId(), ChinaCraft.instance, 351, 31, true);
     }
 
     public static void createEntiy(Class entityClass, String entityName, int solidColor, int spotColor) {

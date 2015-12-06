@@ -22,8 +22,9 @@ public class EntityRenderingRegistry {
         EntityRenderingHandler(EntityBlackDog.class, new ModelBlackDog(), "chinacraft", "textures/entity/blackwolf/blackwolf.png");
         EntityRenderingHandler(EntityChinaZombie.class,new ModelChinaZombie(),"chinacraft", "textures/entity/chinazombie/chinazombie.png");
         EntityRenderingHandler(EntityKongmingLantern.class,new ModelKongmingLantern(),"chinacraft", "textures/entity/kongminglantern/kongminglantern.png");
-        RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class, new RenderSnowball(ChinaCraft.firecracker));
         RenderingRegistry.registerEntityRenderingHandler(EntityThrownBomb.class, new RenderSnowball(ChinaCraft.bomb));
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class, new RenderSnowball(ChinaCraft.firecracker));
     }
     public static void EntityRenderingHandler(Class<? extends Entity> entityClass , ModelBase modelBase, final String resource,final String location){
         RenderingRegistry.registerEntityRenderingHandler(entityClass, new RenderLiving(modelBase, 0) {

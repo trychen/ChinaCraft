@@ -41,7 +41,7 @@ public class BlockModelItemRenderer implements IItemRenderer {
                 GL11.glTranslatef(0.0F, -4.0F, -0.06F);
                 break;
             case ENTITY:
-                GL11.glTranslatef(0.0F, -0.11F, 0.0F);
+                GL11.glTranslatef(0.0F, -0.2F, 0.0F);
                 break;
         }
 

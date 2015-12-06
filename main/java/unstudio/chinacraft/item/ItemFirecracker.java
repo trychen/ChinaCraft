@@ -4,12 +4,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 
-public class ItemFirecracker extends Item{
-    public ItemFirecracker(){
+public class ItemFirecracker extends Item {
+    public ItemFirecracker() {
         setUnlocalizedName("firecracker");
         setCreativeTab(ChinaCraft.tabTool);
         setMaxStackSize(16);
@@ -20,6 +20,6 @@ public class ItemFirecracker extends Item{
         if (world.isRemote) {
             world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
         }
-        return ItemMethod.cutItemStack(stack,player);
+        return ItemMethod.cutItemStack(stack, player);
     }
 }
