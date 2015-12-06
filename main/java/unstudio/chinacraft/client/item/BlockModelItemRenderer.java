@@ -29,18 +29,19 @@ public class BlockModelItemRenderer implements IItemRenderer {
 
     public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         GL11.glPushMatrix();
+        GL11.glScalef(-1.2F, -1.2F, 1.2F);
         switch(type) {
             case INVENTORY:
-                GL11.glScalef(-1.2F, -1.2F, 1.2F);
-                GL11.glTranslatef(0,-0.36F, 0);
+                GL11.glTranslatef(0,-0.42F, 0);
                 break;
             case EQUIPPED:
-                GL11.glScalef(-0.6F, -0.6F, 0.6F);
-                GL11.glTranslatef(-0.8F, -0.2F, 0.7F);
+                GL11.glTranslatef(-0.8F, -1.2F, -0.21F);
                 break;
             case EQUIPPED_FIRST_PERSON:
-                GL11.glScalef(-0.6F, -0.6F, 0.6F);
-                GL11.glTranslatef(0, -0.7F, 0.7F);
+                GL11.glTranslatef(0.0F, -4.0F, -0.06F);
+                break;
+            case ENTITY:
+                GL11.glTranslatef(0.0F, -0.11F, 0.0F);
                 break;
         }
 

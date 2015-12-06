@@ -11,6 +11,7 @@ import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRen
 import unstudio.chinacraft.client.item.BlockModelItemRenderer;
 import unstudio.chinacraft.client.model.ModelBuhrimill;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
+import unstudio.chinacraft.item.combat.ModelArmorRegister;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 import unstudio.chinacraft.common.nei.NEIAPI;
@@ -36,11 +37,7 @@ public class ClientProxy extends CommonProxy {
             new NEIAPI().loadConfig();
         }
 
-        ChinaCraft.chinaCrown.setArmorModel(new ModelChinaCrown(0.5f));
-        ChinaCraft.nightClothesHead.setArmorModel(new ModelNightClothes(1F));
-        ChinaCraft.nightClothesBody.setArmorModel(new ModelNightClothes(1F));
-        ChinaCraft.nightClothesLeg.setArmorModel(new ModelNightClothes(0.5F));
-        ChinaCraft.nightClothesShoe.setArmorModel(new ModelNightClothes(1F));
+        ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BlockModelItemRenderer(new ModelBuhrimill(),new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));

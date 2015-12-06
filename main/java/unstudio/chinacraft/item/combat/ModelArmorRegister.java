@@ -4,20 +4,12 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 
-/**
- * Created by trychen on 15/11/18.
- */
 public class ModelArmorRegister {
     public static void init(){
-        ModelChinaCrown modelChinaCrown;
-        modelChinaCrown = new ModelChinaCrown(0.5f);
-        ChinaCraft.chinaCrown.setArmorModel(modelChinaCrown);
-
-        ModelNightClothes modelNightClothes= new ModelNightClothes(1F);;
-        ModelNightClothes modelNightClothesleg= new ModelNightClothes(0.5F);;
-        ChinaCraft.nightClothesHead.setArmorModel(modelNightClothes);
-        ChinaCraft.nightClothesBody.setArmorModel(modelNightClothes);
-        ChinaCraft.nightClothesLeg.setArmorModel(modelNightClothesleg);
-        ChinaCraft.nightClothesShoe.setArmorModel(modelNightClothes);
+        ChinaCraft.chinaCrown.setArmorModel(new ModelChinaCrown(0.5f));
+        ChinaCraft.nightClothes[0].setArmorModel(new ModelNightClothes(1F));
+        ChinaCraft.nightClothes[1].setArmorModel(new ModelNightClothes(1F));
+        ChinaCraft.nightClothes[2].setArmorModel(new ModelNightClothes(0.5F));
+        ChinaCraft.nightClothes[3].setArmorModel(new ModelNightClothes(1F));
     }
 }

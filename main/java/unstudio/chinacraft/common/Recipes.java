@@ -6,6 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
 /**
@@ -14,6 +15,12 @@ import unstudio.chinacraft.recipes.BuhrimillRecipe;
  */
 public class Recipes {
     public static void init(){
+        //夜行衣
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[0]),new Object[]{"AAA","ABA","   ",'A',Items.leather,'B',Items.dye});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[1]),new Object[]{"ABA","AAA","AAA",'A',Items.leather,'B',Items.dye});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[2]),new Object[]{"AAA","ABA","A A",'A',Items.leather,'B',Items.dye});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[3]),new Object[]{"   ","ABA","A A",'A',Items.leather,'B',Items.dye});
+
         //Copper
         GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot, 1), 1.2f);
 

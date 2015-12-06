@@ -113,10 +113,10 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.hammerDiamond, "DiamondHammer");//钻石锤
         GameRegistry.registerItem(ChinaCraft.chinaCrown, "ChinaCrown");
 
-        GameRegistry.registerItem(ChinaCraft.nightClothesHead, "NightClothesHead");
-        GameRegistry.registerItem(ChinaCraft.nightClothesBody, "NightClothesBody");
-        GameRegistry.registerItem(ChinaCraft.nightClothesLeg, "NightClothesLeg");
-        GameRegistry.registerItem(ChinaCraft.nightClothesShoe, "NightClothesShoe");
+        GameRegistry.registerItem(ChinaCraft.nightClothes[0], "NightClothesHead");
+        GameRegistry.registerItem(ChinaCraft.nightClothes[1], "NightClothesBody");
+        GameRegistry.registerItem(ChinaCraft.nightClothes[2], "NightClothesLeg");
+        GameRegistry.registerItem(ChinaCraft.nightClothes[3], "NightClothesShoe");
         GameRegistry.registerItem(ChinaCraft.tinIngot, "TinIngot");//锡锭
         OreDictionary.registerOre("ingotTin", ChinaCraft.tinIngot);
         OreDictionary.registerOre("oreTin", ChinaCraft.tinOre);

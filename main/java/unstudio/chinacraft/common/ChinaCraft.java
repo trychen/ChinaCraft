@@ -206,10 +206,11 @@ public class ChinaCraft {
     public static BLGiantSword blGiantSword = new BLGiantSword(ChinaCraft.YANGLONG);  //炎龙巨刀
 
     public static ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown", 0, 1);
-    public static ModelArmor nightClothesHead = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1);
-    public static ModelArmor nightClothesBody = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1);
-    public static ModelArmor nightClothesLeg = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1);
-    public static ModelArmor nightClothesShoe = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1);
+    public static ModelArmor[] nightClothes = new ModelArmor[]{new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1),new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1),new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1),new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1)};
+//    public static ModelArmor nightClothesHead = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1);
+//    public static ModelArmor nightClothesBody = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1);
+//    public static ModelArmor nightClothesLeg = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1);
+//    public static ModelArmor nightClothesShoe = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1);
     public static Mace mace = new Mace();
 
     public static ItemSuperBow superBow = new ItemSuperBow();

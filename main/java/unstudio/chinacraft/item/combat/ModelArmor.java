@@ -11,9 +11,11 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
 
 import java.io.File;
+import java.util.List;
 
 
 public class ModelArmor extends ItemArmor {
@@ -106,5 +108,14 @@ public class ModelArmor extends ItemArmor {
 
     public void setArmorModel(ModelBiped armorModel) {
         this.armorModel = armorModel;
+    }
+
+    @Override
+    public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+        if (StatCollector.canTranslate("item."+TextureName+".lore")){
+            p_77624_3_.add(StatCollector.translateToLocal("item."+TextureName+".lore"));
+        } else {
+            super.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
+        }
     }
 }
