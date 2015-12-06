@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
-import unstudio.chinacraft.CommonProxy;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
@@ -23,11 +22,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
 
-import java.util.HashMap;
-
 public class ClientProxy extends CommonProxy {
-    public static HashMap<Item,ModelBiped> arrmorModel = new HashMap<Item, ModelBiped>();
-
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); //青铜套装外部材质注册
@@ -40,19 +35,13 @@ public class ClientProxy extends CommonProxy {
         if (ChinaCraft.NEIIsLoad) {
             new NEIAPI().loadConfig();
         }
-        ModelChinaCrown modelChinaCrown;
-        ModelNightClothes modelNightClothes;
-        ModelNightClothes modelNightClothesleg;
-        modelChinaCrown = new ModelChinaCrown(0.5f);
-        ChinaCraft.chinaCrown.setArmorModel(modelChinaCrown);
 
-        modelNightClothes = new ModelNightClothes(1F);
-        modelNightClothesleg = new ModelNightClothes(0.5F);
+        ChinaCraft.chinaCrown.setArmorModel(new ModelChinaCrown(0.5f));
+        ChinaCraft.nightClothesHead.setArmorModel(new ModelNightClothes(1F));
+        ChinaCraft.nightClothesBody.setArmorModel(new ModelNightClothes(1F));
+        ChinaCraft.nightClothesLeg.setArmorModel(new ModelNightClothes(0.5F));
+        ChinaCraft.nightClothesShoe.setArmorModel(new ModelNightClothes(1F));
 
-        ChinaCraft.nightClothesHead.setArmorModel(modelNightClothes);
-        ChinaCraft.nightClothesBody.setArmorModel(modelNightClothes);
-        ChinaCraft.nightClothesLeg.setArmorModel(modelNightClothesleg);
-        ChinaCraft.nightClothesShoe.setArmorModel(modelNightClothes);
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BlockModelItemRenderer(new ModelBuhrimill(),new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
@@ -87,7 +76,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.bronzeBroadSwordGreen2.setTextureName("chinacraft:bronze_bigsword_green2");
         ChinaCraft.bronzeBroadSwordPink.setTextureName("chinacraft:bronze_bigsword_pink");
         ChinaCraft.bronzeBroadSwordPurple.setTextureName("chinacraft:bronze_bigsword_purple");
-        ChinaCraft.yanLung_Giantknife.setTextureName("chinacraft:yanlung_giantknife");
+        ChinaCraft.blGiantSword.setTextureName("chinacraft:blgiantsword");
         ChinaCraft.jiuqu_tang.setTextureName("chinacraft:jiuqu_tang");
         ChinaCraft.mace.setTextureName("chinacraft:mace");
         ChinaCraft.tinIngot.setTextureName("chinacraft:tin_ingot");

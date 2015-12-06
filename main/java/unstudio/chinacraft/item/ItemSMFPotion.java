@@ -2,26 +2,29 @@ package unstudio.chinacraft.item;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.util.List;
 
-public class ItemSMFPotion extends ItemSpiritualMagicFigures{
+public class ItemSMFPotion extends Item {
 
     public int[][] Effect;
     public int b = 0;
 
     public ItemSMFPotion(String name, int[][] a){
-        setUnlocalizedName(name);
-        this.Effect = a;
+        this(name,a,0);
     }
     public ItemSMFPotion(String name, int[][] a, int b){
         setUnlocalizedName(name);
+        setCreativeTab(ChinaCraft.tabCore);
+        setMaxStackSize(8);
         this.Effect = a;
         this.b = b;
     }

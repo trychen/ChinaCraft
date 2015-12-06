@@ -168,7 +168,7 @@ public class TileJadeBench  extends TileEntity implements IInventory {
 								setInventorySlotContents(1, new ItemStack(getStackInSlot(2).getItem(),getStackInSlot(2).stackSize - 1));
 							}
 							if (new Random().nextInt(19) == 3){
-								ItemStack newSword = new ItemStack(ChinaCraft.yanLung_Giantknife, 1);
+								ItemStack newSword = new ItemStack(ChinaCraft.blGiantSword, 1);
 								setInventorySlotContents(2,newSword);
 							} else {
 								if (jade.equals(ChinaCraft.jadeGreenItem)){

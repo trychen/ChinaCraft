@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.api.ItemMethod;
-import unstudio.chinacraft.entity.EntityThrownFirecracker;
+import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 
 public class ItemFirecracker extends Item{
     public ItemFirecracker(){

@@ -10,6 +10,11 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.client.model.ModelBlackDog;
 import unstudio.chinacraft.client.model.ModelChinaZombie;
 import unstudio.chinacraft.client.model.ModelKongmingLantern;
+import unstudio.chinacraft.entity.especial.EntityKongmingLantern;
+import unstudio.chinacraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.entity.mob.EntityChinaZombie;
+import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
+import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 
 public class EntityRenderingRegistry {
     public static void init() {

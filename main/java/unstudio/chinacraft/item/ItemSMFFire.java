@@ -10,7 +10,7 @@ import unstudio.chinacraft.api.ItemMethod;
 
 import java.util.List;
 
-public class ItemSMFFire extends ItemSpiritualMagicFigures {
+public class ItemSMFFire extends Item {
     public ItemSMFFire(){
         setUnlocalizedName("spiritual_magic_figures_fire");
     }

@@ -9,9 +9,9 @@ import unstudio.chinacraft.common.ChinaCraft;
 
 import java.util.List;
 
-public class YanLung_Giantknife extends ItemSword{
-	public YanLung_Giantknife() {
-		super(ChinaCraft.yanlong);
+public class BLGiantSword extends ItemSword{
+	public BLGiantSword(ToolMaterial toolMaterial) {
+		super(toolMaterial);
 		setUnlocalizedName("yanlung_giantknife");
 		setMaxStackSize(1);
 		setMaxDamage(1500);
@@ -31,7 +31,7 @@ public class YanLung_Giantknife extends ItemSword{
 		}
 		return true;
 	}
-	@Override
+
 	public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
 		p_77624_3_.add(StatCollector.translateToLocal("item.yanlung_giantknife.lore"));
 	}

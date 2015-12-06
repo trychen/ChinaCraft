@@ -11,6 +11,7 @@ item.yanlung_giantknife.name=BL Giant Sword
 item.yanlung_giantknife.lore=If the entity is attacked, the entity will burn
 item.jiuqu_tang.name=Jiu Qu Sword
 item.mace.name=Mace
+item.mace.lore=Make the aggressor dizziness
 item.bronze_axe.name=Bronze Axe
 item.bronze_pickaxe.name=Bronze Pickaxe
 item.bronze_hoe.name=Bronze Hoe
@@ -53,7 +54,8 @@ item.barley_rice.name=Barley Rice
 item.mooncake.name=Mooncake
 item.china_crown.name=Crown
 tile.xinjiang_nut_cake.name=Xinjiang Nut Cake
-
+item.firecracker.name=Firecracker
+item.bomb.name=Thrown Bomb
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot
 

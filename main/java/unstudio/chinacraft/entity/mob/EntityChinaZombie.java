@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity;
+package unstudio.chinacraft.entity.mob;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;

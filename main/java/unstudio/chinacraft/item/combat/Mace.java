@@ -1,10 +1,14 @@
 package unstudio.chinacraft.item.combat;
 
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
+
+import java.util.List;
 
 public class Mace extends ItemSword{
     public Mace() {
@@ -19,5 +23,9 @@ public class Mace extends ItemSword{
         target.addPotionEffect(new PotionEffect(4,10));
         target.addPotionEffect(new PotionEffect(2,10));
         return true;
+    }
+
+    public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+        p_77624_3_.add(StatCollector.translateToLocal("item.mace.lore"));
     }
 }

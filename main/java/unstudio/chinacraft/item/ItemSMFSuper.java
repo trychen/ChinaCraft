@@ -5,15 +5,19 @@ import net.minecraft.entity.ai.EntityAIAttackOnCollide;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class ItemSMFSuper extends ItemSpiritualMagicFigures{
+public class ItemSMFSuper extends Item {
     public ItemSMFSuper(){
         setUnlocalizedName("SMFSuper");
+        setCreativeTab(ChinaCraft.tabCore);
+        setMaxStackSize(8);
     }
 
     @Override

@@ -12,6 +12,7 @@ item.yanlung_giantknife.name=炎龙巨刀
 item.yanlung_giantknife.lore=被攻击的实体将会被燃烧
 item.jiuqu_tang.name=九曲镋
 item.mace.name=狼牙棒
+item.mace.lore=使被攻击者眩晕
 item.bronze_axe.name=青铜斧
 item.bronze_pickaxe.name=青铜稿
 item.bronze_hoe.name=青铜锄
@@ -47,6 +48,8 @@ item.black_dog_blood.name=黑狗血
 item.moon_cake.name=月饼
 item.china_crown.name=冕冠
 tile.xinjiang_nut_cake.name=切糕
+item.firecracker.name=鞭炮
+item.bomb.name=投掷性炸弹
 
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭

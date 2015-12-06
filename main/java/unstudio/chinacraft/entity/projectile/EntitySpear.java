@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity;
+package unstudio.chinacraft.entity.projectile;
 
 import cpw.mods.fml.common.registry.IThrowableEntity;
 import cpw.mods.fml.relauncher.Side;

@@ -5,8 +5,8 @@ import net.minecraft.item.ItemSword;
 import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeBroadSword extends ItemSword{
-	public BronzeBroadSword(String name) {
-		super(ChinaCraft._BRONZE);
+	public BronzeBroadSword(ToolMaterial toolMaterial,String name) {
+		super(toolMaterial);
 		setUnlocalizedName(name);
 		setMaxStackSize(1);
 		setMaxDamage(500);

@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.entity.EntityBlackDog;
+import unstudio.chinacraft.entity.animal.EntityBlackDog;
 
 
 public class ListenerEntityBlackDog{

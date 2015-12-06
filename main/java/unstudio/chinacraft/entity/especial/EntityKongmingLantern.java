@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity;
+package unstudio.chinacraft.entity.especial;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity;
+package unstudio.chinacraft.entity.projectile;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;

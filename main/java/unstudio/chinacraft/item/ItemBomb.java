@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.api.ItemMethod;
-import unstudio.chinacraft.entity.EntityThrownBomb;
+import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 
 public class ItemBomb extends Item{
     public ItemBomb(){

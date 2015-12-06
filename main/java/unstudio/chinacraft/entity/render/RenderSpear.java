@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
-import unstudio.chinacraft.entity.EntitySpear;
+import unstudio.chinacraft.entity.projectile.EntitySpear;
 
 /**
  * Use for nothing.
