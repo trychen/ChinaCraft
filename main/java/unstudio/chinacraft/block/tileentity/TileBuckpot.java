@@ -34,7 +34,13 @@ public class TileBuckpot extends TilePotteryBase implements ICooker{
 	}
 
 	@Override
-	public void output(EntityPlayer entityPlayer) {
+	public void output(ItemStack item, EntityPlayer entityPlayer) {
 		
+	}
+
+	@Override
+	public boolean cooking() {
+		// TODO 自动生成的方法存根
+		return false;
 	}
 }
