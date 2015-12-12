@@ -1,19 +1,15 @@
 package unstudio.chinacraft.common;
 
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRenderer;
-import unstudio.chinacraft.client.item.BlockModelItemRenderer;
+import unstudio.chinacraft.client.item.BuhrimillItemRenderer;
 import unstudio.chinacraft.client.model.ModelBuhrimill;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.ModelArmorRegister;
-import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
-import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 import unstudio.chinacraft.common.nei.NEIAPI;
 import unstudio.chinacraft.block.tileentity.TileBuhrimill;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -40,7 +36,7 @@ public class ClientProxy extends CommonProxy {
         ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BlockModelItemRenderer(new ModelBuhrimill(),new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BuhrimillItemRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());

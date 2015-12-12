@@ -1,6 +1,7 @@
 package unstudio.chinacraft.client.block.tileentity;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
@@ -8,8 +9,8 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.client.model.ModelBuhrimill;
 import unstudio.chinacraft.block.tileentity.TileBuhrimill;
+import unstudio.chinacraft.client.model.ModelBuhrimill;
 
 public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
 	public final ModelBuhrimill model = new ModelBuhrimill();
@@ -22,7 +23,7 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
 		ModelBuhrimill modelBuhrimill = this.model;
 		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
+		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
 		Minecraft.getMinecraft().renderEngine.bindTexture(textures);
 		GL11.glPushMatrix();
 		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
