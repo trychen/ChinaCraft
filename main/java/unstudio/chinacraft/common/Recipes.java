@@ -15,6 +15,10 @@ import unstudio.chinacraft.recipes.BuhrimillRecipe;
  */
 public class Recipes {
     public static void init(){
+        //投掷炸弹
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.firecracker,2),new ItemStack(Items.dye, 1, 1),Items.gunpowder,Items.paper);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bomb),Items.gunpowder,Items.iron_ingot);
+
         //夜行衣
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[0]),new Object[]{"AAA","ABA","   ",'A',Items.leather,'B',Items.dye});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[1]),new Object[]{"ABA","AAA","AAA",'A',Items.leather,'B',Items.dye});
@@ -62,7 +66,7 @@ public class Recipes {
         GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
 
         //石磨
-//        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', Items.iron_ingot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', Items.iron_ingot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
 //        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill), new Object[]{" #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I', ChinaCraft.bronzeIngot, 'X', Item.getItemFromBlock(Blocks.cobblestone)});
 //        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill, 1), new Object[]{" #X", "&#&", "&&&", '#', Item.getItemFromBlock(Blocks.cobblestone), 'X', Items.stick, '&', Item.getItemFromBlock(Blocks.stone)});
 
