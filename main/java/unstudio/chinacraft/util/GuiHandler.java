@@ -21,8 +21,8 @@ public class GuiHandler implements IGuiHandler{
                 case GuiID.GUI_JadeBench:
                 		return new ContainerJadeBench(player.inventory, (TileJadeBench) world.getTileEntity(x, y, z));
                 		
-                case GuiID.GUI_Cooker:
-                	    return new ContainerCooker(player.inventory, (TileCooker) world.getTileEntity(x, y, z));
+                case GuiID.GUI_CookingBench:
+                	    return new ContainerCookingBench(player.inventory, (TileCookingBench) world.getTileEntity(x, y, z));
                 	    
                 case GuiID.GUI_Sericulture_Farme:
             	    return new ContainerSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));
@@ -49,8 +49,8 @@ public class GuiHandler implements IGuiHandler{
                 case GuiID.GUI_JadeBench:
                 		return new GuiJadeBench(player.inventory, (TileJadeBench) world.getTileEntity(x, y, z));
                 		
-                case GuiID.GUI_Cooker:
-            		return new GuiCooker(player.inventory, (TileCooker) world.getTileEntity(x, y, z));
+                case GuiID.GUI_CookingBench:
+            		return new GuiCookingBench(player.inventory, (TileCookingBench) world.getTileEntity(x, y, z));
             		
                 case GuiID.GUI_Sericulture_Farme:
             	    return new GuiSericultureFrame(player.inventory, (TileSericultureFrame) world.getTileEntity(x, y, z));

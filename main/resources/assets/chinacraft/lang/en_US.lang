@@ -110,8 +110,8 @@ nei.gui.buhrimill.title=Buhrimill Recipes
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
 
-tile.cooker.name=Furnace Platform
-gui.cooker.title=Furnace Platform
+tile.cooking_bench.name=Furnace Platform
+gui.cooking_bench.title=Furnace Platform
 
 tile.blockfirebrick.title=Firebrick
 item.firebrick.name=Firebrick

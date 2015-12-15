@@ -169,8 +169,8 @@ public class ChinaCraft {
     public static Lantern lantern = new Lantern(); //灯笼
     public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //木桶
 
-    public static Cooker cooker_off = new Cooker(false); //灶台
-    public static Cooker cooker_on = new Cooker(true); //灶台
+    public static BlockCookingBench cooking_bench_off = new BlockCookingBench(false); //灶台
+    public static BlockCookingBench cooking_bench_on = new BlockCookingBench(true); //灶台
 
     public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
 

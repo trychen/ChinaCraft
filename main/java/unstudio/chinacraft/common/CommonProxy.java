@@ -76,9 +76,9 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
 
 //    	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern");
-        GameRegistry.registerBlock(ChinaCraft.cooker_on, "CookerOn");
-        GameRegistry.registerBlock(ChinaCraft.cooker_off, "CookerOff");
-        GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
+        GameRegistry.registerBlock(ChinaCraft.cooking_bench_on, "CookingBenchOn");
+        GameRegistry.registerBlock(ChinaCraft.cooking_bench_off, "CookingBenchOff");
+        GameRegistry.registerTileEntity(TileCookingBench.class, "tileEntityCookingBench");
 
 //    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
 //    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");

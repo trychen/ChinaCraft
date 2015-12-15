@@ -51,8 +51,8 @@ public class Recipes {
         //养蚕架
         //    	GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1), new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
 
-        //Cooker
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooker_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
+        //CookingBench
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooking_bench_off, 1), new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
 
         //混合粉末
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.tinOre);

@@ -6,5 +6,6 @@ import net.minecraft.item.ItemStack;
 public interface ICooker {
 	public void input(ItemStack item,EntityPlayer entityPlayer);
 	public void output(ItemStack item,EntityPlayer entityPlayer);
-	public boolean cooking();
+	public boolean isCooking();
+	public int remainingTime();
 }

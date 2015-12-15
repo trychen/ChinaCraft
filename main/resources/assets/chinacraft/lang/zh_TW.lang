@@ -90,8 +90,8 @@ gui.jade_bench.title=玉石加工臺
 tile.jade_table.name=玉石加工臺
 gui.jade_table.info=玉石信息
 
-tile.cooker.name=竈臺
-gui.cooker.title=竈臺
+tile.cooking_bench.name=竈臺
+gui.cooking_bench.title=竈臺
 
 item.jade_green.name=翡翠玉
 item.jade_green2.name=碧玉
