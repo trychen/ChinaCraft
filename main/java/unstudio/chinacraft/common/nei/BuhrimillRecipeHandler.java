@@ -6,15 +6,15 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
+import codechicken.nei.NEIClientUtils;
+import codechicken.nei.NEIServerUtils;
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import unstudio.chinacraft.client.gui.GuiBuhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
-import codechicken.nei.NEIClientUtils;
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
 
 public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 	//*********************************************************************************************************************************************************************

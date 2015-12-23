@@ -1,10 +1,11 @@
 package unstudio.chinacraft.common.nei;
 
 import codechicken.nei.api.API;
+import codechicken.nei.api.IConfigureNEI;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.client.gui.GuiBuhrimill;
 
-public class NEIAPI implements codechicken.nei.api.IConfigureNEI{
+public class NEIAPI implements IConfigureNEI{
 
 	@Override
 	public void loadConfig() {
