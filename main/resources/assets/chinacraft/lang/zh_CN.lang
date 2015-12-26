@@ -148,8 +148,8 @@ gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
 gui.jade_table.info=玉石信息
 
-tile.cooker.name=灶台
-gui.cooker.title=灶台
+tile.cooking_bench.name=灶台
+gui.cooking_bench.title=灶台
 
 tile.blockfirebrick.title=耐火砖
 item.firebrick.name=耐火砖

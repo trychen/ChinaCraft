@@ -39,8 +39,14 @@ public class TileBuckpot extends TilePotteryBase implements ICooker{
 	}
 
 	@Override
-	public boolean cooking() {
+	public boolean isCooking() {
 		// TODO 自动生成的方法存根
 		return false;
+	}
+
+	@Override
+	public int remainingTime() {
+		// TODO 自动生成的方法存根
+		return 0;
 	}
 }

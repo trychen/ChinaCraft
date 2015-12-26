@@ -51,7 +51,7 @@ public abstract class BaseRecipe {
 		return outputs;
 	}
 	
-	public abstract boolean recipeEquals(BaseRecipe obj);
+	public abstract boolean recipeEquals(BaseRecipe recipe);
 	
-	
+	public abstract boolean inputsEquals(ItemStack[] inputs);
 }

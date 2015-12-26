@@ -79,7 +79,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     @Override
     public void loadCraftingRecipes(String outputId, Object... results) {
         if (outputId.equals("buhrimill") && getClass() == BuhrimillRecipeHandler.class) {//don't want subclasses getting a hold of this
-            ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
+            List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
             for (BuhrimillRecipe recipe : recipes)
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput2(),recipe.getInput2(),recipe.getOutput2()));
         } else
@@ -88,7 +88,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadCraftingRecipes(ItemStack result) {
-        ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
+        List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
         for (BuhrimillRecipe recipe : recipes)
             if (NEIServerUtils.areStacksSameType(recipe.getOutput1(), result))
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(),recipe.getInput2(),recipe.getOutput2()));
@@ -104,7 +104,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadUsageRecipes(ItemStack ingredient) {
-        ArrayList<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
+        List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
         for (BuhrimillRecipe recipe : recipes)
             if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getInput1(), ingredient)) {
                 SmeltingPair arecipe = new SmeltingPair(recipe.getInput1(), recipe.getOutput1(),recipe.getInput2(),recipe.getOutput2());

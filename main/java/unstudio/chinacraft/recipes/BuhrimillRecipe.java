@@ -1,6 +1,8 @@
 package unstudio.chinacraft.recipes;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import net.minecraft.item.ItemStack;
 
 public class BuhrimillRecipe {
@@ -47,7 +49,7 @@ public class BuhrimillRecipe {
 		return time;
 	}
 	
-	private static ArrayList<BuhrimillRecipe> recipes = new ArrayList<BuhrimillRecipe>();
+	private static List<BuhrimillRecipe> recipes = new ArrayList<BuhrimillRecipe>();
 
 	public static void registerBuhrimillReciper(ItemStack input1,ItemStack input2,ItemStack output1,ItemStack output2,int time) {
 		if(input1 == null||output1 == null)return;
@@ -87,7 +89,7 @@ public class BuhrimillRecipe {
 		return 0;
 	}
 
-	public static ArrayList<BuhrimillRecipe> getRecipes(){
+	public static List<BuhrimillRecipe> getRecipes(){
 		return recipes;
 	}
 }
