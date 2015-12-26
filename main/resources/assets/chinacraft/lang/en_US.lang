@@ -70,7 +70,7 @@ tile.jade_ore.name=Jade Ore
 item.jade.lore=Level:
 
 tile.bamboo.name=Bamboo
-tile.bamboo_block.name=Bamboo Clappers
+tile.bamboo_slab.name=Bamboo Clappers
 item.bamboo.name=Bamboo
 item.bamboo_shoot.name=Bamboo Shoot
 

@@ -6,7 +6,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
 /**
@@ -44,7 +43,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A', Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife});
 
         //竹子
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooBlock), ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooSlab), ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo, ChinaCraft.bamboo);
 
         //mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4), Item.getItemFromBlock(ChinaCraft.mulberryLog));

@@ -16,7 +16,7 @@ public class ListenerVersionChecker {
             if (e.entity instanceof EntityPlayer) {
                 EntityPlayer p = (EntityPlayer) e.entity;
                 if (!ChinaCraft.haveWarnedVersionOutOfDate && p.worldObj.isRemote
-                        && !ChinaCraft.versionChecker.getisLatestVersion()) {
+                        && !ChinaCraft.versionChecker.isLatestVersion() && ChinaCraft.versionChecker.isCheckable()) {
                     ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL,
                             ChinaCraft.versionChecker.getDownloadUrl());
                     ChatStyle clickableChatStyle = new ChatStyle().setChatClickEvent(versionCheckChatClickEvent);

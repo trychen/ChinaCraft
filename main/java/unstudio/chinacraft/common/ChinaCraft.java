@@ -40,6 +40,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.util.VersionChecker;
 
 import javax.swing.*;
+import java.util.Random;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft {
@@ -112,6 +113,7 @@ public class ChinaCraft {
     public static int jadehasHealTicker = 0;
     public static VersionChecker versionChecker = new VersionChecker();
     public static boolean haveWarnedVersionOutOfDate = false;
+    public static Random rand = new Random();
 
     //Material
     public static Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
@@ -134,20 +136,25 @@ public class ChinaCraft {
     public static MarbleSlab marbleDoubleSlab = new MarbleSlab(true); //大理石半砖
     public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); //大理石半砖
     public static SilverOre silverOre = new SilverOre();  //银
-    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
     public static WoodenWindow woodenWindow1 = new WoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); //木窗框1
     public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); //木窗框2
     public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); //木窗框3
     public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); //木窗框3
     public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); //木窗框Logo
-    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
+//    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
+    public static CCGrowablePlant riceGrow = new CCGrowablePlant("rice",5,ChinaCraft.rices,ChinaCraft.lcker); //水稻作物
+    //    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
+    public static CCGrowablePlant soyGrow = new CCGrowablePlant("soy",5,ChinaCraft.soyPod,ChinaCraft.soyPod); //大豆作物
+    public static CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice",7,ChinaCraft.glutinousRice,ChinaCraft.glutinousRice);//糯米作物
     public static BlockBamboo blockBamboo = new BlockBamboo();  //竹子方块
     public static BambooShoot bambooShoot = new BambooShoot(); //竹笋
     public static MulberryLog mulberryLog = new MulberryLog(); //桑树原木
     public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); //桑树树叶
     public static MulberrySapling mulberrySapling = new MulberrySapling(); //桑树树苗
     public static MulberryWood mulberryWood = new MulberryWood(); //桑树木板
-    public static Block bambooBlock = new BlockBase(Material.wood).setBlockName("bamboo_block").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
+    public static CCFlower azalea = new CCFlower("azalea");
+    public static CCFlower peony = new CCFlower("peony");
+    public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
 
     //TraditionalCarpet
@@ -169,8 +176,8 @@ public class ChinaCraft {
     public static Lantern lantern = new Lantern(); //灯笼
     public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //木桶
 
-    public static Cooker cooker_off = new Cooker(false); //灶台
-    public static Cooker cooker_on = new Cooker(true); //灶台
+    public static Cooker cooker_off = new Cooker(false); //灶台Off
+    public static Cooker cooker_on = new Cooker(true); //灶台On
 
     public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
 
@@ -179,9 +186,10 @@ public class ChinaCraft {
     public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
     public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); //银锭
     public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder").setCreativeTab(ChinaCraft.tabCore); //铜锡混合矿粉
-    public static CropPlant rices = (CropPlant) new CropPlant(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //米
+    public static CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //米
     public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabPlant); //米穗
-    public static CropPlant soy = (CropPlant) new CropPlant(ChinaCraft.soyGrow).setUnlocalizedName("soy"); //大豆
+    public static CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow).setUnlocalizedName("soy"); //大豆
+    public static CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
     public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //竹子
     public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //大豆荚
     public static ItemReed itemBuhrimill = (ItemReed) new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨

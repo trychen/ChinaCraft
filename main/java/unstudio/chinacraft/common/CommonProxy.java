@@ -5,8 +5,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -57,10 +55,14 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
         GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
         GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
-        GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon");
+        GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon"); //龙腾木窗格
         GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
-        GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo");
-        GameRegistry.registerBlock(ChinaCraft.bambooBlock, "BambooBlock");
+        GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo"); //竹子
+        GameRegistry.registerBlock(ChinaCraft.bambooSlab, "BambooSlab"); //竹木板
+        GameRegistry.registerBlock(ChinaCraft.azalea,"Azalea");
+        GameRegistry.registerBlock(ChinaCraft.peony,"Peony");
+        GameRegistry.registerItem(ChinaCraft.glutinousRice,"GlutinousRice");
+        GameRegistry.registerBlock(ChinaCraft.blockGlutinousRice,"BlockGlutinousRice");
         GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
         GameRegistry.registerBlock(ChinaCraft.mulberryLeaf, "MulberryLeaf");
         GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
@@ -69,21 +71,23 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.bambooShoot, "BambooShoot");
         GameRegistry.registerWorldGenerator(ChinaCraft.bambooShoot, 1);
 
-        GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable");
-        GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable");
+        GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); //玉石工作台
+        GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); //玉石工作台TileEntity
 
-        GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill");
-        GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill");
+        GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill"); //石磨
+        GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill"); //石磨TileEntity
 
-//    	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern");
-        GameRegistry.registerBlock(ChinaCraft.cooker_on, "CookerOn");
-        GameRegistry.registerBlock(ChinaCraft.cooker_off, "CookerOff");
-        GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker");
+    	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern"); //灯笼
+        GameRegistry.registerBlock(ChinaCraft.cooker_on, "CookerOn"); //灶台On
+        GameRegistry.registerBlock(ChinaCraft.cooker_off, "CookerOff"); //灶台Off
+        GameRegistry.registerTileEntity(TileCooker.class, "tileEntityCooker"); //灶台TileEntity
 
-//    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame");
-//    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame");
+    	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame"); //养蚕架
+    	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame"); //养蚕架TileEntity
 
-//    	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable");
+    	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable"); //陶瓷工作台
+        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); //陶瓷
+        GameRegistry.registerBlock(ChinaCraft.blockBuckpot,"Buckpot"); //陶罐
 
         GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//青铜锭
         OreDictionary.registerOre("ingotCopper", ChinaCraft.bronzeIngot);

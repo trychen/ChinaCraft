@@ -3,6 +3,7 @@ package unstudio.chinacraft.item.combat.models;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public class ModelNightClothes extends ModelBiped {
     ModelRenderer Shape1;
@@ -18,7 +19,6 @@ public class ModelNightClothes extends ModelBiped {
     ModelRenderer Shape11;
     ModelRenderer Shape12;
     ModelRenderer Shape13;
-
     public ModelNightClothes(float expand) {
         super(expand, 0, 64, 64);
 
