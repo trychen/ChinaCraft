@@ -54,19 +54,4 @@ public class ListenerArmor {
         if (!event.player.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)) return;
         event.player.addPotionEffect(new PotionEffect(1, 10));
     }
-
-    @SubscribeEvent
-    public void entity(LivingDeathEvent event){
-        System.out.println(0);
-        if (event.entity instanceof EntityArrow){
-            System.out.println(1);
-            if (event.source.getSourceOfDamage() instanceof EntityPlayer){
-                EntityPlayer cause = (EntityPlayer)event.source.getSourceOfDamage();
-                if (cause.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
-                    event.entity.worldObj.spawnEntityInWorld(new EntityLightningBolt(event.entity.worldObj,event.entity.posX,event.entity.posY,event.entity.posZ));
-                }
-            }
-        }
-
-    }
 }

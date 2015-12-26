@@ -1,5 +1,6 @@
 package unstudio.chinacraft.common;
 
+import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -8,12 +9,15 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
+import unstudio.chinacraft.block.CCFlower;
 import unstudio.chinacraft.block.tileentity.*;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.config.ConfigLoader;
+import unstudio.chinacraft.world.gen.WorldGenCCFlower;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 
 public class CommonProxy {
@@ -60,6 +64,7 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo"); //竹子
         GameRegistry.registerBlock(ChinaCraft.bambooSlab, "BambooSlab"); //竹木板
         GameRegistry.registerBlock(ChinaCraft.azalea,"Azalea");
+        GameRegistry.registerWorldGenerator(new WorldGenCCFlower(),1);
         GameRegistry.registerBlock(ChinaCraft.peony,"Peony");
         GameRegistry.registerItem(ChinaCraft.glutinousRice,"GlutinousRice");
         GameRegistry.registerBlock(ChinaCraft.blockGlutinousRice,"BlockGlutinousRice");
