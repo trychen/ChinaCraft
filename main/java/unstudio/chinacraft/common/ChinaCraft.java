@@ -12,6 +12,8 @@ import unstudio.chinacraft.block.generation.ore.SilverOre;
 import unstudio.chinacraft.block.generation.ore.TinOre;
 import unstudio.chinacraft.block.generation.plant.*;
 import unstudio.chinacraft.block.modelblock.Lantern;
+import unstudio.chinacraft.common.network.RedPacketMessage;
+import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.*;
@@ -34,12 +36,14 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.util.VersionChecker;
 
 import javax.swing.*;
+
 import java.util.Random;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
@@ -67,16 +71,16 @@ public class ChinaCraft {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+        Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
+        Network.registerMessage(new RedPacketMessageHandler(), RedPacketMessage.class, 0, Side.SERVER);
         NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
-//        Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
-//        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 0, Side.SERVER);
 //        Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class, 1, Side.CLIENT);
         new Thread(versionChecker).start();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init(event);
+        proxy.init(event);       
         ListenerRegister.init();
         EntityRegister.init();
     }

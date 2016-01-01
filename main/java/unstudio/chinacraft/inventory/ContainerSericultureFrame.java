@@ -83,7 +83,6 @@ public class ContainerSericultureFrame extends Container{
 	
 	@Override
 	public void addCraftingToCrafters(ICrafting par1iCrafting) {
-		// TODO Auto-generated method stub
 		super.addCraftingToCrafters(par1iCrafting);
 		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.schedule);
 	}
@@ -98,7 +97,6 @@ public class ContainerSericultureFrame extends Container{
  
 	@Override
 	public void detectAndSendChanges() {
-		// TODO Auto-generated method stub
 		super.detectAndSendChanges();
 		Iterator var1 = this.crafters.iterator();
 		while (var1.hasNext()) {

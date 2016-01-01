@@ -177,11 +177,11 @@ item.debug.lore=拿着本物品对方块右键即可输出调试信息
 
 
 item.redpacket.name=红包
-gui.redpacket.default.wash.0=愿所有的幸福都陪伴着你
-gui.redpacket.default.wash.1=好运终归来
-gui.redpacket.default.wash.2=愿快乐常伴吾身
-gui.redpacket.from=来自
-gui.redpacket.s=的
+gui.redpacket.money=金钱
+gui.redpacket.send=发送
+gui.redpacket.wash=请输入祝福语
+gui.redpacket.sendee=目标玩家
+gui.redpacket.from=来自 %sender% 的红包
 
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵尸

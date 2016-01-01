@@ -1,9 +1,14 @@
 package unstudio.chinacraft.inventory;
 
+import java.util.Iterator;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
@@ -14,7 +19,7 @@ public class ContainerRedPacket extends Container{
 	private ItemStack itemStack;
 	private String Sender;
 
-	public ContainerRedPacket(InventoryPlayer playerInv,ItemStack itemStack) {
+	public ContainerRedPacket(EntityPlayer player,ItemStack itemStack) {
 		this.itemStack=itemStack;
 		Slot slot0 = new Slot(new InventoryBasic("Redpacket", false, 1), 0, 80, 25);
 		NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
@@ -33,14 +38,14 @@ public class ContainerRedPacket extends Container{
         {
                     for (int var4 = 0; var4 < 9; ++var4)
                     {
-                        this.addSlotToContainer(new Slot(playerInv, var4 + var3 * 9 + 9, 8 + var4 * 18, 84 + var3 * 18));
+                        this.addSlotToContainer(new Slot(player.inventory, var4 + var3 * 9 + 9, 8 + var4 * 18, 84 + var3 * 18));
                     }
         }
 
         for (var3 = 0; var3 < 9; ++var3)
         {
-        	if(var3 == playerInv.currentItem) {
-        		  this.addSlotToContainer(new Slot(playerInv, var3, 8 + var3 * 18, 142) {
+        	if(var3 == player.inventory.currentItem) {
+        		  this.addSlotToContainer(new Slot(player.inventory, var3, 8 + var3 * 18, 142) {
         			  @Override
         			    public boolean canTakeStack(EntityPlayer p_82869_1_)
         			    {
@@ -53,7 +58,7 @@ public class ContainerRedPacket extends Container{
         			    }
         		  });
         	}else {
-                  this.addSlotToContainer(new Slot(playerInv, var3, 8 + var3 * 18, 142));
+                  this.addSlotToContainer(new Slot(player.inventory, var3, 8 + var3 * 18, 142));
         	}
         } 
 	}
@@ -72,7 +77,6 @@ public class ContainerRedPacket extends Container{
 			NBTTagCompound nbtitem2 = new NBTTagCompound();
 			if(getSlot(0).getStack()!=null) {
 				getSlot(0).getStack().writeToNBT(nbtitem);
-				nbtitem2.setString("Sender",p_75134_1_.getDisplayName());
 			}
 			nbtitem2.setTag("Item", nbtitem);
 			itemStack.setTagCompound(nbtitem2);

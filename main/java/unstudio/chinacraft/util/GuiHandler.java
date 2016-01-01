@@ -34,7 +34,7 @@ public class GuiHandler implements IGuiHandler{
             	    return new ContainerPotteryKiln(player.inventory, (TilePotteryKiln) world.getTileEntity(x, y, z));
             	    
                 case GuiID.GUI_RedPacket:
-            	    return new ContainerRedPacket(player.inventory, player.inventory.getCurrentItem());
+            	    return new ContainerRedPacket(player, player.inventory.getCurrentItem());
                 }
                 return null;
         }
@@ -62,7 +62,7 @@ public class GuiHandler implements IGuiHandler{
             	    return new GuiPotteryKiln(player.inventory, (TilePotteryKiln) world.getTileEntity(x, y, z));
             	    
                 case GuiID.GUI_RedPacket:
-            	    return new GuiRedPacket(player.inventory, player.inventory.getCurrentItem());
+            	    return new GuiRedPacket(player, player.inventory.getCurrentItem());
                 }
                 return null;
         }
