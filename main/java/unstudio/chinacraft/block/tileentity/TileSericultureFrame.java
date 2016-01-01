@@ -169,8 +169,8 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 		float rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall >1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
 		int height = yCoord >128?128:yCoord;
 		float m = 0;
-		m += 0.53333333F*temperature*temperature-0.8F*temperature+0.3F;
-		m += 0.53333333F*rainfall*rainfall-0.8F*rainfall+0.3F;
+		m += -0.422*Math.pow(temperature, 4)+1.109*Math.pow(temperature, 3)-0.301*Math.pow(temperature, 2)-0.620*temperature+0.3 < 0?0:-0.422*Math.pow(temperature, 4)+1.109*Math.pow(temperature, 3)-0.301*Math.pow(temperature, 2)-0.620*temperature+0.3;
+		m += -0.422*Math.pow(rainfall, 4)+1.109*Math.pow(rainfall, 3)-0.301*Math.pow(rainfall, 2)-0.620*rainfall+0.3 < 0?0:-0.422*Math.pow(rainfall, 4)+1.109*Math.pow(rainfall, 3)-0.301*Math.pow(rainfall, 2)-0.620*rainfall+0.3;
 		m += 0.000048828125F*(height-64F)*(height-64F);
 		return m;
 	}

@@ -29,24 +29,22 @@ public class TileBuckpot extends TilePotteryBase implements ICooker{
 	}
 
 	@Override
-	public void input(ItemStack item, EntityPlayer entityPlayer) {
-		
+	public boolean input(ItemStack item, EntityPlayer entityPlayer) {
+		return false;
 	}
 
 	@Override
-	public void output(ItemStack item, EntityPlayer entityPlayer) {
-		
+	public boolean output(ItemStack item, EntityPlayer entityPlayer) {
+		return false;
 	}
 
 	@Override
 	public boolean isCooking() {
-		// TODO 自动生成的方法存根
 		return false;
 	}
 
 	@Override
 	public int remainingTime() {
-		// TODO 自动生成的方法存根
 		return 0;
 	}
 }
