@@ -30,11 +30,11 @@ public class ModelArmor extends ItemArmor {
         this(armorMaterial, name, textureName, 0, type, render_idx);
     }
 
-    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName,int textureType, int type, int render_idx) {
+    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, int type, int render_idx) {
         super(armorMaterial, render_idx, type);
         setUnlocalizedName(name);
         TextureName = textureName;
-        this.textureType=textureType;
+        this.textureType = textureType;
         setMaxStackSize(1);
         setCreativeTab(ChinaCraft.tabTool);
     }
@@ -74,13 +74,8 @@ public class ModelArmor extends ItemArmor {
                     } else if (enumaction == EnumAction.block) {
                         armorModel.heldItemRight = 3;
                     }
-
-
                 }
-
             }
-
-
         }
 
 
@@ -92,6 +87,7 @@ public class ModelArmor extends ItemArmor {
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
     }
+
     @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(ItemStack stack, int pass) {
@@ -101,9 +97,9 @@ public class ModelArmor extends ItemArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         if (textureType == 0) {
-            return String.format("chinacraft:textures"+ File.separator + "models"+ File.separator + "armor"+ File.separator + "%s.png", TextureName);
+            return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor" + File.separator + "%s.png", TextureName);
         }
-        return String.format("chinacraft:textures"+ File.separator + "models"+ File.separator + "armor"+ File.separator + "%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
+        return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor" + File.separator + "%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
     }
 
     public void setArmorModel(ModelBiped armorModel) {
@@ -112,9 +108,18 @@ public class ModelArmor extends ItemArmor {
 
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        if (StatCollector.canTranslate("item."+TextureName+".lore")){
-            p_77624_3_.add(StatCollector.translateToLocal("item."+TextureName+".lore"));
+        if (StatCollector.canTranslate("item." + TextureName + ".lore")) {
+            p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore"));
         } else {
+            int i = 0;
+            while (true){
+                i++;
+                if (StatCollector.canTranslate("item." + TextureName + ".lore."+i)){
+                    p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore."+i));
+                } else {
+                    break;
+                }
+            }
             super.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
         }
     }

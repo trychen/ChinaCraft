@@ -1,13 +1,12 @@
 package unstudio.chinacraft.common;
 
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRenderer;
 import unstudio.chinacraft.client.item.BuhrimillItemRenderer;
-import unstudio.chinacraft.client.model.ModelBuhrimill;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.ModelArmorRegister;
 import unstudio.chinacraft.common.nei.NEIAPI;
@@ -37,6 +36,7 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BuhrimillItemRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new BuhrimillItemRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
@@ -57,7 +57,10 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.blockBamboo.setBlockTextureName("chinacraft:bamboo");
         ChinaCraft.mulberrySapling.setBlockTextureName("chinacraft:mulberry_sapling");
         ChinaCraft.mulberryWood.setBlockTextureName("chinacraft:mulberry_wood");
-        ChinaCraft.bambooBlock.setBlockTextureName("chinacraft:bamboo_block");
+        ChinaCraft.bambooSlab.setBlockTextureName("chinacraft:bamboo_slab");
+        ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
+        ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
+        ChinaCraft.glutinousRice.setTextureName("chinacraft:glutinous_rice");
         ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
         ChinaCraft.bambooShoot.setBlockTextureName("chinacraft:bamboo_shoot");
 

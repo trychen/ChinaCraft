@@ -61,7 +61,7 @@ public class BlockPotteryBase extends BlockContainer {
 				y, z);
 		Random random = World.rand;
 		if (tileentity != null) {
-			ItemStack itemstack = new ItemStack(ChinaCraft.blockPotteryBase);
+			ItemStack itemstack = new ItemStack(this);
 			NBTTagCompound nbtTagCompound = new NBTTagCompound();
 			nbtTagCompound
 					.setString("PotteryType", tileentity.getPotteryType());

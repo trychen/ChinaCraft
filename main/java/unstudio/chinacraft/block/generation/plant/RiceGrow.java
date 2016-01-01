@@ -22,18 +22,22 @@ public class RiceGrow extends BlockCrops {
 
 	@Override
 	public IIcon getIcon(int par1, int par2) {
-		if (par2 < 5) {
-			return this.icons[par2 >> 1];
-		} else if (par2 < 7) {
-			return this.icons[3];
+		if (par2 >= 5) {
+			if (par2 < 7) {
+                return this.icons[3];
+            } else {
+                return this.icons[4];
+            }
 		} else {
-			return this.icons[4];
+			return this.icons[par2 >> 1];
 		}
 	}
 
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
-        if (meta == 5 || meta == 6) {
+		if (meta != 5 && meta != 6) {
+            return 1;
+        } else {
             int ret = 2;
             for (int n = 0; n < 3 + fortune; n++) {
                 if (random.nextInt(15) <= meta) {
@@ -41,10 +45,8 @@ public class RiceGrow extends BlockCrops {
                 }
             }
             return ret;
-        } else {
-            return 1;
         }
-    }
+	}
     @Override
     protected Item func_149866_i() {
         return ChinaCraft.lcker;

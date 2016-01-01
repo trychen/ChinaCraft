@@ -37,7 +37,7 @@ item.bronze_ingot.name=青銅錠
 tile.jade_ore.name=玉原石
 
 tile.bamboo.name=竹子
-tile.bamboo_block.name=竹板
+tile.bamboo_slab.name=竹板
 tile.bamboo_shoot.name=竹筍
 item.bamboo.name=竹子
 item.bamboo_shoot.name=竹筍

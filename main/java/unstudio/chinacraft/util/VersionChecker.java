@@ -10,24 +10,22 @@ import java.net.URL;
 
 public class VersionChecker implements Runnable {
     private static boolean isLatestVersion = false;
+    private static boolean isCheckable = false;
     private static String newVersionInfo = "";
     private static String downloadUrl = "";
     private static int latestVersion = 1;
-
     @Override
     public void run() {
 
         InputStream version, info , downloadUrl;
         try {
-            version = new URL("http://www.mccraft.cn/version.php?id=0").openStream();
-            info = new URL("http://www.mccraft.cn/version.php?id=1").openStream();
-            downloadUrl = new URL("http://www.mccraft.cn/version.php?id=3").openStream();
+            version = new URL("http://www.mccraft.cn/mod.php?mod=chinacraft&id=0").openStream();
+            info = new URL("http://www.mccraft.cn/mod.php?mod=chinacraft&id=1").openStream();
+            downloadUrl = new URL("http://www.mccraft.cn/mod.php?mod=chinacraft&id=3").openStream();
         } catch (MalformedURLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return;
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return;
         }
@@ -42,9 +40,9 @@ public class VersionChecker implements Runnable {
         } finally{
             IOUtils.closeQuietly(version);
         }
-
+        this.isCheckable = true;
         System.out.println("[ChinaCraft]Latest mod version = " + latestVersion);
-        isLatestVersion = latestVersion == ChinaCraft.OutPutVERSION;
+        isLatestVersion = latestVersion > ChinaCraft.OutPutVERSION;
         if (isLatestVersion) {
             System.out.println("[ChinaCraft]You are running latest version = " + isLatestVersion);
         }else {
@@ -52,7 +50,7 @@ public class VersionChecker implements Runnable {
         }
     }
 
-    public boolean getisLatestVersion() {
+    public boolean isLatestVersion() {
         return isLatestVersion;
     }
 
@@ -60,11 +58,15 @@ public class VersionChecker implements Runnable {
         return latestVersion;
     }
 
-    public static String getNewVersionInfo() {
+    public String getNewVersionInfo() {
         return newVersionInfo;
     }
 
-    public static String getDownloadUrl() {
+    public String getDownloadUrl() {
         return downloadUrl;
+    }
+
+    public boolean isCheckable(){
+        return isCheckable;
     }
 }
