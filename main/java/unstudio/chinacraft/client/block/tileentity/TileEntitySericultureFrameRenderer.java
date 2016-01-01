@@ -8,10 +8,9 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelSericultureFrame;
 
 public class TileEntitySericultureFrameRenderer extends TileEntitySpecialRenderer {
-    public final ModelSericultureFrame model;
+    public final ModelSericultureFrame model = new ModelSericultureFrame();
     public final ResourceLocation textures = (new ResourceLocation("chinacraft:textures/models/block/SericultureFrame.png"));
     public TileEntitySericultureFrameRenderer() {
-        this.model = new ModelSericultureFrame();
     }
 
     @Override
@@ -23,6 +22,7 @@ public class TileEntitySericultureFrameRenderer extends TileEntitySpecialRendere
         GL11.glPushMatrix();
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         this.model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        GL11.glPopMatrix();
         GL11.glPopMatrix();
         GL11.glPopMatrix();
     }
