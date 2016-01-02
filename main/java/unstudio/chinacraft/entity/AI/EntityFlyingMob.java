@@ -14,20 +14,24 @@ public class EntityFlyingMob extends EntityMob{
         super(par1World);
     }
 
-    protected void updateFallState(double d, boolean b)
+    @Override
+	protected void updateFallState(double d, boolean b)
     {
     }
 
-    protected void fall(float f)
+    @Override
+	protected void fall(float f)
     {
     }
 
-    public boolean isOnLadder()
+    @Override
+	public boolean isOnLadder()
     {
         return false;
     }
 
-    public void moveEntityWithHeading(float par1, float par2)
+    @Override
+	public void moveEntityWithHeading(float par1, float par2)
     {
         if (isInWater()) {
             moveFlying(par1, par2, 0.01999999955296516418F);

@@ -2,17 +2,9 @@ package unstudio.chinacraft.event.combat;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
-import net.minecraftforge.event.entity.player.EntityInteractEvent;
-import scala.tools.nsc.typechecker.ContextErrors;
 import unstudio.chinacraft.common.ChinaCraft;
 
 public class ListenerArmor {

@@ -1,7 +1,6 @@
 package unstudio.chinacraft.client.block.tileentity;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;

@@ -81,11 +81,13 @@ public class RenderSpear extends Render
         return new ResourceLocation("");
     }
 
-    protected ResourceLocation getEntityTexture(Entity par1Entity) {
+    @Override
+	protected ResourceLocation getEntityTexture(Entity par1Entity) {
         return func_110779_a((EntitySpear)par1Entity);
     }
 
-    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
+    @Override
+	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
         renderArrow((EntitySpear)entity, d, d1, d2, f, f1);
     }
 }

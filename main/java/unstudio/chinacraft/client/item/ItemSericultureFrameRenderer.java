@@ -4,31 +4,34 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-import org.lwjgl.opengl.GL11;
-import unstudio.chinacraft.client.model.ModelBuhrimill;
-import unstudio.chinacraft.client.model.ModelExtendBlock;
+import net.minecraftforge.client.IItemRenderer.ItemRenderType;
+import net.minecraftforge.client.IItemRenderer.ItemRendererHelper;
 
-/**
- * Use for nothing.
- * Created by trychen on 15/11/29.
- */
-public class BuhrimillItemRenderer implements IItemRenderer {
+import org.lwjgl.opengl.GL11;
+
+import unstudio.chinacraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelSericultureFrame;
+
+public class ItemSericultureFrameRenderer implements IItemRenderer {
     private ModelExtendBlock model;
     private ResourceLocation texture;
 
-    public BuhrimillItemRenderer() {
-        this.model = new ModelBuhrimill();
-        this.texture = new ResourceLocation("chinacraft:textures/models/block/buhrimill.png");
+    public ItemSericultureFrameRenderer() {
+        this.model = new ModelSericultureFrame();
+        this.texture = new ResourceLocation("chinacraft:textures/models/block/SericultureFrame.png");
     }
-    public boolean handleRenderType(ItemStack item, ItemRenderType type) {
+    @Override
+	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         return true;
     }
 
-    public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
+    @Override
+	public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
         return true;
     }
 
-    public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+    @Override
+	public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
         Minecraft.getMinecraft().renderEngine.bindTexture(texture);
         GL11.glRotatef(180F, 1F, 0F, 0F);
 

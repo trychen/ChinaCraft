@@ -1,14 +1,8 @@
 package unstudio.chinacraft.inventory;
 
-import java.util.Iterator;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;

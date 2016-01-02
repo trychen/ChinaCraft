@@ -71,7 +71,8 @@ public class CCFlower extends BlockBush {
     /**
      * Determines the damage on the item the block drops. Used in cloth and wood.
      */
-    public int damageDropped(int p_149692_1_)
+    @Override
+	public int damageDropped(int p_149692_1_)
     {
         return p_149692_1_;
     }

@@ -39,7 +39,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals{
     /**
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    @Override
+	public void writeEntityToNBT(NBTTagCompound p_70014_1_)
     {
         super.writeEntityToNBT(p_70014_1_);
         p_70014_1_.setBoolean("Angry", this.isAngry());
@@ -48,7 +49,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals{
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    @Override
+	public void readEntityFromNBT(NBTTagCompound p_70037_1_)
     {
         super.readEntityFromNBT(p_70037_1_);
         this.setAngry(p_70037_1_.getBoolean("Angry"));
@@ -158,7 +160,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals{
     /**
      * Called when the entity is attacked.
      */
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    @Override
+	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
     {
         if (this.isEntityInvulnerable())
         {
@@ -177,7 +180,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals{
         }
     }
 
-    public boolean attackEntityAsMob(Entity p_70652_1_)
+    @Override
+	public boolean attackEntityAsMob(Entity p_70652_1_)
     {
         return p_70652_1_.attackEntityFrom(DamageSource.causeMobDamage(this), 3f);
     }

@@ -196,10 +196,11 @@ public class ChinaCraft {
     public static CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
     public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //竹子
     public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //大豆荚
-    public static ItemReed itemBuhrimill = (ItemReed) new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨
+    public static Item itemBuhrimill = new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨
+    public static Item itemSericultureFrame = new ItemReed(ChinaCraft.sericultureFrame).setUnlocalizedName("sericulture_frame").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //养蚕架
     public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabPlant); //桑叶
-    public static WoodenBucket woodenBucket = new WoodenBucket(Blocks.air); //木桶
-    public static WoodenBucket woodenBucket_Water = new WoodenBucket(Blocks.flowing_water); //木水桶
+    public static ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); //木桶
+    public static ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); //木水桶
     public static Silkworm silkworm = new Silkworm(); //蚕
     public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
     public static ItemRedPacket redPacket = new ItemRedPacket(); //红包

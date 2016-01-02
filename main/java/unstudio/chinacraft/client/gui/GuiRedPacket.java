@@ -5,23 +5,18 @@ import net.minecraft.nbt.NBTTagCompound;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiScreenBook;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
-
-import java.util.Random;
 
 public class GuiRedPacket extends GuiContainer {
 	
@@ -38,6 +33,7 @@ public class GuiRedPacket extends GuiContainer {
     private int currentItem;
     private EntityPlayer player;
     private ItemStack itemstack;
+    private GuiButton buttonSend;
 
     public GuiRedPacket(EntityPlayer player, ItemStack itemStack) {
     	super(new ContainerRedPacket(player, itemStack));
@@ -61,11 +57,25 @@ public class GuiRedPacket extends GuiContainer {
 
     @Override
     public void initGui() {
+    	this.buttonList.clear();
     	Keyboard.enableRepeatEvents(true);
+        int k = (this.width - this.xSize) / 2;
+        int l = (this.height - this.ySize) / 2;
     	wishTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2-80, 65, 160, 16);
     	wishTextBox.setFocused(true);
     	wishTextBox.setText(wish);
-    	wishTextBox.setMaxStringLength(128);
+    	wishTextBox.setMaxStringLength(64);
+    	moneyTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2+96, 41, 64, 16);
+    	moneyTextBox.setFocused(false);
+    	moneyTextBox.setText("0.00");
+    	moneyTextBox.setMaxStringLength(32);
+    	sendeeTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2+96, 65, 64, 16);
+    	sendeeTextBox.setFocused(false);
+    	sendeeTextBox.setText("");
+    	sendeeTextBox.setMaxStringLength(32);
+    	this.buttonList.add(this.buttonSend = new GuiButton(0, k+this.xSize / 2+96, l+89, 64, 20, StatCollector.translateToLocal("gui.redpacket.send")));
+    	buttonSend.enabled=false;
+    	updateButton();
     	super.initGui();
     }
     
@@ -78,12 +88,14 @@ public class GuiRedPacket extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         String s = sender == null ? StatCollector.translateToLocal("item.redpacket.name") : (sender.equals("") ? StatCollector.translateToLocal("item.redpacket.name") : StatCollector.translateToLocal("gui.redpacket.from").replaceAll("%sender%", sender)); // 设置Gui标题
-        this.fontRendererObj.drawString(s, this.xSize / 2
-                - this.fontRendererObj.getStringWidth(s) / 2, 5, Integer.MAX_VALUE);
-        this.fontRendererObj.drawString(wish, this.xSize / 2
-                - this.fontRendererObj.getStringWidth(wish) / 2, 68, Integer.MAX_VALUE);
-        wishTextBox.drawTextBox();
-
+        this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 5, Integer.MAX_VALUE);
+        if(sender==null||sender.length()==0){
+        	 wishTextBox.drawTextBox();
+        }else{
+        	this.fontRendererObj.drawString(wish, this.xSize / 2 - this.fontRendererObj.getStringWidth(wish) / 2, 68, Integer.MAX_VALUE);
+        }
+        moneyTextBox.drawTextBox();
+        sendeeTextBox.drawTextBox();
     }
 
     @Override
@@ -106,15 +118,27 @@ public class GuiRedPacket extends GuiContainer {
     {
     	wishTextBox.textboxKeyTyped(par1, par2);
     	wish=wishTextBox.getText();
+    	moneyTextBox.textboxKeyTyped(par1, par2);
+    	try{
+    		money=Double.valueOf(moneyTextBox.getText());
+    	}catch(NumberFormatException error){
+    		money=0.00;
+    		moneyTextBox.setText(moneyTextBox.getSelectedText());
+    	}
+    	sendeeTextBox.textboxKeyTyped(par1, par2);
+    	sendee=sendeeTextBox.getText();
+    	
     	if (par1 == '\r')
     	{
-    		
+
     	}
     	if (par2 == 1){
     		player.closeScreen();
     		// this.mc.displayGuiScreen((GuiScreen)null);
     		sendRedPacketToServer(false);
     	}
+    	
+    	updateButton();
     }
 
     public void setWish(String s) {
@@ -136,7 +160,7 @@ public class GuiRedPacket extends GuiContainer {
     	if(((wish!=null&&wish.length()>0)||(money>0))&&(sender!=null&&sender.length()>0))redpacket.setString("Sender", sender);
     	else if(((wish!=null&&wish.length()>0)||(money>0))&&(isSend&&sendee.length()>0)) redpacket.setString("Sender", player.getDisplayName());
     	if(wish!=null&&wish.length()>0)redpacket.setString("Wish", wish);
-    	if(isSend&&sendee.length()>0)redpacket.setString("Sendee", sendee);
+    	if(isSend&&sendee!=null&&sendee.length()>0)redpacket.setString("Sendee", sendee);
     	if(money>0)redpacket.setDouble("Money", money);
     	itemstack.setTagInfo("Redpacket", redpacket);
     	ChinaCraft.Network.sendToServer(new RedPacketMessage(itemstack));
@@ -144,14 +168,28 @@ public class GuiRedPacket extends GuiContainer {
     
     @Override
     protected void mouseClicked(int par1, int par2, int par3){
+        int k = (this.width - this.xSize) / 2;
+        int l = (this.height - this.ySize) / 2;
+    	wishTextBox.mouseClicked(par1-k, par2-l, par3);
+    	moneyTextBox.mouseClicked(par1-k, par2-l, par3);
+    	sendeeTextBox.mouseClicked(par1-k, par2-l, par3);
     	super.mouseClicked(par1, par2, par3);
-    	wishTextBox.mouseClicked(par1, par2, par3);
     	//同样,如果你有多个文本框,则每个都要来一遍
     }
 
     
-    protected void actionPerformed(GuiButton button)
+    @Override
+	protected void actionPerformed(GuiButton button)
     {
+    	if(button.enabled){
+    		if(button.id==0){
+        		player.closeScreen();
+        		sendRedPacketToServer(true);
+    		}
+    	}
+    }
     
+    private void updateButton(){
+    	buttonSend.enabled = (sendee!=null&&sendee.length()>0);
     }
 }

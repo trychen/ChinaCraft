@@ -28,13 +28,11 @@ import net.minecraft.world.World;
 
 public class Buhrimill extends BlockContainer {
 
-	IIcon empty;
-
 	public Buhrimill() {
 		super(Material.rock);
 		setBlockName("buhrimill");
 		setHardness(1.5F);
-		setResistance(10.0F);
+		setResistance(20.0F);
 		setLightLevel(0.0F);
 		setStepSound(soundTypeStone);
 		setHarvestLevel("pickaxe", 1);
@@ -56,11 +54,6 @@ public class Buhrimill extends BlockContainer {
 	@Override
 	public void setBlockBoundsForItemRender() {
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-	}
-
-	@Override
-	protected String getTextureName() {
-		return "chinacraft:textures"+ File.separator + "models"+ File.separator + "block"+ File.separator + "Buhrimill.png";
 	}
 
 	@Override
@@ -104,25 +97,6 @@ public class Buhrimill extends BlockContainer {
             p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
         }
     }
-
-
-//	@SideOnly(Side.CLIENT)
-//	@Override
-//	public IIcon getIcon(int i, int par2) {
-////		if (i == 0)
-////			return down;
-////		else if (i >= 1 && i <= 6)
-////			return top;
-////		else
-////			return top;
-//		return empty;
-//	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon("chinacraft:buhrimill");
-	}
 
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,

@@ -2,7 +2,6 @@ package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
-import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.block.tileentity.TilePotteryBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;

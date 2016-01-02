@@ -6,7 +6,8 @@ import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRenderer;
-import unstudio.chinacraft.client.item.BuhrimillItemRenderer;
+import unstudio.chinacraft.client.item.ItemBuhrimillRenderer;
+import unstudio.chinacraft.client.item.ItemSericultureFrameRenderer;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.ModelArmorRegister;
 import unstudio.chinacraft.common.nei.NEIAPI;
@@ -35,14 +36,15 @@ public class ClientProxy extends CommonProxy {
         ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BuhrimillItemRenderer());
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new BuhrimillItemRenderer());
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new ItemBuhrimillRenderer());
+//      MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new ItemBuhrimillRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemSericultureFrame,new ItemSericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
 
-        RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
+//      RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
         EntityRenderingRegistry.init();
         ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
@@ -81,7 +83,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.soy.setTextureName("chinacraft:soy_item");
         ChinaCraft.lcker.setTextureName("chinacraft:lcker");
         ChinaCraft.soyPod.setTextureName("chinacraft:soy_pod");
-        ChinaCraft.itemBuhrimill.setTextureName("chinacraft:item_buhrimill");
+//      ChinaCraft.itemBuhrimill.setTextureName("chinacraft:item_buhrimill");
         ChinaCraft.bamboo.setTextureName("chinacraft:bamboo");
         ChinaCraft.itemMulberryLeaf.setTextureName("chinacraft:mulberry_leaf");
         ChinaCraft.woodenBucket.setTextureName("chinacraft:woodenbucket");

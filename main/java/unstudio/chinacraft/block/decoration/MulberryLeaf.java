@@ -14,7 +14,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
 
 public class MulberryLeaf extends BlockLeaves {
 

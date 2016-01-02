@@ -3,7 +3,6 @@ package unstudio.chinacraft.item.combat.models;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 public class ModelNightClothes extends ModelBiped {
     ModelRenderer Shape1;
@@ -115,7 +114,8 @@ public class ModelNightClothes extends ModelBiped {
         this.bipedHead.addChild(Shape13);
     }
 
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+    @Override
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }

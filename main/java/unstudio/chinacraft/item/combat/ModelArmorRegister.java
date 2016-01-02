@@ -1,6 +1,5 @@
 package unstudio.chinacraft.item.combat;
 
-import unstudio.chinacraft.client.model.ModelExtendBlock;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;

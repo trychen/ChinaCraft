@@ -2,6 +2,8 @@ package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
@@ -10,6 +12,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
@@ -20,10 +23,9 @@ public class SericultureFrame extends BlockContainer{
 	public SericultureFrame() {
 		super(Material.wood);
 		setBlockName("sericulture_frame");
-		setHardness(1.5F);
+		setHardness(1.0F);
 		setResistance(10.0F);
 		setStepSound(soundTypeWood);
-		setCreativeTab(ChinaCraft.tabCore);
 	}
 
 	@Override
@@ -44,6 +46,19 @@ public class SericultureFrame extends BlockContainer{
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
+	}
+	
+	@Override
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,
+			int p_149650_3_) {
+		return ChinaCraft.itemSericultureFrame;
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_,
+			int p_149694_4_) {
+		return ChinaCraft.itemSericultureFrame;
 	}
 
 	@Override

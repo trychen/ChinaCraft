@@ -16,21 +16,26 @@ public class EntityThrownBomb extends EntityThrowable {
         super(par2World, par3EntityPlayer);
     }
 
-    protected void entityInit() {
+    @Override
+	protected void entityInit() {
     }
 
-    public void onUpdate() {
+    @Override
+	public void onUpdate() {
         super.onUpdate();
         this.worldObj.spawnParticle("spell", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
     }
 
-    public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+    @Override
+	public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
     }
 
-    public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+    @Override
+	public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
     }
 
-    protected void onImpact(MovingObjectPosition mop) {
+    @Override
+	protected void onImpact(MovingObjectPosition mop) {
         if (!this.worldObj.isRemote) {
             this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1.5F, true);
             setDead();

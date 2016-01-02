@@ -8,8 +8,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
-import unstudio.chinacraft.common.ChinaCraft;
-
 import java.util.Random;
 
 /**

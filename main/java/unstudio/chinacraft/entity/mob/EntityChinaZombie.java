@@ -17,7 +17,8 @@ public class EntityChinaZombie extends EntityZombie
 //        this.setSize(0.9f, 1.9f);
     }
 
-    protected void dropFewItems(boolean par1, int par2){
+    @Override
+	protected void dropFewItems(boolean par1, int par2){
         int random = this.rand.nextInt(30)+par2;
         if (random == 0){
             dropItem(ChinaCraft.smfSuper,1);
@@ -38,7 +39,8 @@ public class EntityChinaZombie extends EntityZombie
     	
     	return entityzombie;
     }
-    public void onUpdate()
+    @Override
+	public void onUpdate()
     {
         if (targetTasks != null) new EntityJumpHelper(this).doJump();
         if (isJumping == true) {
@@ -48,7 +50,8 @@ public class EntityChinaZombie extends EntityZombie
         }
         super.onUpdate();
     }
-    protected void applyEntityAttributes(){
+    @Override
+	protected void applyEntityAttributes(){
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(40.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.28000000417232513D);

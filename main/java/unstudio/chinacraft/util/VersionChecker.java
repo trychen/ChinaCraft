@@ -31,8 +31,8 @@ public class VersionChecker implements Runnable {
         }
         try {
             latestVersion = Integer.valueOf(IOUtils.readLines(version).get(0));
-            this.newVersionInfo = IOUtils.readLines(info).get(0);
-            this.downloadUrl = IOUtils.readLines(downloadUrl).get(0);
+            VersionChecker.newVersionInfo = IOUtils.readLines(info).get(0);
+            VersionChecker.downloadUrl = IOUtils.readLines(downloadUrl).get(0);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -40,7 +40,7 @@ public class VersionChecker implements Runnable {
         } finally{
             IOUtils.closeQuietly(version);
         }
-        this.isCheckable = true;
+        VersionChecker.isCheckable = true;
         System.out.println("[ChinaCraft]Latest mod version = " + latestVersion);
         isLatestVersion = latestVersion > ChinaCraft.OutPutVERSION;
         if (isLatestVersion) {

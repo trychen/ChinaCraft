@@ -53,7 +53,8 @@ public class EntitySpear extends EntityArrow
         super(world, par2EntityLivingBase, par3);
     }
 
-    protected void entityInit() {
+    @Override
+	protected void entityInit() {
         super.entityInit();
     }
 
@@ -77,13 +78,15 @@ public class EntitySpear extends EntityArrow
         this.ticksInGround = 0;
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
         setPosition(par1, par3, par5);
         setRotation(par7, par8);
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public void setVelocity(double par1, double par3, double par5) {
         this.motionX = par1;
         this.motionY = par3;
@@ -100,7 +103,8 @@ public class EntitySpear extends EntityArrow
         }
     }
 
-    public void onUpdate() {
+    @Override
+	public void onUpdate() {
         super.onUpdate();
 
         if ((this.prevRotationPitch == 0F) && (this.prevRotationYaw == 0F)) {
@@ -298,7 +302,8 @@ public class EntitySpear extends EntityArrow
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
+    @Override
+	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
         par1NBTTagCompound.setShort("xTile", (short) this.xTile);
         par1NBTTagCompound.setShort("yTile", (short) this.yTile);
         par1NBTTagCompound.setShort("zTile", (short) this.zTile);
@@ -310,7 +315,8 @@ public class EntitySpear extends EntityArrow
         par1NBTTagCompound.setDouble("damage", this.damage);
     }
 
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
+    @Override
+	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
         this.xTile = par1NBTTagCompound.getShort("xTile");
         this.yTile = par1NBTTagCompound.getShort("yTile");
         this.zTile = par1NBTTagCompound.getShort("zTile");
@@ -329,7 +335,8 @@ public class EntitySpear extends EntityArrow
             this.canBePickedUp = ((par1NBTTagCompound.getBoolean("player")) ? 1 : 0);
     }
 
-    public void onCollideWithPlayer(EntityPlayer par1EntityPlayer) {
+    @Override
+	public void onCollideWithPlayer(EntityPlayer par1EntityPlayer) {
         if ((!(this.worldObj.isRemote)) && (this.inGround) && (this.arrowShake <= 0)) {
             boolean flag = (this.canBePickedUp == 1) || ((this.canBePickedUp == 2) && (par1EntityPlayer.capabilities.isCreativeMode));
 
@@ -345,28 +352,34 @@ public class EntitySpear extends EntityArrow
         }
     }
 
-    @SideOnly(Side.CLIENT)
+    @Override
+	@SideOnly(Side.CLIENT)
     public float getShadowSize() {
         return 0F;
     }
 
-    public void setDamage(double par1) {
+    @Override
+	public void setDamage(double par1) {
         this.damage = par1;
     }
 
-    public double getDamage() {
+    @Override
+	public double getDamage() {
         return this.damage;
     }
 
-    public boolean canAttackWithItem() {
+    @Override
+	public boolean canAttackWithItem() {
         return false;
     }
 
-    public Entity getThrower() {
+    @Override
+	public Entity getThrower() {
         return this.shootingEntity;
     }
 
-    public void setThrower(Entity entity) {
+    @Override
+	public void setThrower(Entity entity) {
         this.shootingEntity = entity;
     }
 }

@@ -1,6 +1,5 @@
 package unstudio.chinacraft.common;
 
-import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -9,10 +8,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
-import unstudio.chinacraft.block.CCFlower;
 import unstudio.chinacraft.block.tileentity.*;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.util.GuiHandler;
@@ -81,6 +78,7 @@ public class CommonProxy {
 
         GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill"); //石磨
         GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill"); //石磨TileEntity
+        GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
 
     	GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern"); //灯笼
         GameRegistry.registerBlock(ChinaCraft.cooking_bench_on, "CookingBenchOn");
@@ -89,6 +87,7 @@ public class CommonProxy {
 
     	GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame"); //养蚕架
     	GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame"); //养蚕架TileEntity
+    	GameRegistry.registerItem(ChinaCraft.itemSericultureFrame, "ItemSericultureFrame");
 
     	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable"); //陶瓷工作台
         GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); //陶瓷
@@ -99,8 +98,6 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.copperTinMixedPowder, "CopperTinMixedPowder");
         GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");//银锭
         OreDictionary.registerOre("ingotSilver", ChinaCraft.silverOre);
-
-        GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
 
         GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");//青铜剑
 
@@ -188,7 +185,7 @@ public class CommonProxy {
         //石磨合成
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null, new ItemStack(ChinaCraft.flour), null, 360);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.riceFlour), null, 360);
-        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(Item.getItemFromBlock(ChinaCraft.copperOre)), new ItemStack(ChinaCraft.tinIngot), new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.copperOre), new ItemStack(ChinaCraft.tinOre), new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
         //玉石工作台合成
 
         //spiritual_magic_figures

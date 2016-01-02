@@ -9,7 +9,7 @@ public class ConfigLoader {
     public static Configuration mainConfig;
 
     public ConfigLoader(Configuration config){
-        this.mainConfig = config;
+        ConfigLoader.mainConfig = config;
         load();
     }
 

@@ -4,7 +4,6 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
@@ -39,16 +38,12 @@ public class GuiPotteryTable extends GuiContainer{
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
         this.buttonList.add(new GuiButton(0, k+59, l+22, 10, 20, "<"));
-        this.buttonList.add(new GuiButton(0, k+106, l+22, 10, 20, ">"));
+        this.buttonList.add(new GuiButton(1, k+106, l+22, 10, 20, ">"));
 	}
 	
 	@Override
 	protected void actionPerformed(GuiButton button) {
-		MinecraftServer server = FMLCommonHandler.instance()
-				.getMinecraftServerInstance();
-		World world = server.worldServers[0];
-		if (button.id == 0) {
-		}
+
 	}
 	
 	@Override
