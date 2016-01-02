@@ -20,6 +20,7 @@ public class ItemSericultureFrameRenderer implements IItemRenderer {
         this.model = new ModelSericultureFrame();
         this.texture = new ResourceLocation("chinacraft:textures/models/block/SericultureFrame.png");
     }
+    
     @Override
 	public boolean handleRenderType(ItemStack item, ItemRenderType type) {
         return true;

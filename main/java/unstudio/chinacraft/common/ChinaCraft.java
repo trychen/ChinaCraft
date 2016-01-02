@@ -288,6 +288,10 @@ public class ChinaCraft {
     public static ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal", new int[][]{{6, 1}, {10, 500}}); //生命回复
     public static ItemSMFSuper smfSuper = new ItemSMFSuper(); //捉妖符
 
+    //disc
+    public static CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");
+    public static CCMusicDisc mountain_stream = new CCMusicDisc("mountain_stream");
+
     public static ItemDebug debug = new ItemDebug(); //调试物品
 
 }

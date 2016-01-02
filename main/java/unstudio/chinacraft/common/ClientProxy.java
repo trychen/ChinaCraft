@@ -1,6 +1,8 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
@@ -36,8 +38,10 @@ public class ClientProxy extends CommonProxy {
         ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new ItemBuhrimillRenderer());
 //      MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new ItemBuhrimillRenderer());
+
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemSericultureFrame,new ItemSericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
@@ -147,6 +151,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.smfHeal.setTextureName("chinacraft:spiritual_magic_figures_heal");
         ChinaCraft.smfProtect.setTextureName("chinacraft:spiritual_magic_figures_protect");
         ChinaCraft.smfSuper.setTextureName("chinacraft:spiritual_magic_figures_super");
+
         ChinaCraft.debug.setTextureName("chinacraft:debug");
 
         super.init(event);

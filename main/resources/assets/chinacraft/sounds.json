@@ -1,3 +1,24 @@
 {
-  "firecracker": {"category": "master","sounds": ["firecracker","firecracker1"]}
+  "firecracker": {
+    "category": "master",
+    "sounds": [
+      "firecracker/firecracker","firecracker/firecracker1"
+    ]
+  },
+  "records.three_stanzas_of_plum-blossoms": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/three_stanzas_of_plum-blossoms",
+        "stream": true
+      }
+    ]},
+  "records.mountain_stream": {
+    "category": "record",
+    "sounds": [
+      {
+        "name": "records/mountain_stream",
+        "stream": true
+      }
+    ]}
 }
