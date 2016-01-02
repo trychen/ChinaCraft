@@ -1,12 +1,16 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRenderer;
 import unstudio.chinacraft.client.item.BuhrimillItemRenderer;
+import unstudio.chinacraft.client.item.ModelBlockItemRenderer;
+import unstudio.chinacraft.client.model.ModelSericultureFrame;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.item.combat.ModelArmorRegister;
 import unstudio.chinacraft.common.nei.NEIAPI;
@@ -36,7 +40,10 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new BuhrimillItemRenderer());
+
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new BuhrimillItemRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.sericultureFrame),new ModelBlockItemRenderer(new ModelSericultureFrame() , new ResourceLocation("chinacraft:textures/models/block/SericultureFrame.png")));
+
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
 //		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());

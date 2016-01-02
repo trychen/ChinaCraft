@@ -42,7 +42,7 @@ public class VersionChecker implements Runnable {
         }
         this.isCheckable = true;
         System.out.println("[ChinaCraft]Latest mod version = " + latestVersion);
-        isLatestVersion = latestVersion > ChinaCraft.OutPutVERSION;
+        isLatestVersion = latestVersion <= ChinaCraft.OutPutVERSION;
         if (isLatestVersion) {
             System.out.println("[ChinaCraft]You are running latest version = " + isLatestVersion);
         }else {

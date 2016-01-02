@@ -4,7 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelSericultureFrame extends ModelBase
+public class ModelSericultureFrame extends ModelBase implements ModelExtendBlock
 {
   //fields
     ModelRenderer Shape1;
@@ -260,4 +260,36 @@ public class ModelSericultureFrame extends ModelBase
     model.rotateAngleZ = z;
   }
 
+  @Override
+  public void render(float f5) {
+    Shape1.render(f5);
+    Shape2.render(f5);
+    Shape3.render(f5);
+    Shape4.render(f5);
+    Shape5.render(f5);
+    Shape6.render(f5);
+    Shape7.render(f5);
+    Shape8.render(f5);
+    Shape9.render(f5);
+    Shape10.render(f5);
+    Shape11.render(f5);
+    Shape12.render(f5);
+    Shape13.render(f5);
+    Shape14.render(f5);
+    Shape15.render(f5);
+    Shape16.render(f5);
+    Shape17.render(f5);
+    Shape18.render(f5);
+    Shape19.render(f5);
+    Shape20.render(f5);
+    Shape21.render(f5);
+    Shape22.render(f5);
+    Shape23.render(f5);
+    Shape24.render(f5);
+    Shape25.render(f5);
+    Shape26.render(f5);
+    Shape27.render(f5);
+    Shape28.render(f5);
+    Shape29.render(f5);
+  }
 }
