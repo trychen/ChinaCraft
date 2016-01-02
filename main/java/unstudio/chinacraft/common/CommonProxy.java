@@ -210,6 +210,10 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.silk_left_up, "silk_left_up");
         GameRegistry.registerBlock(ChinaCraft.silk_left_down, "silk_left_down");
 
+        //disc
+        GameRegistry.registerItem(ChinaCraft.three_stanzas,"three_stanzas_of_plum-blossoms");
+        GameRegistry.registerItem(ChinaCraft.mountain_stream,"mountain_stream");
+
         GameRegistry.registerItem(ChinaCraft.debug, "Debug");
 
         Recipes.init();

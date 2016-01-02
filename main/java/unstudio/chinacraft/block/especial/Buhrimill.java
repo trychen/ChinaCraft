@@ -120,9 +120,7 @@ public class Buhrimill extends BlockContainer {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerBlockIcons(IIconRegister reg) {
-		this.blockIcon = reg.registerIcon("chinacraft:buhrimill");
-	}
+	public void registerBlockIcons(IIconRegister reg) {}
 
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_,

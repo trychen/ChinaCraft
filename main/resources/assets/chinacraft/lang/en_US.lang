@@ -137,6 +137,9 @@ debug.false=False
 debug.plantstage=Plant Stage
 item.debug.lore=Use item with block to output debug information
 
+item.three_stanzas_of_plum-blossoms.desc=Three Stanzas of Plum-blossoms
+item.three_stanzas_of_plum-blossoms.name=
+
 item.redpacket.name=Red Packet
 gui.redpacket.default.wash.1=Our luck is turning around
 gui.redpacket.default.wash.2=May happiness always be with us.
