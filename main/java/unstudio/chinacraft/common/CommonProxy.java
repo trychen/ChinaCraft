@@ -8,6 +8,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityNote;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 import unstudio.chinacraft.block.tileentity.*;
@@ -75,6 +76,9 @@ public class CommonProxy {
 
         GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); //玉石工作台
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); //玉石工作台TileEntity
+
+        GameRegistry.registerBlock(ChinaCraft.blockDrum,"Drum");
+        GameRegistry.registerTileEntity(TileDrum.class,"tileEntityDrum");
 
         GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill"); //石磨
         GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill"); //石磨TileEntity
@@ -165,9 +169,9 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.claySandMixture, "ClaySandMixture");//粘土沙子混合物
 
         //Jade
-        GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "GreenJade");
-        GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "Green2Jade");
-        GameRegistry.registerItem(ChinaCraft.jadePinkItem, "GreenPink");
+        GameRegistry.registerItem(ChinaCraft.jadeGreenItem, "JadeGreen");
+        GameRegistry.registerItem(ChinaCraft.jadeGreen2Item, "JadeGreen2");
+        GameRegistry.registerItem(ChinaCraft.jadePinkItem, "JadePink");
         GameRegistry.registerItem(ChinaCraft.jadePurpleItem, "JadePurple");
         GameRegistry.registerItem(ChinaCraft.jadeKnife, "JadeKnife");//玉石切割刀
 

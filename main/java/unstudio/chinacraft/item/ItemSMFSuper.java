@@ -37,7 +37,7 @@ public class ItemSMFSuper extends Item {
                         }, 15 * 1000);
                     }
                 }
-                ItemMethod.cutItemStack(stack, (EntityPlayer) target);
+                ItemMethod.cutItemStack(stack, (EntityPlayer) attacker);
             }
         }
 //        if (!attacker.worldObj.isRemote) {

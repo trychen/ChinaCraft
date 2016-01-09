@@ -9,7 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class VersionChecker implements Runnable {
-    private static boolean isLatestVersion = false;
+    private static boolean isLatestVersion = true;
     private static boolean isCheckable = false;
     private static String newVersionInfo = "";
     private static String downloadUrl = "";

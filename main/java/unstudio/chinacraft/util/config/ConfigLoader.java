@@ -17,4 +17,8 @@ public class ConfigLoader {
         mainConfig.load();
         mainConfig.save();
     }
+
+    public static Configuration getMainConfig() {
+        return mainConfig;
+    }
 }

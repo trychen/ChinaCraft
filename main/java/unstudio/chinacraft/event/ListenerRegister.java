@@ -6,7 +6,7 @@ import unstudio.chinacraft.event.combat.ListenerArmor;
 import unstudio.chinacraft.event.common.ListenerVersionChecker;
 import unstudio.chinacraft.event.entity.ListenerEntityBlackDog;
 import unstudio.chinacraft.event.jade.ListenerGreenJade;
-import unstudio.chinacraft.event.jade.ListenerPinkJade;
+import unstudio.chinacraft.event.jade.ListenerJade;
 
 public class ListenerRegister {
     public static void init(){
@@ -15,7 +15,7 @@ public class ListenerRegister {
         registerListener(new ListenerArmor());
 
         registerListener(new ListenerGreenJade());
-        registerListener(new ListenerPinkJade());
+        registerListener(new ListenerJade());
 
         registerListener(new ListenerEntityBlackDog());
 

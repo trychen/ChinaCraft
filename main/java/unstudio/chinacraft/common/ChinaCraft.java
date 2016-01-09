@@ -3,6 +3,7 @@ package unstudio.chinacraft.common;
 import cpw.mods.fml.common.Loader;
 import net.minecraft.block.BlockCake;
 import net.minecraft.item.ItemArmor;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.block.decoration.*;
@@ -40,7 +41,9 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
+import unstudio.chinacraft.util.config.ConfigLoader;
 
 import javax.swing.*;
 
@@ -83,11 +86,16 @@ public class ChinaCraft {
         proxy.init(event);       
         ListenerRegister.init();
         EntityRegister.init();
+        jadePinkSystem.init();
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+    }
+
+    public static Configuration getMainConfig() {
+        return ConfigLoader.getMainConfig();
     }
 
     public static CreativeTabs tabCore = new CreativeTabs(StatCollector.translateToLocal("core")) {
@@ -114,7 +122,7 @@ public class ChinaCraft {
         }
     };
     //特殊变量
-    public static int jadehasHealTicker = 0;
+    public static JadePinkSystem jadePinkSystem = new JadePinkSystem();
     public static VersionChecker versionChecker = new VersionChecker();
     public static boolean haveWarnedVersionOutOfDate = false;
     public static Random rand = new Random();
@@ -160,6 +168,7 @@ public class ChinaCraft {
     public static CCFlower peony = new CCFlower("peony");
     public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
+    public static BlockDrum blockDrum = new BlockDrum();
 
     //TraditionalCarpet
     public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");

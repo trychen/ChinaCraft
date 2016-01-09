@@ -37,6 +37,7 @@ public class EntityThrownBomb extends EntityThrowable {
     @Override
 	protected void onImpact(MovingObjectPosition mop) {
         if (!this.worldObj.isRemote) {
+
             this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 1.5F, true);
             setDead();
         }
