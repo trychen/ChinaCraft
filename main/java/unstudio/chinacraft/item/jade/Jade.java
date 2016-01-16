@@ -16,8 +16,8 @@ public class Jade extends Item {
 
     public Jade(String s) {
         setUnlocalizedName(s);
-        setMaxStackSize(8);
-        setMaxDamage(4);
+        setMaxStackSize(1);
+        setMaxDamage(6);
         setCreativeTab(ChinaCraft.tabCore);
     }
 
@@ -34,7 +34,8 @@ public class Jade extends Item {
     @Override
     public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
         PlayerUseJadeEvent.ItemRightClick e = new PlayerUseJadeEvent.ItemRightClick(entityPlayer,itemStack);
-        if (MinecraftForge.EVENT_BUS.post(e)) return true;
-        return false;
+        if (MinecraftForge.EVENT_BUS.post(e)) return false;
+
+        return true;
     }
 }

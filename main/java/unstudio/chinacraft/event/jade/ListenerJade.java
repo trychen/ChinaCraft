@@ -15,15 +15,15 @@ import unstudio.chinacraft.common.ChinaCraft;
 public class ListenerJade {
     @SubscribeEvent
     public void useitem(PlayerUseJadeEvent.ItemRightClick event){
-        if (event.entityPlayer.worldObj.isRemote) {
-            if (event.itemStack.getItem().equals(ChinaCraft.jadeGreen2Item)) {
-                if (event.itemStack.getItemDamage() == event.itemStack.getMaxDamage()) {
-                    event.entityPlayer.setHealth(event.entityPlayer.getHealth() + 6.0f);
-                    event.itemStack.setItemDamage(1);
+            if (event.itemStack.getItem()==ChinaCraft.jadeGreen2Item) {
+                System.out.println(event.itemStack.getItemDamage());
+                if (event.itemStack.getItemDamage() == 0) {
+                    event.entityPlayer.heal(6);
+                    event.itemStack.setItemDamage(event.itemStack.getMaxDamage()-1);
                 }
-            }
         }
     }
+
     @SubscribeEvent
     public void AttackEntityEvent(LivingHurtEvent event) {
         if (event.entity instanceof EntityPlayer) {

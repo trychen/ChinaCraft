@@ -17,7 +17,6 @@ public class WorldGenCCFlower implements IWorldGenerator {
 
         if (world.isAirBlock(x, y, z) && block.canBlockStay(world, x, y, z))
             world.setBlock(x, y, z, block, 0, 3);
-        System.out.println(x + ";" + y + ";" + z + ";");
     }
 
     @Override
