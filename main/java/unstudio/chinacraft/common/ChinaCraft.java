@@ -220,11 +220,11 @@ public class ChinaCraft {
 
     //防具武器
     public static BronzeSword bronzeSword = new BronzeSword();  //青铜剑
-    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword(BROAD_BRONZE, "bronze_bigsword");  //青铜大刀
-    public static BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword(BROAD_BRONZE, "bronze_bigsword_green");  //青铜大刀Green
-    public static BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword(BROAD_BRONZE, "bronze_bigsword_green2");  //青铜大刀Green2
-    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword(BROAD_BRONZE, "bronze_bigsword_pink");  //青铜大刀Pink
-    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword(BROAD_BRONZE, "bronze_bigsword_purple");  //青铜大刀purple
+    public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword(BROAD_BRONZE, null);  //青铜大刀
+    public static BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword(BROAD_BRONZE, "green");  //青铜大刀Green
+    public static BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword(BROAD_BRONZE, "green2");  //青铜大刀Green2
+    public static BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword(BROAD_BRONZE, "pink");  //青铜大刀Pink
+    public static BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword(BROAD_BRONZE, "purple");  //青铜大刀purple
     public static BLGiantSword blGiantSword = new BLGiantSword(ChinaCraft.YANGLONG);  //炎龙巨刀
 
     public static ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown", 0, 1);

@@ -14,13 +14,13 @@ import unstudio.chinacraft.common.ChinaCraft;
  */
 public class ListenerJade {
     @SubscribeEvent
-    public void useitem(PlayerUseJadeEvent.ItemRightClick event){
-            if (event.itemStack.getItem()==ChinaCraft.jadeGreen2Item) {
-                System.out.println(event.itemStack.getItemDamage());
-                if (event.itemStack.getItemDamage() == 0) {
-                    event.entityPlayer.heal(6);
-                    event.itemStack.setItemDamage(event.itemStack.getMaxDamage()-1);
-                }
+    public void useitem(PlayerUseJadeEvent.ItemRightClick event) {
+        if (event.itemStack.getItem() == ChinaCraft.jadeGreen2Item) {
+            System.out.println(event.itemStack.getItemDamage());
+            if (event.itemStack.getItemDamage() == 0) {
+                event.entityPlayer.heal(6);
+                event.itemStack.setItemDamage(event.itemStack.getMaxDamage() - 1);
+            }
         }
     }
 
@@ -44,11 +44,26 @@ public class ListenerJade {
                 }
                 return;
             }
-            if (entityPlayer.getHeldItem() != null && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreen2Item)){
-                if (entityPlayer.getHeldItem().getItemDamage() < entityPlayer.getHeldItem().getMaxDamage()){
-                    PlayerUseJadeEvent.MainInventory e = new PlayerUseJadeEvent.MainInventory(entityPlayer,entityPlayer.getHeldItem());
+            if (entityPlayer.getHeldItem() != null && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreen2Item)) {
+                if (entityPlayer.getHeldItem().getItemDamage() < entityPlayer.getHeldItem().getMaxDamage()) {
+                    PlayerUseJadeEvent.MainInventory e = new PlayerUseJadeEvent.MainInventory(entityPlayer, entityPlayer.getHeldItem());
                     if (MinecraftForge.EVENT_BUS.post(e)) return;
-                    entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage()-1);
+                    if (entityPlayer.getHeldItem().getItemDamage() >= 2)
+                        entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 2);
+                    else {
+                        entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 1);
+                    }
+                }
+            } else {
+                if (entityPlayer.getHeldItem().getItem() != null && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
+                    for (int time = 0; time < 9; time++) {
+                        if (entityPlayer.inventory.mainInventory[time] != null) {
+                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
+                                entityPlayer.inventory.mainInventory[time].setItemDamage(entityPlayer.inventory.mainInventory[time].getItemDamage()-1);
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
