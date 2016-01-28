@@ -2,7 +2,10 @@ package unstudio.forgebukkitbridge;
 
 public class ServerManager {
 	private static boolean isCauldronServer = loadCauldronServer();
-	
+
+	/**
+	 * @return 返回true表示包存在，Bukkit类存在
+	 */
 	private static boolean loadCauldronServer(){
 		try{
 			Class.forName("org.bukkit.Bukkit");

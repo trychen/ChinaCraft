@@ -18,6 +18,10 @@ import static net.minecraftforge.common.EnumPlantType.Plains;
  * Created by trychen on 2015/12/26.
  */
 public class CCFlower extends BlockBush {
+
+    /**
+     * @param name 花的名字
+     */
     public CCFlower(String name) {
         super(Material.plants);
         setBlockName(name);

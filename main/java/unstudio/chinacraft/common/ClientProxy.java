@@ -4,9 +4,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.block.tileentity.TileModelBlock;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
+import unstudio.chinacraft.client.block.tileentity.TileEntityModelBlockRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRenderer;
 import unstudio.chinacraft.client.item.ItemBuhrimillRenderer;
 import unstudio.chinacraft.client.item.ItemSericultureFrameRenderer;
@@ -38,6 +40,9 @@ public class ClientProxy extends CommonProxy {
         ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
+
+        ClientRegistry.registerTileEntity(TileModelBlock.class,"tileEntityModelBlock",new TileEntityModelBlockRenderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(TileModelBlock.class, new TileEntityModelBlockRenderer());
 
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new ItemBuhrimillRenderer());
 //      MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new ItemBuhrimillRenderer());

@@ -25,7 +25,7 @@ public class CCGrowablePlant extends BlockCrops{
     /**
      *  种植物的父类
      * @param name 名字
-     * @param textureAmount 材质数量，支持5和7个
+     * @param textureAmount 材质数量，支持5和7个，种植的不同阶段
      * @param baseItem 种下去的物品（未完成掉落）
      * @param dropItem 生成物（完成掉哦了）
      */

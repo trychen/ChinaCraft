@@ -45,7 +45,6 @@ public class ListenerArmor {
             event.setCanceled(true);
         }
     }
-
     @SubscribeEvent
     public void wearingChinaCrown(TickEvent.PlayerTickEvent event) {
         if (event.player.inventory.armorInventory[0] == null || event.player.inventory.armorInventory[1] == null || event.player.inventory.armorInventory[2] == null || event.player.inventory.armorInventory[3] == null)
