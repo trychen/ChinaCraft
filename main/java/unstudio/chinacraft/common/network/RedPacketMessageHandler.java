@@ -3,6 +3,7 @@ package unstudio.chinacraft.common.network;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 import unstudio.chinacraft.common.ChinaCraft;
@@ -19,12 +20,12 @@ public class RedPacketMessageHandler implements IMessageHandler<RedPacketMessage
         {
             return null;
         }
-
+        
+        NBTTagCompound nbt=message.itemstack.getTagCompound().getCompoundTag("Redpacket");
         if (itemstack1.getItem() == ChinaCraft.redPacket && itemstack1.getItem() == itemstack1.getItem())
         {
-            itemstack1.setTagInfo("Redpacket", message.itemstack.getTagCompound().getCompoundTag("Redpacket"));
+            itemstack1.setTagInfo("Redpacket", nbt);
         }
-        
         
         return null; 
 	}
