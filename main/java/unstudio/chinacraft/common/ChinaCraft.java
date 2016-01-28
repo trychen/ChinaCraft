@@ -300,6 +300,7 @@ public class ChinaCraft {
     //disc
     public static CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");
     public static CCMusicDisc mountain_stream = new CCMusicDisc("mountain_stream");
+    public static CCMusicDisc the_march_of_the_volunteers = new CCMusicDisc("the_march_of_the_volunteers");
 
     public static ItemDebug debug = new ItemDebug(); //调试物品
 
