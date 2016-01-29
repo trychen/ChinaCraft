@@ -8,19 +8,16 @@ import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 
 public class VaultPlugin {
-
-    /**
-     * Vault权限系统
-     */
+    /** 使用前需要先判断是否为null ，防止因为没有被依赖插件 **/
+    //Vault权限系统
     public Permission permission = null;
-    /**
-     * Vault经济系统
-     */
+
+    //Vault经济系统
     public Economy economy = null;
-    /**
-     * Vault聊天系统
-     */
+
+    //Vault聊天系统
     public Chat chat = null;
+
 
     private boolean setupPermissions()
     {

@@ -35,11 +35,7 @@ public class ListenerGreenJade {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                     event.entity.motionY *= 2;
                     FXMethod.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2, event.entity.posZ - 0.5);
-                } else if (entityPlayer.inventory.mainInventory[1] != null) {
-                    if (entityPlayer.inventory.mainInventory[1].getItem().equals(ChinaCraft.jadeGreenItem)) {
-                        event.entity.motionY *= 2;
-                        FXMethod.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2, event.entity.posZ - 0.5);
-                    }
+                    return;
                 }
             }
             for (int time = 0; time < 9; time++) {
@@ -73,12 +69,6 @@ public class ListenerGreenJade {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (entityPlayer.getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                    if (event.distance > 15) {
-                        entityPlayer.attackEntityFrom(DamageSource.fall, 2.0f);
-                        event.setCanceled(true);
-                    } else {
-                        event.setCanceled(true);
-                    }
                     if (event.distance > 4.0f) {
                         entityPlayer.worldObj.spawnParticle("largeexplode", event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(), event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
                         if (event.distance < 6f) {
@@ -91,7 +81,12 @@ public class ListenerGreenJade {
                             }
                         }
                     }
-                    return;
+                    if (event.distance > 15) {
+                        entityPlayer.attackEntityFrom(DamageSource.fall, 2.0f);
+                        event.setCanceled(true);
+                    } else {
+                        event.setCanceled(true);
+                    }
                 } else if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.blGiantSword) && event.distance > 3.0f) {
                     entityPlayer.worldObj.spawnParticle("largeexplode", event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(), event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
                     List<EntityMob> nearbyMobsList = EntityMethod.findNearbyMobs(entityPlayer, entityPlayer.posX, entityPlayer.posY, entityPlayer.posZ);
@@ -104,10 +99,10 @@ public class ListenerGreenJade {
                 for (int time = 0; time < 9; time++) {
                     if (entityPlayer.inventory.mainInventory[time] != null) {
                         if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
-                            if (event.distance > 4.0f) {
+                            if (event.distance < 5.0f) {
                                 event.setCanceled(true);
+                            } else if (event.distance > 5.0f && event.distance<12.0f) {
                                 entityPlayer.attackEntityFrom(DamageSource.fall, 1.0f);
-                            } else if (event.distance < 4.0f) {
                                 event.setCanceled(true);
                             }
                         }

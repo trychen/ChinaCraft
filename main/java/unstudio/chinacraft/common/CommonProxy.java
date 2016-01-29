@@ -214,6 +214,7 @@ public class CommonProxy {
         //disc
         GameRegistry.registerItem(ChinaCraft.three_stanzas,"three_stanzas_of_plum-blossoms");
         GameRegistry.registerItem(ChinaCraft.mountain_stream,"mountain_stream");
+        GameRegistry.registerItem(ChinaCraft.the_march_of_the_volunteers,"the_march_of_the_volunteers");
 
         GameRegistry.registerItem(ChinaCraft.debug, "Debug");
 

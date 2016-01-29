@@ -15,7 +15,6 @@ public class BlockDrum extends Block{
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        System.out.println(1);
         int meta = world.getBlockMetadata(x, y, z);
         if (!world.isRemote)
         {
