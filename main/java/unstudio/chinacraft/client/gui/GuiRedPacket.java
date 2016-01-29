@@ -94,8 +94,10 @@ public class GuiRedPacket extends GuiContainer {
         }else{
         	this.fontRendererObj.drawString(wish, this.xSize / 2 - this.fontRendererObj.getStringWidth(wish) / 2, 68, Integer.MAX_VALUE);
         }
-        moneyTextBox.drawTextBox();
-        sendeeTextBox.drawTextBox();
+        if(sendee!=null&&sendee.length()!=0&&sendee.equalsIgnoreCase(player.getDisplayName())){
+	        moneyTextBox.drawTextBox();
+	        sendeeTextBox.drawTextBox();
+        }
     }
 
     @Override
@@ -123,7 +125,7 @@ public class GuiRedPacket extends GuiContainer {
     		money=Double.valueOf(moneyTextBox.getText());
     	}catch(NumberFormatException error){
     		money=0.00;
-    		moneyTextBox.setText(moneyTextBox.getSelectedText());
+    		moneyTextBox.setText("0.00");
     	}
     	sendeeTextBox.textboxKeyTyped(par1, par2);
     	sendee=sendeeTextBox.getText();

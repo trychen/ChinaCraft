@@ -180,11 +180,17 @@ record.three_stanzas_of_plum-blossoms=梅花三弄
 record.mountain_stream=高山流水
 
 item.redpacket.name=红包
-gui.redpacket.money=金钱
-gui.redpacket.send=发送
+gui.redpacket.money=金钱:
 gui.redpacket.wash=请输入祝福语
-gui.redpacket.sendee=目标玩家
+gui.redpacket.sendee=目标玩家:
 gui.redpacket.from=来自 %sender% 的红包
+gui.redpacket.pack=打包
+gui.redpacket.send=发送
+redpacket.success=成功发送红包给 %sendee%.
+redpacket.not_enough_money=失败:没有足够的金钱!
+redpacket.not_found_player=失败:没有找到玩家 %sendee%!
+redpacket.backpack_full=失败: %sendee% 的背包已满!
+redpacket.received=您收到了一个红包!
 
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵尸
