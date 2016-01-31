@@ -168,7 +168,7 @@ public class ChinaCraft {
     public static CCFlower peony = new CCFlower("peony");
     public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
-    public static BlockDrum blockDrum = new BlockDrum();
+    public static CCInstruments blockDrum = new CCInstruments("drum",Material.wood,true,"note.drum",20);
 
     //TraditionalCarpet
     public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
