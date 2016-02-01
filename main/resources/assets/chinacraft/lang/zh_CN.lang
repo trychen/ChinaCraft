@@ -182,8 +182,8 @@ record.the_march_of_the_volunteers=义勇军进行曲
 
 item.redpacket.name=红包
 gui.redpacket.money=金钱:
-gui.redpacket.wash=请输入祝福语
-gui.redpacket.sendee=目标玩家:
+gui.redpacket.wash=请输入祝福语...
+gui.redpacket.sendee=收件人:
 gui.redpacket.from=来自 %sender% 的红包
 gui.redpacket.pack=打包
 gui.redpacket.send=发送
@@ -192,6 +192,7 @@ redpacket.not_enough_money=失败:你没有足够的金钱!
 redpacket.not_found_player=失败:没有找到玩家 %sendee%!
 redpacket.backpack_full=失败: %sendee% 的背包已满!
 redpacket.received=您收到了一个红包!
+redpacket.receive_money=您打开红包获得了 %money% 元!
 
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵尸

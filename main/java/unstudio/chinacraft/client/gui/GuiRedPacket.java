@@ -51,6 +51,7 @@ public class GuiRedPacket extends GuiContainer {
         	if(redpacket != null){
 	            sender = redpacket.getString("Sender");
 	            wish = redpacket.getString("Wish");
+	            if(wish==null||wish.isEmpty())wish=StatCollector.translateToLocal("gui.redpacket.wash");
 	            money = redpacket.getDouble("Money");
 	            sendee = redpacket.getString("Sendee");
 	            if(sendee!=null||sendee.length()==0||sendee.equalsIgnoreCase(player.getDisplayName())){
