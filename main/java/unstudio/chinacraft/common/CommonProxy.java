@@ -12,6 +12,7 @@ import net.minecraft.tileentity.TileEntityNote;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 import unstudio.chinacraft.block.tileentity.*;
+import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.config.ConfigLoader;
@@ -30,6 +31,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
+        ListenerRegister.commonInit();
 
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);

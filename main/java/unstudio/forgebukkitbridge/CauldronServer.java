@@ -21,7 +21,7 @@ public class CauldronServer {
 	 * @param plugin 插件名
 	 * @return
 	 */
-	public boolean isPluginEnable(String plugin){
+	public boolean isPluginEnabled(String plugin){
 		return Bukkit.getPluginManager().isPluginEnabled(plugin);
 	}
 }

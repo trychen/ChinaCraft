@@ -11,7 +11,6 @@ import net.minecraft.nbt.NBTTagCompound;
 public class ContainerRedPacket extends Container{
 
 	private ItemStack itemStack;
-	private String Sender;
 
 	public ContainerRedPacket(EntityPlayer player,ItemStack itemStack) {
 		this.itemStack=itemStack;
@@ -23,7 +22,6 @@ public class ContainerRedPacket extends Container{
 				ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
 				slot0.putStack(item);
 			}
-			String Sender = par1NBTTagCompound.getString("Sender");
 		}
 
 		this.addSlotToContainer(slot0);

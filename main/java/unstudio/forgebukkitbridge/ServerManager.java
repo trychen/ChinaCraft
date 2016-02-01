@@ -36,11 +36,22 @@ public class ServerManager {
 	}
 	
 	/**
+	 * 判断服务器是否存在Vault插件
+	 * @return
+	 */
+	public static boolean hasVaultPlugin(){
+		if(isCauldronServer){
+			return getCaulrdonServer().isPluginEnabled("Vault");
+		}
+		return false;
+	}
+	
+	/**
 	 * 获得Vault插件(服务器必须是Cauldron服务器)
 	 * @return
 	 */
 	public static VaultPlugin getVaultPlugin(){
-		if(isCauldronServer&&getCaulrdonServer().isPluginEnable("Vault")){
+		if(isCauldronServer&&getCaulrdonServer().isPluginEnabled("Vault")){
 			return new VaultPlugin();
 		}else{
 			return null;
