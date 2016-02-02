@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityNote;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
-import unstudio.chinacraft.block.tileentity.*;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.config.ConfigLoader;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
@@ -96,6 +96,9 @@ public class CommonProxy {
     	GameRegistry.registerItem(ChinaCraft.itemSericultureFrame, "ItemSericultureFrame");
 
     	GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable"); //陶瓷工作台
+    	GameRegistry.registerTileEntity(TilePotteryTable.class, "tileEntityPotteryTable"); 
+    	GameRegistry.registerItem(ChinaCraft.itemPotteryTable, "ItemPotteryTable");
+    	
         GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); //陶瓷
         GameRegistry.registerBlock(ChinaCraft.blockBuckpot,"Buckpot"); //陶罐
 

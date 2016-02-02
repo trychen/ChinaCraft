@@ -12,7 +12,7 @@ import unstudio.chinacraft.block.generation.ore.CopperOre;
 import unstudio.chinacraft.block.generation.ore.SilverOre;
 import unstudio.chinacraft.block.generation.ore.TinOre;
 import unstudio.chinacraft.block.generation.plant.*;
-import unstudio.chinacraft.block.modelblock.Lantern;
+import unstudio.chinacraft.block.model.Lantern;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
@@ -188,11 +188,12 @@ public class ChinaCraft {
     public static TraditionalCarpet silk_left_up = new TraditionalCarpet("silk_left_up", "chinacraft:silk_left_up");
     public static TraditionalCarpet silk_left_down = new TraditionalCarpet("silk_left_down", "chinacraft:silk_left_down");
 
-    public static PotteryTable potteryTable = new PotteryTable(); //陶瓷工作台
+    public static BlockPotteryTable potteryTable = new BlockPotteryTable(); //陶瓷工作台
+    public static Item itemPotteryTable = new ItemReed(ChinaCraft.potteryTable).setUnlocalizedName("potterytable").setCreativeTab(ChinaCraft.tabCore); //陶瓷工作台
     public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); //陶瓷
     public static BlockBuckpot blockBuckpot = new BlockBuckpot(); //陶锅
 
-    public static Buhrimill buhrimill = new Buhrimill(); //石磨
+    public static BlockBuhrimill buhrimill = new BlockBuhrimill(); //石磨
 
     public static Lantern lantern = new Lantern(); //灯笼
     public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); //木桶
@@ -200,7 +201,7 @@ public class ChinaCraft {
     public static BlockCookingBench cooking_bench_off = new BlockCookingBench(false); //灶台
     public static BlockCookingBench cooking_bench_on = new BlockCookingBench(true); //灶台
 
-    public static SericultureFrame sericultureFrame = new SericultureFrame(); //养蚕架
+    public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); //养蚕架
 
     //物品
     public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
@@ -213,8 +214,8 @@ public class ChinaCraft {
     public static CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
     public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); //竹子
     public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); //大豆荚
-    public static Item itemBuhrimill = new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //石磨
-    public static Item itemSericultureFrame = new ItemReed(ChinaCraft.sericultureFrame).setUnlocalizedName("sericulture_frame").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabCore); //养蚕架
+    public static Item itemBuhrimill = new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill").setCreativeTab(ChinaCraft.tabCore); //石磨
+    public static Item itemSericultureFrame = new ItemReed(ChinaCraft.sericultureFrame).setUnlocalizedName("sericulture_frame").setCreativeTab(ChinaCraft.tabCore); //养蚕架
     public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabPlant); //桑叶
     public static ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); //木桶
     public static ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); //木水桶

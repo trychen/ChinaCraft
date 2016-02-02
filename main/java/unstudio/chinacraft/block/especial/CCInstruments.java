@@ -8,8 +8,8 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityNote;
 import net.minecraft.world.World;
-import unstudio.chinacraft.block.tileentity.TileEntityInstruments;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileEntityInstruments;
 
 import java.util.Random;
 

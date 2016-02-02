@@ -3,7 +3,7 @@ package unstudio.chinacraft.client.gui;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.inventory.ContainerJadeBench;
-import unstudio.chinacraft.block.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TileJadeBench;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;

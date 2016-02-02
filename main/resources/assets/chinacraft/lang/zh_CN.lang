@@ -107,6 +107,7 @@ tile.marble_stair.name=大理石楼梯
 tile.firebrick.name=耐火砖
 
 tile.potterytable.name=陶瓷工作台
+item.potterytable.name=陶瓷工作台
 gui.potterytable.title=陶瓷工作台
 gui.potterykiln.title=陶瓷窑
 

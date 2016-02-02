@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.client.gui.*;
 import unstudio.chinacraft.inventory.*;
-import unstudio.chinacraft.block.tileentity.*;
+import unstudio.chinacraft.tileentity.*;
 
 
 public class GuiHandler implements IGuiHandler{
