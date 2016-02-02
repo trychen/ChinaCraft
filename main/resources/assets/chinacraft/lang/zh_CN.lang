@@ -1,6 +1,7 @@
 ﻿tile.copper_ore.name=铜矿
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
+item.copper_ingot.name=铜锭
 item.copper_tin_mixed_powder.name=铜锡混合矿粉
 item.bronze_sword.name=青铜剑
 item.bronze_bigsword.name=青铜大刀
