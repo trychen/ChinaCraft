@@ -32,7 +32,8 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
         ListenerRegister.commonInit();
-
+//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfish,"LanternScaldfish");
+//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable,"lanternScaldfishOpenable");
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);

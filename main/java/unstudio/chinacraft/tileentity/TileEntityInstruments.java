@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
  * Created by trych on 2016/1/27.
  */
 public class TileEntityInstruments extends TileEntity{
-    public int musicCount = 0;
+    public int musicCount = 1;
     private int maxCount;
 
     public TileEntityInstruments(int maxCount) {
@@ -35,8 +35,13 @@ public class TileEntityInstruments extends TileEntity{
         }
     }
 
+    public int getMusicCount() {
+        return musicCount;
+    }
+
     public void changeMusicCount()
     {
-        this.musicCount++;
+        if (musicCount < musicCount) musicCount++;
+        else musicCount = 0;
     }
 }

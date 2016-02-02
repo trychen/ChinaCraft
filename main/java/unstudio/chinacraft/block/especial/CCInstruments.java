@@ -73,8 +73,10 @@ public class CCInstruments extends BlockContainer {
         {
             if (isAlignmentMusic()) {
                 TileEntityInstruments tileEntity = (TileEntityInstruments) world.getTileEntity(x, y, z);
-
-            }
+                tileEntity.getMusicCount();
+                world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, this.getMusicname(), 3.0F, 10f);
+                tileEntity.changeMusicCount();
+            } else
             world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, this.getMusicname(), 3.0F, 10f);
         }
         return true;
