@@ -4,11 +4,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.block.tileentity.TileCCLamp;
 import unstudio.chinacraft.block.tileentity.TileModelBlock;
 import unstudio.chinacraft.client.block.render.BlockLanternRenderer;
 import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntityModelBlockRenderer;
+import unstudio.chinacraft.client.block.tileentity.TileEntityPotteryBlockRenderer;
 import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRenderer;
 import unstudio.chinacraft.client.item.ItemBuhrimillRenderer;
 import unstudio.chinacraft.client.item.ItemSericultureFrameRenderer;
@@ -39,9 +41,9 @@ public class ClientProxy extends CommonProxy {
         }
 
         ModelArmorRegister.init();
-
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
 
+        ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
         ClientRegistry.registerTileEntity(TileModelBlock.class,"tileEntityModelBlock",new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileModelBlock.class, new TileEntityModelBlockRenderer());
 
@@ -51,11 +53,13 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class, new TileEntitySericultureFrameRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemSericultureFrame,new ItemSericultureFrameRenderer());
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
-//		ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryBlock.class, new TileEntityPotteryBlockRenderer());
 //		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase), new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D, 0.0D));
 
 //      RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
         EntityRenderingRegistry.init();
+        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
+        ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
+
         ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
         ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");

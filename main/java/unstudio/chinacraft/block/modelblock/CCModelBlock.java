@@ -26,6 +26,15 @@ public class CCModelBlock extends Block{
     }
 
     @Override
+    public Block setBlockTextureName(String p_149658_1_) {
+        return super.setBlockTextureName(p_149658_1_);
+    }
+
+    public ModelBase getModel() {
+        return model;
+    }
+
+    @Override
     public TileEntity createTileEntity(World world, int metadata) {
         return new TileModelBlock(model,getTextureName());
     }
