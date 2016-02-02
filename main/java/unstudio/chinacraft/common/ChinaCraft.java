@@ -15,6 +15,7 @@ import unstudio.chinacraft.block.generation.plant.*;
 import unstudio.chinacraft.block.model.CCLamp;
 import unstudio.chinacraft.block.model.CCModelBlock;
 import unstudio.chinacraft.block.model.Lantern;
+import unstudio.chinacraft.client.model.ModelLanternScaldfish;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
@@ -179,8 +180,8 @@ public class ChinaCraft {
     public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
     public static CCInstruments blockDrum = new CCInstruments("drum",Material.wood,true,"note.drum",20);
-//    public static CCLamp lanternScaldfishOpenable = new CCLamp(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
-//    public static CCModelBlock lanternScaldfish = new CCModelBlock(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
+    public static CCLamp lanternScaldfishOpenable = new CCLamp(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
+    public static CCModelBlock lanternScaldfish = new CCModelBlock(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
 
     //TraditionalCarpet
     public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");

@@ -1,9 +1,7 @@
-package unstudio.chinacraft.block.tileentity;
+package unstudio.chinacraft.tileentity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
-import unstudio.chinacraft.tileentity.TileModelBlock;
 
 /**
  * Created by trych on 2016/2/2.

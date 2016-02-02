@@ -1,10 +1,7 @@
 package unstudio.chinacraft.common;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
-import unstudio.chinacraft.block.tileentity.TileCCLamp;
+import unstudio.chinacraft.tileentity.TileCCLamp;
 import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.render.item.ItemBuhrimillRenderer;
 import unstudio.chinacraft.client.render.item.ItemPotteryTableRenderer;
@@ -62,8 +59,8 @@ public class ClientProxy extends CommonProxy {
         
 //      RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
         EntityRenderingRegistry.init();
-//        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
-//        ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
+        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
+        ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
 
         ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");

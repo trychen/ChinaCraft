@@ -5,7 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import unstudio.chinacraft.block.tileentity.TileCCLamp;
+import unstudio.chinacraft.tileentity.TileCCLamp;
 
 /**
  * Created by trych on 2016/2/2.
