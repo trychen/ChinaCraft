@@ -13,6 +13,7 @@ import unstudio.chinacraft.client.block.tileentity.TileEntitySericultureFrameRen
 import unstudio.chinacraft.client.item.ItemBuhrimillRenderer;
 import unstudio.chinacraft.client.item.ItemSericultureFrameRenderer;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
+import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.combat.ModelArmorRegister;
 import unstudio.chinacraft.common.nei.NEIAPI;
 import unstudio.chinacraft.block.tileentity.TileBuhrimill;
@@ -159,6 +160,7 @@ public class ClientProxy extends CommonProxy {
 
         ChinaCraft.debug.setTextureName("chinacraft:debug");
 
+        ListenerRegister.clientInit();
         super.init(event);
     }
 

@@ -37,6 +37,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
@@ -44,6 +45,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.config.ConfigLoader;
+import unstudio.forgebukkitbridge.ServerManager;
+import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
 
@@ -61,6 +64,7 @@ public class ChinaCraft {
     public static final String VERSION = "172";
     public static final int OutPutVERSION = 172;
     public static boolean NEIIsLoad = false;
+    public static VaultPlugin vault = null;
 
     public static SimpleNetworkWrapper Network;
 
@@ -84,7 +88,6 @@ public class ChinaCraft {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         proxy.init(event);       
-        ListenerRegister.init();
         EntityRegister.init();
         jadePinkSystem.init();
     }
@@ -92,6 +95,11 @@ public class ChinaCraft {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
+    }
+    
+    @EventHandler
+    public void onServerStarted(FMLServerStartedEvent event){
+    	vault=ServerManager.getVaultPlugin();
     }
 
     public static Configuration getMainConfig() {
