@@ -38,8 +38,8 @@ public class ItemDebug extends Item{
     	if(tile instanceof TileBuhrimill) {
     		
     	}else if(tile instanceof TileSericultureFrame) {
-    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate")+": "+((TileSericultureFrame)tile).mortality));
-    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.progress")+": "+((TileSericultureFrame)tile).schedule));
+    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate")+": "+((TileSericultureFrame)tile).getMortality()));
+    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.progress")+": "+((TileSericultureFrame)tile).getSchedule()));
     	}
 		return true;
     }

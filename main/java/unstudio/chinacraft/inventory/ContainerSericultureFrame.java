@@ -95,14 +95,14 @@ public class ContainerSericultureFrame extends Container{
 	@Override
 	public void addCraftingToCrafters(ICrafting par1iCrafting) {
 		super.addCraftingToCrafters(par1iCrafting);
-		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.schedule);
+		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
 	}
  
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int par1, int par2) {
 		if (par1 == 0) {
-			this.tile.schedule= par2;
+			this.tile.setSchedule(par2);;
 		}
 	}
  
@@ -113,11 +113,11 @@ public class ContainerSericultureFrame extends Container{
 		while (var1.hasNext()) {
 			ICrafting var2 = (ICrafting) var1.next();
  
-			if (this.lastSchedule != this.tile.schedule) {
-				var2.sendProgressBarUpdate(this, 0, this.tile.schedule);
+			if (this.lastSchedule != this.tile.getSchedule()) {
+				var2.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
 			}
 		}
-		this.lastSchedule = this.tile.schedule;
+		this.lastSchedule = this.tile.getSchedule();
 	}
 	
 	public class SlotSericultureFrame extends Slot{

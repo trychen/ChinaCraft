@@ -103,7 +103,7 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); //陶瓷
         GameRegistry.registerBlock(ChinaCraft.blockBuckpot,"Buckpot"); //陶罐
 
-        GameRegistry.registerItem(ChinaCraft.bronzeIngot, "CopperIngot");
+        GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");//铜锭
         OreDictionary.registerOre("ingotCopper", ChinaCraft.copperIngot);
         GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");//青铜锭
         OreDictionary.registerOre("ingotBronze", ChinaCraft.bronzeIngot);
@@ -223,6 +223,8 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.three_stanzas,"three_stanzas_of_plum-blossoms");
         GameRegistry.registerItem(ChinaCraft.mountain_stream,"mountain_stream");
         GameRegistry.registerItem(ChinaCraft.the_march_of_the_volunteers,"the_march_of_the_volunteers");
+        
+        GameRegistry.registerItem(ChinaCraft.itemSilk, "silk");
 
         GameRegistry.registerItem(ChinaCraft.debug, "Debug");
 

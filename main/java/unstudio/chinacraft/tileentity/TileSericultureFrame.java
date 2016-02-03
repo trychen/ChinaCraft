@@ -15,8 +15,21 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
     private static final int[] slotsBottom = new int[] {10};
 
 	private ItemStack stack[] = new ItemStack[11];
-	public float mortality = -1;
-	public int schedule = 0;
+	private double mortality = -1;
+	
+	public int getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(int schedule) {
+		this.schedule = schedule;
+	}
+
+	public void setMortality(double mortality) {
+		this.mortality = mortality;
+	}
+
+	private int schedule = 0;
     
 	@Override
 	public int getSizeInventory() {
@@ -165,11 +178,11 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 		}
 	}
 	
-	public float getMortality() {
-		float temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature>1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature;
-		float rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall >1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
+	public double getMortality() {
+		double temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature>1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature;
+		double rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall >1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
 		int height = yCoord >128?128:yCoord;
-		float m = 0;
+		double m = 0;
 		m += -0.422*Math.pow(temperature, 4)+1.109*Math.pow(temperature, 3)-0.301*Math.pow(temperature, 2)-0.620*temperature+0.3 < 0?0:-0.422*Math.pow(temperature, 4)+1.109*Math.pow(temperature, 3)-0.301*Math.pow(temperature, 2)-0.620*temperature+0.3;
 		m += -0.422*Math.pow(rainfall, 4)+1.109*Math.pow(rainfall, 3)-0.301*Math.pow(rainfall, 2)-0.620*rainfall+0.3 < 0?0:-0.422*Math.pow(rainfall, 4)+1.109*Math.pow(rainfall, 3)-0.301*Math.pow(rainfall, 2)-0.620*rainfall+0.3;
 		m += 0.000048828125F*(height-64F)*(height-64F);
@@ -194,7 +207,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
             }
         }
         this.schedule = p_145839_1_.getInteger("schedule");
-        this.mortality = p_145839_1_.getFloat("mortality");
+        this.mortality = p_145839_1_.getDouble("mortality");
     }
 
     @Override
@@ -202,7 +215,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
     {
         super.writeToNBT(p_145841_1_);
         p_145841_1_.setInteger("schedule", this.schedule);
-        p_145841_1_.setFloat("mortality", this.mortality);
+        p_145841_1_.setDouble("mortality", this.mortality);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.stack.length; ++i)
