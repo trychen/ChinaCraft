@@ -76,6 +76,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
         ChinaCraft.bambooShoot.setBlockTextureName("chinacraft:bamboo_shoot");
 
+        ChinaCraft.copperIngot.setTextureName("chinacraft:copper_ingot");
         ChinaCraft.bronzeIngot.setTextureName("chinacraft:bronze_ingot");
         ChinaCraft.copperTinMixedPowder.setTextureName("chinacraft:copper_tin_mixed_powder");
         ChinaCraft.bronzeSword.setTextureName("chinacraft:bronze_sword");

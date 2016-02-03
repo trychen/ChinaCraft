@@ -1,6 +1,7 @@
 tile.copper_ore.name=Copper Ore
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
+item.copper_ingot.name=Copper Ingot
 item.bronze_sword.name=Bronze Sword
 item.bronze_bigsword.name=Bronze Big Sword
 item.bronze_bigsword_green.name=Bronze Big Sword - Fei Cui Jade
