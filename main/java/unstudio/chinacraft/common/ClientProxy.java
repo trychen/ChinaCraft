@@ -1,6 +1,10 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.client.render.item.ModelBlockItemRenderer;
 import unstudio.chinacraft.tileentity.TileCCLamp;
 import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.render.item.ItemBuhrimillRenderer;
@@ -42,9 +46,14 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemBuhrimill,new ItemBuhrimillRenderer());
 
+        ClientRegistry.registerTileEntity(TileCCLamp.class,"tileEntityLamp",new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfishOpenable,new ModelBlockItemRenderer(new ModelLanternScaldfish(),new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,new ModelBlockItemRenderer(new ModelLanternScaldfish(),new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
+
         ClientRegistry.registerTileEntity(TileModelBlock.class,"tileEntityModelBlock",new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileModelBlock.class, new TileEntityModelBlockRenderer());
+
 
 //      MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new ItemBuhrimillRenderer());
 

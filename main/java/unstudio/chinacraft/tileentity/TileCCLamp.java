@@ -36,8 +36,14 @@ public class TileCCLamp extends TileModelBlock{
     public boolean isOpened() {
         return opened;
     }
-    public void turn(){
-        if (opened) opened= false;
-        else opened = true;
+
+    public boolean turn(){
+        if (opened) {
+            opened = false;
+            return false;
+        } else {
+            opened = true;
+            return true;
+        }
     }
 }

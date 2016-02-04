@@ -12,14 +12,13 @@ import unstudio.chinacraft.block.generation.ore.CopperOre;
 import unstudio.chinacraft.block.generation.ore.SilverOre;
 import unstudio.chinacraft.block.generation.ore.TinOre;
 import unstudio.chinacraft.block.generation.plant.*;
-import unstudio.chinacraft.block.model.CCLamp;
+import unstudio.chinacraft.block.model.BlockLamp;
 import unstudio.chinacraft.block.model.CCModelBlock;
 import unstudio.chinacraft.block.model.Lantern;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
-import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
@@ -164,6 +163,7 @@ public class ChinaCraft {
     public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); //木窗框3
     public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); //木窗框3
     public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); //木窗框Logo
+    public static WoodenWindow woodenWindowfu = new WoodenWindow("chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); //木窗框:福
 //    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
     public static CCGrowablePlant riceGrow = new CCGrowablePlant("rice",5,ChinaCraft.rices,ChinaCraft.lcker); //水稻作物
     //    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
@@ -179,9 +179,11 @@ public class ChinaCraft {
     public static CCFlower peony = new CCFlower("peony");
     public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab").setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); //竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); //玉石工作台
-    public static CCInstruments blockDrum = new CCInstruments("drum",Material.wood,true,"note.drum",20);
-    public static CCLamp lanternScaldfishOpenable = new CCLamp(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
-    public static CCModelBlock lanternScaldfish = new CCModelBlock(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
+    public static BlockInstruments blockDrum = new BlockInstruments("drum",Material.wood,true,"note.drum",20);
+    public static BlockLamp lanternScaldfishOpenable = new BlockLamp(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish");
+    public static Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish).setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
+    public static CCModelBlock lanternScaldfish = new CCModelBlock(Material.cake,new ModelLanternScaldfish(),"lantern_scaldfish_openable");
+    public static Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable).setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(ChinaCraft.tabCore);
 
     //TraditionalCarpet
     public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
@@ -316,7 +318,8 @@ public class ChinaCraft {
     public static CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");
     public static CCMusicDisc mountain_stream = new CCMusicDisc("mountain_stream");
     public static CCMusicDisc the_march_of_the_volunteers = new CCMusicDisc("the_march_of_the_volunteers");
-    
+    public static CCMusicDisc spring_festival_overture = new CCMusicDisc("spring_festival_overture");
+
     public static Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); //丝绸
 
     public static ItemDebug debug = new ItemDebug(); //调试物品

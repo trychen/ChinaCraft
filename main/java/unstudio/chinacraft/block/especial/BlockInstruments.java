@@ -16,7 +16,7 @@ import java.util.Random;
 /**
  * Created by trych on 2016/1/27.
  */
-public class CCInstruments extends BlockContainer {
+public class BlockInstruments extends BlockContainer {
     private boolean isAlignmentMusic;
     private String musicname;
     private int maxMusic;
@@ -30,7 +30,7 @@ public class CCInstruments extends BlockContainer {
      * @param maxMusic 最大的音乐数
      * @throws CouldNotSerializeMusicNameException 不能把音乐序列化时抛出该错误
      */
-    public CCInstruments(String name,Material material,boolean isAlignmentMusic,String musicname,int maxMusic){
+    public BlockInstruments(String name, Material material, boolean isAlignmentMusic, String musicname, int maxMusic){
         super(material);
         setBlockName(name);
         this.musicname = musicname;
@@ -68,7 +68,6 @@ public class CCInstruments extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        int meta = world.getBlockMetadata(x, y, z);
         if (!world.isRemote)
         {
             if (isAlignmentMusic()) {

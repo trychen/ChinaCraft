@@ -32,8 +32,10 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
         ListenerRegister.commonInit();
-//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfish,"LanternScaldfish");
-//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable,"lanternScaldfishOpenable");
+        GameRegistry.registerBlock(ChinaCraft.lanternScaldfish,"LanternScaldfish");
+        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable,"lanternScaldfishOpenable");
+        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish,"itemLanternScaldfish");
+        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable,"itemLanternScaldfishOpenable");
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);
@@ -61,6 +63,7 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
         GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
         GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon"); //龙腾木窗格
+        GameRegistry.registerBlock(ChinaCraft.woodenWindowfu, "WoodenWindowFu"); //福字木窗格
         GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
         GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo"); //竹子
         GameRegistry.registerBlock(ChinaCraft.bambooSlab, "BambooSlab"); //竹木板
@@ -223,7 +226,8 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.three_stanzas,"three_stanzas_of_plum-blossoms");
         GameRegistry.registerItem(ChinaCraft.mountain_stream,"mountain_stream");
         GameRegistry.registerItem(ChinaCraft.the_march_of_the_volunteers,"the_march_of_the_volunteers");
-        
+        GameRegistry.registerItem(ChinaCraft.spring_festival_overture,"spring_festival_overture");
+
         GameRegistry.registerItem(ChinaCraft.itemSilk, "silk");
 
         GameRegistry.registerItem(ChinaCraft.debug, "Debug");
