@@ -139,6 +139,23 @@ item.silkworm_chrysalis.name=蚕茧
 tile.sericulture_frame.name=养蚕架
 gui.sericulture_frame.title=养蚕架
 
+item.silk.black.name=黑色丝绸
+item.silk.red.name=红色丝绸
+item.silk.green.name=
+item.silk.brown.name=
+item.silk.blue.name=
+item.silk.purple.name=
+item.silk.cyan.name=
+item.silk.silver.name=
+item.silk.gray.name=
+item.silk.pink.name=
+item.silk.lime.name=
+item.silk.yellow.name=
+item.silk.lightBlue.name=
+item.silk.magenta.name=
+item.silk.orange.name=
+item.silk.white.name=丝绸
+
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
 

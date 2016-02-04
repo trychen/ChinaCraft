@@ -143,7 +143,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 				}else{
 					nbt.setInteger("Schedule", x);
 					if(item.getItemDamage()==1){
-						if(getStackInSlot(9)==null) continue;
+						if(getStackInSlot(9)==null||getStackInSlot(9).getItem()!=ChinaCraft.itemMulberryLeaf) continue;
 						Random r = new Random();
 						int y = r.nextInt(1000);
 						if(y<1){
