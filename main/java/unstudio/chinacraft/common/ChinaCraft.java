@@ -209,9 +209,9 @@ public class ChinaCraft {
     public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); //养蚕架
 
     //物品
-    public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore);
-    public static Item bronzeIngot = new Item().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore);  //青铜锭
-    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //铜锭
+    public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); //铜锭
+    public static Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot").setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:bronze_ingot");  //青铜锭
+    public static Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore);  //锡锭
     public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); //银锭
     public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder").setCreativeTab(ChinaCraft.tabCore); //铜锡混合矿粉
     public static CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow).setUnlocalizedName("rices"); //米
@@ -225,7 +225,7 @@ public class ChinaCraft {
     public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabPlant); //桑叶
     public static ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); //木桶
     public static ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); //木水桶
-    public static Silkworm silkworm = new Silkworm(); //蚕
+    public static ItemSilkworm silkworm = new ItemSilkworm(); //蚕
     public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("silkworm_chrysalis"); //蚕茧
     public static ItemRedPacket redPacket = new ItemRedPacket(); //红包
     public static ItemFirecracker firecracker = new ItemFirecracker();
@@ -316,6 +316,8 @@ public class ChinaCraft {
     public static CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");
     public static CCMusicDisc mountain_stream = new CCMusicDisc("mountain_stream");
     public static CCMusicDisc the_march_of_the_volunteers = new CCMusicDisc("the_march_of_the_volunteers");
+    
+    public static Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); //丝绸
 
     public static ItemDebug debug = new ItemDebug(); //调试物品
 
