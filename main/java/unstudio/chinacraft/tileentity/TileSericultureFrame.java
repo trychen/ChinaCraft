@@ -1,6 +1,9 @@
 package unstudio.chinacraft.tileentity;
 
 import unstudio.chinacraft.common.ChinaCraft;
+
+import java.util.Random;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
@@ -17,19 +20,13 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 	private ItemStack stack[] = new ItemStack[11];
 	private double mortality = -1;
 	
-	public int getSchedule() {
-		return schedule;
-	}
-
-	public void setSchedule(int schedule) {
-		this.schedule = schedule;
+	public double getMortality() {
+		return mortality;
 	}
 
 	public void setMortality(double mortality) {
 		this.mortality = mortality;
 	}
-
-	private int schedule = 0;
     
 	@Override
 	public int getSizeInventory() {
@@ -122,6 +119,45 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 	
 	@Override
 	public void updateEntity() {
+		for(int i=0;i<9;i++){
+			ItemStack item = getStackInSlot(i);
+			if(item==null)continue;
+			if(item.getItem()!=ChinaCraft.silkworm)continue;
+			if(item.hasTagCompound()){
+				NBTTagCompound nbt = item.getTagCompound();
+				int x = nbt.getInteger("Schedule");
+				x++;
+				if(x>=getMaxSchedule(item.getItemDamage())){
+					nbt.setInteger("Schedule", 0);
+					if(item.getItemDamage()>=2){
+						if(getStackInSlot(10)==null){
+							setInventorySlotContents(10, new ItemStack(ChinaCraft.silkwormChrysalis));
+							setInventorySlotContents(i, new ItemStack(ChinaCraft.silkworm));
+						}else{
+							getStackInSlot(10).stackSize++;
+							setInventorySlotContents(i, new ItemStack(ChinaCraft.silkworm));
+						}
+					}else{
+						item.setItemDamage(item.getItemDamage()+1);
+					}
+				}else{
+					nbt.setInteger("Schedule", x);
+					if(item.getItemDamage()==1){
+						if(getStackInSlot(9)==null) continue;
+						Random r = new Random();
+						int y = r.nextInt(1000);
+						if(y<1){
+							getStackInSlot(9).stackSize--;
+						}
+					}
+				}
+				item.setTagCompound(nbt);
+			}else{
+				NBTTagCompound nbt = new NBTTagCompound();
+				nbt.setInteger("Schedule", 0);
+				item.setTagCompound(nbt);
+			}
+		}
 //		if(mortality == -1) {
 //			mortality = getMortality();
 //		}
@@ -174,11 +210,11 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 		case 2:
 			return 9000;
 		default:
-			return 1;
+			return -1;
 		}
 	}
 	
-	public double getMortality() {
+	public double getDefaultMortality() {
 		double temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature>1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature;
 		double rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0?0:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall >1.5F?1.5F:worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
 		int height = yCoord >128?128:yCoord;
@@ -206,7 +242,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
                 this.stack[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
         }
-        this.schedule = p_145839_1_.getInteger("schedule");
+//        this.schedule = p_145839_1_.getInteger("schedule");
         this.mortality = p_145839_1_.getDouble("mortality");
     }
 
@@ -214,7 +250,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 	public void writeToNBT(NBTTagCompound p_145841_1_)
     {
         super.writeToNBT(p_145841_1_);
-        p_145841_1_.setInteger("schedule", this.schedule);
+//        p_145841_1_.setInteger("schedule", this.schedule);
         p_145841_1_.setDouble("mortality", this.mortality);
         NBTTagList nbttaglist = new NBTTagList();
 

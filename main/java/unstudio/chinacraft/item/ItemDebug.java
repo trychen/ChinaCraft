@@ -39,7 +39,7 @@ public class ItemDebug extends Item{
     		
     	}else if(tile instanceof TileSericultureFrame) {
     		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate")+": "+((TileSericultureFrame)tile).getMortality()));
-    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.progress")+": "+((TileSericultureFrame)tile).getSchedule()));
+//    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.progress")+": "+((TileSericultureFrame)tile).getSchedule()));
     	}
 		return true;
     }

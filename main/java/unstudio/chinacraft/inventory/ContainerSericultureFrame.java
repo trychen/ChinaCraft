@@ -17,7 +17,7 @@ import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class ContainerSericultureFrame extends Container{
 	private TileSericultureFrame tile;
-	private int lastSchedule;
+//	private int lastSchedule;
 
 	public ContainerSericultureFrame(InventoryPlayer par1InventoryPlayer, TileSericultureFrame tileEntity) {
 		this.tile = tileEntity;
@@ -92,33 +92,33 @@ public class ContainerSericultureFrame extends Container{
 		return var3;
 	}
 	
-	@Override
-	public void addCraftingToCrafters(ICrafting par1iCrafting) {
-		super.addCraftingToCrafters(par1iCrafting);
-		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
-	}
- 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void updateProgressBar(int par1, int par2) {
-		if (par1 == 0) {
-			this.tile.setSchedule(par2);;
-		}
-	}
- 
-	@Override
-	public void detectAndSendChanges() {
-		super.detectAndSendChanges();
-		Iterator var1 = this.crafters.iterator();
-		while (var1.hasNext()) {
-			ICrafting var2 = (ICrafting) var1.next();
- 
-			if (this.lastSchedule != this.tile.getSchedule()) {
-				var2.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
-			}
-		}
-		this.lastSchedule = this.tile.getSchedule();
-	}
+//	@Override
+//	public void addCraftingToCrafters(ICrafting par1iCrafting) {
+//		super.addCraftingToCrafters(par1iCrafting);
+//		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
+//	}
+// 
+//	@Override
+//	@SideOnly(Side.CLIENT)
+//	public void updateProgressBar(int par1, int par2) {
+//		if (par1 == 0) {
+//			this.tile.setSchedule(par2);;
+//		}
+//	}
+// 
+//	@Override
+//	public void detectAndSendChanges() {
+//		super.detectAndSendChanges();
+//		Iterator var1 = this.crafters.iterator();
+//		while (var1.hasNext()) {
+//			ICrafting var2 = (ICrafting) var1.next();
+// 
+//			if (this.lastSchedule != this.tile.getSchedule()) {
+//				var2.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
+//			}
+//		}
+//		this.lastSchedule = this.tile.getSchedule();
+//	}
 	
 	public class SlotSericultureFrame extends Slot{
 
