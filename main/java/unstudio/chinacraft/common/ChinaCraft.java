@@ -321,6 +321,7 @@ public class ChinaCraft {
     public static CCMusicDisc spring_festival_overture = new CCMusicDisc("spring_festival_overture");
 
     public static Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); //丝绸
+    public static Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("chinacraft:silk_yarn").setCreativeTab(ChinaCraft.tabPlant);
 
     public static ItemDebug debug = new ItemDebug(); //调试物品
 

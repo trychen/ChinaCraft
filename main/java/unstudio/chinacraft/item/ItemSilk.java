@@ -21,7 +21,7 @@ public class ItemSilk extends Item {
 	public ItemSilk() {
 		this.setHasSubtypes(true);
 		this.setMaxDamage(0);
-		this.setCreativeTab(ChinaCraft.tabCore);
+		this.setCreativeTab(ChinaCraft.tabPlant);
 	}
 
 	@Override

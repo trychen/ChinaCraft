@@ -148,15 +148,15 @@ item.silk.red.name=红色丝绸
 item.silk.green.name=绿色丝绸
 item.silk.brown.name=棕色丝绸
 item.silk.blue.name=蓝色丝绸
-item.silk.purple.name=紫色丝绸
-item.silk.cyan.name=青色丝绸
-item.silk.silver.name=银色丝绸
+item.silk.purple.name=紫色色丝绸
+item.silk.cyan.name=青色色丝绸
+item.silk.silver.name=淡灰色丝绸
 item.silk.gray.name=灰色丝绸
 item.silk.pink.name=粉红色丝绸
-item.silk.lime.name=绿黄色丝绸
+item.silk.lime.name=黄绿色丝绸
 item.silk.yellow.name=黄色丝绸
-item.silk.lightBlue.name=淡蓝丝绸
-item.silk.magenta.name=品红丝绸
+item.silk.lightBlue.name=淡蓝色丝绸
+item.silk.magenta.name=品红色丝绸
 item.silk.orange.name=橙色丝绸
 item.silk.white.name=丝绸
 
@@ -175,7 +175,7 @@ gui.jade_table.info=玉石信息
 tile.cooking_bench.name=灶台
 gui.cooking_bench.title=灶台
 
-tile.blockfirebrick.title=耐火砖
+tile.firebrick.name=耐火砖块
 item.firebrick.name=耐火砖
 item.clay_sand_mixture.name=黏土沙混合物
 

@@ -229,6 +229,7 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.spring_festival_overture,"spring_festival_overture");
 
         GameRegistry.registerItem(ChinaCraft.itemSilk, "silk");
+        GameRegistry.registerItem(ChinaCraft.silkYarn, "silk_yarn");
 
         GameRegistry.registerItem(ChinaCraft.debug, "Debug");
 
