@@ -145,7 +145,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory{
 					if(item.getItemDamage()==1){
 						if(getStackInSlot(9)==null||getStackInSlot(9).getItem()!=ChinaCraft.itemMulberryLeaf) continue;
 						Random r = new Random();
-						int y = r.nextInt(1000);
+						int y = r.nextInt(2000);
 						if(y<1){
 							getStackInSlot(9).stackSize--;
 						}
