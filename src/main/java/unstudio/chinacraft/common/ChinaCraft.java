@@ -65,7 +65,7 @@ public class ChinaCraft {
     }
 
     public static final String MODID = "chinacraft";
-    public static final String NAME = "ChinaCraft";
+    public static final String NAME = "ChinaCraft|Core";
     public static final String VERSION = "172";
     public static final int OutPutVERSION = 172;
     public static boolean NEIIsLoad = false;
