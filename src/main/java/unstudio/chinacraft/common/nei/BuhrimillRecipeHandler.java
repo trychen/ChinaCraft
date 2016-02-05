@@ -1,23 +1,29 @@
 package unstudio.chinacraft.common.nei;
 
-import java.awt.Rectangle;
+import codechicken.nei.NEIClientUtils;
+import codechicken.nei.NEIServerUtils;
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.TemplateRecipeHandler;
+import net.minecraft.block.Block;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.item.ItemStack;
+import unstudio.chinacraft.client.gui.GuiBuhrimill;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
-import codechicken.nei.NEIClientUtils;
-import codechicken.nei.NEIServerUtils;
-import codechicken.nei.PositionedStack;
-import codechicken.nei.recipe.TemplateRecipeHandler;
-import unstudio.chinacraft.client.gui.GuiBuhrimill;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
-import net.minecraft.block.Block;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.item.ItemStack;
-
+/**
+ * Recipe Handler of Buhrimill.
+ */
 public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
-	//*********************************************************************************************************************************************************************
+
+    /**
+     * Pair of Smelting.
+     */
 	public class SmeltingPair extends CachedRecipe
     {
         public SmeltingPair(ItemStack in1, ItemStack out1 ,ItemStack in2, ItemStack out2) {
@@ -46,7 +52,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         PositionedStack output1;
         PositionedStack output2;
     }
-	//*********************************************************************************************************************************************************************
+
     public static class FuelPair
     {
         public FuelPair(ItemStack ingred, int burnTime) {
@@ -57,7 +63,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         public PositionedStack stack;
         public int burnTime;
     }
-  //*********************************************************************************************************************************************************************
+
     public static ArrayList<FuelPair> afuels;
     public static HashSet<Block> efuels;
 
