@@ -1,8 +1,17 @@
-*.class
+# Use Whitelist Mode
+/*
 
-# Package Files #
-*.jar
-*.war
-*.ear
-main/resources/assets/chinacraft/textures/items/Thumbs.db
-main/resources/assets/chinacraft/textures/entity/chinazombie/Thumbs.db
+# Gradle Files
+!gradle/
+!gradlew
+!gradlew.bat
+!build.gradle
+!gradle.properties
+
+# Description Files
+!README.md
+
+# Source Code
+!src/
+
+# Git Files
