@@ -27,6 +27,8 @@ public class Recipes {
 
         //Copper
         GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot, 1), 1.2f);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.copperBlock),new Object[]{"AAA","AAA","AAA",'A',ChinaCraft.copperIngot});
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperIngot,9), ChinaCraft.copperBlock);
 
         //大理石
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.pillarMarble});
