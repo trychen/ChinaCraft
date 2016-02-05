@@ -36,6 +36,7 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable,"lanternScaldfishOpenable");
         GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish,"itemLanternScaldfish");
         GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable,"itemLanternScaldfishOpenable");
+        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);

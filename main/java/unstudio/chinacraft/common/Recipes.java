@@ -26,7 +26,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[3]),new Object[]{"   ","ABA","A A",'A',Items.leather,'B',Items.dye});
 
         //Copper
-        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot, 1), 1.2f);
+        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot, 1), 1.2f);
 
         //大理石
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4), new Object[]{"## ", "## ", "   ", '#', ChinaCraft.pillarMarble});
@@ -145,7 +145,6 @@ public class Recipes {
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null, new ItemStack(ChinaCraft.flour), null, 360);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null, new ItemStack(ChinaCraft.riceFlour), null, 360);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.bronzeIngot),null, new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
-
 
         //spiritual_magic_figures
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures, 3), new Object[]{Items.paper, Items.dye});

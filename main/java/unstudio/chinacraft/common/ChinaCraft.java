@@ -146,6 +146,7 @@ public class ChinaCraft {
     public static Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
 
     //方块
+    public static CopperBlock copperBlock = new CopperBlock();  //铜块
     public static CopperOre copperOre = new CopperOre();  //铜矿
     public static BlockBronze bronzeBlock = new BlockBronze();  //青铜块
     public static TinOre tinOre = new TinOre(); //锡矿
