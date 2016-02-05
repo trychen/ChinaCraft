@@ -4,7 +4,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelLanternScaldfish extends ModelBase
+public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
 {
   //fields
     ModelRenderer Shape1;
@@ -132,4 +132,20 @@ public class ModelLanternScaldfish extends ModelBase
     model.rotateAngleZ = z;
   }
 
+  @Override
+  public void render(float f5) {
+    Shape1.render(f5);
+    Shape2.render(f5);
+    Shape3.render(f5);
+    Shape4.render(f5);
+    Shape5.render(f5);
+    Shape6.render(f5);
+    Shape7.render(f5);
+    Shape8.render(f5);
+    Shape9.render(f5);
+    Shape10.render(f5);
+    Shape11.render(f5);
+    Shape12.render(f5);
+    Shape13.render(f5);
+  }
 }

@@ -22,7 +22,6 @@ public class CCModelBlock extends Block{
         this.model = model;
         setBlockName(name);
         setBlockTextureName(name);
-        setCreativeTab(ChinaCraft.tabCore);
     }
 
     @Override
