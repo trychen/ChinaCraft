@@ -14,8 +14,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileJadeBench;
 import unstudio.chinacraft.client.gui.GuiID;
-import unstudio.chinacraft.block.tileentity.TileJadeBench;
 
 public class JadeWorkingTable extends BlockContainer {
     @SideOnly(Side.CLIENT)

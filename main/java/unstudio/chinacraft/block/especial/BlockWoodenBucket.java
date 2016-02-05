@@ -5,8 +5,8 @@ import java.util.Random;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.client.block.render.BlockWoodenBucketRenderer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

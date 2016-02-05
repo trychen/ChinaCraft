@@ -9,7 +9,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.inventory.ContainerPotteryKiln;
-import unstudio.chinacraft.block.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 
 public class GuiPotteryKiln extends GuiContainer {
 

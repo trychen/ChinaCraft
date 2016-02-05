@@ -5,8 +5,8 @@ import java.util.List;
 import net.minecraft.block.Block;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.block.tileentity.TileBuhrimill;
-import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -38,8 +38,8 @@ public class ItemDebug extends Item{
     	if(tile instanceof TileBuhrimill) {
     		
     	}else if(tile instanceof TileSericultureFrame) {
-    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate")+": "+((TileSericultureFrame)tile).mortality));
-    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.progress")+": "+((TileSericultureFrame)tile).schedule));
+    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate")+": "+((TileSericultureFrame)tile).getMortality()));
+//    		player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.progress")+": "+((TileSericultureFrame)tile).getSchedule()));
     	}
 		return true;
     }

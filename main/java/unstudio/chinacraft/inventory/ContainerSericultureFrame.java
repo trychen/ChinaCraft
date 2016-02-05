@@ -8,21 +8,32 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
-import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class ContainerSericultureFrame extends Container{
 	private TileSericultureFrame tile;
-	private int lastSchedule;
+//	private int lastSchedule;
 
 	public ContainerSericultureFrame(InventoryPlayer par1InventoryPlayer, TileSericultureFrame tileEntity) {
 		this.tile = tileEntity;
-		this.addSlotToContainer(new Slot(tileEntity, 0, 80, 24));
-		this.addSlotToContainer(new Slot(tileEntity, 1, 80, 50));
-		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player,tileEntity, 2, 54, 24));
-        int var3;
+		int var3;
+        for (var3 = 0; var3 < 9; ++var3)
+        {
+                    this.addSlotToContainer(new SlotSericultureFrame(tileEntity, var3, 8 + var3 * 18, 21));
+        } 
+		this.addSlotToContainer(new Slot(tileEntity, 9, 12, 48){
+			@Override
+			public boolean isItemValid(ItemStack p_75214_1_) {
+				if(p_75214_1_.getItem()==ChinaCraft.itemMulberryLeaf)return true;
+				return false;
+			}
+		});
+		this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player,tileEntity, 10, 152, 48));
         for (var3 = 0; var3 < 3; ++var3)
         {
                     for (int var4 = 0; var4 < 9; ++var4)
@@ -81,31 +92,49 @@ public class ContainerSericultureFrame extends Container{
 		return var3;
 	}
 	
-	@Override
-	public void addCraftingToCrafters(ICrafting par1iCrafting) {
-		super.addCraftingToCrafters(par1iCrafting);
-		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.schedule);
-	}
- 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void updateProgressBar(int par1, int par2) {
-		if (par1 == 0) {
-			this.tile.schedule= par2;
+//	@Override
+//	public void addCraftingToCrafters(ICrafting par1iCrafting) {
+//		super.addCraftingToCrafters(par1iCrafting);
+//		par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
+//	}
+// 
+//	@Override
+//	@SideOnly(Side.CLIENT)
+//	public void updateProgressBar(int par1, int par2) {
+//		if (par1 == 0) {
+//			this.tile.setSchedule(par2);;
+//		}
+//	}
+// 
+//	@Override
+//	public void detectAndSendChanges() {
+//		super.detectAndSendChanges();
+//		Iterator var1 = this.crafters.iterator();
+//		while (var1.hasNext()) {
+//			ICrafting var2 = (ICrafting) var1.next();
+// 
+//			if (this.lastSchedule != this.tile.getSchedule()) {
+//				var2.sendProgressBarUpdate(this, 0, this.tile.getSchedule());
+//			}
+//		}
+//		this.lastSchedule = this.tile.getSchedule();
+//	}
+	
+	public class SlotSericultureFrame extends Slot{
+
+		public SlotSericultureFrame(IInventory p_i1824_1_, int p_i1824_2_, int p_i1824_3_, int p_i1824_4_) {
+			super(p_i1824_1_, p_i1824_2_, p_i1824_3_, p_i1824_4_);
 		}
-	}
- 
-	@Override
-	public void detectAndSendChanges() {
-		super.detectAndSendChanges();
-		Iterator var1 = this.crafters.iterator();
-		while (var1.hasNext()) {
-			ICrafting var2 = (ICrafting) var1.next();
- 
-			if (this.lastSchedule != this.tile.schedule) {
-				var2.sendProgressBarUpdate(this, 0, this.tile.schedule);
-			}
+		
+		@Override
+		public int getSlotStackLimit() {
+			return 1;
 		}
-		this.lastSchedule = this.tile.schedule;
+		
+		@Override
+		public boolean isItemValid(ItemStack p_75214_1_) {
+			if(p_75214_1_.getItem()==ChinaCraft.silkworm)return true;
+			return false;
+		}
 	}
 }

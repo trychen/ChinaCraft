@@ -17,9 +17,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileFirebrickStructure;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import unstudio.chinacraft.client.gui.GuiID;
-import unstudio.chinacraft.block.tileentity.TileFirebrickStructure;
-import unstudio.chinacraft.block.tileentity.TilePotteryKiln;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

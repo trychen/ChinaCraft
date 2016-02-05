@@ -9,7 +9,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.inventory.ContainerSericultureFrame;
-import unstudio.chinacraft.block.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class GuiSericultureFrame extends GuiContainer {
 

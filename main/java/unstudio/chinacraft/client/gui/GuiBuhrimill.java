@@ -4,7 +4,7 @@ package unstudio.chinacraft.client.gui;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.inventory.ContainerBuhrimill;
-import unstudio.chinacraft.block.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;

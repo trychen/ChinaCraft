@@ -1,7 +1,7 @@
 ﻿tile.copper_ore.name=铜矿
 tile.bronze_block.name=青铜块
-item.copper_ingot.name=铜锭
 item.bronze_ingot.name=青铜锭
+item.copper_ingot.name=铜锭
 item.copper_tin_mixed_powder.name=铜锡混合矿粉
 item.bronze_sword.name=青铜剑
 item.bronze_bigsword.name=青铜大刀
@@ -90,7 +90,6 @@ tile.jasmine_bush.name=茉莉花灌木
 tile.prunusMumeSapling=梅花树苗
 tile.teaBush=茶树
 
-tile.wooden_window.name=木窗
 tile.wooden_window.name=木窗格
 
 tile.mulberry_log.name=桑树原木
@@ -108,6 +107,7 @@ tile.marble_stair.name=大理石楼梯
 tile.firebrick.name=耐火砖
 
 tile.potterytable.name=陶瓷工作台
+item.potterytable.name=陶瓷工作台
 gui.potterytable.title=陶瓷工作台
 gui.potterykiln.title=陶瓷窑
 
@@ -138,6 +138,28 @@ item.silkworm_chrysalis.name=蚕茧
 tile.sericulture_frame.name=养蚕架
 gui.sericulture_frame.title=养蚕架
 
+tile.lantern_scaldfish.name=元宵灯笼
+item.lantern_scaldfish.name=元宵灯笼
+tile.lantern_scaldfish_openable.name=元宵灯笼
+item.lantern_scaldfish_openable.name=元宵灯笼
+
+item.silk.black.name=黑色丝绸
+item.silk.red.name=红色丝绸
+item.silk.green.name=绿色丝绸
+item.silk.brown.name=棕色丝绸
+item.silk.blue.name=蓝色丝绸
+item.silk.purple.name=紫色色丝绸
+item.silk.cyan.name=青色色丝绸
+item.silk.silver.name=淡灰色丝绸
+item.silk.gray.name=灰色丝绸
+item.silk.pink.name=粉红色丝绸
+item.silk.lime.name=黄绿色丝绸
+item.silk.yellow.name=黄色丝绸
+item.silk.lightBlue.name=淡蓝色丝绸
+item.silk.magenta.name=品红色丝绸
+item.silk.orange.name=橙色丝绸
+item.silk.white.name=丝绸
+
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
 
@@ -153,7 +175,7 @@ gui.jade_table.info=玉石信息
 tile.cooking_bench.name=灶台
 gui.cooking_bench.title=灶台
 
-tile.blockfirebrick.title=耐火砖
+tile.firebrick.name=耐火砖块
 item.firebrick.name=耐火砖
 item.clay_sand_mixture.name=黏土沙混合物
 
@@ -180,6 +202,7 @@ item.debug.lore=拿着本物品对方块右键即可输出调试信息
 record.three_stanzas_of_plum-blossoms=梅花三弄
 record.mountain_stream=高山流水
 record.the_march_of_the_volunteers=义勇军进行曲
+record.spring_festival_overture=春节序曲
 
 item.redpacket.name=红包
 gui.redpacket.money=金钱:

@@ -9,7 +9,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.inventory.ContainerCookingBench;
-import unstudio.chinacraft.block.tileentity.TileCookingBench;
+import unstudio.chinacraft.tileentity.TileCookingBench;
 
 public class GuiCookingBench extends GuiContainer {
 

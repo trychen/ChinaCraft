@@ -8,7 +8,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import unstudio.chinacraft.block.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
