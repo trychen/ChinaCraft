@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.api.recipes.BuhrimillRecipe;
 
 public class TileBuhrimill extends TileEntity implements ISidedInventory{
 

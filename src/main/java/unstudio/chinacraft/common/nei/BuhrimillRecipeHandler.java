@@ -8,7 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 import unstudio.chinacraft.client.gui.GuiBuhrimill;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.api.recipes.BuhrimillRecipe;
 
 import java.awt.*;
 import java.util.ArrayList;

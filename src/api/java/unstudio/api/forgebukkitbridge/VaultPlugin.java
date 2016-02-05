@@ -1,4 +1,4 @@
-package unstudio.forgebukkitbridge;
+package unstudio.api.forgebukkitbridge;
 
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;

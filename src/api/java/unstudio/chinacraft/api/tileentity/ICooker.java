@@ -1,4 +1,4 @@
-package unstudio.chinacraft.tileentity;
+package unstudio.chinacraft.api.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

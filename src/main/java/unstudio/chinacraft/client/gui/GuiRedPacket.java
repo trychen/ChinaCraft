@@ -7,7 +7,6 @@ import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.gui.GuiScreenBook;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +17,6 @@ import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
-import unstudio.forgebukkitbridge.ServerManager;
 
 public class GuiRedPacket extends GuiContainer {
 	

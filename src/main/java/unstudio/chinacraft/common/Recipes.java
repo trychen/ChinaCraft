@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.api.recipes.BuhrimillRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**

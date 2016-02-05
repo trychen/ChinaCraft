@@ -2,8 +2,7 @@ package unstudio.chinacraft.block.especial;
 
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TilePotteryTable;
-import unstudio.chinacraft.tileentity.TileSericultureFrame;
-import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.api.client.gui.GuiID;
 
 import java.util.Random;
 

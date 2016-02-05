@@ -1,4 +1,4 @@
-package unstudio.chinacraft.item;
+package unstudio.chinacraft.api.item;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -3,6 +3,7 @@ package unstudio.chinacraft.client.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import unstudio.chinacraft.api.model.ModelExtendBlock;
 
 public class ModelSericultureFrame extends ModelBase implements ModelExtendBlock
 {

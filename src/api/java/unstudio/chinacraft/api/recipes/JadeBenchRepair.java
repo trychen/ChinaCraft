@@ -1,4 +1,4 @@
-package unstudio.chinacraft.recipes;
+package unstudio.chinacraft.api.recipes;
 
 import java.util.ArrayList;
 

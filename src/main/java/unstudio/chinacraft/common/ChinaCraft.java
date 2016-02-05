@@ -5,6 +5,9 @@ import net.minecraft.block.BlockCake;
 import net.minecraft.item.ItemArmor;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
+import unstudio.chinacraft.api.block.BlockBase;
+import unstudio.chinacraft.api.block.CCGrowablePlant;
+import unstudio.chinacraft.api.item.ItemBase;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.block.decoration.*;
 import unstudio.chinacraft.block.especial.*;
@@ -47,14 +50,14 @@ import cpw.mods.fml.relauncher.SideOnly;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.config.ConfigLoader;
-import unstudio.forgebukkitbridge.ServerManager;
-import unstudio.forgebukkitbridge.VaultPlugin;
+import unstudio.api.forgebukkitbridge.ServerManager;
+import unstudio.api.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
 
 import java.util.Random;
 
-@Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
+@Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION, dependencies = "required-after:ChinaCraft|API@"+ChinaCraft.VERSION)
 public class ChinaCraft {
     public static void main(String[] args) {
         JOptionPane.showMessageDialog(null, "This is a Minecraft Forge Mod , you can't run it!", "Chinacraft : mccraft.cn", JOptionPane.OK_OPTION);

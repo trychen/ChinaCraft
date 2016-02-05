@@ -3,8 +3,9 @@ package unstudio.chinacraft.tileentity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import unstudio.chinacraft.api.tileentity.ICooker;
 
-public class TileBuckpot extends TilePotteryBase implements ICooker{
+public class TileBuckpot extends TilePotteryBase implements ICooker {
 	
 	private ItemStack itemStacks[];
 	private int cooktime;

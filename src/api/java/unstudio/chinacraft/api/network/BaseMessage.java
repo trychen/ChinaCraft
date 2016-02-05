@@ -1,4 +1,4 @@
-package unstudio.chinacraft.common.network;
+package unstudio.chinacraft.api.network;
 
 import io.netty.buffer.ByteBuf;
 import cpw.mods.fml.common.network.ByteBufUtils;

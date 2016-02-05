@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 import unstudio.chinacraft.event.ListenerRegister;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.api.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.config.ConfigLoader;
