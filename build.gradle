@@ -31,10 +31,14 @@ minecraft {
     version = minecraft_version + "-" + forge_version
     runDir = "eclipse"
 }
-
-task apiJar(type: Jar) {
-    from sourceSets.api.java
+ext.jarFile = zipTree(jar.archivePath)
+task apiJar(type: Jar, dependsOn: jar) {
     classifier = 'api'
+    doFirst {
+        from(project.ext.jarFile) {
+            includes.addAll(["unstudio/api/**", "unstudio/chinacraft/api/**"])
+        }
+    }
 }
 
 artifacts {
@@ -68,7 +72,6 @@ repositories {
 sourceSets {
     main {
         java {
-            srcDirs += 'src/api/java/'
             srcDirs += 'src/main/java/'
         }
 
