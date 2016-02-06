@@ -101,10 +101,10 @@ dependencies {
     compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
     
     // Vault
-    compile "net.milkbowl.vault:VaultAPI:${vault_version}"
+    provided "net.milkbowl.vault:VaultAPI:${vault_version}"
     
     // Bukkit
-    compile "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
+    provided "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
     
 }
 
