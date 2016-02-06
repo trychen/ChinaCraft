@@ -1,7 +1,5 @@
 package unstudio.chinacraft.entity.projectile;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -17,21 +15,24 @@ import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 /**
- * Use for nothing. Created by trychen on 15/11/29.
+ * Use for nothing.
+ * Created by trychen on 15/11/29.
  */
 public class EntitySuperArrow extends EntityArrow {
-    public int arrowShake;
-    /**
-     * The owner of this arrow.
-     */
-    public Entity shootingEntity;
     private int field_145791_d = -1;
     private int field_145792_e = -1;
     private int field_145789_f = -1;
     private Block field_145790_g;
     private int inData;
     private boolean inGround;
+    public int arrowShake;
+    /**
+     * The owner of this arrow.
+     */
+    public Entity shootingEntity;
     private int ticksInGround;
     private int ticksInAir;
     private double damage = 2.0D;
@@ -45,8 +46,7 @@ public class EntitySuperArrow extends EntityArrow {
         super(p_i1754_1_, p_i1754_2_, p_i1754_4_, p_i1754_6_);
     }
 
-    public EntitySuperArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_,
-            float p_i1755_4_, float p_i1755_5_) {
+    public EntitySuperArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_) {
         super(p_i1755_1_, p_i1755_2_, p_i1755_3_, p_i1755_4_, p_i1755_5_);
     }
 
@@ -60,21 +60,17 @@ public class EntitySuperArrow extends EntityArrow {
 
         if (this.prevRotationPitch == 0.0F && this.prevRotationYaw == 0.0F) {
             float f = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
-            this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D
-                    / Math.PI);
+            this.prevRotationYaw = this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(this.motionY, f) * 180.0D / Math.PI);
         }
 
         Block block = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e, this.field_145789_f);
 
         if (block.getMaterial() != Material.air) {
-            block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e,
-                    this.field_145789_f);
-            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d,
-                    this.field_145792_e, this.field_145789_f);
+            block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f);
 
-            if (axisalignedbb != null
-                    && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ))) {
+            if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ))) {
                 this.inGround = true;
             }
         }
@@ -103,21 +99,17 @@ public class EntitySuperArrow extends EntityArrow {
         } else {
             ++this.ticksInAir;
             Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY,
-                    this.posZ + this.motionZ);
+            Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
             MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
             vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY,
-                    this.posZ + this.motionZ);
+            vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
             if (movingobjectposition != null) {
-                vec3 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord,
-                        movingobjectposition.hitVec.zCoord);
+                vec3 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
             }
 
             Entity entity = null;
-            List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this,
-                    this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+            List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             int i;
             float f1;
@@ -145,12 +137,10 @@ public class EntitySuperArrow extends EntityArrow {
                 movingobjectposition = new MovingObjectPosition(entity);
             }
 
-            if (movingobjectposition != null && movingobjectposition.entityHit != null
-                    && movingobjectposition.entityHit instanceof EntityPlayer) {
+            if (movingobjectposition != null && movingobjectposition.entityHit != null && movingobjectposition.entityHit instanceof EntityPlayer) {
                 EntityPlayer entityplayer = (EntityPlayer) movingobjectposition.entityHit;
 
-                if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer
-                        && !((EntityPlayer) this.shootingEntity).canAttackPlayer(entityplayer)) {
+                if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer) this.shootingEntity).canAttackPlayer(entityplayer)) {
                     movingobjectposition = null;
                 }
             }
@@ -160,8 +150,7 @@ public class EntitySuperArrow extends EntityArrow {
 
             if (movingobjectposition != null) {
                 if (movingobjectposition.entityHit != null) {
-                    f2 = MathHelper.sqrt_double(
-                            this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+                    f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
                     int k = MathHelper.ceiling_double_int(f2 * this.damage);
 
                     if (this.getIsCritical()) {
@@ -192,30 +181,23 @@ public class EntitySuperArrow extends EntityArrow {
                                 f4 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
 
                                 if (f4 > 0.0F) {
-                                    movingobjectposition.entityHit.addVelocity(
-                                            this.motionX * this.knockbackStrength * 0.6000000238418579D / f4, 0.1D,
-                                            this.motionZ * this.knockbackStrength * 0.6000000238418579D / f4);
+                                    movingobjectposition.entityHit.addVelocity(this.motionX * this.knockbackStrength * 0.6000000238418579D / f4, 0.1D, this.motionZ * this.knockbackStrength * 0.6000000238418579D / f4);
                                 }
                             }
 
                             if (this.shootingEntity != null && this.shootingEntity instanceof EntityLivingBase) {
                                 EnchantmentHelper.func_151384_a(entitylivingbase, this.shootingEntity);
-                                EnchantmentHelper.func_151385_b((EntityLivingBase) this.shootingEntity,
-                                        entitylivingbase);
+                                EnchantmentHelper.func_151385_b((EntityLivingBase) this.shootingEntity, entitylivingbase);
                             }
 
-                            if (this.shootingEntity != null && movingobjectposition.entityHit != this.shootingEntity
-                                    && movingobjectposition.entityHit instanceof EntityPlayer
-                                    && this.shootingEntity instanceof EntityPlayerMP) {
-                                ((EntityPlayerMP) this.shootingEntity).playerNetServerHandler
-                                        .sendPacket(new S2BPacketChangeGameState(6, 0.0F));
+                            if (this.shootingEntity != null && movingobjectposition.entityHit != this.shootingEntity && movingobjectposition.entityHit instanceof EntityPlayer && this.shootingEntity instanceof EntityPlayerMP) {
+                                ((EntityPlayerMP) this.shootingEntity).playerNetServerHandler.sendPacket(new S2BPacketChangeGameState(6, 0.0F));
                             }
                         }
 
                         this.playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
 
-                        if (movingobjectposition.entityHit instanceof EntityWitch
-                                && movingobjectposition.entityHit instanceof EntityDragon) {
+                        if (movingobjectposition.entityHit instanceof EntityWitch && movingobjectposition.entityHit instanceof EntityDragon) {
                             this.setDead();
                         }
                     } else {
@@ -230,15 +212,12 @@ public class EntitySuperArrow extends EntityArrow {
                     this.field_145791_d = movingobjectposition.blockX;
                     this.field_145792_e = movingobjectposition.blockY;
                     this.field_145789_f = movingobjectposition.blockZ;
-                    this.field_145790_g = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e,
-                            this.field_145789_f);
-                    this.inData = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e,
-                            this.field_145789_f);
+                    this.field_145790_g = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+                    this.inData = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
                     this.motionX = ((float) (movingobjectposition.hitVec.xCoord - this.posX));
                     this.motionY = ((float) (movingobjectposition.hitVec.yCoord - this.posY));
                     this.motionZ = ((float) (movingobjectposition.hitVec.zCoord - this.posZ));
-                    f2 = MathHelper.sqrt_double(
-                            this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
+                    f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
                     this.posX -= this.motionX / f2 * 0.05000000074505806D;
                     this.posY -= this.motionY / f2 * 0.05000000074505806D;
                     this.posZ -= this.motionZ / f2 * 0.05000000074505806D;
@@ -248,17 +227,14 @@ public class EntitySuperArrow extends EntityArrow {
                     this.setIsCritical(false);
 
                     if (this.field_145790_g.getMaterial() != Material.air) {
-                        this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, this.field_145791_d,
-                                this.field_145792_e, this.field_145789_f, this);
+                        this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, this.field_145791_d, this.field_145792_e, this.field_145789_f, this);
                     }
                 }
             }
 
             if (this.getIsCritical()) {
                 for (i = 0; i < 4; ++i) {
-                    this.worldObj.spawnParticle("crit", this.posX + this.motionX * i / 4.0D,
-                            this.posY + this.motionY * i / 4.0D, this.posZ + this.motionZ * i / 4.0D, -this.motionX,
-                            -this.motionY + 0.2D, -this.motionZ);
+                    this.worldObj.spawnParticle("crit", this.posX + this.motionX * i / 4.0D, this.posY + this.motionY * i / 4.0D, this.posZ + this.motionZ * i / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
                 }
             }
 
@@ -268,8 +244,7 @@ public class EntitySuperArrow extends EntityArrow {
             f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
             this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / Math.PI);
 
-            for (this.rotationPitch = (float) (Math.atan2(this.motionY, f2) * 180.0D / Math.PI); this.rotationPitch
-                    - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
+            for (this.rotationPitch = (float) (Math.atan2(this.motionY, f2) * 180.0D / Math.PI); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
                 ;
             }
 
@@ -293,8 +268,7 @@ public class EntitySuperArrow extends EntityArrow {
             if (this.isInWater()) {
                 for (int l = 0; l < 4; ++l) {
                     f4 = 0.25F;
-                    this.worldObj.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4,
-                            this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
+                    this.worldObj.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
                 }
 
                 f3 = 0.8F;

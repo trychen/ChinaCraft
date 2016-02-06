@@ -1,21 +1,19 @@
 package unstudio.chinacraft.block;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.EnumPlantType;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 /**
  * Created by trych on 2015/12/26.
  */
-public class CCGrowablePlant extends BlockCrops {
+public class CCGrowablePlant extends BlockCrops{
 
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
@@ -25,16 +23,11 @@ public class CCGrowablePlant extends BlockCrops {
     private Item dropItem;
 
     /**
-     * 种植物的父类
-     * 
-     * @param name
-     *            名字
-     * @param textureAmount
-     *            材质数量，支持5和7个，种植的不同阶段
-     * @param baseItem
-     *            种下去的物品（未完成掉落）
-     * @param dropItem
-     *            生成物（完成掉哦了）
+     *  种植物的父类
+     * @param name 名字
+     * @param textureAmount 材质数量，支持5和7个，种植的不同阶段
+     * @param baseItem 种下去的物品（未完成掉落）
+     * @param dropItem 生成物（完成掉哦了）
      */
     public CCGrowablePlant(String name, int textureAmount, Item baseItem, Item dropItem) {
         super();
@@ -47,8 +40,8 @@ public class CCGrowablePlant extends BlockCrops {
 
     @Override
     public IIcon getIcon(int par1, int par2) {
-        if (textureAmount == 7) {
-            return icons[par2 < 0 || par2 >= 7 ? 6 : par2 == 0 ? 0 : par2 - 1];
+        if (textureAmount == 7){
+            return icons[par2<0||par2>=7?6:par2==0?0:par2-1];
         } else {
             if (par2 < 5) {
                 return this.icons[par2 >> 1];
@@ -61,6 +54,7 @@ public class CCGrowablePlant extends BlockCrops {
             }
         }
     }
+
 
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
@@ -76,17 +70,14 @@ public class CCGrowablePlant extends BlockCrops {
             return 1;
         }
     }
-
     @Override
     protected Item func_149866_i() {
         return dropItem;
     }
-
     @Override
     protected Item func_149865_P() {
         return dropItem;
     }
-
     @Override
     public Item getItemDropped(int par1, Random par2Random, int par3) {
         return par1 >= 5 ? baseItem : null;
@@ -103,7 +94,8 @@ public class CCGrowablePlant extends BlockCrops {
         this.icons = new IIcon[this.textureAmount];
 
         for (int i = 0; i < this.icons.length; ++i) {
-            this.icons[i] = par1IconRegister.registerIcon("chinacraft:" + this.name + "_stage_" + i);
+            this.icons[i] = par1IconRegister
+                    .registerIcon("chinacraft:"+this.name+"_stage_" + i);
         }
     }
 }

@@ -14,13 +14,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
 import unstudio.chinacraft.common.ChinaCraft;
 
 /**
- * The Chinese Animal - Panda. Created by trychen on 15/12/5.
+ * The Chinese Animal - Panda.
+ * Created by trychen on 15/12/5.
  */
-public class EntityPanda extends EntityAnimal implements IAnimals {
+public class EntityPanda extends EntityAnimal implements IAnimals{
 
     public EntityPanda(World world) {
         super(world);
@@ -40,7 +40,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
     @Override
-    public void writeEntityToNBT(NBTTagCompound p_70014_1_) {
+	public void writeEntityToNBT(NBTTagCompound p_70014_1_)
+    {
         super.writeEntityToNBT(p_70014_1_);
         p_70014_1_.setBoolean("Angry", this.isAngry());
     }
@@ -49,7 +50,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
     @Override
-    public void readEntityFromNBT(NBTTagCompound p_70037_1_) {
+	public void readEntityFromNBT(NBTTagCompound p_70037_1_)
+    {
         super.readEntityFromNBT(p_70037_1_);
         this.setAngry(p_70037_1_.getBoolean("Angry"));
     }
@@ -57,28 +59,34 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
     /**
      * Determines whether this wolf is angry or not.
      */
-    public boolean isAngry() {
+    public boolean isAngry()
+    {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
     }
 
     /**
      * Sets whether this wolf is angry or not.
      */
-    public void setAngry(boolean p_70916_1_) {
+    public void setAngry(boolean p_70916_1_)
+    {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
-        if (p_70916_1_) {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 | 2)));
-        } else {
-            this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -3)));
+        if (p_70916_1_)
+        {
+            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 | 2)));
+        }
+        else
+        {
+            this.dataWatcher.updateObject(16, Byte.valueOf((byte)(b0 & -3)));
         }
     }
 
     @Override
-    public boolean isAIEnabled() {
+    public boolean isAIEnabled()
+    {
         return true;
     }
-
+    
     @Override
     public EntityAgeable createChild(EntityAgeable entityAgeable) {
         return new EntityPanda(this.worldObj);
@@ -88,7 +96,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      * Returns the sound this mob makes while it's alive.
      */
     @Override
-    protected String getLivingSound() {
+    protected String getLivingSound()
+    {
         return "mob.cow.say";
     }
 
@@ -96,7 +105,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      * Returns the sound this mob makes when it is hurt.
      */
     @Override
-    protected String getHurtSound() {
+    protected String getHurtSound()
+    {
         return "mob.cow.hurt";
     }
 
@@ -104,36 +114,44 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      * Returns the sound this mob makes on death.
      */
     @Override
-    protected String getDeathSound() {
+    protected String getDeathSound()
+    {
         return "mob.cow.hurt";
     }
 
     @Override
-    protected Item getDropItem() {
+    protected Item getDropItem()
+    {
         return Items.leather;
     }
-
+    
     @Override
-    public boolean interact(EntityPlayer entityPlayer) {
+    public boolean interact(EntityPlayer entityPlayer)
+    {
         ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
 
-        if (itemstack != null && itemstack.getItem() == ChinaCraft.bamboo
-                && !entityPlayer.capabilities.isCreativeMode) {
-            if (itemstack.stackSize-- == 1) {
-                entityPlayer.inventory.setInventorySlotContents(entityPlayer.inventory.currentItem,
-                        new ItemStack(Items.milk_bucket));
-            } else if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.milk_bucket))) {
+        if (itemstack != null && itemstack.getItem() == ChinaCraft.bamboo && !entityPlayer.capabilities.isCreativeMode)
+        {
+            if (itemstack.stackSize-- == 1)
+            {
+                entityPlayer.inventory.setInventorySlotContents(entityPlayer.inventory.currentItem, new ItemStack(Items.milk_bucket));
+            }
+            else if (!entityPlayer.inventory.addItemStackToInventory(new ItemStack(Items.milk_bucket)))
+            {
                 entityPlayer.dropPlayerItemWithRandomChoice(new ItemStack(Items.milk_bucket, 1, 0), false);
             }
 
             return true;
-        } else {
+        }
+        else
+        {
             return super.interact(entityPlayer);
         }
     }
 
     @Override
-    protected void applyEntityAttributes() {
+    protected void applyEntityAttributes()
+    {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(25.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.20000000298023224D);
@@ -143,13 +161,18 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      * Called when the entity is attacked.
      */
     @Override
-    public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_) {
-        if (this.isEntityInvulnerable()) {
+	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
+    {
+        if (this.isEntityInvulnerable())
+        {
             return false;
-        } else {
+        }
+        else
+        {
             Entity entity = p_70097_1_.getEntity();
 
-            if (entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow)) {
+            if (entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow))
+            {
                 p_70097_2_ = (p_70097_2_ + 1.0F) / 2.0F;
             }
 
@@ -158,7 +181,8 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity p_70652_1_) {
+	public boolean attackEntityAsMob(Entity p_70652_1_)
+    {
         return p_70652_1_.attackEntityFrom(DamageSource.causeMobDamage(this), 3f);
     }
 }

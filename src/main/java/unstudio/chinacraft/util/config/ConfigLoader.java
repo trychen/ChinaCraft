@@ -8,12 +8,12 @@ import net.minecraftforge.common.config.Configuration;
 public class ConfigLoader {
     public static Configuration mainConfig;
 
-    public ConfigLoader(Configuration config) {
+    public ConfigLoader(Configuration config){
         ConfigLoader.mainConfig = config;
         load();
     }
 
-    public static void load() {
+    public static void load(){
         mainConfig.load();
         mainConfig.save();
     }

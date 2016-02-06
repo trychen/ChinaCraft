@@ -1,8 +1,7 @@
 package unstudio.chinacraft.item.combat;
 
-import java.io.File;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
@@ -13,24 +12,25 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
-
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.io.File;
+import java.util.List;
+
 
 public class ModelArmor extends ItemArmor {
-    @SideOnly(Side.CLIENT)
-    protected IIcon itemIcon;
     private String TextureName = "";
     private ModelBiped armorModel;
     private int textureType;
+
+    @SideOnly(Side.CLIENT)
+    protected IIcon itemIcon;
 
     public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int type, int render_idx) {
         this(armorMaterial, name, textureName, 0, type, render_idx);
     }
 
-    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, int type,
-            int render_idx) {
+    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, int type, int render_idx) {
         super(armorMaterial, render_idx, type);
         setUnlocalizedName(name);
         TextureName = textureName;
@@ -78,6 +78,7 @@ public class ModelArmor extends ItemArmor {
             }
         }
 
+
         return armorModel;
     }
 
@@ -96,11 +97,9 @@ public class ModelArmor extends ItemArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         if (textureType == 0) {
-            return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor"
-                    + File.separator + "%s.png", TextureName);
+            return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor" + File.separator + "%s.png", TextureName);
         }
-        return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor"
-                + File.separator + "%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
+        return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor" + File.separator + "%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
     }
 
     public void setArmorModel(ModelBiped armorModel) {
@@ -113,10 +112,10 @@ public class ModelArmor extends ItemArmor {
             p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore"));
         } else {
             int i = 0;
-            while (true) {
+            while (true){
                 i++;
-                if (StatCollector.canTranslate("item." + TextureName + ".lore." + i)) {
-                    p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore." + i));
+                if (StatCollector.canTranslate("item." + TextureName + ".lore."+i)){
+                    p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore."+i));
                 } else {
                     break;
                 }

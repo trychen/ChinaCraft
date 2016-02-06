@@ -5,15 +5,15 @@ import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockCooker extends BlockContainer {
+public class BlockCooker extends BlockContainer{
 
-    public BlockCooker() {
-        super(Material.rock);
-    }
+	public BlockCooker() {
+		super(Material.rock);
+	}
 
-    @Override
-    public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return null;
-    }
+	@Override
+	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+		return null;
+	}
 
 }

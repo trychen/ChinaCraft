@@ -18,7 +18,6 @@ public class ModelNightClothes extends ModelBiped {
     ModelRenderer Shape11;
     ModelRenderer Shape12;
     ModelRenderer Shape13;
-
     public ModelNightClothes(float expand) {
         super(expand, 0, 64, 64);
 
@@ -116,7 +115,7 @@ public class ModelNightClothes extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
     }

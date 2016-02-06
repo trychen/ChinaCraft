@@ -1,13 +1,12 @@
 package unstudio.chinacraft.world.gen;
 
-import java.util.Random;
-
+import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
-
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.common.IWorldGenerator;
+
+import java.util.Random;
 
 public class WorldGenCCFlower implements IWorldGenerator {
 
@@ -21,19 +20,18 @@ public class WorldGenCCFlower implements IWorldGenerator {
     }
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
-            IChunkProvider chunkProvider) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         for (int i = 0; i <= 15; i++) {
             if (random.nextBoolean())
                 if (world.provider.dimensionId == 0) {
                     int j = random.nextInt(2);
                     switch (j) {
-                    case 0:
-                        Gen(random, chunkX, chunkZ, world, ChinaCraft.peony);
-                        break;
-                    case 1:
-                        Gen(random, chunkX, chunkZ, world, ChinaCraft.azalea);
-                        break;
+                        case 0:
+                            Gen(random, chunkX, chunkZ, world, ChinaCraft.peony);
+                            break;
+                        case 1:
+                            Gen(random, chunkX, chunkZ, world, ChinaCraft.azalea);
+                            break;
                     }
                     break;
                 }

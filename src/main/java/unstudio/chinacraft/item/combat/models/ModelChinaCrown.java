@@ -60,7 +60,7 @@ public class ModelChinaCrown extends ModelBiped {
     ModelRenderer Shape29;
 
     public ModelChinaCrown(float expand) {
-        super(expand, 0, 128, 128);
+        super(expand,0,128,128);
         Shape1 = new ModelRenderer(this, 0, 38);
         Shape1.addBox(1F, 0F, 0F, 10, 1, 10);
         Shape1.setRotationPoint(-6F, -8F, -5F);
@@ -439,62 +439,62 @@ public class ModelChinaCrown extends ModelBiped {
     }
 
     @Override
-    public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        // Shape1.render(f5);
-        // Shape2.render(f5);
-        // Shape3.render(f5);
-        // Shape4.render(f5);
-        // Shape5.render(f5);
-        // Shape6.render(f5);
-        // Shape7.render(f5);
-        // Shape8.render(f5);
-        // Shape9.render(f5);
-        // Shape10.render(f5);
-        // Important4.render(f5);
-        // Shape23.render(f5);
-        // Shape24.render(f5);
-        // Shape25.render(f5);
-        // Shape26.render(f5);
-        // Important.render(f5);
-        // Shape11.render(f5);
-        // Shape12.render(f5);
-        // Shape13.render(f5);
-        // Shape14.render(f5);
-        // Important2.render(f5);
-        // Shape15.render(f5);
-        // Shape16.render(f5);
-        // Shape17.render(f5);
-        // Shape18.render(f5);
-        // Important3.render(f5);
-        // Shape19.render(f5);
-        // Shape20.render(f5);
-        // Shape21.render(f5);
-        // Shape22.render(f5);
-        // ImportantB4.render(f5);
-        // ShapeB23.render(f5);
-        // ShapeB24.render(f5);
-        // ShapeB25.render(f5);
-        // ShapeB26.render(f5);
-        // ImportantB.render(f5);
-        // ShapeB11.render(f5);
-        // ShapeB12.render(f5);
-        // ShapeB13.render(f5);
-        // ShapeB14.render(f5);
-        // ImportantB2.render(f5);
-        // ShapeB15.render(f5);
-        // ShapeB16.render(f5);
-        // ShapeB17.render(f5);
-        // ShapeB18.render(f5);
-        // ImportantB3.render(f5);
-        // ShapeB19.render(f5);
-        // ShapeB20.render(f5);
-        // ShapeB21.render(f5);
-        // ShapeB22.render(f5);
-        // Shape27.render(f5);
-        // Shape28.render(f5);
-        // Shape29.render(f5);
+//        Shape1.render(f5);
+//        Shape2.render(f5);
+//        Shape3.render(f5);
+//        Shape4.render(f5);
+//        Shape5.render(f5);
+//        Shape6.render(f5);
+//        Shape7.render(f5);
+//        Shape8.render(f5);
+//        Shape9.render(f5);
+//        Shape10.render(f5);
+//        Important4.render(f5);
+//        Shape23.render(f5);
+//        Shape24.render(f5);
+//        Shape25.render(f5);
+//        Shape26.render(f5);
+//        Important.render(f5);
+//        Shape11.render(f5);
+//        Shape12.render(f5);
+//        Shape13.render(f5);
+//        Shape14.render(f5);
+//        Important2.render(f5);
+//        Shape15.render(f5);
+//        Shape16.render(f5);
+//        Shape17.render(f5);
+//        Shape18.render(f5);
+//        Important3.render(f5);
+//        Shape19.render(f5);
+//        Shape20.render(f5);
+//        Shape21.render(f5);
+//        Shape22.render(f5);
+//        ImportantB4.render(f5);
+//        ShapeB23.render(f5);
+//        ShapeB24.render(f5);
+//        ShapeB25.render(f5);
+//        ShapeB26.render(f5);
+//        ImportantB.render(f5);
+//        ShapeB11.render(f5);
+//        ShapeB12.render(f5);
+//        ShapeB13.render(f5);
+//        ShapeB14.render(f5);
+//        ImportantB2.render(f5);
+//        ShapeB15.render(f5);
+//        ShapeB16.render(f5);
+//        ShapeB17.render(f5);
+//        ShapeB18.render(f5);
+//        ImportantB3.render(f5);
+//        ShapeB19.render(f5);
+//        ShapeB20.render(f5);
+//        ShapeB21.render(f5);
+//        ShapeB22.render(f5);
+//        Shape27.render(f5);
+//        Shape28.render(f5);
+//        Shape29.render(f5);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -504,8 +504,8 @@ public class ModelChinaCrown extends ModelBiped {
     }
 
     @Override
-    public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-        super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5,Entity entity) {
+        super.setRotationAngles(f, f1, f2, f3, f4, f5,entity);
     }
 
 }

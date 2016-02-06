@@ -4,17 +4,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
 import unstudio.chinacraft.client.model.ModelSericultureFrame;
 
 public class TileEntitySericultureFrameRenderer extends TileEntitySpecialRenderer {
     public final ModelSericultureFrame model = new ModelSericultureFrame();
-    public final ResourceLocation textures = (new ResourceLocation(
-            "chinacraft:textures/models/block/SericultureFrame.png"));
-
-    public TileEntitySericultureFrameRenderer() {}
+    public final ResourceLocation textures = (new ResourceLocation("chinacraft:textures/models/block/SericultureFrame.png"));
+    public TileEntitySericultureFrameRenderer() {
+    }
 
     @Override
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
