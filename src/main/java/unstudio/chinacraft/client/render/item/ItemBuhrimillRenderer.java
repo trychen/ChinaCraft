@@ -10,9 +10,6 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelBuhrimill;
 import unstudio.chinacraft.client.model.ModelExtendBlock;
 
-/**
- * Use for nothing. Created by trychen on 15/11/29.
- */
 public class ItemBuhrimillRenderer implements IItemRenderer {
     private ModelExtendBlock model;
     private ResourceLocation texture;
