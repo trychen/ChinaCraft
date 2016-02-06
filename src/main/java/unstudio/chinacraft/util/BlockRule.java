@@ -5,46 +5,46 @@ import net.minecraft.world.World;
 
 public class BlockRule {
 
-	private Block block;
-	private int data;
-	
-	public BlockRule(Block block) {
-		this.setRule(block, -1);
-	}
+    private Block block;
+    private int data;
 
-	public BlockRule(Block block, int data) {
-		this.setRule(block, data);
-	}
+    public BlockRule(Block block) {
+        this.setRule(block, -1);
+    }
 
-	public Block getBlock() {
-		return this.block;
-	}
+    public BlockRule(Block block, int data) {
+        this.setRule(block, data);
+    }
 
-	public int getData() {
-		return this.data;
-	}
+    public Block getBlock() {
+        return this.block;
+    }
 
-	public void setRule(Block block, int data) {
-		this.block = block;
-		this.data = data;
-	}
+    public int getData() {
+        return this.data;
+    }
 
-	public boolean check(World world,int X,int Y,int Z) {
-		return this.check(world.getBlock(X, Y, Z),world.getBlockMetadata(X, Y, Z));
-	}
+    public void setRule(Block block, int data) {
+        this.block = block;
+        this.data = data;
+    }
 
-	public boolean check(Block block,int data) {
-		if (block == null)
-			return false;
-		if (!block.equals(this.block))
-			return false;
-		if (this.data != -1 && data != this.data)
-			return false;
+    public boolean check(World world, int X, int Y, int Z) {
+        return this.check(world.getBlock(X, Y, Z), world.getBlockMetadata(X, Y, Z));
+    }
 
-		return true;
-	}
+    public boolean check(Block block, int data) {
+        if (block == null)
+            return false;
+        if (!block.equals(this.block))
+            return false;
+        if (this.data != -1 && data != this.data)
+            return false;
 
-	public BlockRule copy() {
-		return new BlockRule(this.block, this.data);
-	}
+        return true;
+    }
+
+    public BlockRule copy() {
+        return new BlockRule(this.block, this.data);
+    }
 }

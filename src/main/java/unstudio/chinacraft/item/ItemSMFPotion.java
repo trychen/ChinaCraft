@@ -1,5 +1,7 @@
 package unstudio.chinacraft.item;
 
+import java.util.List;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -8,28 +10,26 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
 import unstudio.chinacraft.api.ItemMethod;
 import unstudio.chinacraft.common.ChinaCraft;
-
-import java.util.List;
 
 public class ItemSMFPotion extends Item {
 
     public int[][] Effect;
     public int b = 0;
 
-    public ItemSMFPotion(String name, int[][] a){
-        this(name,a,0);
+    public ItemSMFPotion(String name, int[][] a) {
+        this(name, a, 0);
     }
-    public ItemSMFPotion(String name, int[][] a, int b){
+
+    public ItemSMFPotion(String name, int[][] a, int b) {
         setUnlocalizedName(name);
         setCreativeTab(ChinaCraft.tabCore);
         setMaxStackSize(8);
         this.Effect = a;
         this.b = b;
     }
-
-
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
@@ -43,7 +43,8 @@ public class ItemSMFPotion extends Item {
                 ((EntityPlayer) attacker).addExperience(-5);
             }
             for (int[] a : Effect) {
-                target.addPotionEffect(a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
+                target.addPotionEffect(
+                        a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
             }
             --stack.stackSize;
         }
@@ -51,8 +52,7 @@ public class ItemSMFPotion extends Item {
     }
 
     @Override
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-    {
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (world.isRemote) {
             if (Effect != null) {
                 return stack;
@@ -63,21 +63,24 @@ public class ItemSMFPotion extends Item {
                 player.addExperience(-5);
             }
             for (int[] a : Effect) {
-                player.addPotionEffect(a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
+                player.addPotionEffect(
+                        a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]));
             }
         }
-        return ItemMethod.cutItemStack(stack,player);
+        return ItemMethod.cutItemStack(stack, player);
     }
-    
+
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        if (Effect == null) return;
-        for(int[] i:Effect){
+        if (Effect == null)
+            return;
+        for (int[] i : Effect) {
             PotionEffect p = new PotionEffect(i[0], i[1]);
             if (i.length == 2) {
                 p_77624_3_.add(StatCollector.translateToLocal(p.getEffectName()) + " " + Potion.getDurationString(p));
             } else {
-                p_77624_3_.add(StatCollector.translateToLocal(new PotionEffect(i[0], i[1]).getEffectName()) + i[2] + " " + Potion.getDurationString(p));
+                p_77624_3_.add(StatCollector.translateToLocal(new PotionEffect(i[0], i[1]).getEffectName()) + i[2] + " "
+                        + Potion.getDurationString(p));
             }
         }
     }

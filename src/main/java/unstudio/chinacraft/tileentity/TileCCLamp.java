@@ -6,12 +6,15 @@ import net.minecraft.nbt.NBTTagCompound;
 /**
  * Created by trych on 2016/2/2.
  */
-public class TileCCLamp extends TileModelBlock{
+public class TileCCLamp extends TileModelBlock {
     /**
-     * @param model   模型
-     * @param texture 材质名，不需要加modid
+     * @param model
+     *            模型
+     * @param texture
+     *            材质名，不需要加modid
      */
     private boolean opened = true;
+
     public TileCCLamp(ModelBase model, String texture) {
         super(model, texture);
     }
@@ -19,7 +22,7 @@ public class TileCCLamp extends TileModelBlock{
     @Override
     public void writeToNBT(NBTTagCompound nbtTagCompound) {
         super.writeToNBT(nbtTagCompound);
-        nbtTagCompound.setBoolean("opened",opened);
+        nbtTagCompound.setBoolean("opened", opened);
     }
 
     @Override
@@ -30,14 +33,14 @@ public class TileCCLamp extends TileModelBlock{
 
     @Override
     public String getTexture() {
-        return opened?super.getTexture() + "_on":super.getTexture() + "_off";
+        return opened ? super.getTexture() + "_on" : super.getTexture() + "_off";
     }
 
     public boolean isOpened() {
         return opened;
     }
 
-    public boolean turn(){
+    public boolean turn() {
         if (opened) {
             opened = false;
             return false;
