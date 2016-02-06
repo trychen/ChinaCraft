@@ -4,13 +4,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+
 import org.lwjgl.opengl.GL11;
-import unstudio.chinacraft.api.model.ModelExtendBlock;
+
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 
 /**
  * Created by trych on 2016/1/2.
  */
-public class ModelBlockItemRenderer implements IItemRenderer{
+public class ModelBlockItemRenderer implements IItemRenderer {
     private ModelExtendBlock model;
     private ResourceLocation texture;
 
@@ -19,12 +21,12 @@ public class ModelBlockItemRenderer implements IItemRenderer{
         this.texture = texture;
     }
 
-
     public boolean handleRenderType(ItemStack item, IItemRenderer.ItemRenderType type) {
         return true;
     }
 
-    public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack item, IItemRenderer.ItemRendererHelper helper) {
+    public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack item,
+            IItemRenderer.ItemRendererHelper helper) {
         return true;
     }
 
@@ -35,7 +37,7 @@ public class ModelBlockItemRenderer implements IItemRenderer{
         if (type == IItemRenderer.ItemRenderType.INVENTORY) {
             GL11.glScalef(1.2F, 1.2F, 1.2F);
             GL11.glTranslatef(0.0F, -1.05F, 0.00F);
-//            GL11.glRotatef(-45F, 0F, 1F, 0F);
+            // GL11.glRotatef(-45F, 0F, 1F, 0F);
             GL11.glRotatef(00F, 0F, 0F, 1F);
             model.render(0.0625F);
         }

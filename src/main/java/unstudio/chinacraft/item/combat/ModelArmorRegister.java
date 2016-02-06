@@ -5,7 +5,7 @@ import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
 import unstudio.chinacraft.item.combat.models.ModelNightClothes;
 
 public class ModelArmorRegister {
-    public static void init(){
+    public static void init() {
         ChinaCraft.chinaCrown.setArmorModel(new ModelChinaCrown(0.5f));
 
         ModelNightClothes modelNightClothesLeg = new ModelNightClothes(0.5F);

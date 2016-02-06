@@ -1,27 +1,27 @@
 package unstudio.chinacraft.common.nei;
 
+import unstudio.chinacraft.client.gui.GuiBuhrimill;
+import unstudio.chinacraft.common.ChinaCraft;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
-import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.client.gui.GuiBuhrimill;
 
-public class NEIAPI implements IConfigureNEI{
+public class NEIAPI implements IConfigureNEI {
 
-	@Override
-	public void loadConfig() {
+    @Override
+    public void loadConfig() {
         API.registerRecipeHandler(new BuhrimillRecipeHandler());
         API.registerUsageHandler(new BuhrimillRecipeHandler());
         API.registerGuiOverlay(GuiBuhrimill.class, "buhrimill");
-	}
+    }
 
-	@Override
-	public String getName() {
-		return ChinaCraft.NAME;
-	}
+    @Override
+    public String getName() {
+        return ChinaCraft.NAME;
+    }
 
-	@Override
-	public String getVersion() {
-		return ChinaCraft.VERSION;
-	}
+    @Override
+    public String getVersion() {
+        return ChinaCraft.VERSION;
+    }
 
 }

@@ -1,9 +1,9 @@
-package unstudio.chinacraft.api.recipes;
-
-import net.minecraft.item.ItemStack;
+package unstudio.chinacraft.recipes;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import net.minecraft.item.ItemStack;
 
 public class BuhrimillRecipe {
 

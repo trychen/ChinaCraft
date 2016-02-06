@@ -3,9 +3,6 @@ package unstudio.chinacraft.block.decoration;
 import java.util.ArrayList;
 import java.util.Random;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import unstudio.chinacraft.common.ChinaCraft;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -14,6 +11,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
+
+import unstudio.chinacraft.common.ChinaCraft;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class MulberryLeaf extends BlockLeaves {
 
@@ -60,7 +61,7 @@ public class MulberryLeaf extends BlockLeaves {
 
     @Override
     public String[] func_150125_e() {
-        return new String[]{"mulbrry"};
+        return new String[] { "mulbrry" };
     }
 
     @Override
@@ -70,11 +71,13 @@ public class MulberryLeaf extends BlockLeaves {
 
     @Override
     public int getRenderColor(int par1) {
-        return (par1 & 3) == 1 ? ColorizerFoliage.getFoliageColorPine() : ((par1 & 3) == 2 ? ColorizerFoliage.getFoliageColorBirch() : ColorizerFoliage.getFoliageColorBasic());
+        return (par1 & 3) == 1 ? ColorizerFoliage.getFoliageColorPine()
+                : ((par1 & 3) == 2 ? ColorizerFoliage.getFoliageColorBirch() : ColorizerFoliage.getFoliageColorBasic());
     }
 
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {
+    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_,
+            int p_149646_5_) {
         return true;
     }
 }

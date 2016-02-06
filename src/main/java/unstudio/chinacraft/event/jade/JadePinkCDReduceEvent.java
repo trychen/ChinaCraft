@@ -1,14 +1,12 @@
 package unstudio.chinacraft.event.jade;
 
+import java.util.UUID;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
 import cpw.mods.fml.common.eventhandler.Event;
 
-import java.util.UUID;
-
-
 @Cancelable
-public class JadePinkCDReduceEvent extends Event{
+public class JadePinkCDReduceEvent extends Event {
 
     public final UUID playerUUID;
     public final int CD;
@@ -18,10 +16,11 @@ public class JadePinkCDReduceEvent extends Event{
         this.CD = CD;
     }
 
-    public int getNewCD(){
-        return CD-1;
+    public int getNewCD() {
+        return CD - 1;
     }
-    public int getOldCD(){
+
+    public int getOldCD() {
         return CD;
     }
 }

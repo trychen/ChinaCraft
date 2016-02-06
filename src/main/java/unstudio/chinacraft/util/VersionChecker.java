@@ -1,12 +1,13 @@
 package unstudio.chinacraft.util;
 
-import org.apache.commons.io.IOUtils;
-import unstudio.chinacraft.common.ChinaCraft;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import org.apache.commons.io.IOUtils;
+
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class VersionChecker implements Runnable {
     private static boolean isLatestVersion = true;
@@ -14,10 +15,11 @@ public class VersionChecker implements Runnable {
     private static String newVersionInfo = "";
     private static String downloadUrl = "";
     private static int latestVersion = 1;
+
     @Override
     public void run() {
 
-        InputStream version, info , downloadUrl;
+        InputStream version, info, downloadUrl;
         try {
             version = new URL("http://www.mccraft.cn/mod.php?mod=chinacraft&id=0").openStream();
             info = new URL("http://www.mccraft.cn/mod.php?mod=chinacraft&id=1").openStream();
@@ -37,7 +39,7 @@ public class VersionChecker implements Runnable {
             // TODO Auto-generated catch block
             e.printStackTrace();
             return;
-        } finally{
+        } finally {
             IOUtils.closeQuietly(version);
         }
         VersionChecker.isCheckable = true;
@@ -45,7 +47,7 @@ public class VersionChecker implements Runnable {
         isLatestVersion = latestVersion <= ChinaCraft.OutPutVERSION;
         if (isLatestVersion) {
             System.out.println("[ChinaCraft]You are running latest version = " + isLatestVersion);
-        }else {
+        } else {
             System.out.println("[ChinaCraft]Found New version");
         }
     }
@@ -66,7 +68,7 @@ public class VersionChecker implements Runnable {
         return downloadUrl;
     }
 
-    public boolean isCheckable(){
+    public boolean isCheckable() {
         return isCheckable;
     }
 }

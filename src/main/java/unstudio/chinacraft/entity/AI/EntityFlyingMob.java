@@ -1,4 +1,4 @@
-package unstudio.chinacraft.entity.ai;
+package unstudio.chinacraft.entity.AI;
 
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.util.MathHelper;
@@ -7,32 +7,25 @@ import net.minecraft.world.World;
 /**
  * Created by trychen on 15/11/15.
  */
-public class EntityFlyingMob extends EntityMob{
+public class EntityFlyingMob extends EntityMob {
 
-    public EntityFlyingMob(World par1World)
-    {
+    public EntityFlyingMob(World par1World) {
         super(par1World);
     }
 
     @Override
-	protected void updateFallState(double d, boolean b)
-    {
-    }
+    protected void updateFallState(double d, boolean b) {}
 
     @Override
-	protected void fall(float f)
-    {
-    }
+    protected void fall(float f) {}
 
     @Override
-	public boolean isOnLadder()
-    {
+    public boolean isOnLadder() {
         return false;
     }
 
     @Override
-	public void moveEntityWithHeading(float par1, float par2)
-    {
+    public void moveEntityWithHeading(float par1, float par2) {
         if (isInWater()) {
             moveFlying(par1, par2, 0.01999999955296516418F);
             moveEntity(this.motionX, this.motionY, this.motionZ);
@@ -48,18 +41,20 @@ public class EntityFlyingMob extends EntityMob{
         } else {
             float f2 = 0.91000002622604370117F;
 
-            if (this.onGround)
-            {
-                f2 = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ)).slipperiness * 0.91000002622604370117F;
+            if (this.onGround) {
+                f2 = this.worldObj.getBlock(MathHelper.floor_double(this.posX),
+                        MathHelper.floor_double(this.boundingBox.minY) - 1,
+                        MathHelper.floor_double(this.posZ)).slipperiness * 0.91000002622604370117F;
             }
 
             float f3 = 0.16277135908603668213F / f2 * f2 * f2;
             moveFlying(par1, par2, (this.onGround) ? 0.10000000149011611938F * f3 : 0.01999999955296516418F);
             f2 = 0.91000002622604370117F;
 
-            if (this.onGround)
-            {
-                f2 = this.worldObj.getBlock(MathHelper.floor_double(this.posX), MathHelper.floor_double(this.boundingBox.minY) - 1, MathHelper.floor_double(this.posZ)).slipperiness * 0.91000002622604370117F;
+            if (this.onGround) {
+                f2 = this.worldObj.getBlock(MathHelper.floor_double(this.posX),
+                        MathHelper.floor_double(this.boundingBox.minY) - 1,
+                        MathHelper.floor_double(this.posZ)).slipperiness * 0.91000002622604370117F;
             }
 
             moveEntity(this.motionX, this.motionY, this.motionZ);
@@ -73,8 +68,7 @@ public class EntityFlyingMob extends EntityMob{
         double d0 = this.posZ - this.prevPosZ;
         float f4 = MathHelper.sqrt_double(d1 * d1 + d0 * d0) * 4.0F;
 
-        if (f4 > 1F)
-        {
+        if (f4 > 1F) {
             f4 = 1F;
         }
 
