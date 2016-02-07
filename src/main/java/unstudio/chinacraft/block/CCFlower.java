@@ -2,19 +2,19 @@ package unstudio.chinacraft.block;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import unstudio.chinacraft.common.ChinaCraft;
-
 import java.util.Random;
-
 import static net.minecraftforge.common.EnumPlantType.Plains;
 
 /**
- * 所有花的父类
+ * 所有花的夫类
  * Created by trychen on 2015/12/26.
  */
 public class CCFlower extends BlockBush {
@@ -36,7 +36,8 @@ public class CCFlower extends BlockBush {
     }
 
     @Override
-    public boolean canBlockStay(World world, int x, int y, int z) {
+    public boolean canBlockStay(World world, int x, int y, int z)
+    {
         if (world.getBlock(x, y - 1, z) == Blocks.dirt ||
                 world.getBlock(x, y - 1, z) == Blocks.grass)
             return true;
@@ -45,17 +46,20 @@ public class CCFlower extends BlockBush {
     }
 
     @Override
-    public int getRenderType() {
+    public int getRenderType()
+    {
         return 1;
     }
 
     @Override
-    public boolean renderAsNormalBlock() {
+    public boolean renderAsNormalBlock()
+    {
         return false;
     }
 
     @Override
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube()
+    {
         return false;
     }
 
@@ -65,7 +69,8 @@ public class CCFlower extends BlockBush {
     }
 
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z)
+    {
         if (this == ChinaCraft.azalea) return Plains;
         return Plains;
     }
@@ -73,7 +78,8 @@ public class CCFlower extends BlockBush {
      * Determines the damage on the item the block drops. Used in cloth and wood.
      */
     @Override
-	public int damageDropped(int p_149692_1_) {
+	public int damageDropped(int p_149692_1_)
+    {
         return p_149692_1_;
     }
 

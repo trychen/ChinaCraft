@@ -7,7 +7,6 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.api.block.BlockBase;
 import unstudio.chinacraft.api.block.CCGrowablePlant;
-import unstudio.chinacraft.api.item.ItemBase;
 import unstudio.chinacraft.block.*;
 import unstudio.chinacraft.block.decoration.*;
 import unstudio.chinacraft.block.especial.*;
@@ -19,7 +18,8 @@ import unstudio.chinacraft.block.model.BlockLamp;
 import unstudio.chinacraft.block.model.CCModelBlock;
 import unstudio.chinacraft.block.model.Lantern;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
-import unstudio.chinacraft.common.network.RedPacketMessage;
+import unstudio.chinacraft.api.common.network.RedPacketMessage;
+import unstudio.chinacraft.api.item.ItemBase;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
 import unstudio.chinacraft.item.*;
@@ -57,7 +57,7 @@ import javax.swing.*;
 
 import java.util.Random;
 
-@Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION, dependencies = "required-after:ChinaCraft|API@"+ChinaCraft.VERSION)
+@Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft {
     public static void main(String[] args) {
         JOptionPane.showMessageDialog(null, "This is a Minecraft Forge Mod , you can't run it!", "Chinacraft : mccraft.cn", JOptionPane.OK_OPTION);
@@ -65,7 +65,7 @@ public class ChinaCraft {
     }
 
     public static final String MODID = "chinacraft";
-    public static final String NAME = "ChinaCraft|Core";
+    public static final String NAME = "ChinaCraft";
     public static final String VERSION = "172";
     public static final int OutPutVERSION = 172;
     public static boolean NEIIsLoad = false;
@@ -92,7 +92,7 @@ public class ChinaCraft {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        proxy.init(event);
+        proxy.init(event);       
         EntityRegister.init();
         jadePinkSystem.init();
     }
@@ -101,10 +101,10 @@ public class ChinaCraft {
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
-
+    
     @EventHandler
     public void onServerStarted(FMLServerStartedEvent event){
-        vault=ServerManager.getVaultPlugin();
+    	vault=ServerManager.getVaultPlugin();
     }
 
     public static Configuration getMainConfig() {
@@ -149,6 +149,7 @@ public class ChinaCraft {
     public static Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
 
     //方块
+    public static CopperBlock copperBlock = new CopperBlock();  //铜块
     public static CopperOre copperOre = new CopperOre();  //铜矿
     public static BlockBronze bronzeBlock = new BlockBronze();  //青铜块
     public static TinOre tinOre = new TinOre(); //锡矿
@@ -167,7 +168,7 @@ public class ChinaCraft {
     public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); //木窗框3
     public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); //木窗框Logo
     public static WoodenWindow woodenWindowfu = new WoodenWindow("chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); //木窗框:福
-    //    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
+//    public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
     public static CCGrowablePlant riceGrow = new CCGrowablePlant("rice",5,ChinaCraft.rices,ChinaCraft.lcker); //水稻作物
     //    public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
     public static CCGrowablePlant soyGrow = new CCGrowablePlant("soy",5,ChinaCraft.soyPod,ChinaCraft.soyPod); //大豆作物
@@ -249,7 +250,7 @@ public class ChinaCraft {
 
     public static ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown", 0, 1);
     public static ModelArmor[] nightClothes = new ModelArmor[]{new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1),new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1),new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1),new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1)};
-    //    public static ModelArmor nightClothesHead = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1);
+//    public static ModelArmor nightClothesHead = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1);
 //    public static ModelArmor nightClothesBody = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1);
 //    public static ModelArmor nightClothesLeg = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1);
 //    public static ModelArmor nightClothesShoe = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1);

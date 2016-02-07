@@ -4,10 +4,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import net.minecraftforge.client.IItemRenderer.ItemRenderType;
+import net.minecraftforge.client.IItemRenderer.ItemRendererHelper;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.api.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 import unstudio.chinacraft.client.model.ModelSericultureFrame;
 
 public class ItemSericultureFrameRenderer implements IItemRenderer {

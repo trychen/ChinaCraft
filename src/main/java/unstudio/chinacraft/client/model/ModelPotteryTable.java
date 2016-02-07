@@ -3,9 +3,8 @@ package unstudio.chinacraft.client.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import unstudio.chinacraft.api.model.ModelExtendBlock;
 
-public class ModelPotteryTable extends ModelBase implements ModelExtendBlock {
+public class ModelPotteryTable extends ModelBase implements ModelExtendBlock{
 
 	    ModelRenderer Leg1;
 	    ModelRenderer Leg2;

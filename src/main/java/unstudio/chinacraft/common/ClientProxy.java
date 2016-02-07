@@ -1,27 +1,32 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.client.render.item.ModelBlockItemRenderer;
+import unstudio.chinacraft.tileentity.TileCCLamp;
+import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
+import unstudio.chinacraft.client.render.item.ItemBuhrimillRenderer;
+import unstudio.chinacraft.client.render.item.ItemPotteryTableRenderer;
+import unstudio.chinacraft.client.render.item.ItemSericultureFrameRenderer;
+import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
+import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
+import unstudio.chinacraft.client.render.tileentity.TileEntityPotteryTableRenderer;
+import unstudio.chinacraft.client.render.tileentity.TileEntitySericultureFrameRenderer;
+import unstudio.chinacraft.entity.EntityRenderingRegistry;
+import unstudio.chinacraft.event.ListenerRegister;
+import unstudio.chinacraft.item.combat.ModelArmorRegister;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileModelBlock;
+import unstudio.chinacraft.tileentity.TilePotteryTable;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.common.nei.NEIAPI;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
-import unstudio.chinacraft.client.model.ModelLanternScaldfish;
-import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
-import unstudio.chinacraft.client.render.item.ItemBuhrimillRenderer;
-import unstudio.chinacraft.client.render.item.ItemPotteryTableRenderer;
-import unstudio.chinacraft.client.render.item.ItemSericultureFrameRenderer;
-import unstudio.chinacraft.client.render.item.ModelBlockItemRenderer;
-import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
-import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
-import unstudio.chinacraft.client.render.tileentity.TileEntityPotteryTableRenderer;
-import unstudio.chinacraft.client.render.tileentity.TileEntitySericultureFrameRenderer;
-import unstudio.chinacraft.common.nei.NEIAPI;
-import unstudio.chinacraft.entity.EntityRenderingRegistry;
-import unstudio.chinacraft.event.ListenerRegister;
-import unstudio.chinacraft.item.combat.ModelArmorRegister;
-import unstudio.chinacraft.tileentity.*;
 
 public class ClientProxy extends CommonProxy {
     @Override
@@ -66,6 +71,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
         ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
 
+        ChinaCraft.copperBlock.setBlockTextureName("chinacraft:copper_block");
         ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
         ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");

@@ -6,7 +6,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-import unstudio.chinacraft.api.model.ModelExtendBlock;
+import net.minecraftforge.client.IItemRenderer.ItemRenderType;
+import net.minecraftforge.client.IItemRenderer.ItemRendererHelper;
+import unstudio.chinacraft.client.model.ModelBuhrimill;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 import unstudio.chinacraft.client.model.ModelPotteryTable;
 
 public class ItemPotteryTableRenderer implements IItemRenderer {

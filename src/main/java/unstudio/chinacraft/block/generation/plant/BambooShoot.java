@@ -36,21 +36,21 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator
      * Ticks the block if it's been scheduled
      */
     @Override
-	public void updateTick(World worldIn, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random random)
+	public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_)
     {
-        if (this.func_150170_e(worldIn, p_149674_2_, p_149674_3_, p_149674_4_))
+        if (this.func_150170_e(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_))
         {
-            if (worldIn.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_))
+            if (p_149674_1_.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_))
             {
-                    int i1 = worldIn.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
+                    int i1 = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
                     if (i1 == 15)
                     {
-                        worldIn.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, ChinaCraft .blockBamboo);
-                        worldIn.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 0, 4);
+                        p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, ChinaCraft .blockBamboo);
+                        p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 0, 4);
                     }
                     else
                     {
-                        worldIn.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, i1 + 1, 4);
+                        p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, i1 + 1, 4);
                     }
                 }
             }
@@ -60,25 +60,25 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator
      * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
      */
     @Override
-	public boolean canPlaceBlockAt(World worldIn, int x, int y, int z)
+	public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
-    	Block block = worldIn.getBlock(x, y - 1, z);
-        return block.canSustainPlant(worldIn, x, y - 1, z, ForgeDirection.UP, this);
+    	Block block = p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - 1, p_149742_4_);
+        return block.canSustainPlant(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_, ForgeDirection.UP, this);
     }
 
     /**
      * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
      */
     @Override
-	public boolean canBlockStay(World world, int x, int y, int z)
+	public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_)
     {
-        return this.canPlaceBlockAt(world, x, y, z);
+        return this.canPlaceBlockAt(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
     }
     
     @Override
-	public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block block)
+	public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_)
     {
-        this.func_150170_e(worldIn, x, y, z);
+        this.func_150170_e(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
     }
 
     protected final boolean func_150170_e(World p_150170_1_, int p_150170_2_, int p_150170_3_, int p_150170_4_)
@@ -104,7 +104,7 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator
     }
 
     @Override
-	public Item getItemDropped(int p_149650_1_, Random random, int p_149650_3_)
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
         return Item.getItemFromBlock(ChinaCraft.bambooShoot);
     }

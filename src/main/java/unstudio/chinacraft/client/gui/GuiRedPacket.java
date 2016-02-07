@@ -15,7 +15,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.common.network.RedPacketMessage;
+import unstudio.chinacraft.api.common.network.RedPacketMessage;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
 
 public class GuiRedPacket extends GuiContainer {

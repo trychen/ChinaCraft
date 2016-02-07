@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelBuhrimill;
-import unstudio.chinacraft.api.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 
 /**
  * Use for nothing.

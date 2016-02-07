@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
-import unstudio.chinacraft.api.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 
 /**
  * Created by trych on 2016/1/2.

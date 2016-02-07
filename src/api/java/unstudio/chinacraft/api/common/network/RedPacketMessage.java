@@ -1,4 +1,4 @@
-package unstudio.chinacraft.common.network;
+package unstudio.chinacraft.api.common.network;
 
 import java.io.IOException;
 
