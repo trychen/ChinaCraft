@@ -5,19 +5,21 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import unstudio.chinacraft.common.ChinaCraft;
+
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
-public class CCModelBlock extends Block{
+public class CCModelBlock extends Block {
     private ModelBase model;
 
-
     /**
-     * @param material 材质
-     * @param model 模型
-     * @param name 名字
+     * @param material
+     *            材质
+     * @param model
+     *            模型
+     * @param name
+     *            名字
      */
-    public CCModelBlock(Material material, ModelBase model,String name) {
+    public CCModelBlock(Material material, ModelBase model, String name) {
         super(material);
         this.model = model;
         setBlockName(name);
@@ -35,7 +37,7 @@ public class CCModelBlock extends Block{
 
     @Override
     public TileEntity createTileEntity(World world, int metadata) {
-        return new TileModelBlock(model,getTextureName());
+        return new TileModelBlock(model, getTextureName());
     }
 
     @Override

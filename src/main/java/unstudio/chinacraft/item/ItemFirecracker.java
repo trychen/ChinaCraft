@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
 import unstudio.chinacraft.api.ItemMethod;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
