@@ -25,14 +25,10 @@ import net.minecraft.item.ItemReed;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
-import unstudio.api.forgebukkitbridge.ServerManager;
-import unstudio.api.forgebukkitbridge.VaultPlugin;
-import unstudio.chinacraft.api.block.BlockBase;
-import unstudio.chinacraft.api.block.CCGrowablePlant;
-import unstudio.chinacraft.api.common.network.RedPacketMessage;
-import unstudio.chinacraft.api.item.ItemBase;
+import unstudio.chinacraft.block.BlockBase;
 import unstudio.chinacraft.block.BlockBuckpot;
 import unstudio.chinacraft.block.CCFlower;
+import unstudio.chinacraft.block.CCGrowablePlant;
 import unstudio.chinacraft.block.decoration.*;
 import unstudio.chinacraft.block.especial.*;
 import unstudio.chinacraft.block.generation.ore.CopperOre;
@@ -45,6 +41,7 @@ import unstudio.chinacraft.block.model.BlockLamp;
 import unstudio.chinacraft.block.model.CCModelBlock;
 import unstudio.chinacraft.block.model.Lantern;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
 import unstudio.chinacraft.item.*;
@@ -55,6 +52,8 @@ import unstudio.chinacraft.item.jade.JadeOre;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.config.ConfigLoader;
+import unstudio.forgebukkitbridge.ServerManager;
+import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
 import java.util.Random;
@@ -86,7 +85,6 @@ public class ChinaCraft {
     public static Item.ToolMaterial YANGLONG = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10); // BLGiantSword
     public static Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
     // 方块
-    public static CopperBlock copperBlock = new CopperBlock(); // 铜块
     public static CopperOre copperOre = new CopperOre(); // 铜矿
     public static CreativeTabs tabCore = new CreativeTabs(StatCollector.translateToLocal("core")) {
         @Override

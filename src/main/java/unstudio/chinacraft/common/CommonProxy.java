@@ -5,8 +5,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 
-import unstudio.chinacraft.api.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.event.ListenerRegister;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.config.ConfigLoader;
@@ -41,7 +41,6 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable, "lanternScaldfishOpenable");
         GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish, "itemLanternScaldfish");
         GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable, "itemLanternScaldfishOpenable");
-        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);

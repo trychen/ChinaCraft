@@ -5,7 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import unstudio.chinacraft.api.client.gui.GuiID;
+import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 
 public class ItemRedPacket extends Item {

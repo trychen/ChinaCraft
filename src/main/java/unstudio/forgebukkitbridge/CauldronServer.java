@@ -1,4 +1,4 @@
-package unstudio.api.forgebukkitbridge;
+package unstudio.forgebukkitbridge;
 
 import org.bukkit.Bukkit;
 

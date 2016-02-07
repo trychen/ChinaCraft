@@ -19,7 +19,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import unstudio.chinacraft.api.client.gui.GuiID;
+import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileCookingBench;
 import cpw.mods.fml.relauncher.Side;

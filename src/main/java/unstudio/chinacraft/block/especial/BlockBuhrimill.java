@@ -1,7 +1,7 @@
 package unstudio.chinacraft.block.especial;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -16,11 +16,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import unstudio.chinacraft.api.client.gui.GuiID;
+
+import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
-
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBuhrimill extends BlockContainer {
 
@@ -108,13 +109,13 @@ public class BlockBuhrimill extends BlockContainer {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_,
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_,
             float p_149727_7_, float p_149727_8_, float p_149727_9_) {
 
-        if (player.isSneaking()) {
+        if (p_149727_5_.isSneaking()) {
             if (world.isRemote)
                 return true;
-            player.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
+            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
         } else {
             if (world.getTileEntity(x, y, z) instanceof TileBuhrimill) {
                 ((TileBuhrimill) world.getTileEntity(x, y, z)).addAngle(10);

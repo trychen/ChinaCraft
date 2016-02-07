@@ -1,4 +1,4 @@
-package unstudio.api.forgebukkitbridge;
+package unstudio.forgebukkitbridge;
 
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.economy.Economy;

@@ -1,4 +1,4 @@
-package unstudio.chinacraft.api.block;
+package unstudio.chinacraft.block;
 
 import java.util.Random;
 

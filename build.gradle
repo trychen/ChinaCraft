@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -9,6 +9,7 @@ buildscript {
             name = "sonatype"
             url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
+        mavenCentral()
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
@@ -32,7 +33,7 @@ minecraft {
     runDir = "eclipse"
 }
 ext.jarFile = zipTree(jar.archivePath)
-task apiJar(type: Jar, dependsOn: jar) {
+/*task apiJar(type: Jar, dependsOn: jar) {
     classifier = 'api'
     doFirst {
         from(project.ext.jarFile) {
@@ -43,7 +44,7 @@ task apiJar(type: Jar, dependsOn: jar) {
 
 artifacts {
     archives apiJar
-}
+}*/
 
 repositories {
     maven {
@@ -67,18 +68,6 @@ repositories {
         url = "https://oss.sonatype.org/content/repositories/snapshots/"
     }
     jcenter()
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs += 'src/main/java/'
-        }
-
-        resources {
-            srcDir "src/main/resources/"
-        }
-    }
 }
 
 dependencies {

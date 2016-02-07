@@ -14,8 +14,8 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.api.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
 
 public class GuiRedPacket extends GuiContainer {

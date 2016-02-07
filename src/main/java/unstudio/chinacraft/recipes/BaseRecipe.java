@@ -1,4 +1,4 @@
-package unstudio.chinacraft.api.recipes;
+package unstudio.chinacraft.recipes;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;

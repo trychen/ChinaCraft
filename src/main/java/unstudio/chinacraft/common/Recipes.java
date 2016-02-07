@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import unstudio.chinacraft.api.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -29,10 +29,7 @@ public class Recipes {
                 new Object[] { "   ", "ABA", "A A", 'A', Items.leather, 'B', Items.dye });
 
         // Copper
-        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot, 1), 1.2f);
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.copperBlock),
-                new Object[] { "AAA", "AAA", "AAA", 'A', ChinaCraft.copperIngot });
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperIngot, 9), ChinaCraft.copperBlock);
+        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot, 1), 1.2f);
 
         // 大理石
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4),

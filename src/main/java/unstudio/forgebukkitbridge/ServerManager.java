@@ -1,4 +1,4 @@
-package unstudio.api.forgebukkitbridge;
+package unstudio.forgebukkitbridge;
 
 public class ServerManager {
     private static boolean isCauldronServer = loadCauldronServer();

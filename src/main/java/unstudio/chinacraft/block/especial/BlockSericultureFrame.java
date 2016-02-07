@@ -13,7 +13,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import unstudio.chinacraft.api.client.gui.GuiID;
+import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import cpw.mods.fml.relauncher.Side;
