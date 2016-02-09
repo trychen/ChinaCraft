@@ -1,5 +1,6 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 

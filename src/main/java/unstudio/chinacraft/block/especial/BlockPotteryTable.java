@@ -31,6 +31,7 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
         setHardness(1.0F);
         setResistance(10.0F);
         setLightLevel(0.0F);
+        setCreativeTab(ChinaCraft.tabCore);
         setStepSound(soundTypeStone);
     }
 

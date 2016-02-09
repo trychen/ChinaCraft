@@ -9,9 +9,9 @@ import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class WoodenWindow extends BlockPane {
+public class BlockWoodenWindow extends BlockPane {
 
-    public WoodenWindow(String arg1, String arg2) {
+    public BlockWoodenWindow(String arg1, String arg2) {
         super(arg1, arg2, Material.wood, true);
         setBlockName(StatCollector.translateToLocal("wooden_window"));
         setHardness(0.3F);

@@ -18,15 +18,12 @@ import net.minecraft.block.BlockCake;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemReed;
+import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.BlockBase;
-import unstudio.chinacraft.block.BlockBuckpot;
 import unstudio.chinacraft.block.CCFlower;
 import unstudio.chinacraft.block.CCGrowablePlant;
 import unstudio.chinacraft.block.decoration.*;
@@ -52,7 +49,6 @@ import unstudio.chinacraft.item.jade.JadeOre;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.config.ConfigLoader;
-import unstudio.forgebukkitbridge.ServerManager;
 import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
@@ -100,21 +96,21 @@ public class ChinaCraft {
     public static SmoothMarble smoothMarble = new SmoothMarble(); // 平滑大理石块
     public static PillarMarble pillarMarble = new PillarMarble(); // 条纹大理石块
     public static ChiseledMarble chiseledMarble = new ChiseledMarble(); // 錾制大理石块
-    public static MarbleStair marbleStair = new MarbleStair(); // 大理石楼梯
-    public static MarbleSlab marbleDoubleSlab = new MarbleSlab(true); // 大理石半砖
-    public static MarbleSlab marbleSlab = (MarbleSlab) new MarbleSlab(false).setCreativeTab(ChinaCraft.tabCore); // 大理石半砖
+    public static Block marbleStair = new BlockCCStair(smoothMarble,0).setBlockName("marble_stair").setCreativeTab(ChinaCraft.tabCore); // 大理石楼梯
+    public static Block marbleSlab = new BlockCCSlab(false,Material.rock).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab"); // 大理石半砖
+    public static Block marbleDoubleSlab = new BlockCCSlab(true,Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab"); // 大理石半砖
     public static SilverOre silverOre = new SilverOre(); // 银
-    public static WoodenWindow woodenWindow1 = new WoodenWindow("chinacraft:wooden_window_1",
+    public static BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1",
             "chinacraft:wooden_window_top"); // 木窗框1
-    public static WoodenWindow woodenWindow2 = new WoodenWindow("chinacraft:wooden_window_2",
+    public static BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("chinacraft:wooden_window_2",
             "chinacraft:wooden_window_top"); // 木窗框2
-    public static WoodenWindow woodenWindow3 = new WoodenWindow("chinacraft:wooden_window_3",
+    public static BlockWoodenWindow woodenWindow3 = new BlockWoodenWindow("chinacraft:wooden_window_3",
             "chinacraft:wooden_window_top"); // 木窗框3
-    public static WoodenWindow woodenWindow4 = new WoodenWindow("chinacraft:wooden_window_4",
+    public static BlockWoodenWindow woodenWindow4 = new BlockWoodenWindow("chinacraft:wooden_window_4",
             "chinacraft:wooden_window_top"); // 木窗框3
-    public static WoodenWindow woodenWindowdragon = new WoodenWindow("chinacraft:wooden_window_dragon",
+    public static BlockWoodenWindow woodenWindowdragon = new BlockWoodenWindow("chinacraft:wooden_window_dragon",
             "chinacraft:wooden_window_top"); // 木窗框Logo
-    public static WoodenWindow woodenWindowfu = new WoodenWindow("chinacraft:wooden_window_fu",
+    public static BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu",
             "chinacraft:wooden_window_top"); // 木窗框:福
     public static BlockBamboo blockBamboo = new BlockBamboo(); // 竹子方块
     public static BambooShoot bambooShoot = new BambooShoot(); // 竹笋
@@ -148,10 +144,8 @@ public class ChinaCraft {
     public static TraditionalCarpet silk_left_down = new TraditionalCarpet("silk_left_down",
             "chinacraft:silk_left_down");
     public static BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
-    public static Item itemPotteryTable = new ItemReed(ChinaCraft.potteryTable).setUnlocalizedName("potterytable")
-            .setCreativeTab(ChinaCraft.tabCore); // 陶瓷工作台
-    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
-    public static BlockBuckpot blockBuckpot = new BlockBuckpot(); // 陶锅
+    public static Item itemPotteryTable = new ItemReed(ChinaCraft.potteryTable); // 陶瓷工作台
+//    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     public static BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
     public static Lantern lantern = new Lantern(); // 灯笼
     public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); // 木桶
@@ -347,7 +341,7 @@ public class ChinaCraft {
 
     @EventHandler
     public void onServerStarted(FMLServerStartedEvent event) {
-        vault = ServerManager.getVaultPlugin();
+        //vault = ServerManager.getVaultPlugin();
     }
 
 }

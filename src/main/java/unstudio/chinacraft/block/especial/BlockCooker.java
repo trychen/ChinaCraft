@@ -1,4 +1,4 @@
-package unstudio.chinacraft.block;
+package unstudio.chinacraft.block.especial;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

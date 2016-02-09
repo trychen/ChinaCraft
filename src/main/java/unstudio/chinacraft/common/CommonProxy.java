@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 
 import unstudio.chinacraft.event.ListenerRegister;
+import unstudio.chinacraft.item.ItemCCSlab;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
@@ -54,8 +55,8 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
         GameRegistry.registerWorldGenerator(ChinaCraft.marble, 127);
         GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
-        GameRegistry.registerBlock(ChinaCraft.marbleSlab, "MarbleSlab");
-        GameRegistry.registerBlock(ChinaCraft.marbleDoubleSlab, "MarbleDoubleSlab");
+        GameRegistry.registerBlock(ChinaCraft.marbleSlab, ItemCCSlab.class,"MarbleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,false);
+        GameRegistry.registerBlock(ChinaCraft.marbleDoubleSlab,  ItemCCSlab.class,"MarbleDoubleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,true);
         GameRegistry.registerBlock(ChinaCraft.smoothMarble, "SmoothMarble");
         GameRegistry.registerBlock(ChinaCraft.pillarMarble, "PillarMarble");
         GameRegistry.registerBlock(ChinaCraft.chiseledMarble, "ChiseledMarble");
@@ -108,8 +109,8 @@ public class CommonProxy {
         GameRegistry.registerTileEntity(TilePotteryTable.class, "tileEntityPotteryTable");
         GameRegistry.registerItem(ChinaCraft.itemPotteryTable, "ItemPotteryTable");
 
-        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
-        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐
+//        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
+//        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐
 
         GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");// 铜锭
         OreDictionary.registerOre("ingotCopper", ChinaCraft.copperIngot);
