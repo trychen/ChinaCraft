@@ -102,7 +102,7 @@ public class ChinaCraft {
     public static BlockCCOre copperOre = (BlockCCOre)new BlockCCOre(Material.rock,8,20,64,0,0).setHarvestLevelReturnBlock("pickaxe",1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
     public static BlockBronze bronzeBlock = new BlockBronze(); // 青铜块
     public static BlockCCOre tinOre = (BlockCCOre)new BlockCCOre(Material.rock,8,10,64,0,0).setHarvestLevelReturnBlock("pickaxe",1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
-    public static BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock,4,4,64,32,0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
+    public static BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock,4,4,64,32,0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.5F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
     public static BlockMarble blockMarble = (BlockMarble) new BlockMarble().setBlockTextureName("chinacraft:marble"); // 大理石
     public static SmoothMarble smoothMarble = new SmoothMarble(); // 平滑大理石块
     public static PillarMarble pillarMarble = new PillarMarble(); // 条纹大理石块

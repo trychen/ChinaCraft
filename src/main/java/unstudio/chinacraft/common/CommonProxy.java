@@ -45,13 +45,17 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);
-        GameRegistry.registerBlock(ChinaCraft.bronzeBlock, "BronzeBlock");
         GameRegistry.registerBlock(ChinaCraft.tinOre, "TinOre");
         OreDictionary.registerOre("tinOre", ChinaCraft.tinOre);
         GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
+        OreDictionary.registerOre("oreTin", ChinaCraft.tinOre);
+        GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
+        GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
+        OreDictionary.registerOre("oreSilver", ChinaCraft.silverOre);
         GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
         OreDictionary.registerOre("oreJade", ChinaCraft.jadeOre);
         GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
+        GameRegistry.registerBlock(ChinaCraft.bronzeBlock, "BronzeBlock");
         GameRegistry.registerBlock(ChinaCraft.blockMarble, "BlockMarble");
         GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
         GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
@@ -60,9 +64,6 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.smoothMarble, "SmoothMarble");
         GameRegistry.registerBlock(ChinaCraft.pillarMarble, "PillarMarble");
         GameRegistry.registerBlock(ChinaCraft.chiseledMarble, "ChiseledMarble");
-        GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
-        GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
-        OreDictionary.registerOre("oreSilver", ChinaCraft.silverOre);
         GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
         GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");// 木窗户
         GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
@@ -119,6 +120,8 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.copperTinMixedPowder, "CopperTinMixedPowder");
         GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");// 银锭
         OreDictionary.registerOre("ingotSilver", ChinaCraft.silverOre);
+        GameRegistry.registerItem(ChinaCraft.tinIngot, "TinIngot");// 锡锭
+        OreDictionary.registerOre("ingotTin", ChinaCraft.tinIngot);
 
         GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");// 青铜剑
 
@@ -144,9 +147,6 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.nightClothes[1], "NightClothesBody");
         GameRegistry.registerItem(ChinaCraft.nightClothes[2], "NightClothesLeg");
         GameRegistry.registerItem(ChinaCraft.nightClothes[3], "NightClothesShoe");
-        GameRegistry.registerItem(ChinaCraft.tinIngot, "TinIngot");// 锡锭
-        OreDictionary.registerOre("ingotTin", ChinaCraft.tinIngot);
-        OreDictionary.registerOre("oreTin", ChinaCraft.tinOre);
         GameRegistry.registerItem(ChinaCraft.rices, "Rices");// 米
         GameRegistry.registerItem(ChinaCraft.lcker, "Lckers");// 水稻
         GameRegistry.registerItem(ChinaCraft.soy, "Soy"); // 大豆
