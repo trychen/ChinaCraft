@@ -20,6 +20,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.BlockBase;
@@ -31,9 +34,9 @@ import unstudio.chinacraft.block.generation.BlockCCOre;
 import unstudio.chinacraft.block.generation.plant.BlockBambooShoot;
 import unstudio.chinacraft.block.generation.plant.BlockCCCake;
 import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
-import unstudio.chinacraft.block.model.BlockLamp;
-import unstudio.chinacraft.block.model.CCModelBlock;
-import unstudio.chinacraft.block.model.Lantern;
+import unstudio.chinacraft.block.model.BlockCCLantern;
+import unstudio.chinacraft.block.model.BlockCCLamp;
+import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
@@ -77,7 +80,7 @@ public class ChinaCraft {
             10); // 钻石锤
     public static Item.ToolMaterial YANGLONG = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10); // BLGiantSword
     public static Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
-    // 方块
+
     public static CreativeTabs tabCore = new CreativeTabs(StatCollector.translateToLocal("core")) {
         @Override
         @SideOnly(Side.CLIENT)
@@ -92,6 +95,7 @@ public class ChinaCraft {
             return rices;
         }
     };
+
     public static CreativeTabs tabTool = new CreativeTabs(StatCollector.translateToLocal("tool")) {
         @Override
         @SideOnly(Side.CLIENT)
@@ -99,18 +103,19 @@ public class ChinaCraft {
             return bronzePickaxe;
         }
     };
-    public static BlockCCOre copperOre = (BlockCCOre)new BlockCCOre(Material.rock,8,20,64,0,0).setHarvestLevelReturnBlock("pickaxe",1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
-    public static BlockBronze bronzeBlock = new BlockBronze(); // 青铜块
-    public static BlockCCOre tinOre = (BlockCCOre)new BlockCCOre(Material.rock,8,10,64,0,0).setHarvestLevelReturnBlock("pickaxe",1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
-    public static BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock,4,4,64,32,0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.5F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
+    // 方块
+    public static BlockCCMetal bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f); // 青铜块
+    public static BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
+    public static BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
+    public static BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock, 4, 4, 64, 32, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
     public static BlockMarble blockMarble = (BlockMarble) new BlockMarble().setBlockTextureName("chinacraft:marble"); // 大理石
     public static SmoothMarble smoothMarble = new SmoothMarble(); // 平滑大理石块
     public static PillarMarble pillarMarble = new PillarMarble(); // 条纹大理石块
     public static ChiseledMarble chiseledMarble = new ChiseledMarble(); // 錾制大理石块
-    public static Block marbleStair = new BlockCCStair(smoothMarble,0).setBlockName("marble_stair").setCreativeTab(ChinaCraft.tabCore); // 大理石楼梯
-    public static Block marbleSlab = new BlockCCSlab(false,Material.rock).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
-    public static Block marbleDoubleSlab = new BlockCCSlab(true,Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
-    public static BlockCCOre silverOre = (BlockCCOre)new BlockCCOre(Material.rock,8,4,32,0,0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:silver_ore"); // 银矿
+    public static Block marbleStair = new BlockCCStair(smoothMarble, 0).setBlockName("marble_stair").setCreativeTab(ChinaCraft.tabCore); // 大理石楼梯
+    public static Block marbleSlab = new BlockCCSlab(false, Material.rock).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    public static Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    public static BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:silver_ore"); // 银矿
     public static BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1",
             "chinacraft:wooden_window_top"); // 木窗框1
     public static BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("chinacraft:wooden_window_2",
@@ -135,9 +140,9 @@ public class ChinaCraft {
             .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
     public static BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
-    public static BlockLamp lanternScaldfishOpenable = new BlockLamp(Material.cake, new ModelLanternScaldfish(),
+    public static BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, new ModelLanternScaldfish(),
             "lantern_scaldfish");
-    public static CCModelBlock lanternScaldfish = new CCModelBlock(Material.cake, new ModelLanternScaldfish(),
+    public static BlockCCModel lanternScaldfish = new BlockCCModel(Material.cake, new ModelLanternScaldfish(),
             "lantern_scaldfish_openable");
     public static Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish)
             .setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
@@ -156,9 +161,9 @@ public class ChinaCraft {
             "chinacraft:silk_left_down");
     public static BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
     public static Item itemPotteryTable = new ItemReed(ChinaCraft.potteryTable); // 陶瓷工作台
-//    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
+    //    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     public static BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
-    public static Lantern lantern = new Lantern(); // 灯笼
+    public static BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
     public static BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); // 木桶
     public static BlockCookingBench cooking_bench_off = new BlockCookingBench(false); // 灶台
     public static BlockCookingBench cooking_bench_on = new BlockCookingBench(true); // 灶台
@@ -212,11 +217,11 @@ public class ChinaCraft {
     public static BLGiantSword blGiantSword = new BLGiantSword(ChinaCraft.YANGLONG); // 炎龙巨刀
     public static ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown", 0,
             1);
-    public static ModelArmor[] nightClothes = new ModelArmor[] {
+    public static ModelArmor[] nightClothes = new ModelArmor[]{
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1),
-            new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1) };
+            new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1)};
     // public static ModelArmor nightClothesHead = new
     // ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head",
     // "nightclothes", 1, 0, 1);
@@ -283,15 +288,15 @@ public class ChinaCraft {
             .setUnlocalizedName("spiritual_magic_figures").setMaxStackSize(16); // 基本灵符
     public static ItemSMFFire smfFire = new ItemSMFFire(); // 火
     public static ItemSMFPotion smfNightVision = new ItemSMFPotion("spiritual_magic_figures_night_vision",
-            new int[][] { { 16, 10000 } }); // 夜视
+            new int[][]{{16, 10000}}); // 夜视
     public static ItemSMFPotion smfPoison = new ItemSMFPotion("spiritual_magic_figures_poison",
-            new int[][] { { 19, 450, 4 } }); // 中毒
+            new int[][]{{19, 450, 4}}); // 中毒
     public static ItemSMFPotion smfPower = new ItemSMFPotion("spiritual_magic_figures_power",
-            new int[][] { { 5, 7000 } }); // 力量
+            new int[][]{{5, 7000}}); // 力量
     public static ItemSMFPotion smfProtect = new ItemSMFPotion("spiritual_magic_figures_protect",
-            new int[][] { { 12, 3500 }, { 11, 2500, 3 } }); // 保护
+            new int[][]{{12, 3500}, {11, 2500, 3}}); // 保护
     public static ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal",
-            new int[][] { { 6, 1 }, { 10, 500 } }); // 生命回复
+            new int[][]{{6, 1}, {10, 500}}); // 生命回复
     public static ItemSMFSuper smfSuper = new ItemSMFSuper(); // 捉妖符
     // disc
     public static CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");

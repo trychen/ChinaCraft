@@ -21,6 +21,9 @@ import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 竹子的主类，可种植，与甘蔗差不多
+ */
 public class BlockBamboo extends Block implements IPlantable {
     public BlockBamboo() {
         super(Material.plants);

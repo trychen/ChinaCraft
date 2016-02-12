@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
-public class CCModelBlock extends Block {
+public class BlockCCModel extends Block {
     private ModelBase model;
 
     /**
@@ -19,7 +19,7 @@ public class CCModelBlock extends Block {
      * @param name
      *            名字
      */
-    public CCModelBlock(Material material, ModelBase model, String name) {
+    public BlockCCModel(Material material, ModelBase model, String name) {
         super(material);
         this.model = model;
         setBlockName(name);

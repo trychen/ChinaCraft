@@ -8,6 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 
+/**
+ * 一些关于实体的方法
+ */
 public class EntityMethod {
 
     public static List<EntityMob> findNearbyMobs(EntityPlayer player, double x, double y, double z) {

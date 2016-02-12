@@ -4,7 +4,7 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.util.VersionChecker;
 
 /**
- * Created by trychen on 15/11/15.
+ * 提供给其他MOD的API的类
  */
 public class ChinaCraftApi {
     public static VersionChecker getVersionChecker() {

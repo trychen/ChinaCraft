@@ -8,7 +8,7 @@ import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.block.model.Lantern;
+import unstudio.chinacraft.block.model.BlockCCLantern;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
@@ -63,13 +63,13 @@ public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
         renderer.renderStandardBlock(block, x, y, z);
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));
-        IIcon iicon1 = ((Lantern) block).getIconSide();
+        IIcon iicon1 = ((BlockCCLantern) block).getIconSide();
         float f4 = 0.0625F * 13;
         renderer.renderFaceXPos(block, x - 1.0F + f4, y, z, iicon1);
         renderer.renderFaceXNeg(block, x + 1.0F - f4, y, z, iicon1);
         renderer.renderFaceZPos(block, x, y, z - 1.0F + f4, iicon1);
         renderer.renderFaceZNeg(block, x, y, z + 1.0F - f4, iicon1);
-        IIcon iicon2 = ((Lantern) block).getIconTop();
+        IIcon iicon2 = ((BlockCCLantern) block).getIconTop();
         renderer.renderFaceYPos(block, x, y, z, iicon2);
         renderer.renderFaceYNeg(block, x, y, z, iicon2);
         return true;
