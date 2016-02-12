@@ -14,11 +14,11 @@ import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class Lantern extends Block {
+public class BlockCCLantern extends Block {
 
     private IIcon side, top;
 
-    public Lantern() {
+    public BlockCCLantern() {
         super(Material.wood);
         setBlockName("lantern");
         setCreativeTab(ChinaCraft.tabCore);

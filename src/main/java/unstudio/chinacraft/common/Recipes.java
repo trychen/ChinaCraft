@@ -9,11 +9,33 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 /**
  * Use for nothing. Created by trychen on 15/12/5.
  */
 public class Recipes {
+
+    /**
+     * 注册时实现了该接口的recipes()方法都将执行。
+     */
+    public interface RecipeAble{
+        void recipes();
+    }
+
+    public static void registerRecipeAble(){
+
+    }
+
+    /**
+     * 普通的注册合成
+     */
     public static void init() {
+
+        //执行RecipeAble接口的方法
+        registerRecipeAble();
+
         // 投掷炸弹
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.firecracker, 2), new ItemStack(Items.dye, 1, 1),
                 Items.gunpowder, Items.paper);

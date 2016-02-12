@@ -8,19 +8,16 @@ import net.minecraft.world.World;
 
 import unstudio.chinacraft.tileentity.TileCCLamp;
 
-/**
- * Created by trych on 2016/2/2.
- */
-public class BlockLamp extends CCModelBlock {
+public class BlockCCLamp extends BlockCCModel {
     /**
      * @param material
-     *            材质
+     *           材质
      * @param model
      *            模型
      * @param name
      *            名字
      */
-    public BlockLamp(Material material, ModelBase model, String name) {
+    public BlockCCLamp(Material material, ModelBase model, String name) {
         super(material, model, name);
         setLightLevel(5.0f);
 
@@ -37,10 +34,8 @@ public class BlockLamp extends CCModelBlock {
         TileCCLamp tileEntity = (TileCCLamp) world.getTileEntity(x, y, z);
         if (tileEntity == null)
             return false;
-        if (tileEntity.turn()) {
-            setLightLevel(5.0f);
-        } else
-            setLightLevel(0);
+        if (tileEntity.turn()) setLightLevel(5.0f);
+        else setLightLevel(0);
         return true;
     }
 }
