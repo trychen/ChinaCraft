@@ -24,6 +24,14 @@ public class BlockCCOre extends BlockBase implements IWorldGenerator {
     private final int lowest;
     private final int dimensionID;
 
+    /**
+     * @param material    材质
+     * @param size        数量
+     * @param frequency   频率
+     * @param highest     最高生成层
+     * @param lowest      最低生成层
+     * @param dimensionID 世界组
+     */
     public BlockCCOre(Material material, int size, int frequency, int highest, int lowest, int dimensionID) {
         super(material);
         this.size = size;
@@ -33,7 +41,7 @@ public class BlockCCOre extends BlockBase implements IWorldGenerator {
         this.dimensionID = dimensionID;
     }
 
-    public Block setHarvestLevelReturnBlock(String toolClass, int level){
+    public Block setHarvestLevelReturnBlock(String toolClass, int level) {
         super.setHarvestLevel(toolClass, level);
         return this;
     }
