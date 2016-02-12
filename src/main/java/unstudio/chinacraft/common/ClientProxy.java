@@ -1,6 +1,5 @@
 package unstudio.chinacraft.common;
 
-import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -76,17 +75,9 @@ public class ClientProxy extends CommonProxy {
         //清理此地材质注册……
         ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
         ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
-
-        ChinaCraft.copperOre.setBlockTextureName("chinacraft:copper_ore");
         ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
-        ChinaCraft.tinOre.setBlockTextureName("chinacraft:tin_ore");
-        ChinaCraft.jadeOre.setBlockTextureName("chinacraft:jade_ore");
-        ChinaCraft.marble.setBlockTextureName("chinacraft:marble");
         ChinaCraft.smoothMarble.setBlockTextureName("chinacraft:smooth_marble");
         ChinaCraft.chiseledMarble.setBlockTextureName("chinacraft:chiseled_marble");
-        ChinaCraft.marbleSlab.setBlockTextureName("chinacraft:smooth_marble");
-        ChinaCraft.marbleDoubleSlab.setBlockTextureName("chinacraft:smooth_marble");
-        ChinaCraft.silverOre.setBlockTextureName("chinacraft:silver_ore");
         ChinaCraft.blockBamboo.setBlockTextureName("chinacraft:bamboo");
         ChinaCraft.mulberrySapling.setBlockTextureName("chinacraft:mulberry_sapling");
         ChinaCraft.mulberryWood.setBlockTextureName("chinacraft:mulberry_wood");
@@ -95,7 +86,6 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
         ChinaCraft.glutinousRice.setTextureName("chinacraft:glutinous_rice");
         ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
-        ChinaCraft.bambooShoot.setBlockTextureName("chinacraft:bamboo_shoot");
 
         ChinaCraft.copperIngot.setTextureName("chinacraft:copper_ingot");
         ChinaCraft.copperTinMixedPowder.setTextureName("chinacraft:copper_tin_mixed_powder");

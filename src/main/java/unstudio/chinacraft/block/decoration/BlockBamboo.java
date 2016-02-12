@@ -198,7 +198,7 @@ public class BlockBamboo extends Block implements IPlantable {
                 int z1 = z + r.nextInt(3) - 1;
                 if (world.isAirBlock(x1, y, z1) && (world.getBlock(x1, y - 1, z1) == Blocks.grass
                         || world.getBlock(x1, y - 1, z1) == Blocks.dirt)) {
-                    world.setBlock(x1, y, z1, ChinaCraft.bambooShoot, 0, 2);
+                    world.setBlock(x1, y, z1, ChinaCraft.blockBambooShoot, 0, 2);
                 }
             }
         }
