@@ -61,11 +61,11 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.pillarMarble, 4),
                 new Object[] { "## ", "## ", "   ", '#', ChinaCraft.smoothMarble });
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.smoothMarble, 4),
-                new Object[] { "## ", "## ", "   ", '#', ChinaCraft.marble });
+                new Object[] { "## ", "## ", "   ", '#', ChinaCraft.blockMarble});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleSlab, 6),
-                new Object[] { "   ", "   ", "###", '#', ChinaCraft.marble });
+                new Object[] { "   ", "   ", "###", '#', ChinaCraft.blockMarble});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4),
-                new Object[] { "#  ", "## ", "###", '#', ChinaCraft.marble });
+                new Object[] { "#  ", "## ", "###", '#', ChinaCraft.blockMarble});
 
         // 木窗格
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),

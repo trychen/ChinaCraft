@@ -5,8 +5,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSlab;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.item.ItemCCSlab;
@@ -19,6 +21,7 @@ import java.util.Random;
 public class BlockCCSlab extends BlockSlab{
 
     private Block block;
+    private IIcon icon;
 
     public BlockCCSlab(boolean p_i45410_1_, Material p_i45410_2_) {
         super(p_i45410_1_, p_i45410_2_);
@@ -49,5 +52,17 @@ public class BlockCCSlab extends BlockSlab{
     public Block setBlockSlab(Block block) {
         this.block = block;
         return this;
+    }
+
+    @Override
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+
+        return icon;
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister p_149651_1_) {
+        icon = p_149651_1_.registerIcon(getTextureName());
     }
 }

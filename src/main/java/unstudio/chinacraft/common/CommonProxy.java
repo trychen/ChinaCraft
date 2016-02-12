@@ -52,8 +52,8 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
         OreDictionary.registerOre("oreJade", ChinaCraft.jadeOre);
         GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
-        GameRegistry.registerBlock(ChinaCraft.marble, "Marble");
-        GameRegistry.registerWorldGenerator(ChinaCraft.marble, 127);
+        GameRegistry.registerBlock(ChinaCraft.blockMarble, "BlockMarble");
+        GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
         GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
         GameRegistry.registerBlock(ChinaCraft.marbleSlab, ItemCCSlab.class,"MarbleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,false);
         GameRegistry.registerBlock(ChinaCraft.marbleDoubleSlab,  ItemCCSlab.class,"MarbleDoubleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,true);
@@ -83,8 +83,8 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.mulberrySapling, "MulberrySapling");
         GameRegistry.registerBlock(ChinaCraft.mulberryWood, "MulberryWood");
         GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true), 1);
-        GameRegistry.registerBlock(ChinaCraft.bambooShoot, "BambooShoot");
-        GameRegistry.registerWorldGenerator(ChinaCraft.bambooShoot, 1);
+        GameRegistry.registerBlock(ChinaCraft.blockBambooShoot, "BlockBambooShoot");
+        GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
 
         GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); // 玉石工作台
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); // 玉石工作台TileEntity

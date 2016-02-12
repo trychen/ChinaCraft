@@ -15,20 +15,21 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import unstudio.chinacraft.block.BlockBase;
 import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BambooShoot extends Block implements IPlantable, IWorldGenerator {
-    public BambooShoot() {
+public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGenerator {
+    public BlockBambooShoot() {
         super(Material.plants);
         float f = 0.375F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
         this.setTickRandomly(true);
         setHardness(0.0F);
         setCreativeTab(ChinaCraft.tabPlant);
-        setBlockName(StatCollector.translateToLocal("bamboo_shoot"));
+        setBlockName("bamboo_shoot");
     }
 
     /**
@@ -97,7 +98,7 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(ChinaCraft.bambooShoot);
+        return Item.getItemFromBlock(ChinaCraft.blockBambooShoot);
     }
 
     /**
@@ -133,7 +134,7 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(ChinaCraft.bambooShoot);
+        return Item.getItemFromBlock(ChinaCraft.blockBambooShoot);
     }
 
     /**
@@ -172,7 +173,7 @@ public class BambooShoot extends Block implements IPlantable, IWorldGenerator {
         int id = world.getBiomeGenForCoords(l6, l14).biomeID;
         if ((id == 3 || id == 4 || id == 18 || id == 20 || id == 34 || id == 27 || id == 28 || id == 29)
                 && random.nextInt(16) == 0) {
-            new WorldGenFlowers(ChinaCraft.bambooShoot).generate(world, random, l6, i11, l14);
+            new WorldGenFlowers(ChinaCraft.blockBambooShoot).generate(world, random, l6, i11, l14);
         }
     }
 }
