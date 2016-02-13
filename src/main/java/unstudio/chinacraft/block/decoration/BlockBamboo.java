@@ -4,12 +4,14 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -25,6 +27,9 @@ import cpw.mods.fml.relauncher.SideOnly;
  * 竹子的主类，可种植，与甘蔗差不多
  */
 public class BlockBamboo extends Block implements IPlantable {
+
+    private IIcon icon;
+
     public BlockBamboo() {
         super(Material.plants);
         float f = 0.375F;
@@ -33,6 +38,15 @@ public class BlockBamboo extends Block implements IPlantable {
         setHardness(3.0F);
         setCreativeTab(ChinaCraft.tabCore);
         setBlockName(StatCollector.translateToLocal("bamboo"));
+    }
+
+    @Override
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {return icon;}
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister p_149651_1_) {
+        icon = p_149651_1_.registerIcon(getTextureName());
     }
 
     /**

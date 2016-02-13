@@ -75,9 +75,6 @@ public class ClientProxy extends CommonProxy {
         //清理此地材质注册……
         ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
         ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
-        ChinaCraft.bronzeBlock.setBlockTextureName("chinacraft:bronze_block");
-        ChinaCraft.blockBamboo.setBlockTextureName("chinacraft:bamboo");
-        ChinaCraft.mulberrySapling.setBlockTextureName("chinacraft:mulberry_sapling");
         ChinaCraft.bambooSlab.setBlockTextureName("chinacraft:bamboo_slab");
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");

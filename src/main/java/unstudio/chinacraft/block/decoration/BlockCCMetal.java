@@ -6,10 +6,11 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.StatCollector;
 
+import unstudio.chinacraft.block.BlockBase;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
 
-public class BlockCCMetal extends Block implements Recipes.RecipeAble{
+public class BlockCCMetal extends BlockBase implements Recipes.RecipeAble{
     private Item recipesIteml;
 
     /**
