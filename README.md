@@ -15,6 +15,7 @@
 -   Brew - 酿造
 -   Pottery - 陶瓷
 -   Jade - 玉石
+-   Smelt - 冶炼
 
 矿物
 ----
