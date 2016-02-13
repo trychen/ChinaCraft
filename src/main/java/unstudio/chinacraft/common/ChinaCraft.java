@@ -157,7 +157,6 @@ public class ChinaCraft {
     public static TraditionalCarpet silk_left_down = new TraditionalCarpet("silk_left_down",
             "chinacraft:silk_left_down");
     public static BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
-    public static Item itemPotteryTable = new ItemReed(ChinaCraft.potteryTable); // 陶瓷工作台
     //    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     public static BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
     public static BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
@@ -188,10 +187,6 @@ public class ChinaCraft {
     public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
     // public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
     public static CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物
-    public static Item itemBuhrimill = new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill")
-            .setCreativeTab(ChinaCraft.tabCore); // 石磨
-    public static Item itemSericultureFrame = new ItemReed(ChinaCraft.sericultureFrame)
-            .setUnlocalizedName("sericulture_frame").setCreativeTab(ChinaCraft.tabCore); // 养蚕架
     public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf")
             .setCreativeTab(ChinaCraft.tabFarming); // 桑叶
     public static ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); // 木桶

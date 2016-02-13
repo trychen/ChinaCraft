@@ -6,6 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.oredict.OreDictionary;
 
 import unstudio.chinacraft.event.ListenerRegister;
+import unstudio.chinacraft.item.ItemCCBlock;
 import unstudio.chinacraft.item.ItemCCSlab;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
@@ -93,22 +94,19 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.blockDrum, "Drum");
         GameRegistry.registerTileEntity(TileDrum.class, "tileEntityDrum");
 
-        GameRegistry.registerBlock(ChinaCraft.buhrimill, "Buhrimill"); // 石磨
+        GameRegistry.registerBlock(ChinaCraft.buhrimill, ItemCCBlock.class, "Buhrimill"); // 石磨
         GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill"); // 石磨TileEntity
-        GameRegistry.registerItem(ChinaCraft.itemBuhrimill, "ItemBuhrimill");
 
         GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern"); // 灯笼
         GameRegistry.registerBlock(ChinaCraft.cooking_bench_on, "CookingBenchOn");
         GameRegistry.registerBlock(ChinaCraft.cooking_bench_off, "CookingBenchOff");
         GameRegistry.registerTileEntity(TileCookingBench.class, "tileEntityCookingBench");
 
-        GameRegistry.registerBlock(ChinaCraft.sericultureFrame, "SericultureFrame"); // 养蚕架
+        GameRegistry.registerBlock(ChinaCraft.sericultureFrame, ItemCCBlock.class, "SericultureFrame"); // 养蚕架
         GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame"); // 养蚕架TileEntity
-        GameRegistry.registerItem(ChinaCraft.itemSericultureFrame, "ItemSericultureFrame");
 
-        GameRegistry.registerBlock(ChinaCraft.potteryTable, "PotteryTable"); // 陶瓷工作台
+        GameRegistry.registerBlock(ChinaCraft.potteryTable, ItemCCBlock.class, "PotteryTable"); // 陶瓷工作台
         GameRegistry.registerTileEntity(TilePotteryTable.class, "tileEntityPotteryTable");
-        GameRegistry.registerItem(ChinaCraft.itemPotteryTable, "ItemPotteryTable");
 
 //        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
 //        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐

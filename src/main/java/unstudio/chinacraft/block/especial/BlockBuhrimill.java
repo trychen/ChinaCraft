@@ -30,9 +30,9 @@ public class BlockBuhrimill extends BlockContainer {
     public BlockBuhrimill() {
         super(Material.rock);
         setBlockName("buhrimill");
-        setHardness(1.5F);
-        setResistance(20.0F);
-        setLightLevel(0.0F);
+        setHardness(3.0F);
+        setResistance(10.0F);
+        setCreativeTab(ChinaCraft.tabCore);
         setStepSound(soundTypeStone);
         setHarvestLevel("pickaxe", 1);
     }
@@ -94,13 +94,13 @@ public class BlockBuhrimill extends BlockContainer {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return ChinaCraft.itemBuhrimill;
+        return Item.getItemFromBlock(ChinaCraft.buhrimill);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return ChinaCraft.itemBuhrimill;
+        return Item.getItemFromBlock(ChinaCraft.buhrimill);
     }
 
     @Override

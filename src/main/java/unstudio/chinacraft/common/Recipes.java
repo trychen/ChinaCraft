@@ -93,7 +93,7 @@ public class Recipes {
                 Item.getItemFromBlock(Blocks.stone), 'X', Item.getItemFromBlock(Blocks.crafting_table) });
 
         // 养蚕
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemSericultureFrame, 1),
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1),
                 new Object[] { "@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick });
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.silkYarn, 4), ChinaCraft.silkwormChrysalis);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemSilk, 1, 15),
@@ -112,7 +112,7 @@ public class Recipes {
         GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
 
         // 石磨
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemBuhrimill),
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill),
                 new Object[] { " #S", "XIX", "XXX", 'S', Items.stick, '#', Item.getItemFromBlock(Blocks.stone), 'I',
                         Items.iron_ingot, 'X', Item.getItemFromBlock(Blocks.cobblestone) });
                         // GameRegistry.addRecipe(new

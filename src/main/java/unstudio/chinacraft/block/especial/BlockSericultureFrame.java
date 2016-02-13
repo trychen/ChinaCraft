@@ -25,7 +25,8 @@ public class BlockSericultureFrame extends BlockContainer {
         super(Material.wood);
         setBlockName("sericulture_frame");
         setHardness(1.0F);
-        setResistance(10.0F);
+        setResistance(5.0F);
+        setCreativeTab(ChinaCraft.tabFarming);
         setStepSound(soundTypeWood);
     }
 
@@ -51,13 +52,13 @@ public class BlockSericultureFrame extends BlockContainer {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return ChinaCraft.itemSericultureFrame;
+        return Item.getItemFromBlock(ChinaCraft.sericultureFrame);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return ChinaCraft.itemSericultureFrame;
+        return Item.getItemFromBlock(ChinaCraft.sericultureFrame);
     }
 
     @Override
