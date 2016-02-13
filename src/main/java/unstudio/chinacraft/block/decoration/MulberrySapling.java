@@ -17,8 +17,8 @@ public class MulberrySapling extends BlockBush implements IGrowable {
 
     public MulberrySapling() {
         float f = 0.4F;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
-        this.setCreativeTab(ChinaCraft.tabPlant);
+        setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+        setCreativeTab(ChinaCraft.tabFarming);
         setHardness(0.0F);
         setStepSound(soundTypeGrass);
         setBlockName(StatCollector.translateToLocal("mulberry_sapling"));

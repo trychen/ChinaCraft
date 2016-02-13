@@ -22,7 +22,7 @@ public class ItemSilk extends Item {
     public ItemSilk() {
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
-        this.setCreativeTab(ChinaCraft.tabPlant);
+        this.setCreativeTab(ChinaCraft.tabFarming);
     }
 
     @Override

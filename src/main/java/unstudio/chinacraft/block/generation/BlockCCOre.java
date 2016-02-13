@@ -41,11 +41,6 @@ public class BlockCCOre extends BlockBase implements IWorldGenerator {
         this.dimensionID = dimensionID;
     }
 
-    public Block setHarvestLevelReturnBlock(String toolClass, int level) {
-        super.setHarvestLevel(toolClass, level);
-        return this;
-    }
-
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
         if (dimensionID == world.provider.dimensionId) {

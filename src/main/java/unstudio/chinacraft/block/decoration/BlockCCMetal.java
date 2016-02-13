@@ -22,7 +22,7 @@ public class BlockCCMetal extends Block implements Recipes.RecipeAble{
         super(Material.rock);
 //        setBlockName(StatCollector.translateToLocal("bronze_block"));
         setBlockName(name);
-        setResistance(20.0F);
+        setResistance(10.0F);
         setStepSound(soundTypeMetal);
         setCreativeTab(ChinaCraft.tabCore);
         setHardness(hardness);

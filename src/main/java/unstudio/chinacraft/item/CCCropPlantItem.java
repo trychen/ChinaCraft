@@ -17,7 +17,7 @@ public class CCCropPlantItem extends Item implements IPlantable {
     private Block bb;
 
     public CCCropPlantItem(Block b) {
-        this.setCreativeTab(ChinaCraft.tabPlant);
+        this.setCreativeTab(ChinaCraft.tabFarming);
         this.bb = b;
     }
 

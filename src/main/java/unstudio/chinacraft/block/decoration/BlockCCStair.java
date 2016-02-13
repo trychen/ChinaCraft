@@ -13,6 +13,10 @@ public class BlockCCStair extends BlockStairs {
     public BlockCCStair(Block block, int damage) {
         super(block,damage);
         this.useNeighborBrightness = true;
-        //setLightOpacity(0);
+    }
+
+    public Block setHarvestLevelReturnBlock(String toolClass, int level) {
+        super.setHarvestLevel(toolClass, level);
+        return this;
     }
 }

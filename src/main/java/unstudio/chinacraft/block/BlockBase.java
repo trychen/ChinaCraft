@@ -30,4 +30,8 @@ public class BlockBase extends Block {
         icon = p_149651_1_.registerIcon(getTextureName());
     }
 
+    public Block setHarvestLevelReturnBlock(String toolClass, int level) {
+        super.setHarvestLevel(toolClass, level);
+        return this;
+    }
 }

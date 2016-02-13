@@ -1,8 +1,8 @@
 package unstudio.chinacraft.block.decoration;
 
-import java.util.ArrayList;
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -11,24 +11,26 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
-
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class MulberryLeaf extends BlockLeaves {
+import java.util.ArrayList;
+import java.util.Random;
 
-    IIcon icon;
+/**
+ * Created by AAA on 2016/2/13.
+ */
+public class BlockCCLeaves extends BlockLeaves {
 
-    public MulberryLeaf() {
-        setCreativeTab(ChinaCraft.tabPlant);
-        setBlockName(StatCollector.translateToLocal("mulberry_leaf"));
+    private IIcon icon;
+    private Block sapling;
+
+    public BlockCCLeaves(Block sapling){
+        this.sapling=sapling;
     }
 
-    @Override
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister reg) {
-        this.icon = reg.registerIcon("chinacraft:mulberry_leaf");
+    public Block setSapling(Block sapling){
+        this.sapling = sapling;
+        return this;
     }
 
     @Override
@@ -42,8 +44,19 @@ public class MulberryLeaf extends BlockLeaves {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public void registerBlockIcons(IIconRegister reg) {
+        this.icon = reg.registerIcon(getTextureName());
+    }
+
+    @Override
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
         return icon;
+    }
+
+    @Override
+    public String[] func_150125_e() {
+        return new String[0];
     }
 
     @Override
@@ -60,13 +73,8 @@ public class MulberryLeaf extends BlockLeaves {
     }
 
     @Override
-    public String[] func_150125_e() {
-        return new String[] { "mulbrry" };
-    }
-
-    @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(ChinaCraft.mulberrySapling);
+        return Item.getItemFromBlock(sapling);
     }
 
     @Override
@@ -76,8 +84,7 @@ public class MulberryLeaf extends BlockLeaves {
     }
 
     @Override
-    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_,
-            int p_149646_5_) {
+    public boolean shouldSideBeRendered(IBlockAccess p_149646_1_, int p_149646_2_, int p_149646_3_, int p_149646_4_, int p_149646_5_) {
         return true;
     }
 }

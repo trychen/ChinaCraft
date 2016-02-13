@@ -20,9 +20,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.World;
-import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import unstudio.chinacraft.block.BlockBase;
@@ -45,7 +42,6 @@ import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
-import unstudio.chinacraft.item.jade.JadeOre;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.config.ConfigLoader;
@@ -88,7 +84,7 @@ public class ChinaCraft {
             return Item.getItemFromBlock(copperOre);
         }
     };
-    public static CreativeTabs tabPlant = new CreativeTabs(StatCollector.translateToLocal("plant")) {
+    public static CreativeTabs tabFarming = new CreativeTabs(StatCollector.translateToLocal("farming")) {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
@@ -109,12 +105,12 @@ public class ChinaCraft {
     public static BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
     public static BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock, 4, 4, 64, 32, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
     public static BlockMarble blockMarble = (BlockMarble) new BlockMarble().setBlockTextureName("chinacraft:marble"); // 大理石
-    public static SmoothMarble smoothMarble = new SmoothMarble(); // 平滑大理石块
-    public static PillarMarble pillarMarble = new PillarMarble(); // 条纹大理石块
-    public static ChiseledMarble chiseledMarble = new ChiseledMarble(); // 錾制大理石块
-    public static Block marbleStair = new BlockCCStair(smoothMarble, 0).setBlockName("marble_stair").setCreativeTab(ChinaCraft.tabCore); // 大理石楼梯
-    public static Block marbleSlab = new BlockCCSlab(false, Material.rock).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
-    public static Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    public static Block smoothMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("smooth_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:smooth_marble"); // 平滑大理石块
+    public static Block pillarMarble = new BlockCCRotatedPillar(Material.rock,"chinacraft:pillar_marble_top","chinacraft:pillar_marble").setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("pillar_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore);// 条纹大理石块
+    public static Block chiseledMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("chiseled_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:chiseled_marble"); // 錾制大理石块
+    public static Block marbleStair = new BlockCCStair(smoothMarble, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("marble_stair").setCreativeTab(ChinaCraft.tabCore); // 大理石楼梯
+    public static Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    public static Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
     public static BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:silver_ore"); // 银矿
     public static BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1",
             "chinacraft:wooden_window_top"); // 木窗框1
@@ -130,10 +126,10 @@ public class ChinaCraft {
             "chinacraft:wooden_window_top"); // 木窗框:福
     public static BlockBamboo blockBamboo = new BlockBamboo(); // 竹子方块
     public static BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
-    public static MulberryLog mulberryLog = new MulberryLog(); // 桑树原木
-    public static MulberryLeaf mulberryLeaf = new MulberryLeaf(); // 桑树树叶
+    public static Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
     public static MulberrySapling mulberrySapling = new MulberrySapling(); // 桑树树苗
-    public static MulberryWood mulberryWood = new MulberryWood(); // 桑树木板
+    public static Block mulberryLeaf = new BlockCCLeaves(ChinaCraft.mulberrySapling).setCreativeTab(ChinaCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("chinacraft:mulberry_leaf"); // 桑树树叶
+    public static Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
     public static CCFlower azalea = new CCFlower("azalea");
     public static CCFlower peony = new CCFlower("peony");
     public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab")
@@ -178,7 +174,7 @@ public class ChinaCraft {
             .setCreativeTab(ChinaCraft.tabCore); // 铜锡混合矿粉
     public static CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow)
             .setUnlocalizedName("rices"); // 米
-    public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabPlant); // 米穗
+    public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabFarming); // 米穗
     // public static RiceGrow riceGrow = new RiceGrow(); //水稻作物
     public static CCGrowablePlant riceGrow = new CCGrowablePlant("rice", 5, ChinaCraft.rices, ChinaCraft.lcker); // 水稻作物
     public static CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow)
@@ -187,8 +183,8 @@ public class ChinaCraft {
             .setUnlocalizedName("glutinous_rice"); // 糯米
     public static CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7,
             ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
-    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabPlant).setUnlocalizedName("bamboo"); // 竹子
-    public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabPlant); // 大豆荚
+    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
     // public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
     public static CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物
     public static Item itemBuhrimill = new ItemReed(ChinaCraft.buhrimill).setUnlocalizedName("buhrimill")
@@ -196,17 +192,17 @@ public class ChinaCraft {
     public static Item itemSericultureFrame = new ItemReed(ChinaCraft.sericultureFrame)
             .setUnlocalizedName("sericulture_frame").setCreativeTab(ChinaCraft.tabCore); // 养蚕架
     public static Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf")
-            .setCreativeTab(ChinaCraft.tabPlant); // 桑叶
+            .setCreativeTab(ChinaCraft.tabFarming); // 桑叶
     public static ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); // 木桶
     public static ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); // 木水桶
     public static ItemSilkworm silkworm = new ItemSilkworm(); // 蚕
-    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabPlant)
+    public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabFarming)
             .setUnlocalizedName("silkworm_chrysalis"); // 蚕茧
     public static ItemRedPacket redPacket = new ItemRedPacket(); // 红包
     public static ItemFirecracker firecracker = new ItemFirecracker();
     public static ItemBomb bomb = new ItemBomb();
     public static ItemBlackDogBlood blackDogBlood = new ItemBlackDogBlood();
-    public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabPlant);
+    public static Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabFarming);
     // 防具武器
     public static BronzeSword bronzeSword = new BronzeSword(); // 青铜剑
     public static BronzeBroadSword bronzeBroadSword = new BronzeBroadSword(BROAD_BRONZE, null); // 青铜大刀
@@ -260,22 +256,22 @@ public class ChinaCraft {
     public static Jade jadePinkItem = new Jade("jade_pink");
     public static Jade jadePurpleItem = new Jade("jade_purple");
     // Drink、Food
-    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabPlant); // 杯
-    public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabPlant);
+    public static Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabFarming); // 杯
+    public static Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabFarming);
     public static CupChocolate cupChocolate = new CupChocolate();
-    public static Item cocoa = new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabPlant);
+    public static Item cocoa = new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabFarming);
     public static ItemFood ladyfinger = (ItemFood) new ItemFood(2, false).setUnlocalizedName("ladyfinger")
-            .setCreativeTab(ChinaCraft.tabPlant);
+            .setCreativeTab(ChinaCraft.tabFarming);
     public static CupWater cupWater = new CupWater();
     public static CupChrysanthemum cupChrysanthemum = new CupChrysanthemum();
-    public static Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabPlant); // 面粉
-    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabPlant); // 米粉
-    public static Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabPlant); // 麦仁,大麦米
+    public static Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabFarming); // 面粉
+    public static Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabFarming); // 米粉
+    public static Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabFarming); // 麦仁,大麦米
     public static BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake")
-            .setCreativeTab(ChinaCraft.tabPlant);
+            .setCreativeTab(ChinaCraft.tabFarming);
     public static BlockCake appleCake = new BlockCCCake("apple_cake");
     public static ItemReed itemAppleCake = (ItemReed) new ItemReed(ChinaCraft.appleCake)
-            .setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabPlant);
+            .setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
     // 耐火砖
     public static BlockFirebrick blockFirebrick = new BlockFirebrick(); // 耐火砖块
     public static BlockFirebrickStructure blockFirebrickStructure = new BlockFirebrickStructure(); // 耐火砖块(多方块结构)
@@ -305,7 +301,7 @@ public class ChinaCraft {
     public static CCMusicDisc spring_festival_overture = new CCMusicDisc("spring_festival_overture");
     public static Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); // 丝绸
     public static Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("chinacraft:silk_yarn")
-            .setCreativeTab(ChinaCraft.tabPlant);
+            .setCreativeTab(ChinaCraft.tabFarming);
     public static ItemDebug debug = new ItemDebug(); // 调试物品
 
     public static void main(String[] args) {

@@ -6,7 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -28,7 +27,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
         this.setTickRandomly(true);
         setHardness(0.0F);
-        setCreativeTab(ChinaCraft.tabPlant);
+        setCreativeTab(ChinaCraft.tabFarming);
         setBlockName("bamboo_shoot");
     }
 

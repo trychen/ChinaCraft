@@ -26,7 +26,7 @@ public class CCFlower extends BlockBush {
     public CCFlower(String name) {
         super(Material.plants);
         setBlockName(name);
-        setCreativeTab(ChinaCraft.tabPlant);
+        setCreativeTab(ChinaCraft.tabFarming);
         setStepSound(soundTypeGrass);
     }
 

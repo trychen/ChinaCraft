@@ -26,7 +26,6 @@ public class BlockCCSlab extends BlockSlab{
     public BlockCCSlab(boolean p_i45410_1_, Material p_i45410_2_) {
         super(p_i45410_1_, p_i45410_2_);
         this.useNeighborBrightness = !p_i45410_1_;
-        //setLightOpacity(0);
     }
 
     @Override
@@ -49,7 +48,7 @@ public class BlockCCSlab extends BlockSlab{
         return block;
     }
 
-    public Block setBlockSlab(Block block) {
+    public BlockCCSlab setBlockSlab(Block block) {
         this.block = block;
         return this;
     }
@@ -64,5 +63,10 @@ public class BlockCCSlab extends BlockSlab{
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
         icon = p_149651_1_.registerIcon(getTextureName());
+    }
+
+    public BlockCCSlab setHarvestLevelReturnBlock(String toolClass, int level) {
+        super.setHarvestLevel(toolClass, level);
+        return this;
     }
 }

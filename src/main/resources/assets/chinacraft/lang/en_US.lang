@@ -125,7 +125,7 @@ item.jade_purple.name=Purple Jade
 
 itemGroup.core=Chinese Civilization-Core
 itemGroup.tool=Chinese Civilization-Tools
-itemGroup.plant=Chinese Civilization-Plants
+itemGroup.farming=Chinese Civilization-Farming
 
 debug.firstline=----------Debug----------
 debug.blockinfo=Block Info
