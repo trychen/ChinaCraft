@@ -125,7 +125,7 @@ public class ChinaCraft {
             "chinacraft:wooden_window_top"); // 木窗框Logo
     public static BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu",
             "chinacraft:wooden_window_top"); // 木窗框:福
-    public static Block blockBamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
+    public static Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
     public static BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
     public static Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
     public static Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(ChinaCraft.tabFarming);//桑树树苗
@@ -133,7 +133,7 @@ public class ChinaCraft {
     public static Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
     public static CCFlower azalea = new CCFlower("azalea");
     public static CCFlower peony = new CCFlower("peony");
-    public static Block bambooSlab = new BlockBase(Material.wood).setBlockName("bamboo_slab")
+    public static Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
             .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
     public static BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
@@ -164,6 +164,7 @@ public class ChinaCraft {
     public static BlockCookingBench cooking_bench_off = new BlockCookingBench(false); // 灶台
     public static BlockCookingBench cooking_bench_on = new BlockCookingBench(true); // 灶台
     public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
+    public static Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft;blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
     // 物品
     public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
     public static Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")
@@ -172,6 +173,7 @@ public class ChinaCraft {
     public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); // 银锭
     public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder")
             .setCreativeTab(ChinaCraft.tabCore); // 铜锡混合矿粉
+    public static Item blackbrick = new ItemBase().setUnlocalizedName("blackbrick").setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:blackbrick");//青砖
     public static CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow)
             .setUnlocalizedName("rices"); // 米
     public static Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabFarming); // 米穗
@@ -183,7 +185,7 @@ public class ChinaCraft {
             .setUnlocalizedName("glutinous_rice"); // 糯米
     public static CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7,
             ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
-    public static Item bamboo = new Item().setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    public static Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
     public static Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
     // public static SoyGrow soyGrow = new SoyGrow(); //大豆作物
     public static CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物

@@ -9,9 +9,6 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
 /**
  * Use for nothing. Created by trychen on 15/12/5.
  */
@@ -81,8 +78,8 @@ public class Recipes {
                 Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife });
 
         // 竹子
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooSlab), ChinaCraft.bamboo, ChinaCraft.bamboo,
-                ChinaCraft.bamboo, ChinaCraft.bamboo);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooPlank), ChinaCraft.itemBamboo, ChinaCraft.itemBamboo,
+                ChinaCraft.itemBamboo, ChinaCraft.itemBamboo);
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),
@@ -192,7 +189,7 @@ public class Recipes {
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[] { ChinaCraft.soyPod });
 
         // 竹子
-        GameRegistry.addSmelting(ChinaCraft.bamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
+        GameRegistry.addSmelting(ChinaCraft.itemBamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
 
         // 木桶
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1),

@@ -117,7 +117,7 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
     public boolean interact(EntityPlayer entityPlayer) {
         ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
 
-        if (itemstack != null && itemstack.getItem() == ChinaCraft.bamboo
+        if (itemstack != null && itemstack.getItem() == ChinaCraft.itemBamboo
                 && !entityPlayer.capabilities.isCreativeMode) {
             if (itemstack.stackSize-- == 1) {
                 entityPlayer.inventory.setInventorySlotContents(entityPlayer.inventory.currentItem,

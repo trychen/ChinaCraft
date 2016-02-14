@@ -37,7 +37,7 @@ public class BlockBamboo extends Block implements IPlantable {
         this.setTickRandomly(true);
         setHardness(3.0F);
         setCreativeTab(ChinaCraft.tabCore);
-        setBlockName(StatCollector.translateToLocal("bamboo"));
+        setBlockName("bamboo");
     }
 
     @Override
@@ -54,7 +54,7 @@ public class BlockBamboo extends Block implements IPlantable {
      */
     @Override
     public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-        if (p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - 1, p_149674_4_) == ChinaCraft.blockBamboo
+        if (p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - 1, p_149674_4_) == ChinaCraft.bamboo
                 || this.func_150170_e(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_)) {
             if (p_149674_1_.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
                 int l;
@@ -87,7 +87,7 @@ public class BlockBamboo extends Block implements IPlantable {
         Block block;
         while (true) {
             block = p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - i, p_149742_4_);
-            if (block != ChinaCraft.blockBamboo) {
+            if (block != ChinaCraft.bamboo) {
                 break;
             }
             i++;
@@ -133,7 +133,7 @@ public class BlockBamboo extends Block implements IPlantable {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return ChinaCraft.bamboo;
+        return ChinaCraft.itemBamboo;
     }
 
     /**
@@ -169,7 +169,7 @@ public class BlockBamboo extends Block implements IPlantable {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return ChinaCraft.bamboo;
+        return ChinaCraft.itemBamboo;
     }
 
     /**

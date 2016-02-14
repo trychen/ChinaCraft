@@ -3,6 +3,7 @@ package unstudio.chinacraft.item;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -40,6 +41,16 @@ public class ItemDebug extends Item {
                 StatCollector.translateToLocal("debug.position") + ": " + x + "/" + y + "/" + z + " (X/Y/Z)"));
         player.addChatMessage(new ChatComponentText(
                 StatCollector.translateToLocal("debug.metadata") + ": " + world.getBlockMetadata(x, y, z)));
+        Block block = world.getBlock(x,y,z);
+        int metadata = world.getBlockMetadata(x, y, z);
+        player.addChatMessage(new ChatComponentText("材质:"+getMaterialName(block.getMaterial())));
+        player.addChatMessage(new ChatComponentText("硬度:"+block.getBlockHardness(world,x,y,z)));
+        player.addChatMessage(new ChatComponentText("抗爆性:"+block.getExplosionResistance(null)*5F/3F));
+        player.addChatMessage(new ChatComponentText("亮度:"+block.getLightValue()));
+        player.addChatMessage(new ChatComponentText("透光度:"+block.getLightOpacity()));
+        player.addChatMessage(new ChatComponentText("挖掘工具:"+block.getHarvestTool(metadata)));
+        player.addChatMessage(new ChatComponentText("挖掘等级:"+block.getHarvestLevel(metadata)));
+        player.addChatMessage(new ChatComponentText("渲染类型:"+block.getRenderType()));
         // player.addChatMessage(new
         // ChatComponentText(String.valueOf(player.inventory.currentItem)));
         TileEntity tile = world.getTileEntity(x, y, z);
@@ -61,5 +72,81 @@ public class ItemDebug extends Item {
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         p_77624_3_.add(StatCollector.translateToLocal("item.debug.lore"));
+    }
+
+    private String getMaterialName(Material material){
+        if(material==null){
+            return null;
+        }else if(material.equals(Material.air)){
+            return "air";
+        }else if(material.equals(Material.anvil)){
+            return "anvil";
+        }else if(material.equals(Material.cactus)){
+            return "cactus";
+        }else if(material.equals(Material.cake)){
+            return "cake";
+        }else if(material.equals(Material.carpet)){
+            return "carpet";
+        }else if(material.equals(Material.circuits)){
+            return "circuits";
+        }else if(material.equals(Material.clay)){
+            return "clay";
+        }else if(material.equals(Material.cloth)){
+            return "cloth";
+        }else if(material.equals(Material.coral)){
+            return "coral";
+        }else if(material.equals(Material.craftedSnow)){
+            return "craftedSnow";
+        }else if(material.equals(Material.dragonEgg)){
+            return "dragonEgg";
+        }else if(material.equals(Material.fire)){
+            return "fire";
+        }else if(material.equals(Material.glass)) {
+            return "glass";
+        }else if(material.equals(Material.gourd)){
+            return "gourd";
+        }else if(material.equals(Material.grass)){
+            return "grass";
+        }else if(material.equals(Material.ground)){
+            return "ground";
+        }else if(material.equals(Material.ice)){
+            return "ice";
+        }else if(material.equals(Material.iron)){
+            return "iron";
+        }else if(material.equals(Material.lava)){
+            return "lava";
+        }else if(material.equals(Material.leaves)){
+            return "leaves";
+        }else if(material.equals(Material.packedIce)){
+            return "packedIce";
+        }else if(material.equals(Material.piston)){
+            return "piston";
+        }else if(material.equals(Material.plants)){
+            return "plants";
+        }else if(material.equals(Material.portal)){
+            return "portal";
+        }else if(material.equals(Material.redstoneLight)){
+            return "redstoneLight";
+        }else if(material.equals(Material.rock)){
+            return "rock";
+        }else if(material.equals(Material.sand)){
+            return "sand";
+        }else if(material.equals(Material.snow)){
+            return "snow";
+        }else if(material.equals(Material.sponge)){
+            return "sponge";
+        }else if(material.equals(Material.tnt)){
+            return "tnt";
+        }else if(material.equals(Material.vine)){
+            return "vine";
+        }else if(material.equals(Material.water)){
+            return "water";
+        }else if(material.equals(Material.web)){
+            return "web";
+        }else if(material.equals(Material.wood)){
+            return "wood";
+        }else{
+            return "unknown";
+        }
     }
 }

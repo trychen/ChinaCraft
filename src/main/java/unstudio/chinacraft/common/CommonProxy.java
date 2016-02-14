@@ -73,8 +73,8 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon"); // 龙腾木窗格
         GameRegistry.registerBlock(ChinaCraft.woodenWindowfu, "WoodenWindowFu"); // 福字木窗格
         GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
-        GameRegistry.registerBlock(ChinaCraft.blockBamboo, "BlockBamboo"); // 竹子
-        GameRegistry.registerBlock(ChinaCraft.bambooSlab, "BambooSlab"); // 竹木板
+        GameRegistry.registerBlock(ChinaCraft.bamboo, "Bamboo"); // 竹子
+        GameRegistry.registerBlock(ChinaCraft.bambooPlank, "BambooPlank"); // 竹木板
         GameRegistry.registerBlock(ChinaCraft.azalea, "Azalea");
         GameRegistry.registerWorldGenerator(new WorldGenCCFlower(), 1);
         GameRegistry.registerBlock(ChinaCraft.peony, "Peony");
@@ -87,6 +87,7 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true), 1);
         GameRegistry.registerBlock(ChinaCraft.blockBambooShoot, "BlockBambooShoot");
         GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
+        GameRegistry.registerBlock(ChinaCraft.blackbrickBlock,"BlackBrickBlock");//青砖块
 
         GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); // 玉石工作台
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); // 玉石工作台TileEntity
@@ -120,6 +121,7 @@ public class CommonProxy {
         OreDictionary.registerOre("ingotSilver", ChinaCraft.silverOre);
         GameRegistry.registerItem(ChinaCraft.tinIngot, "TinIngot");// 锡锭
         OreDictionary.registerOre("ingotTin", ChinaCraft.tinIngot);
+        GameRegistry.registerItem(ChinaCraft.blackbrick, "BlackBrick");//青砖
 
         GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");// 青铜剑
 
@@ -149,7 +151,7 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.lcker, "Lckers");// 水稻
         GameRegistry.registerItem(ChinaCraft.soy, "Soy"); // 大豆
         GameRegistry.registerItem(ChinaCraft.soyPod, "SoyPod");// 大豆荚
-        GameRegistry.registerItem(ChinaCraft.bamboo, "Bamboo");// 竹子
+        GameRegistry.registerItem(ChinaCraft.itemBamboo, "ItemBamboo");// 竹子
         GameRegistry.registerItem(ChinaCraft.itemMulberryLeaf, "ItemMulberryLeaf");// 桑叶
         GameRegistry.registerItem(ChinaCraft.woodenBucket, "WoodenBucket");// 木桶
         GameRegistry.registerBlock(ChinaCraft.blockWoodenBucket, "BlockWoodenBucket");// 木桶(方块)

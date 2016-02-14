@@ -71,7 +71,7 @@ tile.jade_ore.name=玉原石
 item.jade.lore=等级:
 
 tile.bamboo.name=竹子
-tile.bamboo_slab.name=竹板
+tile.bamboo_plank.name=竹板
 tile.bamboo_shoot.name=竹笋
 item.bamboo.name=竹子
 item.bamboo_shoot.name=竹笋

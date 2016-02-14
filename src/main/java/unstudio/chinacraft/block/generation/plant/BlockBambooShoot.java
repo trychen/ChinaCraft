@@ -40,7 +40,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
             if (p_149674_1_.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
                 int i1 = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
                 if (i1 == 15) {
-                    p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, ChinaCraft.blockBamboo);
+                    p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, ChinaCraft.bamboo);
                     p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 0, 4);
                 } else {
                     p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, i1 + 1, 4);
