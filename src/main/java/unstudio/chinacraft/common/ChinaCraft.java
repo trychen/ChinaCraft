@@ -164,7 +164,7 @@ public class ChinaCraft {
     public static BlockCookingBench cooking_bench_off = new BlockCookingBench(false); // 灶台
     public static BlockCookingBench cooking_bench_on = new BlockCookingBench(true); // 灶台
     public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
-    public static Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft;blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
+    public static Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
     // 物品
     public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
     public static Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")
