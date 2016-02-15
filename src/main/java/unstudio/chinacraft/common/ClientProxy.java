@@ -44,6 +44,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
+        ChinaCraft.chrysanthemum.setBlockTextureName("chinacraft:chrysanthemum");
         ChinaCraft.glutinousRice.setTextureName("chinacraft:glutinous_rice");
         ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
 

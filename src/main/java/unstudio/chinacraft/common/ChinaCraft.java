@@ -133,6 +133,7 @@ public class ChinaCraft {
     public static Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
     public static CCFlower azalea = new CCFlower("azalea");
     public static CCFlower peony = new CCFlower("peony");
+    public static CCFlower chrysanthemum = new CCFlower("chrysanthemum");
     public static Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
             .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台

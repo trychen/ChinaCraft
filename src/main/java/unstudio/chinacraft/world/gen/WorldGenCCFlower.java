@@ -26,13 +26,16 @@ public class WorldGenCCFlower implements IWorldGenerator {
         for (int i = 0; i <= 15; i++) {
             if (random.nextBoolean())
                 if (world.provider.dimensionId == 0) {
-                    int j = random.nextInt(2);
+                    int j = random.nextInt(3);
                     switch (j) {
                     case 0:
                         Gen(random, chunkX, chunkZ, world, ChinaCraft.peony);
                         break;
                     case 1:
                         Gen(random, chunkX, chunkZ, world, ChinaCraft.azalea);
+                        break;
+                    case 2:
+                        Gen(random, chunkX, chunkZ, world, ChinaCraft.chrysanthemum);
                         break;
                     }
                     break;
