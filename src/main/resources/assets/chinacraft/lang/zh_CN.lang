@@ -1,7 +1,6 @@
 ﻿tile.copper_ore.name=铜矿
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
-item.copper_ingot.name=铜锭
 item.copper_tin_mixed_powder.name=铜锡混合矿粉
 item.bronze_sword.name=青铜剑
 item.bronze_bigsword.name=青铜大刀
@@ -34,21 +33,17 @@ item.hammer_bronze.name=青铜锤子
 item.hammer_stone.name=石头锤子
 item.jade_knife.name=玉石切割刀
 item.art_knife.name=美术切割刀
-item.silkworm_chrysalis.name=蚕蛹
-item.silkworm_young.name=幼蚕
-item.silkworm_graine.name=蚕卵
 item.spiritual_magic_figures.name=灵符
 item.spiritual_magic_figures_fire.name=火符
+item.spiritual_magic_figures_fire.lore=燃烧 15至23秒
 item.spiritual_magic_figures_power.name=能量符
 item.spiritual_magic_figures_poison.name=毒符
 item.spiritual_magic_figures_night_vision.name=金睛符
 item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=护符
 item.SMFSuper.name=混乱符
-item.spiritual_magic_figures_fire.lore=燃烧 15至23秒
 item.debug.name=调试
-item.black_dog_blood.name=黑狗血
-item.moon_cake.name=月饼
+
 item.china_crown.name=冕冠
 item.chinacrown.lore=权利的象征
 tile.xinjiang_nut_cake.name=切糕
@@ -58,15 +53,11 @@ item.bomb.name=投掷性炸弹
 tile.tin_ore.name=锡矿
 item.tin_ingot.name=锡锭
 item.tin_powder.name=锡粉
-
 tile.silver_ore.name=银矿
 item.silver_ingot.name=银锭
-
 item.copper_ingot.name=铜锭
 item.copper_powder.name=铜粉
-
 item.bronze_ingot.name=青铜锭
-
 tile.jade_ore.name=玉原石
 item.jade.lore=等级:
 
@@ -113,9 +104,6 @@ gui.potterykiln.title=陶瓷窑
 
 tile.lantern.name=灯笼
 
-item.redpacket.name=红包
-gui.redpacket.title=红包
-
 item.rices.name=大米
 item.lcker.name=米穗
 item.soy.name=大豆
@@ -123,6 +111,8 @@ tile.soy.name=大豆
 item.soy_pod.name=豆荚
 item.cocoa.name=可可粉
 item.ladyfinger.name=松脆饼
+item.black_dog_blood.name=黑狗血
+item.moon_cake.name=月饼
 item.flour.name=面粉
 item.rice_flour.name=米粉
 item.barley_rice.name=麦仁
@@ -131,10 +121,10 @@ tile.wooden_bucket.name=木桶
 item.wooden_bucket.name=木桶
 item.wooden_bucket_water.name=木水桶
 
-item.silkworm_graine.name=蚕卵
+item.silkworm_chrysalis.name=蚕蛹
 item.silkworm_young.name=幼蚕
+item.silkworm_graine.name=蚕卵
 item.sericulture_frame.name=养蚕架
-item.silkworm_chrysalis.name=蚕茧
 tile.sericulture_frame.name=养蚕架
 gui.sericulture_frame.title=养蚕架
 
@@ -150,7 +140,7 @@ item.silk.brown.name=棕色丝绸
 item.silk.blue.name=蓝色丝绸
 item.silk.purple.name=紫色丝绸
 item.silk.cyan.name=青色丝绸
-item.silk.silver.name=淡灰色丝绸
+item.silk.silver.name=银色丝绸
 item.silk.gray.name=灰色丝绸
 item.silk.pink.name=粉红色丝绸
 item.silk.lime.name=黄绿色丝绸
@@ -194,6 +184,14 @@ debug.position=位置信息
 debug.metadata=元数据
 debug.deathrate=死亡率
 debug.progress=进度
+debug.material=材质
+debug.hardness=硬度
+debug.antiknock=抗爆性
+debug.brightness=亮度
+debug.transmittance=透光度
+debug.need_tools=挖掘工具
+debug.need_tools_level=挖掘等级
+debug.rendertype=渲染类型
 debug.true=是
 debug.false=否
 debug.plantstage=植物生长阶段
@@ -205,6 +203,7 @@ record.the_march_of_the_volunteers=义勇军进行曲
 record.spring_festival_overture=春节序曲
 
 item.redpacket.name=红包
+gui.redpacket.title=红包
 gui.redpacket.money=金钱:
 gui.redpacket.wash=请输入祝福语...
 gui.redpacket.sendee=收件人:
@@ -212,8 +211,8 @@ gui.redpacket.from=来自 %sender% 的红包
 gui.redpacket.pack=打包
 gui.redpacket.send=发送
 redpacket.success=成功发送红包给 %sendee%.
-redpacket.not_enough_money=失败:你没有足够的金钱!
-redpacket.not_found_player=失败:没有找到玩家 %sendee%!
+redpacket.not_enough_money=失败: 你没有足够的金钱!
+redpacket.not_found_player=失败: 没有找到玩家 %sendee%!
 redpacket.backpack_full=失败: %sendee% 的背包已满!
 redpacket.received=您收到了一个红包!
 redpacket.receive_money=您打开红包获得了 %money% 元!

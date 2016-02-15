@@ -1,13 +1,13 @@
 tile.copper_ore.name=Copper Ore
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
-item.copper_ingot.name=Copper Ingot
+item.copper_tin_mixed_powder.name=Copper & Tin Mixed Powder
 item.bronze_sword.name=Bronze Sword
 item.bronze_bigsword.name=Bronze Big Sword
-item.bronze_bigsword_green.name=Bronze Big Sword - Fei Cui Jade
-item.bronze_bigsword_green2.name=Bronze Big Sword - Jasper
-item.bronze_bigsword_pink.name=Bronze Big Sword - Ross quartz
-item.bronze_bigsword_purple.name=Bronze Big Sword - Purple Jade
+item.bronze_bigsword_green.name=Bronze Big Sword - §2Fei Cui Jade
+item.bronze_bigsword_green2.name=Bronze Big Sword - §aJasper
+item.bronze_bigsword_pink.name=Bronze Big Sword - §dRoss quartz
+item.bronze_bigsword_purple.name=Bronze Big Sword - §5Purple Jade
 item.yanlung_giantknife.name=BL Giant Sword
 item.yanlung_giantknife.lore=If the entity is attacked, the entity will burn
 item.jiuqu_tang.name=Jiu Qu Sword
@@ -25,19 +25,14 @@ item.night_clothes_head.name=Night Clothes Helmet
 item.night_clothes_body.name=Night Clothes Body
 item.night_clothes_leg.name=Night Clothes Legs
 item.night_clothes_shoe.name=Night Clothes Boots
-item.nightclothes.name=Wear complete set can make you more light
+item.nightclothes.lore.1=Wear complete set can make you more light
+item.nightclothes.lore.2=And Press SHIFT Can You Completely Invisible
 item.hammer_diamond.name=Diamond Hammer
 item.hammer_iron.name=Iron Hammer
 item.hammer_bronze.name=Bronze Hammer
 item.hammer_stone.name=Stone Hammer
 item.jade_knife.name=Jade Cutting Knife
 item.art_knife.name=Art Cutting Knife
-tile.wooden_bucket.name=Wooden Bucket
-item.wooden_bucket.name=Wooden Bucket
-item.wooden_bucket_water.name=Wooden Water Bucket
-item.silkworm_chrysalis.name=Silkworm Chrysalis
-item.silkworm_young.name=Young Silkworm
-item.silkworm_graine.name=Silkworm Graine
 item.spiritual_magic_figures.name=Spiritual Magic Paper
 item.spiritual_magic_figures_fire.name=Fire Spiritual Magic Paper
 item.spiritual_magic_figures_fire.lore=To Make Entity be Burn
@@ -46,34 +41,45 @@ item.spiritual_magic_figures_poison.name=Poison Spiritual Magic Paper
 item.spiritual_magic_figures_night_vision.name=Night Vision Spiritual Magic Paper
 item.spiritual_magic_figures_heal.name=Heal Spiritual Magic Paper
 item.spiritual_magic_figures_protect.name=Protect Spiritual Magic Paper
-item.spiritual_magic_figures_fire.lore=Burn 15-23 Second
 item.SMFSuper.name=Mess Figures
 item.debug.name=Debug
-item.black_dog_blood.name=Black Dog Blood
-item.flour.name=Flour
-item.rice_flour.name=Rice Flour
-item.barley_rice.name=Barley Rice
-item.mooncake.name=Mooncake
+
 item.china_crown.name=Crown
 item.chinacrown.lore=Symbol of rights
 tile.xinjiang_nut_cake.name=Xinjiang Nut Cake
 item.firecracker.name=Firecracker
 item.bomb.name=Thrown Bomb
+
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot
-
+item.tin_powder.name=Tin Power
 tile.silver_ore.name=Silver Ore
 item.silver_ingot.name=Silver Ingot
-
+item.copper_ingot.name=Copper Ingot
+item.copper_powder.name=Copper Power
 item.bronze_ingot.name=Bronze Ingot
-
 tile.jade_ore.name=Jade Ore
 item.jade.lore=Level:
+
 
 tile.bamboo.name=Bamboo
 tile.bamboo_slab.name=Bamboo Clappers
 item.bamboo.name=Bamboo
 item.bamboo_shoot.name=Bamboo Shoot
+
+tile.azalea.name=映山红
+tile.beanBracket.name=作物支架
+tite.benincasa_pruriens.name=冬瓜
+tile.chrysanthemum.name=菊花
+tile.glutinous_rice.name=糯稻
+item.glutinous_rice.name=糯稻
+tile.peony.name=牡丹
+tile.prunus_mume_branch.name=梅花枝
+tile.prunus_mume_wood.name=梅花木
+tile.reed.name=箸叶
+tile.jasmine_bush.name=茉莉花灌木
+tile.prunusMumeSapling=梅花树苗
+tile.teaBush=茶树
 
 tile.wooden_window.name=Wood pane
 
@@ -91,6 +97,11 @@ tile.marble_slab.name=Marble Slab
 tile.marble_stair.name=Marble Stair
 tile.firebrick.name=Firebrick
 
+tile.potterytable.name=Pottery Table
+item.potterytable.name=Pottery Table
+gui.potterytable.title=Pottery Table
+gui.potterykiln.title=Pottery Kiln
+
 tile.lantern.name=Lantern
 
 item.rices.name=Rices
@@ -99,8 +110,42 @@ item.soy.name=Soy
 item.soy_pod.name=Pod
 item.cocoa.name=Cocoa Powder
 item.ladyfinger.name=Ladyfinger
+item.black_dog_blood.name=Black Dog Blood
+item.mooncake.name=Mooncake
+item.flour.name=Flour
+item.rice_flour.name=Rice Flour
+item.barley_rice.name=Barley Rice
 
-item.cup.name=Tea Cup
+item.silkworm_chrysalis.name=Silkworm Chrysalis
+item.silkworm_young.name=Young Silkworm
+item.silkworm_graine.name=Silkworm Graine
+item.sericulture_frame.name=Sericulture frame
+tile.sericulture_frame.name=Sericulture frame
+gui.sericulture_frame.title=Sericulture frame
+
+tile.lantern_scaldfish.name=lantern Scaldfish
+item.lantern_scaldfish.name=lantern Scaldfish
+tile.lantern_scaldfish_openable.name=lantern Scaldfish
+item.lantern_scaldfish_openable.name=lantern Scaldfish
+
+item.silk.black.name=Black Silk
+item.silk.red.name=Red Silk
+item.silk.green.name=Green Silk
+item.silk.brown.name=Brown Silk
+item.silk.blue.name=Blue Silk
+item.silk.purple.name=Purple Silk
+item.silk.cyan.name=Cyan Silk
+item.silk.silver.name=Silver Silk
+item.silk.gray.name=Gray Silk
+item.silk.pink.name=Pink Silk
+item.silk.lime.name=Lime Silk
+item.silk.yellow.name=Yellow Silk
+item.silk.lightBlue.name=Light Blue Silk
+item.silk.magenta.name=Magenta Silk
+item.silk.orange.name=Orange Silk
+item.silk.white.name= Silk
+
+item.cup.name=Cup
 item.cup_chocolate.name=Chocolate Tea
 
 tile.buhrimill.name=Buhrimill Block
@@ -110,6 +155,7 @@ nei.gui.buhrimill.title=Buhrimill Recipes
 
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
+gui.jade_table.info=Jade Information
 
 tile.cooking_bench.name=Furnace Platform
 gui.cooking_bench.title=Furnace Platform
@@ -118,10 +164,10 @@ tile.blockfirebrick.title=Firebrick
 item.firebrick.name=Firebrick
 item.clay_sand_mixture.name=Clay Sand Mixture
 
-item.jade_green.name=Fei Cui Jade
-item.jade_green2.name=Jasper
-item.jade_pink.name=Ross quartz
-item.jade_purple.name=Purple Jade
+item.jade_green.name=§2Fei Cui Jade§r
+item.jade_green2.name=§aJasper§r
+item.jade_pink.name=§dRoss quartz§r
+item.jade_purple.name=§5Purple Jade§r
 
 itemGroup.core=Chinese Civilization-Core
 itemGroup.tool=Chinese Civilization-Tools
@@ -138,14 +184,25 @@ debug.false=False
 debug.plantstage=Plant Stage
 item.debug.lore=Use item with block to output debug information
 
-item.three_stanzas_of_plum-blossoms.desc=Three Stanzas of Plum-blossoms
-item.three_stanzas_of_plum-blossoms.name=
+record.three_stanzas_of_plum-blossoms=Plum-blossom in Three Movements
+record.mountain_stream=Mountain Stream
+record.the_march_of_the_volunteers=March of the Volunteers
+record.spring_festival_overture=Spring festival Overture
 
 item.redpacket.name=Red Packet
-gui.redpacket.default.wash.1=Our luck is turning around
-gui.redpacket.default.wash.2=May happiness always be with us.
-gui.redpacket.from=From
-gui.redpacket.s='s
+gui.redpacket.title=Red Packet
+gui.redpacket.money=Money:
+gui.redpacket.wash=Please enter a blessing...
+gui.redpacket.sendee=Sendee:
+gui.redpacket.from=From %sender%'s Red Packet
+gui.redpacket.pack=Pack
+gui.redpacket.send=Send
+redpacket.success=Successfully send a Red Packet to %sendee%.
+redpacket.not_enough_money=Failed: You don't have enough money!
+redpacket.not_found_player=Failed: Can't find Player %sendee%!
+redpacket.backpack_full=Failed: %sendee%'s Backpack is full!
+redpacket.received=You received a red Red Packet.!
+redpacket.receive_money=You open the Red Packet to get %money% Money!
 
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie

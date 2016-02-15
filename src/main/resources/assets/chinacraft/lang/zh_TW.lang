@@ -1,10 +1,19 @@
 tile.copper_ore.name=銅礦
 tile.bronze_block.name=青銅塊
 item.bronze_ingot.name=青銅錠
+item.copper_ingot.name=銅錠
+item.copper_tin_mixed_powder.name=銅錫混合礦粉
 item.bronze_sword.name=青銅劍
-item.bronze_broadsword.name=青銅大刀
+item.bronze_bigsword.name=青銅大刀
+item.bronze_bigsword_green.name=青銅大刀 - §2翡翠玉
+item.bronze_bigsword_green2.name=青銅大刀 - §a碧玉
+item.bronze_bigsword_pink.name=青銅大刀 - §d芙蓉石
+item.bronze_bigsword_purple.name=青銅大刀 - §5紫玉
 item.yanlung_giantknife.name=炎龍巨刀
-item.jiuqu_tang.name=九曲镋
+item.yanlung_giantknife.lore=被攻擊的實體將會被燃燒
+item.jiuqu_tang.name=九曲鎲
+item.mace.name=狼牙棒
+item.mace.lore=使被攻擊者眩暈
 item.bronze_axe.name=青銅斧
 item.bronze_pickaxe.name=青銅稿
 item.bronze_hoe.name=青銅鋤
@@ -13,36 +22,74 @@ item.bronze_helmet.name=青銅頭盔
 item.bronze_body.name=青銅胸甲
 item.bronze_legs.name=青銅護腿
 item.bronze_boots.name=青銅靴子
-item.jade_knife.name=切割刀
+item.night_clothes_head.name=夜行衣頭罩
+item.night_clothes_body.name=夜行衣胸衣
+item.night_clothes_leg.name=夜行衣綁腿
+item.night_clothes_shoe.name=夜行衣護腳
+item.nightclothes.lore.1=穿上全套可以讓你更加輕盈
+item.nightclothes.lore.2=穿上全套後按 SHIFT 可以隱身
+item.hammer_diamond.name=鑽石鎚子
+item.hammer_iron.name=鐵鎚子
+item.hammer_bronze.name=青銅鎚子
+item.hammer_stone.name=石頭鎚子
+item.jade_knife.name=玉石切割刀
+item.art_knife.name=美術切割刀
 item.silkworm_chrysalis.name=蠶蛹
 item.silkworm_young.name=幼蠶
 item.silkworm_graine.name=蠶卵
 item.spiritual_magic_figures.name=靈符
 item.spiritual_magic_figures_fire.name=火符
 item.spiritual_magic_figures_power.name=能量符
-item.spiritual_magic_figures_Poison.name=毒符
+item.spiritual_magic_figures_poison.name=毒符
 item.spiritual_magic_figures_night_vision.name=金睛符
 item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=護符
+item.SMFSuper.name=混亂符
+item.spiritual_magic_figures_fire.lore=燃燒 15至23秒
 item.debug.name=調試
+item.black_dog_blood.name=黑狗血
+item.moon_cake.name=月餅
+item.china_crown.name=冕冠
+item.chinacrown.lore=權利的象徵
+tile.xinjiang_nut_cake.name=切糕
+item.firecracker.name=鞭炮
+item.bomb.name=投擲性炸彈
 
 tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
+item.tin_powder.name=錫粉
 
 tile.silver_ore.name=銀礦
 item.silver_ingot.name=銀錠
 
+item.copper_ingot.name=銅錠
+item.copper_powder.name=銅粉
+
 item.bronze_ingot.name=青銅錠
 
 tile.jade_ore.name=玉原石
+item.jade.lore=等級:
 
 tile.bamboo.name=竹子
-tile.bamboo_slab.name=竹板
+tile.bamboo_plank.name=竹板
 tile.bamboo_shoot.name=竹筍
 item.bamboo.name=竹子
 item.bamboo_shoot.name=竹筍
 
-tile.wooden_window.name=木窗
+tile.azalea.name=映山紅
+tile.beanBracket.name=作物支架
+tite.benincasa_pruriens.name=冬瓜
+tile.chrysanthemum.name=菊花
+tile.glutinous_rice.name=糯稻
+item.glutinous_rice.name=糯稻
+tile.peony.name=牡丹
+tile.prunus_mume_branch.name=梅花枝
+tile.prunus_mume_wood.name=梅花木
+tile.reed.name=箸葉
+tile.jasmine_bush.name=茉莉花灌木
+tile.prunusMumeSapling=梅花樹苗
+tile.teaBush=茶樹
+
 tile.wooden_window.name=木窗格
 
 tile.mulberry_log.name=桑樹原木
@@ -57,27 +104,61 @@ tile.pillar_marble.name=條紋大理石塊
 tile.chiseled_marble.name=鏨制大理石塊
 tile.marble_slab.name=大理石半磚
 tile.marble_stair.name=大理石樓梯
+tile.firebrick.name=耐火磚
+
+tile.potterytable.name=陶瓷工作台
+item.potterytable.name=陶瓷工作台
+gui.potterytable.title=陶瓷工作台
+gui.potterykiln.title=陶瓷窯
 
 tile.lantern.name=燈籠
+
+item.redpacket.name=紅包
+gui.redpacket.title=紅包
 
 item.rices.name=大米
 item.lcker.name=米穗
 item.soy.name=大豆
+tile.soy.name=大豆
 item.soy_pod.name=豆莢
 item.cocoa.name=可可粉
-item.ladyfinger.name=松脆餅
-item.flour.name=面粉
+item.ladyfinger.name=鬆脆餅
+item.flour.name=麵粉
 item.rice_flour.name=米粉
 item.barley_rice.name=麥仁
 
 tile.wooden_bucket.name=木桶
 item.wooden_bucket.name=木桶
+item.wooden_bucket_water.name=木水桶
 
 item.silkworm_graine.name=蠶卵
 item.silkworm_young.name=幼蠶
+item.sericulture_frame.name=養蠶架
 item.silkworm_chrysalis.name=蠶繭
 tile.sericulture_frame.name=養蠶架
 gui.sericulture_frame.title=養蠶架
+
+tile.lantern_scaldfish.name=元宵燈籠
+item.lantern_scaldfish.name=元宵燈籠
+tile.lantern_scaldfish_openable.name=元宵燈籠
+item.lantern_scaldfish_openable.name=元宵燈籠
+
+item.silk.black.name=黑色絲綢
+item.silk.red.name=紅色絲綢
+item.silk.green.name=綠色絲綢
+item.silk.brown.name=棕色絲綢
+item.silk.blue.name=藍色絲綢
+item.silk.purple.name=紫色絲綢
+item.silk.cyan.name=青色絲綢
+item.silk.silver.name=淡灰色絲綢
+item.silk.gray.name=灰色絲綢
+item.silk.pink.name=粉紅色絲綢
+item.silk.lime.name=黃綠色絲綢
+item.silk.yellow.name=黃色絲綢
+item.silk.lightBlue.name=淡藍色絲綢
+item.silk.magenta.name=品紅色絲綢
+item.silk.orange.name=橙色絲綢
+item.silk.white.name=絲綢
 
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
@@ -85,36 +166,68 @@ item.cup_chocolate.name=巧克力茶
 tile.buhrimill.name=石磨方塊
 item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
+nei.gui.buhrimill.title=石磨合成
 
-gui.jade_bench.title=玉石加工臺
-tile.jade_table.name=玉石加工臺
+gui.jade_bench.title=玉石加工台
+tile.jade_table.name=玉石加工台
 gui.jade_table.info=玉石信息
 
-tile.cooking_bench.name=竈臺
-gui.cooking_bench.title=竈臺
+tile.cooking_bench.name=灶台
+gui.cooking_bench.title=灶台
 
-item.jade_green.name=翡翠玉
-item.jade_green2.name=碧玉
-item.jade_pink.name=芙蓉石
-item.jade_purple.name=紫玉
+tile.firebrick.name=耐火磚塊
+item.firebrick.name=耐火磚
+item.clay_sand_mixture.name=黏土沙混合物
+
+item.jade_green.name=§2翡翠玉§r
+item.jade_green2.name=§a碧玉§r
+item.jade_pink.name=§d芙蓉石§r
+item.jade_purple.name=§5紫玉§r
 
 itemGroup.core=華夏文明-核心
 itemGroup.tool=華夏文明-工具
-itemGroup.plant=華夏文明-作物
+itemGroup.farming=華夏文明-農業
 
-debug.firstline=----------調試----------
-debug.blockname=方塊名稱
-debug.xyz=座標
-debug.metadata=中繼資料
+debug.firstline=調試工具
+debug.blockinfo=方塊信息
+debug.position=位置信息
+debug.metadata=元數據
+debug.deathrate=死亡率
+debug.progress=進度
+debug.material=材質
+debug.hardness=硬度
+debug.antiknock=抗爆性
+debug.brightness=亮度
+debug.transmittance=透光度
+debug.need_tools=挖掘工具
+debug.need_tools_level=挖掘等級
+debug.rendertype=渲染類型
+debug.true=是
+debug.false=否
+debug.plantstage=植物生長階段
+item.debug.lore=拿着本物品對方塊右鍵即可輸出調試信息
 
-item.debug.lore=拿著本物品對方塊右鍵即可輸出調試信息
+record.three_stanzas_of_plum-blossoms=梅花三弄
+record.mountain_stream=高山流水
+record.the_march_of_the_volunteers=義勇軍進行曲
+record.spring_festival_overture=春節序曲
+
 item.redpacket.name=紅包
-
-gui.redpacket.default.wash.0=願所有幸福都陪伴著你
-gui.redpacket.default.wash.1=好運終歸來
-gui.redpacket.default.wash.2=願快樂常伴吾身
-gui.redpacket.from=來自
-gui.redpacket.s=的
+gui.redpacket.money=金錢:
+gui.redpacket.wash=請輸入祝福語...
+gui.redpacket.sendee=收件人:
+gui.redpacket.from=來自 %sender% 的紅包
+gui.redpacket.pack=打包
+gui.redpacket.send=發送
+redpacket.success=成功發送紅包給 %sendee%.
+redpacket.not_enough_money=失敗:你沒有足夠的金錢!
+redpacket.not_found_player=失敗:沒有找到玩家 %sendee%!
+redpacket.backpack_full=失敗: %sendee% 的背包已滿!
+redpacket.received=您收到了一個紅包!
+redpacket.receive_money=您打開紅包獲得了 %money% 元!
 
 entity.black_dog.name=黑狗
-entity.chinazombie.name=清朝僵屍
+entity.chinazombie.name=清朝殭屍
+
+VersionChecker.perfix=[ChinaCraft] 發現新版本!點擊下載.
+VersionChecker.version=[ChinaCraft] 最新版本: !new ,當前版本: !old .
