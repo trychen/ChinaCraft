@@ -43,10 +43,10 @@ public class ItemDebug extends Item {
                 StatCollector.translateToLocal("debug.metadata") + ": " + world.getBlockMetadata(x, y, z)));
         Block block = world.getBlock(x,y,z);
         int metadata = world.getBlockMetadata(x, y, z);
-        player.addChatMessage(new ChatComponentText("材质&渲染类型: "+getMaterialName(block.getMaterial())+"  "+block.getRenderType()));
-        player.addChatMessage(new ChatComponentText("硬度&抗爆性: "+block.getBlockHardness(world,x,y,z)+"  "+block.getExplosionResistance(null)*5F/3F));
-        player.addChatMessage(new ChatComponentText("亮度&不透光度: "+block.getLightValue()+"  "+block.getLightOpacity()));
-        player.addChatMessage(new ChatComponentText("采掘工具&等级: "+block.getHarvestTool(metadata)+"  "+block.getHarvestLevel(metadata)));
+        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.material")+"&"+StatCollector.translateToLocal("debug.rendertype")+": "+getMaterialName(block.getMaterial())+"  "+block.getRenderType()));
+        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.hardness") + "&"+StatCollector.translateToLocal("debug.antiknock")+": "+block.getBlockHardness(world,x,y,z)+"  "+block.getExplosionResistance(null)*5F/3F));
+        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.brightness") + "&"+StatCollector.translateToLocal("debug.transmittance")+": "+block.getLightValue()+"  "+block.getLightOpacity()));
+        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.need_tools") + "&"+StatCollector.translateToLocal("debug.need_tools_level")+": "+block.getHarvestTool(metadata)+"  "+block.getHarvestLevel(metadata)));
         // player.addChatMessage(new
         // ChatComponentText(String.valueOf(player.inventory.currentItem)));
         TileEntity tile = world.getTileEntity(x, y, z);
