@@ -8,6 +8,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.MathHelper;
 
 import org.lwjgl.opengl.GL11;
+import unstudio.chinacraft.entity.animal.EntityBlackDog;
 
 public class ModelBlackDog extends ModelBase {
     private static final String __OBFID = "CL_00000868";
@@ -163,6 +164,6 @@ public class ModelBlackDog extends ModelBase {
         super.setRotationAngles(p_78087_1_, p_78087_2_, p_78087_3_, p_78087_4_, p_78087_5_, p_78087_6_, p_78087_7_);
         this.wolfHeadMain.rotateAngleX = p_78087_5_ / (180F / (float) Math.PI);
         this.wolfHeadMain.rotateAngleY = p_78087_4_ / (180F / (float) Math.PI);
-        this.wolfTail.rotateAngleX = p_78087_3_;
+        this.wolfTail.rotateAngleX = ((EntityBlackDog)p_78087_7_).getTailRotation();
     }
 }
