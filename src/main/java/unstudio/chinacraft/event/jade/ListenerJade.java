@@ -57,7 +57,7 @@ public class ListenerJade {
                     }
                 }
             } else {
-                if (entityPlayer.getHeldItem().getItem() != null
+                if (entityPlayer.getHeldItem() != null
                         && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
                     for (int time = 0; time < 9; time++) {
                         if (entityPlayer.inventory.mainInventory[time] != null) {

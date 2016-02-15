@@ -79,8 +79,9 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.bamboo, "Bamboo"); // 竹子
         GameRegistry.registerBlock(ChinaCraft.bambooPlank, "BambooPlank"); // 竹木板
         GameRegistry.registerBlock(ChinaCraft.azalea, "Azalea");
-        GameRegistry.registerWorldGenerator(new WorldGenCCFlower(), 1);
         GameRegistry.registerBlock(ChinaCraft.peony, "Peony");
+        GameRegistry.registerBlock(ChinaCraft.chrysanthemum, "chrysanthemum");
+        GameRegistry.registerWorldGenerator(new WorldGenCCFlower(), 1);
         GameRegistry.registerItem(ChinaCraft.glutinousRice, "GlutinousRice");
         GameRegistry.registerBlock(ChinaCraft.blockGlutinousRice, "BlockGlutinousRice");
         GameRegistry.registerBlock(ChinaCraft.mulberryLog, "MulberryLog");
