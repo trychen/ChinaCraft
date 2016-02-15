@@ -1,8 +1,11 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fluids.FluidContainerRegistry;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 import unstudio.chinacraft.event.ListenerRegister;
@@ -250,6 +253,8 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.debug, "Debug");
 
         Recipes.init();
+
+        FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER,new ItemStack(ChinaCraft.woodenBucket_Water),new ItemStack(ChinaCraft.woodenBucket));
     }
 
     public void postInit(FMLPostInitializationEvent event) {
