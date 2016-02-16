@@ -1,4 +1,5 @@
-tile.copper_ore.name=Copper Ore
+﻿tile.copper_ore.name=Copper Ore
+tile.copper_block.name=Copper Block
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
 item.copper_tin_mixed_powder.name=Copper & Tin Mixed Powder

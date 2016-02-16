@@ -101,6 +101,7 @@ public class ChinaCraft {
         }
     };
     // 方块
+    public static Block copperBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_block"); // 铜块
     public static Block bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f).setBlockTextureName("chinacraft:bronze_block"); // 青铜块
     public static BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
     public static BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
@@ -167,6 +168,8 @@ public class ChinaCraft {
     public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
     public static Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
     // 物品
+    public static Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore); // 锡粉
+    public static Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(ChinaCraft.tabCore); // 铜粉
     public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
     public static Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")
             .setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:bronze_ingot"); // 青铜锭

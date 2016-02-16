@@ -42,6 +42,7 @@ public class CommonProxy {
     public void init(FMLInitializationEvent event) {
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
         ListenerRegister.commonInit();
+        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
         GameRegistry.registerBlock(ChinaCraft.lanternScaldfish, "LanternScaldfish");
         GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable, "lanternScaldfishOpenable");
         GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish, "itemLanternScaldfish");
@@ -116,6 +117,10 @@ public class CommonProxy {
 //        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
 //        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐
 
+        GameRegistry.registerItem(ChinaCraft.tinPowder, "TinPowder");
+        OreDictionary.registerOre("dustTin", ChinaCraft.tinPowder);
+        GameRegistry.registerItem(ChinaCraft.copperPowder, "CopperPowder");
+        OreDictionary.registerOre("dustCopper", ChinaCraft.copperPowder);
         GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");// 铜锭
         OreDictionary.registerOre("ingotCopper", ChinaCraft.copperIngot);
         GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");// 青铜锭
