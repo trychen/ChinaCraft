@@ -34,6 +34,11 @@ public class Recipes {
         //执行RecipeAble接口的方法
         registerRecipeAble();
 
+        //盐
+        GameRegistry.addSmelting(Items.water_bucket, new ItemStack(ChinaCraft.BucketSalt), 0.8f);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.Salt,3), ChinaCraft.BucketSalt);
+
+        
         // 投掷炸弹
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.firecracker, 2), new ItemStack(Items.dye, 1, 1),
                 Items.gunpowder, Items.paper);
@@ -253,6 +258,8 @@ public class Recipes {
         		new ItemStack(ChinaCraft.tinOre), null, 720);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.tinPowder), null,
         		new ItemStack(ChinaCraft.tinIngot), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.DouJiangBucket),new ItemStack(Items.water_bucket),
+        		new ItemStack(ChinaCraft.soy), null, 720);
 
         // spiritual_magic_figures
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures, 3),

@@ -117,6 +117,9 @@ public class CommonProxy {
 //        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
 //        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐
 
+        GameRegistry.registerItem(ChinaCraft.BucketSalt, "BucketSalt");
+        GameRegistry.registerItem(ChinaCraft.Salt, "Salt");
+        GameRegistry.registerItem(ChinaCraft.DouJiangBucket, "DouJiangBucket");
         GameRegistry.registerItem(ChinaCraft.tinPowder, "TinPowder");
         OreDictionary.registerOre("dustTin", ChinaCraft.tinPowder);
         GameRegistry.registerItem(ChinaCraft.copperPowder, "CopperPowder");

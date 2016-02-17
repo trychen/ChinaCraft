@@ -1,4 +1,4 @@
-﻿tile.copper_ore.name=Copper Ore
+tile.copper_ore.name=Copper Ore
 tile.copper_block.name=Copper Block
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
@@ -105,6 +105,9 @@ gui.potterykiln.title=Pottery Kiln
 
 tile.lantern.name=Lantern
 
+item.bucket_salt.name=A Bucket of salt
+item.salt_powder.name=Salt
+item.doujiang_bucket.name=Soya-bean milk
 item.rices.name=Rices
 item.lcker.name=Lcker
 item.soy.name=Soy

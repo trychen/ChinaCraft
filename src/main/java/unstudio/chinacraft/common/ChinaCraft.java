@@ -168,6 +168,9 @@ public class ChinaCraft {
     public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
     public static Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
     // 物品
+    public static Item BucketSalt = new Item().setUnlocalizedName("bucket_salt").setTextureName("chinacraft:bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    public static Item Salt = new Item().setUnlocalizedName("salt_powder").setTextureName("chinacraft:salt_powder").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    public static Item DouJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setTextureName("chinacraft:doujiang_bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
     public static Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore); // 锡粉
     public static Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(ChinaCraft.tabCore); // 铜粉
     public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
