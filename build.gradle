@@ -20,7 +20,7 @@ apply plugin: 'forge'
 
 def buildnumber = System.getenv("BUILD_NUMBER") == null ? null : System.getenv("BUILD_NUMBER")
 
-version = minecraft_version + "-" +  mod_version + ( buildnumber == null ? "" : "." + buildnumber)
+version = minecraft_version + "-" +  mod_version + ( buildnumber == null ? "" : "." + buildnumber + "-SNAPSHOT")
 
 group = mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = mod_id
