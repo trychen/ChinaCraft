@@ -48,6 +48,8 @@ item.debug.name=调试
 item.china_crown.name=冕冠
 item.chinacrown.lore=权利的象征
 tile.xinjiang_nut_cake.name=切糕
+item.apple_cake.name=苹果糕
+tile.apple_cake.name=苹果糕
 item.firecracker.name=鞭炮
 item.bomb.name=投掷性炸弹
 
@@ -97,6 +99,10 @@ tile.chiseled_marble.name=錾制大理石块
 tile.marble_slab.name=大理石半砖
 tile.marble_stair.name=大理石楼梯
 tile.firebrick.name=耐火砖
+item.blackbrick.name=青砖
+tile.blackbrick_block.name=青砖
+tile.blackbrick_slab.name=青砖半砖
+tile.blackbrick_stair.name=青砖楼梯
 
 tile.potterytable.name=陶瓷工作台
 item.potterytable.name=陶瓷工作台

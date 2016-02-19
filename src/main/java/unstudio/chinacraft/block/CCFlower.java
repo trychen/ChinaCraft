@@ -65,8 +65,9 @@ public class CCFlower extends BlockBush {
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
-        if (this == ChinaCraft.azalea)
-            return Plains;
+        if (this == ChinaCraft.azalea) return Plains;
+        if (this == ChinaCraft.peony) return Plains;
+        if (this == ChinaCraft.chrysanthemum) return Plains;
         return Plains;
     }
 

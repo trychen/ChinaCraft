@@ -55,8 +55,8 @@ import java.util.Random;
 public class ChinaCraft {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "172";
-    public static final int OutPutVERSION = 172;
+    public static final String VERSION = "192";
+    public static final int OutPutVERSION = 192;
     public static boolean NEIIsLoad = false;
     public static VaultPlugin vault = null;
     public static SimpleNetworkWrapper Network;
@@ -140,7 +140,7 @@ public class ChinaCraft {
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
 //    public static BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
 //    public static BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class, "lantern_scaldfish");
-    public static BlockCCModel lanternScaldfish = new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable");
+    public static BlockCCModel lanternScaldfish = (BlockCCModel) new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable").setLightLevel(8.0f);
     public static Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish)
             .setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
 //!    public static Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable)

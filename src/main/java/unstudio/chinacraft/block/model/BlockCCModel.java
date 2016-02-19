@@ -3,6 +3,7 @@ package unstudio.chinacraft.block.model;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -24,6 +25,11 @@ public class BlockCCModel extends Block {
         this.model = model;
         setBlockName(name);
         setBlockTextureName(name);
+    }
+
+    @Override
+    public void registerBlockIcons(IIconRegister p_149651_1_) {
+        blockIcon = p_149651_1_.registerIcon("minecraft:redstone_block");
     }
 
     @Override
