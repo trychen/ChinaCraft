@@ -44,11 +44,10 @@ public class ListenerArmor {
 
     @SubscribeEvent
     public void wearingChinaCrown(TickEvent.PlayerTickEvent event) {
-        if (event.player.inventory.armorInventory[0] == null || event.player.inventory.armorInventory[1] == null
-                || event.player.inventory.armorInventory[2] == null || event.player.inventory.armorInventory[3] == null)
+        if (event.player.inventory.armorInventory[3] == null)
             return;
         if (!event.player.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown))
             return;
-        event.player.addPotionEffect(new PotionEffect(1, 10));
+        event.player.addPotionEffect(new PotionEffect(5, 10));
     }
 }

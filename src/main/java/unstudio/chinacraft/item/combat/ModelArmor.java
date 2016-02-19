@@ -25,10 +25,6 @@ public class ModelArmor extends ItemArmor {
     private ModelBiped armorModel;
     private int textureType;
 
-    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int type, int render_idx) {
-        this(armorMaterial, name, textureName, 0, type, render_idx);
-    }
-
     public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, int type,
             int render_idx) {
         super(armorMaterial, render_idx, type);
@@ -96,11 +92,9 @@ public class ModelArmor extends ItemArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         if (textureType == 0) {
-            return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor"
-                    + File.separator + "%s.png", TextureName);
+            return String.format("chinacraft:textures/models/armor/%s.png", TextureName);
         }
-        return String.format("chinacraft:textures" + File.separator + "models" + File.separator + "armor"
-                + File.separator + "%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
+        return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
     }
 
     public void setArmorModel(ModelBiped armorModel) {
