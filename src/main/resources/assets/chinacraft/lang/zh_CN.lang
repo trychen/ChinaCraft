@@ -1,4 +1,5 @@
-﻿tile.copper_ore.name=铜矿
+tile.copper_ore.name=铜矿
+tile.copper_block.name=铜块
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
 item.copper_tin_mixed_powder.name=铜锡混合矿粉
@@ -104,6 +105,9 @@ gui.potterykiln.title=陶瓷窑
 
 tile.lantern.name=灯笼
 
+item.bucket_salt.name=一桶盐
+item.salt_powder.name=盐
+item.doujiang_bucket.name=豆浆桶
 item.rices.name=大米
 item.lcker.name=米穗
 item.soy.name=大豆

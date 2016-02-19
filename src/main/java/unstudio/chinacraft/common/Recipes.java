@@ -34,6 +34,11 @@ public class Recipes {
         //执行RecipeAble接口的方法
         registerRecipeAble();
 
+        //盐
+        GameRegistry.addSmelting(Items.water_bucket, new ItemStack(ChinaCraft.BucketSalt), 0.8f);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.Salt,3), ChinaCraft.BucketSalt);
+
+        
         // 投掷炸弹
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.firecracker, 2), new ItemStack(Items.dye, 1, 1),
                 Items.gunpowder, Items.paper);
@@ -49,7 +54,10 @@ public class Recipes {
                 new Object[] { "   ", "ABA", "A A", 'A', Items.leather, 'B', Items.dye });
 
         // Copper
-        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.bronzeIngot, 1), 1.2f);
+        GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot, 1), 1.2f);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperBlock), ChinaCraft.copperIngot, ChinaCraft.copperIngot,
+                ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperIngot,9), ChinaCraft.copperBlock);
 
         // 大理石
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4),
@@ -120,8 +128,8 @@ public class Recipes {
                 new Object[] { "###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone) });
 
         // 混合粉末
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperOre,
-                ChinaCraft.copperOre, ChinaCraft.copperOre, ChinaCraft.tinOre);
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperPowder,
+                ChinaCraft.copperPowder, ChinaCraft.copperPowder, ChinaCraft.tinPowder);
         GameRegistry.addSmelting(ChinaCraft.copperTinMixedPowder, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
 
         // 银矿
@@ -261,6 +269,16 @@ public class Recipes {
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null,
                 new ItemStack(ChinaCraft.riceFlour), null, 360);
         //BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.bronzeIngot), null,new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.copperIngot), null,
+        		new ItemStack(ChinaCraft.copperPowder), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.copperOre), null,
+                new ItemStack(ChinaCraft.copperPowder), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.tinOre), null,
+        		new ItemStack(ChinaCraft.tinPowder), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.tinIngot), null,
+                new ItemStack(ChinaCraft.tinPowder), null, 720);
+        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.soy),new ItemStack(Items.water_bucket),
+                new ItemStack(ChinaCraft.DouJiangBucket), null, 720);
 
         // spiritual_magic_figures
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures, 3),

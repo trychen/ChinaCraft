@@ -1,4 +1,5 @@
 tile.copper_ore.name=銅礦
+tile.copper_block.name=銅塊
 tile.bronze_block.name=青銅塊
 item.bronze_ingot.name=青銅錠
 item.copper_ingot.name=銅錠
@@ -116,6 +117,9 @@ tile.lantern.name=燈籠
 item.redpacket.name=紅包
 gui.redpacket.title=紅包
 
+item.bucket_salt.name=一桶盐
+item.salt.name=盐
+item.doujiang_bucket.name=豆漿桶
 item.rices.name=大米
 item.lcker.name=米穗
 item.soy.name=大豆
