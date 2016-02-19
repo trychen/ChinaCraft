@@ -12,6 +12,7 @@ import unstudio.chinacraft.block.model.BlockCCLantern;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
+@Deprecated
 public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
 
     public static int renderID = RenderingRegistry.getNextAvailableRenderId();

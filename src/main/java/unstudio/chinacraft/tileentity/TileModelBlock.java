@@ -7,7 +7,7 @@ import net.minecraft.tileentity.TileEntity;
  * Created by trych on 2016/1/28.
  */
 public class TileModelBlock extends TileEntity {
-    private ModelBase model;
+    private Class<? extends ModelBase> model;
     private String texture;
 
     /**
@@ -16,12 +16,12 @@ public class TileModelBlock extends TileEntity {
      * @param texture
      *            材质名，不需要加modid
      */
-    public TileModelBlock(ModelBase model, String texture) {
+    public TileModelBlock(Class<? extends ModelBase> model, String texture) {
         this.model = model;
         this.texture = texture;
     }
 
-    public ModelBase getModel() {
+    public Class<? extends ModelBase> getModel() {
         return model;
     }
 

@@ -64,6 +64,24 @@ public class Recipes {
                 new Object[] { "   ", "   ", "###", '#', ChinaCraft.blockMarble});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4),
                 new Object[] { "#  ", "## ", "###", '#', ChinaCraft.blockMarble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4),
+                new Object[] { "  #", " ##", "###", '#', ChinaCraft.blockMarble});
+
+        //青砖
+        for(int i=1;i<=8;i++) {
+            Object object[] = new Object[i+1];
+            object[0]=Items.water_bucket;
+            for(int j=1;j<object.length;j++)object[j]=Items.brick;
+            GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.blackbrick, i),object);
+        }
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickBlock, 1),
+                new Object[] { "## ", "## ", "   ", '#', ChinaCraft.blackbrick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickSlab, 6),
+                new Object[] { "   ", "   ", "###", '#', ChinaCraft.blackbrick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickStair, 4),
+                new Object[] { "#  ", "## ", "###", '#', ChinaCraft.blackbrick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickStair, 4),
+                new Object[] { "  #", " ##", "###", '#', ChinaCraft.blackbrick});
 
         // 木窗格
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipes.createRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
@@ -242,8 +260,7 @@ public class Recipes {
                 new ItemStack(ChinaCraft.flour), null, 360);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.rices), null,
                 new ItemStack(ChinaCraft.riceFlour), null, 360);
-        BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.bronzeIngot), null,
-                new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
+        //BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.bronzeIngot), null,new ItemStack(ChinaCraft.copperTinMixedPowder), null, 720);
 
         // spiritual_magic_figures
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures, 3),

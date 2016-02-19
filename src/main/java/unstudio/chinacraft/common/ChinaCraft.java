@@ -127,6 +127,8 @@ public class ChinaCraft {
             "chinacraft:wooden_window_top"); // 木窗框:福
     public static Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
     public static BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
+    public static Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
+            .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
     public static Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
     public static Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(ChinaCraft.tabFarming);//桑树树苗
     public static Block mulberryLeaf = new BlockCCLeaves(ChinaCraft.mulberrySapling).setCreativeTab(ChinaCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("chinacraft:mulberry_leaf"); // 桑树树叶
@@ -134,13 +136,11 @@ public class ChinaCraft {
     public static CCFlower azalea = new CCFlower("azalea");
     public static CCFlower peony = new CCFlower("peony");
     public static CCFlower chrysanthemum = new CCFlower("chrysanthemum");
-    public static Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
-            .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
     public static BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
-    public static BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, new ModelLanternScaldfish(),
+    public static BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class,
             "lantern_scaldfish");
-    public static BlockCCModel lanternScaldfish = new BlockCCModel(Material.cake, new ModelLanternScaldfish(),
+    public static BlockCCModel lanternScaldfish = new BlockCCModel(Material.cake, ModelLanternScaldfish.class,
             "lantern_scaldfish_openable");
     public static Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish)
             .setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
@@ -166,6 +166,10 @@ public class ChinaCraft {
     public static BlockCookingBench cooking_bench_on = new BlockCookingBench(true); // 灶台
     public static BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
     public static Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
+    public static Block blackbrickSlab = new BlockCCSlab(false,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖半砖
+    public static Block blackbrickDoubleSlab =  new BlockCCSlab(true,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setBlockSlab(ChinaCraft.blackbrickSlab).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block");//青砖半砖
+    public static Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
+
     // 物品
     public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
     public static Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")

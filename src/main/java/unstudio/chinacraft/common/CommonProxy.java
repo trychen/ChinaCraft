@@ -92,6 +92,9 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.blockBambooShoot, "BlockBambooShoot");
         GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
         GameRegistry.registerBlock(ChinaCraft.blackbrickBlock,"BlackBrickBlock");//青砖块
+        GameRegistry.registerBlock(ChinaCraft.blackbrickSlab,ItemCCSlab.class,"BlackBrickSlab",ChinaCraft.blackbrickSlab,ChinaCraft.blackbrickDoubleSlab,false);
+        GameRegistry.registerBlock(ChinaCraft.blackbrickDoubleSlab,ItemCCSlab.class,"BlackBrickDoubleSlab",ChinaCraft.blackbrickSlab,ChinaCraft.blackbrickDoubleSlab,true);
+        GameRegistry.registerBlock(ChinaCraft.blackbrickStair,"BlackBrickStair");
 
         GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); // 玉石工作台
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); // 玉石工作台TileEntity
@@ -102,7 +105,7 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.buhrimill, ItemCCBlock.class, "Buhrimill"); // 石磨
         GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill"); // 石磨TileEntity
 
-        GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern"); // 灯笼
+//        GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern"); // 灯笼
         GameRegistry.registerBlock(ChinaCraft.cooking_bench_on, "CookingBenchOn");
         GameRegistry.registerBlock(ChinaCraft.cooking_bench_off, "CookingBenchOff");
         GameRegistry.registerTileEntity(TileCookingBench.class, "tileEntityCookingBench");

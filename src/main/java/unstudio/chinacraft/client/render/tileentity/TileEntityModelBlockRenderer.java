@@ -11,22 +11,32 @@ import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class TileEntityModelBlockRenderer extends TileEntitySpecialRenderer {
 
     @Override
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
         TileModelBlock ti = (TileModelBlock) te;
-        ModelBase model = ti.getModel();
+        ModelBase model = null;
+        try {
+            model = ti.getModel().getDeclaredConstructor().newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
         GL11.glPushMatrix();
-        GL11.glTranslatef((float) x + 0.5F, (float) y + 0.75F, (float) z + 0.5F);
-        Minecraft.getMinecraft().renderEngine
-                .bindTexture(new ResourceLocation("chinacraft:textures/models/block/" + ti.getTexture() + ".png"));
+        GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
+        GL11.glPushMatrix();
+        Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("chinacraft:textures/models/block/" + ti.getTexture() + ".png"));
         GL11.glPushMatrix();
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
-        GL11.glScaled(0.5, 0.5, 0.5);
-        GL11.glPushMatrix();
-        GL11.glRotatef(te.getBlockMetadata() * 90 + 180, 0.0F, 1.0F, 0.0F);
-        model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glPopMatrix();
         GL11.glPopMatrix();
         GL11.glPopMatrix();

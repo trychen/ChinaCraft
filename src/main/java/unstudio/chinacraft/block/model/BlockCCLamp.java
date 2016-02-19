@@ -17,7 +17,7 @@ public class BlockCCLamp extends BlockCCModel {
      * @param name
      *            名字
      */
-    public BlockCCLamp(Material material, ModelBase model, String name) {
+    public BlockCCLamp(Material material, Class <? extends ModelBase> model, String name) {
         super(material, model, name);
         setLightLevel(5.0f);
 

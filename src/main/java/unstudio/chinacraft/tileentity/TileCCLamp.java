@@ -15,7 +15,7 @@ public class TileCCLamp extends TileModelBlock {
      */
     private boolean opened = true;
 
-    public TileCCLamp(ModelBase model, String texture) {
+    public TileCCLamp(Class <? extends ModelBase> model, String texture) {
         super(model, texture);
     }
 
