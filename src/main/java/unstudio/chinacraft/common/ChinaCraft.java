@@ -32,7 +32,6 @@ import unstudio.chinacraft.block.generation.plant.BlockBambooShoot;
 import unstudio.chinacraft.block.generation.plant.BlockCCCake;
 import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
 import unstudio.chinacraft.block.model.BlockCCLantern;
-import unstudio.chinacraft.block.model.BlockCCLamp;
 import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
 import unstudio.chinacraft.common.network.RedPacketMessage;
