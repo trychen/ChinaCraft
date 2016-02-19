@@ -138,26 +138,17 @@ public class ChinaCraft {
     public static CCFlower peony = new CCFlower("peony");
     public static CCFlower chrysanthemum = new CCFlower("chrysanthemum");
     public static JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
-    public static BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
-    public static BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class,
-            "lantern_scaldfish");
-    public static BlockCCModel lanternScaldfish = new BlockCCModel(Material.cake, ModelLanternScaldfish.class,
-            "lantern_scaldfish_openable");
+//    public static BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
+//    public static BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class, "lantern_scaldfish");
+    public static BlockCCModel lanternScaldfish = new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable");
     public static Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish)
             .setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
-    public static Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable)
-            .setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(ChinaCraft.tabCore);
+//!    public static Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable)
+//!            .setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(ChinaCraft.tabCore);
     // TraditionalCarpet
     public static TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
-    public static TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "chinacraft:slik_carpet");
-    public static TraditionalCarpet slik_right = new TraditionalCarpet("slik_right", "chinacraft:slik_right");
-    public static TraditionalCarpet slik_left = new TraditionalCarpet("slik_left", "chinacraft:slik_left");
-    public static TraditionalCarpet silk_right_down = new TraditionalCarpet("silk_right_down",
-            "chinacraft:silk_right_down");
-    public static TraditionalCarpet silk_right_up = new TraditionalCarpet("silk_right_up", "chinacraft:silk_right_up");
-    public static TraditionalCarpet silk_left_up = new TraditionalCarpet("silk_left_up", "chinacraft:silk_left_up");
-    public static TraditionalCarpet silk_left_down = new TraditionalCarpet("silk_left_down",
-            "chinacraft:silk_left_down");
+//    public static TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "chinacraft:slik_carpet");
+
     public static BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
     //    public static BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     public static BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
@@ -172,11 +163,6 @@ public class ChinaCraft {
     public static Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
 
     // 物品
-    public static Item BucketSalt = new Item().setUnlocalizedName("bucket_salt").setTextureName("chinacraft:bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
-    public static Item Salt = new Item().setUnlocalizedName("salt_powder").setTextureName("chinacraft:salt_powder").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
-    public static Item DouJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setTextureName("chinacraft:doujiang_bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
-    public static Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore); // 锡粉
-    public static Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(ChinaCraft.tabCore); // 铜粉
     public static Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
     public static Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")
             .setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:bronze_ingot"); // 青铜锭
@@ -184,6 +170,8 @@ public class ChinaCraft {
     public static Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); // 银锭
     public static Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder")
             .setCreativeTab(ChinaCraft.tabCore); // 铜锡混合矿粉
+    public static Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore); // 锡粉
+    public static Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(ChinaCraft.tabCore); // 铜粉
     public static Item blackbrick = new ItemBase().setUnlocalizedName("blackbrick").setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:blackbrick");//青砖
     public static CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow)
             .setUnlocalizedName("rices"); // 米
@@ -204,6 +192,9 @@ public class ChinaCraft {
             .setCreativeTab(ChinaCraft.tabFarming); // 桑叶
     public static ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); // 木桶
     public static ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); // 木水桶
+//    public static Item saltBucket = new Item().setUnlocalizedName("bucket_salt").setTextureName("minecraft:bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    public static Item Salt = new Item().setUnlocalizedName("salt_powder").setTextureName("chinacraft:salt_powder").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    public static Item douJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setTextureName("chinacraft:doujiang_bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
     public static ItemSilkworm silkworm = new ItemSilkworm(); // 蚕
     public static Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabFarming)
             .setUnlocalizedName("silkworm_chrysalis"); // 蚕茧

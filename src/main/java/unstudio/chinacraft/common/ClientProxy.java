@@ -40,7 +40,7 @@ public class ClientProxy extends CommonProxy {
         }
 
         //清理此地材质注册……
-        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
+//        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
         ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
@@ -143,9 +143,9 @@ public class ClientProxy extends CommonProxy {
 
         //ClientRegistry.registerTileEntity(TileCCLamp.class, "tileEntityLamp", new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfishOpenable,
-                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
+//        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfishOpenable,
+//                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
+//                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
                         new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));

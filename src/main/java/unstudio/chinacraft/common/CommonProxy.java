@@ -1,6 +1,5 @@
 package unstudio.chinacraft.common;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
@@ -44,9 +43,9 @@ public class CommonProxy {
         ListenerRegister.commonInit();
         GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
         GameRegistry.registerBlock(ChinaCraft.lanternScaldfish, "LanternScaldfish");
-        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable, "lanternScaldfishOpenable");
+//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable, "lanternScaldfishOpenable");
         GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish, "itemLanternScaldfish");
-        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable, "itemLanternScaldfishOpenable");
+//        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable, "itemLanternScaldfishOpenable");
         GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);
@@ -100,7 +99,7 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); // 玉石工作台
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); // 玉石工作台TileEntity
 
-        GameRegistry.registerBlock(ChinaCraft.blockDrum, "Drum");
+//!        GameRegistry.registerBlock(ChinaCraft.blockDrum, "Drum");
         GameRegistry.registerTileEntity(TileDrum.class, "tileEntityDrum");
 
         GameRegistry.registerBlock(ChinaCraft.buhrimill, ItemCCBlock.class, "Buhrimill"); // 石磨
@@ -120,17 +119,16 @@ public class CommonProxy {
 //        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
 //        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐
 
-        GameRegistry.registerItem(ChinaCraft.BucketSalt, "BucketSalt");
-        GameRegistry.registerItem(ChinaCraft.Salt, "Salt");
-        GameRegistry.registerItem(ChinaCraft.DouJiangBucket, "DouJiangBucket");
-        GameRegistry.registerItem(ChinaCraft.tinPowder, "TinPowder");
-        OreDictionary.registerOre("dustTin", ChinaCraft.tinPowder);
-        GameRegistry.registerItem(ChinaCraft.copperPowder, "CopperPowder");
-        OreDictionary.registerOre("dustCopper", ChinaCraft.copperPowder);
+//        GameRegistry.registerItem(ChinaCraft.saltBucket, "SaltBucket");
+        GameRegistry.registerItem(ChinaCraft.douJiangBucket, "DouJiangBucket");
         GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");// 铜锭
         OreDictionary.registerOre("ingotCopper", ChinaCraft.copperIngot);
         GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");// 青铜锭
         OreDictionary.registerOre("ingotBronze", ChinaCraft.bronzeIngot);
+        GameRegistry.registerItem(ChinaCraft.tinPowder, "TinPowder");
+        OreDictionary.registerOre("dustTin", ChinaCraft.tinPowder);
+        GameRegistry.registerItem(ChinaCraft.copperPowder, "CopperPowder");
+        OreDictionary.registerOre("dustCopper", ChinaCraft.copperPowder);
         GameRegistry.registerItem(ChinaCraft.copperTinMixedPowder, "CopperTinMixedPowder");
         GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");// 银锭
         OreDictionary.registerOre("ingotSilver", ChinaCraft.silverOre);
@@ -223,6 +221,7 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.flour, "Flour");
         GameRegistry.registerItem(ChinaCraft.riceFlour, "RiceFlour");
         GameRegistry.registerItem(ChinaCraft.barleyRice, "BarleyRice");
+        GameRegistry.registerItem(ChinaCraft.Salt, "Salt");
 
         // 石磨合成
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.barleyRice), null,
@@ -244,13 +243,7 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.smfSuper, "SpiritualMagicFiguresSuper");
 
         GameRegistry.registerBlock(ChinaCraft.redCarpet, "red_carpet");
-        GameRegistry.registerBlock(ChinaCraft.silkCarpet, "silk_carpet");
-        GameRegistry.registerBlock(ChinaCraft.slik_right, "slik_right");
-        GameRegistry.registerBlock(ChinaCraft.slik_left, "slik_left");
-        GameRegistry.registerBlock(ChinaCraft.silk_right_down, "silk_right_down");
-        GameRegistry.registerBlock(ChinaCraft.silk_right_up, "silk_right_up");
-        GameRegistry.registerBlock(ChinaCraft.silk_left_up, "silk_left_up");
-        GameRegistry.registerBlock(ChinaCraft.silk_left_down, "silk_left_down");
+//        GameRegistry.registerBlock(ChinaCraft.silkCarpet, "silk_carpet");
 
         // disc
         GameRegistry.registerItem(ChinaCraft.three_stanzas, "three_stanzas_of_plum-blossoms");
