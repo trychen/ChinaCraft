@@ -12,7 +12,7 @@ public class ItemArtKnife extends Item {
     public ItemArtKnife() {
         setUnlocalizedName("art_knife");
         setMaxStackSize(1);
-        setMaxDamage(32);
+        setMaxDamage(6);
         setHasSubtypes(false);
         setCreativeTab(ChinaCraft.tabTool);
     }
@@ -24,7 +24,7 @@ public class ItemArtKnife extends Item {
 
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
-        itemStack.setItemDamage(itemStack.getItemDamage()+5);
+        itemStack.setItemDamage(itemStack.getItemDamage()+1);
         if(itemStack.getItemDamage()>=getMaxDamage())
             itemStack.stackSize=0;
         //不懂如何添加破坏的声音
