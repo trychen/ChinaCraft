@@ -55,9 +55,15 @@ public class Recipes {
 
         // Copper
         GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot, 1), 1.2f);
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperBlock), ChinaCraft.copperIngot, ChinaCraft.copperIngot,
-                ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot, ChinaCraft.copperIngot);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.copperBlock,1),
+                new Object[] { "###", "###", "###", '#', ChinaCraft.copperIngot });
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperIngot,9), ChinaCraft.copperBlock);
+
+        //银类
+        GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot,1), 1.0f);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.silverBlock,1),
+                new Object[] { "###", "###", "###", '#', ChinaCraft.silverIngot});
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.silverIngot,9), ChinaCraft.silverBlock);
 
         // 大理石
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.chiseledMarble, 4),
@@ -132,8 +138,6 @@ public class Recipes {
                 ChinaCraft.copperPowder, ChinaCraft.copperPowder, ChinaCraft.tinPowder);
         GameRegistry.addSmelting(ChinaCraft.copperTinMixedPowder, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
 
-        // 银矿
-        GameRegistry.addSmelting(ChinaCraft.silverOre, new ItemStack(ChinaCraft.silverIngot), 1.0f);
 
         // 石磨
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.buhrimill),

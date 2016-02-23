@@ -1,5 +1,5 @@
-tile.copper_ore.name=Copper Ore
-tile.copper_block.name=Copper Block
+
+
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
 item.copper_tin_mixed_powder.name=Copper & Tin Mixed Powder
@@ -58,8 +58,11 @@ item.tin_ingot.name=Tin Ingot
 item.tin_powder.name=Tin Power
 tile.silver_ore.name=Silver Ore
 item.silver_ingot.name=Silver Ingot
+item.silver_block.name=Silver Block
 item.copper_ingot.name=Copper Ingot
 item.copper_powder.name=Copper Power
+tile.copper_ore.name=Copper Ore
+tile.copper_block.name=Copper Block
 item.bronze_ingot.name=Bronze Ingot
 tile.jade_ore.name=Jade Ore
 item.jade.lore=Level:

@@ -24,7 +24,7 @@ item.bronze_legs.name=青銅護腿
 item.bronze_boots.name=青銅靴子
 item.night_clothes_head.name=夜行衣頭罩
 item.night_clothes_body.name=夜行衣胸衣
-item.night_clothes_leg.name=夜行衣綁腿
+item.night_clothes_leg.name=夜行衣邦腿
 item.night_clothes_shoe.name=夜行衣護腳
 item.nightclothes.lore.1=穿上全套可以讓妳更加輕盈
 item.nightclothes.lore.2=穿上全套後按 SHIFT 可以隱身
@@ -42,7 +42,7 @@ item.spiritual_magic_figures_poison.name=毒符
 item.spiritual_magic_figures_night_vision.name=金睛符
 item.spiritual_magic_figures_heal.name=命符
 item.spiritual_magic_figures_protect.name=護符
-item.SMFSuper.name=混亂符
+item.SMFSuper.name=混噸符
 item.debug.name=調試
 
 item.china_crown.name=冕冠
@@ -57,6 +57,7 @@ tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
 item.tin_powder.name=錫粉
 tile.silver_ore.name=銀礦
+
 item.silver_ingot.name=銀錠
 item.copper_ingot.name=銅錠
 item.copper_powder.name=銅粉
@@ -102,7 +103,7 @@ tile.firebrick.name=耐火磚
 item.blackbrick.name=青磚
 tile.blackbrick_block.name=青磚
 tile.blackbrick_slab.name=青磚半磚
-tile.blackbrick_slab.stair=青磚樓梯
+tile.blackbrick_stair.name=青磚樓梯
 
 tile.potterytable.name=陶瓷工作臺
 item.potterytable.name=陶瓷工作臺
@@ -228,7 +229,7 @@ redpacket.received=您收到了壹個紅包!
 redpacket.receive_money=您打開紅包獲得了 %money% 元!
 
 entity.black_dog.name=黑狗
-entity.chinazombie.name=清朝僵屍
+entity.chinazombie.name=清朝僵屎
 
 VersionChecker.perfix=[ChinaCraft] 發現新版本!點擊下載.
 VersionChecker.version=[ChinaCraft] 最新版本: !new ,當前版本: !old .

@@ -48,6 +48,7 @@ import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
+import javax.swing.plaf.metal.MetalBorders;
 import java.util.Random;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
@@ -100,6 +101,7 @@ public class ChinaCraft {
         }
     };
     // 方块
+    public static Block silverBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("silver_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:silver_block"); // 银块
     public static Block copperBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_block"); // 铜块
     public static Block bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f).setBlockTextureName("chinacraft:bronze_block"); // 青铜块
     public static BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
@@ -113,18 +115,14 @@ public class ChinaCraft {
     public static Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
     public static Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
     public static BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:silver_ore"); // 银矿
-    public static BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1",
-            "chinacraft:wooden_window_top"); // 木窗框1
-    public static BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("chinacraft:wooden_window_2",
-            "chinacraft:wooden_window_top"); // 木窗框2
-    public static BlockWoodenWindow woodenWindow3 = new BlockWoodenWindow("chinacraft:wooden_window_3",
-            "chinacraft:wooden_window_top"); // 木窗框3
-    public static BlockWoodenWindow woodenWindow4 = new BlockWoodenWindow("chinacraft:wooden_window_4",
-            "chinacraft:wooden_window_top"); // 木窗框3
-    public static BlockWoodenWindow woodenWindowdragon = new BlockWoodenWindow("chinacraft:wooden_window_dragon",
-            "chinacraft:wooden_window_top"); // 木窗框Logo
-    public static BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu",
-            "chinacraft:wooden_window_top"); // 木窗框:福
+
+    public static BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); // 木窗框1
+    public static BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); // 木窗框2
+    public static BlockWoodenWindow woodenWindow3 = new BlockWoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); // 木窗框3
+    public static BlockWoodenWindow woodenWindow4 = new BlockWoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); // 木窗框3
+    public static BlockWoodenWindow woodenWindowdragon = new BlockWoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); // 木窗框Logo
+    public static BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); // 木窗框:福
+
     public static Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
     public static BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
     public static Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
