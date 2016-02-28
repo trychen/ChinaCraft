@@ -14,6 +14,7 @@ import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.config.ConfigLoader;
+import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -25,6 +26,8 @@ import cpw.mods.fml.common.registry.GameRegistry;
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         new ConfigLoader(new Configuration(event.getSuggestedConfigurationFile()));
+
+        new FeatureConfig();
 
         ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture,
                 0).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜头盔

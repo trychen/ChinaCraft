@@ -44,6 +44,7 @@ import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.config.ConfigLoader;
+import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.forgebukkitbridge.VaultPlugin;
 
@@ -55,9 +56,10 @@ import java.util.Random;
 public class ChinaCraft {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "192";
-    public static final int OutPutVERSION = 192;
+    public static final String VERSION = "193";
+    public static final int OutPutVERSION = 193;
     public static boolean NEIIsLoad = false;
+    public static boolean VersionCheckerIsLoad = false;
     public static VaultPlugin vault = null;
     public static SimpleNetworkWrapper Network;
     @SidedProxy(clientSide = "unstudio.chinacraft.common.ClientProxy", serverSide = "unstudio.chinacraft.common.CommonProxy")
@@ -316,10 +318,13 @@ public class ChinaCraft {
         proxy.preInit(event);
         Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
         Network.registerMessage(new RedPacketMessageHandler(), RedPacketMessage.class, 0, Side.SERVER);
+
         NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
+
+        VersionCheckerIsLoad = Loader.isModLoaded("VersionChecker");
         // Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class,
         // 1, Side.CLIENT);
-        new Thread(versionChecker).start();
+        if (FeatureConfig.EnableUpdate) new Thread(versionChecker).start();
     }
 
     @EventHandler

@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.util.config.FeatureConfig;
 
 public class ContainerRedPacket extends Container {
 
@@ -21,7 +22,12 @@ public class ContainerRedPacket extends Container {
             NBTTagCompound itemnbt = (NBTTagCompound) par1NBTTagCompound.getTag("Item");
             if (itemnbt != null) {
                 ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
-                slot0.putStack(item);
+                if (item != null && FeatureConfig.ItemBombInRedPackerExplosion&&item.getItem() == ChinaCraft.bomb){
+                    player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
+                    
+                    slot0.putStack(null);
+                }
+                else slot0.putStack(item);
             }
         }
 

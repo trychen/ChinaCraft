@@ -5,6 +5,9 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import org.apache.commons.io.IOUtils;
 
 import unstudio.chinacraft.common.ChinaCraft;
@@ -45,9 +48,13 @@ public class VersionChecker implements Runnable {
         VersionChecker.isCheckable = true;
         System.out.println("[ChinaCraft]Latest mod version = " + latestVersion);
         isLatestVersion = latestVersion <= ChinaCraft.OutPutVERSION;
+        if (ChinaCraft.VersionCheckerIsLoad){
+            if (!isLatestVersion) FMLInterModComms.sendRuntimeMessage(ChinaCraft.MODID,"VersionChecker","addUpdate", new CCUpdate().toJson());
+        }
         if (isLatestVersion) {
             System.out.println("[ChinaCraft]You are running latest version = " + isLatestVersion);
         } else {
+
             System.out.println("[ChinaCraft]Found New version");
         }
     }
