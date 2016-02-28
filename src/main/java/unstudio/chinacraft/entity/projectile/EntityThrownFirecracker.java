@@ -6,6 +6,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.ExplosionEvent;
 
 public class EntityThrownFirecracker extends EntityThrowable {
 
@@ -42,8 +44,7 @@ public class EntityThrownFirecracker extends EntityThrowable {
                     0.40000000596046447754F
                             / (this.worldObj.rand.nextFloat() * 0.40000000596046447754F + 0.80000001192092895508F),
                     true);
-            if (net.minecraftforge.event.ForgeEventFactory.onExplosionStart(this.worldObj, explosion))
-                return;
+            MinecraftForge.EVENT_BUS.post(new ExplosionEvent.Start(this.worldObj, explosion));
             explosion.doExplosionA();
             this.worldObj.spawnParticle("explode", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
             setDead();
