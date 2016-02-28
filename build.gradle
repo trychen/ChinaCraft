@@ -98,7 +98,9 @@ dependencies {
     
     // Bukkit
     compile "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
-    
+
+    compile files('libs/VersionChecker-1.1.9.jar')
+
 }
 
 processResources
