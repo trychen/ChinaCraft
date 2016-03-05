@@ -114,6 +114,8 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                 continue;
             if (item.getItem() != ChinaCraft.silkworm)
                 continue;
+            if(getStackInSlot(10).stackSize==64)
+                continue;
             if (item.hasTagCompound()) {
                 NBTTagCompound nbt = item.getTagCompound();
                 int x = nbt.getInteger("Schedule");
@@ -137,9 +139,12 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                         if (getStackInSlot(9) == null || getStackInSlot(9).getItem() != ChinaCraft.itemMulberryLeaf)
                             continue;
                         Random r = new Random();
-                        int y = r.nextInt(2000);
+                        int y = r.nextInt(4000);
                         if (y < 1) {
                             getStackInSlot(9).stackSize--;
+                            if(getStackInSlot(9).stackSize==0){
+                                setInventorySlotContents(9,null);
+                            }
                         }
                     }
                 }
@@ -213,6 +218,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
         }
     }
 
+    @Deprecated
     public double getDefaultMortality() {
         double temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0 ? 0
                 : worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature > 1.5F ? 1.5F
