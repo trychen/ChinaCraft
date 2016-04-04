@@ -59,10 +59,10 @@ repositories {
         name = "vault-repo"
         url = "http://nexus.theyeticave.net/content/repositories/pub_releases"
     }
-    maven {
-        name = "bukkit"
-        url = "http://maven.elmakers.com/repository"
-    }
+    // maven {
+    //     name = "bukkit"
+    //     url = "http://maven.elmakers.com/repository"
+    // }
     maven {
         name = "forge"
         url = "http://files.minecraftforge.net/maven"
@@ -97,7 +97,8 @@ dependencies {
     compile "net.milkbowl.vault:VaultAPI:${vault_version}"
     
     // Bukkit
-    compile "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
+    // compile "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
+    compile files('libs/spigot-api-1.8.7-R0.1-SNAPSHOT.jar')
 
     compile files('libs/VersionChecker-1.1.9.jar')
 
