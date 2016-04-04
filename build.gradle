@@ -79,7 +79,8 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-      
+    
+    compile fileTree(dir: 'libs', include: '*.jar') // Libs Folder
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
@@ -101,9 +102,7 @@ dependencies {
     // compile files('libs/spigot-api-1.8.7-R0.1-SNAPSHOT.jar')
 
     // compile files('libs/VersionChecker-1.1.9.jar')
-
-    // Libs Folder
-    compile fileTree(dir: 'libs', include: '*.jar’)
+    
 
 }
 
