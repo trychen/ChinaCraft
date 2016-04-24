@@ -18,6 +18,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderSpear extends Render {
+
+    protected ResourceLocation func_110779_a(EntitySpear var1) {
+        return new ResourceLocation("");
+    }
+
+    @Override
+    protected ResourceLocation getEntityTexture(Entity par1Entity) {
+        return func_110779_a((EntitySpear) par1Entity);
+    }
+
+    @Override
+    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
+        renderArrow((EntitySpear) entity, d, d1, d2, f, f1);
+    }
+
     public void renderArrow(EntitySpear entityironspear, double d, double d1, double d2, float f, float f1) {
         if ((entityironspear.prevRotationYaw == 0F) && (entityironspear.prevRotationPitch == 0F))
             return;
@@ -81,17 +96,4 @@ public class RenderSpear extends Render {
         GL11.glPopMatrix();
     }
 
-    protected ResourceLocation func_110779_a(EntitySpear var1) {
-        return new ResourceLocation("");
-    }
-
-    @Override
-    protected ResourceLocation getEntityTexture(Entity par1Entity) {
-        return func_110779_a((EntitySpear) par1Entity);
-    }
-
-    @Override
-    public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-        renderArrow((EntitySpear) entity, d, d1, d2, f, f1);
-    }
 }

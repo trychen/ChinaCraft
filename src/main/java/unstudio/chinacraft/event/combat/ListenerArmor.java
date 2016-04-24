@@ -20,6 +20,7 @@ public class ListenerArmor {
                 return;
             }
         }
+
         event.player.addPotionEffect(new PotionEffect(1, 2));
         event.player.addPotionEffect(new PotionEffect(5, 2));
         event.player.addPotionEffect(new PotionEffect(8, 2));
