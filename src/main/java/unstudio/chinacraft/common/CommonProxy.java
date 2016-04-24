@@ -13,6 +13,7 @@ import unstudio.chinacraft.item.ItemCCSlab;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
+import unstudio.chinacraft.util.annotation.AnnotationInvoker;
 import unstudio.chinacraft.util.config.ConfigLoader;
 import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
@@ -42,20 +43,24 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
+        AnnotationInvoker.register(ChinaCraft.class);
+
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
+
         ListenerRegister.commonInit();
-        GameRegistry.registerBlock(ChinaCraft.silverBlock, "SilverBlock");
-        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
+
+        AnnotationInvoker.invoke();
+
+//        GameRegistry.registerBlock(ChinaCraft.silverBlock, "SilverBlock");
+//        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
+
 //        GameRegistry.registerBlock(ChinaCraft.lanternScaldfish, "LanternScaldfish");
 //        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable, "lanternScaldfishOpenable");
 //        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish, "itemLanternScaldfish");
 //        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable, "itemLanternScaldfishOpenable");
-        GameRegistry.registerBlock(ChinaCraft.copperOre, "CopperOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
-        OreDictionary.registerOre("oreCopper", ChinaCraft.copperOre);
-        GameRegistry.registerBlock(ChinaCraft.tinOre, "TinOre");
-        OreDictionary.registerOre("tinOre", ChinaCraft.tinOre);
         GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
+
         OreDictionary.registerOre("oreTin", ChinaCraft.tinOre);
         GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
         GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
@@ -63,7 +68,6 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
         OreDictionary.registerOre("oreJade", ChinaCraft.jadeOre);
         GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
-        GameRegistry.registerBlock(ChinaCraft.bronzeBlock, "BronzeBlock");
         GameRegistry.registerBlock(ChinaCraft.blockMarble, "BlockMarble");
         GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
         GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
