@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
+import unstudio.chinacraft.util.annotation.AnnotationInvoker;
 
 /**
  * Use for nothing. Created by trychen on 15/12/5.
@@ -22,17 +23,11 @@ public class Recipes {
         void recipes();
     }
 
-    public static void registerRecipeAble(){
-
-    }
-
     /**
      * 普通的注册合成
      */
     public static void init() {
-
-        //执行RecipeAble接口的方法
-        registerRecipeAble();
+        AnnotationInvoker.invokeRecipe();
 
         //盐
 //        GameRegistry.addSmelting(Items.water_bucket, new ItemStack(ChinaCraft.saltBucket), 0.8f);

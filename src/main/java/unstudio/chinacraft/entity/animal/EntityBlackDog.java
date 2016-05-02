@@ -7,7 +7,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.World;
 
 /**
- * Created by Trychen on 2015/10/2.
+ * 黑狗
  */
 public class EntityBlackDog extends EntityWolf {
 

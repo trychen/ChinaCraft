@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 /**
- * Created by trych on 2015/12/26.
+ * 种植物的父类
  */
 public class CCGrowablePlant extends BlockCrops {
 
@@ -27,14 +27,10 @@ public class CCGrowablePlant extends BlockCrops {
     /**
      * 种植物的父类
      * 
-     * @param name
-     *            名字
-     * @param textureAmount
-     *            材质数量，支持5和7个，种植的不同阶段
-     * @param baseItem
-     *            种下去的物品（未完成掉落）
-     * @param dropItem
-     *            生成物（完成掉哦了）
+     * @param name 名字
+     * @param textureAmount 材质数量，支持5和7个，种植的不同阶段
+     * @param baseItem 种下去的物品（未完成掉落）
+     * @param dropItem 生成物（完成掉哦了）
      */
     public CCGrowablePlant(String name, int textureAmount, Item baseItem, Item dropItem) {
         super();
@@ -97,6 +93,9 @@ public class CCGrowablePlant extends BlockCrops {
         return EnumPlantType.Crop;
     }
 
+    /**
+     * 注册物品的材质,"chinacraft:名字_stage_步骤"
+     */
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister par1IconRegister) {

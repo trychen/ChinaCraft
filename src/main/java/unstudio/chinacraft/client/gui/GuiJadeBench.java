@@ -11,6 +11,9 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.inventory.ContainerJadeBench;
 import unstudio.chinacraft.tileentity.TileJadeBench;
 
+/**
+ * 玉石工作台的GUI
+ */
 public class GuiJadeBench extends GuiContainer {
 
     private TileJadeBench tileJadeBench;

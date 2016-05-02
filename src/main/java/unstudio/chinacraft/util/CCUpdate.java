@@ -4,7 +4,7 @@ import com.dynious.versionchecker.api.Update;
 import unstudio.chinacraft.common.ChinaCraft;
 
 /**
- * Created by trych on 2016/2/27.
+ * VersionChecker 支持
  */
 public class CCUpdate extends Update{
     public CCUpdate() {

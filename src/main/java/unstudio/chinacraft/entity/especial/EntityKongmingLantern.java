@@ -9,6 +9,9 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
+/**
+ * 孔明灯
+ */
 public class EntityKongmingLantern extends Entity {
 
     @SideOnly(Side.CLIENT)

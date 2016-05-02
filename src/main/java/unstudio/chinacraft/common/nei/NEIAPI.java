@@ -5,8 +5,10 @@ import unstudio.chinacraft.common.ChinaCraft;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 
+/**
+ * NEIAPI 入口
+ */
 public class NEIAPI implements IConfigureNEI {
-
     @Override
     public void loadConfig() {
         API.registerRecipeHandler(new BuhrimillRecipeHandler());

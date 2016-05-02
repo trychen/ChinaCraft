@@ -14,7 +14,7 @@ import unstudio.chinacraft.common.ChinaCraft;
 import java.util.Random;
 
 /**
- * Created by AAA on 2016/2/10.
+ * 矿物父类含自动生成
  */
 public class BlockCCOre extends BlockBase implements IWorldGenerator {
 

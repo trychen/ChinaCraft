@@ -18,6 +18,11 @@ import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class EntityRenderingRegistry {
+
+
+    /**
+     * 开始注册渲染器
+     */
     public static void init() {
 
         EntityRenderingHandler(EntityBlackDog.class, new ModelBlackDog(), "chinacraft",
@@ -32,6 +37,13 @@ public class EntityRenderingRegistry {
                 new RenderSnowball(ChinaCraft.firecracker));
     }
 
+    /**
+     * 注册实体的渲染器
+     * @param entityClass 实体主类
+     * @param modelBase 模型
+     * @param resource 材质资源主类,"chinacraft"
+     * @param location 材质地址,"textures/entity/example.png"
+     */
     public static void EntityRenderingHandler(Class<? extends Entity> entityClass, ModelBase modelBase,
             final String resource, final String location) {
         RenderingRegistry.registerEntityRenderingHandler(entityClass, new RenderLiving(modelBase, 0) {

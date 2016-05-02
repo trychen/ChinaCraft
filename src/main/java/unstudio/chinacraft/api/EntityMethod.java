@@ -13,6 +13,14 @@ import net.minecraft.util.DamageSource;
  */
 public class EntityMethod {
 
+    /**
+     * 寻找实体周围的实体
+     * @param player
+     * @param x
+     * @param y
+     * @param z
+     * @return
+     */
     public static List<EntityMob> findNearbyMobs(EntityPlayer player, double x, double y, double z) {
         return findNearbyMobs(player, x, y, z, 3.0d, 2.0d);
     }
@@ -32,6 +40,9 @@ public class EntityMethod {
                 AxisAlignedBB.getBoundingBox(x - d0, y - d1, z - d0, x + d0, y + d1, z + d0));
     }
 
+    /**
+     * 对玩家周围的怪物造成伤害
+     */
     public static void attackAroundEntity(EntityPlayer player, double x, double y, double z, DamageSource damageSource,
             float damage) {
         List<EntityMob> nearbyMobsList = findNearbyMobs(player, x, y, z);

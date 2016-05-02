@@ -4,7 +4,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 
 /**
- * Created by trych on 2016/1/16.
+ * 自动更新界面 GUI
  */
 public class GuiUpdata extends GuiScreen {
     public static final int btnClose = 0;

@@ -17,6 +17,9 @@ import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 
+/**
+ * 石磨合成Handler
+ */
 public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     // *********************************************************************************************************************************************************************
     public static ArrayList<FuelPair> afuels;

@@ -6,6 +6,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
+import org.bukkit.event.player.PlayerMoveEvent;
 import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;

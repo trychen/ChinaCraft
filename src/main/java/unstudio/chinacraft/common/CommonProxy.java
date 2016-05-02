@@ -43,12 +43,16 @@ public class CommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
+        //注册主类为物品集合
         AnnotationInvoker.register(ChinaCraft.class);
 
+        //注册通讯
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
 
+        //初始化监听器
         ListenerRegister.commonInit();
 
+        //开始注册物品
         AnnotationInvoker.invoke();
 
 //        GameRegistry.registerBlock(ChinaCraft.silverBlock, "SilverBlock");
@@ -267,6 +271,7 @@ public class CommonProxy {
         Recipes.init();
 
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER,new ItemStack(ChinaCraft.woodenBucket_Water),new ItemStack(ChinaCraft.woodenBucket));
+        AnnotationInvoker.close();
     }
 
     public void postInit(FMLPostInitializationEvent event) {

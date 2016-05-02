@@ -1,5 +1,8 @@
 package unstudio.chinacraft.client.gui;
 
+/**
+ * GUI的ID列表
+ */
 public class GuiID {
     public static final int GUI_Buhrimill = 0;
     public static final int GUI_JadeBench = 1;

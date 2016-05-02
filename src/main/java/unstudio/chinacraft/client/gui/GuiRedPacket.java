@@ -18,6 +18,9 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.inventory.ContainerRedPacket;
 
+/**
+ * 红包的GUI
+ */
 public class GuiRedPacket extends GuiContainer {
 
     private String wish = "";

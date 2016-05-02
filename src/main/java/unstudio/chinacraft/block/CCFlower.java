@@ -15,13 +15,14 @@ import net.minecraftforge.common.EnumPlantType;
 import unstudio.chinacraft.common.ChinaCraft;
 
 /**
- * 所有花的夫类 Created by trychen on 2015/12/26.
+ * 所有花的父类
  */
 public class CCFlower extends BlockBush {
 
+
     /**
-     * @param name
-     *            花的名字
+     * 花的构造器
+     * @param name 花的名字
      */
     public CCFlower(String name) {
         super(Material.plants);
