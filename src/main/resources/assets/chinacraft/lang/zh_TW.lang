@@ -57,7 +57,7 @@ tile.tin_ore.name=錫礦
 item.tin_ingot.name=錫錠
 item.tin_powder.name=錫粉
 tile.silver_ore.name=銀礦
-
+tile.silver_block.name=銀塊
 item.silver_ingot.name=銀錠
 item.copper_ingot.name=銅錠
 item.copper_powder.name=銅粉

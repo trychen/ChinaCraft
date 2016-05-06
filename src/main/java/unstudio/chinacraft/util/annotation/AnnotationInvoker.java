@@ -5,20 +5,23 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
+
 import org.lwjgl.Sys;
+
 import unstudio.chinacraft.common.Recipes;
+import unstudio.chinacraft.common.Recipes.RecipeAble;
 
 import java.lang.reflect.Field;
 import java.util.HashSet;
 import java.util.Set;
 
 public class AnnotationInvoker {
-    public static Set<Class> fieldClasses = new HashSet<>();
-    public static Set<Recipes.RecipeAble> neededRecipes = new HashSet<>();
+    public static Set<Class> fieldClasses = new HashSet<Class>();
+    public static Set<Recipes.RecipeAble> neededRecipes = new HashSet<RecipeAble>();
 
     /**
-     * 用于注册物品方块集合类
-     * @param c 物品类
+     * 鐢ㄤ簬娉ㄥ唽鐗╁搧鏂瑰潡闆嗗悎绫�
+     * @param c 鐗╁搧绫�
      */
     public static void register(Class c){
         fieldClasses.add(c);
@@ -26,7 +29,7 @@ public class AnnotationInvoker {
 
 
     /**
-     * 开始注册物品方块
+     * 寮�濮嬫敞鍐岀墿鍝佹柟鍧�
      */
     public static void invoke(){
         for (Class c : fieldClasses) {
@@ -56,21 +59,21 @@ public class AnnotationInvoker {
                         ore = ann.ore();
                     }
 
-                    //执行合成注册
+                    //鎵ц鍚堟垚娉ㄥ唽
                     if (o instanceof Recipes.RecipeAble){
                         neededRecipes.add((Recipes.RecipeAble)o);
                     }
 
                     if (o instanceof Block){
-                        //以方块的形式注册
+                        //浠ユ柟鍧楃殑褰㈠紡娉ㄥ唽
                         GameRegistry.registerBlock((Block) o,name);
                         if (ore != null) OreDictionary.registerOre(ore,(Block) o);
                     } else if (o instanceof Item){
-                        //以物品的形式注册
+                        //浠ョ墿鍝佺殑褰㈠紡娉ㄥ唽
                         GameRegistry.registerItem((Item) o,name);
                         if (ore != null) OreDictionary.registerOre(ore,(Item) o);
                     } else {
-                        //非可注册的物品
+                        //闈炲彲娉ㄥ唽鐨勭墿鍝�
                         new IllegalArgumentException("Can't register field which haven't extended Block").printStackTrace();
                         continue;
                     }
