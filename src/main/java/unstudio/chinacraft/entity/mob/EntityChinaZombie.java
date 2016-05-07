@@ -7,13 +7,14 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
-
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.AI.EntityAIJump;
 
 public class EntityChinaZombie extends EntityZombie {
     public EntityChinaZombie(World var1) {
         super(var1);
         // this.setSize(0.9f, 1.9f);
+        this.tasks.addTask(0, new EntityAIJump(this,0.8D, 0.05D));
     }
 
     @Override
