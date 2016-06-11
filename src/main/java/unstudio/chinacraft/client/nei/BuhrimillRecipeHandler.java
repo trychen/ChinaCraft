@@ -1,4 +1,4 @@
-package unstudio.chinacraft.common.nei;
+package unstudio.chinacraft.client.nei;
 
 import java.awt.*;
 import java.util.ArrayList;

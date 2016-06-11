@@ -14,7 +14,7 @@ import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityPotteryTableRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntitySericultureFrameRenderer;
-import unstudio.chinacraft.common.nei.NEIAPI;
+import unstudio.chinacraft.client.nei.NEIAPI;
 import unstudio.chinacraft.entity.EntityRenderingRegistry;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.combat.ModelArmorRegister;

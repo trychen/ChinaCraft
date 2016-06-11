@@ -1,4 +1,4 @@
-package unstudio.chinacraft.common.nei;
+package unstudio.chinacraft.client.nei;
 
 import unstudio.chinacraft.client.gui.GuiBuhrimill;
 import unstudio.chinacraft.common.ChinaCraft;

@@ -46,8 +46,8 @@ public class EntityChinaZombie extends EntityZombie {
             new EntityJumpHelper(this).doJump();
         if (isJumping == true) {
             motionY *= 1.6;
-            motionX *= 1.002D;
-            motionZ *= 1.002D;
+            motionX *= 1.2D;
+            motionZ *= 1.2D;
         }
         super.onUpdate();
     }
