@@ -1,6 +1,14 @@
 buildscript {
     repositories {
         jcenter()
+        maven { // The repo from which to get waila
+            name "Mobius Repo"
+            url "http://mobiusstrip.eu/maven"
+        }
+        maven {
+            name = "codechicken"
+            url = "http://chickenbones.net/maven"
+        }
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -98,7 +106,7 @@ dependencies {
     compile "codechicken:CodeChickenCore:${minecraft_version}-${code_chicken_core_version}:dev"
     compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
 
-    compile "mcp.mobius.waila:Waila:1.5.10_1.7.10"
+    compile "mcp.mobius.waila:Waila:1.5.4a_1.7.10"
     // Vault
     // compile "net.milkbowl.vault:VaultAPI:${vault_version}"
     

@@ -73,30 +73,30 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
 
-        OreDictionary.registerOre("oreTin", ChinaCraft.tinOre);
-        GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
-        GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
-        OreDictionary.registerOre("oreSilver", ChinaCraft.silverOre);
-        GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
-        OreDictionary.registerOre("oreJade", ChinaCraft.jadeOre);
+//        OreDictionary.registerOre("oreTin", ChinaCraft.tinOre);
+//        GameRegistry.registerBlock(ChinaCraft.silverOre, "SilverOre");
+//        GameRegistry.registerWorldGenerator(ChinaCraft.silverOre, 3);
+//        OreDictionary.registerOre("oreSilver", ChinaCraft.silverOre);
+//        GameRegistry.registerBlock(ChinaCraft.jadeOre, "JadeOre");
+//        OreDictionary.registerOre("oreJade", ChinaCraft.jadeOre);
         GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
-        GameRegistry.registerBlock(ChinaCraft.blockMarble, "BlockMarble");
+//        GameRegistry.registerBlock(ChinaCraft.blockMarble, "BlockMarble");
         GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
-        GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
-        GameRegistry.registerBlock(ChinaCraft.marbleSlab, ItemCCSlab.class,"MarbleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,false);
-        GameRegistry.registerBlock(ChinaCraft.marbleDoubleSlab,  ItemCCSlab.class,"MarbleDoubleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,true);
-        GameRegistry.registerBlock(ChinaCraft.smoothMarble, "SmoothMarble");
-        GameRegistry.registerBlock(ChinaCraft.pillarMarble, "PillarMarble");
-        GameRegistry.registerBlock(ChinaCraft.chiseledMarble, "ChiseledMarble");
-        GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
-        GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");// 木窗户
-        GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
-        GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
-        GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
-        GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon"); // 龙腾木窗格
-        GameRegistry.registerBlock(ChinaCraft.woodenWindowfu, "WoodenWindowFu"); // 福字木窗格
+//        GameRegistry.registerBlock(ChinaCraft.marbleStair, "MarbleStair");
+//        GameRegistry.registerBlock(ChinaCraft.marbleSlab, ItemCCSlab.class,"MarbleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,false);
+//        GameRegistry.registerBlock(ChinaCraft.marbleDoubleSlab,  ItemCCSlab.class,"MarbleDoubleSlab",ChinaCraft.marbleSlab,ChinaCraft.marbleDoubleSlab,true);
+//        GameRegistry.registerBlock(ChinaCraft.smoothMarble, "SmoothMarble");
+//        GameRegistry.registerBlock(ChinaCraft.pillarMarble, "PillarMarble");
+//        GameRegistry.registerBlock(ChinaCraft.chiseledMarble, "ChiseledMarble");
+//        GameRegistry.registerBlock(ChinaCraft.riceGrow, "RiceGrow");
+//        GameRegistry.registerBlock(ChinaCraft.woodenWindow1, "WoodenWindow1");// 木窗户
+//        GameRegistry.registerBlock(ChinaCraft.woodenWindow2, "WoodenWindow2");
+//        GameRegistry.registerBlock(ChinaCraft.woodenWindow3, "WoodenWindow3");
+//        GameRegistry.registerBlock(ChinaCraft.woodenWindow4, "WoodenWindow4");
+//        GameRegistry.registerBlock(ChinaCraft.woodenWindowdragon, "WoodenWindowDragon"); // 龙腾木窗格
+//        GameRegistry.registerBlock(ChinaCraft.woodenWindowfu, "WoodenWindowFu"); // 福字木窗格
         GameRegistry.registerBlock(ChinaCraft.soyGrow, "SoyGrow");
-        GameRegistry.registerBlock(ChinaCraft.bamboo, "Bamboo"); // 竹子
+//        GameRegistry.registerBlock(ChinaCraft.bamboo, "Bamboo"); // 竹子
         GameRegistry.registerBlock(ChinaCraft.bambooPlank, "BambooPlank"); // 竹木板
         GameRegistry.registerBlock(ChinaCraft.azalea, "Azalea");
         GameRegistry.registerBlock(ChinaCraft.peony, "Peony");

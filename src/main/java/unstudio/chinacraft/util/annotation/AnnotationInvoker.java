@@ -6,7 +6,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 import org.lwjgl.Sys;
+import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
+import unstudio.chinacraft.item.ItemCCSlab;
 
 import java.lang.reflect.Field;
 import java.util.HashSet;
@@ -31,48 +33,61 @@ public class AnnotationInvoker {
     public static void invoke(){
         for (Class c : fieldClasses) {
             for (Field f : c.getFields()) {
-                if (f.isAnnotationPresent(CCRegister.class) || f.isAnnotationPresent(CCOreRegister.class)) {
+                if (f.getDeclaredAnnotations().length > 0) {
                     Object o;
-
                     try {
                         o = f.get(null);
                     } catch (IllegalAccessException e) {
                         System.err.println("Can't register non-public field as a Block/Item");
                         e.printStackTrace();
                         continue;
-                    } catch (NullPointerException e){
+                    } catch (NullPointerException e) {
                         System.err.println("Can't register non-static field as a Block/Item");
                         e.printStackTrace();
                         continue;
                     }
+                    if (f.isAnnotationPresent(CCRegister.class) || f.isAnnotationPresent(CCOreRegister.class)) {
 
-                    String name = null;
-                    String ore = null;
-                    if (f.isAnnotationPresent(CCRegister.class)){
-                        name = f.getAnnotation(CCRegister.class).value();
-                    } else if (f.isAnnotationPresent(CCOreRegister.class)){
-                        CCOreRegister ann = f.getAnnotation(CCOreRegister.class);
-                        name = ann.name();
-                        ore = ann.ore();
-                    }
+                        String name = null;
+                        String ore = null;
+                        if (f.isAnnotationPresent(CCRegister.class)) {
+                            name = f.getAnnotation(CCRegister.class).value();
+                        } else if (f.isAnnotationPresent(CCOreRegister.class)) {
+                            CCOreRegister ann = f.getAnnotation(CCOreRegister.class);
+                            name = ann.name();
+                            ore = ann.ore();
+                        }
 
-                    //执行合成注册
-                    if (o instanceof Recipes.RecipeAble){
-                        neededRecipes.add((Recipes.RecipeAble)o);
-                    }
+                        //执行合成注册
+                        if (o instanceof Recipes.RecipeAble) {
+                            neededRecipes.add((Recipes.RecipeAble) o);
+                        }
 
-                    if (o instanceof Block){
-                        //以方块的形式注册
-                        GameRegistry.registerBlock((Block) o,name);
-                        if (ore != null) OreDictionary.registerOre(ore,(Block) o);
-                    } else if (o instanceof Item){
-                        //以物品的形式注册
-                        GameRegistry.registerItem((Item) o,name);
-                        if (ore != null) OreDictionary.registerOre(ore,(Item) o);
-                    } else {
-                        //非可注册的物品
-                        new IllegalArgumentException("Can't register field which haven't extended Block").printStackTrace();
-                        continue;
+                        if (o instanceof Block) {
+                            //以方块的形式注册
+                            GameRegistry.registerBlock((Block) o, name);
+                            if (ore != null) OreDictionary.registerOre(ore, (Block) o);
+                        } else if (o instanceof Item) {
+                            //以物品的形式注册
+                            GameRegistry.registerItem((Item) o, name);
+                            if (ore != null) OreDictionary.registerOre(ore, (Item) o);
+                        } else {
+                            //非可注册的物品
+                            new IllegalArgumentException("Can't register field which haven't extended Block").printStackTrace();
+                            continue;
+                        }
+                    } else if (f.isAnnotationPresent(CCSlabRegister.class)) {
+                        CCSlabRegister ann = f.getAnnotation(CCSlabRegister.class);
+                        Block fi, se,on;
+                        try{
+                            fi = (Block) c.getField(ann.first()).get(null);
+                            se = (Block) c.getField(ann.second()).get(null);
+                            on = (Block) o;
+                        } catch (Throwable e){
+                            System.err.println("Cann't register an nonexistent field.");
+                            continue;
+                        }
+                        GameRegistry.registerBlock(on, ItemCCSlab.class,ann.name(),fi,se,true);
                     }
                 }
             }
