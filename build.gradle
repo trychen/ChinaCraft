@@ -91,12 +91,12 @@ dependencies {
     // or you may define them like so..
     //compile "some.group:artifact:version:classifier"
     //compile "some.group:artifact:version"
-    
+
     compile fileTree(dir: 'libs', include: '*.jar') // Libs Folder
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-	
+
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
@@ -106,16 +106,16 @@ dependencies {
     compile "codechicken:CodeChickenCore:${minecraft_version}-${code_chicken_core_version}:dev"
     compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
 
-    compile "mcp.mobius.waila:Waila:1.5.4a_1.7.10"
+    compile "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}"
     // Vault
     // compile "net.milkbowl.vault:VaultAPI:${vault_version}"
-    
+
     // Bukkit
     // compile "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
     // compile files('libs/spigot-api-1.8.7-R0.1-SNAPSHOT.jar')
 
     // compile files('libs/VersionChecker-1.1.9.jar')
-    
+
 
 }
 
@@ -128,11 +128,11 @@ processResources
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
         expand 'version':project.version, 'mcversion':project.minecraft.version
     }
-        
+
     // copy everything else, thats not the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
