@@ -35,7 +35,7 @@ public class ItemPotteryTableRenderer implements IItemRenderer {
         GL11.glRotatef(180F, 1F, 0F, 0F);
 
         if (type == IItemRenderer.ItemRenderType.INVENTORY) {
-            GL11.glScalef(0.6F, 0.6F, 0.6F);
+            GL11.glScalef(0.5F, 0.5F, 0.5F);
             GL11.glTranslatef(0.0F, -0.55F, 0.00F);
             // GL11.glRotatef(-45F, 0F, 1F, 0F);
             GL11.glRotatef(180F, 0F, 1F, 0F);

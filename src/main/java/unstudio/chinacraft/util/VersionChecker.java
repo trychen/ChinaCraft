@@ -1,5 +1,6 @@
 package unstudio.chinacraft.util;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -30,6 +31,9 @@ public class VersionChecker implements Runnable {
         } catch (MalformedURLException e) {
             e.printStackTrace();
             return;
+        } catch (FileNotFoundException e){
+            System.out.println("[ChinaCraft]Remote Updata Server Has Closed");
+            return;
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -39,7 +43,6 @@ public class VersionChecker implements Runnable {
             VersionChecker.newVersionInfo = IOUtils.readLines(info).get(0);
             VersionChecker.downloadUrl = IOUtils.readLines(downloadUrl).get(0);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             return;
         } finally {

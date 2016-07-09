@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -64,8 +65,8 @@ public class BlockSericultureFrame extends BlockContainer {
     }
 
     @Override
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
-        return Blocks.wooden_door.getIcon(p_149691_1_,p_149691_2_);
+    public void registerBlockIcons(IIconRegister iIconRegister) {
+        this.blockIcon = Blocks.sapling.getIcon(0,0);
     }
 
     @Override

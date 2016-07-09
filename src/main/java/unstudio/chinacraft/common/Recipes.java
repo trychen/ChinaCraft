@@ -271,7 +271,7 @@ public class Recipes {
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.copperIngot), null,
         		new ItemStack(ChinaCraft.copperPowder), null, 720);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.copperOre), null,
-                new ItemStack(ChinaCraft.copperPowder), null, 720);
+                new ItemStack(ChinaCraft.copperPowder), null, 1080);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.tinOre), null,
         		new ItemStack(ChinaCraft.tinPowder), null, 720);
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.tinIngot), null,

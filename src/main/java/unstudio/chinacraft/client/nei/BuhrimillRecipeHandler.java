@@ -21,10 +21,6 @@ import codechicken.nei.recipe.TemplateRecipeHandler;
  * 石磨合成Handler
  */
 public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
-    // *********************************************************************************************************************************************************************
-    public static ArrayList<FuelPair> afuels;
-    public static HashSet<Block> efuels;
-
     @Override
     public void loadTransferRects() {
         transferRects.add(new RecipeTransferRect(new Rectangle(76 - 5, 21 - 11, 22, 12), "milling"));
@@ -42,18 +38,11 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 
     @Override
     public void loadCraftingRecipes(String outputId, Object... results) {
-        if (outputId.equals("buhrimill") && getClass() == BuhrimillRecipeHandler.class) {// don't
-                                                                                         // want
-                                                                                         // subclasses
-                                                                                         // getting
-                                                                                         // a
-                                                                                         // hold
-                                                                                         // of
-                                                                                         // this
+        if (outputId.equals("buhrimill") && getClass() == BuhrimillRecipeHandler.class) {
             List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
             for (BuhrimillRecipe recipe : recipes)
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput2(), recipe.getInput2(),
-                        recipe.getOutput2()));
+                        recipe.getOutput2(),recipe.getTime()/360));
         } else
             super.loadCraftingRecipes(outputId, results);
     }
@@ -64,19 +53,12 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         for (BuhrimillRecipe recipe : recipes)
             if (NEIServerUtils.areStacksSameType(recipe.getOutput1(), result))
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2()));
+                        recipe.getOutput2(),recipe.getTime()/360));
     }
 
     @Override
     public void loadUsageRecipes(String inputId, Object... ingredients) {
-        if (inputId.equals("fuel") && getClass() == BuhrimillRecipeHandler.class) // don't
-                                                                                  // want
-                                                                                  // subclasses
-                                                                                  // getting
-                                                                                  // a
-                                                                                  // hold
-                                                                                  // of
-                                                                                  // this
+        if (inputId.equals("fuel") && getClass() == BuhrimillRecipeHandler.class)
             loadCraftingRecipes("buhrimill");
         else
             super.loadUsageRecipes(inputId, ingredients);
@@ -88,7 +70,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         for (BuhrimillRecipe recipe : recipes)
             if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getInput1(), ingredient)) {
                 SmeltingPair arecipe = new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2());
+                        recipe.getOutput2(),recipe.getTime()/360);
                 arecipe.setIngredientPermutation(Arrays.asList(arecipe.input1), ingredient);
                 arecipes.add(arecipe);
             }
@@ -111,34 +93,13 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         return "buhrimill";
     }
 
-    // *********************************************************************************************************************************************************************
-    public static class FuelPair {
-        public PositionedStack stack;
-        public int burnTime;
-        public FuelPair(ItemStack ingred, int burnTime) {
-            this.stack = new PositionedStack(ingred, 0, 0, false);
-            this.burnTime = burnTime;
-        }
-    }
-
-    // private static Set<Item> excludedFuels() {
-    // Set<Item> efuels = new HashSet<Item>();
-    // efuels.add(Item.getItemFromBlock(Blocks.brown_mushroom));
-    // efuels.add(Item.getItemFromBlock(Blocks.red_mushroom));
-    // efuels.add(Item.getItemFromBlock(Blocks.standing_sign));
-    // efuels.add(Item.getItemFromBlock(Blocks.wall_sign));
-    // efuels.add(Item.getItemFromBlock(Blocks.wooden_door));
-    // efuels.add(Item.getItemFromBlock(Blocks.trapped_chest));
-    // return efuels;
-    // }
-
-    // *********************************************************************************************************************************************************************
     public class SmeltingPair extends CachedRecipe {
         PositionedStack input1;
         PositionedStack input2;
         PositionedStack output1;
         PositionedStack output2;
-        public SmeltingPair(ItemStack in1, ItemStack out1, ItemStack in2, ItemStack out2) {
+        int roTimes;
+        public SmeltingPair(ItemStack in1, ItemStack out1, ItemStack in2, ItemStack out2 , int roTimes) {
             in1.stackSize = 1;
             this.input1 = new PositionedStack(in1, 38, 14);
             this.output1 = new PositionedStack(out1, 112 - 5, 14);
@@ -148,6 +109,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
             if (out2 != null) {
                 this.output2 = new PositionedStack(out2, 112 - 5, 28);
             }
+            this.roTimes = roTimes;
         }
 
         public List<PositionedStack> getIngredients() {
