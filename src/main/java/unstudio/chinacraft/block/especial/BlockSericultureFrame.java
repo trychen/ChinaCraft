@@ -7,10 +7,12 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.client.gui.GuiID;
@@ -59,6 +61,11 @@ public class BlockSericultureFrame extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
         return Item.getItemFromBlock(ChinaCraft.sericultureFrame);
+    }
+
+    @Override
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+        return Blocks.wooden_door.getIcon(p_149691_1_,p_149691_2_);
     }
 
     @Override

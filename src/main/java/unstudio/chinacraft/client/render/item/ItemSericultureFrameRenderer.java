@@ -10,6 +10,9 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelExtendBlock;
 import unstudio.chinacraft.client.model.ModelSericultureFrame;
 
+/**
+ * 渲染养蚕架的物品
+ */
 public class ItemSericultureFrameRenderer implements IItemRenderer {
     private ModelExtendBlock model;
     private ResourceLocation texture;
@@ -35,7 +38,7 @@ public class ItemSericultureFrameRenderer implements IItemRenderer {
         GL11.glRotatef(180F, 1F, 0F, 0F);
 
         if (type == IItemRenderer.ItemRenderType.INVENTORY) {
-            GL11.glScalef(1.2F, 1.2F, 1.2F);
+            GL11.glScalef(1.09F, 1.09F, 1.09F);
             GL11.glTranslatef(0.0F, -1.05F, 0.00F);
             // GL11.glRotatef(-45F, 0F, 1F, 0F);
             GL11.glRotatef(00F, 0F, 0F, 1F);

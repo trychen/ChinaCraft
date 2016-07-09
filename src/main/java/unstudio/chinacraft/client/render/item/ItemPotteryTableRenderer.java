@@ -38,11 +38,11 @@ public class ItemPotteryTableRenderer implements IItemRenderer {
             GL11.glScalef(0.6F, 0.6F, 0.6F);
             GL11.glTranslatef(0.0F, -0.55F, 0.00F);
             // GL11.glRotatef(-45F, 0F, 1F, 0F);
-            GL11.glRotatef(0F, 0F, 0F, 1F);
+            GL11.glRotatef(180F, 0F, 1F, 0F);
             model.render(0.0625F);
         }
         if (type == IItemRenderer.ItemRenderType.EQUIPPED) {
-            GL11.glScaled(0.4D, 0.4D, 0.4D);
+            GL11.glScaled(0.6D, 0.6D, 0.6D);
             GL11.glRotatef(-20F, 1F, 0F, 0F);
             GL11.glRotatef(-20F, 0F, 1F, 0F);
             GL11.glTranslatef(0.5F, -1.3F, -1F);
