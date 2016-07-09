@@ -1,4 +1,4 @@
-package unstudio.chinacraft.util.annotation;
+package unstudio.chinacraft.util.annotation.register;
 
 import java.lang.annotation.*;
 
@@ -6,6 +6,13 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface CCOreRegister{
+    /**
+     * @return 物品或方块的名字
+     */
     String name();
+
+    /**
+     * @return 矿物字典名
+     */
     String ore();
 }

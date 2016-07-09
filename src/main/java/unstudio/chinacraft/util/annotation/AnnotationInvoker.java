@@ -1,108 +1,23 @@
 package unstudio.chinacraft.util.annotation;
 
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraftforge.oredict.OreDictionary;
-import org.lwjgl.Sys;
-import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
-import unstudio.chinacraft.item.ItemCCSlab;
+import unstudio.chinacraft.util.annotation.register.Register;
 
-import java.lang.reflect.Field;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AnnotationInvoker {
-    public static Set<Class> fieldClasses = new HashSet<>();
-    public static Set<Recipes.RecipeAble> neededRecipes = new HashSet<>();
-
-    /**
-     * 用于注册物品方块集合类
-     * @param c 物品类
-     */
-    public static void register(Class c){
-        fieldClasses.add(c);
-    }
-
-
     /**
      * 开始注册物品方块
      */
     public static void invoke(){
-        for (Class c : fieldClasses) {
-            for (Field f : c.getFields()) {
-                if (f.getDeclaredAnnotations().length > 0) {
-                    Object o;
-                    try {
-                        o = f.get(null);
-                    } catch (IllegalAccessException e) {
-                        System.err.println("Can't register non-public field as a Block/Item");
-                        e.printStackTrace();
-                        continue;
-                    } catch (NullPointerException e) {
-                        System.err.println("Can't register non-static field as a Block/Item");
-                        e.printStackTrace();
-                        continue;
-                    }
-                    if (f.isAnnotationPresent(CCRegister.class) || f.isAnnotationPresent(CCOreRegister.class)) {
+        // 获取物品集
+        List<Class> itemBlockCollections = ClassGetter.getAllClassByInterface(ItemBlockCollection.class);
+        // 获取需要执行Recipes方法的类
+        List<Class> recipesableCollections = ClassGetter.getAllClassByInterface(Recipes.RecipeAble.class);
 
-                        String name = null;
-                        String ore = null;
-                        if (f.isAnnotationPresent(CCRegister.class)) {
-                            name = f.getAnnotation(CCRegister.class).value();
-                        } else if (f.isAnnotationPresent(CCOreRegister.class)) {
-                            CCOreRegister ann = f.getAnnotation(CCOreRegister.class);
-                            name = ann.name();
-                            ore = ann.ore();
-                        }
-
-                        //执行合成注册
-                        if (o instanceof Recipes.RecipeAble) {
-                            neededRecipes.add((Recipes.RecipeAble) o);
-                        }
-
-                        if (o instanceof Block) {
-                            //以方块的形式注册
-                            GameRegistry.registerBlock((Block) o, name);
-                            if (ore != null) OreDictionary.registerOre(ore, (Block) o);
-                        } else if (o instanceof Item) {
-                            //以物品的形式注册
-                            GameRegistry.registerItem((Item) o, name);
-                            if (ore != null) OreDictionary.registerOre(ore, (Item) o);
-                        } else {
-                            //非可注册的物品
-                            new IllegalArgumentException("Can't register field which haven't extended Block").printStackTrace();
-                            continue;
-                        }
-                    } else if (f.isAnnotationPresent(CCSlabRegister.class)) {
-                        CCSlabRegister ann = f.getAnnotation(CCSlabRegister.class);
-                        Block fi, se,on;
-                        try{
-                            fi = (Block) c.getField(ann.first()).get(null);
-                            se = (Block) c.getField(ann.second()).get(null);
-                            on = (Block) o;
-                        } catch (Throwable e){
-                            System.err.println("Cann't register an nonexistent field.");
-                            continue;
-                        }
-                        GameRegistry.registerBlock(on, ItemCCSlab.class,ann.name(),fi,se,true);
-                    }
-                }
-            }
-        }
-    }
-
-    public static void invokeRecipe(){
-        for (Recipes.RecipeAble neededRecipe : neededRecipes)
-            neededRecipe.recipes();
-    }
-
-    public static void close(){
-        fieldClasses = null;
-        neededRecipes = null;
-
-        System.gc();
+        // 开始执行
+        Register.register(itemBlockCollections);
+        Register.recipes(recipesableCollections);
     }
 }

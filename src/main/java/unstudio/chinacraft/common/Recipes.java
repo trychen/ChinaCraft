@@ -27,7 +27,6 @@ public class Recipes {
      * 普通的注册合成
      */
     public static void init() {
-        AnnotationInvoker.invokeRecipe();
 
         //盐
 //        GameRegistry.addSmelting(Items.water_bucket, new ItemStack(ChinaCraft.saltBucket), 0.8f);

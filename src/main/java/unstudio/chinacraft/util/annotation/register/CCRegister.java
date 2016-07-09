@@ -1,4 +1,4 @@
-package unstudio.chinacraft.util.annotation;
+package unstudio.chinacraft.util.annotation.register;
 
 import java.lang.annotation.*;
 
