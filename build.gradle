@@ -1,6 +1,6 @@
 buildscript {
     repositories {
-        jcenter()
+        jcenter()/*
         maven { // The repo from which to get waila
             name "Mobius Repo"
             url "http://mobiusstrip.eu/maven"
@@ -8,14 +8,10 @@ buildscript {
         maven {
             name = "codechicken"
             url = "http://chickenbones.net/maven"
-        }
+        }*/
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
         }
         mavenCentral()
     }
@@ -59,6 +55,8 @@ artifacts {
 }*/
 
 repositories {
+    jcenter()
+    /*
     maven { // The repo from which to get waila
         name "Mobius Repo"
         url "http://mobiusstrip.eu/maven"
@@ -67,30 +65,19 @@ repositories {
         name = "codechicken"
         url = "http://chickenbones.net/maven"
     }
-    // maven {
-    //     name = "vault-repo"
-    //     url = "http://nexus.theyeticave.net/content/repositories/pub_releases"
-    // }
-    // maven {
-    //     name = "bukkit"
-    //     url = "http://maven.elmakers.com/repository"
-    // }
+*/
     maven {
         name = "forge"
         url = "http://files.minecraftforge.net/maven"
     }
-    maven {
-        name = "sonatype"
-        url = "https://oss.sonatype.org/content/repositories/snapshots/"
-    }
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
+    // compile "some.group:artifact:version:classifier"
+    // compile "some.group:artifact:version"
 
     compile fileTree(dir: 'libs', include: '*.jar') // Libs Folder
     // real examples
@@ -102,11 +89,11 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
     // NotEnoughItems
-    compile "codechicken:CodeChickenLib:${minecraft_version}-${code_chicken_lib_version}:dev"
-    compile "codechicken:CodeChickenCore:${minecraft_version}-${code_chicken_core_version}:dev"
-    compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
+    // compile "codechicken:CodeChickenLib:${minecraft_version}-${code_chicken_lib_version}:dev"
+    // compile "codechicken:CodeChickenCore:${minecraft_version}-${code_chicken_core_version}:dev"
+    // compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
 
-    compile "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}"
+    // ompile "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}"
     // Vault
     // compile "net.milkbowl.vault:VaultAPI:${vault_version}"
 
