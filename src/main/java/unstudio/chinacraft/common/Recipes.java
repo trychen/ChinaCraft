@@ -227,7 +227,7 @@ public class Recipes {
 
         // 美术刀
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.artKnife, 1),
-                new Object[] { "   ", " Z ", " # ", '#', Items.stick, 'Z', Items.iron_ingot });
+                new Object[] { " # ", "#Z#", '#', Items.stick, 'Z', Items.iron_ingot });
 
         // 蛋糕
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.xinjiangNutCake, 1),
@@ -257,7 +257,7 @@ public class Recipes {
 
         // 玉石
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeKnife, 1),
-                new Object[] { " X ", "X#X", " # ", '#', Items.stick, 'X', Items.iron_ingot });
+                new Object[] { " X ", "X#X", '#', Items.stick, 'X', Items.iron_ingot });
 
         // 大麦
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.barleyRice), new ItemStack(Items.wheat));

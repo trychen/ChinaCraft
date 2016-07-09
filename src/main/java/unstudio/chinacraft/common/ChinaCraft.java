@@ -62,6 +62,7 @@ public class ChinaCraft implements ItemBlockCollection {
     public static final String VERSION = "193";
     public static final int OutPutVERSION = 193;
     public static boolean NEIIsLoad = false;
+    public static boolean WAILAIsLoad = false;
     public static boolean VersionCheckerIsLoad = false;
     public static VaultPlugin vault = null;
     public static SimpleNetworkWrapper Network;
@@ -348,6 +349,7 @@ public class ChinaCraft implements ItemBlockCollection {
         Network.registerMessage(new RedPacketMessageHandler(), RedPacketMessage.class, 0, Side.SERVER);
 
         NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
+        WAILAIsLoad = Loader.isModLoaded("Waila");
 
         VersionCheckerIsLoad = Loader.isModLoaded("VersionChecker");
         // Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class,

@@ -114,7 +114,8 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                 continue;
             if (item.getItem() != ChinaCraft.silkworm)
                 continue;
-            if(getStackInSlot(10).stackSize==64)
+            // TODO: NullPointerException, getStackInSlot(10) == null
+            if(getStackInSlot(10)!=null&&getStackInSlot(10).stackSize==64)
                 continue;
             if (item.hasTagCompound()) {
                 NBTTagCompound nbt = item.getTagCompound();

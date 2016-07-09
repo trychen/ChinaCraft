@@ -47,7 +47,7 @@ public class CommonProxy {
 
     public static void onWailaCall(IWailaRegistrar registrar)
     {
-        registrar.registerNBTProvider(new BuhrimillWailaHandler(), BlockBuhrimill.class);
+        registrar.registerBodyProvider(new BuhrimillWailaHandler(), BlockBuhrimill.class);
     }
 
     public void init(FMLInitializationEvent event) {
