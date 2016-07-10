@@ -15,7 +15,7 @@ import java.util.jar.JarFile;
 /**
  * Created by trychen on 16/7/9.
  */
-public class ClassGetter {
+public class AnnotationClassGetter {
     /**
      * 取得某个接口下所有实现这个接口的类
      * */
@@ -23,10 +23,8 @@ public class ClassGetter {
         List<Class>  returnClassList = null;
 
         if(c.isInterface()) {
-            // 获取当前的包名
-            String packageName = c.getPackage().getName();
             // 获取当前包下以及子包下所以的类
-            List<Class<?>> allClass = getClasses(packageName);
+            List<Class<?>> allClass = getAllClasses();
             if(allClass != null) {
                 returnClassList = new ArrayList<Class>();
                 for(Class classes : allClass) {
@@ -45,7 +43,7 @@ public class ClassGetter {
     }
 
 
-    /*
+    /**
      * 取得某一类所在包的所有类名 不含迭代
      */
     public static String[] getPackageAllClassName(String classLocation, String packageName){
@@ -66,7 +64,7 @@ public class ClassGetter {
 
     /**
      * 从包package中获取所有的Class
-     * @param pack
+     * @param packageName 包名
      * @return
      */
     public static List<Class<?>> getClasses(String packageName){
@@ -189,5 +187,12 @@ public class ClassGetter {
                 }
             }
         }
+    }
+    private static List<Class<?>> classes = null;
+    private static List<Class<?>> getAllClasses(){
+        if (classes == null){
+            classes = getClasses("unstudio.chinacraft");
+        }
+        return classes;
     }
 }

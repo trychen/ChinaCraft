@@ -52,16 +52,13 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
         //注册主类为物品集合
-        AnnotationInvoker.register(ChinaCraft.class);
+        AnnotationInvoker.invoke();
 
         //注册通讯
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());
 
         //初始化监听器
-        ListenerRegister.commonInit();
-
-        //开始注册物品
-        AnnotationInvoker.invoke();
+        ListenerRegister.init();
 
 //        GameRegistry.registerBlock(ChinaCraft.silverBlock, "SilverBlock");
 //        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
@@ -141,19 +138,19 @@ public class CommonProxy {
 
 //        GameRegistry.registerItem(ChinaCraft.saltBucket, "SaltBucket");
         GameRegistry.registerItem(ChinaCraft.douJiangBucket, "DouJiangBucket");
-        GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");// 铜锭
-        OreDictionary.registerOre("ingotCopper", ChinaCraft.copperIngot);
-        GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");// 青铜锭
-        OreDictionary.registerOre("ingotBronze", ChinaCraft.bronzeIngot);
+//        GameRegistry.registerItem(ChinaCraft.copperIngot, "CopperIngot");// 铜锭
+//        OreDictionary.registerOre("ingotCopper", ChinaCraft.copperIngot);
+//        GameRegistry.registerItem(ChinaCraft.bronzeIngot, "BronzeIngot");// 青铜锭
+//        OreDictionary.registerOre("ingotBronze", ChinaCraft.bronzeIngot);
         GameRegistry.registerItem(ChinaCraft.tinPowder, "TinPowder");
         OreDictionary.registerOre("dustTin", ChinaCraft.tinPowder);
         GameRegistry.registerItem(ChinaCraft.copperPowder, "CopperPowder");
         OreDictionary.registerOre("dustCopper", ChinaCraft.copperPowder);
         GameRegistry.registerItem(ChinaCraft.copperTinMixedPowder, "CopperTinMixedPowder");
-        GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");// 银锭
-        OreDictionary.registerOre("ingotSilver", ChinaCraft.silverOre);
-        GameRegistry.registerItem(ChinaCraft.tinIngot, "TinIngot");// 锡锭
-        OreDictionary.registerOre("ingotTin", ChinaCraft.tinIngot);
+//        GameRegistry.registerItem(ChinaCraft.silverIngot, "SilverIngot");// 银锭
+//        OreDictionary.registerOre("ingotSilver", ChinaCraft.silverOre);
+//        GameRegistry.registerItem(ChinaCraft.tinIngot, "TinIngot");// 锡锭
+//        OreDictionary.registerOre("ingotTin", ChinaCraft.tinIngot);
         GameRegistry.registerItem(ChinaCraft.blackbrick, "BlackBrick");//青砖
 
         GameRegistry.registerItem(ChinaCraft.bronzeSword, "BronzeSword");// 青铜剑
@@ -270,7 +267,6 @@ public class CommonProxy {
         Recipes.init();
 
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER,new ItemStack(ChinaCraft.woodenBucket_Water),new ItemStack(ChinaCraft.woodenBucket));
-        AnnotationInvoker.close();
     }
 
     public void postInit(FMLPostInitializationEvent event) {

@@ -62,18 +62,6 @@ public class Register {
                         new IllegalArgumentException("Can't register field which haven't extended Block").printStackTrace();
                         continue;
                     }
-                } else if (f.isAnnotationPresent(CCSlabRegister.class)) {
-                    CCSlabRegister ann = f.getAnnotation(CCSlabRegister.class);
-                    Block fi, se, on;
-                    try {
-                        fi = (Block) c.getField(ann.first()).get(null);
-                        se = (Block) c.getField(ann.second()).get(null);
-                        on = (Block) o;
-                    } catch (Throwable e) {
-                        System.err.println("Cann't register an nonexistent field.");
-                        continue;
-                    }
-                    GameRegistry.registerBlock(on, ItemCCSlab.class, ann.name(), fi, se, true);
                 }
             }
         }
@@ -87,6 +75,8 @@ public class Register {
     public static void recipes(Class c) {
         try {
             c.getMethod("recipes").invoke(null);
+        } catch (NullPointerException e){
+            e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e) {
@@ -94,6 +84,5 @@ public class Register {
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -40,8 +40,7 @@ public class BlockCCMetal extends BlockBase implements Recipes.RecipeAble{
         return this;
     }
 
-    @Override
-    public void recipes() {
+    public static void recipes() {
 
     }
 }

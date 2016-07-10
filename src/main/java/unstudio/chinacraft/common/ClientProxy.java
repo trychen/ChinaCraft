@@ -133,8 +133,6 @@ public class ClientProxy extends CommonProxy {
 
         ChinaCraft.debug.setTextureName("chinacraft:debug");
 
-        ListenerRegister.clientInit();
-
         super.init(event);
 
         ModelArmorRegister.init();

@@ -17,10 +17,12 @@ import unstudio.chinacraft.util.annotation.AnnotationInvoker;
 public class Recipes {
 
     /**
-     * 注册时实现了该接口的recipes()方法都将执行。
+     * 注册时实现了该接口的recipes()方法都将执行。注意: 需要手动书写方法(因为接口方法不能定义为static)
      */
     public interface RecipeAble{
-        void recipes();
+        /**
+        public static void recipes();
+         */
     }
 
     /**
@@ -159,7 +161,7 @@ public class Recipes {
                 ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot,
                 ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot, ChinaCraft.bronzeIngot);
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bronzeIngot, 9),
-                Item.getItemFromBlock(ChinaCraft.bronzeBlock));
+                ChinaCraft.bronzeBlock);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1),
                 new Object[] { " # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick });
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.mace, 1), new Object[] { " #O", " X#", "X  ", '#', Items.coal,

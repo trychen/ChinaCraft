@@ -190,10 +190,14 @@ public class ChinaCraft implements ItemBlockCollection {
     public static final Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
 
     // 物品
+    @CCOreRegister(name = "CopperIngot",ore = "ingotCopper")
     public static final Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(ChinaCraft.tabCore); // 铜锭
+    @CCOreRegister(name = "BronzeIngot",ore = "ingotBronze")
     public static final Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")
             .setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:bronze_ingot"); // 青铜锭
+    @CCOreRegister(name = "TinIngot",ore = "ingotTin")
     public static final Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore); // 锡锭
+    @CCOreRegister(name = "SilverIngot",ore = "ingotSilver")
     public static final Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); // 银锭
     public static final Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder")
             .setCreativeTab(ChinaCraft.tabCore); // 铜锡混合矿粉
