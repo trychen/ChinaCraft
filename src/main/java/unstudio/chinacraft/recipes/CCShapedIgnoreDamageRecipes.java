@@ -148,7 +148,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
 
     public static CCShapedIgnoreDamageRecipes createRecipe(ItemStack p_92103_1_, Object ... p_92103_2_)
     {
-        String s = "";
+        StringBuilder sb = new StringBuilder();
         int i = 0;
         int j = 0;
         int k = 0;
@@ -162,7 +162,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
                 String s1 = astring[l];
                 ++k;
                 j = s1.length();
-                s = s + s1;
+                sb.append(s1);
             }
         }
         else
@@ -172,7 +172,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
                 String s2 = (String)p_92103_2_[i++];
                 ++k;
                 j = s2.length();
-                s = s + s2;
+                sb.append(s2);
             }
         }
 
@@ -203,7 +203,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
 
         for (int i1 = 0; i1 < j * k; ++i1)
         {
-            char c0 = s.charAt(i1);
+            char c0 = sb.toString().charAt(i1);
 
             if (hashmap.containsKey(Character.valueOf(c0)))
             {

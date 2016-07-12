@@ -4,8 +4,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
+import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
-import unstudio.chinacraft.item.ItemCCSlab;
+import unstudio.chinacraft.util.annotation.AnnotationClassGetter;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -14,7 +15,24 @@ import java.util.List;
 /**
  * Created by trychen on 16/7/9.
  */
-public class Register {
+public class ItemBlockRegister {
+    public static void registerAll(){
+        // 获取物品集
+        List<Class> itemBlockCollections = AnnotationClassGetter.getAllClassByInterface(ItemBlockCollection.class);
+
+        // 获取需要执行Recipes方法的类
+        List<Class> recipesableCollections = AnnotationClassGetter.getAllClassByInterface(Recipes.RecipeAble.class);
+
+        // 开始执行
+        for (Class clazz : itemBlockCollections) {
+            ItemBlockRegister.register(clazz);
+        }
+
+        for (Class clazz : recipesableCollections) {
+            ItemBlockRegister.recipes(clazz);
+        }
+    }
+
     /**
      * 该方法用于对使用了CC注释注册系统的类进行注册,支持以下的注释
      * @see CCRegister
@@ -29,11 +47,11 @@ public class Register {
                 try {
                     o = f.get(null);
                 } catch (IllegalAccessException e) {
-                    System.err.println("Can't register non-public field as a Block/Item");
+                    ChinaCraft.log.severe("Can't register non-public field as a Block/Item");
                     e.printStackTrace();
                     continue;
                 } catch (NullPointerException e) {
-                    System.err.println("Can't register non-static field as a Block/Item");
+                    ChinaCraft.log.severe("Can't register non-static field as a Block/Item");
                     e.printStackTrace();
                     continue;
                 }

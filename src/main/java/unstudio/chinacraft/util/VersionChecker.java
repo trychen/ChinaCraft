@@ -14,11 +14,11 @@ import org.apache.commons.io.IOUtils;
 import unstudio.chinacraft.common.ChinaCraft;
 
 public class VersionChecker implements Runnable {
-    private static boolean isLatestVersion = true;
-    private static boolean isCheckable = false;
-    private static String newVersionInfo = "";
-    private static String downloadUrl = "";
-    private static int latestVersion = 1;
+    private boolean isLatestVersion = true;
+    private boolean isCheckable = false;
+    private String newVersionInfo = "";
+    private String downloadUrl = "";
+    private int latestVersion = 1;
 
     @Override
     public void run() {
@@ -39,26 +39,26 @@ public class VersionChecker implements Runnable {
             return;
         }
         try {
-            latestVersion = Integer.valueOf(IOUtils.readLines(version).get(0));
-            VersionChecker.newVersionInfo = IOUtils.readLines(info).get(0);
-            VersionChecker.downloadUrl = IOUtils.readLines(downloadUrl).get(0);
+            this.latestVersion = Integer.valueOf(IOUtils.readLines(version).get(0));
+            this.newVersionInfo = IOUtils.readLines(info).get(0);
+            this.downloadUrl = IOUtils.readLines(downloadUrl).get(0);
         } catch (IOException e) {
             e.printStackTrace();
             return;
         } finally {
             IOUtils.closeQuietly(version);
         }
-        VersionChecker.isCheckable = true;
-        System.out.println("[ChinaCraft]Latest mod version = " + latestVersion);
+        isCheckable = true;
+        ChinaCraft.log.info("[ChinaCraft]Latest mod version = " + latestVersion);
         isLatestVersion = latestVersion <= ChinaCraft.OutPutVERSION;
-        if (ChinaCraft.VersionCheckerIsLoad){
-            if (!isLatestVersion) FMLInterModComms.sendRuntimeMessage(ChinaCraft.MODID,"VersionChecker","addUpdate", new CCUpdate().toJson());
-        }
         if (isLatestVersion) {
-            System.out.println("[ChinaCraft]You are running latest version = " + isLatestVersion);
+            ChinaCraft.log.info("[ChinaCraft]You are running latest version = " + isLatestVersion);
         } else {
-
-            System.out.println("[ChinaCraft]Found New version");
+            if (ChinaCraft.VersionCheckerIsLoad){
+                //向VersionChecker发送版本更新信息
+                if (!isLatestVersion) FMLInterModComms.sendRuntimeMessage(ChinaCraft.MODID,"VersionChecker","addUpdate", new CCUpdate().toJson());
+            }
+            ChinaCraft.log.info("[ChinaCraft]Found New version");
         }
     }
 

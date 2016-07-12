@@ -13,10 +13,9 @@ import unstudio.chinacraft.client.waila.BuhrimillWailaHandler;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.ItemCCBlock;
 import unstudio.chinacraft.item.ItemCCSlab;
-import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.util.GuiHandler;
-import unstudio.chinacraft.util.annotation.AnnotationInvoker;
+import unstudio.chinacraft.util.annotation.register.ItemBlockRegister;
 import unstudio.chinacraft.util.config.ConfigLoader;
 import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
@@ -52,7 +51,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
         //注册主类为物品集合
-        AnnotationInvoker.invoke();
+        ItemBlockRegister.registerAll();
 
         //注册通讯
         NetworkRegistry.INSTANCE.registerGuiHandler(ChinaCraft.instance, new GuiHandler());

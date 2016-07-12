@@ -18,7 +18,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 
 public class Text {
 
-    public static int GUIID = 2;
+    public final static int GUIID = 2;
 
     public static class GuiContainerMod extends Container {
 

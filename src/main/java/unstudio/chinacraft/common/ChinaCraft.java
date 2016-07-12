@@ -5,10 +5,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.event.FMLServerStartedEvent;
+import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
@@ -46,7 +43,7 @@ import unstudio.chinacraft.util.VersionChecker;
 import unstudio.chinacraft.util.annotation.register.CCOreRegister;
 import unstudio.chinacraft.util.annotation.register.CCRegister;
 import unstudio.chinacraft.util.annotation.register.CCSlabRegister;
-import unstudio.chinacraft.util.annotation.ItemBlockCollection;
+import unstudio.chinacraft.util.annotation.register.ItemBlockCollection;
 import unstudio.chinacraft.util.config.ConfigLoader;
 import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
@@ -54,6 +51,7 @@ import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
 import java.util.Random;
+import java.util.logging.Logger;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft implements ItemBlockCollection {
@@ -61,20 +59,28 @@ public class ChinaCraft implements ItemBlockCollection {
     public static final String NAME = "ChinaCraft";
     public static final String VERSION = "193";
     public static final int OutPutVERSION = 193;
+
+    public static SimpleNetworkWrapper Network;
+    public static Logger log = Logger.getLogger(MODID);
+
+    //Bukkit Vault 支持
+    public static VaultPlugin vault = null;
+
+    //其他Mod加载情况
     public static boolean NEIIsLoad = false;
     public static boolean WAILAIsLoad = false;
     public static boolean VersionCheckerIsLoad = false;
-    public static VaultPlugin vault = null;
-    public static SimpleNetworkWrapper Network;
+
     @SidedProxy(clientSide = "unstudio.chinacraft.common.ClientProxy", serverSide = "unstudio.chinacraft.common.CommonProxy")
     public static CommonProxy proxy;
     @Instance("chinacraft")
     public static ChinaCraft instance;
+
     // 特殊变量
     public static JadePinkSystem jadePinkSystem = new JadePinkSystem();
     public static VersionChecker versionChecker = new VersionChecker();
     public static boolean haveWarnedVersionOutOfDate = false;
-    public static Random rand = new Random();
+    public final static Random rand = new Random();
     // Material
     public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
     public static final Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); // 石锤
@@ -376,6 +382,12 @@ public class ChinaCraft implements ItemBlockCollection {
     @EventHandler
     public void onServerStarted(FMLServerStartedEvent event) {
         //vault = ServerManager.getVaultPlugin();
+    }
+
+    @EventHandler
+    public void serverLoad(FMLServerStartingEvent event)
+    {
+        event.registerServerCommand(new Command());
     }
 
     @Override

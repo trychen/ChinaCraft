@@ -99,7 +99,7 @@ public class GuiRedPacket extends GuiContainer {
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         String s = sender == null ? StatCollector.translateToLocal("item.redpacket.name")
-                : (sender.equals("") ? StatCollector.translateToLocal("item.redpacket.name")
+                : (sender.isEmpty() ? StatCollector.translateToLocal("item.redpacket.name")
                         : StatCollector.translateToLocal("gui.redpacket.from").replaceAll("%sender%", sender)); // 设置Gui标题
         this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 5,
                 Integer.MAX_VALUE);

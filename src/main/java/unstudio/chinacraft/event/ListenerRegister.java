@@ -2,11 +2,6 @@ package unstudio.chinacraft.event;
 
 import net.minecraftforge.common.MinecraftForge;
 
-import unstudio.chinacraft.event.combat.ListenerArmor;
-import unstudio.chinacraft.event.common.ListenerVersionChecker;
-import unstudio.chinacraft.event.entity.ListenerEntityBlackDog;
-import unstudio.chinacraft.event.jade.ListenerGreenJade;
-import unstudio.chinacraft.event.jade.ListenerJade;
 import cpw.mods.fml.common.FMLCommonHandler;
 import unstudio.chinacraft.util.annotation.AnnotationClassGetter;
 

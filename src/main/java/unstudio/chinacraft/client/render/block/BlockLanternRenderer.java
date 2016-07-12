@@ -15,7 +15,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 @Deprecated
 public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
 
-    public static int renderID = RenderingRegistry.getNextAvailableRenderId();
+    public final static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     public static void drawInventoryBlock(Block block, int metadata, RenderBlocks renderer) {
         Tessellator tes = Tessellator.instance;

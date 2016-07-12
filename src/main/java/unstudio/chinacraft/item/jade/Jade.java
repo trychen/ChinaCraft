@@ -12,8 +12,6 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.event.jade.PlayerUseJadeEvent;
 
 public class Jade extends Item {
-    private int Level = 1;
-    private Random random = new Random();
 
     public Jade(String s) {
         setUnlocalizedName(s);
@@ -26,10 +24,6 @@ public class Jade extends Item {
         setUnlocalizedName(s);
         setMaxStackSize(16);
         setCreativeTab(ChinaCraft.tabCore);
-    }
-
-    public int getEnchantability() {
-        return 3;
     }
 
     @Override

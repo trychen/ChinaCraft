@@ -31,7 +31,7 @@ public class AnnotationClassGetter {
                     // 判断是否是同一个接口
                     if(c.isAssignableFrom(classes)) {
                         // 本身不加入进去
-                        if(!c.equals(classes)) {
+                        if(c != classes) {
                             returnClassList.add(classes);
                         }
                     }
@@ -49,12 +49,12 @@ public class AnnotationClassGetter {
     public static String[] getPackageAllClassName(String classLocation, String packageName){
         //将packageName分解
         String[] packagePathSplit = packageName.split("[.]");
-        String realClassLocation = classLocation;
+        StringBuilder realClassLocation = new StringBuilder(classLocation);
         int packageLength = packagePathSplit.length;
         for(int i = 0; i< packageLength; i++){
-            realClassLocation = realClassLocation + File.separator+packagePathSplit[i];
+            realClassLocation.append(File.separator+packagePathSplit[i]);
         }
-        File packeageDir = new File(realClassLocation);
+        File packeageDir = new File(realClassLocation.toString());
         if(packeageDir.isDirectory()){
             String[] allClassName = packeageDir.list();
             return allClassName;

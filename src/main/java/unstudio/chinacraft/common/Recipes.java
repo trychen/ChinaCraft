@@ -9,7 +9,6 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
-import unstudio.chinacraft.util.annotation.AnnotationInvoker;
 
 /**
  * Use for nothing. Created by trychen on 15/12/5.
