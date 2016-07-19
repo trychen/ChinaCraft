@@ -10,13 +10,14 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.ITickable;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.item.combat.BronzeBroadSword;
 import unstudio.chinacraft.item.combat.Hammer;
 import unstudio.chinacraft.item.jade.Jade;
 
-public class TileJadeBench extends TileEntity implements IInventory {
+public class TileJadeBench extends TileEntity implements IInventory, ITickable {
 
     private ItemStack stack[] = new ItemStack[3];
 
@@ -52,12 +53,11 @@ public class TileJadeBench extends TileEntity implements IInventory {
             return null;
         }
     }
-
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        if (p_70304_1_ >= 0 && p_70304_1_ < stack.length) {
-            ItemStack itemstack = this.stack[p_70304_1_];
-            this.stack[p_70304_1_] = null;
+    public ItemStack removeStackFromSlot(int index) {
+        if (index >= 0 && index < stack.length) {
+            ItemStack itemstack = this.stack[index];
+            this.stack[index] = null;
             return itemstack;
         } else {
             return null;
@@ -73,13 +73,13 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public String getInventoryName() {
+    public String getName() {
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         // TODO Auto-generated method stub
         return false;
     }
@@ -93,18 +93,12 @@ public class TileJadeBench extends TileEntity implements IInventory {
     public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
         return true;
     }
-
+    
     @Override
-    public void openInventory() {
-        // TODO Auto-generated method stub
-
-    }
-
+    public void openInventory(EntityPlayer player) {}
+    
     @Override
-    public void closeInventory() {
-        // TODO Auto-generated method stub
-
-    }
+    public void closeInventory(EntityPlayer player) {}
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
@@ -113,7 +107,7 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public void updateEntity() {
+    public void update() {
         if (getStackInSlot(0) != null) {
             if (getStackInSlot(1) != null) {
                 if (getStackInSlot(2) == null) {
@@ -226,4 +220,34 @@ public class TileJadeBench extends TileEntity implements IInventory {
         }
         par1NBTTagCompound.setTag("Items", var2);
     }
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getField(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getFieldCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
 }

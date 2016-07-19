@@ -5,6 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,71 +15,67 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileFirebrickStructure;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockPotteryKiln extends BlockContainer {
 
     public BlockPotteryKiln() {
         super(Material.rock);
-        setBlockName("firebrick");
+        setUnlocalizedName("firebrick");
         setHardness(1.5F);
         setResistance(10.0F);
         setLightLevel(0.0F);
         setStepSound(soundTypeStone);
         setHarvestLevel("pickaxe", 0);
     }
-
-    public static void generatePotteryKiln(World world, int x, int y, int z, int type) {
+    public static void generatePotteryKiln(World world, BlockPos pos, int type) {
         TileFirebrickStructure tile = (TileFirebrickStructure) ChinaCraft.blockFirebrickStructure
                 .createNewTileEntity(world, 0);
-        tile.setPosition(x, y, z);
-        world.setBlock(x, y, z, ChinaCraft.blockPotteryKiln, type, 2);
+        tile.setPosition(pos);
+        world.setBlockState(pos, ChinaCraft.blockPotteryKiln.getStateFromMeta(type), 2);
         if (type == 0) {
-            world.setBlock(x, y, z - 1, ChinaCraft.blockFirebrickStructure, 1, 2);
-            ((TileFirebrickStructure) world.getTileEntity(x, y, z - 1)).setPosition(x, y, z);
+            world.setBlockState(pos.north(), ChinaCraft.blockFirebrickStructure.getStateFromMeta(1), 2);
+            ((TileFirebrickStructure) world.getTileEntity(pos.north())).setPosition(pos);
         } else if (type == 1) {
-            world.setBlock(x + 1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
-            ((TileFirebrickStructure) world.getTileEntity(x + 1, y, z)).setPosition(x, y, z);
+            world.setBlockState(pos.east(), ChinaCraft.blockFirebrickStructure.getStateFromMeta(1), 2);
+            ((TileFirebrickStructure) world.getTileEntity(pos.east())).setPosition(pos);
         } else if (type == 2) {
-            world.setBlock(x, y, z + 1, ChinaCraft.blockFirebrickStructure, 1, 2);
-            ((TileFirebrickStructure) world.getTileEntity(x, y, z + 1)).setPosition(x, y, z);
+            world.setBlockState(pos.south(), ChinaCraft.blockFirebrickStructure.getStateFromMeta(1), 2);
+            ((TileFirebrickStructure) world.getTileEntity(pos.south())).setPosition(pos);
         } else if (type == 3) {
-            world.setBlock(x - 1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
-            ((TileFirebrickStructure) world.getTileEntity(x - 1, y, z)).setPosition(x, y, z);
+            world.setBlockState(pos.west(), ChinaCraft.blockFirebrickStructure.getStateFromMeta(1), 2);
+            ((TileFirebrickStructure) world.getTileEntity(pos.west())).setPosition(pos);
         }
-        int tx = x - 1;
-        int ty = y;
-        int tz = z - 1;
+        pos = pos.west().north();
         for (int Y = 0; Y < 3; Y++) {
             for (int Z = 0; Z < 3; Z++) {
                 for (int X = 0; X < 3; X++) {
-                    if (world.getBlock(X + tx, ty + Y, Z + tz).equals(ChinaCraft.blockFirebrick)) {
-                        world.setBlock(X + tx, ty + Y, Z + tz, ChinaCraft.blockFirebrickStructure, 0, 2);
-                        ((TileFirebrickStructure) world.getTileEntity(X + tx, ty + Y, Z + tz)).setPosition(x, y, z);
+                    if (world.getBlockState(pos.add(X, Y, Z)).getBlock().equals(ChinaCraft.blockFirebrick)) {
+                        world.setBlockState(pos.add(X, Y, Z), ChinaCraft.blockFirebrickStructure.getStateFromMeta(0), 2);
+                        ((TileFirebrickStructure) world.getTileEntity(pos.add(X, Y, Z))).setPosition(pos.south().east());
                     }
                 }
             }
         }
     }
 
-    public static void destroyPotteryKiln(World world, int x, int y, int z) {
-        int tx = x - 1;
-        int ty = y;
-        int tz = z - 1;
+    public static void destroyPotteryKiln(World world, BlockPos pos) {
+        pos = pos.west().north();
         for (int Y = 0; Y < 3; Y++) {
             for (int Z = 0; Z < 3; Z++) {
                 for (int X = 0; X < 3; X++) {
-                    if (world.getBlock(X + tx, ty + Y, Z + tz).equals(ChinaCraft.blockFirebrickStructure)
-                            || world.getBlock(X + tx, ty + Y, Z + tz).equals(ChinaCraft.blockPotteryKiln)) {
-                        world.setBlock(X + tx, ty + Y, Z + tz, ChinaCraft.blockFirebrick, 0, 2);
+                    if (world.getBlockState(pos.add(X, Y, Z)).getBlock().equals(ChinaCraft.blockFirebrickStructure)
+                            || world.getBlockState(pos.add(X, Y, Z)).getBlock().equals(ChinaCraft.blockPotteryKiln)) {
+                        world.setBlockState(pos.add(X, Y, Z), ChinaCraft.blockFirebrick.getDefaultState(), 2);
                     }
                 }
             }
@@ -86,24 +83,24 @@ public class BlockPotteryKiln extends BlockContainer {
     }
 
     @Override
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_,
-            EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
-        int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+    		ItemStack stack) {
+        int l = MathHelper.floor_double(placer.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
         if (l == 0) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
+        	worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(2));
         }
 
         if (l == 1) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
+        	worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(5));
         }
 
         if (l == 2) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
+        	worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(3));
         }
 
         if (l == 3) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
+        	worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(4));
         }
     }
 
@@ -113,10 +110,9 @@ public class BlockPotteryKiln extends BlockContainer {
     }
 
     @Override
-    public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,
-            int p_149749_6_) {
-        TilePotteryKiln tileentity = (TilePotteryKiln) p_149749_1_.getTileEntity(p_149749_2_, p_149749_3_, p_149749_4_);
-        Random random = p_149749_1_.rand;
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+        TilePotteryKiln tileentity = (TilePotteryKiln) worldIn.getTileEntity(pos);
+        Random random = worldIn.rand;
         if (tileentity != null) {
             for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1) {
                 ItemStack itemstack = tileentity.getStackInSlot(i1);
@@ -134,8 +130,8 @@ public class BlockPotteryKiln extends BlockContainer {
                         }
 
                         itemstack.stackSize -= j1;
-                        EntityItem entityitem = new EntityItem(p_149749_1_, p_149749_2_ + f, p_149749_3_ + f1,
-                                p_149749_4_ + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
+                        EntityItem entityitem = new EntityItem(worldIn, pos.getX() + f, pos.getY() + f1,
+                                pos.getZ() + f2, new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
                         if (itemstack.hasTagCompound()) {
                             entityitem.getEntityItem()
@@ -146,14 +142,14 @@ public class BlockPotteryKiln extends BlockContainer {
                         entityitem.motionX = (float) random.nextGaussian() * f3;
                         entityitem.motionY = (float) random.nextGaussian() * f3 + 0.2F;
                         entityitem.motionZ = (float) random.nextGaussian() * f3;
-                        p_149749_1_.spawnEntityInWorld(entityitem);
+                        worldIn.spawnEntityInWorld(entityitem);
                     }
                 }
             }
-            p_149749_1_.func_147453_f(p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_);
+            worldIn.updateComparatorOutputLevel(pos, state.getBlock());
         }
-        BlockPotteryKiln.destroyPotteryKiln(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_);
-        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+        BlockPotteryKiln.destroyPotteryKiln(worldIn, pos);
+        super.breakBlock(worldIn, pos, state);
     }
 
     @Override
@@ -162,29 +158,28 @@ public class BlockPotteryKiln extends BlockContainer {
     }
 
     @Override
-    public int getComparatorInputOverride(World p_149736_1_, int p_149736_2_, int p_149736_3_, int p_149736_4_,
-            int p_149736_5_) {
+    public int getComparatorInputOverride(World worldIn, BlockPos pos) {
         return Container.calcRedstoneFromInventory(
-                (IInventory) p_149736_1_.getTileEntity(p_149736_2_, p_149736_3_, p_149736_4_));
+                (IInventory) worldIn.getTileEntity(pos));
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
+    public Item getItem(World worldIn, BlockPos pos) {
         return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(ChinaCraft.blockPotteryKiln);
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        if (world.isRemote)
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+    		EnumFacing side, float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote)
             return true;
-        p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_PotteryKiln, world, x, y, z);
+        playerIn.openGui(ChinaCraft.instance, GuiID.GUI_PotteryKiln, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
 }

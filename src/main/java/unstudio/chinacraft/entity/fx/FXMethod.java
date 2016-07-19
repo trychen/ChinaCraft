@@ -1,5 +1,6 @@
 package unstudio.chinacraft.entity.fx;
 
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
 /**
@@ -7,10 +8,10 @@ import net.minecraft.world.World;
  */
 public class FXMethod {
     public static void spawnEffects(World worldObj, double xCoord, double yCoord, double zCoord) {
-        spawnEffects("mobSpellAmbient", worldObj, xCoord, yCoord, zCoord);
+        spawnEffects(EnumParticleTypes.SPELL_MOB_AMBIENT, worldObj, xCoord, yCoord, zCoord);
     }
 
-    public static void spawnEffects(String kind, World worldObj, double xCoord, double yCoord, double zCoord) {
+    public static void spawnEffects(EnumParticleTypes kind, World worldObj, double xCoord, double yCoord, double zCoord) {
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1,
                 zCoord + worldObj.rand.nextFloat(), 0, 0, 0);
         worldObj.spawnParticle(kind, xCoord + worldObj.rand.nextFloat(), yCoord + 1.1,

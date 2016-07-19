@@ -5,52 +5,47 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class BlockWoodenBucket extends Block {
-
-    private IIcon top, bottom, side, inner;
+	public static final PropertyBool FILLED_WATER = PropertyBool.create("filled_water");
+    //private IIcon top, bottom, side, inner;
 
     public BlockWoodenBucket() {
         super(Material.wood);
         setHardness(0.5F);
         setResistance(5.0F);
         setStepSound(soundTypeWood);
-        setBlockName("wooden_bucket");
+        setUnlocalizedName("wooden_bucket");
     }
 
     @Override
-    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
-            AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
+    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask,
+    		List<AxisAlignedBB> list, Entity collidingEntity) {
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_,
-                p_149743_7_);
+        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         float f = 0.125F;
         this.setBlockBounds(0.0F, 0.0F, 0.0F, f, 1.0F, 1.0F);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_,
-                p_149743_7_);
+        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, f);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_,
-                p_149743_7_);
+        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         this.setBlockBounds(1.0F - f, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_,
-                p_149743_7_);
+        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         this.setBlockBounds(0.0F, 0.0F, 1.0F - f, 1.0F, 1.0F, 1.0F);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_,
-                p_149743_7_);
+        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         this.setBlockBoundsForItemRender();
     }
 
@@ -69,12 +64,7 @@ public class BlockWoodenBucket extends Block {
         return false;
     }
 
-    @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    @SideOnly(Side.CLIENT)
+    /*@SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int i, int par2) {
         if (i == 0)
@@ -97,11 +87,11 @@ public class BlockWoodenBucket extends Block {
         this.bottom = reg.registerIcon("chinacraft:woodenbucket_bottom");
         this.side = reg.registerIcon("chinacraft:woodenbucket_side");
         this.inner = reg.registerIcon("chinacraft:woodenbucket_inner");
-    }
+    }*/
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        if (p_149650_1_ == 1) {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        if (state.getValue(FILLED_WATER).booleanValue()) {
             return ChinaCraft.woodenBucket_Water;
         }
         return ChinaCraft.woodenBucket;
@@ -109,47 +99,45 @@ public class BlockWoodenBucket extends Block {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
+    public Item getItem(World worldIn, BlockPos pos) {
         return ChinaCraft.woodenBucket;
     }
 
     @Override
-    public void fillWithRain(World p_149639_1_, int p_149639_2_, int p_149639_3_, int p_149639_4_) {
-        if (p_149639_1_.rand.nextInt(20) == 1) {
-            int l = p_149639_1_.getBlockMetadata(p_149639_2_, p_149639_3_, p_149639_4_);
-
-            if (l == 0) {
-                p_149639_1_.setBlockMetadataWithNotify(p_149639_2_, p_149639_3_, p_149639_4_, 1, 2);
-            }
+    public void fillWithRain(World worldIn, BlockPos pos) {
+        if (worldIn.rand.nextInt(20) == 1) {
+        	IBlockState state = worldIn.getBlockState(pos);
+            if(!state.getValue(FILLED_WATER))
+            	worldIn.setBlockState(pos, state.withProperty(FILLED_WATER, true));
         }
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        ItemStack item = player.inventory.getCurrentItem();
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+    		EnumFacing side, float hitX, float hitY, float hitZ) {
+        ItemStack item = playerIn.inventory.getCurrentItem();
         if (item == null)
             return true;
-        if (world.getBlockMetadata(x, y, z) == 1) {
+        if (state.getValue(FILLED_WATER)) {
             if (item.getItem() == Items.bucket) {
-                world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-                if (!player.capabilities.isCreativeMode) {
+            	worldIn.setBlockState(pos, state.withProperty(FILLED_WATER, false));
+                if (!playerIn.capabilities.isCreativeMode) {
                     if (--item.stackSize <= 0) {
-                        player.inventory.setInventorySlotContents(player.inventory.currentItem,
+                        playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem,
                                 new ItemStack(Items.water_bucket));
                     } else {
-                        player.inventory.addItemStackToInventory(new ItemStack(Items.water_bucket));
+                        playerIn.inventory.addItemStackToInventory(new ItemStack(Items.water_bucket));
                     }
                 }
                 return true;
             } else if (item.getItem() == ChinaCraft.woodenBucket) {
-                world.setBlockMetadataWithNotify(x, y, z, 0, 2);
-                if (!player.capabilities.isCreativeMode) {
+            	worldIn.setBlockState(pos, state.withProperty(FILLED_WATER, false));
+                if (!playerIn.capabilities.isCreativeMode) {
                     if (--item.stackSize <= 0) {
-                        player.inventory.setInventorySlotContents(player.inventory.currentItem,
+                        playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem,
                                 new ItemStack(ChinaCraft.woodenBucket_Water));
                     } else {
-                        player.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.woodenBucket_Water));
+                        playerIn.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.woodenBucket_Water));
                     }
                 }
                 return true;
@@ -158,24 +146,24 @@ public class BlockWoodenBucket extends Block {
             }
         } else {
             if (item.getItem() == Items.water_bucket) {
-                world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-                if (!player.capabilities.isCreativeMode) {
+            	worldIn.setBlockState(pos, state.withProperty(FILLED_WATER, true));
+                if (!playerIn.capabilities.isCreativeMode) {
                     if (--item.stackSize <= 0) {
-                        player.inventory.setInventorySlotContents(player.inventory.currentItem,
+                        playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem,
                                 new ItemStack(Items.bucket));
                     } else {
-                        player.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
+                        playerIn.inventory.addItemStackToInventory(new ItemStack(Items.bucket));
                     }
                 }
                 return true;
             } else if (item.getItem() == ChinaCraft.woodenBucket_Water) {
-                world.setBlockMetadataWithNotify(x, y, z, 1, 2);
-                if (!player.capabilities.isCreativeMode) {
+            	worldIn.setBlockState(pos, state.withProperty(FILLED_WATER, true));
+                if (!playerIn.capabilities.isCreativeMode) {
                     if (--item.stackSize <= 0) {
-                        player.inventory.setInventorySlotContents(player.inventory.currentItem,
+                        playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem,
                                 new ItemStack(ChinaCraft.woodenBucket));
                     } else {
-                        player.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.woodenBucket));
+                        playerIn.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.woodenBucket));
                     }
                 }
                 return true;

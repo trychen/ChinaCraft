@@ -16,11 +16,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-
+import net.minecraftforge.fml.common.registry.IThrowableEntity;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.common.registry.IThrowableEntity;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * Use for nothing. Created by trychen on 15/11/27.
@@ -82,9 +81,10 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
-        setPosition(par1, par3, par5);
-        setRotation(par7, par8);
+    public void setPositionAndRotation2(double x, double y, double z, float yaw, float pitch, int posRotationIncrements,
+    		boolean p_180426_10_) {
+        setPosition(x, y, z);
+        setRotation(yaw, pitch);
     }
 
     @Override
@@ -117,15 +117,14 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
                     / -0.2465202408391868383319627019821672609729976053746972091335607274417143792611646468666099954223702531852081796870384209593175109357727518220749959343865517405281418066028207904539344058208827591955203839664087370312270837139172694811743320064854133972021677103193875026650225333515672045398392054313506425897809047050229062173739289151911007588240153379938542568310045085576889146436213486680082325707122846970519580353861109723136254278392540388301621618776326109477308531961131849717399815178647450071746461459506885629294145482431946533243513891082618409666441925317430381267489087951164361868471999053659538739166342588752753621909136915666741814140671270380971673058150072681324546351787121735503660881713627379405541953839453218971710923529212909946489713284572207794468132713822715635450368939258352720128913175876093090610320564645005209571484477403553672902340207343367115369046395929883393555438136962994217425768412633473589606226384389019766986995603145943085418332543819818753299659295174080094323299806432540386490561682097624198076821070324654816767658655672861680009824511658231569504438432765867084556425486769029985519989086075181185266906199854380384603133981226643057388366486956949210218552392642751470901709922868939677719663401933949364607561658774875208992616228148334691883888044227773139502832024678316365085895821311049202916945150049511836722144243063529454547548479221925045835462240792815911547036484029423230223382669950303059533537695307368785877071007212246699706012778857310900975159457552704976858518014864979027748832790445041505670002537169838871980363365434554642443154082648097688806863377503775981693495668269704619754554025157484508090091908207330360783816544089331760769709125882306676078462917574293953895741422016337502812908187953285979926026382565866832092703153975490200059311731553260631881974886242265314358468973512841895950246973575474315366178186243520618160678721790501688039882375367137389698230336980281256390712298542204656226085413759319785712519496951652032973742607705400855167785500672D));
         }
 
-        Block i = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
+        Block i = this.worldObj.getBlockState(this.getTilePosition()).getBlock();
 
         if (i != Blocks.air) {
-            i.setBlockBoundsBasedOnState(this.worldObj, this.xTile, this.yTile, this.zTile);
-            AxisAlignedBB axisalignedbb = i.getCollisionBoundingBoxFromPool(this.worldObj, this.xTile, this.yTile,
-                    this.zTile);
+            i.setBlockBoundsBasedOnState(this.worldObj, this.getTilePosition());
+            AxisAlignedBB axisalignedbb = i.getCollisionBoundingBox(worldObj, getTilePosition(), worldObj.getBlockState(getTilePosition()));
 
             if ((axisalignedbb != null)
-                    && (axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ))))
+                    && (axisalignedbb.isVecInside(new Vec3(this.posX, this.posY, this.posZ))))
                 this.inGround = true;
 
         }
@@ -135,8 +134,8 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
         }
 
         if (this.inGround) {
-            Block j = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
-            int k = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
+            Block j = this.worldObj.getBlockState(getTilePosition()).getBlock();
+            int k = j.getMetaFromState(worldObj.getBlockState(getTilePosition()));
 
             if ((j == this.inTile) && (k == this.inData)) {
                 this.ticksInGround += 1;
@@ -153,22 +152,22 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
             }
         } else {
             this.ticksInAir += 1;
-            Vec3 vec3 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            Vec3 vec31 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY,
+            Vec3 vec3 = new Vec3(this.posX, this.posY, this.posZ);
+            Vec3 vec31 = new Vec3(this.posX + this.motionX, this.posY + this.motionY,
                     this.posZ + this.motionZ);
-            MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec3, vec31, false, true, false);
-            vec3 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            vec31 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY,
+            MovingObjectPosition movingobjectposition = this.worldObj.rayTraceBlocks(vec3, vec31, false, true, false);
+            vec3 = new Vec3(this.posX, this.posY, this.posZ);
+            vec31 = new Vec3(this.posX + this.motionX, this.posY + this.motionY,
                     this.posZ + this.motionZ);
 
             if (movingobjectposition != null) {
-                vec31 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord,
+                vec31 = new Vec3(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord,
                         movingobjectposition.hitVec.zCoord);
             }
 
             Entity entity = null;
             List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this,
-                    this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1D, 1D, 1D));
+                    this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1D, 1D, 1D));
             double d0 = 0D;
 
             for (int l = 0; l < list.size(); ++l) {
@@ -176,7 +175,7 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
 
                 if ((entity1.canBeCollidedWith()) && (((entity1 != this.shootingEntity) || (this.ticksInAir >= 5)))) {
                     float f1 = 0.30000001192092895508F;
-                    AxisAlignedBB axisalignedbb1 = entity1.boundingBox.expand(f1, f1, f1);
+                    AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand(f1, f1, f1);
                     MovingObjectPosition movingobjectposition1 = axisalignedbb1.calculateIntercept(vec3, vec31);
 
                     if (movingobjectposition1 != null) {
@@ -253,11 +252,12 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
                         this.ticksInAir = 0;
                     }
                 } else {
-                    this.xTile = movingobjectposition.blockX;
-                    this.yTile = movingobjectposition.blockY;
-                    this.zTile = movingobjectposition.blockZ;
-                    this.inTile = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
-                    this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
+                	BlockPos pos = movingobjectposition.getBlockPos();
+                    this.xTile = pos.getX();
+                    this.yTile = pos.getY();
+                    this.zTile = pos.getZ();
+                    this.inTile = this.worldObj.getBlockState(pos).getBlock();
+                    this.inData = this.inTile.getMetaFromState(this.worldObj.getBlockState(pos));
                     this.motionX = (float) (movingobjectposition.hitVec.xCoord - this.posX);
                     this.motionY = (float) (movingobjectposition.hitVec.yCoord - this.posY);
                     this.motionZ = (float) (movingobjectposition.hitVec.zCoord - this.posZ);
@@ -273,7 +273,7 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
                     setIsCritical(false);
 
                     if (this.inTile != Blocks.air)
-                        this.inTile.onEntityCollidedWithBlock(this.worldObj, this.xTile, this.yTile, this.zTile, this);
+                        this.inTile.onEntityCollidedWithBlock(this.worldObj, pos, this.worldObj.getBlockState(pos), this);
 
                 }
 
@@ -310,7 +310,7 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
             if (isInWater()) {
                 for (int j1 = 0; j1 < 4; ++j1) {
                     float f3 = 0.25F;
-                    this.worldObj.spawnParticle("bubble", this.posX - this.motionX * f3, this.posY - this.motionY * f3,
+                    this.worldObj.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f3, this.posY - this.motionY * f3,
                             this.posZ - this.motionZ * f3, this.motionX, this.motionY, this.motionZ);
                 }
 
@@ -322,7 +322,7 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
             this.motionZ *= f4;
             this.motionY -= f1;
             setPosition(this.posX, this.posY, this.posZ);
-            func_145775_I();
+            doBlockCollisions();
         }
     }
 
@@ -380,12 +380,6 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public float getShadowSize() {
-        return 0F;
-    }
-
-    @Override
     public double getDamage() {
         return this.damage;
     }
@@ -408,5 +402,9 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
     @Override
     public void setThrower(Entity entity) {
         this.shootingEntity = entity;
+    }
+    
+    public BlockPos getTilePosition() {
+    	return new BlockPos(xTile, yTile, zTile);
     }
 }

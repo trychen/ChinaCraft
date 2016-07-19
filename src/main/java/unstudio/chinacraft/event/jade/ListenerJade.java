@@ -3,9 +3,8 @@ package unstudio.chinacraft.event.jade;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Created by trychen on 15/11/18.

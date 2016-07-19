@@ -4,9 +4,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.inventory.SlotFurnaceFuel;
+import net.minecraft.inventory.SlotFurnaceOutput;
 import net.minecraft.item.ItemStack;
-
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 
 public class ContainerBuhrimill extends Container {
@@ -19,8 +19,8 @@ public class ContainerBuhrimill extends Container {
         this.tile = tileEntity;
         this.addSlotToContainer(new Slot(tileEntity, 0, 43, 25));
         this.addSlotToContainer(new Slot(tileEntity, 1, 43, 50));
-        this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 2, 112, 25));
-        this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 3, 112, 50));
+        this.addSlotToContainer(new SlotFurnaceOutput(par1InventoryPlayer.player, tileEntity, 2, 112, 25));
+        this.addSlotToContainer(new SlotFurnaceFuel(tileEntity, 3, 112, 50));
         int var3;
         for (var3 = 0; var3 < 3; ++var3) {
             for (int var4 = 0; var4 < 9; ++var4) {

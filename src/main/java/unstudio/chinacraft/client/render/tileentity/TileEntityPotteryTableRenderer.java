@@ -17,7 +17,7 @@ public class TileEntityPotteryTableRenderer extends TileEntitySpecialRenderer {
     public TileEntityPotteryTableRenderer() {}
 
     @Override
-    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
+    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage) {
         ModelPotteryTable model = this.model;
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 0.75F, (float) z + 0.5F);

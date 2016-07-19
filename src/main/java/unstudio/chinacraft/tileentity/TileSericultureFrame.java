@@ -8,10 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.ITickable;
 import unstudio.chinacraft.common.ChinaCraft;
 
-public class TileSericultureFrame extends TileEntity implements ISidedInventory {
+public class TileSericultureFrame extends TileEntity implements ISidedInventory, ITickable {
 
     private static final int[] slotsTop = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
     private static final int[] slotsSide = new int[] { 9 };
@@ -60,12 +62,12 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
             return null;
         }
     }
-
+    
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        if (this.stack[p_70304_1_] != null) {
-            ItemStack itemstack = this.stack[p_70304_1_];
-            this.stack[p_70304_1_] = null;
+    public ItemStack removeStackFromSlot(int index) {
+        if (this.stack[index] != null) {
+            ItemStack itemstack = this.stack[index];
+            this.stack[index] = null;
             return itemstack;
         } else {
             return null;
@@ -81,12 +83,12 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
     }
 
     @Override
-    public String getInventoryName() {
+    public String getName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return false;
     }
 
@@ -101,13 +103,13 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory(EntityPlayer player) {}
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory(EntityPlayer player) {}
 
     @Override
-    public void updateEntity() {
+    public void update() {
         for (int i = 0; i < 9; i++) {
             ItemStack item = getStackInSlot(i);
             if (item == null)
@@ -219,28 +221,6 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
         }
     }
 
-    @Deprecated
-    public double getDefaultMortality() {
-        double temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0 ? 0
-                : worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature > 1.5F ? 1.5F
-                        : worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature;
-        double rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0 ? 0
-                : worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall > 1.5F ? 1.5F
-                        : worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
-        int height = yCoord > 128 ? 128 : yCoord;
-        double m = 0;
-        m += -0.422 * Math.pow(temperature, 4) + 1.109 * Math.pow(temperature, 3) - 0.301 * Math.pow(temperature, 2)
-                - 0.620 * temperature + 0.3 < 0 ? 0
-                        : -0.422 * Math.pow(temperature, 4) + 1.109 * Math.pow(temperature, 3)
-                                - 0.301 * Math.pow(temperature, 2) - 0.620 * temperature + 0.3;
-        m += -0.422 * Math.pow(rainfall, 4) + 1.109 * Math.pow(rainfall, 3) - 0.301 * Math.pow(rainfall, 2)
-                - 0.620 * rainfall + 0.3 < 0 ? 0
-                        : -0.422 * Math.pow(rainfall, 4) + 1.109 * Math.pow(rainfall, 3) - 0.301 * Math.pow(rainfall, 2)
-                                - 0.620 * rainfall + 0.3;
-        m += 0.000048828125F * (height - 64F) * (height - 64F);
-        return m;
-    }
-
     @Override
     public void readFromNBT(NBTTagCompound p_145839_1_) {
         super.readFromNBT(p_145839_1_);
@@ -283,18 +263,48 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return p_94128_1_ == 0 ? slotsBottom : p_94128_1_ == 1 ? slotsTop : slotsSide;
+    public int[] getSlotsForFace(EnumFacing side) {
+        return side == EnumFacing.DOWN ? slotsBottom : side == EnumFacing.UP ? slotsTop : slotsSide;
     }
 
     @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return this.isItemValidForSlot(p_102007_1_, p_102007_2_);
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+        return this.isItemValidForSlot(index, itemStackIn);
     }
 
     @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return p_102008_3_ != 0 || p_102008_1_ != 0;
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return direction != EnumFacing.DOWN || index != 0;
     }
+
+	@Override
+	public int getField(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getFieldCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

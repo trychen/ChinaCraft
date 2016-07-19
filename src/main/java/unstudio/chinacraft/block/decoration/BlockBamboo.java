@@ -4,31 +4,29 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.util.ForgeDirection;
 
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 竹子的主类，可种植，与甘蔗差不多
  */
 public class BlockBamboo extends Block implements IPlantable {
 
-    private IIcon icon;
+    //private IIcon icon;
 
     public BlockBamboo() {
         super(Material.plants);
@@ -37,29 +35,29 @@ public class BlockBamboo extends Block implements IPlantable {
         this.setTickRandomly(true);
         setHardness(3.0F);
         setCreativeTab(ChinaCraft.tabCore);
-        setBlockName("bamboo");
+        setUnlocalizedName("bamboo");
     }
 
-    @Override
+    /*@Override
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {return icon;}
 
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
         icon = p_149651_1_.registerIcon(getTextureName());
-    }
+    }*/
 
     /**
      * Ticks the block if it's been scheduled
      */
     @Override
-    public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-        if (p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - 1, p_149674_4_) == ChinaCraft.bamboo
-                || this.func_150170_e(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_)) {
-            if (p_149674_1_.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+        if (worldIn.getBlockState(pos.down()) == ChinaCraft.bamboo
+                || this.checkForDrop(worldIn, pos, state)) {
+            if (worldIn.isAirBlock(pos.up())) {
                 int l;
 
-                for (l = 1; p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - l, p_149674_4_) == this; ++l) {
+                for (l = 1; worldIn.getBlockState(pos.down(l)).getBlock() == this; ++l) {
                     ;
                 }
 
@@ -82,42 +80,44 @@ public class BlockBamboo extends Block implements IPlantable {
      * coordinates. Args: world, x, y, z
      */
     @Override
-    public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_) {
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         int i = 1;
         Block block;
         while (true) {
-            block = p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - i, p_149742_4_);
+            block = worldIn.getBlockState(pos.down(i)).getBlock();
             if (block != ChinaCraft.bamboo) {
                 break;
             }
             i++;
         }
-        return block.canSustainPlant(p_149742_1_, p_149742_2_, p_149742_3_ - 1, p_149742_4_, ForgeDirection.UP, this);
+        return block.canSustainPlant(worldIn, pos.down(), EnumFacing.UP, this);
     }
 
     /**
      * Can this block stay at this position. Similar to canPlaceBlockAt except
      * gets checked often with plants.
      */
-    @Override
-    public boolean canBlockStay(World p_149718_1_, int p_149718_2_, int p_149718_3_, int p_149718_4_) {
-        return this.canPlaceBlockAt(p_149718_1_, p_149718_2_, p_149718_3_, p_149718_4_);
+    
+    public boolean canBlockStay(World worldIn, BlockPos pos) {
+    	return this.canPlaceBlockAt(worldIn, pos);
     }
 
     @Override
-    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_,
-            Block p_149695_5_) {
-        this.func_150170_e(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_);
+    public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
+        this.checkForDrop(worldIn, pos, state);
     }
 
-    protected final boolean func_150170_e(World p_150170_1_, int p_150170_2_, int p_150170_3_, int p_150170_4_) {
-        if (!this.canBlockStay(p_150170_1_, p_150170_2_, p_150170_3_, p_150170_4_)) {
-            this.dropBlockAsItem(p_150170_1_, p_150170_2_, p_150170_3_, p_150170_4_,
-                    p_150170_1_.getBlockMetadata(p_150170_2_, p_150170_3_, p_150170_4_), 0);
-            p_150170_1_.setBlockToAir(p_150170_2_, p_150170_3_, p_150170_4_);
-            return false;
-        } else {
+    protected final boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state)
+    {
+        if (this.canBlockStay(worldIn, pos))
+        {
             return true;
+        }
+        else
+        {
+            this.dropBlockAsItem(worldIn, pos, state, 0);
+            worldIn.setBlockToAir(pos);
+            return false;
         }
     }
 

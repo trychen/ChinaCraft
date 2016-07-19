@@ -26,9 +26,9 @@ public class EntitySuperArrow extends EntityArrow {
      * The owner of this arrow.
      */
     public Entity shootingEntity;
-    private int field_145791_d = -1;
-    private int field_145792_e = -1;
-    private int field_145789_f = -1;
+    private int tileX = -1;
+    private int tileY = -1;
+    private int tileZ = -1;
     private Block field_145790_g;
     private int inData;
     private boolean inGround;
@@ -64,17 +64,15 @@ public class EntitySuperArrow extends EntityArrow {
                     / Math.PI);
             this.prevRotationPitch = this.rotationPitch = (float) (Math.atan2(this.motionY, f) * 180.0D / Math.PI);
         }
-
-        Block block = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+        BlockPos pos = getTilePosition();
+        Block block = this.worldObj.getBlockState(pos).getBlock();
 
         if (block.getMaterial() != Material.air) {
-            block.setBlockBoundsBasedOnState(this.worldObj, this.field_145791_d, this.field_145792_e,
-                    this.field_145789_f);
-            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.field_145791_d,
-                    this.field_145792_e, this.field_145789_f);
+            block.setBlockBoundsBasedOnState(this.worldObj, pos);
+            AxisAlignedBB axisalignedbb = block.getCollisionBoundingBox(worldObj, pos, worldObj.getBlockState(pos));
 
             if (axisalignedbb != null
-                    && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ))) {
+                    && axisalignedbb.isVecInside(new Vec3(this.posX, this.posY, this.posZ))) {
                 this.inGround = true;
             }
         }
@@ -84,7 +82,7 @@ public class EntitySuperArrow extends EntityArrow {
         }
 
         if (this.inGround) {
-            int j = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e, this.field_145789_f);
+            int j = block.getMetaFromState(worldObj.getBlockState(pos));
 
             if (block == this.field_145790_g && j == this.inData) {
                 ++this.ticksInGround;
@@ -102,22 +100,22 @@ public class EntitySuperArrow extends EntityArrow {
             }
         } else {
             ++this.ticksInAir;
-            Vec3 vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            Vec3 vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY,
+            Vec3 vec31 = new Vec3(this.posX, this.posY, this.posZ);
+            Vec3 vec3 = new Vec3(this.posX + this.motionX, this.posY + this.motionY,
                     this.posZ + this.motionZ);
-            MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
-            vec31 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
-            vec3 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY,
+            MovingObjectPosition movingobjectposition = this.worldObj.rayTraceBlocks(vec31, vec3, false, true, false);
+            vec31 = new Vec3(this.posX, this.posY, this.posZ);
+            vec3 = new Vec3(this.posX + this.motionX, this.posY + this.motionY,
                     this.posZ + this.motionZ);
 
             if (movingobjectposition != null) {
-                vec3 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord,
+                vec3 = new Vec3(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord,
                         movingobjectposition.hitVec.zCoord);
             }
 
             Entity entity = null;
             List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this,
-                    this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
+                    this.getEntityBoundingBox().addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = 0.0D;
             int i;
             float f1;
@@ -127,7 +125,7 @@ public class EntitySuperArrow extends EntityArrow {
 
                 if (entity1.canBeCollidedWith() && (entity1 != this.shootingEntity || this.ticksInAir >= 5)) {
                     f1 = 0.3F;
-                    AxisAlignedBB axisalignedbb1 = entity1.boundingBox.expand(f1, f1, f1);
+                    AxisAlignedBB axisalignedbb1 = entity1.getEntityBoundingBox().expand(f1, f1, f1);
                     MovingObjectPosition movingobjectposition1 = axisalignedbb1.calculateIntercept(vec31, vec3);
 
                     if (movingobjectposition1 != null) {
@@ -199,8 +197,8 @@ public class EntitySuperArrow extends EntityArrow {
                             }
 
                             if (this.shootingEntity != null && this.shootingEntity instanceof EntityLivingBase) {
-                                EnchantmentHelper.func_151384_a(entitylivingbase, this.shootingEntity);
-                                EnchantmentHelper.func_151385_b((EntityLivingBase) this.shootingEntity,
+                                EnchantmentHelper.applyArthropodEnchantments(entitylivingbase, this.shootingEntity);
+                                EnchantmentHelper.applyThornEnchantments((EntityLivingBase) this.shootingEntity,
                                         entitylivingbase);
                             }
 
@@ -227,13 +225,12 @@ public class EntitySuperArrow extends EntityArrow {
                         this.ticksInAir = 0;
                     }
                 } else {
-                    this.field_145791_d = movingobjectposition.blockX;
-                    this.field_145792_e = movingobjectposition.blockY;
-                    this.field_145789_f = movingobjectposition.blockZ;
-                    this.field_145790_g = this.worldObj.getBlock(this.field_145791_d, this.field_145792_e,
-                            this.field_145789_f);
-                    this.inData = this.worldObj.getBlockMetadata(this.field_145791_d, this.field_145792_e,
-                            this.field_145789_f);
+                	 pos = movingobjectposition.getBlockPos();
+                    this.tileX = pos.getX();
+                    this.tileY = pos.getY();
+                    this.tileZ = pos.getZ();
+                    this.field_145790_g = this.worldObj.getBlockState(pos).getBlock();
+                    this.inData = field_145790_g.getMetaFromState(worldObj.getBlockState(pos));
                     this.motionX = ((float) (movingobjectposition.hitVec.xCoord - this.posX));
                     this.motionY = ((float) (movingobjectposition.hitVec.yCoord - this.posY));
                     this.motionZ = ((float) (movingobjectposition.hitVec.zCoord - this.posZ));
@@ -248,15 +245,14 @@ public class EntitySuperArrow extends EntityArrow {
                     this.setIsCritical(false);
 
                     if (this.field_145790_g.getMaterial() != Material.air) {
-                        this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, this.field_145791_d,
-                                this.field_145792_e, this.field_145789_f, this);
+                        this.field_145790_g.onEntityCollidedWithBlock(this.worldObj, pos, worldObj.getBlockState(pos), this);
                     }
                 }
             }
 
             if (this.getIsCritical()) {
                 for (i = 0; i < 4; ++i) {
-                    this.worldObj.spawnParticle("crit", this.posX + this.motionX * i / 4.0D,
+                    this.worldObj.spawnParticle(EnumParticleTypes.CRIT, this.posX + this.motionX * i / 4.0D,
                             this.posY + this.motionY * i / 4.0D, this.posZ + this.motionZ * i / 4.0D, -this.motionX,
                             -this.motionY + 0.2D, -this.motionZ);
                 }
@@ -293,7 +289,7 @@ public class EntitySuperArrow extends EntityArrow {
             if (this.isInWater()) {
                 for (int l = 0; l < 4; ++l) {
                     f4 = 0.25F;
-                    this.worldObj.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4,
+                    this.worldObj.spawnParticle(EnumParticleTypes.WATER_BUBBLE, this.posX - this.motionX * f4, this.posY - this.motionY * f4,
                             this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
                 }
 
@@ -309,7 +305,10 @@ public class EntitySuperArrow extends EntityArrow {
             this.motionZ *= f3;
             this.motionY -= f1;
             this.setPosition(this.posX, this.posY, this.posZ);
-            this.func_145775_I();
+            this.doBlockCollisions();
         }
+    }
+    public BlockPos getTilePosition() {
+    	return new BlockPos(tileX, tileY, tileZ);
     }
 }

@@ -11,6 +11,8 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
+import java.io.IOException;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
@@ -56,9 +58,9 @@ public class GuiRedPacket extends GuiContainer {
                     wish = StatCollector.translateToLocal("gui.redpacket.wash");
                 money = redpacket.getDouble("Money");
                 sendee = redpacket.getString("Sendee");
-                if (sendee != null || sendee.length() == 0 || sendee.equalsIgnoreCase(player.getDisplayName())) {
+                if (sendee != null || sendee.length() == 0 || sendee.equalsIgnoreCase(player.getName())) {
                     if (ChinaCraft.vault != null) {
-                        ChinaCraft.vault.depositPlayer(player.getDisplayName(), money);
+                        ChinaCraft.vault.depositPlayer(player.getName(), money);
                     }
                 }
             }
@@ -71,15 +73,15 @@ public class GuiRedPacket extends GuiContainer {
         Keyboard.enableRepeatEvents(true);
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
-        wishTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2 - 80, 65, 160, 16);
+        wishTextBox = new GuiTextField(1, Minecraft.getMinecraft().fontRendererObj, this.xSize / 2 - 80, 65, 160, 16);
         wishTextBox.setFocused(true);
         wishTextBox.setText(wish);
         wishTextBox.setMaxStringLength(64);
-        moneyTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2 + 96, 41, 64, 16);
+        moneyTextBox = new GuiTextField(2, Minecraft.getMinecraft().fontRendererObj, this.xSize / 2 + 96, 41, 64, 16);
         moneyTextBox.setFocused(false);
         moneyTextBox.setText(String.valueOf(money));
         moneyTextBox.setMaxStringLength(32);
-        sendeeTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2 + 96, 65, 64, 16);
+        sendeeTextBox = new GuiTextField(3, Minecraft.getMinecraft().fontRendererObj, this.xSize / 2 + 96, 65, 64, 16);
         sendeeTextBox.setFocused(false);
         sendeeTextBox.setText(sendee);
         sendeeTextBox.setMaxStringLength(32);
@@ -186,7 +188,7 @@ public class GuiRedPacket extends GuiContainer {
         if (((wish != null && wish.length() > 0) || (money > 0)) && (sender != null && sender.length() > 0))
             redpacket.setString("Sender", sender);
         else if (((wish != null && wish.length() > 0) || (money > 0)) && (isSend && sendee.length() > 0))
-            redpacket.setString("Sender", player.getDisplayName());
+            redpacket.setString("Sender", player.getName());
         if (wish != null && wish.length() > 0)
             redpacket.setString("Wish", wish);
         if (isSend && sendee != null && sendee.length() > 0)
@@ -207,7 +209,7 @@ public class GuiRedPacket extends GuiContainer {
     }
 
     @Override
-    protected void mouseClicked(int par1, int par2, int par3) {
+    protected void mouseClicked(int par1, int par2, int par3) throws IOException {
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         wishTextBox.mouseClicked(par1 - k, par2 - l, par3);

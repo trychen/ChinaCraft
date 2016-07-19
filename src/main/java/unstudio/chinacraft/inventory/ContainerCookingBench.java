@@ -7,12 +7,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.tileentity.TileCookingBench;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ContainerCookingBench extends Container {
 
@@ -23,7 +22,7 @@ public class ContainerCookingBench extends Container {
     public ContainerCookingBench(InventoryPlayer par1InventoryPlayer, TileCookingBench tileEntity) {
         this.tile = tileEntity;
         this.addSlotToContainer(new Slot(tileEntity, 0, 80, 31));
-        this.addSlotToContainer(new SlotFurnace(par1InventoryPlayer.player, tileEntity, 1, 80, 53));
+        this.addSlotToContainer(new SlotFurnaceFuel(tileEntity, 1, 80, 53));
         int var3;
         for (var3 = 0; var3 < 3; ++var3) {
             for (int var4 = 0; var4 < 9; ++var4) {
@@ -80,13 +79,11 @@ public class ContainerCookingBench extends Container {
         }
         return var3;
     }
-
     @Override
-    public void addCraftingToCrafters(ICrafting par1iCrafting) {
-        // TODO Auto-generated method stub
-        super.addCraftingToCrafters(par1iCrafting);
-        par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.furnaceBurnTime);
-        par1iCrafting.sendProgressBarUpdate(this, 1, this.tile.currentItemBurnTime);
+    public void onCraftGuiOpened(ICrafting listener) {
+    	super.onCraftGuiOpened(listener);
+        listener.sendProgressBarUpdate(this, 0, this.tile.furnaceBurnTime);
+        listener.sendProgressBarUpdate(this, 1, this.tile.currentItemBurnTime);
     }
 
     @Override

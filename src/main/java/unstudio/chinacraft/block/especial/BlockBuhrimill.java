@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,23 +13,21 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBuhrimill extends BlockContainer {
 
-    private IIcon icon;
-
     public BlockBuhrimill() {
         super(Material.rock);
-        setBlockName("buhrimill");
+        setUnlocalizedName("buhrimill");
         setHardness(3.0F);
         setResistance(10.0F);
         setCreativeTab(ChinaCraft.tabCore);
@@ -57,7 +55,7 @@ public class BlockBuhrimill extends BlockContainer {
 
     @Override
     public int getRenderType() {
-        return -1;
+        return 1;
     }
 
     @Override
@@ -66,40 +64,40 @@ public class BlockBuhrimill extends BlockContainer {
     }
 
     @Override
-    public boolean renderAsNormalBlock() {
+    public boolean isFullCube() {
         return false;
     }
 
     @Override
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_,
-            EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
-        int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+    		ItemStack stack) {
+        int l = MathHelper.floor_double(placer.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
         if (l == 0) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 4, 2);
+            worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(4));
         }
 
         if (l == 1) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 5, 2);
+            worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(5));
         }
 
         if (l == 2) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
+            worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(2));
         }
 
         if (l == 3) {
-            p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
+            worldIn.setBlockState(pos, state.getBlock().getStateFromMeta(3));
         }
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(ChinaCraft.buhrimill);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
+    public Item getItem(World worldIn, BlockPos pos) {
         return Item.getItemFromBlock(ChinaCraft.buhrimill);
     }
 
@@ -109,26 +107,24 @@ public class BlockBuhrimill extends BlockContainer {
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-
-        if (p_149727_5_.isSneaking()) {
-            if (world.isRemote)
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+    		EnumFacing side, float hitX, float hitY, float hitZ) {
+        if (playerIn.isSneaking()) {
+            if (worldIn.isRemote)
                 return true;
-            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
+            playerIn.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, worldIn, pos.getX(), pos.getY(), pos.getZ());
         } else {
-            if (world.getTileEntity(x, y, z) instanceof TileBuhrimill) {
-                ((TileBuhrimill) world.getTileEntity(x, y, z)).addAngle(10);
+            if (worldIn.getTileEntity(pos) instanceof TileBuhrimill) {
+                ((TileBuhrimill) worldIn.getTileEntity(pos)).addAngle(10);
             }
         }
         return true;
     }
 
     @Override
-    public void breakBlock(World World, int x, int y, int z, Block Block, int var1) {
-
-        TileBuhrimill tileentity = (TileBuhrimill) World.getTileEntity(x, y, z);
-        Random random = World.rand;
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+        TileBuhrimill tileentity = (TileBuhrimill) worldIn.getTileEntity(pos);
+        Random random = worldIn.rand;
         if (tileentity != null) {
             for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1) {
                 ItemStack itemstack = tileentity.getStackInSlot(i1);
@@ -146,7 +142,7 @@ public class BlockBuhrimill extends BlockContainer {
                         }
 
                         itemstack.stackSize -= j1;
-                        EntityItem entityitem = new EntityItem(World, x + f, y + f1, z + f2,
+                        EntityItem entityitem = new EntityItem(worldIn, pos.getX() + f, pos.getY() + f1, pos.getZ() + f2,
                                 new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
 
                         if (itemstack.hasTagCompound()) {
@@ -158,18 +154,18 @@ public class BlockBuhrimill extends BlockContainer {
                         entityitem.motionX = (float) random.nextGaussian() * f3;
                         entityitem.motionY = (float) random.nextGaussian() * f3 + 0.2F;
                         entityitem.motionZ = (float) random.nextGaussian() * f3;
-                        World.spawnEntityInWorld(entityitem);
+                        worldIn.spawnEntityInWorld(entityitem);
                     }
                 }
             }
 
-            World.func_147453_f(x, y, z, Block);
+            worldIn.updateComparatorOutputLevel(pos, state.getBlock());
         }
 
-        super.breakBlock(World, x, y, z, Block, var1);
+        super.breakBlock(worldIn, pos, state);
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
         icon = p_149651_1_.registerIcon("Minecraft:stone");
@@ -178,5 +174,5 @@ public class BlockBuhrimill extends BlockContainer {
     @Override
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
         return icon;
-    }
+    }*/
 }

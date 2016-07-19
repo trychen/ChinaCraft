@@ -4,11 +4,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-
-import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
-import cpw.mods.fml.common.registry.GameRegistry;
+import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipes;
 
 /**
  * Use for nothing. Created by trychen on 15/12/5.

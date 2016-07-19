@@ -3,8 +3,7 @@ package unstudio.chinacraft.event.jade;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-
-import cpw.mods.fml.common.eventhandler.Cancelable;
+import net.minecraftforge.fml.common.eventhandler.Cancelable;
 
 /**
  * Created by trych on 2016/1/9.

@@ -1,4 +1,4 @@
-package unstudio.chinacraft.inventory;//based on master condiguration
+package unstudio.chinacraft.inventory;//based on master configuration
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -10,11 +10,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+
+import java.io.IOException;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 
 public class Text {
 
@@ -71,7 +73,7 @@ public class Text {
         }
 
         @Override
-        protected void mouseClicked(int par1, int par2, int par3) {
+        protected void mouseClicked(int par1, int par2, int par3) throws IOException {
             super.mouseClicked(par1, par2, par3);
 
         }

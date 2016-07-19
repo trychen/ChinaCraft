@@ -1,7 +1,5 @@
 package unstudio.chinacraft.entity.animal;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.world.World;
@@ -18,10 +16,10 @@ public class EntityBlackDog extends EntityWolf {
     @Override
     public EntityWolf createChild(EntityAgeable p_90011_1_) {
         EntityBlackDog entitywolf = new EntityBlackDog(this.worldObj);
-        String s = this.func_152113_b();
+        String s = this.getCustomNameTag();
 
         if (s != null && s.trim().length() > 0) {
-            entitywolf.func_152115_b(s);
+            entitywolf.setCustomNameTag(s);
             entitywolf.setTamed(true);
         }
 

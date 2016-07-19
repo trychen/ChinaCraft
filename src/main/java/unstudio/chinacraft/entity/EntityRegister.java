@@ -1,13 +1,12 @@
 package unstudio.chinacraft.entity;
 
 import net.minecraft.entity.EntityList;
-
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 /**
  * Created by Trychen on 2015/10/30.

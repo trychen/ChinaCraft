@@ -16,7 +16,7 @@ import java.lang.reflect.InvocationTargetException;
 public class TileEntityModelBlockRenderer extends TileEntitySpecialRenderer {
 
     @Override
-    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
+	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float partialTicks, int destroyStage) {
         TileModelBlock ti = (TileModelBlock) te;
         ModelBase model = null;
         try {

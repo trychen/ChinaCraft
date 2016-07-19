@@ -7,11 +7,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.WorldServer;
-
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
+import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
-import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 
 public class RedPacketMessageHandler implements IMessageHandler<RedPacketMessage, IMessage> { // 包处理类
     @Override
@@ -26,7 +25,7 @@ public class RedPacketMessageHandler implements IMessageHandler<RedPacketMessage
         if (itemstack1.getItem() == ChinaCraft.redPacket && itemstack1.getItem() == itemstack1.getItem()) {
             itemstack1.setTagInfo("Redpacket", nbt);
             String sendee = nbt.getString("Sendee");
-            if (sendee != null && sendee.length() != 0 && sendee.equalsIgnoreCase(player.getDisplayName())) {
+            if (sendee != null && sendee.length() != 0 && sendee.equalsIgnoreCase(player.getName())) {
                 EntityPlayer sendeePlayer = getPlayer(sendee);
                 if (sendeePlayer == null) {
                     player.addChatMessage(new ChatComponentText(StatCollector

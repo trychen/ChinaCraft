@@ -5,9 +5,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /**
  * 孔明灯
@@ -30,13 +29,7 @@ public class EntityKongmingLantern extends Entity {
     // 返回碰撞箱
     @Override
     public AxisAlignedBB getCollisionBox(Entity p_70114_1_) {
-        return p_70114_1_.boundingBox;
-    }
-
-    // 返回边界箱
-    @Override
-    public AxisAlignedBB getBoundingBox() {
-        return this.boundingBox;
+        return p_70114_1_.getEntityBoundingBox();
     }
 
     // 如果为true,则该实体可以被推动

@@ -12,6 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.pathfinding.PathNavigateGround;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -25,7 +26,7 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
     public EntityPanda(World world) {
         super(world);
         this.setSize(0.9F, 1.3F);
-        this.getNavigator().setAvoidsWater(true);
+        ((PathNavigateGround)this.getNavigator()).setAvoidsWater(true);
         this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(1, new EntityAIPanic(this, 2.0D));
         this.tasks.addTask(2, new EntityAIMate(this, 1.0D));
@@ -72,11 +73,6 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
         } else {
             this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -3)));
         }
-    }
-
-    @Override
-    public boolean isAIEnabled() {
-        return true;
     }
 
     @Override
@@ -144,7 +140,7 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
      */
     @Override
     public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_) {
-        if (this.isEntityInvulnerable()) {
+        if (this.isEntityInvulnerable(p_70097_1_)) {
             return false;
         } else {
             Entity entity = p_70097_1_.getEntity();

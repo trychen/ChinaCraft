@@ -7,6 +7,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
+import java.io.IOException;
+
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.inventory.ContainerPotteryTable;
@@ -42,7 +44,7 @@ public class GuiPotteryTable extends GuiContainer {
     }
 
     @Override
-    protected void keyTyped(char par1, int par2) {
+    protected void keyTyped(char par1, int par2) throws IOException {
         super.keyTyped(par1, par2);
     }
 }

@@ -1,17 +1,15 @@
 package unstudio.chinacraft.block.generation;
 
-import cpw.mods.fml.common.IWorldGenerator;
-import net.minecraft.block.Block;
+import java.util.Random;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import unstudio.chinacraft.block.BlockBase;
-import unstudio.chinacraft.common.ChinaCraft;
-
-import java.util.Random;
 
 /**
  * 矿物父类含自动生成
@@ -43,12 +41,12 @@ public class BlockCCOre extends BlockBase implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-        if (dimensionID == world.provider.dimensionId) {
+        if (dimensionID == world.provider.getDimensionId()) {
             for (int i = 0; i < frequency; i++) {
                 int firstBlockXCoord = chunkX * 16 + random.nextInt(16);
                 int firstBlockYCoord = random.nextInt(highest - lowest) + lowest;
                 int firstBlockZCoord = chunkZ * 16 + random.nextInt(16);
-                (new WorldGenMinable(this, size, Blocks.stone)).generate(world, random, firstBlockXCoord, firstBlockYCoord, firstBlockZCoord);
+                (new WorldGenMinable(getDefaultState(), size)).generate(world, random, new BlockPos(firstBlockXCoord, firstBlockYCoord, firstBlockZCoord));
             }
         }
     }

@@ -11,14 +11,15 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelBuhrimill;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 
-public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
+public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer<TileBuhrimill> {
     public final ModelBuhrimill model = new ModelBuhrimill();
     public final ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/buhrimill.png");
 
     public TileEntityBuhrimillRenderer() {}
-
+    
     @Override
-    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
+    public void renderTileEntityAt(TileBuhrimill te, double x, double y, double z, float partialTicks,
+    		int destroyStage) {
         ModelBuhrimill modelBuhrimill = this.model;
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);

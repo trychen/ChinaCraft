@@ -1,10 +1,9 @@
 package unstudio.chinacraft.tileentity;
 
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ITickable;
 
-public class TilePot extends TileCooker{
+public class TilePot extends TileCooker implements ITickable{
 
 	public TilePot() {
 	}
@@ -20,7 +19,7 @@ public class TilePot extends TileCooker{
 	}
 	
 	@Override
-	public void updateEntity() {
+	public void update() {
 		
 	}
 }

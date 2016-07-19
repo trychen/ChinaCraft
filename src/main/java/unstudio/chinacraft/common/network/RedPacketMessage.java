@@ -2,11 +2,10 @@ package unstudio.chinacraft.common.network;
 
 import java.io.IOException;
 
+import io.netty.buffer.ByteBuf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
-
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 public class RedPacketMessage implements IMessage { // 包类
 
@@ -29,10 +28,6 @@ public class RedPacketMessage implements IMessage { // 包类
 
     @Override
     public void toBytes(ByteBuf buf) {
-        try {
-            (new PacketBuffer(buf)).writeItemStackToBuffer(this.itemstack);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        (new PacketBuffer(buf)).writeItemStackToBuffer(this.itemstack);
     }
 }

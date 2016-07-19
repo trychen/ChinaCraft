@@ -1,30 +1,37 @@
 package unstudio.chinacraft.common;
 
 import mcp.mobius.waila.api.IWailaRegistrar;
+import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-
 import unstudio.chinacraft.block.especial.BlockBuhrimill;
 import unstudio.chinacraft.client.waila.BuhrimillWailaHandler;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.ItemCCBlock;
 import unstudio.chinacraft.item.ItemCCSlab;
-import unstudio.chinacraft.tileentity.*;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileCookingBench;
+import unstudio.chinacraft.tileentity.TileDrum;
+import unstudio.chinacraft.tileentity.TileFirebrickStructure;
+import unstudio.chinacraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.tileentity.TilePotteryTable;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import unstudio.chinacraft.util.GuiHandler;
 import unstudio.chinacraft.util.annotation.register.ItemBlockRegister;
 import unstudio.chinacraft.util.config.ConfigLoader;
 import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
@@ -32,7 +39,7 @@ public class CommonProxy {
 
         new FeatureConfig();
 
-        ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture,
+        ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ChinaCraft.BRONZE_ARMOR, ChinaCraft.bronzeArmorTexture,
                 0).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜头盔
         ChinaCraft.bronzeChestplate = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,
                 ChinaCraft.bronzeArmorTexture, 1).setUnlocalizedName("bronze_body").setMaxStackSize(1)

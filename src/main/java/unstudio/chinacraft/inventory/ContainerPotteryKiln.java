@@ -8,10 +8,9 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ContainerPotteryKiln extends Container {
 
@@ -81,9 +80,9 @@ public class ContainerPotteryKiln extends Container {
     }
 
     @Override
-    public void addCraftingToCrafters(ICrafting par1iCrafting) {
+    public void onCraftGuiOpened(ICrafting par1iCrafting) {
         // TODO Auto-generated method stub
-        super.addCraftingToCrafters(par1iCrafting);
+        super.onCraftGuiOpened(par1iCrafting);
         par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.furnaceBurnTime);
         par1iCrafting.sendProgressBarUpdate(this, 1, this.tile.currentItemBurnTime);
     }

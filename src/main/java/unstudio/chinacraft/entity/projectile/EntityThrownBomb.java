@@ -3,6 +3,7 @@ package unstudio.chinacraft.entity.projectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
@@ -22,7 +23,7 @@ public class EntityThrownBomb extends EntityThrowable {
     @Override
     public void onUpdate() {
         super.onUpdate();
-        this.worldObj.spawnParticle("spell", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
+        this.worldObj.spawnParticle(EnumParticleTypes.SPELL, this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
     }
 
     @Override

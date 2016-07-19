@@ -5,7 +5,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
+import net.minecraft.inventory.SlotFurnaceFuel;
 import net.minecraft.item.ItemStack;
 
 public class ContainerPotteryTable extends Container {
@@ -28,7 +28,7 @@ public class ContainerPotteryTable extends Container {
             }
         });
         this.addSlotToContainer(new Slot(inv, 1, 9, 48));
-        this.addSlotToContainer(new SlotFurnace(player, inv, 2, 80, 48));
+        this.addSlotToContainer(new SlotFurnaceFuel(inv, 2, 80, 48));
         InventoryPlayer par1InventoryPlayer = player.inventory;
         int var3;
         for (var3 = 0; var3 < 3; ++var3) {

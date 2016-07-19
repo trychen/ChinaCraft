@@ -1,11 +1,12 @@
 package unstudio.chinacraft.entity;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import unstudio.chinacraft.client.model.ModelBlackDog;
 import unstudio.chinacraft.client.model.ModelChinaZombie;
 import unstudio.chinacraft.client.model.ModelKongmingLantern;
@@ -15,7 +16,6 @@ import unstudio.chinacraft.entity.especial.EntityKongmingLantern;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
-import cpw.mods.fml.client.registry.RenderingRegistry;
 
 public class EntityRenderingRegistry {
 
@@ -31,10 +31,10 @@ public class EntityRenderingRegistry {
                 "textures/entity/chinazombie/chinazombie.png");
         EntityRenderingHandler(EntityKongmingLantern.class, new ModelKongmingLantern(), "chinacraft",
                 "textures/entity/kongminglantern/kongminglantern.png");
-        RenderingRegistry.registerEntityRenderingHandler(EntityThrownBomb.class, new RenderSnowball(ChinaCraft.bomb));
+        RenderingRegistry.registerEntityRenderingHandler(EntityThrownBomb.class, new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ChinaCraft.bomb, Minecraft.getMinecraft().getRenderItem()));
 
         RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class,
-                new RenderSnowball(ChinaCraft.firecracker));
+                new RenderSnowball(Minecraft.getMinecraft().getRenderManager(), ChinaCraft.firecracker, Minecraft.getMinecraft().getRenderItem()));
     }
 
     /**
@@ -46,7 +46,7 @@ public class EntityRenderingRegistry {
      */
     public static void EntityRenderingHandler(Class<? extends Entity> entityClass, ModelBase modelBase,
             final String resource, final String location) {
-        RenderingRegistry.registerEntityRenderingHandler(entityClass, new RenderLiving(modelBase, 0) {
+        RenderingRegistry.registerEntityRenderingHandler(entityClass, new RenderLiving(Minecraft.getMinecraft().getRenderManager(), modelBase, 0) {
             @Override
             protected ResourceLocation getEntityTexture(Entity p_110775_1_) {
                 return new ResourceLocation(resource, location);

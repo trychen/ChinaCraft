@@ -10,11 +10,14 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.ITickable;
+import net.minecraftforge.client.event.EntityViewRenderEvent.CameraSetup;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import unstudio.chinacraft.block.especial.BlockFirebrickStructure;
-import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TilePotteryKiln extends TileEntity implements ISidedInventory {
+public class TilePotteryKiln extends TileEntity implements ISidedInventory, ITickable {
 
     public int furnaceBurnTime;
     public int currentItemBurnTime;
@@ -46,7 +49,7 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
                 return 200;
             if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
                 return 200;
-            if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD"))
+            if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD"))
                 return 200;
             if (item == Items.stick)
                 return 100;
@@ -100,10 +103,10 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        if (this.stack[p_70304_1_] != null) {
-            ItemStack itemstack = this.stack[p_70304_1_];
-            this.stack[p_70304_1_] = null;
+    public ItemStack removeStackFromSlot(int index) {
+        if (this.stack[index] != null) {
+            ItemStack itemstack = this.stack[index];
+            this.stack[index] = null;
             return itemstack;
         } else {
             return null;
@@ -119,12 +122,12 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public String getInventoryName() {
+    public String getName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return false;
     }
 
@@ -139,10 +142,10 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory(EntityPlayer player) {}
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory(EntityPlayer player) {}
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
@@ -190,7 +193,7 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void updateEntity() {
+    public void update() {
         boolean flag = this.furnaceBurnTime > 0;
         boolean flag1 = false;
 
@@ -227,35 +230,33 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 
         if (flag1) {
             this.markDirty();
-            if (this.blockMetadata == 0) {
-                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord - 1);
-            } else if (blockMetadata == 1) {
+            if (this.getBlockMetadata() == 0) {
+                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, getPos().add(0, 0, -1));
+            } else if (getBlockMetadata() == 1) {
                 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj,
-                        this.xCoord + 1, this.yCoord, this.zCoord);
-            } else if (blockMetadata == 2) {
-                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord + 1);
-            } else if (blockMetadata == 3) {
+                        getPos().add(1, 0, 0));
+            } else if (getBlockMetadata() == 2) {
+                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, getPos().add(0, 0, 1));
+            } else if (getBlockMetadata() == 3) {
                 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj,
-                        this.xCoord - 1, this.yCoord, this.zCoord);
+                        getPos().add(-1, 0, 0));
             }
         }
     }
-
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return null;
+    public int[] getSlotsForFace(EnumFacing side) {
+    	// TODO Auto-generated method stub
+    	return null;
     }
-
     @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return false;
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+    	// TODO Auto-generated method stub
+    	return false;
     }
-
     @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return false;
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+    	// TODO Auto-generated method stub
+    	return false;
     }
 
     public int getBurnTimeRemainingScaled(int i) {
@@ -265,5 +266,46 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 
         return this.furnaceBurnTime * i / this.currentItemBurnTime;
     }
+
+	@Override
+	public int getField(int id) {
+		switch (id) {
+		case 0:
+			return currentItemBurnTime;
+		case 1:
+			return furnaceBurnTime;
+		default:
+			return 0;
+		}
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		switch (id) {
+		case 0:
+			currentItemBurnTime = value;
+			break;
+		case 1:
+			furnaceBurnTime = value;
+			break;
+		}
+	}
+
+	@Override
+	public int getFieldCount() {
+		return 2;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

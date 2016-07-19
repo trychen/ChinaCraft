@@ -6,10 +6,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
-
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ListenerEntityBlackDog {
     @SubscribeEvent

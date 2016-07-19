@@ -5,14 +5,14 @@ import java.util.List;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import unstudio.chinacraft.api.EntityMethod;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.fx.FXMethod;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class ListenerGreenJade {
     @SubscribeEvent
@@ -73,7 +73,7 @@ public class ListenerGreenJade {
             if (entityPlayer.getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                     if (event.distance > 4.0f) {
-                        entityPlayer.worldObj.spawnParticle("largeexplode",
+                        entityPlayer.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE,
                                 event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(),
                                 event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
                         if (event.distance < 6f) {
@@ -97,7 +97,7 @@ public class ListenerGreenJade {
                     }
                 } else
                     if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.blGiantSword) && event.distance > 3.0f) {
-                    entityPlayer.worldObj.spawnParticle("largeexplode",
+                    entityPlayer.worldObj.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE,
                             event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(),
                             event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
                     List<EntityMob> nearbyMobsList = EntityMethod.findNearbyMobs(entityPlayer, entityPlayer.posX,

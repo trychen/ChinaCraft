@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.common.ChinaCraft;
@@ -116,6 +117,7 @@ public class BlocksChecker {
      * @param Z
      *            Z坐标
      * @return 如果为真，则该结构是指定结构
+     * @deprecated
      */
     public boolean check(World world, int X, int Y, int Z) {
         X += this.offsetX;
@@ -127,6 +129,30 @@ public class BlocksChecker {
                 for (int x = 0; x < this.widthX; x++) {
                     BlockRule rule = this.data[y][z][x];
                     if (rule != null && !rule.check(world, X + x, Y - y, Z + z))
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+    
+    /**
+     * 检查该多方块结构 请输入结构左上角的坐标
+     * 
+     * @param world
+     *            世界
+     * @param pos
+     *            坐标
+     * @return 如果为真，则该结构是指定结构
+     */
+    public boolean check(World world, BlockPos pos) {
+        pos = pos.add(offsetX, offsetY, offsetZ);
+
+        for (int y = 0; y < this.height; y++) {
+            for (int z = 0; z < this.widthZ; z++) {
+                for (int x = 0; x < this.widthX; x++) {
+                    BlockRule rule = this.data[y][z][x];
+                    if (rule != null && !rule.check(world, pos.add(x, -y, z)))
                         return false;
                 }
             }

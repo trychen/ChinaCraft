@@ -30,7 +30,7 @@ public class EntityChinaZombie extends EntityZombie {
 
     public EntityMob createChild(EntityAgeable p_90011_1_) {
         EntityChinaZombie entityzombie = new EntityChinaZombie(this.worldObj);
-        String s = this.func_146067_o(arrowHitTimer);
+        String s = this.getFallSoundString(arrowHitTimer);
 
         if (s != null && s.trim().length() > 0) {
             entityzombie.func_142017_o(getAge());

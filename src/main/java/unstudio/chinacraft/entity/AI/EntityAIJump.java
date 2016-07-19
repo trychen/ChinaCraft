@@ -1,10 +1,9 @@
 package unstudio.chinacraft.entity.AI;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -29,9 +28,12 @@ public class EntityAIJump extends EntityAIBase{
 		int i = MathHelper.floor_double(this.entity.posX);
         int j = MathHelper.floor_double(this.entity.posY);
         int k = MathHelper.floor_double(this.entity.posZ);
-        if(world.getBlock(i, j+2, k)!=Blocks.air || world.getBlock(i, j+3, k)!=Blocks.air 
-        		|| world.getBlock(i, j+4, k)!=Blocks.air || world.getBlock(i, j+5, k)!=Blocks.air)
-        	return false;
+        BlockPos pos = new BlockPos(i, j, k);
+        
+        for (BlockPos poses : BlockPos.getAllInBox(pos.add(0, 2, 0), pos.add(0, 5, 0))) {
+			if(world.getBlockState(poses).getBlock() != Blocks.air) return false;
+		}
+        
         if(cooldown>0)
         {
         	cooldown--;

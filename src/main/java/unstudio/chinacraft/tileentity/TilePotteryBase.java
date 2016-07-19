@@ -8,20 +8,15 @@ public class TilePotteryBase extends TileEntity {
     private String potteryType;
 
     @Override
-    public boolean canUpdate() {
-        return false;
+    public void writeToNBT(NBTTagCompound compound) {
+        super.writeToNBT(compound);
+        compound.setString("PotteryType", potteryType);
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound p_145841_1_) {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setString("PotteryType", potteryType);
-    }
-
-    @Override
-    public void readFromNBT(NBTTagCompound p_145839_1_) {
-        super.readFromNBT(p_145839_1_);
-        potteryType = p_145839_1_.getString("PotteryType");
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        potteryType = compound.getString("PotteryType");
     }
 
     public String getPotteryType() {
