@@ -46,6 +46,7 @@ public class CommonProxy {
 
     public static void onWailaCall(IWailaRegistrar registrar)
     {
+        if (ChinaCraft.WAILAIsLoad)
         registrar.registerBodyProvider(new BuhrimillWailaHandler(), BlockBuhrimill.class);
     }
 

@@ -47,11 +47,11 @@ public class ItemBlockRegister {
                 try {
                     o = f.get(null);
                 } catch (IllegalAccessException e) {
-                    ChinaCraft.log.severe("Can't register non-public field as a Block/Item");
+                    ChinaCraft.log.error("Can't register non-public field as a Block/Item");
                     e.printStackTrace();
                     continue;
                 } catch (NullPointerException e) {
-                    ChinaCraft.log.severe("Can't register non-static field as a Block/Item");
+                    ChinaCraft.log.error("Can't register non-static field as a Block/Item");
                     e.printStackTrace();
                     continue;
                 }
