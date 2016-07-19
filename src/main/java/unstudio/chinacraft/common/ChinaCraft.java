@@ -19,6 +19,8 @@ import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import unstudio.chinacraft.block.BlockBase;
 import unstudio.chinacraft.block.CCFlower;
 import unstudio.chinacraft.block.CCGrowablePlant;
@@ -51,17 +53,16 @@ import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
 import java.util.Random;
-import java.util.logging.Logger;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft implements ItemBlockCollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "193";
-    public static final int OutPutVERSION = 193;
+    public static final String VERSION = "SanpShot-0.2.194";
+    public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
-    public static Logger log = Logger.getLogger(MODID);
+    public static Logger log = LogManager.getLogger(NAME);
 
     //Bukkit Vault 支持
     public static VaultPlugin vault = null;
@@ -364,7 +365,7 @@ public class ChinaCraft implements ItemBlockCollection {
         VersionCheckerIsLoad = Loader.isModLoaded("VersionChecker");
         // Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class,
         // 1, Side.CLIENT);
-        if (FeatureConfig.EnableUpdate) new Thread(versionChecker).start();
+        if (FeatureConfig.EnableUpdate) versionChecker.start();
     }
 
     @EventHandler

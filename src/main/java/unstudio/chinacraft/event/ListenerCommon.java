@@ -24,7 +24,7 @@ public class ListenerCommon {
             EntityPlayer p = (EntityPlayer) e.entity;
             // 判断是否已经提示过、是否为服务端、是否已经检查过、是否已经是最新版本
             if (!ChinaCraft.haveWarnedVersionOutOfDate && p.worldObj.isRemote
-                    && !ChinaCraft.versionChecker.isLatestVersion() && ChinaCraft.versionChecker.isCheckable()) {
+                    && !ChinaCraft.versionChecker.isLatestVersion() && ChinaCraft.versionChecker.isChecked()) {
                 ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL,
                         ChinaCraft.versionChecker.getDownloadUrl());
                 ChatStyle clickableChatStyle = new ChatStyle().setChatClickEvent(versionCheckChatClickEvent);
@@ -35,15 +35,15 @@ public class ListenerCommon {
 
                 ChatComponentText info = new ChatComponentText(StatCollector.translateToLocal("VersionChecker.version")
                         .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
-                        .replaceAll("!old", String.valueOf(ChinaCraft.OutPutVERSION)));
+                        .replaceAll("!old", String.valueOf(ChinaCraft.VERSION)));
                 info.setChatStyle(clickableChatStyle);
                 p.addChatMessage(info);
                 //一下信息
-                System.out.println(StatCollector.translateToLocal("VersionChecker.perfix"));
-                System.out.println(StatCollector.translateToLocal("VersionChecker.version")
+                ChinaCraft.log.info(StatCollector.translateToLocal("VersionChecker.perfix"));
+                ChinaCraft.log.info(StatCollector.translateToLocal("VersionChecker.version")
                         .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
-                        .replaceAll("!old", String.valueOf(ChinaCraft.OutPutVERSION)));
-                System.out.println("[ChinaCraft]Download Url:" + ChinaCraft.versionChecker.getDownloadUrl());
+                        .replaceAll("!old", String.valueOf(ChinaCraft.VERSION)));
+                ChinaCraft.log.info("Download Url:" + ChinaCraft.versionChecker.getDownloadUrl());
                 ChinaCraft.haveWarnedVersionOutOfDate = true;
             }
         }
