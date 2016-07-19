@@ -41,7 +41,8 @@ import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
-import unstudio.chinacraft.util.VersionChecker;
+import unstudio.chinacraft.util.checker.MinecraftModVersionChecker;
+import unstudio.chinacraft.util.checker.VersionChecker;
 import unstudio.chinacraft.util.annotation.register.CCOreRegister;
 import unstudio.chinacraft.util.annotation.register.CCRegister;
 import unstudio.chinacraft.util.annotation.register.CCSlabRegister;
@@ -58,7 +59,7 @@ import java.util.Random;
 public class ChinaCraft implements ItemBlockCollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "SanpShot-0.2.194";
+    public static final String VERSION = "Beta-0.2.193";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
@@ -79,7 +80,7 @@ public class ChinaCraft implements ItemBlockCollection {
 
     // 特殊变量
     public static JadePinkSystem jadePinkSystem = new JadePinkSystem();
-    public static VersionChecker versionChecker = new VersionChecker();
+    public static VersionChecker versionChecker = new MinecraftModVersionChecker(ChinaCraft.class,"ChinaCraft 华夏文明",PROJECT_ID,log);
     public static boolean haveWarnedVersionOutOfDate = false;
     public final static Random rand = new Random();
     // Material
