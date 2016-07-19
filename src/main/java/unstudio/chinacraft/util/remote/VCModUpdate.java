@@ -1,4 +1,4 @@
-package unstudio.chinacraft.util.checker;
+package unstudio.chinacraft.util.remote;
 
 import com.dynious.versionchecker.api.Update;
 

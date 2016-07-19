@@ -1,4 +1,4 @@
-package unstudio.chinacraft.util.annotation.register;
+package unstudio.chinacraft.util.annotation;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -6,7 +6,10 @@ import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
-import unstudio.chinacraft.util.annotation.AnnotationClassGetter;
+import unstudio.chinacraft.util.annotation.register.ICollection;
+import unstudio.chinacraft.util.annotation.register.OreRegister;
+import unstudio.chinacraft.util.annotation.register.Register;
+import unstudio.chinacraft.util.annotation.register.SlabRegister;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +21,7 @@ import java.util.List;
 public class ItemBlockRegister {
     public static void registerAll(){
         // 获取物品集
-        List<Class> itemBlockCollections = AnnotationClassGetter.getAllClassByInterface(ItemBlockCollection.class);
+        List<Class> itemBlockCollections = AnnotationClassGetter.getAllClassByInterface(ICollection.class);
 
         // 获取需要执行Recipes方法的类
         List<Class> recipesableCollections = AnnotationClassGetter.getAllClassByInterface(Recipes.RecipeAble.class);
@@ -35,9 +38,9 @@ public class ItemBlockRegister {
 
     /**
      * 该方法用于对使用了CC注释注册系统的类进行注册,支持以下的注释
-     * @see CCRegister
-     * @see CCOreRegister
-     * @see CCSlabRegister
+     * @see Register
+     * @see OreRegister
+     * @see SlabRegister
      * @param c 类
      */
     public static void register(Class c) {
@@ -55,14 +58,14 @@ public class ItemBlockRegister {
                     e.printStackTrace();
                     continue;
                 }
-                if (f.isAnnotationPresent(CCRegister.class) || f.isAnnotationPresent(CCOreRegister.class)) {
+                if (f.isAnnotationPresent(Register.class) || f.isAnnotationPresent(OreRegister.class)) {
 
                     String name = null;
                     String ore = null;
-                    if (f.isAnnotationPresent(CCRegister.class)) {
-                        name = f.getAnnotation(CCRegister.class).value();
-                    } else if (f.isAnnotationPresent(CCOreRegister.class)) {
-                        CCOreRegister ann = f.getAnnotation(CCOreRegister.class);
+                    if (f.isAnnotationPresent(Register.class)) {
+                        name = f.getAnnotation(Register.class).value();
+                    } else if (f.isAnnotationPresent(OreRegister.class)) {
+                        OreRegister ann = f.getAnnotation(OreRegister.class);
                         name = ann.name();
                         ore = ann.ore();
                     }

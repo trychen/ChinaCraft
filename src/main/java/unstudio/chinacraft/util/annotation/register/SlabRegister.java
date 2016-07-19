@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 /**
  * 该注释用于半砖的注册,半砖的两个对象需要放在同一个类下,否则无法注册
  */
-public @interface CCSlabRegister {
+public @interface SlabRegister {
     /**
      * @return 方块名
      */

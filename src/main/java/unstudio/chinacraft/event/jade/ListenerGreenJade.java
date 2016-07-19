@@ -10,7 +10,7 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 
 import unstudio.chinacraft.api.EntityMethod;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.entity.fx.FXMethod;
+import unstudio.chinacraft.entity.fx.FxHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
@@ -35,7 +35,7 @@ public class ListenerGreenJade {
             if (((EntityPlayer) event.entity).getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                     event.entity.motionY *= 2;
-                    FXMethod.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
+                    FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
                             event.entity.posZ - 0.5);
                     return;
                 }
@@ -48,7 +48,7 @@ public class ListenerGreenJade {
                         } else {
                             if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
                                 event.entity.motionY *= 1.8;
-                                FXMethod.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5,
+                                FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5,
                                         event.entity.posY - 2, event.entity.posZ - 0.5);
                                 break;
                             }
@@ -56,7 +56,7 @@ public class ListenerGreenJade {
                     } else {
                         if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
                             event.entity.motionY *= 1.8;
-                            FXMethod.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
+                            FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
                                     event.entity.posZ - 0.5);
                             break;
                         }

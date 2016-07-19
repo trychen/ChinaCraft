@@ -1,4 +1,4 @@
-package unstudio.chinacraft.util;
+package unstudio.chinacraft.common;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

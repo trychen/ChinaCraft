@@ -1,7 +1,7 @@
 package unstudio.chinacraft.util.annotation.register;
 
 
-public interface ItemBlockCollection {
+public interface ICollection {
     /**
      * @param input 输入的是在类中将被注册的
      * @return

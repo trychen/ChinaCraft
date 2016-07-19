@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.util.config.FeatureConfig;
+import unstudio.chinacraft.common.config.FeatureConfig;
 
 public class ContainerRedPacket extends Container {
 

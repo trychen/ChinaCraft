@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface CCOreRegister{
+public @interface OreRegister {
     /**
      * @return 物品或方块的名字
      */

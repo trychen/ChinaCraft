@@ -5,7 +5,7 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface CCRegister {
+public @interface Register {
     /**
      * @return 物品或方块的名字
      */

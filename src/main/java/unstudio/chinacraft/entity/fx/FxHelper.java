@@ -5,7 +5,7 @@ import net.minecraft.world.World;
 /**
  * Created by trychen on 15/11/18.
  */
-public class FXMethod {
+public class FxHelper {
     public static void spawnEffects(World worldObj, double xCoord, double yCoord, double zCoord) {
         spawnEffects("mobSpellAmbient", worldObj, xCoord, yCoord, zCoord);
     }

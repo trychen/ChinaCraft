@@ -1,4 +1,4 @@
-package unstudio.chinacraft.util.checker;
+package unstudio.chinacraft.util.remote;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
