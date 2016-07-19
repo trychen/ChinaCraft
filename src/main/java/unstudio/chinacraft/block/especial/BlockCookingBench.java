@@ -15,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -29,12 +30,12 @@ public class BlockCookingBench extends BlockContainer {
 
     private static boolean update;
     private boolean fire;
-    private IIcon top_off, top_on, side, bottom, front_off, front_on;
+    //private IIcon top_off, top_on, side, bottom, front_off, front_on;
 
     public BlockCookingBench(boolean fire) {
         super(Material.rock);
         this.fire = fire;
-        setBlockName("cooking_bench");
+        setUnlocalizedName("cooking_bench");
         setHardness(1.5F);
         setResistance(10.0F);
         setLightLevel(fire ? 1.0F : 0.0F);
@@ -44,8 +45,7 @@ public class BlockCookingBench extends BlockContainer {
             setCreativeTab(ChinaCraft.tabCore);
     }
 
-    public static void updateFurnaceBlockState(boolean p_149931_0_, World p_149931_1_, int p_149931_2_, int p_149931_3_,
-            int p_149931_4_) {
+    public static void updateFurnaceBlockState(boolean p_149931_0_, World p_149931_1_, BlockPos pos) {
         int l = p_149931_1_.getBlockMetadata(p_149931_2_, p_149931_3_, p_149931_4_);
         TileEntity tileentity = p_149931_1_.getTileEntity(p_149931_2_, p_149931_3_, p_149931_4_);
         update = true;

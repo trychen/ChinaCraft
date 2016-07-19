@@ -29,7 +29,7 @@ public class ItemSMFSuper extends Item {
                         || target instanceof EntityWitch) {
                     final EntityMob mob = (EntityMob) target;
                     mob.tasks.addTask(0, new EntityAIAttackOnCollide(mob, EntityMob.class, 1.0D, false));
-                    mob.targetTasks.addTask(0, new EntityAINearestAttackableTarget(mob, EntityMob.class, 0, true));
+                    mob.targetTasks.addTask(0, new EntityAINearestAttackableTarget(mob, EntityMob.class, true));
                     if (!(target instanceof EntityCreeper)) {
                         new Timer().schedule(new TimerTask() {
                             @Override

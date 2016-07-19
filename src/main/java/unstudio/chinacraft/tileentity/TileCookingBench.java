@@ -6,15 +6,23 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumFacing.Axis;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.ITickable;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import unstudio.chinacraft.block.especial.BlockCookingBench;
-import cpw.mods.fml.common.registry.GameRegistry;
 
-public class TileCookingBench extends TileEntity implements ISidedInventory {
+public class TileCookingBench extends TileEntity implements ISidedInventory, ITickable {
 
     private static final int[] slotsTop = new int[] { 0 };
     private static final int[] slotsBottom = new int[] { 1 };
@@ -48,7 +56,7 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
                 return 200;
             if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
                 return 200;
-            if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD"))
+            if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD"))
                 return 200;
             if (item == Items.stick)
                 return 100;
@@ -102,10 +110,10 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        if (this.stack[p_70304_1_] != null) {
-            ItemStack itemstack = this.stack[p_70304_1_];
-            this.stack[p_70304_1_] = null;
+    public ItemStack removeStackFromSlot(int index) {
+        if (this.stack[index] != null) {
+            ItemStack itemstack = this.stack[index];
+            this.stack[index] = null;
             return itemstack;
         } else {
             return null;
@@ -121,12 +129,12 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public String getInventoryName() {
+    public String getName() {
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         return false;
     }
 
@@ -141,10 +149,10 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory(EntityPlayer player) {}
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory(EntityPlayer player) {}
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
@@ -191,8 +199,7 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
         p_145841_1_.setTag("Items", nbttaglist);
     }
 
-    @Override
-    public void updateEntity() {
+    public void update() {
         boolean flag = this.furnaceBurnTime > 0;
         boolean flag1 = false;
 
@@ -224,8 +231,7 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
 
             if (flag != this.furnaceBurnTime > 0) {
                 flag1 = true;
-                BlockCookingBench.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord);
+                BlockCookingBench.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.getPos());
             }
         }
 
@@ -235,20 +241,19 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return p_94128_1_ == 0 ? slotsBottom : slotsTop;
+	public int[] getSlotsForFace(EnumFacing side) {
+        return side.equals(EnumFacing.DOWN) ? slotsBottom : slotsTop;
     }
 
-    @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return this.isItemValidForSlot(p_102007_1_, p_102007_2_);
-    }
+	@Override
+	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+        return this.isItemValidForSlot(index, itemStackIn);
+	}
 
-    @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return p_102008_3_ != 0 || p_102008_1_ != 1 || p_102008_2_.getItem() == Items.bucket;
-    }
-
+	@Override
+	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return direction.getAxis() != Axis.Y || stack.getItem() == Items.bucket;
+	}
     public int getBurnTimeRemainingScaled(int i) {
         if (this.currentItemBurnTime == 0) {
             this.currentItemBurnTime = 200;
@@ -256,4 +261,35 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
 
         return this.furnaceBurnTime * i / this.currentItemBurnTime;
     }
+
+	@Override
+	public int getField(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getFieldCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

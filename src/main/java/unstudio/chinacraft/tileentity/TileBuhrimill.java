@@ -6,10 +6,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.ITickable;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
-public class TileBuhrimill extends TileEntity implements ISidedInventory {
+public class TileBuhrimill extends TileEntity implements ISidedInventory, ITickable {
 
     public int angle;
     public int schedule;
@@ -49,12 +51,6 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        // TODO 自动生成的方法存根
-        return null;
-    }
-
-    @Override
     public void setInventorySlotContents(int index, ItemStack stack) {
         this.stack[index] = stack;
         if (stack != null && stack.stackSize > this.getInventoryStackLimit()) {
@@ -63,13 +59,13 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public String getInventoryName() {
+    public String getName() {
         // TODO 自动生成的方法存根
         return null;
     }
 
     @Override
-    public boolean hasCustomInventoryName() {
+    public boolean hasCustomName() {
         // TODO 自动生成的方法存根
         return false;
     }
@@ -85,13 +81,13 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {
+	public void openInventory(EntityPlayer player) {
         // TODO 自动生成的方法存根
 
     }
 
     @Override
-    public void closeInventory() {
+	public void closeInventory(EntityPlayer player) {
         // TODO 自动生成的方法存根
 
     }
@@ -135,9 +131,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
         par1NBTTagCompound.setTag("Items", var2);
     }
 
-    @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
         if (getStackInSlot(0) != null) {
             if (getStackInSlot(1) != null) {
                 BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0), getStackInSlot(1));
@@ -260,17 +254,54 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
+	public int[] getSlotsForFace(EnumFacing side) {
         return null;
     }
 
     @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
+	public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
         return false;
     }
 
     @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
+	public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
         return false;
     }
+
+	@Override
+	public ItemStack removeStackFromSlot(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getField(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setField(int id, int value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getFieldCount() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public IChatComponent getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

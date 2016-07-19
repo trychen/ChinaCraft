@@ -1,26 +1,23 @@
 package unstudio.chinacraft.item.combat;
 
-import java.io.File;
 import java.util.List;
 
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
 
 public class ModelArmor extends ItemArmor {
-    @SideOnly(Side.CLIENT)
-    protected IIcon itemIcon;
+    //@SideOnly(Side.CLIENT)
+    //protected IIcon itemIcon;
     private String TextureName = "";
     private ModelBiped armorModel;
     private int textureType;
@@ -65,9 +62,9 @@ public class ModelArmor extends ItemArmor {
 
                     EnumAction enumaction = held_item.getItemUseAction();
 
-                    if (enumaction == EnumAction.bow) {
+                    if (enumaction == EnumAction.BOW) {
                         armorModel.aimedBow = true;
-                    } else if (enumaction == EnumAction.block) {
+                    } else if (enumaction == EnumAction.BLOCK) {
                         armorModel.heldItemRight = 3;
                     }
                 }
@@ -77,7 +74,7 @@ public class ModelArmor extends ItemArmor {
         return armorModel;
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
         this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
@@ -87,7 +84,7 @@ public class ModelArmor extends ItemArmor {
     @Override
     public IIcon getIcon(ItemStack stack, int pass) {
         return this.itemIcon;
-    }
+    }*/
 
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {

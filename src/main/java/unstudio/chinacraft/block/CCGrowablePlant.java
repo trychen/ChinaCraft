@@ -3,22 +3,18 @@ package unstudio.chinacraft.block;
 import java.util.Random;
 
 import net.minecraft.block.BlockCrops;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.BlockPos;
 import net.minecraftforge.common.EnumPlantType;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 /**
  * 种植物的父类
  */
 public class CCGrowablePlant extends BlockCrops {
 
-    @SideOnly(Side.CLIENT)
-    private IIcon[] icons;
+    //@SideOnly(Side.CLIENT)
+    //private IIcon[] icons;
     private String name;
     private int textureAmount;
     private Item baseItem;
@@ -34,14 +30,14 @@ public class CCGrowablePlant extends BlockCrops {
      */
     public CCGrowablePlant(String name, int textureAmount, Item baseItem, Item dropItem) {
         super();
-        setBlockName(name);
+        setUnlocalizedName(name);
         this.name = name;
         this.textureAmount = textureAmount;
         this.baseItem = baseItem;
         this.dropItem = dropItem;
     }
 
-    @Override
+    /*@Override
     public IIcon getIcon(int par1, int par2) {
         if (textureAmount == 7) {
             return icons[par2 < 0 || par2 >= 7 ? 6 : par2 == 0 ? 0 : par2 - 1];
@@ -56,10 +52,11 @@ public class CCGrowablePlant extends BlockCrops {
                 }
             }
         }
-    }
+    }*/
 
     @Override
-    public int quantityDropped(int meta, int fortune, Random random) {
+    public int quantityDropped(IBlockState state, int fortune, Random random) {
+    	int meta = getMetaFromState(state);
         if (meta == 5 || meta == 6) {
             int ret = 2;
             for (int n = 0; n < 3 + fortune; n++) {
@@ -74,29 +71,30 @@ public class CCGrowablePlant extends BlockCrops {
     }
 
     @Override
-    protected Item func_149866_i() {
+    protected Item getSeed() {
         return dropItem;
     }
 
     @Override
-    protected Item func_149865_P() {
+    protected Item getCrop() {
         return dropItem;
     }
 
     @Override
-    public Item getItemDropped(int par1, Random par2Random, int par3) {
-        return par1 >= 5 ? baseItem : null;
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+        return ((Integer)state.getValue(AGE)).intValue() >= 5 ? baseItem : null;
     }
 
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+    public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos) {
         return EnumPlantType.Crop;
     }
 
     /**
      * 注册物品的材质,"chinacraft:名字_stage_步骤"
      */
-    @SideOnly(Side.CLIENT)
+    /*@SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister par1IconRegister) {
         this.icons = new IIcon[this.textureAmount];
@@ -104,5 +102,5 @@ public class CCGrowablePlant extends BlockCrops {
         for (int i = 0; i < this.icons.length; ++i) {
             this.icons[i] = par1IconRegister.registerIcon("chinacraft:" + this.name + "_stage_" + i);
         }
-    }
+    }*/
 }

@@ -6,8 +6,10 @@ import java.util.Random;
 
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
@@ -26,19 +28,19 @@ public class CCFlower extends BlockBush {
      */
     public CCFlower(String name) {
         super(Material.plants);
-        setBlockName(name);
+        setUnlocalizedName(name);
         setCreativeTab(ChinaCraft.tabFarming);
         setStepSound(soundTypeGrass);
     }
 
     @Override
-    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-        return canBlockStay(world, x, y, z);
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        return canBlockStay(worldIn, pos, worldIn.getBlockState(pos));
     }
 
     @Override
-    public boolean canBlockStay(World world, int x, int y, int z) {
-        if (world.getBlock(x, y - 1, z) == Blocks.dirt || world.getBlock(x, y - 1, z) == Blocks.grass)
+    public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
+        if (worldIn.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.dirt || worldIn.getBlockState(pos.add(0, -1, 0)).getBlock() == Blocks.grass)
             return true;
         else
             return false;
@@ -46,12 +48,7 @@ public class CCFlower extends BlockBush {
 
     @Override
     public int getRenderType() {
-        return 1;
-    }
-
-    @Override
-    public boolean renderAsNormalBlock() {
-        return false;
+        return 3;
     }
 
     @Override
@@ -60,12 +57,12 @@ public class CCFlower extends BlockBush {
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(this);
     }
 
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+    public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos) {
         if (this == ChinaCraft.azalea) return Plains;
         if (this == ChinaCraft.peony) return Plains;
         if (this == ChinaCraft.chrysanthemum) return Plains;
@@ -77,8 +74,8 @@ public class CCFlower extends BlockBush {
      * wood.
      */
     @Override
-    public int damageDropped(int p_149692_1_) {
-        return p_149692_1_;
+    public int damageDropped(IBlockState state) {
+        return 0;
     }
 
 }

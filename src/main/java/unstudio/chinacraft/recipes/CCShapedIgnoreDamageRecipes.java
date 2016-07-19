@@ -124,7 +124,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
 
                 if (itemstack1 != null && itemstack1.hasTagCompound())
                 {
-                    itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                    itemstack.setTagCompound((NBTTagCompound)itemstack1.getTagCompound().copy());
                 }
             }
         }
@@ -218,4 +218,10 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
         CCShapedIgnoreDamageRecipes shapedrecipes = new CCShapedIgnoreDamageRecipes(j, k, aitemstack, p_92103_1_);
         return shapedrecipes;
     }
+
+	@Override
+	public ItemStack[] getRemainingItems(InventoryCrafting inv) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

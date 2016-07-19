@@ -18,9 +18,9 @@ public class ItemBlackDogBlood extends ItemFood {
     }
 
     @Override
-    public ItemStack onEaten(ItemStack p_77654_1_, World p_77654_2_, EntityPlayer p_77654_3_) {
-        super.onEaten(p_77654_1_, p_77654_2_, p_77654_3_);
-        p_77654_3_.addPotionEffect(new PotionEffect(17, 200));
+    public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityPlayer playerIn) {
+        super.onItemUseFinish(stack, worldIn, playerIn);
+        playerIn.addPotionEffect(new PotionEffect(17, 200));
         return new ItemStack(Items.bowl);
     }
 }

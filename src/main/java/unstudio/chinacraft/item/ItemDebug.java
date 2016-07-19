@@ -4,11 +4,14 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
@@ -25,38 +28,39 @@ public class ItemDebug extends Item {
     }
 
     @Override
-    public boolean onItemUse(ItemStack item, EntityPlayer player, World world, int x, int y, int z, int side,
-            float hitX, float hitY, float hitZ) {
-        if (world.isRemote)
+	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side,
+			float hitX, float hitY, float hitZ) {
+        if (worldIn.isRemote)
             return false;
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockinfo") + ": "
-                + (StatCollector.canTranslate(world.getBlock(x, y, z).getUnlocalizedName() + ".name")
-                        ? StatCollector.translateToLocal(world.getBlock(x, y, z).getUnlocalizedName() + ".name")
+        IBlockState state = worldIn.getBlockState(pos);
+        Block block = state.getBlock();
+        int metadata = block.getMetaFromState(state);
+        playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));
+        playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockinfo") + ": "
+                + (StatCollector.canTranslate(block.getUnlocalizedName() + ".name")
+                        ? StatCollector.translateToLocal(block.getUnlocalizedName() + ".name")
                         : StatCollector
-                                .translateToLocal(world.getBlock(x, y, z).getUnlocalizedName() + ".default.name"))
-                + " " + Block.getIdFromBlock(world.getBlock(x, y, z)) + " "
-                + world.getBlock(x, y, z).getUnlocalizedName().replace("tile.", "")));
-        player.addChatMessage(new ChatComponentText(
-                StatCollector.translateToLocal("debug.position") + ": " + x + "/" + y + "/" + z + " (X/Y/Z)"));
-        player.addChatMessage(new ChatComponentText(
-                StatCollector.translateToLocal("debug.metadata") + ": " + world.getBlockMetadata(x, y, z)));
-        Block block = world.getBlock(x,y,z);
-        int metadata = world.getBlockMetadata(x, y, z);
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.material")+"&"+StatCollector.translateToLocal("debug.rendertype")+": "+getMaterialName(block.getMaterial())+"  "+block.getRenderType()));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.hardness") + "&"+StatCollector.translateToLocal("debug.antiknock")+": "+block.getBlockHardness(world,x,y,z)+"  "+block.getExplosionResistance(null)*5F/3F));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.brightness") + "&"+StatCollector.translateToLocal("debug.transmittance")+": "+block.getLightValue()+"  "+block.getLightOpacity()));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.need_tools") + "&"+StatCollector.translateToLocal("debug.need_tools_level")+": "+block.getHarvestTool(metadata)+"  "+block.getHarvestLevel(metadata)));
+                                .translateToLocal(block.getUnlocalizedName() + ".default.name"))
+                + " " + Block.getIdFromBlock(block) + " "
+                + block.getUnlocalizedName().replace("tile.", "")));
+        playerIn.addChatMessage(new ChatComponentText(
+                StatCollector.translateToLocal("debug.position") + ": " + pos));
+        playerIn.addChatMessage(new ChatComponentText(
+                StatCollector.translateToLocal("debug.metadata") + ": " + metadata));
+        playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.material")+"&"+StatCollector.translateToLocal("debug.rendertype")+": "+getMaterialName(block.getMaterial())+"  "+block.getRenderType()));
+        playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.hardness") + "&"+StatCollector.translateToLocal("debug.antiknock")+": "+block.getBlockHardness(worldIn,pos)+"  "+block.getExplosionResistance(null)*5F/3F));
+        playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.brightness") + "&"+StatCollector.translateToLocal("debug.transmittance")+": "+block.getLightValue()+"  "+block.getLightOpacity()));
+        playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.need_tools") + "&"+StatCollector.translateToLocal("debug.need_tools_level")+": "+block.getHarvestTool(state)+"  "+block.getHarvestLevel(state)));
         // player.addChatMessage(new
         // ChatComponentText(String.valueOf(player.inventory.currentItem)));
-        TileEntity tile = world.getTileEntity(x, y, z);
-        if (world.getTileEntity(x, y, z) != null) {
-            player.addChatMessage(new ChatComponentText("TileEntity:" + tile.getClass().getSimpleName()));
+        TileEntity tile = worldIn.getTileEntity(pos);
+        if (tile != null) {
+            playerIn.addChatMessage(new ChatComponentText("TileEntity:" + tile.getClass().getSimpleName()));
         }
         if (tile instanceof TileBuhrimill) {
 
         } else if (tile instanceof TileSericultureFrame) {
-            player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate") + ": "
+            playerIn.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate") + ": "
                     + ((TileSericultureFrame) tile).getMortality()));
             // player.addChatMessage(new
             // ChatComponentText(StatCollector.translateToLocal("debug.progress")+":

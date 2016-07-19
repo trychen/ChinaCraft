@@ -1,13 +1,12 @@
 package unstudio.chinacraft.item.jade;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.event.jade.PlayerUseJadeEvent;
 
@@ -27,9 +26,8 @@ public class Jade extends Item {
     }
 
     @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int p_77648_4_,
-            int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-        PlayerUseJadeEvent.ItemRightClick e = new PlayerUseJadeEvent.ItemRightClick(entityPlayer, itemStack);
+    public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ) {
+        PlayerUseJadeEvent.ItemRightClick e = new PlayerUseJadeEvent.ItemRightClick(playerIn, stack);
         if (MinecraftForge.EVENT_BUS.post(e))
             return false;
 

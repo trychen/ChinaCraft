@@ -2,21 +2,18 @@ package unstudio.chinacraft.item;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSilkworm extends Item {
 
     public static final String[] name = new String[] { "graine", "young", "chrysalis" };
-    private IIcon[] icon;
+    //private IIcon[] icon;
 
     public ItemSilkworm() {
         setMaxStackSize(64);
@@ -26,7 +23,7 @@ public class ItemSilkworm extends Item {
         setUnlocalizedName("silkworm");
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public IIcon getIconFromDamage(int p_77617_1_) {
         int j = MathHelper.clamp_int(p_77617_1_, 0, 2);
@@ -41,7 +38,7 @@ public class ItemSilkworm extends Item {
         for (int i = 0; i < name.length; ++i) {
             this.icon[i] = p_94581_1_.registerIcon("chinacraft:silkworm_" + name[i]);
         }
-    }
+    }*/
 
     @Override
     public String getUnlocalizedName(ItemStack p_77667_1_) {
