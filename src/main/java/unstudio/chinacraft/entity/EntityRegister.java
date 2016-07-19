@@ -22,10 +22,10 @@ public class EntityRegister {
     public static void init() {
         id = EntityRegistry.findGlobalUniqueEntityId();
 
-        registerLivingEntity(EntityBlackDog.class, "black_dog", 0x0004FF, 0xFF00E1);
+        registerLivingEntity(EntityBlackDog.class, "black_dog", 0x0B0B0B, 0x696969);
         // EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
         // EnumCreatureType.monster, BiomeGenBase.forest);
-        registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0x0504FF, 0x0025FF);
+        registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0xFFF8DC, 0xDEB887);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 
         registerModEntity(EntityThrownFirecracker.class, "Entity_Thrown_Firecracker", 350, 30, true);

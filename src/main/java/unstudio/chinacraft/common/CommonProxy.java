@@ -1,6 +1,5 @@
 package unstudio.chinacraft.common;
 
-import mcp.mobius.waila.api.IWailaRegistrar;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
@@ -8,8 +7,6 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
-import unstudio.chinacraft.block.especial.BlockBuhrimill;
-import unstudio.chinacraft.client.waila.BuhrimillWailaHandler;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.ItemCCBlock;
 import unstudio.chinacraft.item.ItemCCSlab;
@@ -44,11 +41,11 @@ public class CommonProxy {
                 3).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜靴子
     }
 
-    public static void onWailaCall(IWailaRegistrar registrar)
-    {
-        if (ChinaCraft.WAILAIsLoad)
-        registrar.registerBodyProvider(new BuhrimillWailaHandler(), BlockBuhrimill.class);
-    }
+//    public static void onWailaCall(IWailaRegistrar registrar)
+//    {
+//        if (ChinaCraft.WAILAIsLoad)
+//        registrar.registerBodyProvider(new BuhrimillWailaHandler(), BlockBuhrimill.class);
+//    }
 
     public void init(FMLInitializationEvent event) {
         //注册主类为物品集合
