@@ -1,8 +1,6 @@
-/*
-// For those who want the bleeding edge
 buildscript {
     repositories {
-        jcenter()
+        jcenter()/*
         maven { // The repo from which to get waila
             name "Mobius Repo"
             url "http://mobiusstrip.eu/maven"
@@ -10,7 +8,7 @@ buildscript {
         maven {
             name = "codechicken"
             url = "http://chickenbones.net/maven"
-        }
+        }*/
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -18,17 +16,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
     }
 }
 
 apply plugin: 'forge'
-*/
-
-// for people who want stable
-plugins {
-    id "net.minecraftforge.gradle.forge" version "2.0.2"
-}
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
