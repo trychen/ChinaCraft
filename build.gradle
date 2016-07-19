@@ -1,6 +1,8 @@
+/*
+// For those who want the bleeding edge
 buildscript {
     repositories {
-        jcenter()/*
+        jcenter()
         maven { // The repo from which to get waila
             name "Mobius Repo"
             url "http://mobiusstrip.eu/maven"
@@ -8,7 +10,7 @@ buildscript {
         maven {
             name = "codechicken"
             url = "http://chickenbones.net/maven"
-        }*/
+        }
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -16,15 +18,21 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.0-SNAPSHOT'
     }
+}
+
+apply plugin: 'forge'
+*/
+
+// for people who want stable
+plugins {
+    id "net.minecraftforge.gradle.forge" version "2.0.2"
 }
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
-
-apply plugin: 'forge'
 
 def buildnumber = System.getenv("BUILD_NUMBER") == null ? null : System.getenv("BUILD_NUMBER")
 
@@ -38,7 +46,7 @@ targetCompatibility = 1.7
 
 minecraft {
     version = minecraft_version + "-" + forge_version
-    runDir = "eclipse"
+    runDir = "run"
 }
 ext.jarFile = zipTree(jar.archivePath)
 /*task apiJar(type: Jar, dependsOn: jar) {
@@ -93,7 +101,7 @@ dependencies {
     // compile "codechicken:CodeChickenCore:${minecraft_version}-${code_chicken_core_version}:dev"
     // compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
 
-    // ompile "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}"
+    // compile "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}"
     // Vault
     // compile "net.milkbowl.vault:VaultAPI:${vault_version}"
 
