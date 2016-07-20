@@ -1,14 +1,19 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.resources.model.ModelBakery;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import scala.collection.generic.BitOperations.Int;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
 import unstudio.chinacraft.client.nei.NEIAPI;
 import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
@@ -184,5 +189,18 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
+    }
+    
+    private void registerItemBlockRenderer(Block block, String name){
+    	registerItemBlockRenderer(block, 0, name);
+    }
+    private void registerItemBlockRenderer(Block block, int meta, String name){
+    	registerItemRenderer(Item.getItemFromBlock(block), meta, name);
+    }
+    private void registerItemRenderer(Item item, String name){
+    	registerItemRenderer(item, 0, name);
+    }
+    private void registerItemRenderer(Item item, int meta, String name){
+    	ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(ChinaCraft.MODID + ":" + name, "inventory"));
     }
 }

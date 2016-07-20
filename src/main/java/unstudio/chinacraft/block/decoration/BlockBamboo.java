@@ -4,6 +4,8 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -18,14 +20,16 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * 竹子的主类，可种植，与甘蔗差不多
  */
 public class BlockBamboo extends Block implements IPlantable {
-
+    
+	public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
     //private IIcon icon;
 
     public BlockBamboo() {
@@ -62,13 +66,16 @@ public class BlockBamboo extends Block implements IPlantable {
                 }
 
                 if (l < 10) {
-                    int i1 = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
+                    int j = ((Integer)state.getValue(AGE)).intValue();
 
-                    if (i1 == 15) {
-                        p_149674_1_.setBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_, this);
-                        p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 0, 4);
-                    } else {
-                        p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, i1 + 1, 4);
+                    if (j == 15)
+                    {
+                        worldIn.setBlockState(pos.up(), this.getDefaultState());
+                        worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(0)), 4);
+                    }
+                    else
+                    {
+                        worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(j + 1)), 4);
                     }
                 }
             }
@@ -126,13 +133,12 @@ public class BlockBamboo extends Block implements IPlantable {
      * box can change after the pool has been cleared to be reused)
      */
     @Override
-    public AxisAlignedBB getCollisionBoundingBoxFromPool(World p_149668_1_, int p_149668_2_, int p_149668_3_,
-            int p_149668_4_) {
+    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
         return null;
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return ChinaCraft.itemBamboo;
     }
 
@@ -147,20 +153,11 @@ public class BlockBamboo extends Block implements IPlantable {
     }
 
     /**
-     * If this block doesn't render as an ordinary block it will return False
-     * (examples: signs, buttons, stairs, etc)
-     */
-    @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    /**
      * The type of render function that is called for this block
      */
     @Override
     public int getRenderType() {
-        return 1;
+        return 3;
     }
 
     /**
@@ -168,7 +165,7 @@ public class BlockBamboo extends Block implements IPlantable {
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
+    public Item getItem(World worldIn, BlockPos pos) {
         return ChinaCraft.itemBamboo;
     }
 
@@ -179,46 +176,51 @@ public class BlockBamboo extends Block implements IPlantable {
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess p_149720_1_, int p_149720_2_, int p_149720_3_, int p_149720_4_) {
-        return p_149720_1_.getBiomeGenForCoords(p_149720_2_, p_149720_4_).getBiomeGrassColor(p_149720_2_, p_149720_3_,
-                p_149720_4_);
+    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass) {
+    	return worldIn.getBiomeGenForCoords(pos).getGrassColorAtPos(pos);
     }
 
     @Override
-    public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
+    public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
         return EnumPlantType.Plains;
     }
 
     @Override
-    public Block getPlant(IBlockAccess world, int x, int y, int z) {
-        return this;
+    public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
+        return getDefaultState();
     }
 
     @Override
-    public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
-        return world.getBlockMetadata(x, y, z);
-    }
-
-    @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        ItemStack item = player.inventory.getCurrentItem();
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+    		EnumFacing side, float hitX, float hitY, float hitZ) {
+        ItemStack item = playerIn.inventory.getCurrentItem();
         if (item == null)
             return true;
         if (item.getItem() == Items.dye) {
             if (item.getItemDamage() == 15) {
-                if (!player.capabilities.isCreativeMode && --item.stackSize <= 0) {
-                    player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+                if (!playerIn.capabilities.isCreativeMode && --item.stackSize <= 0) {
+                    playerIn.inventory.setInventorySlotContents(playerIn.inventory.currentItem, null);
                 }
-                Random r = world.rand;
-                int x1 = x + r.nextInt(3) - 1;
-                int z1 = z + r.nextInt(3) - 1;
-                if (world.isAirBlock(x1, y, z1) && (world.getBlock(x1, y - 1, z1) == Blocks.grass
-                        || world.getBlock(x1, y - 1, z1) == Blocks.dirt)) {
-                    world.setBlock(x1, y, z1, ChinaCraft.blockBambooShoot, 0, 2);
+                Random r = worldIn.rand;
+                pos = pos.add(r.nextInt(3) - 1, 0, r.nextInt(3) - 1);
+                if (worldIn.isAirBlock(pos) && (worldIn.getBlockState(pos.down()).getBlock() == Blocks.grass
+                        || worldIn.getBlockState(pos.down()).getBlock() == Blocks.dirt)) {
+                    worldIn.setBlockState(pos, ChinaCraft.blockBambooShoot.getDefaultState(), 2);
                 }
             }
         }
         return true;
+    }
+    @Override
+    public IBlockState getStateFromMeta(int meta) {
+    	return getDefaultState().withProperty(AGE, meta);
+    }
+    @Override
+    public int getMetaFromState(IBlockState state) {
+		return state.getValue(AGE);
+    }
+    @Override
+    protected BlockState createBlockState() {
+    	return new BlockState(this, AGE);
     }
 }

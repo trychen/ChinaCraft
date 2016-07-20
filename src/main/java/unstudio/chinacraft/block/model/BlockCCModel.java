@@ -11,7 +11,7 @@ import unstudio.chinacraft.tileentity.TileModelBlock;
 
 public class BlockCCModel extends Block implements ITileEntityProvider{
     private Class<? extends ModelBase> model;
-
+    private String texturename;
     /**
      * @param material
      *            材质
@@ -25,6 +25,7 @@ public class BlockCCModel extends Block implements ITileEntityProvider{
         this.model = model;
         setUnlocalizedName(name);
         setBlockTextureName(name);
+        texturename = name;
     }
 
     /*@Override
@@ -41,7 +42,11 @@ public class BlockCCModel extends Block implements ITileEntityProvider{
         return new TileModelBlock(model, getTextureName());
     }
 
-    @Override
+    protected String getTextureName() {
+		return texturename;
+	}
+
+	@Override
     public int getRenderType() {
         return -1;
     }

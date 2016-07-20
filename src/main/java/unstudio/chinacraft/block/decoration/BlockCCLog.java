@@ -1,11 +1,7 @@
 package unstudio.chinacraft.block.decoration;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
 
@@ -14,7 +10,7 @@ import unstudio.chinacraft.common.ChinaCraft;
  */
 public class BlockCCLog extends BlockLog {
 
-    private IIcon top, side;
+    //private IIcon top, side;
     private String topTexture, sideTexture;
 
     public BlockCCLog(String topTexture, String sideTexture) {
@@ -32,7 +28,7 @@ public class BlockCCLog extends BlockLog {
         return this;
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg) {
         this.top = reg.registerIcon(topTexture);
@@ -49,5 +45,5 @@ public class BlockCCLog extends BlockLog {
     @SideOnly(Side.CLIENT)
     protected IIcon getTopIcon(int p_150161_1_) {
         return top;
-    }
+    }*/
 }

@@ -2,6 +2,7 @@ package unstudio.chinacraft.block.decoration;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.StatCollector;
 import unstudio.chinacraft.common.ChinaCraft;
 
@@ -10,8 +11,13 @@ import unstudio.chinacraft.common.ChinaCraft;
  */
 public class BlockCCStair extends BlockStairs {
 
+	@Deprecated
     public BlockCCStair(Block block, int damage) {
-        super(block,damage);
+    	this(block.getStateFromMeta(damage));
+    }
+	
+    public BlockCCStair(IBlockState state){
+    	super(state);
         this.useNeighborBrightness = true;
     }
 

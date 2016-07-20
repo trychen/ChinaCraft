@@ -1,19 +1,15 @@
 package unstudio.chinacraft.block.decoration;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.IIcon;
 
 /**
  * Created by AAA on 2016/2/13.
  */
 public class BlockCCRotatedPillar extends BlockRotatedPillar{
 
-    private IIcon side,top;
+    //private IIcon side,top;
     private String topTexture, sideTexture;
 
     public BlockCCRotatedPillar(Material p_i45425_1_,String topTexture, String sideTexture) {
@@ -37,7 +33,7 @@ public class BlockCCRotatedPillar extends BlockRotatedPillar{
         return this;
     }
 
-    @SideOnly(Side.CLIENT)
+    /*@SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister reg) {
         this.top = reg.registerIcon(topTexture);
@@ -54,5 +50,5 @@ public class BlockCCRotatedPillar extends BlockRotatedPillar{
     @SideOnly(Side.CLIENT)
     protected IIcon getTopIcon(int p_150161_1_) {
         return top;
-    }
+    }*/
 }
