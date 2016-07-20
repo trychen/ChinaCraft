@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "chinacraft:blocks/marble",
+        "side": "chinacraft:blocks/marble"
+    }
+}

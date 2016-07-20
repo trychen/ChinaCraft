@@ -179,41 +179,41 @@ public class ChinaCraft implements ItemBlockCollection {
      * 银块
      **/
     @CCRegister("SilverBlock")
-    public static final Block silverBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("silver_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:sliver_block");
+    public static final Block silverBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("silver_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore);
     /**
      * 铜块
      */
     @CCRegister("CopperBlock")
-    public static final Block copperBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("copper_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_block");
+    public static final Block copperBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("copper_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore);
     /**
      * 青铜块
      */
     @CCRegister("BronzeBlock")
-    public static final Block bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f).setBlockTextureName("chinacraft:bronze_block");
+    public static final Block bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f);
 
     @CCOreRegister(name = "CopperOre",ore = "oreCopper")
-    public static final BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
+    public static final BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore); // 铜矿
     @CCOreRegister(name = "TinOre",ore = "oreTin")
-    public static final BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
+    public static final BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore);// 锡矿
     @CCOreRegister(name = "JadeOre",ore = "oreJade")
-    public static final BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock, 4, 4, 64, 32, 0).setHarvestLevelReturnBlock("pickaxe", 2).setUnlocalizedName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
+    public static final BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock, 4, 4, 64, 32, 0).setHarvestLevelReturnBlock("pickaxe", 2).setUnlocalizedName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore); // 玉原石
     @CCOreRegister(name = "SilverOre",ore = "oreSilver")
-    public static final BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setUnlocalizedName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:silver_ore"); // 银矿
+    public static final BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setUnlocalizedName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore); // 银矿
 
     @CCRegister("BlockMarble")
-    public static final BlockMarble blockMarble = (BlockMarble) new BlockMarble().setBlockTextureName("chinacraft:marble"); // 大理石
+    public static final BlockMarble blockMarble = (BlockMarble) new BlockMarble(); // 大理石
     @CCRegister("SmoothMarble")
-    public static final Block smoothMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("smooth_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:smooth_marble"); // 平滑大理石块
+    public static final Block smoothMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("smooth_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore); // 平滑大理石块
     @CCRegister("PillarMarble")
     public static final Block pillarMarble = new BlockCCRotatedPillar(Material.rock,"chinacraft:pillar_marble_top","chinacraft:pillar_marble").setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("pillar_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore);// 条纹大理石块
     @CCRegister("ChiseledMarble")
-    public static final Block chiseledMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("chiseled_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:chiseled_marble"); // 錾制大理石块
+    public static final Block chiseledMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("chiseled_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(ChinaCraft.tabCore); // 錾制大理石块
     @CCRegister("MarbleStair")
     public static final Block marbleStair = new BlockCCStair(smoothMarble, 0).setHarvestLevelReturnBlock("pickaxe", 1).setUnlocalizedName("marble_stair").setCreativeTab(ChinaCraft.tabCore); // 大理石楼梯
     @CCSlabRegister(name = "MarbleSlab", first = "marbleSlab", second = "marbleDoubleSlab")
-    public static final Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    public static final Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("marble_slab"); // 大理石半砖
     @CCSlabRegister(name = "MarbleDoubleSlab", first = "marbleSlab", second = "marbleDoubleSlab")
-    public static final Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    public static final Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setUnlocalizedName("marble_slab"); // 大理石半砖
 
     @CCRegister("WoodenWindow1")
     public static final BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); // 木窗框1

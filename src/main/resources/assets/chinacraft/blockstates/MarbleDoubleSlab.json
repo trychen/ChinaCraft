@@ -1,0 +1,6 @@
+{
+  "variants": {
+        "normal": { "model": "chinacraft:double_marble" },
+        "all":    { "model": "chinacraft:double_marble_top" }
+  }
+}

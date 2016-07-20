@@ -1,0 +1,42 @@
+{
+  "parent": "builtin/generated",
+  "textures": {
+    "layer0": "chinacraft:items/hammer_stone"
+  },
+  "display": {
+    "thridperson": {
+      "rotation": [
+        0,
+        90,
+        -35
+      ],
+      "translation": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "scale": [
+        0.0,
+        1.25,
+        -3.5
+      ]
+    },
+    "firstperson": {
+      "rotation": [
+        0,
+        -135,
+        25
+      ],
+      "translation": [
+        1.7,
+        1.7,
+        1.7
+      ],
+      "scale": [
+        0.0,
+        4.0,
+        2.0
+      ]
+    }
+  }
+}

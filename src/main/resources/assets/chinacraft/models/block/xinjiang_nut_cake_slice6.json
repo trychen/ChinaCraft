@@ -1,0 +1,22 @@
+{
+    "textures": {
+        "particle": "chinacraft:blocks/xinjiang_nut_cake_side",
+        "bottom": "chinacraft:blocks/xinjiang_nut_cake_bottom",
+        "top": "chinacraft:blocks/xinjiang_nut_cake_top",
+        "side": "chinacraft:blocks/xinjiang_nut_cake_side",
+        "inside": "chinacraft:blocks/xinjiang_nut_cake_inner"
+    },
+    "elements": [
+        {   "from": [ 13, 0, 1 ],
+            "to": [ 15, 8, 15 ],
+            "faces": {
+                "down":  { "uv": [ 13, 1, 15, 15 ], "texture": "#bottom", "cullface": "down" },
+                "up":    { "uv": [ 13, 1, 15, 15 ], "texture": "#top" },
+                "north": { "uv": [  1, 8,  3, 16 ], "texture": "#side" },
+                "south": { "uv": [  1, 8,  3, 16 ], "texture": "#side" },
+                "west":  { "uv": [  1, 8, 15, 16 ], "texture": "#inside" },
+                "east":  { "uv": [  1, 8, 15, 16 ], "texture": "#side" }
+            }
+        }
+    ]
+}

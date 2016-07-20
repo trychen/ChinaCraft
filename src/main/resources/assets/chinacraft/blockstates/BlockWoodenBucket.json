@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"filled_water=false": { "model" : "chinacraft:wooden_bucket_empty" },
+		"filled_water=true": { "model" : "chinacraft:wooden_bucket_full" }
+	}
+}

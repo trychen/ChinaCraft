@@ -1,0 +1,7 @@
+{
+    "parent": "block/column_side",
+    "textures": {
+        "end": "chinacraft:blocks/piller_marble_top",
+        "side": "chinacraft:blocks/piller_marble_side"
+    }
+}

@@ -64,31 +64,6 @@ public class BlockWoodenBucket extends Block {
         return false;
     }
 
-    /*@SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIcon(int i, int par2) {
-        if (i == 0)
-            return bottom;
-        else if (i == 1)
-            return top;
-        else
-            return side;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public IIcon getInner() {
-        return inner;
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void registerBlockIcons(IIconRegister reg) {
-        this.top = reg.registerIcon("chinacraft:woodenbucket_top");
-        this.bottom = reg.registerIcon("chinacraft:woodenbucket_bottom");
-        this.side = reg.registerIcon("chinacraft:woodenbucket_side");
-        this.inner = reg.registerIcon("chinacraft:woodenbucket_inner");
-    }*/
-
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         if (state.getValue(FILLED_WATER).booleanValue()) {

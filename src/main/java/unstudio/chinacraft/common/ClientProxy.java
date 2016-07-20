@@ -47,107 +47,127 @@ public class ClientProxy extends CommonProxy {
             new NEIAPI().loadConfig();
         }
 
-
+        super.init(event);
         //清理此地材质注册……
 //        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
-        ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
+        /*ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
         ChinaCraft.chrysanthemum.setBlockTextureName("chinacraft:chrysanthemum");
         ChinaCraft.glutinousRice.setTextureName("chinacraft:glutinous_rice");
         ChinaCraft.jadeWorkingTable.setBlockTextureName("chinacraft:jade_table");
-
-        ChinaCraft.tinPowder.setTextureName("chinacraft:tin_powder");
-        ChinaCraft.copperPowder.setTextureName("chinacraft:copper_powder");
-        ChinaCraft.copperIngot.setTextureName("chinacraft:copper_ingot");
-        ChinaCraft.copperTinMixedPowder.setTextureName("chinacraft:copper_tin_mixed_powder");
-        ChinaCraft.bronzeSword.setTextureName("chinacraft:bronze_sword");
-        ChinaCraft.bronzeBroadSword.setTextureName("chinacraft:bronze_bigsword");
-        ChinaCraft.bronzeBroadSwordGreen.setTextureName("chinacraft:bronze_bigsword_green");
-        ChinaCraft.bronzeBroadSwordGreen2.setTextureName("chinacraft:bronze_bigsword_green2");
-        ChinaCraft.bronzeBroadSwordPink.setTextureName("chinacraft:bronze_bigsword_pink");
-        ChinaCraft.bronzeBroadSwordPurple.setTextureName("chinacraft:bronze_bigsword_purple");
-        ChinaCraft.blGiantSword.setTextureName("chinacraft:blgiantsword");
-        ChinaCraft.jiuqu_tang.setTextureName("chinacraft:jiuqu_tang");
-        ChinaCraft.mace.setTextureName("chinacraft:mace");
-        ChinaCraft.tinIngot.setTextureName("chinacraft:tin_ingot");
-        ChinaCraft.silverIngot.setTextureName("chinacraft:silver_ingot");
-        ChinaCraft.rices.setTextureName("chinacraft:barley_rice");
-        ChinaCraft.soy.setTextureName("chinacraft:soy_item");
-        ChinaCraft.lcker.setTextureName("chinacraft:lcker");
-        ChinaCraft.soyPod.setTextureName("chinacraft:soy_pod");
-        ChinaCraft.itemMulberryLeaf.setTextureName("chinacraft:mulberry_leaf");
-        ChinaCraft.woodenBucket.setTextureName("chinacraft:woodenbucket");
-        ChinaCraft.woodenBucket_Water.setTextureName("chinacraft:woodenbucket_water");
-        ChinaCraft.silkwormChrysalis.setTextureName("chinacraft:silkworm_chrysalis");
-        ChinaCraft.redPacket.setTextureName("chinacraft:redpacket");
-        ChinaCraft.firecracker.setTextureName("chinacraft:firecracker");
-        ChinaCraft.bomb.setTextureName("chinacraft:bomb");
-        ChinaCraft.blackDogBlood.setTextureName("chinacraft:blackdogblood");
-        ChinaCraft.moonCake.setTextureName("chinacraft:mooncake");
-        ChinaCraft.xinjiangNutCake.setBlockTextureName("chinacraft:xinjiang_nut_cake");
-        ChinaCraft.appleCake.setBlockTextureName("chinacraft:apple_cake");
-        ChinaCraft.itemAppleCake.setTextureName("chinacraft:apple_cake");
+        */
+        registerItemBlockRenderer(ChinaCraft.silverBlock, "silver_block");
+        registerItemBlockRenderer(ChinaCraft.copperBlock, "copper_block");
+        registerItemBlockRenderer(ChinaCraft.bronzeBlock, "bronze_block");
+        registerItemBlockRenderer(ChinaCraft.copperOre, "copper_ore");
+        registerItemBlockRenderer(ChinaCraft.tinOre, "tin_ore");
+        registerItemBlockRenderer(ChinaCraft.jadeOre, "jade_ore");
+        registerItemBlockRenderer(ChinaCraft.silverOre, "silver_ore");
+        registerItemBlockRenderer(ChinaCraft.blockMarble, "marble");
+        registerItemBlockRenderer(ChinaCraft.smoothMarble, "smooth_marble");
+        registerItemBlockRenderer(ChinaCraft.pillarMarble, "piller_marble");
+        registerItemBlockRenderer(ChinaCraft.chiseledMarble, "chiseled_marble");
+        registerItemBlockRenderer(ChinaCraft.marbleStair, "marble_stair");
+        registerItemBlockRenderer(ChinaCraft.marbleSlab, "marble_slab");
+        registerItemBlockRenderer(ChinaCraft.marbleDoubleSlab, "marble_double_slab");
+        registerItemBlockRenderer(ChinaCraft.woodenWindow1, "wooden_window_1");
+        registerItemBlockRenderer(ChinaCraft.woodenWindow2, "wooden_window_2");
+        registerItemBlockRenderer(ChinaCraft.woodenWindow3, "wooden_window_3");
+        registerItemBlockRenderer(ChinaCraft.woodenWindow4, "wooden_window_4");
+        
+        registerItemRenderer(ChinaCraft.tinIngot, "tin_ingot");
+        registerItemRenderer(ChinaCraft.copperPowder, "copper_powder");
+        registerItemRenderer(ChinaCraft.copperIngot, "copper_ingot");
+        registerItemRenderer(ChinaCraft.copperTinMixedPowder, "copper_tin_mixed_powder");
+        registerItemRenderer(ChinaCraft.bronzeSword, "bronze_sword");
+        registerItemRenderer(ChinaCraft.bronzeBroadSword, "bronze_bigsword");
+        registerItemRenderer(ChinaCraft.bronzeBroadSwordGreen, "bronze_bigsword_green");
+        registerItemRenderer(ChinaCraft.bronzeBroadSwordGreen2, "bronze_bigsword_green2");
+        registerItemRenderer(ChinaCraft.bronzeBroadSwordPink, "bronze_bigsword_pink");
+        registerItemRenderer(ChinaCraft.bronzeBroadSwordPurple, "bronze_bigsword_purple");
+        registerItemRenderer(ChinaCraft.blGiantSword, "blGiantsword");
+        registerItemRenderer(ChinaCraft.jiuqu_tang, "jiuqu_tang");
+        registerItemRenderer(ChinaCraft.mace, "mace");
+        registerItemRenderer(ChinaCraft.silverIngot, "silver_ingot");
+        registerItemRenderer(ChinaCraft.rices, "barley_rice");
+        registerItemRenderer(ChinaCraft.soy, "soy_item");
+        registerItemRenderer(ChinaCraft.lcker, "lcker");
+        registerItemRenderer(ChinaCraft.soyPod, "soy_pod");
+        registerItemRenderer(ChinaCraft.itemMulberryLeaf, "mulberry_leaf");
+        registerItemRenderer(ChinaCraft.woodenBucket, "woodenbucket");
+        registerItemRenderer(ChinaCraft.woodenBucket_Water, "woodenbucket_water");
+        registerItemRenderer(ChinaCraft.silkwormChrysalis, "silkworm_chrysalis");
+        registerItemRenderer(ChinaCraft.redPacket, "redpacket");
+        registerItemRenderer(ChinaCraft.firecracker, "firecracker");
+        registerItemRenderer(ChinaCraft.bomb, "bomb");
+        registerItemRenderer(ChinaCraft.blackDogBlood, "blackdogblood");
+        registerItemRenderer(ChinaCraft.moonCake, "mooncake");
+        registerItemBlockRenderer(ChinaCraft.xinjiangNutCake, "xinjiang_nut_cake");
+        registerItemBlockRenderer(ChinaCraft.appleCake, "block_apple_cake");
+        registerItemRenderer(ChinaCraft.itemAppleCake, "apple_cake");
         // 青铜
-        ChinaCraft.bronzePickaxe.setTextureName("chinacraft:bronze_pickaxe");
-        ChinaCraft.bronzeAxe.setTextureName("chinacraft:bronze_axe");
-        ChinaCraft.bronzeHoe.setTextureName("chinacraft:bronze_hoe");
-        ChinaCraft.bronzeShovel.setTextureName("chinacraft:bronze_shovel");
+        registerItemRenderer(ChinaCraft.bronzePickaxe, "bronze_pickaxe");
+        registerItemRenderer(ChinaCraft.bronzeAxe, "bronze_axe");
+        registerItemRenderer(ChinaCraft.bronzeHoe, "bronze_hoe");
+        registerItemRenderer(ChinaCraft.bronzeShovel, "bronze_shovel");
 
-        ChinaCraft.bronzeHelmet.setTextureName("chinacraft:bronze_helmet");
-        ChinaCraft.bronzeChestplate.setTextureName("chinacraft:bronze_chestplate");
-        ChinaCraft.bronzeLeggings.setTextureName("chinacraft:bronze_leggings");
-        ChinaCraft.bronzeBoots.setTextureName("chinacraft:bronze_boots");
-        ChinaCraft.hammerStone.setTextureName("chinacraft:hammer_stone");
-        ChinaCraft.hammerIron.setTextureName("chinacraft:hammer_iron");
-        ChinaCraft.hammerDiamond.setTextureName("chinacraft:hammer_diamond");
-        ChinaCraft.hammerBronze.setTextureName("chinacraft:hammer_bronze");
+        registerItemRenderer(ChinaCraft.bronzeHelmet, "bronze_helmet");
+        registerItemRenderer(ChinaCraft.bronzeChestplate, "bronze_chestplate");
+        registerItemRenderer(ChinaCraft.bronzeLeggings, "bronze_leggings");
+        registerItemRenderer(ChinaCraft.bronzeBoots, "bronze_boots");
+        registerItemRenderer(ChinaCraft.hammerStone, "hammer_stone");
+        registerItemRenderer(ChinaCraft.hammerIron, "hammer_iron");
+        registerItemRenderer(ChinaCraft.hammerDiamond, "hammer_diamond");
+        registerItemRenderer(ChinaCraft.hammerBronze, "hammer_bronze");
 
         // 玉
-        ChinaCraft.jadeGreenItem.setTextureName("chinacraft:jade_green");
-        ChinaCraft.jadeGreen2Item.setTextureName("chinacraft:jade_green2");
-        ChinaCraft.jadePinkItem.setTextureName("chinacraft:jade_pink");
-        ChinaCraft.jadePurpleItem.setTextureName("chinacraft:jade_purple");
-        ChinaCraft.jadeKnife.setTextureName("chinacraft:jade_knife");
-        ChinaCraft.artKnife.setTextureName("chinacraft:art_knife");
+        registerItemRenderer(ChinaCraft.jadeGreenItem, "jade_green");
+        registerItemRenderer(ChinaCraft.jadeGreen2Item, "jade_green2");
+        registerItemRenderer(ChinaCraft.jadePinkItem, "jade_pink");
+        registerItemRenderer(ChinaCraft.jadePurpleItem, "jade_purple");
+        registerItemRenderer(ChinaCraft.jadeKnife, "jade_knife");
+        registerItemRenderer(ChinaCraft.artKnife, "art_knife");
 
         // 耐火砖
-        ChinaCraft.blockFirebrick.setBlockTextureName("chinacraft:firebrick");
-        ChinaCraft.firebrick.setTextureName("chinacraft:firebrick");
-        ChinaCraft.blockPotteryKiln.setBlockTextureName("chinacraft:firebrick");
-        ChinaCraft.claySandMixture.setTextureName("chinacraft:clay_sand_mixture");
+        registerItemBlockRenderer(ChinaCraft.blockFirebrick, "block_firebrick");
+        registerItemRenderer(ChinaCraft.firebrick, "firebrick");
+        registerItemBlockRenderer(ChinaCraft.blockPotteryKiln, "block_firebrick");
+        registerItemRenderer(ChinaCraft.claySandMixture, "clay_sand_mixture");
 
         // 饮品、食物
-        ChinaCraft.cup.setTextureName("chinacraft:cup");
-        ChinaCraft.cup_Clay.setTextureName("chinacraft:cup_clay");
-        ChinaCraft.cupChocolate.setTextureName("chinacraft:cup_chocolate");
-        ChinaCraft.cocoa.setTextureName("chinacraft:cocoa");
-        ChinaCraft.ladyfinger.setTextureName("chinacraft:ladyfinger");
-        ChinaCraft.cupWater.setTextureName("chinacraft:cup_water");
-        ChinaCraft.cupChrysanthemum.setTextureName("chinacraft:cup_chrysanthemum");
-        ChinaCraft.flour.setTextureName("chinacraft:flour");
-        ChinaCraft.riceFlour.setTextureName("chinacraft:riceflour");
-        ChinaCraft.barleyRice.setTextureName("chinacraft:barley_rice");
+        registerItemRenderer(ChinaCraft.cup, "cup");
+        registerItemRenderer(ChinaCraft.cup_Clay, "cup_clay");
+        registerItemRenderer(ChinaCraft.cupChocolate, "cup_chocolate");
+        registerItemRenderer(ChinaCraft.cocoa, "cocoa");
+        registerItemRenderer(ChinaCraft.ladyfinger, "ladyfinger");
+        registerItemRenderer(ChinaCraft.cupWater, "cup_water");
+        registerItemRenderer(ChinaCraft.cupChrysanthemum, "cup_chrysanthemum");
+        registerItemRenderer(ChinaCraft.flour, "flour");
+        registerItemRenderer(ChinaCraft.riceFlour, "riceflour");
+        registerItemRenderer(ChinaCraft.barleyRice, "barley_rice");
 
         // 靈符
-        ChinaCraft.spiritualMagicFigures.setTextureName("chinacraft:spiritual_magic_figures");
-        ChinaCraft.smfFire.setTextureName("chinacraft:spiritual_magic_figures_fire");
-        ChinaCraft.smfNightVision.setTextureName("chinacraft:spiritual_magic_figures_night_vision");
-        ChinaCraft.smfPoison.setTextureName("chinacraft:spiritual_magic_figures_poison");
-        ChinaCraft.smfPower.setTextureName("chinacraft:spiritual_magic_figures_power");
-        ChinaCraft.smfHeal.setTextureName("chinacraft:spiritual_magic_figures_heal");
-        ChinaCraft.smfProtect.setTextureName("chinacraft:spiritual_magic_figures_protect");
-        ChinaCraft.smfSuper.setTextureName("chinacraft:spiritual_magic_figures_super");
+        registerItemRenderer(ChinaCraft.spiritualMagicFigures, "spiritual_magic_figures");
+        registerItemRenderer(ChinaCraft.smfFire, "spiritual_magic_figures_fire");
+        registerItemRenderer(ChinaCraft.smfNightVision, "spiritual_magic_figures_night_vision");
+        registerItemRenderer(ChinaCraft.smfPoison, "spiritual_magic_figures_poison");
+        registerItemRenderer(ChinaCraft.smfPower, "spiritual_magic_figures_power");
+        registerItemRenderer(ChinaCraft.smfHeal, "spiritual_magic_figures_heal");
+        registerItemRenderer(ChinaCraft.smfProtect, "spiritual_magic_figures_protect");
+        registerItemRenderer(ChinaCraft.smfSuper, "spiritual_magic_figures_super");
 
-        ChinaCraft.debug.setTextureName("chinacraft:debug");
+        registerItemRenderer(ChinaCraft.debug, "debug");
 
-        super.init(event);
-
+        registerItemBlockRenderer(ChinaCraft.blockWoodenBucket, "wooden_bucket_empty");
+        registerItemBlockRenderer(ChinaCraft.blockWoodenBucket, 1, "wooden_bucket_full");
+        registerItemRenderer(ChinaCraft.tinPowder, "tin_powder");
+        
         ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         //TODO: create relative json
-        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ItemBuhrimillRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ItemBuhrimillRenderer());
 
         //ClientRegistry.registerTileEntity(TileCCLamp.class, "tileEntityLamp", new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
@@ -155,9 +175,9 @@ public class ClientProxy extends CommonProxy {
 //                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
 //                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
         //TODO: create relative json
-        //MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,
-        //        new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-        //                new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,
+                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
 
         ClientRegistry.registerTileEntity(TileModelBlock.class, "tileEntityModelBlock",
                 new TileEntityModelBlockRenderer());
@@ -169,20 +189,20 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class,
                 new TileEntitySericultureFrameRenderer());
         //TODO: create relative json
-        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.sericultureFrame), new ItemSericultureFrameRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.sericultureFrame), new ItemSericultureFrameRenderer());
 
         //TODO: create relative json
-        //RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
-        // MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase),
-        // new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D,
-        // 0.0D));
+        RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
+         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase),
+         new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D,
+         0.0D));
 
         ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryTable.class, new TileEntityPotteryTableRenderer());
         //TODO: create relative json
-        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.potteryTable), new ItemPotteryTableRenderer());
-        //MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemPotteryTable, new ItemPotteryTableRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.potteryTable), new ItemPotteryTableRenderer());
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemPotteryTable, new ItemPotteryTableRenderer());
 
-        // RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
+        //RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
         EntityRenderingRegistry.init();
     }
 

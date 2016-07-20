@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "chinacraft:piller_marble" },
+        "axis=z": { "model": "chinacraft:piller_marble_side" },
+        "axis=x": { "model": "chinacraft:piller_marble_side", "y": 90 }
+    }
+}
