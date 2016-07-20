@@ -1,8 +1,12 @@
 package unstudio.chinacraft.event.combat;
 
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
@@ -43,11 +47,23 @@ public class ListenerArmor {
     }
 
     @SubscribeEvent
-    public void wearingChinaCrown(TickEvent.PlayerTickEvent event) {
-        if (event.player.inventory.armorInventory[3] == null)
-            return;
-        if (!event.player.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown))
-            return;
-        event.player.addPotionEffect(new PotionEffect(5, 10));
+    public void wearingChinaCrown(LivingHurtEvent event) {
+        if (event.entityLiving instanceof EntityPlayer){
+            EntityPlayer p = (EntityPlayer) event.entityLiving;
+            if (p.inventory.armorInventory[3] != null&&p.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
+                if (p.worldObj.rand.nextInt(2)==1){
+                    double percent = (p.worldObj.rand.nextInt(5)+3)/10.0;
+                    System.out.println(percent);
+                    System.out.println(event.source.getSourceOfDamage() != null);
+                    System.out.println(event.source.getSourceOfDamage());
+                    System.out.println(event.source.getSourceOfDamage() instanceof EntityLiving);
+                    if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){
+                        System.out.println("return "+(float) (event.ammount * (1 - percent)));
+                        event.source.getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(p), (float) (event.ammount * (1 - percent)));
+                        event.ammount = (float) (event.ammount *  percent);
+                    }
+                }
+            }
+        }
     }
 }
