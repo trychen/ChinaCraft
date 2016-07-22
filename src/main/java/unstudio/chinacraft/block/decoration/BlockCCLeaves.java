@@ -118,6 +118,6 @@ public class BlockCCLeaves extends BlockLeaves {
 	}
 	@Override
 	protected BlockState createBlockState() {
-		return new BlockState(this, VARIANT);
+		return new BlockState(this, VARIANT, DECAYABLE, CHECK_DECAY);
 	}
 }

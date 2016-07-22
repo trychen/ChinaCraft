@@ -18,7 +18,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.common.ChinaCraft;
 public class BlockWoodenBucket extends Block {
 	public static final PropertyBool FILLED_WATER = PropertyBool.create("filled_water");
@@ -52,11 +51,6 @@ public class BlockWoodenBucket extends Block {
     @Override
     public void setBlockBoundsForItemRender() {
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-    }
-
-    @Override
-    public int getRenderType() {
-        return BlockWoodenBucketRenderer.renderID;
     }
 
     @Override

@@ -24,7 +24,6 @@ public class BlockCCModel extends Block implements ITileEntityProvider{
         super(material);
         this.model = model;
         setUnlocalizedName(name);
-        setBlockTextureName(name);
         texturename = name;
     }
 

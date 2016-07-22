@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "chinacraft:blocks/bamboo_plank"
+  }
+}

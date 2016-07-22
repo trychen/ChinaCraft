@@ -1,26 +1,14 @@
 package unstudio.chinacraft.common;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import scala.collection.generic.BitOperations.Int;
-import unstudio.chinacraft.client.model.ModelLanternScaldfish;
 import unstudio.chinacraft.client.nei.NEIAPI;
-import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
-import unstudio.chinacraft.client.render.item.ItemBuhrimillRenderer;
-import unstudio.chinacraft.client.render.item.ItemPotteryTableRenderer;
-import unstudio.chinacraft.client.render.item.ItemSericultureFrameRenderer;
-import unstudio.chinacraft.client.render.item.ModelBlockItemRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityPotteryTableRenderer;
@@ -44,6 +32,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         if (ChinaCraft.NEIIsLoad) {
+        	//XXX:Removed temporary for debuging
             new NEIAPI().loadConfig();
         }
 
@@ -69,12 +58,31 @@ public class ClientProxy extends CommonProxy {
         registerItemBlockRenderer(ChinaCraft.pillarMarble, "piller_marble");
         registerItemBlockRenderer(ChinaCraft.chiseledMarble, "chiseled_marble");
         registerItemBlockRenderer(ChinaCraft.marbleStair, "marble_stair");
-        registerItemBlockRenderer(ChinaCraft.marbleSlab, "marble_slab");
-        registerItemBlockRenderer(ChinaCraft.marbleDoubleSlab, "marble_double_slab");
+        //registerItemBlockRenderer(ChinaCraft.marbleSlab, "marble_slab");
+        //registerItemBlockRenderer(ChinaCraft.marbleDoubleSlab, "marble_double_slab");
         registerItemBlockRenderer(ChinaCraft.woodenWindow1, "wooden_window_1");
         registerItemBlockRenderer(ChinaCraft.woodenWindow2, "wooden_window_2");
         registerItemBlockRenderer(ChinaCraft.woodenWindow3, "wooden_window_3");
         registerItemBlockRenderer(ChinaCraft.woodenWindow4, "wooden_window_4");
+        registerItemBlockRenderer(ChinaCraft.woodenWindowdragon, "wooden_window_dragon");
+        registerItemBlockRenderer(ChinaCraft.woodenWindowfu, "wooden_window_fu");
+        registerItemBlockRenderer(ChinaCraft.bamboo, "bamboo");
+        registerItemBlockRenderer(ChinaCraft.blockBambooShoot, "bamboo_shoot");
+        registerItemBlockRenderer(ChinaCraft.bambooPlank, "bamboo_plank");
+        registerItemBlockRenderer(ChinaCraft.mulberryLog, "mulberry_log");
+        registerItemBlockRenderer(ChinaCraft.mulberrySapling, "mulberry_sapling");
+        registerItemBlockRenderer(ChinaCraft.mulberryLeaf, "mulberry_leaf");
+        registerItemBlockRenderer(ChinaCraft.mulberryWood, "mulberry_wood");
+        registerItemBlockRenderer(ChinaCraft.blackbrickBlock, "blackbrick_block");
+        registerItemBlockRenderer(ChinaCraft.blackbrickSlab, "blackbrick_slab");
+        //registerItemBlockRenderer(ChinaCraft.blackbrickDoubleSlab, "blackbrick_double_slab");
+        registerItemBlockRenderer(ChinaCraft.blackbrickStair, "blackbrick_stair");
+        registerItemRenderer(ChinaCraft.bronzeIngot, "bronze_ingot");
+        registerItemRenderer(ChinaCraft.blackbrick, "blackbrick");
+        registerItemRenderer(ChinaCraft.itemBamboo, "bamboo_item");
+        registerItemRenderer(ChinaCraft.Salt, "salt_powder");
+        registerItemRenderer(ChinaCraft.douJiangBucket, "doujiang_bucket");
+        registerItemRenderer(ChinaCraft.silkYarn, "silk_yarn");
         
         registerItemRenderer(ChinaCraft.tinIngot, "tin_ingot");
         registerItemRenderer(ChinaCraft.copperPowder, "copper_powder");
@@ -167,7 +175,7 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         //TODO: create relative json
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ItemBuhrimillRenderer());
+        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ItemBuhrimillRenderer());
 
         //ClientRegistry.registerTileEntity(TileCCLamp.class, "tileEntityLamp", new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
@@ -175,9 +183,9 @@ public class ClientProxy extends CommonProxy {
 //                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
 //                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
         //TODO: create relative json
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,
+        /*MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));*/
 
         ClientRegistry.registerTileEntity(TileModelBlock.class, "tileEntityModelBlock",
                 new TileEntityModelBlockRenderer());
@@ -189,18 +197,18 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class,
                 new TileEntitySericultureFrameRenderer());
         //TODO: create relative json
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.sericultureFrame), new ItemSericultureFrameRenderer());
+        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.sericultureFrame), new ItemSericultureFrameRenderer());
 
         //TODO: create relative json
-        RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
+        /*RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
          MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase),
          new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D,
-         0.0D));
+         0.0D));*/
 
         ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryTable.class, new TileEntityPotteryTableRenderer());
         //TODO: create relative json
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.potteryTable), new ItemPotteryTableRenderer());
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemPotteryTable, new ItemPotteryTableRenderer());
+        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.potteryTable), new ItemPotteryTableRenderer());
+        //MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemPotteryTable, new ItemPotteryTableRenderer());
 
         //RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
         EntityRenderingRegistry.init();

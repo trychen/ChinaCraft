@@ -1,0 +1,21 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "end": "chinacraft:blocks/mulberry_log_top",
+            "side": "chinacraft:blocks/mulberry_log"
+        },
+        "model": "column"
+    },
+    "variants": {
+        "axis=y":  {},
+        "axis=z":   { "model": "column_side" },
+        "axis=x":   { "model": "column_side", "y": 90 },
+        "axis=none": {
+			"parent": "block/cube_all",
+			"textures": {
+				"all": "chinacraft:blocks/mulberry_log"
+			}
+		}
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "cross": "chinacraft:blocks/bamboo_shoot"
+        },
+        "model": "cross"
+    },
+    "variants": {
+		"stage": {
+			0:{},
+			1:{}
+		}
+    }
+}

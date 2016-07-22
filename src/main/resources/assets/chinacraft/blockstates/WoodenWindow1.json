@@ -1,0 +1,69 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "edge": "chinacraft:blocks/wooden_window_top",
+            "pane": "chinacraft:blocks/wooden_window_1"
+        },
+        "model": "pane_nsew"
+    },
+    "variants": {
+        "east=false,north=false,south=false,west=false": {
+			"model": "pane_nsew"
+		},
+        "east=false,north=true,south=false,west=false": {
+		    "model": "pane_n" 
+		},
+        "east=true,north=false,south=false,west=false": {
+		    "model": "pane_n"
+		},
+        "east=false,north=false,south=true,west=false": {
+		    "model": "pane_n",
+		    "y": 180 
+		},
+        "east=false,north=false,south=false,west=true": {
+		    "model": "pane_n",
+			"y": 270 
+		},
+        "east=true,north=true,south=false,west=false": {
+		    "model": "pane_ne" 
+		},
+        "east=true,north=false,south=true,west=false": {
+		    "model": "pane_ne",
+			"y": 90 
+		},
+        "east=false,north=false,south=true,west=true": {
+		    "model": "pane_ne",
+			"y": 180 
+		},
+        "east=false,north=true,south=false,west=true": {
+			"model": "pane_ne",
+			"y": 270 
+		},
+        "east=false,north=true,south=true,west=false": {
+		    "model": "pane_ns" 
+		},
+        "east=true,north=false,south=false,west=true": {
+			"model": "pane_ns",
+			"y": 90 
+		},
+        "east=true,north=true,south=true,west=false": {
+			"model": "pane_nse" 
+		},
+        "east=true,north=false,south=true,west=true": {
+			"model": "pane_nse",
+			"y": 90 
+		},
+        "east=false,north=true,south=true,west=true": {
+			"model": "pane_nse",
+			"y": 180 
+		},
+        "east=true,north=true,south=false,west=true": {
+			"model": "pane_nse",
+			"y": 270 
+		},
+        "east=true,north=true,south=true,west=true": {
+			"model": "pane_nsew" 
+		}
+    }
+}

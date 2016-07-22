@@ -1,5 +1,6 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
@@ -113,8 +114,8 @@ public class CommonProxy {
         GameRegistry.registerBlock(ChinaCraft.blockBambooShoot, "BlockBambooShoot");
         GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
         GameRegistry.registerBlock(ChinaCraft.blackbrickBlock,"BlackBrickBlock");//青砖块
-        GameRegistry.registerBlock(ChinaCraft.blackbrickSlab,ItemCCSlab.class,"BlackBrickSlab",ChinaCraft.blackbrickSlab,ChinaCraft.blackbrickDoubleSlab,false);
-        GameRegistry.registerBlock(ChinaCraft.blackbrickDoubleSlab,ItemCCSlab.class,"BlackBrickDoubleSlab",ChinaCraft.blackbrickSlab,ChinaCraft.blackbrickDoubleSlab,true);
+        GameRegistry.registerBlock(ChinaCraft.blackbrickSlab,ItemCCSlab.class,"BlackBrickSlab", ChinaCraft.blackbrickSlab,ChinaCraft.blackbrickDoubleSlab);
+        //GameRegistry.registerBlock(ChinaCraft.blackbrickDoubleSlab,ItemCCSlab.class,"BlackBrickDoubleSlab",ChinaCraft.blackbrickSlab,ChinaCraft.blackbrickDoubleSlab,true);
         GameRegistry.registerBlock(ChinaCraft.blackbrickStair,"BlackBrickStair");
 
         GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); // 玉石工作台
