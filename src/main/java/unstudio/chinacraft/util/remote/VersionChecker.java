@@ -32,8 +32,8 @@ public class VersionChecker extends Thread{
         if (!getRemoteVersionModel()) return;
         latest = judgeIfLatest();
         checked = true;
-        if (latest) findNewVersion();
-        else isNewestVersion();
+        if (isLatestVersion()) isNewestVersion();
+        else findNewVersion();
     }
 
     public void findNewVersion(){
@@ -67,15 +67,15 @@ public class VersionChecker extends Thread{
     protected boolean judgeIfLatest() {
         if (latest) return true;
         if (nowVersion.equals(latestVersion)) return true;
-        if (nowVersion.startsWith("Beta")){
-            if (latestVersion.startsWith("Beta")){
+        if (nowVersion.startsWith("Beta")||nowVersion.startsWith("Release")){
+            if (latestVersion.startsWith("Beta")||latestVersion.startsWith("Release")){
                 return isNew(nowVersion,latestVersion);
             } else {
                 String[] a = nowVersion.split("-")[1].split("\\.");
                 return Integer.valueOf(a[a.length-1]) >= Integer.valueOf(latestVersion.split(" ")[1]);
             }
         } else {
-            if (latestVersion.startsWith("Beta")){
+            if (latestVersion.startsWith("Beta")||latestVersion.startsWith("Release")){
                 String[] a = latestVersion.split(" ")[1].split("\\.");
                 return Integer.valueOf(nowVersion.split("-")[1]) >= Integer.valueOf(a[a.length-1]);
             } else {

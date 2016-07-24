@@ -60,7 +60,7 @@ import java.util.Random;
 public class ChinaCraft implements ICollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "Beta-0.2.193";
+    public static final String VERSION = "SanpShot-194";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;

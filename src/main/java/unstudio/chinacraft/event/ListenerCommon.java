@@ -28,14 +28,14 @@ public class ListenerCommon {
                 ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL,
                         ChinaCraft.versionChecker.getDownloadUrl());
                 ChatStyle clickableChatStyle = new ChatStyle().setChatClickEvent(versionCheckChatClickEvent);
-                ChatComponentText versionWarningChatComponent = new ChatComponentText(
+                ChatComponentText versionWarningChatComponent = new ChatComponentText("[ChinaCraft] " +
                         StatCollector.translateToLocal("VersionChecker.perfix"));
                 versionWarningChatComponent.setChatStyle(clickableChatStyle);
                 p.addChatMessage(versionWarningChatComponent);
 
-                ChatComponentText info = new ChatComponentText(StatCollector.translateToLocal("VersionChecker.version")
+                ChatComponentText info = new ChatComponentText("[ChinaCraft] " + StatCollector.translateToLocal("VersionChecker.version")
                         .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
-                        .replaceAll("!old", String.valueOf(ChinaCraft.VERSION)));
+                        .replaceAll("!old", String.valueOf(ChinaCraft.VERSION.replace('-',' '))));
                 info.setChatStyle(clickableChatStyle);
                 p.addChatMessage(info);
                 //一下信息

@@ -54,12 +54,7 @@ public class ListenerArmor {
             if (p.inventory.armorInventory[3] != null&&p.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
                 if (p.worldObj.rand.nextInt(2)==1){
                     double percent = (p.worldObj.rand.nextInt(5)+3)/10.0;
-                    System.out.println(percent);
-                    System.out.println(event.source.getSourceOfDamage() != null);
-                    System.out.println(event.source.getSourceOfDamage());
-                    System.out.println(event.source.getSourceOfDamage() instanceof EntityLiving);
                     if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){
-                        System.out.println("return "+(float) (event.ammount * (1 - percent)));
                         event.source.getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(p), (float) (event.ammount * (1 - percent)));
                         event.ammount = (float) (event.ammount *  percent);
                     }

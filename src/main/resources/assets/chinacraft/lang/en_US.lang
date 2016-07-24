@@ -228,5 +228,5 @@ redpacket.receive_money=You open the Red Packet to get %money% Money!
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie
 
-VersionChecker.perfix=[ChinaCraft] Found New Version!Click to Download.
-VersionChecker.version=[ChinaCraft] Latest Version: !new ,Currect Version: !old .
+VersionChecker.perfix=Found New Version!Click to Download.
+VersionChecker.version=Latest Version: !new ,Currect Version: !old .

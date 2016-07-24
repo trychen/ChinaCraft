@@ -231,5 +231,5 @@ redpacket.receive_money=您打開紅包獲得了 %money% 元!
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵屍
 
-VersionChecker.perfix=[ChinaCraft] 發現新版本!點擊下載.
-VersionChecker.version=[ChinaCraft] 最新版本: !new ,當前版本: !old .
+VersionChecker.perfix=發現新版本!點擊下載.
+VersionChecker.version=最新版本: !new ,當前版本: !old .
