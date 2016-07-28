@@ -16,7 +16,7 @@ public class ClientSideRegister {
 
         // 开始执行
         for (Class clazz : client) {
-            for (Field field : clazz.getFields()) {
+            for (Field field : clazz.getDeclaredFields()) {
                 try {
                     Object object = field.get(null);
                     if (object instanceof IClient){
@@ -24,7 +24,6 @@ public class ClientSideRegister {
                     }
                 } catch (IllegalAccessException e) {
                 } catch (NullPointerException e){
-                    System.out.println(field.getName());
                 }
             }
         }

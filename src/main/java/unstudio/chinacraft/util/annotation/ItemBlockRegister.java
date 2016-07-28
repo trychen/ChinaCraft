@@ -44,7 +44,7 @@ public class ItemBlockRegister {
      * @param c 类
      */
     public static void register(Class c) {
-        for (Field f : c.getFields()) {
+        for (Field f : c.getDeclaredFields()) {
             if (f.getDeclaredAnnotations().length > 0) {
                 Object o;
                 try {
