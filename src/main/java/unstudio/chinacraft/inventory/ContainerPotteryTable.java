@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;
+package unstudio.chinacraft.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.generation.plant;
+package unstudio.chinacraft.block.generation.plant;
 
 import net.minecraft.block.BlockCake;
 

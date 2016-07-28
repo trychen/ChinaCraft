@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.render;
+package unstudio.chinacraft.entity.render;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.entity.projectile.EntitySpear;
+import unstudio.chinacraft.entity.projectile.EntitySpear;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

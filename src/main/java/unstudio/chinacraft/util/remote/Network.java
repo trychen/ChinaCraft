@@ -1,8 +1,8 @@
-package unstudio.sinocraft.util.remote;
+package unstudio.chinacraft.util.remote;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -13,7 +13,7 @@ import java.net.URL;
  * Created by trychen on 16/7/19.
  */
 public class Network {
-    private static Logger log = SinoCraft.log;
+    private static Logger log = ChinaCraft.log;
 
     /**
      * 向URL发送GET请求

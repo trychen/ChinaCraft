@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;
+package unstudio.chinacraft.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -7,7 +7,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 
 public class ContainerBuhrimill extends Container {
 

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.block;
+package unstudio.chinacraft.client.render.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -8,7 +8,7 @@ import net.minecraft.world.IBlockAccess;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.block.model.BlockCCLantern;
+import unstudio.chinacraft.block.model.BlockCCLantern;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

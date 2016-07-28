@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -19,9 +19,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileCookingBench;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileCookingBench;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -41,7 +41,7 @@ public class BlockCookingBench extends BlockContainer {
         setStepSound(soundTypeStone);
         setHarvestLevel("pickaxe", 0);
         if (!fire)
-            setCreativeTab(SinoCraft.tabCore);
+            setCreativeTab(ChinaCraft.tabCore);
     }
 
     public static void updateFurnaceBlockState(boolean p_149931_0_, World p_149931_1_, int p_149931_2_, int p_149931_3_,
@@ -50,9 +50,9 @@ public class BlockCookingBench extends BlockContainer {
         TileEntity tileentity = p_149931_1_.getTileEntity(p_149931_2_, p_149931_3_, p_149931_4_);
         update = true;
         if (p_149931_0_) {
-            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, SinoCraft.cooking_bench_on);
+            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ChinaCraft.cooking_bench_on);
         } else {
-            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, SinoCraft.cooking_bench_off);
+            p_149931_1_.setBlock(p_149931_2_, p_149931_3_, p_149931_4_, ChinaCraft.cooking_bench_off);
         }
         update = false;
         p_149931_1_.setBlockMetadataWithNotify(p_149931_2_, p_149931_3_, p_149931_4_, l, 2);
@@ -101,12 +101,12 @@ public class BlockCookingBench extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister reg) {
-        this.bottom = reg.registerIcon("sinocraft:cooking_bench_bottom");
-        this.top_off = reg.registerIcon("sinocraft:cooking_bench_top_off");
-        this.top_on = reg.registerIcon("sinocraft:cooking_bench_top_on");
-        this.side = reg.registerIcon("sinocraft:cooking_bench_side");
-        this.front_off = reg.registerIcon("sinocraft:cooking_bench_front_off");
-        this.front_on = reg.registerIcon("sinocraft:cooking_bench_front_on");
+        this.bottom = reg.registerIcon("chinacraft:cooking_bench_bottom");
+        this.top_off = reg.registerIcon("chinacraft:cooking_bench_top_off");
+        this.top_on = reg.registerIcon("chinacraft:cooking_bench_top_on");
+        this.side = reg.registerIcon("chinacraft:cooking_bench_side");
+        this.front_off = reg.registerIcon("chinacraft:cooking_bench_front_off");
+        this.front_on = reg.registerIcon("chinacraft:cooking_bench_front_on");
     }
 
     @Override
@@ -203,12 +203,12 @@ public class BlockCookingBench extends BlockContainer {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.cooking_bench_off);
+        return Item.getItemFromBlock(ChinaCraft.cooking_bench_off);
     }
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.cooking_bench_off);
+        return Item.getItemFromBlock(ChinaCraft.cooking_bench_off);
     }
 
     @Override
@@ -216,7 +216,7 @@ public class BlockCookingBench extends BlockContainer {
             float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (world.isRemote)
             return true;
-        p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_CookingBench, world, x, y, z);
+        p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_CookingBench, world, x, y, z);
         return true;
     }
 }

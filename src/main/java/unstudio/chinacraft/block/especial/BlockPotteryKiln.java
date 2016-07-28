@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -17,10 +17,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileFirebrickStructure;
-import unstudio.sinocraft.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileFirebrickStructure;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -37,21 +37,21 @@ public class BlockPotteryKiln extends BlockContainer {
     }
 
     public static void generatePotteryKiln(World world, int x, int y, int z, int type) {
-        TileFirebrickStructure tile = (TileFirebrickStructure) SinoCraft.blockFirebrickStructure
+        TileFirebrickStructure tile = (TileFirebrickStructure) ChinaCraft.blockFirebrickStructure
                 .createNewTileEntity(world, 0);
         tile.setPosition(x, y, z);
-        world.setBlock(x, y, z, SinoCraft.blockPotteryKiln, type, 2);
+        world.setBlock(x, y, z, ChinaCraft.blockPotteryKiln, type, 2);
         if (type == 0) {
-            world.setBlock(x, y, z - 1, SinoCraft.blockFirebrickStructure, 1, 2);
+            world.setBlock(x, y, z - 1, ChinaCraft.blockFirebrickStructure, 1, 2);
             ((TileFirebrickStructure) world.getTileEntity(x, y, z - 1)).setPosition(x, y, z);
         } else if (type == 1) {
-            world.setBlock(x + 1, y, z, SinoCraft.blockFirebrickStructure, 1, 2);
+            world.setBlock(x + 1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
             ((TileFirebrickStructure) world.getTileEntity(x + 1, y, z)).setPosition(x, y, z);
         } else if (type == 2) {
-            world.setBlock(x, y, z + 1, SinoCraft.blockFirebrickStructure, 1, 2);
+            world.setBlock(x, y, z + 1, ChinaCraft.blockFirebrickStructure, 1, 2);
             ((TileFirebrickStructure) world.getTileEntity(x, y, z + 1)).setPosition(x, y, z);
         } else if (type == 3) {
-            world.setBlock(x - 1, y, z, SinoCraft.blockFirebrickStructure, 1, 2);
+            world.setBlock(x - 1, y, z, ChinaCraft.blockFirebrickStructure, 1, 2);
             ((TileFirebrickStructure) world.getTileEntity(x - 1, y, z)).setPosition(x, y, z);
         }
         int tx = x - 1;
@@ -60,8 +60,8 @@ public class BlockPotteryKiln extends BlockContainer {
         for (int Y = 0; Y < 3; Y++) {
             for (int Z = 0; Z < 3; Z++) {
                 for (int X = 0; X < 3; X++) {
-                    if (world.getBlock(X + tx, ty + Y, Z + tz).equals(SinoCraft.blockFirebrick)) {
-                        world.setBlock(X + tx, ty + Y, Z + tz, SinoCraft.blockFirebrickStructure, 0, 2);
+                    if (world.getBlock(X + tx, ty + Y, Z + tz).equals(ChinaCraft.blockFirebrick)) {
+                        world.setBlock(X + tx, ty + Y, Z + tz, ChinaCraft.blockFirebrickStructure, 0, 2);
                         ((TileFirebrickStructure) world.getTileEntity(X + tx, ty + Y, Z + tz)).setPosition(x, y, z);
                     }
                 }
@@ -76,9 +76,9 @@ public class BlockPotteryKiln extends BlockContainer {
         for (int Y = 0; Y < 3; Y++) {
             for (int Z = 0; Z < 3; Z++) {
                 for (int X = 0; X < 3; X++) {
-                    if (world.getBlock(X + tx, ty + Y, Z + tz).equals(SinoCraft.blockFirebrickStructure)
-                            || world.getBlock(X + tx, ty + Y, Z + tz).equals(SinoCraft.blockPotteryKiln)) {
-                        world.setBlock(X + tx, ty + Y, Z + tz, SinoCraft.blockFirebrick, 0, 2);
+                    if (world.getBlock(X + tx, ty + Y, Z + tz).equals(ChinaCraft.blockFirebrickStructure)
+                            || world.getBlock(X + tx, ty + Y, Z + tz).equals(ChinaCraft.blockPotteryKiln)) {
+                        world.setBlock(X + tx, ty + Y, Z + tz, ChinaCraft.blockFirebrick, 0, 2);
                     }
                 }
             }
@@ -171,12 +171,12 @@ public class BlockPotteryKiln extends BlockContainer {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.blockFirebrick);
+        return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
     }
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.blockPotteryKiln);
+        return Item.getItemFromBlock(ChinaCraft.blockPotteryKiln);
     }
 
     @Override
@@ -184,7 +184,7 @@ public class BlockPotteryKiln extends BlockContainer {
             float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (world.isRemote)
             return true;
-        p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_PotteryKiln, world, x, y, z);
+        p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_PotteryKiln, world, x, y, z);
         return true;
     }
 }

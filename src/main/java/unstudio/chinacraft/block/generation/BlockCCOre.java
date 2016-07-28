@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.generation;
+package unstudio.chinacraft.block.generation;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.material.Material;
@@ -6,7 +6,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
-import unstudio.sinocraft.block.BlockBase;
+import unstudio.chinacraft.block.BlockBase;
 
 import java.util.Random;
 

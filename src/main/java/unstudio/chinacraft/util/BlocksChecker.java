@@ -1,4 +1,4 @@
-package unstudio.sinocraft.util;
+package unstudio.chinacraft.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,13 +6,13 @@ import java.util.Map;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BlocksChecker {
 
     public static final BlocksChecker Pottery_Kiln = new BlocksChecker(
             new String[][] { { "AAA", "AAA", "AAA" }, { "AAA", "ABA", "AAA" }, { "AAA", "AAA", "AAA" } }, 'A',
-            new BlockRule(SinoCraft.blockFirebrick), 'B', new BlockRule(Blocks.air)).setOffset(0, 0, 0);
+            new BlockRule(ChinaCraft.blockFirebrick), 'B', new BlockRule(Blocks.air)).setOffset(0, 0, 0);
 
     private BlockRule[][][] data;
 

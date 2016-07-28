@@ -1,4 +1,4 @@
-package unstudio.sinocraft.event.jade;
+package unstudio.chinacraft.event.jade;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

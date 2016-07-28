@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.gui;
+package unstudio.chinacraft.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BLGiantSword extends ItemSword {
     public BLGiantSword(ToolMaterial toolMaterial) {
@@ -16,7 +16,7 @@ public class BLGiantSword extends ItemSword {
         setUnlocalizedName("yanlung_giantknife");
         setMaxStackSize(1);
         setMaxDamage(1500);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

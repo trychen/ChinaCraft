@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.animal;
+package unstudio.chinacraft.entity.animal;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -15,7 +15,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * The Chinese Animal - Panda. Created by trychen on 15/12/5.
@@ -117,7 +117,7 @@ public class EntityPanda extends EntityAnimal implements IAnimals {
     public boolean interact(EntityPlayer entityPlayer) {
         ItemStack itemstack = entityPlayer.inventory.getCurrentItem();
 
-        if (itemstack != null && itemstack.getItem() == SinoCraft.itemBamboo
+        if (itemstack != null && itemstack.getItem() == ChinaCraft.itemBamboo
                 && !entityPlayer.capabilities.isCreativeMode) {
             if (itemstack.stackSize-- == 1) {
                 entityPlayer.inventory.setInventorySlotContents(entityPlayer.inventory.currentItem,

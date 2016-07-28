@@ -1,4 +1,4 @@
-package unstudio.sinocraft.util.annotation.register;
+package unstudio.chinacraft.util.annotation.register;
 
 
 public interface ICollection {

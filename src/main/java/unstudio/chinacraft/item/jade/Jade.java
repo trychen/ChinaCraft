@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item.jade;
+package unstudio.chinacraft.item.jade;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -6,8 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.event.jade.PlayerUseJadeEvent;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.event.jade.PlayerUseJadeEvent;
 
 public class Jade extends Item {
 
@@ -15,13 +15,13 @@ public class Jade extends Item {
         setUnlocalizedName(s);
         setMaxStackSize(1);
         setMaxDamage(6);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
     }
 
     public Jade(String s, int level) {
         setUnlocalizedName(s);
         setMaxStackSize(16);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
     }
 
     @Override

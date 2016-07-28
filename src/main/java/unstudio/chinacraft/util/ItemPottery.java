@@ -1,4 +1,4 @@
-package unstudio.sinocraft.util;
+package unstudio.chinacraft.util;
 
 public class ItemPottery {
 

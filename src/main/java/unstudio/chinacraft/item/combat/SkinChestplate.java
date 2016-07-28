@@ -1,8 +1,8 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemArmor;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by Trychen on 2015/11/7.
@@ -14,6 +14,6 @@ public class SkinChestplate extends ItemArmor {
         super(armorMaterial, 1, 1);
         setUnlocalizedName(name);
         this.TextureName = textureName;
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 }

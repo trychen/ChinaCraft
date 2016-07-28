@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -31,7 +31,7 @@ public class ModelArmor extends ItemArmor {
         TextureName = textureName;
         this.textureType = textureType;
         setMaxStackSize(1);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override
@@ -79,7 +79,7 @@ public class ModelArmor extends ItemArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon("sinocraft:" + getUnlocalizedName().substring(5));
+        this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
     }
 
     @SideOnly(Side.CLIENT)
@@ -91,9 +91,9 @@ public class ModelArmor extends ItemArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         if (textureType == 0) {
-            return String.format("sinocraft:textures/models/armor/%s.png", TextureName);
+            return String.format("chinacraft:textures/models/armor/%s.png", TextureName);
         }
-        return String.format("sinocraft:textures/models/armor/%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
+        return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
     }
 
     public void setArmorModel(ModelBiped armorModel) {

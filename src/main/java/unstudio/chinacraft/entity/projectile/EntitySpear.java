@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.projectile;
+package unstudio.chinacraft.entity.projectile;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.registry.IThrowableEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -366,7 +366,7 @@ public class EntitySpear extends EntityArrow implements IThrowableEntity {
                     || ((this.canBePickedUp == 2) && (par1EntityPlayer.capabilities.isCreativeMode));
 
             if ((this.canBePickedUp == 1)
-                    && (!(par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(SinoCraft.bomb, 1))))) {
+                    && (!(par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.bomb, 1))))) {
                 flag = false;
             }
 

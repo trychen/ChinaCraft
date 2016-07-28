@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -10,8 +10,8 @@ import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileEntityInstruments;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileEntityInstruments;
 
 /**
  * Created by trych on 2016/1/27.
@@ -42,7 +42,7 @@ public class BlockInstruments extends BlockContainer {
         setBlockName(name);
         this.musicname = musicname;
         this.isAlignmentMusic = isAlignmentMusic;
-        this.setCreativeTab(SinoCraft.tabCore);
+        this.setCreativeTab(ChinaCraft.tabCore);
     }
 
     public boolean isAlignmentMusic() {

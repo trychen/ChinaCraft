@@ -1,9 +1,9 @@
-package unstudio.sinocraft.event;
+package unstudio.chinacraft.event;
 
 import net.minecraftforge.common.MinecraftForge;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import unstudio.sinocraft.util.annotation.AnnotationClassGetter;
+import unstudio.chinacraft.util.annotation.AnnotationClassGetter;
 
 import java.util.List;
 
@@ -27,6 +27,6 @@ public class ListenerRegister {
     }
 
     public static List<Class<?>> getListeners(){
-        return  AnnotationClassGetter.getClasses("unstudio.sinocraft.event");
+        return  AnnotationClassGetter.getClasses("unstudio.chinacraft.event");
     }
 }

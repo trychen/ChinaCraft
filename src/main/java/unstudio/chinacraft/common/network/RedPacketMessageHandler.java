@@ -1,4 +1,4 @@
-package unstudio.sinocraft.common.network;
+package unstudio.chinacraft.common.network;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -8,7 +8,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.WorldServer;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -23,7 +23,7 @@ public class RedPacketMessageHandler implements IMessageHandler<RedPacketMessage
         }
 
         NBTTagCompound nbt = message.itemstack.getTagCompound().getCompoundTag("Redpacket");
-        if (itemstack1.getItem() == SinoCraft.redPacket && itemstack1.getItem() == itemstack1.getItem()) {
+        if (itemstack1.getItem() == ChinaCraft.redPacket && itemstack1.getItem() == itemstack1.getItem()) {
             itemstack1.setTagInfo("Redpacket", nbt);
             String sendee = nbt.getString("Sendee");
             if (sendee != null && sendee.length() != 0 && sendee.equalsIgnoreCase(player.getDisplayName())) {

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,7 +22,7 @@ public class ItemSilkworm extends Item {
         setMaxStackSize(64);
         setHasSubtypes(true);
         setMaxDamage(0);
-        setCreativeTab(SinoCraft.tabFarming);
+        setCreativeTab(ChinaCraft.tabFarming);
         setUnlocalizedName("silkworm");
     }
 
@@ -39,7 +39,7 @@ public class ItemSilkworm extends Item {
         icon = new IIcon[name.length];
 
         for (int i = 0; i < name.length; ++i) {
-            this.icon[i] = p_94581_1_.registerIcon("sinocraft:silkworm_" + name[i]);
+            this.icon[i] = p_94581_1_.registerIcon("chinacraft:silkworm_" + name[i]);
         }
     }
 

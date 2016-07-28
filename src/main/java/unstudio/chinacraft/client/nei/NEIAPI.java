@@ -1,7 +1,7 @@
-package unstudio.sinocraft.client.nei;
+package unstudio.chinacraft.client.nei;
 
-import unstudio.sinocraft.client.gui.GuiBuhrimill;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.client.gui.GuiBuhrimill;
+import unstudio.chinacraft.common.ChinaCraft;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 
@@ -18,12 +18,12 @@ public class NEIAPI implements IConfigureNEI {
 
     @Override
     public String getName() {
-        return SinoCraft.NAME;
+        return ChinaCraft.NAME;
     }
 
     @Override
     public String getVersion() {
-        return SinoCraft.VERSION;
+        return ChinaCraft.VERSION;
     }
 
 }

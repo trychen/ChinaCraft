@@ -1,10 +1,10 @@
-package unstudio.sinocraft.event.jade;
+package unstudio.chinacraft.event.jade;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
@@ -13,7 +13,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class ListenerJade {
     @SubscribeEvent
     public void useitem(PlayerUseJadeEvent.ItemRightClick event) {
-        if (event.itemStack.getItem() == SinoCraft.jadeGreen2Item) {
+        if (event.itemStack.getItem() == ChinaCraft.jadeGreen2Item) {
             System.out.println(event.itemStack.getItemDamage());
             if (event.itemStack.getItemDamage() == 0) {
                 event.entityPlayer.heal(6);
@@ -28,13 +28,13 @@ public class ListenerJade {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (event.entity.worldObj.rand.nextInt(6) == 3) {
                 if (entityPlayer.getHeldItem() != null
-                        && entityPlayer.getHeldItem().getItem().equals(SinoCraft.bronzeBroadSwordPink)) {
+                        && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
                     event.ammount = 0.0f;
                     event.setCanceled(true);
                 } else {
                     for (int time = 0; time < 9; time++) {
                         if (entityPlayer.inventory.mainInventory[time] != null) {
-                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(SinoCraft.jadePinkItem)) {
+                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
                                 event.ammount = 0.0f;
                                 event.setCanceled(true);
                             }
@@ -44,7 +44,7 @@ public class ListenerJade {
                 return;
             }
             if (entityPlayer.getHeldItem() != null
-                    && entityPlayer.getHeldItem().getItem().equals(SinoCraft.jadeGreen2Item)) {
+                    && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreen2Item)) {
                 if (entityPlayer.getHeldItem().getItemDamage() < entityPlayer.getHeldItem().getMaxDamage()) {
                     PlayerUseJadeEvent.MainInventory e = new PlayerUseJadeEvent.MainInventory(entityPlayer,
                             entityPlayer.getHeldItem());
@@ -58,10 +58,10 @@ public class ListenerJade {
                 }
             } else {
                 if (entityPlayer.getHeldItem() != null
-                        && entityPlayer.getHeldItem().getItem().equals(SinoCraft.bronzeBroadSwordGreen2)) {
+                        && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
                     for (int time = 0; time < 9; time++) {
                         if (entityPlayer.inventory.mainInventory[time] != null) {
-                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(SinoCraft.jadePinkItem)) {
+                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
                                 entityPlayer.inventory.mainInventory[time]
                                         .setItemDamage(entityPlayer.inventory.mainInventory[time].getItemDamage() - 1);
                                 break;

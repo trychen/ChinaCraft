@@ -1,12 +1,12 @@
-package unstudio.sinocraft.entity;
+package unstudio.chinacraft.entity;
 
 import net.minecraft.entity.EntityList;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.animal.EntityBlackDog;
-import unstudio.sinocraft.entity.mob.EntityChinaZombie;
-import unstudio.sinocraft.entity.projectile.EntityThrownBomb;
-import unstudio.sinocraft.entity.projectile.EntityThrownFirecracker;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.entity.mob.EntityChinaZombie;
+import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
+import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 /**
@@ -42,7 +42,7 @@ public class EntityRegister {
      */
     public static void registerLivingEntity(Class entityClass, String entityName, int solidColor, int spotColor) {
         EntityRegistry.registerGlobalEntityID(entityClass, entityName, id);
-        EntityRegistry.registerModEntity(entityClass, entityName, id, SinoCraft.instance, 64, 1, true);
+        EntityRegistry.registerModEntity(entityClass, entityName, id, ChinaCraft.instance, 64, 1, true);
         createEgg(id, solidColor, spotColor);
         id++;
     }
@@ -57,7 +57,7 @@ public class EntityRegister {
      */
     public static void registerModEntity(Class entityClass, String entityName, int trackingRange, int updateFrequency, boolean sendsVelocityUpdates){
         EntityRegistry.registerModEntity(entityClass, entityName,
-                id, SinoCraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
+                id, ChinaCraft.instance, trackingRange, updateFrequency, sendsVelocityUpdates);
         id++;
     }
 

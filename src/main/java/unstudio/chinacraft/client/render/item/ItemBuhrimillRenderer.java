@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.item;
+package unstudio.chinacraft.client.render.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -7,8 +7,8 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelBuhrimill;
-import unstudio.sinocraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelBuhrimill;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 
 public class ItemBuhrimillRenderer implements IItemRenderer {
     private ModelExtendBlock model;
@@ -16,7 +16,7 @@ public class ItemBuhrimillRenderer implements IItemRenderer {
 
     public ItemBuhrimillRenderer() {
         this.model = new ModelBuhrimill();
-        this.texture = new ResourceLocation("sinocraft:textures/models/block/buhrimill.png");
+        this.texture = new ResourceLocation("chinacraft:textures/models/block/buhrimill.png");
     }
 
     @Override

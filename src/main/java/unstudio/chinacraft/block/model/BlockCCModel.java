@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.model;
+package unstudio.chinacraft.block.model;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -7,7 +7,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.tileentity.TileModelBlock;
+import unstudio.chinacraft.tileentity.TileModelBlock;
 
 public class BlockCCModel extends Block {
     private Class<? extends ModelBase> model;

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -11,13 +11,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.api.ItemMethod;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class ItemSMFSuper extends Item {
     public ItemSMFSuper() {
         setUnlocalizedName("SMFSuper");
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setMaxStackSize(8);
     }
 

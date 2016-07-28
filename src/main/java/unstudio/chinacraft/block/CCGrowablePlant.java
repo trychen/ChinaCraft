@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block;
+package unstudio.chinacraft.block;
 
 import java.util.Random;
 
@@ -94,7 +94,7 @@ public class CCGrowablePlant extends BlockCrops {
     }
 
     /**
-     * 注册物品的材质,"sinocraft:名字_stage_步骤"
+     * 注册物品的材质,"chinacraft:名字_stage_步骤"
      */
     @SideOnly(Side.CLIENT)
     @Override
@@ -102,7 +102,7 @@ public class CCGrowablePlant extends BlockCrops {
         this.icons = new IIcon[this.textureAmount];
 
         for (int i = 0; i < this.icons.length; ++i) {
-            this.icons[i] = par1IconRegister.registerIcon("sinocraft:" + this.name + "_stage_" + i);
+            this.icons[i] = par1IconRegister.registerIcon("chinacraft:" + this.name + "_stage_" + i);
         }
     }
 }

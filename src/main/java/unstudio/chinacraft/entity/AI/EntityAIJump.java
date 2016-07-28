@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.AI;
+package unstudio.chinacraft.entity.AI;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;

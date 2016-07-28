@@ -1,14 +1,14 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemPickaxe;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzePickaxe extends ItemPickaxe {
 
     public BronzePickaxe() {
-        super(SinoCraft.BRONZE);
+        super(ChinaCraft.BRONZE);
         setUnlocalizedName("bronze_pickaxe");
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 }

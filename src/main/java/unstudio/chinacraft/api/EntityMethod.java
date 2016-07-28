@@ -1,4 +1,4 @@
-package unstudio.sinocraft.api;
+package unstudio.chinacraft.api;
 
 import java.util.List;
 

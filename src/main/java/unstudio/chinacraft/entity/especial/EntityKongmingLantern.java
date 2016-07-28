@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.especial;
+package unstudio.chinacraft.entity.especial;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;

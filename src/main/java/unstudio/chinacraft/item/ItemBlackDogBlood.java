@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -7,13 +7,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class ItemBlackDogBlood extends ItemFood {
     public ItemBlackDogBlood() {
         super(0, false);
         this.setMaxStackSize(1);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setUnlocalizedName("black_dog_blood");
     }
 

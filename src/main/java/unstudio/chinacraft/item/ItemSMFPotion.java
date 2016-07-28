@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.api.ItemMethod;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class ItemSMFPotion extends Item {
 
@@ -25,7 +25,7 @@ public class ItemSMFPotion extends Item {
 
     public ItemSMFPotion(String name, int[][] a, int b) {
         setUnlocalizedName(name);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setMaxStackSize(8);
         this.Effect = a;
         this.b = b;

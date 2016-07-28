@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.model;
+package unstudio.chinacraft.client.model;
 
 import java.util.List;
 

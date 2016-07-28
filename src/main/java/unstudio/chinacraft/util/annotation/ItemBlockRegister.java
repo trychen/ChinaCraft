@@ -1,15 +1,15 @@
-package unstudio.sinocraft.util.annotation;
+package unstudio.chinacraft.util.annotation;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.common.Recipes;
-import unstudio.sinocraft.util.annotation.register.ICollection;
-import unstudio.sinocraft.util.annotation.register.OreRegister;
-import unstudio.sinocraft.util.annotation.register.Register;
-import unstudio.sinocraft.util.annotation.register.SlabRegister;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.Recipes;
+import unstudio.chinacraft.util.annotation.register.ICollection;
+import unstudio.chinacraft.util.annotation.register.OreRegister;
+import unstudio.chinacraft.util.annotation.register.Register;
+import unstudio.chinacraft.util.annotation.register.SlabRegister;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -50,11 +50,11 @@ public class ItemBlockRegister {
                 try {
                     o = f.get(null);
                 } catch (IllegalAccessException e) {
-                    SinoCraft.log.error("Can't register non-public field as a Block/Item");
+                    ChinaCraft.log.error("Can't register non-public field as a Block/Item");
                     e.printStackTrace();
                     continue;
                 } catch (NullPointerException e) {
-                    SinoCraft.log.error("Can't register non-static field as a Block/Item");
+                    ChinaCraft.log.error("Can't register non-static field as a Block/Item");
                     e.printStackTrace();
                     continue;
                 }

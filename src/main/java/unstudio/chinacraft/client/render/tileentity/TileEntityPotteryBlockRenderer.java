@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.tileentity;
+package unstudio.chinacraft.client.render.tileentity;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
@@ -9,13 +9,13 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelPotteryBase;
-import unstudio.sinocraft.tileentity.TilePotteryBase;
-import unstudio.sinocraft.util.PotteryManager;
+import unstudio.chinacraft.client.model.ModelPotteryBase;
+import unstudio.chinacraft.tileentity.TilePotteryBase;
+import unstudio.chinacraft.util.PotteryManager;
 
 public class TileEntityPotteryBlockRenderer extends TileEntitySpecialRenderer {
 
-    public ResourceLocation textures = new ResourceLocation("sinocraft:textures/models/block/empty.png");
+    public ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/empty.png");
 
     public TileEntityPotteryBlockRenderer() {}
 

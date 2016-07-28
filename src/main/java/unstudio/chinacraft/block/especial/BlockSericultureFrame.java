@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -15,9 +15,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -28,7 +28,7 @@ public class BlockSericultureFrame extends BlockContainer {
         setBlockName("sericulture_frame");
         setHardness(1.0F);
         setResistance(5.0F);
-        setCreativeTab(SinoCraft.tabFarming);
+        setCreativeTab(ChinaCraft.tabFarming);
         setStepSound(soundTypeWood);
     }
 
@@ -54,13 +54,13 @@ public class BlockSericultureFrame extends BlockContainer {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.sericultureFrame);
+        return Item.getItemFromBlock(ChinaCraft.sericultureFrame);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.sericultureFrame);
+        return Item.getItemFromBlock(ChinaCraft.sericultureFrame);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class BlockSericultureFrame extends BlockContainer {
             float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (world.isRemote)
             return true;
-        p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_Sericulture_Farme, world, x, y, z);
+        p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Sericulture_Farme, world, x, y, z);
         return true;
     }
 

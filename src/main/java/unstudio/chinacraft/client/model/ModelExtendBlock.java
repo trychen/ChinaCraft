@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.model;
+package unstudio.chinacraft.client.model;
 
 /**
  * 简易的渲染接口

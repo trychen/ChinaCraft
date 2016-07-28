@@ -1,4 +1,4 @@
-package unstudio.sinocraft.event;
+package unstudio.chinacraft.event;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,7 +7,7 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by trychen on 16/7/12.
@@ -23,28 +23,28 @@ public class ListenerCommon {
         if (e.entity instanceof EntityPlayer) {
             EntityPlayer p = (EntityPlayer) e.entity;
             // 判断是否已经提示过、是否为服务端、是否已经检查过、是否已经是最新版本
-            if (!SinoCraft.haveWarnedVersionOutOfDate && p.worldObj.isRemote
-                    && !SinoCraft.versionChecker.isLatestVersion() && SinoCraft.versionChecker.isChecked()) {
+            if (!ChinaCraft.haveWarnedVersionOutOfDate && p.worldObj.isRemote
+                    && !ChinaCraft.versionChecker.isLatestVersion() && ChinaCraft.versionChecker.isChecked()) {
                 ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL,
-                        SinoCraft.versionChecker.getDownloadUrl());
+                        ChinaCraft.versionChecker.getDownloadUrl());
                 ChatStyle clickableChatStyle = new ChatStyle().setChatClickEvent(versionCheckChatClickEvent);
-                ChatComponentText versionWarningChatComponent = new ChatComponentText("[SinoCraft] " +
+                ChatComponentText versionWarningChatComponent = new ChatComponentText("[ChinaCraft] " +
                         StatCollector.translateToLocal("VersionChecker.perfix"));
                 versionWarningChatComponent.setChatStyle(clickableChatStyle);
                 p.addChatMessage(versionWarningChatComponent);
 
-                ChatComponentText info = new ChatComponentText("[SinoCraft] " + StatCollector.translateToLocal("VersionChecker.version")
-                        .replaceAll("!new", String.valueOf(SinoCraft.versionChecker.getLatestVersion()))
-                        .replaceAll("!old", String.valueOf(SinoCraft.VERSION.replace('-',' '))));
+                ChatComponentText info = new ChatComponentText("[ChinaCraft] " + StatCollector.translateToLocal("VersionChecker.version")
+                        .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
+                        .replaceAll("!old", String.valueOf(ChinaCraft.VERSION.replace('-',' '))));
                 info.setChatStyle(clickableChatStyle);
                 p.addChatMessage(info);
                 //一下信息
-                SinoCraft.log.info(StatCollector.translateToLocal("VersionChecker.perfix"));
-                SinoCraft.log.info(StatCollector.translateToLocal("VersionChecker.version")
-                        .replaceAll("!new", String.valueOf(SinoCraft.versionChecker.getLatestVersion()))
-                        .replaceAll("!old", String.valueOf(SinoCraft.VERSION)));
-                SinoCraft.log.info("Download Url:" + SinoCraft.versionChecker.getDownloadUrl());
-                SinoCraft.haveWarnedVersionOutOfDate = true;
+                ChinaCraft.log.info(StatCollector.translateToLocal("VersionChecker.perfix"));
+                ChinaCraft.log.info(StatCollector.translateToLocal("VersionChecker.version")
+                        .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
+                        .replaceAll("!old", String.valueOf(ChinaCraft.VERSION)));
+                ChinaCraft.log.info("Download Url:" + ChinaCraft.versionChecker.getDownloadUrl());
+                ChinaCraft.haveWarnedVersionOutOfDate = true;
             }
         }
     }

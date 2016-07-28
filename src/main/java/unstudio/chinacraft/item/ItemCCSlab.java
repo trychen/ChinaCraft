@@ -1,8 +1,8 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemSlab;
-import unstudio.sinocraft.block.decoration.BlockCCSlab;
+import unstudio.chinacraft.block.decoration.BlockCCSlab;
 
 /**
  * Created by AAA on 2016/2/9.

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.AI;
+package unstudio.chinacraft.entity.AI;
 
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.util.MathHelper;

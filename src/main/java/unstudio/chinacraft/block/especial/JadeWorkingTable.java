@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -12,9 +12,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileJadeBench;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -26,7 +26,7 @@ public class JadeWorkingTable extends BlockContainer {
 
     public JadeWorkingTable() {
         super(Material.rock);
-        this.setCreativeTab(SinoCraft.tabCore);
+        this.setCreativeTab(ChinaCraft.tabCore);
         setHardness(2.0F);
         setBlockName("jade_table");
     }
@@ -37,7 +37,7 @@ public class JadeWorkingTable extends BlockContainer {
         if (p_149727_1_.isRemote) {
             return true;
         } else {
-            p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_JadeBench, p_149727_1_, x, y, z);
+            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_JadeBench, p_149727_1_, x, y, z);
             return true;
         }
     }

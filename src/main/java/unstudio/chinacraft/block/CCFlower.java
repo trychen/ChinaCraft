@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block;
+package unstudio.chinacraft.block;
 
 import static net.minecraftforge.common.EnumPlantType.Plains;
 
@@ -12,7 +12,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * 所有花的父类
@@ -27,7 +27,7 @@ public class CCFlower extends BlockBush {
     public CCFlower(String name) {
         super(Material.plants);
         setBlockName(name);
-        setCreativeTab(SinoCraft.tabFarming);
+        setCreativeTab(ChinaCraft.tabFarming);
         setStepSound(soundTypeGrass);
     }
 
@@ -66,9 +66,9 @@ public class CCFlower extends BlockBush {
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, int x, int y, int z) {
-        if (this == SinoCraft.azalea) return Plains;
-        if (this == SinoCraft.peony) return Plains;
-        if (this == SinoCraft.chrysanthemum) return Plains;
+        if (this == ChinaCraft.azalea) return Plains;
+        if (this == ChinaCraft.peony) return Plains;
+        if (this == ChinaCraft.chrysanthemum) return Plains;
         return Plains;
     }
 

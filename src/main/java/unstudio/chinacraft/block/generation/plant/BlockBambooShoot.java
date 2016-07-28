@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.generation.plant;
+package unstudio.chinacraft.block.generation.plant;
 
 import java.util.Random;
 
@@ -14,8 +14,8 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import unstudio.sinocraft.block.BlockBase;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.block.BlockBase;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,7 +27,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
         this.setTickRandomly(true);
         setHardness(0.0F);
-        setCreativeTab(SinoCraft.tabFarming);
+        setCreativeTab(ChinaCraft.tabFarming);
         setBlockName("bamboo_shoot");
     }
 
@@ -40,7 +40,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
             if (p_149674_1_.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
                 int i1 = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_);
                 if (i1 == 15) {
-                    p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, SinoCraft.bamboo);
+                    p_149674_1_.setBlock(p_149674_2_, p_149674_3_, p_149674_4_, ChinaCraft.bamboo);
                     p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, 0, 4);
                 } else {
                     p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, i1 + 1, 4);
@@ -97,7 +97,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.blockBambooShoot);
+        return Item.getItemFromBlock(ChinaCraft.blockBambooShoot);
     }
 
     /**
@@ -133,7 +133,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.blockBambooShoot);
+        return Item.getItemFromBlock(ChinaCraft.blockBambooShoot);
     }
 
     /**
@@ -172,7 +172,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
         int id = world.getBiomeGenForCoords(l6, l14).biomeID;
         if ((id == 3 || id == 4 || id == 18 || id == 20 || id == 34 || id == 27 || id == 28 || id == 29)
                 && random.nextInt(16) == 0) {
-            new WorldGenFlowers(SinoCraft.blockBambooShoot).generate(world, random, l6, i11, l14);
+            new WorldGenFlowers(ChinaCraft.blockBambooShoot).generate(world, random, l6, i11, l14);
         }
     }
 }

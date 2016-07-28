@@ -1,18 +1,18 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeAxe extends ItemAxe {
 
     public BronzeAxe() {
-        super(SinoCraft.BRONZE);
+        super(ChinaCraft.BRONZE);
         setUnlocalizedName("bronze_axe");
         setMaxStackSize(1);
         setMaxDamage(251);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override

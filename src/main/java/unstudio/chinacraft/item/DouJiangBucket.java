@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;

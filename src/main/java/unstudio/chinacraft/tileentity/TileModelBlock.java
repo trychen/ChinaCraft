@@ -1,4 +1,4 @@
-package unstudio.sinocraft.tileentity;
+package unstudio.chinacraft.tileentity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;

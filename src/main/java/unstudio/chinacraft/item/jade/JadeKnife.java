@@ -1,8 +1,8 @@
-package unstudio.sinocraft.item.jade;
+package unstudio.chinacraft.item.jade;
 
 import net.minecraft.item.ItemSword;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class JadeKnife extends ItemSword {
 
@@ -10,6 +10,6 @@ public class JadeKnife extends ItemSword {
         super(ToolMaterial.GOLD);
         setUnlocalizedName("jade_knife");
         setMaxStackSize(1);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 }

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,7 +22,7 @@ public class ItemSilk extends Item {
     public ItemSilk() {
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
-        this.setCreativeTab(SinoCraft.tabFarming);
+        this.setCreativeTab(ChinaCraft.tabFarming);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class ItemSilk extends Item {
         this.silk_icon = new IIcon[silk_name.length];
 
         for (int i = 0; i < silk_name.length; ++i) {
-            this.silk_icon[i] = p_94581_1_.registerIcon("sinocraft:silk_" + silk_name[i]);
+            this.silk_icon[i] = p_94581_1_.registerIcon("chinacraft:silk_" + silk_name[i]);
         }
     }
 }

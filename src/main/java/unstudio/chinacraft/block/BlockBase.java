@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block;
+package unstudio.chinacraft.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

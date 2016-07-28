@@ -1,4 +1,4 @@
-package unstudio.sinocraft.util;
+package unstudio.chinacraft.util;
 
 import java.util.HashMap;
 import java.util.Map;

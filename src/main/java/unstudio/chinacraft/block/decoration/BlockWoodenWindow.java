@@ -1,11 +1,11 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import net.minecraft.block.BlockPane;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.StatCollector;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -16,7 +16,7 @@ public class BlockWoodenWindow extends BlockPane {
         setBlockName(StatCollector.translateToLocal("wooden_window"));
         setHardness(0.3F);
         setStepSound(soundTypeWood);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
     }
 
     @Override

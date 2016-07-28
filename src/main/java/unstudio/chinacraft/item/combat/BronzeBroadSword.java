@@ -1,13 +1,13 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
 
 import net.minecraftforge.client.MinecraftForgeClient;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.common.ClientProxy;
-import unstudio.sinocraft.util.annotation.register.IClient;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.ClientProxy;
+import unstudio.chinacraft.util.annotation.register.IClient;
 
 public class BronzeBroadSword extends ItemSword implements IClient{
     private String jade = null;
@@ -19,7 +19,7 @@ public class BronzeBroadSword extends ItemSword implements IClient{
             jade = name;
         setMaxStackSize(1);
         setMaxDamage(500);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override

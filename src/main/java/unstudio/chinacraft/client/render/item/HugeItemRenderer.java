@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.item;
+package unstudio.chinacraft.client.render.item;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;

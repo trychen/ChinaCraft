@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.item;
+package unstudio.chinacraft.client.render.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -7,8 +7,8 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelExtendBlock;
-import unstudio.sinocraft.client.model.ModelSericultureFrame;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelSericultureFrame;
 
 /**
  * 渲染养蚕架的物品
@@ -19,7 +19,7 @@ public class ItemSericultureFrameRenderer implements IItemRenderer {
 
     public ItemSericultureFrameRenderer() {
         this.model = new ModelSericultureFrame();
-        this.texture = new ResourceLocation("sinocraft:textures/models/block/SericultureFrame.png");
+        this.texture = new ResourceLocation("chinacraft:textures/models/block/SericultureFrame.png");
     }
 
     @Override

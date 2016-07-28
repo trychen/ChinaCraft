@@ -1,4 +1,4 @@
-package unstudio.sinocraft.tileentity;
+package unstudio.chinacraft.tileentity;
 
 public class TileSteamer {
 

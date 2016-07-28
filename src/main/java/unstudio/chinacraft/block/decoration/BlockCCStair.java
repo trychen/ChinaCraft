@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStairs;

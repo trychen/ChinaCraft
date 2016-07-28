@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.mob;
+package unstudio.chinacraft.entity.mob;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -7,8 +7,8 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.AI.EntityAIJump;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.AI.EntityAIJump;
 
 public class EntityChinaZombie extends EntityZombie {
     public EntityChinaZombie(World var1) {
@@ -21,7 +21,7 @@ public class EntityChinaZombie extends EntityZombie {
     protected void dropFewItems(boolean par1, int par2) {
         int random = this.rand.nextInt(30) + par2;
         if (random == 0) {
-            dropItem(SinoCraft.smfSuper, 1);
+            dropItem(ChinaCraft.smfSuper, 1);
             dropItem(Items.rotten_flesh, 1);
         } else {
             dropItem(Items.rotten_flesh, this.rand.nextInt(1) + 1);

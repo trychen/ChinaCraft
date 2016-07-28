@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.model;
+package unstudio.chinacraft.block.model;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -21,7 +21,7 @@ public class BlockCCLantern extends Block {
     public BlockCCLantern() {
         super(Material.wood);
         setBlockName("lantern");
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setLightLevel(1.0F);
         setStepSound(soundTypeWood);
     }
@@ -58,8 +58,8 @@ public class BlockCCLantern extends Block {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg) {
-        this.top = reg.registerIcon("sinocraft:lantern_top");
-        this.side = reg.registerIcon("sinocraft:lantern");
+        this.top = reg.registerIcon("chinacraft:lantern_top");
+        this.side = reg.registerIcon("chinacraft:lantern");
     }
 
     @Override

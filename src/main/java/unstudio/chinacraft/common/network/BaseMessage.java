@@ -1,4 +1,4 @@
-package unstudio.sinocraft.common.network;
+package unstudio.chinacraft.common.network;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;

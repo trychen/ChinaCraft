@@ -1,14 +1,14 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemSword;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeSword extends ItemSword {
     public BronzeSword() {
-        super(SinoCraft.BRONZE);
+        super(ChinaCraft.BRONZE);
         setUnlocalizedName("bronze_sword");
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
 
     }
 }

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -12,7 +12,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.tileentity.TilePotteryBase;
+import unstudio.chinacraft.tileentity.TilePotteryBase;
 
 public class BlockPotteryBase extends BlockContainer {
 

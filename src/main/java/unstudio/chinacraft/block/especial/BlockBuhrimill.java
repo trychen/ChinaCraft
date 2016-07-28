@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -17,9 +17,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -32,7 +32,7 @@ public class BlockBuhrimill extends BlockContainer {
         setBlockName("buhrimill");
         setHardness(3.0F);
         setResistance(10.0F);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setStepSound(soundTypeStone);
         setHarvestLevel("pickaxe", 1);
     }
@@ -94,13 +94,13 @@ public class BlockBuhrimill extends BlockContainer {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.buhrimill);
+        return Item.getItemFromBlock(ChinaCraft.buhrimill);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.buhrimill);
+        return Item.getItemFromBlock(ChinaCraft.buhrimill);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class BlockBuhrimill extends BlockContainer {
         if (p_149727_5_.isSneaking()) {
             if (world.isRemote)
                 return true;
-            p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
+            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
         } else {
             if (world.getTileEntity(x, y, z) instanceof TileBuhrimill) {
                 ((TileBuhrimill) world.getTileEntity(x, y, z)).addAngle(10);

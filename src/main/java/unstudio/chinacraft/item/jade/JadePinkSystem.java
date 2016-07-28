@@ -1,11 +1,11 @@
-package unstudio.sinocraft.item.jade;
+package unstudio.chinacraft.item.jade;
 
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
-import unstudio.sinocraft.event.jade.JadePinkCDReduceEvent;
+import unstudio.chinacraft.event.jade.JadePinkCDReduceEvent;
 
 /**
  * Created by trych on 2016/1/9.

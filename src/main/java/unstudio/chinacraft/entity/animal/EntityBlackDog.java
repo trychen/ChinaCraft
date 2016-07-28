@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.animal;
+package unstudio.chinacraft.entity.animal;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityWolf;

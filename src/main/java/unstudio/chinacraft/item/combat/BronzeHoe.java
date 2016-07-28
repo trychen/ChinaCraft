@@ -1,8 +1,8 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemHoe;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeHoe extends ItemHoe {
     public BronzeHoe() {
@@ -10,6 +10,6 @@ public class BronzeHoe extends ItemHoe {
         setUnlocalizedName("bronze_hoe");
         setMaxStackSize(1);
         setMaxDamage(251);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 }

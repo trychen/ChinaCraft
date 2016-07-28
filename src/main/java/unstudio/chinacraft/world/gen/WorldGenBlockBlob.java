@@ -1,4 +1,4 @@
-package unstudio.sinocraft.world.gen;
+package unstudio.chinacraft.world.gen;
 
 import java.util.Random;
 

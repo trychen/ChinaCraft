@@ -1,4 +1,4 @@
-package unstudio.sinocraft.world.gen;
+package unstudio.chinacraft.world.gen;
 
 import java.util.Random;
 
@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenCCFlower implements IWorldGenerator {
@@ -29,13 +29,13 @@ public class WorldGenCCFlower implements IWorldGenerator {
                     int j = random.nextInt(3);
                     switch (j) {
                     case 0:
-                        Gen(random, chunkX, chunkZ, world, SinoCraft.peony);
+                        Gen(random, chunkX, chunkZ, world, ChinaCraft.peony);
                         break;
                     case 1:
-                        Gen(random, chunkX, chunkZ, world, SinoCraft.azalea);
+                        Gen(random, chunkX, chunkZ, world, ChinaCraft.azalea);
                         break;
                     case 2:
-                        Gen(random, chunkX, chunkZ, world, SinoCraft.chrysanthemum);
+                        Gen(random, chunkX, chunkZ, world, ChinaCraft.chrysanthemum);
                         break;
                     }
                     break;

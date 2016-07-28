@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;
+package unstudio.chinacraft.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -6,7 +6,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.tileentity.TileJadeBench;
+import unstudio.chinacraft.tileentity.TileJadeBench;
 
 public class ContainerJadeBench extends Container {
     private TileJadeBench tile;

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -15,9 +15,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TilePotteryTable;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TilePotteryTable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -30,7 +30,7 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
         setBlockName("potterytable");
         setHardness(1.0F);
         setResistance(5.0F);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setStepSound(soundTypeStone);
     }
 
@@ -73,13 +73,13 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.potteryTable);
+        return Item.getItemFromBlock(ChinaCraft.potteryTable);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.potteryTable);
+        return Item.getItemFromBlock(ChinaCraft.potteryTable);
     }
 
     @Override
@@ -92,7 +92,7 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
             float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         if (world.isRemote)
             return true;
-        p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_PotteryTable, world, x, y, z);
+        p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_PotteryTable, world, x, y, z);
         return true;
     }
 

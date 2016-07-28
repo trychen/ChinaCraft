@@ -1,18 +1,18 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.api.ItemMethod;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.projectile.EntityThrownBomb;
+import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 
 public class ItemBomb extends Item {
     public ItemBomb() {
         setUnlocalizedName("bomb");
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
         setMaxStackSize(16);
     }
 

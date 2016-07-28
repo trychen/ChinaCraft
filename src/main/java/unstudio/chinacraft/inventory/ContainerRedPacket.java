@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;
+package unstudio.chinacraft.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -7,8 +7,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.common.config.FeatureConfig;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
 
 public class ContainerRedPacket extends Container {
 
@@ -22,7 +22,7 @@ public class ContainerRedPacket extends Container {
             NBTTagCompound itemnbt = (NBTTagCompound) par1NBTTagCompound.getTag("Item");
             if (itemnbt != null) {
                 ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
-                if (item != null && FeatureConfig.ItemBombInRedPackerExplosion&&item.getItem() == SinoCraft.bomb){
+                if (item != null && FeatureConfig.ItemBombInRedPackerExplosion&&item.getItem() == ChinaCraft.bomb){
                     player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
                     
                     slot0.putStack(null);
@@ -67,7 +67,7 @@ public class ContainerRedPacket extends Container {
     public void onContainerClosed(EntityPlayer p_75134_1_) {
         super.onContainerClosed(p_75134_1_);
         if (p_75134_1_.inventory.getCurrentItem() != null
-                && p_75134_1_.inventory.getCurrentItem().getItem().equals(SinoCraft.redPacket)) {
+                && p_75134_1_.inventory.getCurrentItem().getItem().equals(ChinaCraft.redPacket)) {
             NBTTagCompound nbtitem = new NBTTagCompound();
             NBTTagCompound nbtitem2 = new NBTTagCompound();
             if (getSlot(0).getStack() != null) {

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.util;
+package unstudio.chinacraft.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;

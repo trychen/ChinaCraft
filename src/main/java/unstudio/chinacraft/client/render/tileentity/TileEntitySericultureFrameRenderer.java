@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.tileentity;
+package unstudio.chinacraft.client.render.tileentity;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -7,12 +7,12 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelSericultureFrame;
+import unstudio.chinacraft.client.model.ModelSericultureFrame;
 
 public class TileEntitySericultureFrameRenderer extends TileEntitySpecialRenderer {
     public final ModelSericultureFrame model = new ModelSericultureFrame();
     public final ResourceLocation textures = (new ResourceLocation(
-            "sinocraft:textures/models/block/SericultureFrame.png"));
+            "chinacraft:textures/models/block/SericultureFrame.png"));
 
     public TileEntitySericultureFrameRenderer() {}
 

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.tileentity;
+package unstudio.chinacraft.tileentity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import unstudio.sinocraft.block.especial.BlockFirebrickStructure;
+import unstudio.chinacraft.block.especial.BlockFirebrickStructure;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class TilePotteryKiln extends TileEntity implements ISidedInventory {

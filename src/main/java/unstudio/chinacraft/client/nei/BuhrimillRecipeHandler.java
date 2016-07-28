@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.nei;
+package unstudio.chinacraft.client.nei;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -7,8 +7,8 @@ import java.util.List;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.client.gui.GuiBuhrimill;
-import unstudio.sinocraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.client.gui.GuiBuhrimill;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
@@ -75,7 +75,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
 
     @Override
     public String getGuiTexture() {
-        return "sinocraft:textures/gui/nei/buhrimill.png";
+        return "chinacraft:textures/gui/nei/buhrimill.png";
     }
 
     @Override

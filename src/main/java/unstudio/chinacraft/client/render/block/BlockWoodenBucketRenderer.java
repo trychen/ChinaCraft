@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.block;
+package unstudio.chinacraft.client.render.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-import unstudio.sinocraft.block.especial.BlockWoodenBucket;
+import unstudio.chinacraft.block.especial.BlockWoodenBucket;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 

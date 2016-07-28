@@ -1,4 +1,4 @@
-package unstudio.sinocraft.event.jade;
+package unstudio.chinacraft.event.jade;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 
-import unstudio.sinocraft.api.EntityMethod;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.fx.FxHelper;
+import unstudio.chinacraft.api.EntityMethod;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.fx.FxHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
@@ -18,7 +18,7 @@ public class ListenerGreenJade {
     @SubscribeEvent
     public void PlayerTick(TickEvent.PlayerTickEvent e) {
         if (e.player.getHeldItem() != null) {
-            if (e.player.getHeldItem().getItem().equals(SinoCraft.bronzeBroadSwordGreen)) {
+            if (e.player.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                 if (e.player.isAirBorne && e.player.isSneaking()) {
                     e.player.motionY = -0.1;
                     e.player.motionX *= 1.02D;
@@ -33,7 +33,7 @@ public class ListenerGreenJade {
         if (event.entity instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (((EntityPlayer) event.entity).getHeldItem() != null) {
-                if (entityPlayer.getHeldItem().getItem().equals(SinoCraft.bronzeBroadSwordGreen)) {
+                if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                     event.entity.motionY *= 2;
                     FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
                             event.entity.posZ - 0.5);
@@ -43,10 +43,10 @@ public class ListenerGreenJade {
             for (int time = 0; time < 9; time++) {
                 if (entityPlayer.inventory.mainInventory[time] != null) {
                     if (entityPlayer.getHeldItem() != null) {
-                        if (entityPlayer.getHeldItem().getItem().equals(SinoCraft.bronzeBroadSwordGreen)) {
+                        if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                             break;
                         } else {
-                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(SinoCraft.jadeGreenItem)) {
+                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
                                 event.entity.motionY *= 1.8;
                                 FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5,
                                         event.entity.posY - 2, event.entity.posZ - 0.5);
@@ -54,7 +54,7 @@ public class ListenerGreenJade {
                             }
                         }
                     } else {
-                        if (entityPlayer.inventory.mainInventory[time].getItem().equals(SinoCraft.jadeGreenItem)) {
+                        if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
                             event.entity.motionY *= 1.8;
                             FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
                                     event.entity.posZ - 0.5);
@@ -71,7 +71,7 @@ public class ListenerGreenJade {
         if (event.entity instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (entityPlayer.getHeldItem() != null) {
-                if (entityPlayer.getHeldItem().getItem().equals(SinoCraft.bronzeBroadSwordGreen)) {
+                if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                     if (event.distance > 4.0f) {
                         entityPlayer.worldObj.spawnParticle("largeexplode",
                                 event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(),
@@ -96,7 +96,7 @@ public class ListenerGreenJade {
                         event.setCanceled(true);
                     }
                 } else
-                    if (entityPlayer.getHeldItem().getItem().equals(SinoCraft.blGiantSword) && event.distance > 3.0f) {
+                    if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.blGiantSword) && event.distance > 3.0f) {
                     entityPlayer.worldObj.spawnParticle("largeexplode",
                             event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(),
                             event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
@@ -110,7 +110,7 @@ public class ListenerGreenJade {
             if (event.distance > 2.0f) {
                 for (int time = 0; time < 9; time++) {
                     if (entityPlayer.inventory.mainInventory[time] != null) {
-                        if (entityPlayer.inventory.mainInventory[time].getItem().equals(SinoCraft.jadeGreenItem)) {
+                        if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
                             if (event.distance < 5.0f) {
                                 event.setCanceled(true);
                             } else if (event.distance > 5.0f && event.distance < 12.0f) {

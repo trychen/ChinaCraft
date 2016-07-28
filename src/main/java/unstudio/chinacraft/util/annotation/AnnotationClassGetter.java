@@ -1,4 +1,4 @@
-package unstudio.sinocraft.util.annotation;
+package unstudio.chinacraft.util.annotation;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -190,7 +190,7 @@ public class AnnotationClassGetter {
     private static List<Class<?>> classes = null;
     private static List<Class<?>> getAllClasses(){
         if (classes == null){
-            classes = getClasses("unstudio.sinocraft");
+            classes = getClasses("unstudio.chinacraft");
         }
         return classes;
     }

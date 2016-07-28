@@ -1,14 +1,14 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemSpade;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeShovel extends ItemSpade {
 
     public BronzeShovel() {
-        super(SinoCraft.BRONZE);
+        super(ChinaCraft.BRONZE);
         setUnlocalizedName("bronze_pickaxe");
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 }

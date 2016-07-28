@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.item;
+package unstudio.chinacraft.client.render.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -7,7 +7,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 
 /**
  * Created by trych on 2016/1/2.

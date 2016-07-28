@@ -1,11 +1,11 @@
-package unstudio.sinocraft.common;
+package unstudio.chinacraft.common;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.*;
-import unstudio.sinocraft.inventory.*;
-import unstudio.sinocraft.tileentity.*;
+import unstudio.chinacraft.client.gui.*;
+import unstudio.chinacraft.inventory.*;
+import unstudio.chinacraft.tileentity.*;
 import cpw.mods.fml.common.network.IGuiHandler;
 
 public class GuiHandler implements IGuiHandler {

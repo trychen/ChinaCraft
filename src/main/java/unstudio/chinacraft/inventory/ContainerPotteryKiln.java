@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;
+package unstudio.chinacraft.inventory;
 
 import java.util.Iterator;
 
@@ -9,7 +9,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

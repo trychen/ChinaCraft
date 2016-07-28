@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.generation.plant;
+package unstudio.chinacraft.block.generation.plant;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -7,9 +7,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.block.especial.BlockPotteryKiln;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.util.BlocksChecker;
+import unstudio.chinacraft.block.especial.BlockPotteryKiln;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.util.BlocksChecker;
 
 public class BlockFirebrick extends Block {
 
@@ -21,7 +21,7 @@ public class BlockFirebrick extends Block {
         setLightLevel(0.0F);
         setStepSound(soundTypeStone);
         setHarvestLevel("pickaxe", 0);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class BlockFirebrick extends Block {
         if (p_149689_1_.isRemote)
             return;
         for (int i = 1; i <= 4; i++) {
-            if (p_149689_1_.getBlock(p_149689_2_, p_149689_3_ + i, p_149689_4_) == SinoCraft.blockFirebrick)
+            if (p_149689_1_.getBlock(p_149689_2_, p_149689_3_ + i, p_149689_4_) == ChinaCraft.blockFirebrick)
                 continue;
             else {
                 p_149689_3_ += (i - 1);
@@ -39,7 +39,7 @@ public class BlockFirebrick extends Block {
             }
         }
         for (int i = 1; i <= 4; i++) {
-            if (p_149689_1_.getBlock(p_149689_2_, p_149689_3_, p_149689_4_ - i) == SinoCraft.blockFirebrick)
+            if (p_149689_1_.getBlock(p_149689_2_, p_149689_3_, p_149689_4_ - i) == ChinaCraft.blockFirebrick)
                 continue;
             else {
                 p_149689_4_ -= (i - 1);
@@ -47,7 +47,7 @@ public class BlockFirebrick extends Block {
             }
         }
         for (int i = 1; i <= 4; i++) {
-            if (p_149689_1_.getBlock(p_149689_2_ - i, p_149689_3_, p_149689_4_) == SinoCraft.blockFirebrick)
+            if (p_149689_1_.getBlock(p_149689_2_ - i, p_149689_3_, p_149689_4_) == ChinaCraft.blockFirebrick)
                 continue;
             else {
                 p_149689_2_ -= (i - 1);

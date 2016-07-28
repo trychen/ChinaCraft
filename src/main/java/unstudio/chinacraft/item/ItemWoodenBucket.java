@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.eventhandler.Event;
 
 public class ItemWoodenBucket extends Item {
@@ -22,7 +22,7 @@ public class ItemWoodenBucket extends Item {
     public ItemWoodenBucket(Block p_i45331_1_) {
         this.maxStackSize = 1;
         this.isFull = p_i45331_1_;
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         if (this.isFull == Blocks.air) {
             setUnlocalizedName("wooden_bucket");
         } else {
@@ -80,11 +80,11 @@ public class ItemWoodenBucket extends Item {
 
                     if (material == Material.water && l == 0) {
                         world.setBlockToAir(i, j, k);
-                        return this.func_150910_a(item, player, SinoCraft.woodenBucket_Water);
+                        return this.func_150910_a(item, player, ChinaCraft.woodenBucket_Water);
                     }
                 } else {
                     if (this.isFull == Blocks.air) {
-                        return new ItemStack(SinoCraft.woodenBucket);
+                        return new ItemStack(ChinaCraft.woodenBucket);
                     }
 
                     if (movingobjectposition.sideHit == 0) {
@@ -116,7 +116,7 @@ public class ItemWoodenBucket extends Item {
                     }
 
                     if (this.tryPlaceContainedLiquid(world, i, j, k) && !player.capabilities.isCreativeMode) {
-                        return new ItemStack(SinoCraft.woodenBucket);
+                        return new ItemStack(ChinaCraft.woodenBucket);
                     }
                 }
             }
@@ -214,24 +214,24 @@ public class ItemWoodenBucket extends Item {
         } else if (p_77648_1_.stackSize == 0) {
             return false;
         } else {
-            if (p_77648_3_.canPlaceEntityOnSide(SinoCraft.blockWoodenBucket, p_77648_4_, p_77648_5_, p_77648_6_, false,
+            if (p_77648_3_.canPlaceEntityOnSide(ChinaCraft.blockWoodenBucket, p_77648_4_, p_77648_5_, p_77648_6_, false,
                     p_77648_7_, (Entity) null, p_77648_1_)) {
-                int i1 = SinoCraft.blockWoodenBucket.onBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_,
+                int i1 = ChinaCraft.blockWoodenBucket.onBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_,
                         p_77648_7_, p_77648_8_, p_77648_9_, p_77648_10_, 0);
 
-                if (p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, SinoCraft.blockWoodenBucket,
+                if (p_77648_3_.setBlock(p_77648_4_, p_77648_5_, p_77648_6_, ChinaCraft.blockWoodenBucket,
                         isFull == Blocks.air ? 0 : isFull == Blocks.flowing_water ? 1 : 0, 3)) {
-                    if (p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == SinoCraft.blockWoodenBucket) {
-                        SinoCraft.blockWoodenBucket.onBlockPlacedBy(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_,
+                    if (p_77648_3_.getBlock(p_77648_4_, p_77648_5_, p_77648_6_) == ChinaCraft.blockWoodenBucket) {
+                        ChinaCraft.blockWoodenBucket.onBlockPlacedBy(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_,
                                 p_77648_2_, p_77648_1_);
-                        SinoCraft.blockWoodenBucket.onPostBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_,
+                        ChinaCraft.blockWoodenBucket.onPostBlockPlaced(p_77648_3_, p_77648_4_, p_77648_5_, p_77648_6_,
                                 i1);
                     }
 
                     p_77648_3_.playSoundEffect(p_77648_4_ + 0.5F, p_77648_5_ + 0.5F, p_77648_6_ + 0.5F,
-                            SinoCraft.blockWoodenBucket.stepSound.func_150496_b(),
-                            (SinoCraft.blockWoodenBucket.stepSound.getVolume() + 1.0F) / 2.0F,
-                            SinoCraft.blockWoodenBucket.stepSound.getPitch() * 0.8F);
+                            ChinaCraft.blockWoodenBucket.stepSound.func_150496_b(),
+                            (ChinaCraft.blockWoodenBucket.stepSound.getVolume() + 1.0F) / 2.0F,
+                            ChinaCraft.blockWoodenBucket.stepSound.getPitch() * 0.8F);
                     --p_77648_1_.stackSize;
                 }
             }

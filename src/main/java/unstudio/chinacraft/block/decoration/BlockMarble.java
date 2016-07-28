@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import java.util.Random;
 
@@ -8,8 +8,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-import unstudio.sinocraft.block.BlockBase;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.block.BlockBase;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class BlockMarble extends BlockBase implements IWorldGenerator{
@@ -20,7 +20,7 @@ public class BlockMarble extends BlockBase implements IWorldGenerator{
         setHardness(2.0F);
         setResistance(10.0F);
         setStepSound(soundTypeStone);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setHarvestLevel("pickaxe", 1);
     }
 

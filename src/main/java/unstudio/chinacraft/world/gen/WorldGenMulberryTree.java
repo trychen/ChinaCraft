@@ -1,4 +1,4 @@
-package unstudio.sinocraft.world.gen;
+package unstudio.chinacraft.world.gen;
 
 import java.util.Random;
 
@@ -10,7 +10,7 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGenMulberryTree extends WorldGenAbstractTree implements IWorldGenerator {
@@ -22,7 +22,7 @@ public class WorldGenMulberryTree extends WorldGenAbstractTree implements IWorld
     private final Block treeSapling;
 
     public WorldGenMulberryTree(boolean p_i45448_1_) {
-        this(p_i45448_1_, 4, 7, SinoCraft.mulberryLog, SinoCraft.mulberryLeaf, SinoCraft.mulberrySapling);
+        this(p_i45448_1_, 4, 7, ChinaCraft.mulberryLog, ChinaCraft.mulberryLeaf, ChinaCraft.mulberrySapling);
     }
 
     public WorldGenMulberryTree(boolean p_i45448_1_, int minTreeHeight, int maxTreeHeight, Block treeBlock,

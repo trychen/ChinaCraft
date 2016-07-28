@@ -1,15 +1,15 @@
-package unstudio.sinocraft.item.combat;
+package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemArmor;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class BronzeLeggings extends ItemArmor {
 
     public BronzeLeggings() {
-        super(ArmorMaterial.IRON, SinoCraft.bronzeArmorTexture, 2);
+        super(ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture, 2);
         setUnlocalizedName("bronze_legs");
         setMaxStackSize(1);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 }

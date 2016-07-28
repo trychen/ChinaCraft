@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,14 +10,14 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class CCCropPlantItem extends Item implements IPlantable {
 
     private Block bb;
 
     public CCCropPlantItem(Block b) {
-        this.setCreativeTab(SinoCraft.tabFarming);
+        this.setCreativeTab(ChinaCraft.tabFarming);
         this.bb = b;
     }
 

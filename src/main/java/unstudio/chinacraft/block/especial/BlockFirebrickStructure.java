@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.Random;
 
@@ -15,10 +15,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.gui.GuiID;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileFirebrickStructure;
-import unstudio.sinocraft.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileFirebrickStructure;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -57,7 +57,7 @@ public class BlockFirebrickStructure extends BlockContainer {
             return true;
         TileFirebrickStructure tile = (TileFirebrickStructure) world.getTileEntity(x, y, z);
         if (world.getTileEntity(tile.getX(), tile.getY(), tile.getZ()) != null)
-            p_149727_5_.openGui(SinoCraft.instance, GuiID.GUI_PotteryKiln, world, tile.getX(), tile.getY(),
+            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_PotteryKiln, world, tile.getX(), tile.getY(),
                     tile.getZ());
         return true;
     }
@@ -114,20 +114,20 @@ public class BlockFirebrickStructure extends BlockContainer {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return Item.getItemFromBlock(SinoCraft.blockFirebrick);
+        return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return Item.getItemFromBlock(SinoCraft.blockFirebrick);
+        return Item.getItemFromBlock(ChinaCraft.blockFirebrick);
     }
 
     @Override
     public void registerBlockIcons(IIconRegister p_149651_1_) {
-        firebrick = p_149651_1_.registerIcon("SinoCraft:firebrick");
-        potterykiln_off = p_149651_1_.registerIcon("SinoCraft:potterykiln_off");
-        potterykiln_on = p_149651_1_.registerIcon("SinoCraft:potterykiln_on");
+        firebrick = p_149651_1_.registerIcon("ChinaCraft:firebrick");
+        potterykiln_off = p_149651_1_.registerIcon("ChinaCraft:potterykiln_off");
+        potterykiln_on = p_149651_1_.registerIcon("ChinaCraft:potterykiln_on");
     }
 
     @Override

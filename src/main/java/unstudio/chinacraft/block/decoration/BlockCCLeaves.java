@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -61,13 +61,13 @@ public class BlockCCLeaves extends BlockLeaves {
     @Override
     public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int x, int y, int z, int fortune) {
         ArrayList<ItemStack> ret = new ArrayList<ItemStack>();
-        if (SinoCraft.rand.nextInt(3) != 0) {
+        if (ChinaCraft.rand.nextInt(3) != 0) {
             ret.add(new ItemStack(this, 1, world.getBlockMetadata(x, y, z) & 3));
         } else {
-            ret.add(new ItemStack(SinoCraft.itemMulberryLeaf, SinoCraft.rand.nextInt(3) + 1));
+            ret.add(new ItemStack(ChinaCraft.itemMulberryLeaf, ChinaCraft.rand.nextInt(3) + 1));
         }
-        if (SinoCraft.rand.nextInt(16) == 0)
-            ret.add(new ItemStack(SinoCraft.silkworm, 1, 0));
+        if (ChinaCraft.rand.nextInt(16) == 0)
+            ret.add(new ItemStack(ChinaCraft.silkworm, 1, 0));
         return ret;
     }
 

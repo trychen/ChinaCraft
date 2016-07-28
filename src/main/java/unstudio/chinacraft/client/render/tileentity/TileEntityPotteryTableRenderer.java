@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.tileentity;
+package unstudio.chinacraft.client.render.tileentity;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,11 +8,11 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelPotteryTable;
+import unstudio.chinacraft.client.model.ModelPotteryTable;
 
 public class TileEntityPotteryTableRenderer extends TileEntitySpecialRenderer {
     public final ModelPotteryTable model = new ModelPotteryTable();
-    public final ResourceLocation textures = new ResourceLocation("sinocraft:textures/models/block/PotteryTable.png");
+    public final ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/PotteryTable.png");
 
     public TileEntityPotteryTableRenderer() {}
 

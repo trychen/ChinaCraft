@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.List;
 
@@ -12,14 +12,14 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileBuhrimill;
-import unstudio.sinocraft.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class ItemDebug extends Item {
 
     public ItemDebug() {
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setUnlocalizedName("debug");
         setMaxStackSize(1);
     }

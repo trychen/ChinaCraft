@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.model;
+package unstudio.chinacraft.client.model;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -8,7 +8,7 @@ import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.util.MathHelper;
 
 import org.lwjgl.opengl.GL11;
-import unstudio.sinocraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.entity.animal.EntityBlackDog;
 
 public class ModelBlackDog extends ModelBase {
     private static final String __OBFID = "CL_00000868";

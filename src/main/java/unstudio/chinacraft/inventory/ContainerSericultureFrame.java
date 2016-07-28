@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;
+package unstudio.chinacraft.inventory;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,8 +8,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.tileentity.TileSericultureFrame;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileSericultureFrame;
 
 public class ContainerSericultureFrame extends Container {
     private TileSericultureFrame tile;
@@ -24,7 +24,7 @@ public class ContainerSericultureFrame extends Container {
         this.addSlotToContainer(new Slot(tileEntity, 9, 12, 48) {
             @Override
             public boolean isItemValid(ItemStack p_75214_1_) {
-                if (p_75214_1_.getItem() == SinoCraft.itemMulberryLeaf)
+                if (p_75214_1_.getItem() == ChinaCraft.itemMulberryLeaf)
                     return true;
                 return false;
             }
@@ -127,7 +127,7 @@ public class ContainerSericultureFrame extends Container {
 
         @Override
         public boolean isItemValid(ItemStack p_75214_1_) {
-            if (p_75214_1_.getItem() == SinoCraft.silkworm)
+            if (p_75214_1_.getItem() == ChinaCraft.silkworm)
                 return true;
             return false;
         }

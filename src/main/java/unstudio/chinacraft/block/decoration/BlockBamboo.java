@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import java.util.Random;
 
@@ -18,7 +18,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -35,7 +35,7 @@ public class BlockBamboo extends Block implements IPlantable {
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
         this.setTickRandomly(true);
         setHardness(3.0F);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setBlockName("bamboo");
     }
 
@@ -53,7 +53,7 @@ public class BlockBamboo extends Block implements IPlantable {
      */
     @Override
     public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-        if (p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - 1, p_149674_4_) == SinoCraft.bamboo
+        if (p_149674_1_.getBlock(p_149674_2_, p_149674_3_ - 1, p_149674_4_) == ChinaCraft.bamboo
                 || this.func_150170_e(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_)) {
             if (p_149674_1_.isAirBlock(p_149674_2_, p_149674_3_ + 1, p_149674_4_)) {
                 int l;
@@ -86,7 +86,7 @@ public class BlockBamboo extends Block implements IPlantable {
         Block block;
         while (true) {
             block = p_149742_1_.getBlock(p_149742_2_, p_149742_3_ - i, p_149742_4_);
-            if (block != SinoCraft.bamboo) {
+            if (block != ChinaCraft.bamboo) {
                 break;
             }
             i++;
@@ -132,7 +132,7 @@ public class BlockBamboo extends Block implements IPlantable {
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-        return SinoCraft.itemBamboo;
+        return ChinaCraft.itemBamboo;
     }
 
     /**
@@ -168,7 +168,7 @@ public class BlockBamboo extends Block implements IPlantable {
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return SinoCraft.itemBamboo;
+        return ChinaCraft.itemBamboo;
     }
 
     /**
@@ -214,7 +214,7 @@ public class BlockBamboo extends Block implements IPlantable {
                 int z1 = z + r.nextInt(3) - 1;
                 if (world.isAirBlock(x1, y, z1) && (world.getBlock(x1, y - 1, z1) == Blocks.grass
                         || world.getBlock(x1, y - 1, z1) == Blocks.dirt)) {
-                    world.setBlock(x1, y, z1, SinoCraft.blockBambooShoot, 0, 2);
+                    world.setBlock(x1, y, z1, ChinaCraft.blockBambooShoot, 0, 2);
                 }
             }
         }

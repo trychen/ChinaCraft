@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.gui;
+package unstudio.chinacraft.client.gui;
 
 /**
  * GUI的ID列表

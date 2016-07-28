@@ -1,10 +1,10 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
-import unstudio.sinocraft.tileentity.TileCooker;
+import unstudio.chinacraft.tileentity.TileCooker;
 
 public class BlockCooker extends BlockContainer {
 

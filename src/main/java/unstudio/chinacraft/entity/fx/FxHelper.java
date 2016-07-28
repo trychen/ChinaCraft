@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.fx;
+package unstudio.chinacraft.entity.fx;
 
 import net.minecraft.world.World;
 

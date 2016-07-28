@@ -1,4 +1,4 @@
-package unstudio.sinocraft.inventory;//based on master condiguration
+package unstudio.chinacraft.inventory;//based on master condiguration
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;

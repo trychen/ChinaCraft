@@ -1,4 +1,4 @@
-package unstudio.sinocraft.entity.projectile;
+package unstudio.chinacraft.entity.projectile;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -40,7 +40,7 @@ public class EntityThrownFirecracker extends EntityThrowable {
             Explosion explosion = new Explosion(this.worldObj, this, this.posX, this.posY, this.posZ, 0.3945875F);
             explosion.isFlaming = true;
             explosion.isSmoking = true;
-            this.worldObj.playSound(this.posX, this.posY, this.posZ, "sinocraft:firecracker", 0.5F,
+            this.worldObj.playSound(this.posX, this.posY, this.posZ, "chinacraft:firecracker", 0.5F,
                     0.40000000596046447754F
                             / (this.worldObj.rand.nextFloat() * 0.40000000596046447754F + 0.80000001192092895508F),
                     true);

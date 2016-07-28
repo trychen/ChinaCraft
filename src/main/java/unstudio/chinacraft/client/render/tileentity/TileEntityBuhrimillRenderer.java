@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.tileentity;
+package unstudio.chinacraft.client.render.tileentity;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
@@ -8,12 +8,12 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelBuhrimill;
-import unstudio.sinocraft.tileentity.TileBuhrimill;
+import unstudio.chinacraft.client.model.ModelBuhrimill;
+import unstudio.chinacraft.tileentity.TileBuhrimill;
 
 public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
     public final ModelBuhrimill model = new ModelBuhrimill();
-    public final ResourceLocation textures = new ResourceLocation("sinocraft:textures/models/block/buhrimill.png");
+    public final ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/buhrimill.png");
 
     public TileEntityBuhrimillRenderer() {}
 

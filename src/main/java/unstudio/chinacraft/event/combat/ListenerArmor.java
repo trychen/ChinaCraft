@@ -1,4 +1,4 @@
-package unstudio.sinocraft.event.combat;
+package unstudio.chinacraft.event.combat;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,7 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
@@ -20,7 +20,7 @@ public class ListenerArmor {
         int i = 4;
         for (ItemStack itemStack : event.player.inventory.armorInventory) {
             i--;
-            if (itemStack == null || itemStack.getItem() != SinoCraft.nightClothes[i]) {
+            if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
                 return;
             }
         }
@@ -39,7 +39,7 @@ public class ListenerArmor {
             int i = 4;
             for (ItemStack itemStack : event.entityPlayer.inventory.armorInventory) {
                 i--;
-                if (itemStack == null || itemStack.getItem() != SinoCraft.nightClothes[i]) {
+                if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
                     return;
                 }
             }
@@ -51,7 +51,7 @@ public class ListenerArmor {
     public void wearingChinaCrown(LivingHurtEvent event) {
         if (event.entityLiving instanceof EntityPlayer){
             EntityPlayer p = (EntityPlayer) event.entityLiving;
-            if (p.inventory.armorInventory[3] != null&&p.inventory.armorInventory[3].getItem().equals(SinoCraft.chinaCrown)){
+            if (p.inventory.armorInventory[3] != null&&p.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
                 if (p.worldObj.rand.nextInt(2)==1){
                     double percent = (p.worldObj.rand.nextInt(5)+3)/10.0;
                     if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){

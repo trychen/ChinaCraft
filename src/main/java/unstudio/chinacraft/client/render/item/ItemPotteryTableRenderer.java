@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.item;
+package unstudio.chinacraft.client.render.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -7,8 +7,8 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelExtendBlock;
-import unstudio.sinocraft.client.model.ModelPotteryTable;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.client.model.ModelPotteryTable;
 
 public class ItemPotteryTableRenderer implements IItemRenderer {
     private ModelExtendBlock model;
@@ -16,7 +16,7 @@ public class ItemPotteryTableRenderer implements IItemRenderer {
 
     public ItemPotteryTableRenderer() {
         this.model = new ModelPotteryTable();
-        this.texture = new ResourceLocation("sinocraft:textures/models/block/PotteryTable.png");
+        this.texture = new ResourceLocation("chinacraft:textures/models/block/PotteryTable.png");
     }
 
     @Override

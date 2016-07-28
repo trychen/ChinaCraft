@@ -45,7 +45,7 @@ ext.jarFile = zipTree(jar.archivePath)
     classifier = 'api'
     doFirst {
         from(project.ext.jarFile) {
-            includes.addAll(["unstudio/api/**", "unstudio/sinocraft/api/**"])
+            includes.addAll(["unstudio/api/**", "unstudio/chinacraft/api/**"])
         }
     }
 }

@@ -1,4 +1,4 @@
-package unstudio.sinocraft.tileentity;
+package unstudio.chinacraft.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import unstudio.sinocraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
 public class TileBuhrimill extends TileEntity implements ISidedInventory {
 

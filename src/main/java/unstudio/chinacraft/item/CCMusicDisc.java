@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * 音乐碟的父类 Created by trych on 2016/1/2.
@@ -29,7 +29,7 @@ public class CCMusicDisc extends ItemRecord {
         super(recordName);
         setUnlocalizedName("record");
         this.recordName = recordName;
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         records.put(recordName, this);
     }
 
@@ -39,7 +39,7 @@ public class CCMusicDisc extends ItemRecord {
 
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-        itemIcon = iconRegister.registerIcon("sinocraft:" + "record_" + recordName);
+        itemIcon = iconRegister.registerIcon("chinacraft:" + "record_" + recordName);
         records.put(recordName, this);
     }
 
@@ -81,6 +81,6 @@ public class CCMusicDisc extends ItemRecord {
 
     @Override
     public ResourceLocation getRecordResource(String name) {
-        return new ResourceLocation("sinocraft:records." + recordName);
+        return new ResourceLocation("chinacraft:records." + recordName);
     }
 }

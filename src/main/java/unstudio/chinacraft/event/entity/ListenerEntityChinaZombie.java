@@ -1,8 +1,8 @@
-package unstudio.sinocraft.event.entity;
+package unstudio.chinacraft.event.entity;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-import unstudio.sinocraft.entity.mob.EntityChinaZombie;
+import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 
 /**
  * Created by trychen on 16/7/23.

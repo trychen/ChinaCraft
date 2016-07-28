@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.render.item;
+package unstudio.chinacraft.client.render.item;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -9,8 +9,8 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.client.model.ModelPotteryBase;
-import unstudio.sinocraft.util.PotteryManager;
+import unstudio.chinacraft.client.model.ModelPotteryBase;
+import unstudio.chinacraft.util.PotteryManager;
 
 public class ItemPotteryBlockRenderer implements IItemRenderer {
 
@@ -45,7 +45,7 @@ public class ItemPotteryBlockRenderer implements IItemRenderer {
                     .getModel();
         GL11.glPushMatrix();
         Minecraft.getMinecraft().renderEngine
-                .bindTexture(new ResourceLocation("sinocraft:textures/models/block/empty.png"));
+                .bindTexture(new ResourceLocation("chinacraft:textures/models/block/empty.png"));
         model.render((Entity) data[1], 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
         GL11.glPopMatrix();
     }

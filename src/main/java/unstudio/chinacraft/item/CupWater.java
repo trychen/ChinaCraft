@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 public class CupWater extends CupDrink {
     public CupWater() {

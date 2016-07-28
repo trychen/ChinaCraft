@@ -1,4 +1,4 @@
-package unstudio.sinocraft.common.config;
+package unstudio.chinacraft.common.config;
 
 import net.minecraftforge.common.config.Configuration;
 

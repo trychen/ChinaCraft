@@ -1,18 +1,18 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.api.ItemMethod;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.projectile.EntityThrownFirecracker;
+import unstudio.chinacraft.api.ItemMethod;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 
 public class ItemFirecracker extends Item {
     public ItemFirecracker() {
         setUnlocalizedName("firecracker");
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
         setMaxStackSize(16);
     }
 

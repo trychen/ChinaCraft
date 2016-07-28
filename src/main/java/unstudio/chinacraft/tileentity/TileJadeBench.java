@@ -1,4 +1,4 @@
-package unstudio.sinocraft.tileentity;
+package unstudio.chinacraft.tileentity;
 
 import java.util.Random;
 
@@ -11,10 +11,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.item.combat.BronzeBroadSword;
-import unstudio.sinocraft.item.combat.Hammer;
-import unstudio.sinocraft.item.jade.Jade;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.item.combat.BronzeBroadSword;
+import unstudio.chinacraft.item.combat.Hammer;
+import unstudio.chinacraft.item.jade.Jade;
 
 public class TileJadeBench extends TileEntity implements IInventory {
 
@@ -118,7 +118,7 @@ public class TileJadeBench extends TileEntity implements IInventory {
             if (getStackInSlot(1) != null) {
                 if (getStackInSlot(2) == null) {
                     if (getStackInSlot(0).getItem() instanceof Hammer) {
-                        if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(SinoCraft.jadeOre))) {
+                        if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(ChinaCraft.jadeOre))) {
                             ItemStack newhammer = new ItemStack(getStackInSlot(0).getItem(), 1,
                                     (getStackInSlot(0).getItemDamage() - 5));
                             setInventorySlotContents(0, newhammer);
@@ -131,19 +131,19 @@ public class TileJadeBench extends TileEntity implements IInventory {
                             }
                             switch (new Random().nextInt(3)) {
                             case 0:
-                                setInventorySlotContents(2, new ItemStack(SinoCraft.jadeGreenItem));
+                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
                                 break;
                             case 1:
-                                setInventorySlotContents(2, new ItemStack(SinoCraft.jadeGreen2Item));
+                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreen2Item));
                                 break;
                             case 2:
-                                setInventorySlotContents(2, new ItemStack(SinoCraft.jadePurpleItem));
+                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadePurpleItem));
                                 break;
                             case 3:
-                                setInventorySlotContents(2, new ItemStack(SinoCraft.jadePinkItem));
+                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadePinkItem));
                                 break;
                             default:
-                                setInventorySlotContents(2, new ItemStack(SinoCraft.jadeGreenItem));
+                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
                                 break;
                             }
                         }
@@ -164,21 +164,21 @@ public class TileJadeBench extends TileEntity implements IInventory {
                                         new ItemStack(getStackInSlot(2).getItem(), getStackInSlot(2).stackSize - 1));
                             }
                             if (new Random().nextInt(19) == 3) {
-                                ItemStack newSword = new ItemStack(SinoCraft.blGiantSword, 1);
+                                ItemStack newSword = new ItemStack(ChinaCraft.blGiantSword, 1);
                                 setInventorySlotContents(2, newSword);
                             } else {
-                                if (jade.equals(SinoCraft.jadeGreenItem)) {
+                                if (jade.equals(ChinaCraft.jadeGreenItem)) {
                                     setInventorySlotContents(2,
-                                            new ItemStack(SinoCraft.bronzeBroadSwordGreen, 1, sword.getItemDamage()));
-                                } else if (jade.equals(SinoCraft.jadeGreen2Item)) {
+                                            new ItemStack(ChinaCraft.bronzeBroadSwordGreen, 1, sword.getItemDamage()));
+                                } else if (jade.equals(ChinaCraft.jadeGreen2Item)) {
                                     setInventorySlotContents(2,
-                                            new ItemStack(SinoCraft.bronzeBroadSwordGreen2, 1, sword.getItemDamage()));
-                                } else if (jade.equals(SinoCraft.jadePinkItem)) {
+                                            new ItemStack(ChinaCraft.bronzeBroadSwordGreen2, 1, sword.getItemDamage()));
+                                } else if (jade.equals(ChinaCraft.jadePinkItem)) {
                                     setInventorySlotContents(2,
-                                            new ItemStack(SinoCraft.bronzeBroadSwordPink, 1, sword.getItemDamage()));
-                                } else if (jade.equals(SinoCraft.jadeGreen2Item)) {
+                                            new ItemStack(ChinaCraft.bronzeBroadSwordPink, 1, sword.getItemDamage()));
+                                } else if (jade.equals(ChinaCraft.jadeGreen2Item)) {
                                     setInventorySlotContents(2,
-                                            new ItemStack(SinoCraft.bronzeBroadSwordPurple, 1, sword.getItemDamage()));
+                                            new ItemStack(ChinaCraft.bronzeBroadSwordPurple, 1, sword.getItemDamage()));
                                 }
                             }
                         }
@@ -189,9 +189,9 @@ public class TileJadeBench extends TileEntity implements IInventory {
 
         // if (getStackInSlot(2) != null){
         // Item item2 = getStackInSlot(2).getItem();
-        // if (item2 == SinoCraft.jadeGreenItem||item2 ==
-        // SinoCraft.jadeGreen2Item||item2 == SinoCraft.jadePinkItem||item2 ==
-        // SinoCraft.jadePurpleItem){
+        // if (item2 == ChinaCraft.jadeGreenItem||item2 ==
+        // ChinaCraft.jadeGreen2Item||item2 == ChinaCraft.jadePinkItem||item2 ==
+        // ChinaCraft.jadePurpleItem){
         //
         // }
         // }

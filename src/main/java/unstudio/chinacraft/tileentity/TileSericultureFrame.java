@@ -1,4 +1,4 @@
-package unstudio.sinocraft.tileentity;
+package unstudio.chinacraft.tileentity;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class TileSericultureFrame extends TileEntity implements ISidedInventory {
 
@@ -112,7 +112,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
             ItemStack item = getStackInSlot(i);
             if (item == null)
                 continue;
-            if (item.getItem() != SinoCraft.silkworm)
+            if (item.getItem() != ChinaCraft.silkworm)
                 continue;
             // TODO: NullPointerException, getStackInSlot(10) == null
             if(getStackInSlot(10)!=null&&getStackInSlot(10).stackSize==64)
@@ -125,11 +125,11 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                     nbt.setInteger("Schedule", 0);
                     if (item.getItemDamage() >= 2) {
                         if (getStackInSlot(10) == null) {
-                            setInventorySlotContents(10, new ItemStack(SinoCraft.silkwormChrysalis));
-                            setInventorySlotContents(i, new ItemStack(SinoCraft.silkworm));
+                            setInventorySlotContents(10, new ItemStack(ChinaCraft.silkwormChrysalis));
+                            setInventorySlotContents(i, new ItemStack(ChinaCraft.silkworm));
                         } else {
                             getStackInSlot(10).stackSize++;
-                            setInventorySlotContents(i, new ItemStack(SinoCraft.silkworm));
+                            setInventorySlotContents(i, new ItemStack(ChinaCraft.silkworm));
                         }
                     } else {
                         item.setItemDamage(item.getItemDamage() + 1);
@@ -137,7 +137,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                 } else {
                     nbt.setInteger("Schedule", x);
                     if (item.getItemDamage() == 1) {
-                        if (getStackInSlot(9) == null || getStackInSlot(9).getItem() != SinoCraft.itemMulberryLeaf)
+                        if (getStackInSlot(9) == null || getStackInSlot(9).getItem() != ChinaCraft.itemMulberryLeaf)
                             continue;
                         Random r = new Random();
                         int y = r.nextInt(4000);
@@ -159,13 +159,13 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
         // if(mortality == -1) {
         // mortality = getMortality();
         // }
-        // if(getStackInSlot(0)!=null&&getStackInSlot(0).getItem().equals(SinoCraft.silkworm)&&getStackInSlot(0).stackSize>0)
+        // if(getStackInSlot(0)!=null&&getStackInSlot(0).getItem().equals(ChinaCraft.silkworm)&&getStackInSlot(0).stackSize>0)
         // {
         // float m;
         // m = mortality +
         // (worldObj.isRaining()?worldObj.getTopSolidOrLiquidBlock(xCoord,
         // zCoord) == yCoord?0.2F:0:0);
-        // if((getStackInSlot(1)==null||getStackInSlot(1).stackSize<=0||getStackInSlot(1).getItem()!=SinoCraft.itemMulberryLeaf)&&getStackInSlot(0).getItemDamage()
+        // if((getStackInSlot(1)==null||getStackInSlot(1).stackSize<=0||getStackInSlot(1).getItem()!=ChinaCraft.itemMulberryLeaf)&&getStackInSlot(0).getItemDamage()
         // == 1) {
         // m = 10.0F;
         // }
@@ -180,7 +180,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
         // if(schedule >= getMaxSchedule(getStackInSlot(0).getItemDamage())) {
         // if(getStackInSlot(0).getItemDamage() == 2) {
         // setInventorySlotContents(2, new
-        // ItemStack(SinoCraft.silkwormChrysalis,getStackInSlot(0).stackSize));
+        // ItemStack(ChinaCraft.silkwormChrysalis,getStackInSlot(0).stackSize));
         // getStackInSlot(0).setItemDamage(0);
         // getStackInSlot(0).stackSize=(getStackInSlot(0).stackSize*2)>=64?64:getStackInSlot(0).stackSize*2;
         // }else {
@@ -191,8 +191,8 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
         // if(getStackInSlot(0).getItemDamage() == 2){
         // if(getStackInSlot(2) == null){
         // setInventorySlotContents(2, new
-        // ItemStack(SinoCraft.silkwormChrysalis));
-        // }else if(getStackInSlot(2).getItem() == SinoCraft.itemMulberryLeaf){
+        // ItemStack(ChinaCraft.silkwormChrysalis));
+        // }else if(getStackInSlot(2).getItem() == ChinaCraft.itemMulberryLeaf){
         // getStackInSlot(2).stackSize++;
         // }
         // }

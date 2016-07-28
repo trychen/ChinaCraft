@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.gui;
+package unstudio.chinacraft.client.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -9,7 +9,7 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.inventory.ContainerPotteryTable;
+import unstudio.chinacraft.inventory.ContainerPotteryTable;
 
 public class GuiPotteryTable extends GuiContainer {
 
@@ -28,7 +28,7 @@ public class GuiPotteryTable extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
-        this.mc.getTextureManager().bindTexture(new ResourceLocation("sinocraft", "textures/gui/potterytable.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation("chinacraft", "textures/gui/potterytable.png"));
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);

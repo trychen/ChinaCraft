@@ -1,11 +1,11 @@
-package unstudio.sinocraft.block.decoration;
+package unstudio.chinacraft.block.decoration;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 
-import unstudio.sinocraft.block.BlockBase;
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.common.Recipes;
+import unstudio.chinacraft.block.BlockBase;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.Recipes;
 
 public class BlockCCMetal extends BlockBase implements Recipes.RecipeAble{
     private Item recipesIteml;
@@ -22,7 +22,7 @@ public class BlockCCMetal extends BlockBase implements Recipes.RecipeAble{
         setBlockName(name);
         setResistance(10.0F);
         setStepSound(soundTypeMetal);
-        setCreativeTab(SinoCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabCore);
         setHardness(hardness);
         setHarvestLevel("pickaxe", harvestLevel);
     }

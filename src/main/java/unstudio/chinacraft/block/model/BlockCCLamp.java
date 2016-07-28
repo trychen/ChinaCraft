@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.model;
+package unstudio.chinacraft.block.model;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.tileentity.TileCCLamp;
+import unstudio.chinacraft.tileentity.TileCCLamp;
 
 public class BlockCCLamp extends BlockCCModel {
     /**

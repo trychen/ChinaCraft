@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.gui;
+package unstudio.chinacraft.client.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -14,9 +14,9 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.common.network.RedPacketMessage;
-import unstudio.sinocraft.inventory.ContainerRedPacket;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.network.RedPacketMessage;
+import unstudio.chinacraft.inventory.ContainerRedPacket;
 
 /**
  * 红包的GUI
@@ -57,8 +57,8 @@ public class GuiRedPacket extends GuiContainer {
                 money = redpacket.getDouble("Money");
                 sendee = redpacket.getString("Sendee");
                 if (sendee != null || sendee.length() == 0 || sendee.equalsIgnoreCase(player.getDisplayName())) {
-                    if (SinoCraft.vault != null) {
-                        SinoCraft.vault.depositPlayer(player.getDisplayName(), money);
+                    if (ChinaCraft.vault != null) {
+                        ChinaCraft.vault.depositPlayer(player.getDisplayName(), money);
                     }
                 }
             }
@@ -105,7 +105,7 @@ public class GuiRedPacket extends GuiContainer {
                 Integer.MAX_VALUE);
         if (sender == null || sender.isEmpty()) {
             sendeeTextBox.setEnabled(true);
-            if (SinoCraft.vault != null) {
+            if (ChinaCraft.vault != null) {
                 moneyTextBox.setEnabled(true);
                 moneyTextBox.drawTextBox();
             } else {
@@ -127,7 +127,7 @@ public class GuiRedPacket extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
-        this.mc.getTextureManager().bindTexture(new ResourceLocation("sinocraft", "textures/gui/redpacket.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation("chinacraft", "textures/gui/redpacket.png"));
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
@@ -191,8 +191,8 @@ public class GuiRedPacket extends GuiContainer {
             redpacket.setString("Wish", wish);
         if (isSend && sendee != null && sendee.length() > 0)
             redpacket.setString("Sendee", sendee);
-        if (SinoCraft.vault != null && money > 0) {
-            if (SinoCraft.vault.withdrawPlayer(sender, money)) {
+        if (ChinaCraft.vault != null && money > 0) {
+            if (ChinaCraft.vault.withdrawPlayer(sender, money)) {
                 redpacket.setDouble("Money", money);
             } else {
                 player.addChatMessage(
@@ -203,7 +203,7 @@ public class GuiRedPacket extends GuiContainer {
             redpacket.setDouble("Money", 0.0);
         }
         itemstack.setTagInfo("Redpacket", redpacket);
-        SinoCraft.Network.sendToServer(new RedPacketMessage(itemstack));
+        ChinaCraft.Network.sendToServer(new RedPacketMessage(itemstack));
     }
 
     @Override

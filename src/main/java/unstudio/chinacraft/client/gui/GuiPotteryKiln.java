@@ -1,4 +1,4 @@
-package unstudio.sinocraft.client.gui;
+package unstudio.chinacraft.client.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
@@ -8,8 +8,8 @@ import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.sinocraft.inventory.ContainerPotteryKiln;
-import unstudio.sinocraft.tileentity.TilePotteryKiln;
+import unstudio.chinacraft.inventory.ContainerPotteryKiln;
+import unstudio.chinacraft.tileentity.TilePotteryKiln;
 
 public class GuiPotteryKiln extends GuiContainer {
 
@@ -37,7 +37,7 @@ public class GuiPotteryKiln extends GuiContainer {
 
     @Override
     protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
-        this.mc.getTextureManager().bindTexture(new ResourceLocation("sinocraft", "textures/gui/potterykiln.png"));
+        this.mc.getTextureManager().bindTexture(new ResourceLocation("chinacraft", "textures/gui/potterykiln.png"));
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);

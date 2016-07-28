@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -11,8 +11,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.projectile.EntitySuperArrow;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.projectile.EntitySuperArrow;
 
 /**
  * Use for nothing. Created by trychen on 15/12/6.
@@ -20,7 +20,7 @@ import unstudio.sinocraft.entity.projectile.EntitySuperArrow;
 public class ItemSuperBow extends ItemBow {
     public ItemSuperBow() {
         this.setMaxDamage(437);
-        this.setCreativeTab(SinoCraft.tabTool);
+        this.setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class ItemSuperBow extends ItemBow {
             return event.result;
         }
 
-        if (p_77659_3_.capabilities.isCreativeMode || p_77659_3_.inventory.hasItem(SinoCraft.superArrow)) {
+        if (p_77659_3_.capabilities.isCreativeMode || p_77659_3_.inventory.hasItem(ChinaCraft.superArrow)) {
             p_77659_3_.setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
         }
 

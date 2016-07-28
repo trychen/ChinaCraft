@@ -1,4 +1,4 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.api.ItemMethod;
+import unstudio.chinacraft.api.ItemMethod;
 
 public class ItemSMFFire extends Item {
     public ItemSMFFire() {

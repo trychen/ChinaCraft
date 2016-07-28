@@ -1,8 +1,8 @@
-package unstudio.sinocraft.item;
+package unstudio.chinacraft.item;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.common.ChinaCraft;
 
 public class ItemArtKnife extends Item {
 
@@ -11,7 +11,7 @@ public class ItemArtKnife extends Item {
         setMaxStackSize(1);
         setMaxDamage(6);
         setHasSubtypes(false);
-        setCreativeTab(SinoCraft.tabTool);
+        setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override

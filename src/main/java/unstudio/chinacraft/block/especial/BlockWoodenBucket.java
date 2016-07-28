@@ -1,4 +1,4 @@
-package unstudio.sinocraft.block.especial;
+package unstudio.chinacraft.block.especial;
 
 import java.util.List;
 import java.util.Random;
@@ -15,8 +15,8 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import unstudio.sinocraft.client.render.block.BlockWoodenBucketRenderer;
-import unstudio.sinocraft.common.SinoCraft;
+import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
+import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -93,24 +93,24 @@ public class BlockWoodenBucket extends Block {
     @SideOnly(Side.CLIENT)
     @Override
     public void registerBlockIcons(IIconRegister reg) {
-        this.top = reg.registerIcon("sinocraft:woodenbucket_top");
-        this.bottom = reg.registerIcon("sinocraft:woodenbucket_bottom");
-        this.side = reg.registerIcon("sinocraft:woodenbucket_side");
-        this.inner = reg.registerIcon("sinocraft:woodenbucket_inner");
+        this.top = reg.registerIcon("chinacraft:woodenbucket_top");
+        this.bottom = reg.registerIcon("chinacraft:woodenbucket_bottom");
+        this.side = reg.registerIcon("chinacraft:woodenbucket_side");
+        this.inner = reg.registerIcon("chinacraft:woodenbucket_inner");
     }
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
         if (p_149650_1_ == 1) {
-            return SinoCraft.woodenBucket_Water;
+            return ChinaCraft.woodenBucket_Water;
         }
-        return SinoCraft.woodenBucket;
+        return ChinaCraft.woodenBucket;
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
-        return SinoCraft.woodenBucket;
+        return ChinaCraft.woodenBucket;
     }
 
     @Override
@@ -142,14 +142,14 @@ public class BlockWoodenBucket extends Block {
                     }
                 }
                 return true;
-            } else if (item.getItem() == SinoCraft.woodenBucket) {
+            } else if (item.getItem() == ChinaCraft.woodenBucket) {
                 world.setBlockMetadataWithNotify(x, y, z, 0, 2);
                 if (!player.capabilities.isCreativeMode) {
                     if (--item.stackSize <= 0) {
                         player.inventory.setInventorySlotContents(player.inventory.currentItem,
-                                new ItemStack(SinoCraft.woodenBucket_Water));
+                                new ItemStack(ChinaCraft.woodenBucket_Water));
                     } else {
-                        player.inventory.addItemStackToInventory(new ItemStack(SinoCraft.woodenBucket_Water));
+                        player.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.woodenBucket_Water));
                     }
                 }
                 return true;
@@ -168,14 +168,14 @@ public class BlockWoodenBucket extends Block {
                     }
                 }
                 return true;
-            } else if (item.getItem() == SinoCraft.woodenBucket_Water) {
+            } else if (item.getItem() == ChinaCraft.woodenBucket_Water) {
                 world.setBlockMetadataWithNotify(x, y, z, 1, 2);
                 if (!player.capabilities.isCreativeMode) {
                     if (--item.stackSize <= 0) {
                         player.inventory.setInventorySlotContents(player.inventory.currentItem,
-                                new ItemStack(SinoCraft.woodenBucket));
+                                new ItemStack(ChinaCraft.woodenBucket));
                     } else {
-                        player.inventory.addItemStackToInventory(new ItemStack(SinoCraft.woodenBucket));
+                        player.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.woodenBucket));
                     }
                 }
                 return true;

@@ -1,7 +1,7 @@
-package unstudio.sinocraft.util;
+package unstudio.chinacraft.util;
 
-import unstudio.sinocraft.block.especial.BlockPotteryBase;
-import unstudio.sinocraft.client.model.ModelPotteryBase;
+import unstudio.chinacraft.block.especial.BlockPotteryBase;
+import unstudio.chinacraft.client.model.ModelPotteryBase;
 
 public class BlockPottery {
 

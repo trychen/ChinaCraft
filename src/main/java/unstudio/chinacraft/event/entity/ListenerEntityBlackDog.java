@@ -1,4 +1,4 @@
-package unstudio.sinocraft.event.entity;
+package unstudio.chinacraft.event.entity;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ListenerEntityBlackDog {
@@ -26,7 +26,7 @@ public class ListenerEntityBlackDog {
                         entityBlackDog.attackEntityFrom(new DamageSource("withoutBloor"), 5);
                         attackSource.inventory.mainInventory[attackSource.inventory.currentItem] = new ItemStack(
                                 Items.bowl, attackSource.getHeldItem().stackSize - 1);
-                        attackSource.inventory.addItemStackToInventory(new ItemStack(SinoCraft.blackDogBlood));
+                        attackSource.inventory.addItemStackToInventory(new ItemStack(ChinaCraft.blackDogBlood));
                     }
                 }
             }

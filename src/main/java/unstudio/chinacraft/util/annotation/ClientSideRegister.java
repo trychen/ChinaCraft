@@ -1,8 +1,7 @@
-package unstudio.sinocraft.util.annotation;
+package unstudio.chinacraft.util.annotation;
 
-import unstudio.sinocraft.common.SinoCraft;
-import unstudio.sinocraft.util.annotation.register.IClient;
-import unstudio.sinocraft.util.annotation.register.ICollection;
+import unstudio.chinacraft.util.annotation.register.IClient;
+import unstudio.chinacraft.util.annotation.register.ICollection;
 
 import java.lang.reflect.Field;
 import java.util.List;

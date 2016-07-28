@@ -1,4 +1,4 @@
-package unstudio.sinocraft.recipes;
+package unstudio.chinacraft.recipes;
 
 import net.minecraft.block.Block;
 import net.minecraft.inventory.InventoryCrafting;
