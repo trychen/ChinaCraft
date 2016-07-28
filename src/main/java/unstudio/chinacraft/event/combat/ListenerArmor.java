@@ -1,22 +1,39 @@
 package unstudio.chinacraft.event.combat;
 
+import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiChat;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import org.lwjgl.input.Keyboard;
 import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import unstudio.chinacraft.common.config.FeatureConfig;
+import unstudio.chinacraft.common.network.KeyMessage;
+import unstudio.chinacraft.common.network.KeyMessageHandler;
+
+import java.util.Hashtable;
 
 public class ListenerArmor {
     @SubscribeEvent
     public void wearingNightClothes(TickEvent.PlayerTickEvent event) {
+        if(FeatureConfig.EnableDoubleJump&&event.phase == TickEvent.Phase.END&&event.side.isServer()&&event.player.onGround) {
+            NBTTagCompound tCompound = event.player.getEntityData();
+            if (tCompound.hasKey("nightClothesHasJumped"))tCompound.removeTag("nightClothesHasJumped");
+        }
         int i = 4;
         for (ItemStack itemStack : event.player.inventory.armorInventory) {
             i--;
@@ -24,7 +41,6 @@ public class ListenerArmor {
                 return;
             }
         }
-
         event.player.addPotionEffect(new PotionEffect(1, 2));
         event.player.addPotionEffect(new PotionEffect(5, 2));
         event.player.addPotionEffect(new PotionEffect(8, 2));
@@ -32,6 +48,7 @@ public class ListenerArmor {
             event.player.addPotionEffect(new PotionEffect(14, 2));
         }
     }
+
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void preRenderPlayer(RenderPlayerEvent.Pre event) {
@@ -60,6 +77,49 @@ public class ListenerArmor {
                     }
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public void key(InputEvent.KeyInputEvent event){
+        if(!FeatureConfig.EnableDoubleJump)return;
+        EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+        int i = 4;
+        for (ItemStack itemStack : player.inventory.armorInventory) {
+            i--;
+            if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
+                return;
+            }
+        }
+        if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
+            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) {
+                if(FeatureConfig.EnableDoubleJump) {
+                    if (player.motionY < 0.04 && player.isAirBorne) {
+                        ChinaCraft.Network.sendToServer(new KeyMessage(0));
+                    }
+                }
+            }
+        }
+    }
+
+
+    @SubscribeEvent
+    public void JumpEvent(LivingEvent.LivingJumpEvent event){
+        if(!FeatureConfig.EnableDoubleJump)return;
+        if (event.entityLiving instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.entityLiving;
+            int i = 4;
+            for (ItemStack itemStack : player.inventory.armorInventory) {
+                i--;
+                if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
+                    return;
+                }
+            }
+            NBTTagCompound tCompound = player.getEntityData();
+            if (!tCompound.hasKey("nightClothesHasJumped")) {
+                tCompound.setInteger("nightClothesHasJumped", 0);
+            }
+            tCompound.setInteger("nightClothesHasJumped", tCompound.getInteger("nightClothesHasJumped") + 1);
         }
     }
 }

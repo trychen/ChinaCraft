@@ -33,6 +33,8 @@ import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
 import unstudio.chinacraft.block.model.BlockCCLantern;
 import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.common.network.KeyMessage;
+import unstudio.chinacraft.common.network.KeyMessageHandler;
 import unstudio.chinacraft.common.network.RedPacketMessage;
 import unstudio.chinacraft.common.network.RedPacketMessageHandler;
 import unstudio.chinacraft.entity.EntityRegister;
@@ -361,6 +363,7 @@ public class ChinaCraft implements ICollection {
         proxy.preInit(event);
         Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
         Network.registerMessage(new RedPacketMessageHandler(), RedPacketMessage.class, 0, Side.SERVER);
+        Network.registerMessage(new KeyMessageHandler(), KeyMessage.class, 1, Side.SERVER);
 
         NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
         WAILAIsLoad = Loader.isModLoaded("Waila");

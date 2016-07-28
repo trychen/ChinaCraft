@@ -8,9 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
 
+import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.ClientProxy;
+import unstudio.chinacraft.util.annotation.register.IClient;
 
-public class BLGiantSword extends ItemSword {
+public class BLGiantSword extends ItemSword implements IClient{
     public BLGiantSword(ToolMaterial toolMaterial) {
         super(toolMaterial);
         setUnlocalizedName("yanlung_giantknife");
@@ -27,6 +30,7 @@ public class BLGiantSword extends ItemSword {
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
+        target.setFire(1);
         if (target.worldObj.rand.nextBoolean()) {
             target.setFire(target.worldObj.rand.nextInt(5) + 1);
         }
@@ -36,5 +40,10 @@ public class BLGiantSword extends ItemSword {
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         p_77624_3_.add(StatCollector.translateToLocal("item.yanlung_giantknife.lore"));
+    }
+
+    @Override
+    public void clientInit() {
+        MinecraftForgeClient.registerItemRenderer(this, ClientProxy.hugeItemRenderer);
     }
 }
