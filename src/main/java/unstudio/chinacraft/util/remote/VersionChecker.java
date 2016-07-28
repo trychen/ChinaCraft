@@ -49,7 +49,6 @@ public class VersionChecker extends Thread{
             String serverReturnStringJsonData = Network.getJsonString("http://mccraft.cn/api/project/" + projectID);
             JsonObject json = new JsonParser().parse(serverReturnStringJsonData).getAsJsonObject().get("latest_version").getAsJsonObject();
             latestVersion = json.get("version").getAsString();
-            System.out.println(latestVersion);
             downloadUrl = json.get("download_url").getAsString();
             instruction = json.get("instruction").getAsString();
             changelog = json.get("changelog").getAsString();

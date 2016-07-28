@@ -1,6 +1,7 @@
 package unstudio.chinacraft.client.nei;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -37,9 +38,10 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     public void loadCraftingRecipes(String outputId, Object... results) {
         if (outputId.equals("buhrimill") && getClass() == BuhrimillRecipeHandler.class) {
             List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
-            for (BuhrimillRecipe recipe : recipes)
-                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput2(), recipe.getInput2(),
-                        recipe.getOutput2(),recipe.getTime()/360));
+            for (BuhrimillRecipe recipe : recipes) {
+                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
+                        recipe.getOutput2(), recipe.getTime() / 360));
+            }
         } else
             super.loadCraftingRecipes(outputId, results);
     }
@@ -47,10 +49,11 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     @Override
     public void loadCraftingRecipes(ItemStack result) {
         List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
-        for (BuhrimillRecipe recipe : recipes)
+        for (BuhrimillRecipe recipe : recipes) {
             if (NEIServerUtils.areStacksSameType(recipe.getOutput1(), result))
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2(),recipe.getTime()/360));
+                        recipe.getOutput2(), recipe.getTime() / 360));
+        }
     }
 
     @Override
@@ -100,17 +103,17 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
             in1.stackSize = 1;
             this.input1 = new PositionedStack(in1, 38, 14);
             this.output1 = new PositionedStack(out1, 112 - 5, 14);
-            if (in2 != null) {
-                this.input2 = new PositionedStack(in2, 38, 28);
-            }
-            if (out2 != null) {
-                this.output2 = new PositionedStack(out2, 112 - 5, 28);
-            }
+            if (in2 != null)this.input2 = new PositionedStack(in2, 38, 39);
+            if (out2 != null)this.output2 = new PositionedStack(out2, 112 - 5, 39);
             this.roTimes = roTimes;
         }
 
         public List<PositionedStack> getIngredients() {
-            return getCycledIngredients(cycleticks / 48, Arrays.asList(input1));
+            ArrayList<PositionedStack> list= new ArrayList<>();
+            list.add(input1);
+            if (input2 != null)list.add(input2);
+            if (output2 != null)list.add(output2);
+            return getCycledIngredients(cycleticks / 48, list);
         }
 
         public PositionedStack getResult() {
