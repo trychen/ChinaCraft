@@ -2,6 +2,8 @@ package unstudio.chinacraft.entity;
 
 import net.minecraft.entity.EntityList;
 
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.world.biome.BiomeGenBase;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
@@ -23,8 +25,8 @@ public class EntityRegister {
         id = EntityRegistry.findGlobalUniqueEntityId();
 
         registerLivingEntity(EntityBlackDog.class, "black_dog", 0x0B0B0B, 0x696969);
-        // EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
-        // EnumCreatureType.monster, BiomeGenBase.forest);
+         EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
+         EnumCreatureType.creature, BiomeGenBase.forest);
         registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0xFFF8DC, 0xDEB887);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 
