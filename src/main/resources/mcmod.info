@@ -1,11 +1,11 @@
 [
 {
-  "modid": "chinacraft",
-  "name": "ChinaCraft",
+  "modid": "sinocraft",
+  "name": "SinoCraft",
   "description": "A mod with Chinese features.",
-  "version": "SanpShot 194",
+  "version": "SanpShot 195",
   "mcversion": "1.7.10",
-  "url": "http://www.mccraft.cn",
+  "url": "http://mccraft.cn",
   "updateUrl": "",
   "authorList": ["Mouse","Trychen","Huangshize","Mcdarc","Lasm_Gratel"],
   "logoFile": "assets/chinacraft/logo.png",
