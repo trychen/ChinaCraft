@@ -58,11 +58,6 @@ public class GuiRedPacket extends GuiContainer {
                     wish = StatCollector.translateToLocal("gui.redpacket.wash");
                 money = redpacket.getDouble("Money");
                 sendee = redpacket.getString("Sendee");
-                if (sendee != null || sendee.length() == 0 || sendee.equalsIgnoreCase(player.getName())) {
-                    if (ChinaCraft.vault != null) {
-                        ChinaCraft.vault.depositPlayer(player.getName(), money);
-                    }
-                }
             }
         }
     }
@@ -107,12 +102,7 @@ public class GuiRedPacket extends GuiContainer {
                 Integer.MAX_VALUE);
         if (sender == null || sender.isEmpty()) {
             sendeeTextBox.setEnabled(true);
-            if (ChinaCraft.vault != null) {
-                moneyTextBox.setEnabled(true);
-                moneyTextBox.drawTextBox();
-            } else {
-                moneyTextBox.setEnabled(false);
-            }
+            moneyTextBox.setEnabled(false);
             wishTextBox.setEnabled(true);
             wishTextBox.drawTextBox();
             sendeeTextBox.drawTextBox();
@@ -193,17 +183,7 @@ public class GuiRedPacket extends GuiContainer {
             redpacket.setString("Wish", wish);
         if (isSend && sendee != null && sendee.length() > 0)
             redpacket.setString("Sendee", sendee);
-        if (ChinaCraft.vault != null && money > 0) {
-            if (ChinaCraft.vault.withdrawPlayer(sender, money)) {
-                redpacket.setDouble("Money", money);
-            } else {
-                player.addChatMessage(
-                        new ChatComponentText(StatCollector.translateToLocal("redpacket.not_enough_money")));
-                redpacket.setDouble("Money", 0.0);
-            }
-        } else {
-            redpacket.setDouble("Money", 0.0);
-        }
+        redpacket.setDouble("Money", 0.0);
         itemstack.setTagInfo("Redpacket", redpacket);
         ChinaCraft.Network.sendToServer(new RedPacketMessage(itemstack));
     }

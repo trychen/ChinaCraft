@@ -109,15 +109,12 @@ import unstudio.chinacraft.util.config.ConfigLoader;
 import unstudio.chinacraft.util.config.FeatureConfig;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 
-import javax.swing.*;
-import java.util.Random;
-
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
 public class ChinaCraft implements ItemBlockCollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
 
-    public static final String VERSION = "Beta-0.2.193";
+    public static final String VERSION = "SanpShot 195";
 
     public static final int PROJECT_ID = 1;
 
