@@ -1,4 +1,4 @@
-package unstudio.sinocraft.common;
+package unstudio.chinacraft.common;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
@@ -21,36 +21,36 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import unstudio.sinocraft.block.BlockBase;
-import unstudio.sinocraft.block.CCFlower;
-import unstudio.sinocraft.block.CCGrowablePlant;
-import unstudio.sinocraft.block.decoration.*;
-import unstudio.sinocraft.block.especial.*;
-import unstudio.sinocraft.block.generation.BlockCCOre;
-import unstudio.sinocraft.block.generation.plant.BlockBambooShoot;
-import unstudio.sinocraft.block.generation.plant.BlockCCCake;
-import unstudio.sinocraft.block.generation.plant.BlockFirebrick;
-import unstudio.sinocraft.block.model.BlockCCLantern;
-import unstudio.sinocraft.block.model.BlockCCModel;
-import unstudio.sinocraft.client.model.ModelLanternScaldfish;
-import unstudio.sinocraft.common.network.RedPacketMessage;
-import unstudio.sinocraft.common.network.RedPacketMessageHandler;
-import unstudio.sinocraft.entity.EntityRegister;
-import unstudio.sinocraft.item.*;
-import unstudio.sinocraft.item.combat.*;
-import unstudio.sinocraft.item.jade.Jade;
-import unstudio.sinocraft.item.jade.JadeKnife;
-import unstudio.sinocraft.item.jade.JadePinkSystem;
-import unstudio.sinocraft.util.remote.Network;
-import unstudio.sinocraft.util.remote.MinecraftModVersionChecker;
-import unstudio.sinocraft.util.remote.VersionChecker;
-import unstudio.sinocraft.util.annotation.register.OreRegister;
-import unstudio.sinocraft.util.annotation.register.Register;
-import unstudio.sinocraft.util.annotation.register.SlabRegister;
-import unstudio.sinocraft.util.annotation.register.ICollection;
-import unstudio.sinocraft.common.config.FeatureConfig;
-import unstudio.sinocraft.common.config.ConfigLoader;
-import unstudio.sinocraft.world.gen.WorldGenMulberryTree;
+import unstudio.chinacraft.block.BlockBase;
+import unstudio.chinacraft.block.CCFlower;
+import unstudio.chinacraft.block.CCGrowablePlant;
+import unstudio.chinacraft.block.decoration.*;
+import unstudio.chinacraft.block.especial.*;
+import unstudio.chinacraft.block.generation.BlockCCOre;
+import unstudio.chinacraft.block.generation.plant.BlockBambooShoot;
+import unstudio.chinacraft.block.generation.plant.BlockCCCake;
+import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
+import unstudio.chinacraft.block.model.BlockCCLantern;
+import unstudio.chinacraft.block.model.BlockCCModel;
+import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.common.network.RedPacketMessage;
+import unstudio.chinacraft.common.network.RedPacketMessageHandler;
+import unstudio.chinacraft.entity.EntityRegister;
+import unstudio.chinacraft.item.*;
+import unstudio.chinacraft.item.combat.*;
+import unstudio.chinacraft.item.jade.Jade;
+import unstudio.chinacraft.item.jade.JadeKnife;
+import unstudio.chinacraft.item.jade.JadePinkSystem;
+import unstudio.chinacraft.util.remote.Network;
+import unstudio.chinacraft.util.remote.MinecraftModVersionChecker;
+import unstudio.chinacraft.util.remote.VersionChecker;
+import unstudio.chinacraft.util.annotation.register.OreRegister;
+import unstudio.chinacraft.util.annotation.register.Register;
+import unstudio.chinacraft.util.annotation.register.SlabRegister;
+import unstudio.chinacraft.util.annotation.register.ICollection;
+import unstudio.chinacraft.common.config.FeatureConfig;
+import unstudio.chinacraft.common.config.ConfigLoader;
+import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.forgebukkitbridge.VaultPlugin;
 
 import javax.swing.*;
@@ -58,9 +58,9 @@ import java.util.Random;
 
 @Mod(modid = SinoCraft.MODID, name = SinoCraft.NAME, version = SinoCraft.VERSION)
 public class SinoCraft implements ICollection {
-    public static final String MODID = "sinocraft";
+    public static final String MODID = "chinacraft";
     public static final String NAME = "SinoCraft";
-    public static final String VERSION = "SanpShot-194";
+    public static final String VERSION = "SanpShot-195";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
@@ -73,11 +73,11 @@ public class SinoCraft implements ICollection {
     public static boolean NEIIsLoad = false;
     public static boolean WAILAIsLoad = false;
     public static boolean VersionCheckerIsLoad = false;
-    public unstudio.sinocraft.util.remote.Network network = new Network();
+    public unstudio.chinacraft.util.remote.Network network = new Network();
 
-    @SidedProxy(clientSide = "unstudio.sinocraft.common.ClientProxy", serverSide = "unstudio.sinocraft.common.CommonProxy")
+    @SidedProxy(clientSide = "unstudio.chinacraft.common.ClientProxy", serverSide = "unstudio.chinacraft.common.CommonProxy")
     public static CommonProxy proxy;
-    @Instance("sinocraft")
+    @Instance("chinacraft")
     public static SinoCraft instance;
 
     // 特殊变量
@@ -118,59 +118,59 @@ public class SinoCraft implements ICollection {
     };
     // 方块
     @Register("SilverBlock")
-    public static final Block silverBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("silver_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:silver_block"); // 银块
+    public static final Block silverBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("silver_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:silver_block"); // 银块
     @Register("CopperBlock")
-    public static final Block copperBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:copper_block"); // 铜块
+    public static final Block copperBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_block").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:copper_block"); // 铜块
     @Register("BronzeBlock")
-    public static final Block bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f).setBlockTextureName("sinocraft:bronze_block"); // 青铜块
+    public static final Block bronzeBlock = new BlockCCMetal("bronze_block", 1, 5.0f).setBlockTextureName("chinacraft:bronze_block"); // 青铜块
 
     @OreRegister(name = "CopperOre",ore = "oreCopper")
-    public static final BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:copper_ore"); // 铜矿
+    public static final BlockCCOre copperOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 20, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("copper_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:copper_ore"); // 铜矿
     @OreRegister(name = "TinOre",ore = "oreTin")
-    public static final BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:tin_ore");// 锡矿
+    public static final BlockCCOre tinOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 10, 64, 0, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("tin_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:tin_ore");// 锡矿
     @OreRegister(name = "JadeOre",ore = "oreJade")
-    public static final BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock, 4, 4, 64, 32, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:jade_ore"); // 玉原石
+    public static final BlockCCOre jadeOre = (BlockCCOre) new BlockCCOre(Material.rock, 4, 4, 64, 32, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("jade_ore").setHardness(3.0F).setResistance(10.0F).setLightLevel(0.125F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:jade_ore"); // 玉原石
     @OreRegister(name = "SilverOre",ore = "oreSilver")
-    public static final BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:silver_ore"); // 银矿
+    public static final BlockCCOre silverOre = (BlockCCOre) new BlockCCOre(Material.rock, 8, 4, 32, 0, 0).setHarvestLevelReturnBlock("pickaxe", 2).setBlockName("silver_ore").setHardness(3.0F).setResistance(5.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:silver_ore"); // 银矿
 
     @Register("BlockMarble")
-    public static final BlockMarble blockMarble = (BlockMarble) new BlockMarble().setBlockTextureName("sinocraft:marble"); // 大理石
+    public static final BlockMarble blockMarble = (BlockMarble) new BlockMarble().setBlockTextureName("chinacraft:marble"); // 大理石
     @Register("SmoothMarble")
-    public static final Block smoothMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("smooth_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:smooth_marble"); // 平滑大理石块
+    public static final Block smoothMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("smooth_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:smooth_marble"); // 平滑大理石块
     @Register("PillarMarble")
-    public static final Block pillarMarble = new BlockCCRotatedPillar(Material.rock,"sinocraft:pillar_marble_top","sinocraft:pillar_marble").setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("pillar_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore);// 条纹大理石块
+    public static final Block pillarMarble = new BlockCCRotatedPillar(Material.rock,"chinacraft:pillar_marble_top","chinacraft:pillar_marble").setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("pillar_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore);// 条纹大理石块
     @Register("ChiseledMarble")
-    public static final Block chiseledMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("chiseled_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:chiseled_marble"); // 錾制大理石块
+    public static final Block chiseledMarble = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("chiseled_marble").setHardness(3.0F).setResistance(10.0F).setStepSound(Block.soundTypeStone).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:chiseled_marble"); // 錾制大理石块
     @Register("MarbleStair")
     public static final Block marbleStair = new BlockCCStair(smoothMarble, 0).setHarvestLevelReturnBlock("pickaxe", 1).setBlockName("marble_stair").setCreativeTab(SinoCraft.tabCore); // 大理石楼梯
     @SlabRegister(name = "MarbleSlab", first = "marbleSlab", second = "marbleDoubleSlab")
-    public static final Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(SinoCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("sinocraft:smooth_marble"); // 大理石半砖
+    public static final Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(SinoCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
     @SlabRegister(name = "MarbleDoubleSlab", first = "marbleSlab", second = "marbleDoubleSlab")
-    public static final Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(SinoCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("sinocraft:smooth_marble"); // 大理石半砖
+    public static final Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(SinoCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
 
     @Register("WoodenWindow1")
-    public static final BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("sinocraft:wooden_window_1", "sinocraft:wooden_window_top"); // 木窗框1
+    public static final BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); // 木窗框1
     @Register("WoodenWindow2")
-    public static final BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("sinocraft:wooden_window_2", "sinocraft:wooden_window_top"); // 木窗框2
+    public static final BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); // 木窗框2
     @Register("WoodenWindow3")
-    public static final BlockWoodenWindow woodenWindow3 = new BlockWoodenWindow("sinocraft:wooden_window_3", "sinocraft:wooden_window_top"); // 木窗框3
+    public static final BlockWoodenWindow woodenWindow3 = new BlockWoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); // 木窗框3
     @Register("WoodenWindow4")
-    public static final BlockWoodenWindow woodenWindow4 = new BlockWoodenWindow("sinocraft:wooden_window_4", "sinocraft:wooden_window_top"); // 木窗框3
+    public static final BlockWoodenWindow woodenWindow4 = new BlockWoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); // 木窗框3
     @Register("WoodenWindowDragon")
-    public static final BlockWoodenWindow woodenWindowdragon = new BlockWoodenWindow("sinocraft:wooden_window_dragon", "sinocraft:wooden_window_top"); // 木窗框Logo
+    public static final BlockWoodenWindow woodenWindowdragon = new BlockWoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); // 木窗框Logo
     @Register("WoodenWindowFu")
-    public static final BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("sinocraft:wooden_window_fu", "sinocraft:wooden_window_top"); // 木窗框:福
+    public static final BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); // 木窗框:福
 
     @Register("Bamboo")
-    public static final Block bamboo = new BlockBamboo().setBlockTextureName("sinocraft:bamboo"); // 竹子方块
-    public static final BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("sinocraft:bamboo_shoot"); // 竹笋
+    public static final Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
+    public static final BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
     @Register("BambooPlank")
-    public static final Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("sinocraft:bamboo_plank").setBlockName("bamboo_plank")
+    public static final Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
             .setCreativeTab(SinoCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
-    public static final Block mulberryLog = new BlockCCLog("sinocraft:mulberry_log_top", "sinocraft:mulberry_log").setCreativeTab(SinoCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
-    public static final Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("sinocraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(SinoCraft.tabFarming);//桑树树苗
-    public static final Block mulberryLeaf = new BlockCCLeaves(SinoCraft.mulberrySapling).setCreativeTab(SinoCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("sinocraft:mulberry_leaf"); // 桑树树叶
-    public static final Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("sinocraft:mulberry_wood"); // 桑树木板
+    public static final Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(SinoCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
+    public static final Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(SinoCraft.tabFarming);//桑树树苗
+    public static final Block mulberryLeaf = new BlockCCLeaves(SinoCraft.mulberrySapling).setCreativeTab(SinoCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("chinacraft:mulberry_leaf"); // 桑树树叶
+    public static final Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(SinoCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
     public static final CCFlower azalea = new CCFlower("azalea");
     public static final CCFlower peony = new CCFlower("peony");
     public static final CCFlower chrysanthemum = new CCFlower("chrysanthemum");
@@ -183,8 +183,8 @@ public class SinoCraft implements ICollection {
 //!    public static final Item itemLanternScaldfishOpenable = new ItemReed(SinoCraft.lanternScaldfishOpenable)
 //!            .setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(SinoCraft.tabCore);
     // TraditionalCarpet
-    public static final TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "sinocraft:red_carpet");
-//    public static final TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "sinocraft:slik_carpet");
+    public static final TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
+//    public static final TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "chinacraft:slik_carpet");
 
     public static final BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
     //    public static final BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
@@ -194,9 +194,9 @@ public class SinoCraft implements ICollection {
     public static final BlockCookingBench cooking_bench_off = new BlockCookingBench(false); // 灶台
     public static final BlockCookingBench cooking_bench_on = new BlockCookingBench(true); // 灶台
     public static final BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
-    public static final Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("sinocraft:blackbrick_block").setCreativeTab(SinoCraft.tabCore);//青砖块
-    public static final Block blackbrickSlab = new BlockCCSlab(false,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("sinocraft:blackbrick_block").setCreativeTab(SinoCraft.tabCore);//青砖半砖
-    public static final Block blackbrickDoubleSlab =  new BlockCCSlab(true,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setBlockSlab(SinoCraft.blackbrickSlab).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("sinocraft:blackbrick_block");//青砖半砖
+    public static final Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(SinoCraft.tabCore);//青砖块
+    public static final Block blackbrickSlab = new BlockCCSlab(false,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(SinoCraft.tabCore);//青砖半砖
+    public static final Block blackbrickDoubleSlab =  new BlockCCSlab(true,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setBlockSlab(SinoCraft.blackbrickSlab).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block");//青砖半砖
     public static final Block blackbrickStair = new BlockCCStair(SinoCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setBlockName("blackbrick_stair").setCreativeTab(SinoCraft.tabCore);
 
     // 物品
@@ -204,7 +204,7 @@ public class SinoCraft implements ICollection {
     public static final Item copperIngot = new Item().setUnlocalizedName("copper_ingot").setCreativeTab(SinoCraft.tabCore); // 铜锭
     @OreRegister(name = "BronzeIngot",ore = "ingotBronze")
     public static final Item bronzeIngot = new ItemBase().setUnlocalizedName("bronze_ingot")
-            .setCreativeTab(SinoCraft.tabCore).setTextureName("sinocraft:bronze_ingot"); // 青铜锭
+            .setCreativeTab(SinoCraft.tabCore).setTextureName("chinacraft:bronze_ingot"); // 青铜锭
     @OreRegister(name = "TinIngot",ore = "ingotTin")
     public static final Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(SinoCraft.tabCore); // 锡锭
     @OreRegister(name = "SilverIngot",ore = "ingotSilver")
@@ -213,7 +213,7 @@ public class SinoCraft implements ICollection {
             .setCreativeTab(SinoCraft.tabCore); // 铜锡混合矿粉
     public static final Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(SinoCraft.tabCore); // 锡粉
     public static final Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(SinoCraft.tabCore); // 铜粉
-    public static final Item blackbrick = new ItemBase().setUnlocalizedName("blackbrick").setCreativeTab(SinoCraft.tabCore).setTextureName("sinocraft:blackbrick");//青砖
+    public static final Item blackbrick = new ItemBase().setUnlocalizedName("blackbrick").setCreativeTab(SinoCraft.tabCore).setTextureName("chinacraft:blackbrick");//青砖
     public static final CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(SinoCraft.riceGrow)
             .setUnlocalizedName("rices"); // 米
     public static final Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(SinoCraft.tabFarming); // 米穗
@@ -225,7 +225,7 @@ public class SinoCraft implements ICollection {
             .setUnlocalizedName("glutinous_rice"); // 糯米
     public static final CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7,
             SinoCraft.glutinousRice, SinoCraft.glutinousRice);// 糯米作物
-    public static final Item itemBamboo = new ItemBase().setTextureName("sinocraft:bamboo").setCreativeTab(SinoCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    public static final Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(SinoCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
     public static final Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(SinoCraft.tabFarming); // 大豆荚
     // public static final SoyGrow soyGrow = new SoyGrow(); //大豆作物
     public static final CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, SinoCraft.soyPod, SinoCraft.soyPod); // 大豆作物
@@ -234,8 +234,8 @@ public class SinoCraft implements ICollection {
     public static final ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); // 木桶
     public static final ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); // 木水桶
 //    public static final Item saltBucket = new Item().setUnlocalizedName("bucket_salt").setTextureName("minecraft:bucket").setCreativeTab(SinoCraft.tabFarming); // 豆浆桶
-    public static final Item Salt = new Item().setUnlocalizedName("salt_powder").setTextureName("sinocraft:salt_powder").setCreativeTab(SinoCraft.tabFarming); // 豆浆桶
-    public static final Item douJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setTextureName("sinocraft:doujiang_bucket").setCreativeTab(SinoCraft.tabFarming); // 豆浆桶
+    public static final Item Salt = new Item().setUnlocalizedName("salt_powder").setTextureName("chinacraft:salt_powder").setCreativeTab(SinoCraft.tabFarming); // 豆浆桶
+    public static final Item douJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setTextureName("chinacraft:doujiang_bucket").setCreativeTab(SinoCraft.tabFarming); // 豆浆桶
     public static final ItemSilkworm silkworm = new ItemSilkworm(); // 蚕
     public static final Item silkwormChrysalis = new Item().setCreativeTab(SinoCraft.tabFarming)
             .setUnlocalizedName("silkworm_chrysalis"); // 蚕茧
@@ -341,7 +341,7 @@ public class SinoCraft implements ICollection {
     public static final CCMusicDisc the_march_of_the_volunteers = new CCMusicDisc("the_march_of_the_volunteers");
     public static final CCMusicDisc spring_festival_overture = new CCMusicDisc("spring_festival_overture");
     public static final Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); // 丝绸
-    public static final Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("sinocraft:silk_yarn")
+    public static final Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("chinacraft:silk_yarn")
             .setCreativeTab(SinoCraft.tabFarming);
     public static final ItemDebug debug = new ItemDebug(); // 调试物品
 

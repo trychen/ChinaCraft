@@ -24,11 +24,8 @@ public class ClientSideRegister {
                         ((IClient) object).clientInit();
                     }
                 } catch (IllegalAccessException e) {
-                    SinoCraft.log.error("Can't register non-static field as a Client Side Register");
-                    e.printStackTrace();
                 } catch (NullPointerException e){
-                    SinoCraft.log.error("Can't register non-static field as a Client Side Register");
-                    e.printStackTrace();
+                    System.out.println(field.getName());
                 }
             }
         }
