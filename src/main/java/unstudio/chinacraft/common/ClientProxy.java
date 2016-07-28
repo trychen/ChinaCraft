@@ -8,7 +8,6 @@ import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import unstudio.chinacraft.client.nei.NEIAPI;
 import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
 import unstudio.chinacraft.client.render.tileentity.TileEntityPotteryTableRenderer;
@@ -31,11 +30,6 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void init(FMLInitializationEvent event) {
-        if (ChinaCraft.NEIIsLoad) {
-        	//XXX:Removed temporary for debuging
-            new NEIAPI().loadConfig();
-        }
-
         super.init(event);
         //清理此地材质注册……
 //        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
