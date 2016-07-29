@@ -80,6 +80,7 @@ public class ListenerArmor {
         }
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void key(InputEvent.KeyInputEvent event){
         if(!FeatureConfig.EnableDoubleJump)return;
