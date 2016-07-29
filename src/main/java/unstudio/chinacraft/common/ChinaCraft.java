@@ -165,40 +165,62 @@ public class ChinaCraft implements ICollection {
 
     @Register("Bamboo")
     public static final Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
+    @Register("BlockBambooShoot")
     public static final BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
     @Register("BambooPlank")
     public static final Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
             .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
+    @Register("MulberryLog")
     public static final Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
-    public static final Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(ChinaCraft.tabFarming);//桑树树苗
+    @Register("MulberryLeaf")
     public static final Block mulberryLeaf = new BlockCCLeaves(ChinaCraft.mulberrySapling).setCreativeTab(ChinaCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("chinacraft:mulberry_leaf"); // 桑树树叶
+    @Register("MulberrySapling")
+    public static final Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(ChinaCraft.tabFarming);//桑树树苗
+    @Register("MulberryWood")
     public static final Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
+    @Register("Azalea")
     public static final CCFlower azalea = new CCFlower("azalea");
+    @Register("Peony")
     public static final CCFlower peony = new CCFlower("peony");
+    @Register("chrysanthemum")// TODO:字母未大写
     public static final CCFlower chrysanthemum = new CCFlower("chrysanthemum");
+    @Register("JadeWorkingTable")
     public static final JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
+
 //    public static final BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
 //    public static final BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class, "lantern_scaldfish");
+//    @Register("LanternScaldfish")
     public static final BlockCCModel lanternScaldfish = (BlockCCModel) new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable").setLightLevel(8.0f);
-    public static final Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish)
-            .setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
+//    @Register("itemLanternScaldfish")
+    public static final Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish).setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
 //!    public static final Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable)
 //!            .setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(ChinaCraft.tabCore);
+
     // TraditionalCarpet
+    @Register("red_carpet")
     public static final TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
 //    public static final TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "chinacraft:slik_carpet");
-
+    @Register("PotteryTable")
     public static final BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
     //    public static final BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
+    @Register("Buhrimill")
     public static final BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
     public static final BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
+    @Register("BlockWoodenBucket")
     public static final BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); // 木桶
+    @Register("CookingBenchOff")
     public static final BlockCookingBench cooking_bench_off = new BlockCookingBench(false); // 灶台
+    @Register("CookingBenchOn")
     public static final BlockCookingBench cooking_bench_on = new BlockCookingBench(true); // 灶台
+
     public static final BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
+    @Register("BlackBrickBlock")
     public static final Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
+    @SlabRegister(name = "BlackBrickSlab",first = "blackbrickSlab",second = "blackbrickDoubleSlab")
     public static final Block blackbrickSlab = new BlockCCSlab(false,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖半砖
+    @SlabRegister(name = "BlackBrickDoubleSlab",first = "blackbrickSlab",second = "blackbrickDoubleSlab")
     public static final Block blackbrickDoubleSlab =  new BlockCCSlab(true,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setBlockSlab(ChinaCraft.blackbrickSlab).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block");//青砖半砖
+    @Register("BlackBrickStair")
     public static final Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
 
     // 物品
@@ -211,56 +233,100 @@ public class ChinaCraft implements ICollection {
     public static final Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore); // 锡锭
     @OreRegister(name = "SilverIngot",ore = "ingotSilver")
     public static final Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); // 银锭
+    @Register("CopperTinMixedPowder")
     public static final Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder")
             .setCreativeTab(ChinaCraft.tabCore); // 铜锡混合矿粉
+    @OreRegister(name = "TinPowder",ore = "dustTin")
     public static final Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore); // 锡粉
+    @OreRegister(name = "CopperPowder",ore = "dustCopper")
     public static final Item copperPowder = new Item().setUnlocalizedName("copper_powder").setCreativeTab(ChinaCraft.tabCore); // 铜粉
+    @Register("BlackBrick")
     public static final Item blackbrick = new ItemBase().setUnlocalizedName("blackbrick").setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:blackbrick");//青砖
+
+    @Register("Rices")
     public static final CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow)
             .setUnlocalizedName("rices"); // 米
+    @Register("Lckers")
     public static final Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabFarming); // 米穗
     // public static final RiceGrow riceGrow = new RiceGrow(); //水稻作物
+    @Register("RiceGrow")
     public static final CCGrowablePlant riceGrow = new CCGrowablePlant("rice", 5, ChinaCraft.rices, ChinaCraft.lcker); // 水稻作物
-    public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow)
-            .setUnlocalizedName("soy"); // 大豆
-    public static final CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice)
-            .setUnlocalizedName("glutinous_rice"); // 糯米
-    public static final CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7,
-            ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
-    public static final Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    @Register("Soy")
+    public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow).setUnlocalizedName("soy"); // 大豆
+    @Register("SoyPod")
     public static final Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
-    // public static final SoyGrow soyGrow = new SoyGrow(); //大豆作物
+    @Register("SoyGrow")
     public static final CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物
-    public static final Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf")
-            .setCreativeTab(ChinaCraft.tabFarming); // 桑叶
-    public static final ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); // 木桶
-    public static final ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); // 木水桶
-//    public static final Item saltBucket = new Item().setUnlocalizedName("bucket_salt").setTextureName("minecraft:bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
-    public static final Item Salt = new Item().setUnlocalizedName("salt_powder").setTextureName("chinacraft:salt_powder").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
-    public static final Item douJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setTextureName("chinacraft:doujiang_bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
-    public static final ItemSilkworm silkworm = new ItemSilkworm(); // 蚕
-    public static final Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabFarming)
-            .setUnlocalizedName("silkworm_chrysalis"); // 蚕茧
-    public static final ItemRedPacket redPacket = new ItemRedPacket(); // 红包
-    public static final ItemFirecracker firecracker = new ItemFirecracker();
-    public static final ItemBomb bomb = new ItemBomb();
+    @Register("GlutinousRice")
+    public static final CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
+    @Register("BlockGlutinousRice")
+    public static final CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7, ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
+    @Register("ItemBamboo")
+    public static final Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    @Register("ItemMulberryLeaf")
+    public static final Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabFarming); // 桑叶
+    @Register("BlackDogBlood")
     public static final ItemBlackDogBlood blackDogBlood = new ItemBlackDogBlood();
+    @Register("MoonCake")
     public static final Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabFarming);
+
+    @Register("WoodenBucket")
+    public static final ItemWoodenBucket woodenBucket = new ItemWoodenBucket(Blocks.air); // 木桶
+    @Register("WoodenBucket_Water")
+    public static final ItemWoodenBucket woodenBucket_Water = new ItemWoodenBucket(Blocks.flowing_water); // 木水桶
+    @Register("DouJiangBucket")
+    public static final Item douJiangBucket = new DouJiangBucket().setUnlocalizedName("doujiang_bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    //    public static final Item saltBucket = new Item().setUnlocalizedName("bucket_salt").setTextureName("minecraft:bucket").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    @Register("Salt")
+    public static final Item salt = new Item().setUnlocalizedName("salt_powder").setCreativeTab(ChinaCraft.tabFarming); // 豆浆桶
+    @Register("RedPacket")
+    public static final ItemRedPacket redPacket = new ItemRedPacket(); // 红包
+    @Register("Firecracker")
+    public static final ItemFirecracker firecracker = new ItemFirecracker();
+    @Register("Bomb")
+    public static final ItemBomb bomb = new ItemBomb();
     // 防具武器
+    @Register("BronzeSword")
     public static final Item bronzeSword = new ItemSword(ChinaCraft.BRONZE).setUnlocalizedName("bronze_sword").setCreativeTab(ChinaCraft.tabTool); // 青铜剑
+    @Register("BronzeBroadSword")
     public static final BronzeBroadSword bronzeBroadSword = new BronzeBroadSword(BROAD_BRONZE, null); // 青铜大刀
+    @Register("bronzeBroadSwordGreen")
     public static final BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword(BROAD_BRONZE, "green"); // 青铜大刀Green
+    @Register("bronzeBroadSwordGreen2")
     public static final BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword(BROAD_BRONZE, "green2"); // 青铜大刀Green2
+    @Register("bronzeBroadSwordPink")
     public static final BronzeBroadSword bronzeBroadSwordPink = new BronzeBroadSword(BROAD_BRONZE, "pink"); // 青铜大刀Pink
+    @Register("bronzeBroadSwordPurple")
     public static final BronzeBroadSword bronzeBroadSwordPurple = new BronzeBroadSword(BROAD_BRONZE, "purple"); // 青铜大刀purple
+    @Register("YanLungGiantknife")
     public static final BLGiantSword blGiantSword = new BLGiantSword(ChinaCraft.YANGLONG); // 炎龙巨刀
-    public static final ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown",0, 0,
-            1);
+    @Register("JiuQuTang")
+    public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
+    @Register("Mace")
+    public static final Mace mace = new Mace();
+    @Register("StoneHammer")
+    public static final Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");// 石锤
+    @Register("DiamondBronze")
+    public static final Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");// 钻石锤
+    @Register("IronHammer")
+    public static final Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");// 铁锤
+    @Register("DiamondHammer")
+    public static final Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");// 钻石锤
+    @Register("ChinaCrown")
+    public static final ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown",0, 0, 1);
     public static final ModelArmor[] nightClothes = new ModelArmor[]{
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head", "nightclothes", 1, 0, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1)};
+    @Register("BronzeHelmet")
+    public static ItemArmor bronzeHelmet;// 青铜头盔
+    @Register("BronzeChestplate")
+    public static ItemArmor bronzeChestplate;// 青铜胸甲
+    @Register("BronzeLeggings")
+    public static ItemArmor bronzeLeggings;// 青铜护腿
+    @Register("BronzeBoots")
+    public static ItemArmor bronzeBoots;// 青铜靴子
     // public static final ModelArmor nightClothesHead = new
     // ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_head",
     // "nightclothes", 1, 0, 1);
@@ -273,79 +339,106 @@ public class ChinaCraft implements ICollection {
     // public static final ModelArmor nightClothesShoe = new
     // ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe",
     // "nightclothes", 1, 3, 1);
-    public static final Mace mace = new Mace();
     public static final ItemSuperBow superBow = new ItemSuperBow();
     public static final Item superArrow = new Item().setCreativeTab(ChinaCraft.tabTool).setUnlocalizedName("super_arrow");
     // 工具
+    @Register("BronzePickaxe")
     public static final BronzePickaxe bronzePickaxe = new BronzePickaxe();// 青铜稿
+    @Register("BronzeAxe")
     public static final BronzeAxe bronzeAxe = new BronzeAxe();// 青铜斧
+    @Register("BronzeHoe")
     public static final BronzeHoe bronzeHoe = new BronzeHoe();// 青铜锄
+    @Register("BronzeShovel")
     public static final BronzeShovel bronzeShovel = new BronzeShovel();// 青铜铲
-    public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
+    @Register("JadeKnife")
     public static final JadeKnife jadeKnife = new JadeKnife();// 玉石切割刀
+    @Register("ItemArtKnife")
     public static final ItemArtKnife artKnife = new ItemArtKnife();// 美工切割刀
-    public static final Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");// 石锤
-    public static final Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");// 铁锤
-    public static final Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");// 钻石锤
-    public static final Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");// 钻石锤
     public static int bronzeArmorTexture = -1; // 青铜套装外部材质注册
-    public static ItemArmor bronzeHelmet;// 青铜头盔
-    public static ItemArmor bronzeChestplate;// 青铜胸甲
-    public static ItemArmor bronzeLeggings;// 青铜护腿
-    public static ItemArmor bronzeBoots;// 青铜靴子
     // 玉石
+    @Register("JadeGreen")
     public static final Jade jadeGreenItem = new Jade("jade_green");
+    @Register("JadeGreen2")
     public static final Jade jadeGreen2Item = new Jade("jade_green2");
+    @Register("JadePink")
     public static final Jade jadePinkItem = new Jade("jade_pink");
+    @Register("JadePurple")
     public static final Jade jadePurpleItem = new Jade("jade_purple");
     // Drink、Food
     public static final Item cup = new Item().setUnlocalizedName("cup").setCreativeTab(ChinaCraft.tabFarming); // 杯
     public static final Item cup_Clay = new Item().setUnlocalizedName("cpu_clay").setCreativeTab(ChinaCraft.tabFarming);
     public static final CupChocolate cupChocolate = new CupChocolate();
-    public static final Item cocoa = new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabFarming);
-    public static final ItemFood ladyfinger = (ItemFood) new ItemFood(2, false).setUnlocalizedName("ladyfinger")
-            .setCreativeTab(ChinaCraft.tabFarming);
     public static final CupWater cupWater = new CupWater();
     public static final CupChrysanthemum cupChrysanthemum = new CupChrysanthemum();
+    @Register("Cocoa")
+    public static final Item cocoa = new Item().setUnlocalizedName("cocoa").setCreativeTab(ChinaCraft.tabFarming);
+    @Register("Ladyfinger")
+    public static final ItemFood ladyfinger = (ItemFood) new ItemFood(2, false).setUnlocalizedName("ladyfinger").setCreativeTab(ChinaCraft.tabFarming);
+    @Register("Flour")
     public static final Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabFarming); // 面粉
+    @Register("RiceFlour")
     public static final Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabFarming); // 米粉
+    @Register("BarleyRice")
     public static final Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabFarming); // 麦仁,大麦米
-    public static final ItemReed itemXinjiangNutCake = (ItemReed) new ItemReed(ChinaCraft.appleCake)
-            .setUnlocalizedName("xinjiang_nut_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
+    @Register("XinjiangNutCake")//TODO:错误命名方式,BlockXinjiangNutCake
     public static final BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake");
+    @Register("ItemXinjiangNutCake")//TODO:错误命名方式,XinjiangNutCake
+    public static final ItemReed itemXinjiangNutCake = (ItemReed) new ItemReed(ChinaCraft.appleCake).setUnlocalizedName("xinjiang_nut_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
+    @Register("BLockAppleCake")//TODO:错误命名方式,BlockAppleCake
     public static final BlockCake appleCake = new BlockCCCake("apple_cake");
-    public static final ItemReed itemAppleCake = (ItemReed) new ItemReed(ChinaCraft.appleCake)
-            .setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
+    @Register("AppleCake")
+    public static final ItemReed itemAppleCake = (ItemReed) new ItemReed(ChinaCraft.appleCake).setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
+
     // 耐火砖
+    @Register("BlockFirebrick")
     public static final BlockFirebrick blockFirebrick = new BlockFirebrick(); // 耐火砖块
+    @Register("blockFirebrickStructure")//TODO:错误命名方式
     public static final BlockFirebrickStructure blockFirebrickStructure = new BlockFirebrickStructure(); // 耐火砖块(多方块结构)
+    @Register("blockPotteryKiln")//TODO:错误命名方式
     public static final BlockPotteryKiln blockPotteryKiln = new BlockPotteryKiln(); // 窑炉核心方块
+    @Register("Firebrick")
     public static final Item firebrick = new Item().setUnlocalizedName("firebrick").setCreativeTab(ChinaCraft.tabCore); // 耐火砖
+    @Register("ClaySandMixture")
     public static final Item claySandMixture = new Item().setUnlocalizedName("clay_sand_mixture")
             .setCreativeTab(ChinaCraft.tabCore); // 粘土沙子混合物
+
     // spiritual_magic_figures灵符
-    public static final Item spiritualMagicFigures = new Item().setCreativeTab(ChinaCraft.tabCore)
-            .setUnlocalizedName("spiritual_magic_figures").setMaxStackSize(16); // 基本灵符
+    @Register("SpiritualMagicFigures")
+    public static final Item spiritualMagicFigures = new Item().setCreativeTab(ChinaCraft.tabCore).setUnlocalizedName("spiritual_magic_figures").setMaxStackSize(16); // 基本灵符
+    @Register("SpiritualMagicFiguresFire")
     public static final ItemSMFFire smfFire = new ItemSMFFire(); // 火
-    public static final ItemSMFPotion smfNightVision = new ItemSMFPotion("spiritual_magic_figures_night_vision",
-            new int[][]{{16, 10000}}); // 夜视
-    public static final ItemSMFPotion smfPoison = new ItemSMFPotion("spiritual_magic_figures_poison",
-            new int[][]{{19, 450, 4}}); // 中毒
-    public static final ItemSMFPotion smfPower = new ItemSMFPotion("spiritual_magic_figures_power",
-            new int[][]{{5, 7000}}); // 力量
-    public static final ItemSMFPotion smfProtect = new ItemSMFPotion("spiritual_magic_figures_protect",
-            new int[][]{{12, 3500}, {11, 2500, 3}}); // 保护
-    public static final ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal",
-            new int[][]{{6, 1}, {10, 500}}); // 生命回复
+    @Register("SpiritualMagicFiguresNightVision")
+    public static final ItemSMFPotion smfNightVision = new ItemSMFPotion("spiritual_magic_figures_night_vision", new int[][]{{16, 10000}}); // 夜视
+    @Register("SpiritualMagicFiguresPoison")
+    public static final ItemSMFPotion smfPoison = new ItemSMFPotion("spiritual_magic_figures_poison", new int[][]{{19, 450, 4}}); // 中毒
+    @Register("SpiritualMagicFiguresPower")
+    public static final ItemSMFPotion smfPower = new ItemSMFPotion("spiritual_magic_figures_power", new int[][]{{5, 7000}}); // 力量
+    @Register("SpiritualMagicFiguresHeal")
+    public static final ItemSMFPotion smfProtect = new ItemSMFPotion("spiritual_magic_figures_protect", new int[][]{{12, 3500}, {11, 2500, 3}}); // 保护
+    @Register("SpiritualMagicFiguresProtect")
+    public static final ItemSMFPotion smfHeal = new ItemSMFPotion("spiritual_magic_figures_heal", new int[][]{{6, 1}, {10, 500}}); // 生命回复
+    @Register("SpiritualMagicFiguresSuper")
     public static final ItemSMFSuper smfSuper = new ItemSMFSuper(); // 捉妖符
+
     // disc
+    @Register("three_stanzas_of_plum-blossoms")
     public static final CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");
+    @Register("mountain_stream")
     public static final CCMusicDisc mountain_stream = new CCMusicDisc("mountain_stream");
+    @Register("the_march_of_the_volunteers")
     public static final CCMusicDisc the_march_of_the_volunteers = new CCMusicDisc("the_march_of_the_volunteers");
+    @Register("spring_festival_overture")
     public static final CCMusicDisc spring_festival_overture = new CCMusicDisc("spring_festival_overture");
+
+    @Register("Silkworm")
+    public static final ItemSilkworm silkworm = new ItemSilkworm(); // 蚕
+    @Register("SilkwormChrysalis")
+    public static final Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("silkworm_chrysalis"); // 蚕茧
+    @Register("silk_yarn")
+    public static final Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("chinacraft:silk_yarn").setCreativeTab(ChinaCraft.tabFarming);
+    @Register("silk")
     public static final Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); // 丝绸
-    public static final Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("chinacraft:silk_yarn")
-            .setCreativeTab(ChinaCraft.tabFarming);
+    @Register("Debug")
     public static final ItemDebug debug = new ItemDebug(); // 调试物品
 
     public static void main(String[] args) {
