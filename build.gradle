@@ -1,3 +1,5 @@
+
+// For those who want the bleeding edge
 buildscript {
     repositories {
         jcenter()
@@ -5,12 +7,26 @@ buildscript {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
         }
-        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+/*
+// for people who want stable - not yet functional for MC 1.8.8 - we require the forgegradle 2.1 snapshot
+plugins {
+    id "net.minecraftforge.gradle.forge" version "2.0.2"
+}
+*/
+
+def buildnumber = System.getenv("BUILD_NUMBER") == null ? null : System.getenv("BUILD_NUMBER")
+
+version = minecraft_version + "-" +  mod_version + ( buildnumber == null ? "" : "." + buildnumber + "-Pre-SanpShot")
+
+group = mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = mod_id
 
 minecraft {
     version = minecraft_version + "-" + forge_version
@@ -25,74 +41,27 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
-apply plugin: 'forge'
-
-def buildnumber = System.getenv("BUILD_NUMBER") == null ? null : System.getenv("BUILD_NUMBER")
-
-version = minecraft_version + "-" +  mod_version + ( buildnumber == null ? "" : "." + buildnumber + "-Pre-SanpShot")
-
-group = mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = mod_id
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-ext.jarFile = zipTree(jar.archivePath)
-
-repositories {
-    jcenter()
-    /*
-    maven { // The repo from which to get waila
-        name "Mobius Repo"
-        url "http://mobiusstrip.eu/maven"
-    }
-    maven {
-        name = "codechicken"
-        url = "http://chickenbones.net/maven"
-    }
-*/
-    maven {
-        name = "forge"
-        url = "http://files.minecraftforge.net/maven"
-    }
-    mavenCentral()
-}
-
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
-    // compile "some.group:artifact:version:classifier"
-    // compile "some.group:artifact:version"
+    //compile "some.group:artifact:version:classifier"
+    //compile "some.group:artifact:version"
 
-    compile fileTree(dir: 'libs', include: '*.jar') // Libs Folder
     // real examples
     //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
 
+    // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
+    //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+    // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
+    // except that these dependencies get remapped to your current MCP mappings
+    //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+    //deobfProvided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
     // for more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
-    // NotEnoughItems
-    // compile "codechicken:CodeChickenLib:${minecraft_version}-${code_chicken_lib_version}:dev"
-    // compile "codechicken:CodeChickenCore:${minecraft_version}-${code_chicken_core_version}:dev"
-    // compile "codechicken:NotEnoughItems:${minecraft_version}-${nei_version}:dev"
-
-    // ompile "mcp.mobius.waila:Waila:${waila_version}_${minecraft_version}"
-    // Vault
-    // compile "net.milkbowl.vault:VaultAPI:${vault_version}"
-
-    // Bukkit
-    // compile "org.bukkit:bukkit:${minecraft_version}-${bukkit_version}"
-    // compile files('libs/spigot-api-1.8.7-R0.1-SNAPSHOT.jar')
-
-    // compile files('libs/VersionChecker-1.1.9.jar')
-
 
 }
 
@@ -120,4 +89,8 @@ idea {
     module {
         inheritOutputDirs = true
     }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
