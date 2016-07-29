@@ -156,7 +156,8 @@ item.silk.yellow.name=Yellow Silk
 item.silk.lightBlue.name=Light Blue Silk
 item.silk.magenta.name=Magenta Silk
 item.silk.orange.name=Orange Silk
-item.silk.white.name= Silk
+item.silk.white.name=Silk
+item.silk_yarn.name=Raw Silk
 
 item.cup.name=Cup
 item.cup_chocolate.name=Chocolate Tea

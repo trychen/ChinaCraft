@@ -47,6 +47,7 @@ item.debug.name=调试
 
 item.china_crown.name=冕冠
 item.chinacrown.lore=权利的象征
+item.xinjiang_nut_cake.name=切糕
 tile.xinjiang_nut_cake.name=切糕
 item.apple_cake.name=苹果糕
 tile.apple_cake.name=苹果糕
@@ -160,6 +161,7 @@ item.silk.lightBlue.name=淡蓝色丝绸
 item.silk.magenta.name=品红色丝绸
 item.silk.orange.name=橙色丝绸
 item.silk.white.name=丝绸
+item.silk_yarn.name=生丝
 
 item.cup.name=茶杯
 item.cup_chocolate.name=巧克力茶
