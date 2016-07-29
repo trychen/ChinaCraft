@@ -14,9 +14,4 @@ public class ListenerEntityChinaZombie {
             event.setCanceled(true);
         }
     }
-
-    @SubscribeEvent
-    public void move(){
-
-    }
 }
