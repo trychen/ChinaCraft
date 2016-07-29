@@ -196,8 +196,9 @@ public class CommonProxy {
         GameRegistry.registerItem(ChinaCraft.blackDogBlood, "BlackDogBlood");// 黑狗血
         GameRegistry.registerItem(ChinaCraft.moonCake, "MoonCake");// 月饼
         GameRegistry.registerItem(ChinaCraft.artKnife, "ItemArtKnife");// 美工切割刀
+        GameRegistry.registerItem(ChinaCraft.itemXinjiangNutCake, "ItemXinjiangNutCake");
         GameRegistry.registerBlock(ChinaCraft.xinjiangNutCake, "XinjiangNutCake");
-        GameRegistry.registerBlock(ChinaCraft.appleCake, "BLockAppleCake");
+        GameRegistry.registerBlock(ChinaCraft.appleCake, "BLockAppleCake");//错误命名
         GameRegistry.registerItem(ChinaCraft.itemAppleCake, "AppleCake");
 
         // 青铜套

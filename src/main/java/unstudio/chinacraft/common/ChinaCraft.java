@@ -88,7 +88,7 @@ public class ChinaCraft implements ICollection {
     public static boolean haveWarnedVersionOutOfDate = false;
     public final static Random rand = new Random();
     // Material
-    public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 230, 6.0F, 2.0F, 1);
+    public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 200, 5.2F, 1.8F, 14);
     public static final Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); // 石锤
     public static final Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); // 铁锤
     public static final Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F,
@@ -247,7 +247,7 @@ public class ChinaCraft implements ICollection {
     public static final ItemBlackDogBlood blackDogBlood = new ItemBlackDogBlood();
     public static final Item moonCake = new Item().setUnlocalizedName("moon_cake").setCreativeTab(ChinaCraft.tabFarming);
     // 防具武器
-    public static final BronzeSword bronzeSword = new BronzeSword(); // 青铜剑
+    public static final Item bronzeSword = new ItemSword(ChinaCraft.BRONZE).setUnlocalizedName("bronze_sword").setCreativeTab(ChinaCraft.tabTool); // 青铜剑
     public static final BronzeBroadSword bronzeBroadSword = new BronzeBroadSword(BROAD_BRONZE, null); // 青铜大刀
     public static final BronzeBroadSword bronzeBroadSwordGreen = new BronzeBroadSword(BROAD_BRONZE, "green"); // 青铜大刀Green
     public static final BronzeBroadSword bronzeBroadSwordGreen2 = new BronzeBroadSword(BROAD_BRONZE, "green2"); // 青铜大刀Green2
@@ -310,8 +310,9 @@ public class ChinaCraft implements ICollection {
     public static final Item flour = new Item().setUnlocalizedName("flour").setCreativeTab(ChinaCraft.tabFarming); // 面粉
     public static final Item riceFlour = new Item().setUnlocalizedName("rice_flour").setCreativeTab(ChinaCraft.tabFarming); // 米粉
     public static final Item barleyRice = new Item().setUnlocalizedName("barley_rice").setCreativeTab(ChinaCraft.tabFarming); // 麦仁,大麦米
-    public static final BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake")
-            .setCreativeTab(ChinaCraft.tabFarming);
+    public static final ItemReed itemXinjiangNutCake = (ItemReed) new ItemReed(ChinaCraft.appleCake)
+            .setUnlocalizedName("xinjiang_nut_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
+    public static final BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake");
     public static final BlockCake appleCake = new BlockCCCake("apple_cake");
     public static final ItemReed itemAppleCake = (ItemReed) new ItemReed(ChinaCraft.appleCake)
             .setUnlocalizedName("apple_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);

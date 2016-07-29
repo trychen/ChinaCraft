@@ -75,6 +75,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.bomb.setTextureName("chinacraft:bomb");
         ChinaCraft.blackDogBlood.setTextureName("chinacraft:blackdogblood");
         ChinaCraft.moonCake.setTextureName("chinacraft:mooncake");
+        ChinaCraft.itemXinjiangNutCake.setTextureName("chinacraft:xinjiang_nut_cake");
         ChinaCraft.xinjiangNutCake.setBlockTextureName("chinacraft:xinjiang_nut_cake");
         ChinaCraft.appleCake.setBlockTextureName("chinacraft:apple_cake");
         ChinaCraft.itemAppleCake.setTextureName("chinacraft:apple_cake");

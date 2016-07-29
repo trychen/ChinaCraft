@@ -8,11 +8,12 @@ import net.minecraft.world.World;
 
 public class EntityAIJump extends EntityAIBase{
 
-	EntityLiving entity;
-	World world;
-	int cooldown;
-	double jump;
-	int frequency;
+	public EntityLiving entity;
+	public World world;
+	public int cooldown;
+	public double jump;
+	public boolean jumped = false;
+	public int frequency;
 	public EntityAIJump(EntityLiving entity,double jump,double frequency)
 	{
 		this.entity=entity;
@@ -51,6 +52,10 @@ public class EntityAIJump extends EntityAIBase{
     public void updateTask()
     {
     	cooldown=10;
-        entity.setVelocity(0, jump, 0);
+        if (!jumped) {
+			entity.setVelocity(0, jump, 0);
+			entity.velocityChanged = true;
+			entity.jum
+		}
     }
 }
