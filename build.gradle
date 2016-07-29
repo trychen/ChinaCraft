@@ -1,14 +1,6 @@
 buildscript {
     repositories {
-        jcenter()/*
-        maven { // The repo from which to get waila
-            name "Mobius Repo"
-            url "http://mobiusstrip.eu/maven"
-        }
-        maven {
-            name = "codechicken"
-            url = "http://chickenbones.net/maven"
-        }*/
+        jcenter()
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"
@@ -19,6 +11,20 @@ buildscript {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
+
+minecraft {
+    version = minecraft_version + "-" + forge_version
+    runDir = "run"
+
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not allways work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings = "snapshot_20160518"
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+}
+
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
@@ -33,26 +39,10 @@ version = minecraft_version + "-" +  mod_version + ( buildnumber == null ? "" : 
 group = mod_group // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = mod_id
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-minecraft {
-    version = minecraft_version + "-" + forge_version
-    runDir = "eclipse"
-}
 ext.jarFile = zipTree(jar.archivePath)
-/*task apiJar(type: Jar, dependsOn: jar) {
-    classifier = 'api'
-    doFirst {
-        from(project.ext.jarFile) {
-            includes.addAll(["unstudio/api/**", "unstudio/chinacraft/api/**"])
-        }
-    }
-}
-
-artifacts {
-    archives apiJar
-}*/
 
 repositories {
     jcenter()
