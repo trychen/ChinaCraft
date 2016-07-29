@@ -3,16 +3,15 @@ package unstudio.chinacraft.block.decoration;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -20,6 +19,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
@@ -39,13 +39,11 @@ public class BlockBamboo extends Block implements IPlantable,IBlockColor {
 
     public BlockBamboo() {
         super(Material.PLANTS);
-        float f = 0.375F;
-        setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
         setTickRandomly(true);
         setHardness(3.0F);
         setCreativeTab(ChinaCraft.tabCore);
         setUnlocalizedName("bamboo");
-
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(this);
     }
 
     /*@Override
@@ -110,26 +108,23 @@ public class BlockBamboo extends Block implements IPlantable,IBlockColor {
      * Can this block stay at this position. Similar to canPlaceBlockAt except
      * gets checked often with plants.
      */
-    
+
     public boolean canBlockStay(World worldIn, BlockPos pos) {
     	return this.canPlaceBlockAt(worldIn, pos);
     }
 
     @Override
     public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor) {
-        this.checkForDrop(world, pos, world.getBlockState(neighbor));
+        this.checkForDrop((World)world, pos, world.getBlockState(neighbor));
     }
 
-    protected final boolean checkForDrop(IBlockAccess worldIn, BlockPos pos, IBlockState state)
+    protected final boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state)
     {
-        if (this.canBlockStay(worldIn, pos))
-        {
+        if (this.canBlockStay(worldIn, pos)) {
             return true;
-        }
-        else
-        {
+        } else {
             this.dropBlockAsItem(worldIn, pos, state, 0);
-            worldIn.getBlockState(pos).;
+            worldIn.setBlockToAir(pos);
             return false;
         }
     }
@@ -140,7 +135,9 @@ public class BlockBamboo extends Block implements IPlantable,IBlockColor {
      */
     @Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
-        return null;
+        float f = 0.375F;
+        AxisAlignedBB aabb = new AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
+        return aabb;
     }
 
     @Override

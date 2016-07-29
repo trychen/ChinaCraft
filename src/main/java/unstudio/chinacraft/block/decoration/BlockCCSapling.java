@@ -3,10 +3,11 @@ package unstudio.chinacraft.block.decoration;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -28,10 +29,8 @@ public class BlockCCSapling extends BlockBush implements IGrowable {
 
     public BlockCCSapling(Class<? extends WorldGenAbstractTree> gen) {
         this.gen = gen;
-        float f = 0.4F;
-        setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         setHardness(0.0F);
-        setSoundType(SoundType.Grass);
+        setSoundType(SoundType.PLANT);
     }
 
     @Override
@@ -90,7 +89,7 @@ public class BlockCCSapling extends BlockBush implements IGrowable {
         
         int i1 = 0;
         int j1 = 0;
-        IBlockState iblockstate2 = Blocks.air.getDefaultState();
+        IBlockState iblockstate2 = Blocks.AIR.getDefaultState();
         worldIn.setBlockState(pos, iblockstate2, 4);
 
         if (!((WorldGenerator) object).generate(worldIn, rand, pos.add(i1, 0, j1))) {
@@ -163,8 +162,8 @@ public class BlockCCSapling extends BlockBush implements IGrowable {
         return i;
     }
 
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
-        return new BlockState(this, new IProperty[] {TYPE, STAGE});
+        return new BlockStateContainer(this, new IProperty[] {TYPE, STAGE});
     }
 }

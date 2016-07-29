@@ -6,8 +6,10 @@ import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.PropertyEnum;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.color.IBlockColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -16,6 +18,7 @@ import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import unstudio.chinacraft.common.ChinaCraft;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -23,7 +26,7 @@ import java.util.Random;
 /**
  * Created by AAA on 2016/2/13.
  */
-public class BlockCCLeaves extends BlockLeaves {
+public class BlockCCLeaves extends BlockLeaves implements IBlockColor{
 	public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.<BlockPlanks.EnumType>create("variant", BlockPlanks.EnumType.class, new Predicate<EnumType>(){
 
 		@Override
@@ -36,6 +39,7 @@ public class BlockCCLeaves extends BlockLeaves {
 
     public BlockCCLeaves(Block sapling){
         this.sapling=sapling;
+        Minecraft.getMinecraft().getBlockColors().registerBlockColorHandler(this);
     }
 
     public Block setSapling(Block sapling){
@@ -44,7 +48,7 @@ public class BlockCCLeaves extends BlockLeaves {
     }
 
     @Override
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
@@ -78,13 +82,7 @@ public class BlockCCLeaves extends BlockLeaves {
     }
 
     @Override
-    public int getRenderColor(IBlockState state) {
-        return state.getValue(VARIANT).getMetadata() == 1 ? ColorizerFoliage.getFoliageColorPine()
-                : (state.getValue(VARIANT).getMetadata() == 2 ? ColorizerFoliage.getFoliageColorBirch() : ColorizerFoliage.getFoliageColorBasic());
-    }
-
-    @Override
-    public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
         return true;
     }
 
@@ -115,7 +113,13 @@ public class BlockCCLeaves extends BlockLeaves {
         return i;
 	}
 	@Override
-	protected BlockState createBlockState() {
-		return new BlockState(this, VARIANT, DECAYABLE, CHECK_DECAY);
+	protected BlockStateContainer createBlockState() {
+		return new BlockStateContainer(this, VARIANT, DECAYABLE, CHECK_DECAY);
 	}
+
+    @Override
+    public int colorMultiplier(IBlockState state, @Nullable IBlockAccess worldIn, @Nullable BlockPos pos, int tintIndex) {
+        return state.getValue(VARIANT).getMetadata() == 1 ? ColorizerFoliage.getFoliageColorPine()
+                : (state.getValue(VARIANT).getMetadata() == 2 ? ColorizerFoliage.getFoliageColorBirch() : ColorizerFoliage.getFoliageColorBasic());
+    }
 }
