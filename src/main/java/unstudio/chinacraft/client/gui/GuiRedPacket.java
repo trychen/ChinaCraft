@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
@@ -53,7 +53,7 @@ public class GuiRedPacket extends GuiContainer {
                 sender = redpacket.getString("Sender");
                 wish = redpacket.getString("Wish");
                 if (wish == null || wish.isEmpty())
-                    wish = StatCollector.translateToLocal("gui.redpacket.wash");
+                    wish = I18n.format("gui.redpacket.wash");
                 money = redpacket.getDouble("Money");
                 sendee = redpacket.getString("Sendee");
                 if (sendee != null || sendee.length() == 0 || sendee.equalsIgnoreCase(player.getDisplayName())) {
@@ -84,7 +84,7 @@ public class GuiRedPacket extends GuiContainer {
         sendeeTextBox.setText(sendee);
         sendeeTextBox.setMaxStringLength(32);
         this.buttonList.add(this.buttonSend = new GuiButton(0, k + this.xSize / 2 + 96, l + 89, 64, 20,
-                StatCollector.translateToLocal("gui.redpacket.send")));
+                I18n.format("gui.redpacket.send")));
         buttonSend.enabled = false;
         updateButton();
         super.initGui();
@@ -98,9 +98,9 @@ public class GuiRedPacket extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        String s = sender == null ? StatCollector.translateToLocal("item.redpacket.name")
-                : (sender.isEmpty() ? StatCollector.translateToLocal("item.redpacket.name")
-                        : StatCollector.translateToLocal("gui.redpacket.from").replaceAll("%sender%", sender)); // 设置Gui标题
+        String s = sender == null ? I18n.format("item.redpacket.name")
+                : (sender.isEmpty() ? I18n.format("item.redpacket.name")
+                        : I18n.format("gui.redpacket.from").replaceAll("%sender%", sender)); // 设置Gui标题
         this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 5,
                 Integer.MAX_VALUE);
         if (sender == null || sender.isEmpty()) {
@@ -196,7 +196,7 @@ public class GuiRedPacket extends GuiContainer {
                 redpacket.setDouble("Money", money);
             } else {
                 player.addChatMessage(
-                        new ChatComponentText(StatCollector.translateToLocal("redpacket.not_enough_money")));
+                        new ChatComponentText(I18n.format("redpacket.not_enough_money")));
                 redpacket.setDouble("Money", 0.0);
             }
         } else {

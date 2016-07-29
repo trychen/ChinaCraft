@@ -11,7 +11,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 
 import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
@@ -103,13 +103,13 @@ public class ModelArmor extends ItemArmor {
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         if (StatCollector.canTranslate("item." + TextureName + ".lore")) {
-            p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore"));
+            p_77624_3_.add(I18n.format("item." + TextureName + ".lore"));
         } else {
             int i = 0;
             while (true) {
                 i++;
                 if (StatCollector.canTranslate("item." + TextureName + ".lore." + i)) {
-                    p_77624_3_.add(StatCollector.translateToLocal("item." + TextureName + ".lore." + i));
+                    p_77624_3_.add(I18n.format("item." + TextureName + ".lore." + i));
                 } else {
                     break;
                 }

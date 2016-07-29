@@ -1,17 +1,18 @@
 package unstudio.chinacraft.block.especial;
 
-import java.util.Random;
-
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileEntityInstruments;
+
+import java.util.Random;
 
 /**
  * Created by trych on 2016/1/27.
@@ -39,7 +40,7 @@ public class BlockInstruments extends BlockContainer {
      */
     public BlockInstruments(String name, Material material, boolean isAlignmentMusic, String musicname, int maxMusic) {
         super(material);
-        setBlockName(name);
+        setUnlocalizedName(name);
         this.musicname = musicname;
         this.isAlignmentMusic = isAlignmentMusic;
         this.setCreativeTab(ChinaCraft.tabCore);
@@ -59,28 +60,28 @@ public class BlockInstruments extends BlockContainer {
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return null;
     }
 
     @Override
-    public void breakBlock(World p_149749_1_, int p_149749_2_, int p_149749_3_, int p_149749_4_, Block p_149749_5_,
-            int p_149749_6_) {
-        super.breakBlock(p_149749_1_, p_149749_2_, p_149749_3_, p_149749_4_, p_149749_5_, p_149749_6_);
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
+    	// TODO Auto-generated method stub
+    	super.breakBlock(worldIn, pos, state);
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        if (!world.isRemote) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+                                    EnumFacing side, float hitX, float hitY, float hitZ) {
+        if (!worldIn.isRemote) {
             if (isAlignmentMusic()) {
-                TileEntityInstruments tileEntity = (TileEntityInstruments) world.getTileEntity(x, y, z);
+                TileEntityInstruments tileEntity = (TileEntityInstruments) worldIn.getTileEntity(pos);
                 tileEntity.getMusicCount();
-                world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D, (double) z + 0.5D, this.getMusicname(),
+                worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, this.getMusicname(),
                         3.0F, 10f);
                 tileEntity.changeMusicCount();
             } else
-                world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D, (double) z + 0.5D, this.getMusicname(),
+                worldIn.playSoundEffect((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, this.getMusicname(),
                         3.0F, 10f);
         }
         return true;

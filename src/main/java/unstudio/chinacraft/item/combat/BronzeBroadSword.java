@@ -2,7 +2,7 @@ package unstudio.chinacraft.item.combat;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.common.ChinaCraft;
@@ -26,7 +26,7 @@ public class BronzeBroadSword extends ItemSword implements IClient{
     public String getItemStackDisplayName(ItemStack p_77653_1_) {
         if (jade != null) {
             return super.getItemStackDisplayName(p_77653_1_) + " - "
-                    + StatCollector.translateToLocal("item.jade_" + jade + ".name");
+                    + I18n.format("item.jade_" + jade + ".name");
         }
         return super.getItemStackDisplayName(p_77653_1_);
     }

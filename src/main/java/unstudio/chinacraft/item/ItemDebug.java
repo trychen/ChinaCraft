@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.common.ChinaCraft;
@@ -29,24 +29,24 @@ public class ItemDebug extends Item {
             float hitX, float hitY, float hitZ) {
         if (world.isRemote)
             return false;
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockinfo") + ": "
+        player.addChatMessage(new ChatComponentText(I18n.format("debug.firstline")));
+        player.addChatMessage(new ChatComponentText(I18n.format("debug.blockinfo") + ": "
                 + (StatCollector.canTranslate(world.getBlock(x, y, z).getUnlocalizedName() + ".name")
-                        ? StatCollector.translateToLocal(world.getBlock(x, y, z).getUnlocalizedName() + ".name")
+                        ? I18n.format(world.getBlock(x, y, z).getUnlocalizedName() + ".name")
                         : StatCollector
                                 .translateToLocal(world.getBlock(x, y, z).getUnlocalizedName() + ".default.name"))
                 + " " + Block.getIdFromBlock(world.getBlock(x, y, z)) + " "
                 + world.getBlock(x, y, z).getUnlocalizedName().replace("tile.", "")));
         player.addChatMessage(new ChatComponentText(
-                StatCollector.translateToLocal("debug.position") + ": " + x + "/" + y + "/" + z + " (X/Y/Z)"));
+                I18n.format("debug.position") + ": " + x + "/" + y + "/" + z + " (X/Y/Z)"));
         player.addChatMessage(new ChatComponentText(
-                StatCollector.translateToLocal("debug.metadata") + ": " + world.getBlockMetadata(x, y, z)));
+                I18n.format("debug.metadata") + ": " + world.getBlockMetadata(x, y, z)));
         Block block = world.getBlock(x,y,z);
         int metadata = world.getBlockMetadata(x, y, z);
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.material")+"&"+StatCollector.translateToLocal("debug.rendertype")+": "+getMaterialName(block.getMaterial())+"  "+block.getRenderType()));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.hardness") + "&"+StatCollector.translateToLocal("debug.antiknock")+": "+block.getBlockHardness(world,x,y,z)+"  "+block.getExplosionResistance(null)*5F/3F));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.brightness") + "&"+StatCollector.translateToLocal("debug.transmittance")+": "+block.getLightValue()+"  "+block.getLightOpacity()));
-        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.need_tools") + "&"+StatCollector.translateToLocal("debug.need_tools_level")+": "+block.getHarvestTool(metadata)+"  "+block.getHarvestLevel(metadata)));
+        player.addChatMessage(new ChatComponentText(I18n.format("debug.material")+"&"+I18n.format("debug.rendertype")+": "+getMaterialName(block.getMaterial())+"  "+block.getRenderType()));
+        player.addChatMessage(new ChatComponentText(I18n.format("debug.hardness") + "&"+I18n.format("debug.antiknock")+": "+block.getBlockHardness(world,x,y,z)+"  "+block.getExplosionResistance(null)*5F/3F));
+        player.addChatMessage(new ChatComponentText(I18n.format("debug.brightness") + "&"+I18n.format("debug.transmittance")+": "+block.getLightValue()+"  "+block.getLightOpacity()));
+        player.addChatMessage(new ChatComponentText(I18n.format("debug.need_tools") + "&"+I18n.format("debug.need_tools_level")+": "+block.getHarvestTool(metadata)+"  "+block.getHarvestLevel(metadata)));
         // player.addChatMessage(new
         // ChatComponentText(String.valueOf(player.inventory.currentItem)));
         TileEntity tile = world.getTileEntity(x, y, z);
@@ -56,10 +56,10 @@ public class ItemDebug extends Item {
         if (tile instanceof TileBuhrimill) {
 
         } else if (tile instanceof TileSericultureFrame) {
-            player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.deathrate") + ": "
+            player.addChatMessage(new ChatComponentText(I18n.format("debug.deathrate") + ": "
                     + ((TileSericultureFrame) tile).getMortality()));
             // player.addChatMessage(new
-            // ChatComponentText(StatCollector.translateToLocal("debug.progress")+":
+            // ChatComponentText(I18n.format("debug.progress")+":
             // "+((TileSericultureFrame)tile).getSchedule()));
         }
         return true;
@@ -67,7 +67,7 @@ public class ItemDebug extends Item {
 
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        p_77624_3_.add(StatCollector.translateToLocal("item.debug.lore"));
+        p_77624_3_.add(I18n.format("item.debug.lore"));
     }
 
     private String getMaterialName(Material material){

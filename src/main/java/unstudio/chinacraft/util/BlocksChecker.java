@@ -12,7 +12,7 @@ public class BlocksChecker {
 
     public static final BlocksChecker Pottery_Kiln = new BlocksChecker(
             new String[][] { { "AAA", "AAA", "AAA" }, { "AAA", "ABA", "AAA" }, { "AAA", "AAA", "AAA" } }, 'A',
-            new BlockRule(ChinaCraft.blockFirebrick), 'B', new BlockRule(Blocks.air)).setOffset(0, 0, 0);
+            new BlockRule(ChinaCraft.blockFirebrick), 'B', new BlockRule(Blocks.AIR)).setOffset(0, 0, 0);
 
     private BlockRule[][][] data;
 

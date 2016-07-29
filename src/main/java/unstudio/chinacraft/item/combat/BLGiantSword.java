@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 import unstudio.chinacraft.common.ChinaCraft;
@@ -39,7 +39,7 @@ public class BLGiantSword extends ItemSword implements IClient{
 
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        p_77624_3_.add(StatCollector.translateToLocal("item.yanlung_giantknife.lore"));
+        p_77624_3_.add(I18n.format("item.yanlung_giantknife.lore"));
     }
 
     @Override

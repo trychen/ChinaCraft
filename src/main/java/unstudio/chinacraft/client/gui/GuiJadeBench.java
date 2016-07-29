@@ -4,7 +4,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 
 import org.lwjgl.opengl.GL11;
 
@@ -26,11 +26,11 @@ public class GuiJadeBench extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        String s = StatCollector.translateToLocal("gui.jade_bench.title"); // 设置Gui标题
+        String s = I18n.format("gui.jade_bench.title"); // 设置Gui标题
         this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 3, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2,
                 4210752);
-        // StatCollector.translateToLocal("gui.jade_bench.infotile")
+        // I18n.format("gui.jade_bench.infotile")
         // this.fontRendererObj.drawString("玉石", this.xSize / 2 + 37 -
         // this.fontRendererObj.getStringWidth(s) / 2, 18, 4210752);
     }

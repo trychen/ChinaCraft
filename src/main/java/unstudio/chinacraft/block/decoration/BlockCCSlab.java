@@ -1,44 +1,49 @@
 package unstudio.chinacraft.block.decoration;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
 /**
  * Created by AAA on 2016/2/9.
  */
-public class BlockCCSlab extends BlockSlab{
+public class BlockCCSlab extends BlockSlab {
 
     private Block block;
-    private IIcon icon;
+    private boolean isDouble;
+    //private IIcon icon;
 
     public BlockCCSlab(boolean p_i45410_1_, Material p_i45410_2_) {
-        super(p_i45410_1_, p_i45410_2_);
+        super(p_i45410_2_);
+        isDouble = p_i45410_1_;
+        fullBlock = p_i45410_1_;
         this.useNeighborBrightness = !p_i45410_1_;
     }
 
     @Override
-    public String func_150002_b(int p_150002_1_){
+    public String getUnlocalizedName(int meta) {
         return getUnlocalizedName();
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_){
-        return block==null?Item.getItemFromBlock(this):Item.getItemFromBlock(block);
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return block==null? Item.getItemFromBlock(this): Item.getItemFromBlock(block);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_){
-        return block==null?Item.getItemFromBlock(this):Item.getItemFromBlock(block);
+    public Item getItem(World worldIn, BlockPos pos) {
+        return block==null? Item.getItemFromBlock(this): Item.getItemFromBlock(block);
     }
 
     public Block getBlockSlab() {
@@ -50,7 +55,7 @@ public class BlockCCSlab extends BlockSlab{
         return this;
     }
 
-    @Override
+    /*@Override
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
 
         return icon;
@@ -60,10 +65,27 @@ public class BlockCCSlab extends BlockSlab{
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
         icon = p_149651_1_.registerIcon(getTextureName());
-    }
+    }*/
 
     public BlockCCSlab setHarvestLevelReturnBlock(String toolClass, int level) {
         super.setHarvestLevel(toolClass, level);
         return this;
     }
+
+	@Override
+	public boolean isDouble() {
+		return isDouble;
+	}
+
+	@Override
+	public IProperty<?> getVariantProperty() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object getVariant(ItemStack stack) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

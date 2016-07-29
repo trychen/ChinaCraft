@@ -1,12 +1,14 @@
 package unstudio.chinacraft.block.generation.plant;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-
 import unstudio.chinacraft.block.especial.BlockPotteryKiln;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.util.BlocksChecker;
@@ -14,49 +16,48 @@ import unstudio.chinacraft.util.BlocksChecker;
 public class BlockFirebrick extends Block {
 
     public BlockFirebrick() {
-        super(Material.rock);
-        setBlockName("firebrick");
+        super(Material.ROCK);
+        setUnlocalizedName("firebrick");
         setHardness(1.5F);
         setResistance(10.0F);
         setLightLevel(0.0F);
-        setStepSound(soundTypeStone);
+        setSoundType(SoundType.STONE);
         setHarvestLevel("pickaxe", 0);
         setCreativeTab(ChinaCraft.tabCore);
     }
-
     @Override
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_,
-            EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
-        super.onBlockPlacedBy(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_, p_149689_5_, p_149689_6_);
-        if (p_149689_1_.isRemote)
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer,
+                                ItemStack stack) {
+    	super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+        if (worldIn.isRemote)
             return;
         for (int i = 1; i <= 4; i++) {
-            if (p_149689_1_.getBlock(p_149689_2_, p_149689_3_ + i, p_149689_4_) == ChinaCraft.blockFirebrick)
+            if (worldIn.getBlockState(pos.add(0, -i, 0)).getBlock() == ChinaCraft.blockFirebrick)
                 continue;
             else {
-                p_149689_3_ += (i - 1);
+            	pos = pos.down(i - 1);
                 break;
             }
         }
         for (int i = 1; i <= 4; i++) {
-            if (p_149689_1_.getBlock(p_149689_2_, p_149689_3_, p_149689_4_ - i) == ChinaCraft.blockFirebrick)
+            if (worldIn.getBlockState(pos.add(0, 0, -i)).getBlock() == ChinaCraft.blockFirebrick)
                 continue;
             else {
-                p_149689_4_ -= (i - 1);
+            	pos = pos.add(0, 0, i - 1);
                 break;
             }
         }
         for (int i = 1; i <= 4; i++) {
-            if (p_149689_1_.getBlock(p_149689_2_ - i, p_149689_3_, p_149689_4_) == ChinaCraft.blockFirebrick)
+            if (worldIn.getBlockState(pos.add(-i, 0, 0)).getBlock() == ChinaCraft.blockFirebrick)
                 continue;
             else {
-                p_149689_2_ -= (i - 1);
+            	pos = pos.add(i-1, 0, 0);
                 break;
             }
         }
-        if (BlocksChecker.Pottery_Kiln.check(p_149689_1_, p_149689_2_, p_149689_3_, p_149689_4_)) {
-            int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-            BlockPotteryKiln.generatePotteryKiln(p_149689_1_, p_149689_2_ + 1, p_149689_3_ - 2, p_149689_4_ + 1, l);
+        if (BlocksChecker.Pottery_Kiln.check(worldIn, pos.getX(), pos.getY(), pos.getZ())) {
+            int l = MathHelper.floor_double(placer.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
+            BlockPotteryKiln.generatePotteryKiln(worldIn, pos.add(1, -2, 1), l);
         }
     }
 }

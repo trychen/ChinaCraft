@@ -7,7 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 
 import unstudio.chinacraft.common.ChinaCraft;
 
@@ -28,6 +28,6 @@ public class Mace extends ItemSword {
 
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        p_77624_3_.add(StatCollector.translateToLocal("item.mace.lore"));
+        p_77624_3_.add(I18n.format("item.mace.lore"));
     }
 }

@@ -1,37 +1,32 @@
 package unstudio.chinacraft.block.model;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class BlockCCLantern extends Block {
 
-    private IIcon side, top;
 
     public BlockCCLantern() {
         super(Material.wood);
-        setBlockName("lantern");
+        setUnlocalizedName("lantern");
         setCreativeTab(ChinaCraft.tabCore);
         setLightLevel(1.0F);
-        setStepSound(soundTypeWood);
+        setSoundType(SoundType.Wood);
     }
 
     @Override
-    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_,
-            AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
+    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask,
+                                        List<AxisAlignedBB> list, Entity collidingEntity) {
         this.setBlockBounds(0.0625F * 3, 0.0F, 0.0625F * 3, 0.0625F * 13, 1.0F, 0.0625F * 13);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_,
-                p_149743_7_);
+        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
         this.setBlockBoundsForItemRender();
     }
 
@@ -46,16 +41,11 @@ public class BlockCCLantern extends Block {
     }
 
     @Override
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
-
-    @Override
     public int getRenderType() {
-        return -1;
+        return 1;
     }
 
-    @Override
+    /*@Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister reg) {
         this.top = reg.registerIcon("chinacraft:lantern_top");
@@ -79,5 +69,5 @@ public class BlockCCLantern extends Block {
     @SideOnly(Side.CLIENT)
     public IIcon getIconSide() {
         return side;
-    }
+    }*/
 }

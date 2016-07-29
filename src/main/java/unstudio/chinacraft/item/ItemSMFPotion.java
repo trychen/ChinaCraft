@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
@@ -82,9 +82,9 @@ public class ItemSMFPotion extends Item {
         for (int[] i : effect) {
             PotionEffect p = new PotionEffect(i[0], i[1]);
             if (i.length == 2) {
-                p_77624_3_.add(StatCollector.translateToLocal(p.getEffectName()) + " " + Potion.getDurationString(p));
+                p_77624_3_.add(I18n.format(p.getEffectName()) + " " + Potion.getDurationString(p));
             } else {
-                p_77624_3_.add(StatCollector.translateToLocal(p.getEffectName()) + i[2] + " "
+                p_77624_3_.add(I18n.format(p.getEffectName()) + i[2] + " "
                         + Potion.getDurationString(p));
             }
         }

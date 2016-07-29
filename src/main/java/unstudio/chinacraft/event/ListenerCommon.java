@@ -5,7 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatStyle;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import unstudio.chinacraft.common.ChinaCraft;
 
@@ -29,18 +29,18 @@ public class ListenerCommon {
                         ChinaCraft.versionChecker.getDownloadUrl());
                 ChatStyle clickableChatStyle = new ChatStyle().setChatClickEvent(versionCheckChatClickEvent);
                 ChatComponentText versionWarningChatComponent = new ChatComponentText("[ChinaCraft] " +
-                        StatCollector.translateToLocal("VersionChecker.perfix"));
+                        I18n.format("VersionChecker.perfix"));
                 versionWarningChatComponent.setChatStyle(clickableChatStyle);
                 p.addChatMessage(versionWarningChatComponent);
 
-                ChatComponentText info = new ChatComponentText("[ChinaCraft] " + StatCollector.translateToLocal("VersionChecker.version")
+                ChatComponentText info = new ChatComponentText("[ChinaCraft] " + I18n.format("VersionChecker.version")
                         .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
                         .replaceAll("!old", String.valueOf(ChinaCraft.VERSION.replace('-',' '))));
                 info.setChatStyle(clickableChatStyle);
                 p.addChatMessage(info);
                 //一下信息
-                ChinaCraft.log.info(StatCollector.translateToLocal("VersionChecker.perfix"));
-                ChinaCraft.log.info(StatCollector.translateToLocal("VersionChecker.version")
+                ChinaCraft.log.info(I18n.format("VersionChecker.perfix"));
+                ChinaCraft.log.info(I18n.format("VersionChecker.version")
                         .replaceAll("!new", String.valueOf(ChinaCraft.versionChecker.getLatestVersion()))
                         .replaceAll("!old", String.valueOf(ChinaCraft.VERSION)));
                 ChinaCraft.log.info("Download Url:" + ChinaCraft.versionChecker.getDownloadUrl());

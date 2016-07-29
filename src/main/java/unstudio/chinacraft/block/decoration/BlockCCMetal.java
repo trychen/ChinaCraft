@@ -2,7 +2,6 @@ package unstudio.chinacraft.block.decoration;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-
 import unstudio.chinacraft.block.BlockBase;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
@@ -19,9 +18,9 @@ public class BlockCCMetal extends BlockBase implements Recipes.RecipeAble{
     public BlockCCMetal(String name, int harvestLevel, float hardness) {
         super(Material.rock);
 //        setBlockName(StatCollector.translateToLocal("bronze_block"));
-        setBlockName(name);
+        setUnlocalizedName(name);
         setResistance(10.0F);
-        setStepSound(soundTypeMetal);
+        setSoundType(SoundType.Metal);
         setCreativeTab(ChinaCraft.tabCore);
         setHardness(hardness);
         setHarvestLevel("pickaxe", harvestLevel);

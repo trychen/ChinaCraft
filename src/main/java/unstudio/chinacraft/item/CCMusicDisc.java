@@ -13,7 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemRecord;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.common.ChinaCraft;
@@ -71,7 +71,7 @@ public class CCMusicDisc extends ItemRecord {
     // TODO: getRecordTitle()
     public String getRecordNameLocal() {
         // item.name.desc
-        return StatCollector.translateToLocal("record." + this.recordName);
+        return I18n.format("record." + this.recordName);
     }
 
     @Override

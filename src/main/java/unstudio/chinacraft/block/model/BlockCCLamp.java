@@ -1,11 +1,13 @@
 package unstudio.chinacraft.block.model;
 
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
-
 import unstudio.chinacraft.tileentity.TileCCLamp;
 
 public class BlockCCLamp extends BlockCCModel {
@@ -24,14 +26,14 @@ public class BlockCCLamp extends BlockCCModel {
     }
 
     @Override
-    public TileEntity createTileEntity(World world, int metadata) {
+    public TileEntity createNewTileEntity(World world, int metadata) {
         return new TileCCLamp(this.getModel(), getTextureName());
     }
 
     @Override
-    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityPlayer, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-        TileCCLamp tileEntity = (TileCCLamp) world.getTileEntity(x, y, z);
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+                                    EnumFacing side, float hitX, float hitY, float hitZ) {
+        TileCCLamp tileEntity = (TileCCLamp) worldIn.getTileEntity(pos);
         if (tileEntity == null)
             return false;
         if (tileEntity.turn()) setLightLevel(5.0f);

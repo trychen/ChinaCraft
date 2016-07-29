@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.StatCollector;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.world.WorldServer;
 
 import unstudio.chinacraft.common.ChinaCraft;
@@ -36,13 +36,13 @@ public class RedPacketMessageHandler implements IMessageHandler<RedPacketMessage
                 if (sendeePlayer.inventory.addItemStackToInventory(itemstack1)) {
                     player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
                     player.addChatMessage(new ChatComponentText(
-                            StatCollector.translateToLocal("redpacket.success").replaceAll("%sendee%", sendee)));
+                            I18n.format("redpacket.success").replaceAll("%sendee%", sendee)));
                     sendeePlayer.addChatMessage(
-                            new ChatComponentText(StatCollector.translateToLocal("redpacket.received")));
+                            new ChatComponentText(I18n.format("redpacket.received")));
                     return null;
                 } else {
                     player.addChatMessage(new ChatComponentText(
-                            StatCollector.translateToLocal("redpacket.backpack_full").replaceAll("%sendee%", sendee)));
+                            I18n.format("redpacket.backpack_full").replaceAll("%sendee%", sendee)));
                     return null;
                 }
             }
