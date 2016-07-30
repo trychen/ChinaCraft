@@ -1,6 +1,7 @@
 package unstudio.chinacraft.event.combat;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -121,6 +122,22 @@ public class ListenerArmor {
                 tCompound.setInteger("nightClothesHasJumped", 0);
             }
             tCompound.setInteger("nightClothesHasJumped", tCompound.getInteger("nightClothesHasJumped") + 1);
+        }
+    }
+
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public void fall(LivingFallEvent e){
+        if (!(e.entityLiving instanceof EntityPlayer)) return;
+        EntityPlayer player = (EntityPlayer) e.entityLiving;
+        int i = 4;
+        for (ItemStack itemStack : player.inventory.armorInventory) {
+            i--;
+            if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
+                return;
+            }
+        }
+        if (e.distance < 5){
+            e.setCanceled(true);
         }
     }
 }

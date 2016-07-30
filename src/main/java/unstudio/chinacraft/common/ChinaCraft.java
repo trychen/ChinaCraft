@@ -383,7 +383,7 @@ public class ChinaCraft implements ICollection {
     @Register("XinjiangNutCake")//TODO:错误命名方式,BlockXinjiangNutCake
     public static final BlockCake xinjiangNutCake = (BlockCake) new BlockCCCake("xinjiang_nut_cake");
     @Register("ItemXinjiangNutCake")//TODO:错误命名方式,XinjiangNutCake
-    public static final ItemReed itemXinjiangNutCake = (ItemReed) new ItemReed(ChinaCraft.appleCake).setUnlocalizedName("xinjiang_nut_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
+    public static final ItemReed itemXinjiangNutCake = (ItemReed) new ItemReed(ChinaCraft.xinjiangNutCake).setUnlocalizedName("xinjiang_nut_cake").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabFarming);
     @Register("BLockAppleCake")//TODO:错误命名方式,BlockAppleCake
     public static final BlockCake appleCake = new BlockCCCake("apple_cake");
     @Register("AppleCake")

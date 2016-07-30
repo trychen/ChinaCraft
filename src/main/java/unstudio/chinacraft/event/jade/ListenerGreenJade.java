@@ -90,6 +90,7 @@ public class ListenerGreenJade {
                         }
                     }
                     if (event.distance > 15) {
+                        event.distance = 4f;
                         entityPlayer.attackEntityFrom(DamageSource.fall, 2.0f);
                         event.setCanceled(true);
                     } else {

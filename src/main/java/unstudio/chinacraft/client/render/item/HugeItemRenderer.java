@@ -36,8 +36,10 @@ public class HugeItemRenderer implements IItemRenderer {
 
     public void renderItem(ItemRenderType type, ItemStack item, Object[] data) {
         if (type == ItemRenderType.EQUIPPED_FIRST_PERSON) {
-            GL11.glScalef(2f, 2f, 2f);
-            GL11.glTranslatef(0f,-0.14f,0.25f);
+            if (!FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.getIsKeyPressed()) {
+                GL11.glScalef(2f, 2f, 2f);
+                GL11.glTranslatef(0f, -0.14f, 0.25f);
+            }
             IIcon iicon = ((EntityLivingBase) data[1]).getItemIcon(item, 0);
             renderGiantItemEquipped(iicon, item);
         } else if (type == ItemRenderType.EQUIPPED) {

@@ -1,5 +1,6 @@
 package unstudio.chinacraft.client.render.item;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
@@ -22,8 +23,10 @@ public class SpearItemRender implements IItemRenderer{
 
     public void renderItem(ItemRenderType type, ItemStack item, Object[] data) {
         if (type == ItemRenderType.EQUIPPED_FIRST_PERSON) {
-            GL11.glScalef(1.5f, 1.5f, 1.5f);
-            GL11.glTranslatef(0f,-0.14f,0.1f);
+            if (!FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.getIsKeyPressed()) {
+                GL11.glScalef(1.5f, 1.5f, 1.5f);
+                GL11.glTranslatef(0f, -0.14f, 0.1f);
+            }
             IIcon iicon = ((EntityLivingBase) data[1]).getItemIcon(item, 0);
             HugeItemRenderer.renderGiantItemEquipped(iicon, item);
         } else if (type == ItemRenderType.EQUIPPED) {

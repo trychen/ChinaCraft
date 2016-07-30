@@ -6,5 +6,6 @@ public class BlockCCCake extends BlockCake {
 
     public BlockCCCake(String s) {
         setBlockName(s);
+        setStepSound(soundTypeCloth);
     }
 }
