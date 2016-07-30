@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
@@ -42,11 +43,14 @@ public class ListenerArmor {
                 return;
             }
         }
-        event.player.addPotionEffect(new PotionEffect(1, 2));
-        event.player.addPotionEffect(new PotionEffect(5, 2));
-        event.player.addPotionEffect(new PotionEffect(8, 2));
         if (event.player.isSneaking()) {
             event.player.addPotionEffect(new PotionEffect(14, 2));
+            event.player.addPotionEffect(new PotionEffect(2, 2, 3));
+            event.player.addPotionEffect(new PotionEffect(15, 8, 2));
+        } else {
+            event.player.addPotionEffect(new PotionEffect(1, 2));
+            event.player.addPotionEffect(new PotionEffect(5, 2));
+            event.player.addPotionEffect(new PotionEffect(8, 2));
         }
     }
 

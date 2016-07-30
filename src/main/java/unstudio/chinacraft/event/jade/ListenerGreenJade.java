@@ -34,7 +34,7 @@ public class ListenerGreenJade {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
             if (((EntityPlayer) event.entity).getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                    event.entity.motionY *= 2;
+                    event.entity.motionY += 0.2;
                     FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
                             event.entity.posZ - 0.5);
                     return;
@@ -47,7 +47,7 @@ public class ListenerGreenJade {
                             break;
                         } else {
                             if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
-                                event.entity.motionY *= 1.8;
+                                event.entity.motionY += 1.8;
                                 FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5,
                                         event.entity.posY - 2, event.entity.posZ - 0.5);
                                 break;
@@ -77,27 +77,31 @@ public class ListenerGreenJade {
                                 event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(),
                                 event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
                         if (event.distance < 6f) {
-                            EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
+                            int c = EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
                                     entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 4.0f);
+                            entityPlayer.getHeldItem().damageItem(c>1?c/2:1,entityPlayer);
                         } else {
                             if (event.distance < 30f) {
-                                EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
+                                int c = EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
                                         entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 9.0f);
+                                entityPlayer.getHeldItem().damageItem(c,entityPlayer);
                             } else {
-                                EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
+                                int c = EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
                                         entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 17.0f);
+                                entityPlayer.getHeldItem().damageItem(c*2,entityPlayer);
                             }
                         }
                     }
                     if (event.distance > 15) {
-                        event.distance = 4f;
+                        entityPlayer.getHeldItem().damageItem(3, entityPlayer);
+                        event.distance = 6f;
                         entityPlayer.attackEntityFrom(DamageSource.fall, 2.0f);
                         event.setCanceled(true);
                     } else {
                         event.setCanceled(true);
                     }
-                } else
-                    if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.blGiantSword) && event.distance > 3.0f) {
+                } else if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.blGiantSword) && event.distance > 3.0f) {
+
                     entityPlayer.worldObj.spawnParticle("largeexplode",
                             event.entity.posX - 0.5 + entityPlayer.worldObj.rand.nextFloat(),
                             event.entity.posY - 2 + 1.1, event.entity.posZ - 0.5, 0, 0, 0);
@@ -106,6 +110,7 @@ public class ListenerGreenJade {
                     for (EntityMob entityMob : nearbyMobsList) {
                         entityMob.setFire(3);
                     }
+                    entityPlayer.getHeldItem().damageItem(nearbyMobsList.size() > 1?nearbyMobsList.size()/2:1, entityPlayer);
                 }
             }
             if (event.distance > 2.0f) {
