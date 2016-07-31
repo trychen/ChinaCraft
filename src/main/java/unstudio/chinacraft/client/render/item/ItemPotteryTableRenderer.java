@@ -8,7 +8,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.client.model.ModelExtendBlock;
-import unstudio.chinacraft.client.model.ModelPotteryTable;
+import unstudio.chinacraft.client.model.block.ModelPotteryTable;
 
 public class ItemPotteryTableRenderer implements IItemRenderer {
     private ModelExtendBlock model;

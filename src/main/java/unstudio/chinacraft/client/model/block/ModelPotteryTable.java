@@ -1,8 +1,9 @@
-package unstudio.chinacraft.client.model;
+package unstudio.chinacraft.client.model.block;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import unstudio.chinacraft.client.model.ModelExtendBlock;
 
 public class ModelPotteryTable extends ModelBase implements ModelExtendBlock {
 

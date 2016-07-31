@@ -7,7 +7,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.client.model.ModelSericultureFrame;
+import unstudio.chinacraft.client.model.block.ModelSericultureFrame;
 
 public class TileEntitySericultureFrameRenderer extends TileEntitySpecialRenderer {
     public final ModelSericultureFrame model = new ModelSericultureFrame();

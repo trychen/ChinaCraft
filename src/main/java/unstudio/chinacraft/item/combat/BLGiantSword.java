@@ -8,12 +8,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.StatCollector;
 
-import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
+import unstudio.chinacraft.client.render.item.SpecialItemRender;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.common.ClientProxy;
-import unstudio.chinacraft.util.annotation.register.IClient;
 
-public class BLGiantSword extends ItemSword implements IClient{
+public class BLGiantSword extends ItemSword implements ISpecialEquippedRender{
     public BLGiantSword(ToolMaterial toolMaterial) {
         super(toolMaterial);
         setUnlocalizedName("yanlung_giantknife");
@@ -43,7 +42,11 @@ public class BLGiantSword extends ItemSword implements IClient{
     }
 
     @Override
-    public void clientInit() {
-        MinecraftForgeClient.registerItemRenderer(this, ClientProxy.hugeItemRenderer);
+    public void doRender() {
+    }
+
+    @Override
+    public SpecialItemRender.RenderType getSpecialRenderType() {
+        return SpecialItemRender.RenderType.huge;
     }
 }

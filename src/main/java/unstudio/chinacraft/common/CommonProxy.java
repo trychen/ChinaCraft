@@ -156,8 +156,8 @@ public class CommonProxy {
 //        GameRegistry.registerItem(ChinaCraft.jiuqu_tang, "JiuQuTang");// 九曲镋刀
 //        GameRegistry.registerItem(ChinaCraft.mace, "Mace");
 //        GameRegistry.registerItem(ChinaCraft.blGiantSword, "YanLungGiantknife");// 炎龙巨刀
-//        GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "BronzePickaxe");// 青铜稿
-//        GameRegistry.registerItem(ChinaCraft.bronzeAxe, "BronzeAxe");// 青铜斧
+//        GameRegistry.registerItem(ChinaCraft.bronzePickaxe, "CCItemPickaxe");// 青铜稿
+//        GameRegistry.registerItem(ChinaCraft.bronzeAxe, "CCItemAxe");// 青铜斧
 //        GameRegistry.registerItem(ChinaCraft.bronzeHoe, "BronzeHoe");// 青铜锄
 //        GameRegistry.registerItem(ChinaCraft.bronzeShovel, "BronzeShovel");// 青铜铲
 //        GameRegistry.registerItem(ChinaCraft.hammerStone, "StoneHammer");// 石锤

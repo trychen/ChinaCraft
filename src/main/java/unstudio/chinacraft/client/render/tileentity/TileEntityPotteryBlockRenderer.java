@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.client.model.ModelPotteryBase;
+import unstudio.chinacraft.client.model.block.ModelPotteryBase;
 import unstudio.chinacraft.tileentity.TilePotteryBase;
 import unstudio.chinacraft.util.PotteryManager;
 

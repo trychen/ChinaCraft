@@ -32,7 +32,7 @@ import unstudio.chinacraft.block.generation.plant.BlockCCCake;
 import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
 import unstudio.chinacraft.block.model.BlockCCLantern;
 import unstudio.chinacraft.block.model.BlockCCModel;
-import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.client.model.block.ModelLanternScaldfish;
 import unstudio.chinacraft.common.network.KeyMessage;
 import unstudio.chinacraft.common.network.KeyMessageHandler;
 import unstudio.chinacraft.common.network.RedPacketMessage;
@@ -340,16 +340,15 @@ public class ChinaCraft implements ICollection {
     // ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe",
     // "nightclothes", 1, 3, 1);
     public static final ItemSuperBow superBow = new ItemSuperBow();
-    public static final Item superArrow = new Item().setCreativeTab(ChinaCraft.tabTool).setUnlocalizedName("super_arrow");
     // 工具
     @Register("BronzePickaxe")
-    public static final BronzePickaxe bronzePickaxe = new BronzePickaxe();// 青铜稿
+    public static final Item bronzePickaxe = new CCItemPickaxe(ChinaCraft.BRONZE).setUnlocalizedName("bronze_pickaxe").setCreativeTab(ChinaCraft.tabTool);// 青铜稿
     @Register("BronzeAxe")
-    public static final BronzeAxe bronzeAxe = new BronzeAxe();// 青铜斧
+    public static final Item bronzeAxe = new CCItemAxe(ChinaCraft.BRONZE).setUnlocalizedName("bronze_axe").setMaxStackSize(1).setMaxDamage(251).setCreativeTab(ChinaCraft.tabTool);// 青铜斧
     @Register("BronzeHoe")
-    public static final BronzeHoe bronzeHoe = new BronzeHoe();// 青铜锄
+    public static final Item bronzeHoe = new ItemHoe(ChinaCraft.BRONZE).setUnlocalizedName("bronze_hoe").setMaxStackSize(1).setMaxDamage(251).setCreativeTab(ChinaCraft.tabTool);// 青铜锄
     @Register("BronzeShovel")
-    public static final BronzeShovel bronzeShovel = new BronzeShovel();// 青铜铲
+    public static final Item bronzeShovel = new ItemSpade(ChinaCraft.BRONZE).setUnlocalizedName("bronze_spade").setCreativeTab(ChinaCraft.tabTool);// 青铜铲
     @Register("JadeKnife")
     public static final JadeKnife jadeKnife = new JadeKnife();// 玉石切割刀
     @Register("ItemArtKnife")

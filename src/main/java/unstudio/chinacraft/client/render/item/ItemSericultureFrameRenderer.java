@@ -8,7 +8,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.client.model.ModelExtendBlock;
-import unstudio.chinacraft.client.model.ModelSericultureFrame;
+import unstudio.chinacraft.client.model.block.ModelSericultureFrame;
 
 /**
  * 渲染养蚕架的物品

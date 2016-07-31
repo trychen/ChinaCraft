@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-import unstudio.chinacraft.client.model.ModelLanternScaldfish;
+import unstudio.chinacraft.client.model.block.ModelLanternScaldfish;
 import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.render.item.*;
 import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
@@ -21,10 +21,9 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import unstudio.chinacraft.util.annotation.ClientSideRegister;
+import unstudio.chinacraft.util.annotation.SpecialItemRenderRegister;
 
 public class ClientProxy extends CommonProxy {
-    public static HugeItemRenderer hugeItemRenderer;
-    public static SpearItemRender spearItemRender;
     @Override
     public void preInit(FMLPreInitializationEvent event) {
         ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); // 青铜套装外部材质注册
@@ -173,17 +172,11 @@ public class ClientProxy extends CommonProxy {
         // RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
         EntityRenderingRegistry.init();
 
-        //初始化渲染器
-        hugeItemRenderer = new HugeItemRenderer();
-        spearItemRender = new SpearItemRender();
-
         //实现IClient
         ClientSideRegister.registerAll();
 
-        //使用渲染器
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.mace, hugeItemRenderer);
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.jiuqu_tang, spearItemRender);
-
+        //注册物品渲染器
+        SpecialItemRenderRegister.registerAll();
     }
 
     @Override

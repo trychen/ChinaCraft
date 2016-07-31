@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.client.model.ModelBuhrimill;
+import unstudio.chinacraft.client.model.block.ModelBuhrimill;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 
 public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {

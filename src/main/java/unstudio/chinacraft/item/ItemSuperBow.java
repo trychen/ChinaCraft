@@ -95,7 +95,7 @@ public class ItemSuperBow extends ItemBow {
             return event.result;
         }
 
-        if (p_77659_3_.capabilities.isCreativeMode || p_77659_3_.inventory.hasItem(ChinaCraft.superArrow)) {
+        if (p_77659_3_.capabilities.isCreativeMode || p_77659_3_.inventory.hasItem(Items.arrow)) {
             p_77659_3_.setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
         }
 
