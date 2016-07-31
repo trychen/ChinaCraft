@@ -94,6 +94,7 @@ public class ClientProxy extends CommonProxy {
         ChinaCraft.hammerIron.setTextureName("chinacraft:hammer_iron");
         ChinaCraft.hammerDiamond.setTextureName("chinacraft:hammer_diamond");
         ChinaCraft.hammerBronze.setTextureName("chinacraft:hammer_bronze");
+        ChinaCraft.buddhistCane.setTextureName("chinacraft:buddhist_cane");
 
         // 玉
         ChinaCraft.jadeGreenItem.setTextureName("chinacraft:jade_green");

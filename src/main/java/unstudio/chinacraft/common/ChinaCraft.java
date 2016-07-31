@@ -353,6 +353,9 @@ public class ChinaCraft implements ICollection {
     public static final JadeKnife jadeKnife = new JadeKnife();// 玉石切割刀
     @Register("ItemArtKnife")
     public static final ItemArtKnife artKnife = new ItemArtKnife();// 美工切割刀
+    @Register("BuddhistCane")
+    public static final ItemBuddhistCane buddhistCane = new ItemBuddhistCane();
+
     public static int bronzeArmorTexture = -1; // 青铜套装外部材质注册
     // 玉石
     @Register("JadeGreen")
