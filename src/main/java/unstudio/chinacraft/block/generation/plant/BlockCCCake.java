@@ -5,6 +5,7 @@ import net.minecraft.block.BlockCake;
 public class BlockCCCake extends BlockCake {
 
     public BlockCCCake(String s) {
-        setUnlocalizedName(s);
+        setBlockName(s);
+        setStepSound(soundTypeCloth);
     }
 }

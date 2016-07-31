@@ -43,12 +43,13 @@ public class EntityMethod {
     /**
      * 对玩家周围的怪物造成伤害
      */
-    public static void attackAroundEntity(EntityPlayer player, double x, double y, double z, DamageSource damageSource,
+    public static int attackAroundEntity(EntityPlayer player, double x, double y, double z, DamageSource damageSource,
             float damage) {
         List<EntityMob> nearbyMobsList = findNearbyMobs(player, x, y, z);
         for (EntityMob entityMob : nearbyMobsList) {
             entityMob.attackEntityFrom(damageSource, damage);
         }
+        return nearbyMobsList.size();
     }
 
 }

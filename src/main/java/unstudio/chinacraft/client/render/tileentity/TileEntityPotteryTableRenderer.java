@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.client.model.ModelPotteryTable;
+import unstudio.chinacraft.client.model.block.ModelPotteryTable;
 
 public class TileEntityPotteryTableRenderer extends TileEntitySpecialRenderer {
     public final ModelPotteryTable model = new ModelPotteryTable();

@@ -27,7 +27,7 @@ public class EntityRegister {
         registerLivingEntity(EntityBlackDog.class, "black_dog", 0x0B0B0B, 0x696969);
          EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
          EnumCreatureType.creature, BiomeGenBase.forest);
-        registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0xFFF8DC, 0xDEB887);
+        registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0x191946, 0x570204);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 
         registerModEntity(EntityThrownFirecracker.class, "Entity_Thrown_Firecracker", 350, 30, true);

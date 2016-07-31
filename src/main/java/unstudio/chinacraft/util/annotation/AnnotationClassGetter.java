@@ -183,6 +183,7 @@ public class AnnotationClassGetter {
                     //添加到集合中去
                     classes.add(Class.forName(packageName + '.' + className));
                 } catch (ClassNotFoundException e) {
+                } catch (NoClassDefFoundError e){
                 }
             }
         }

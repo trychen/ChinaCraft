@@ -6,7 +6,10 @@ import net.minecraft.entity.ai.EntityJumpHelper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.init.Items;
+import net.minecraft.potion.Potion;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.AI.EntityAIJump;
 
@@ -14,18 +17,23 @@ public class EntityChinaZombie extends EntityZombie {
     public EntityChinaZombie(World var1) {
         super(var1);
         // this.setSize(0.9f, 1.9f);
-        this.tasks.addTask(0, new EntityAIJump(this,0.8D, 0.05D));
+//        this.tasks.addTask(0, new EntityAIJump(this,0.8D, 0.05D));
     }
 
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        int random = this.rand.nextInt(30) + par2;
+        int random = this.rand.nextInt(15) + par2;
         if (random == 0) {
             dropItem(ChinaCraft.smfSuper, 1);
             dropItem(Items.rotten_flesh, 1);
         } else {
             dropItem(Items.rotten_flesh, this.rand.nextInt(1) + 1);
         }
+    }
+
+    @Override
+    public boolean canPickUpLoot() {
+        return false;
     }
 
     public EntityMob createChild(EntityAgeable p_90011_1_) {
@@ -42,14 +50,13 @@ public class EntityChinaZombie extends EntityZombie {
 
     @Override
     public void onUpdate() {
-        if (targetTasks != null)
-            new EntityJumpHelper(this).doJump();
-        if (isJumping == true) {
-            motionY *= 1.6;
-            motionX *= 1.2D;
-            motionZ *= 1.2D;
-        }
         super.onUpdate();
+        if (!this.isJumping && this.isAirBorne){
+            this.jump();
+            motionY += 0.6D;
+            this.isJumping = true;
+        }
+        if (onGround) isJumping = false;
     }
 
     @Override

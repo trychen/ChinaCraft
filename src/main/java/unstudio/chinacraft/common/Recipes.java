@@ -31,7 +31,7 @@ public class Recipes {
 
         //盐
 //        GameRegistry.addSmelting(Items.water_bucket, new ItemStack(ChinaCraft.saltBucket), 0.8f);
-//        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.Salt,3), ChinaCraft.saltBucket);
+//        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.salt,3), ChinaCraft.saltBucket);
 
         
         // 投掷炸弹

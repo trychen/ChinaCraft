@@ -6,9 +6,9 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-import unstudio.chinacraft.client.model.ModelBlackDog;
-import unstudio.chinacraft.client.model.ModelChinaZombie;
-import unstudio.chinacraft.client.model.ModelKongmingLantern;
+import unstudio.chinacraft.client.model.entity.ModelBlackDog;
+import unstudio.chinacraft.client.model.entity.ModelChinaZombie;
+import unstudio.chinacraft.client.model.block.ModelKongmingLantern;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.especial.EntityKongmingLantern;

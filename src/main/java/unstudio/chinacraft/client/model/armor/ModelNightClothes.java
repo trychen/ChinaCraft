@@ -1,4 +1,4 @@
-package unstudio.chinacraft.item.combat.models;
+package unstudio.chinacraft.client.model.armor;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

@@ -1,8 +1,8 @@
 package unstudio.chinacraft.item.combat;
 
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.item.combat.models.ModelChinaCrown;
-import unstudio.chinacraft.item.combat.models.ModelNightClothes;
+import unstudio.chinacraft.client.model.armor.ModelChinaCrown;
+import unstudio.chinacraft.client.model.armor.ModelNightClothes;
 
 public class ModelArmorRegister {
     public static void init() {

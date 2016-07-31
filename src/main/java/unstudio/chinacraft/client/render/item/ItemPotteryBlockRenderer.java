@@ -9,7 +9,7 @@ import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
 
-import unstudio.chinacraft.client.model.ModelPotteryBase;
+import unstudio.chinacraft.client.model.block.ModelPotteryBase;
 import unstudio.chinacraft.util.PotteryManager;
 
 public class ItemPotteryBlockRenderer implements IItemRenderer {

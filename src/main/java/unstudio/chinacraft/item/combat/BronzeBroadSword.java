@@ -4,12 +4,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.client.resources.I18n;
 
-import net.minecraftforge.client.MinecraftForgeClient;
+import unstudio.chinacraft.client.render.item.SpecialItemRender;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.common.ClientProxy;
-import unstudio.chinacraft.util.annotation.register.IClient;
+import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
-public class BronzeBroadSword extends ItemSword implements IClient{
+public class BronzeBroadSword extends ItemSword implements ISpecialEquippedRender{
     private String jade = null;
 
     public BronzeBroadSword(ToolMaterial toolMaterial, String name) {
@@ -32,7 +31,12 @@ public class BronzeBroadSword extends ItemSword implements IClient{
     }
 
     @Override
-    public void clientInit() {
-        MinecraftForgeClient.registerItemRenderer(this, ClientProxy.hugeItemRenderer);
+    public void doRender() {
+
+    }
+
+    @Override
+    public SpecialItemRender.RenderType getSpecialRenderType() {
+        return SpecialItemRender.RenderType.huge;
     }
 }

@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
+import unstudio.chinacraft.item.ItemCCSlab;
 import unstudio.chinacraft.util.annotation.register.ICollection;
 import unstudio.chinacraft.util.annotation.register.OreRegister;
 import unstudio.chinacraft.util.annotation.register.Register;
@@ -58,7 +59,7 @@ public class ItemBlockRegister {
                     e.printStackTrace();
                     continue;
                 }
-                if (f.isAnnotationPresent(Register.class) || f.isAnnotationPresent(OreRegister.class)) {
+                if (f.isAnnotationPresent(Register.class) || f.isAnnotationPresent(OreRegister.class) || f.isAnnotationPresent(SlabRegister.class)) {
 
                     String name = null;
                     String ore = null;
@@ -71,8 +72,21 @@ public class ItemBlockRegister {
                     }
 
                     if (o instanceof Block) {
-                        //以方块的形式注册
-                        GameRegistry.registerBlock((Block) o, name);
+                        if (f.isAnnotationPresent(SlabRegister.class)){
+                            SlabRegister ann = f.getAnnotation(SlabRegister.class);
+                            name = ann.name();
+                            try {
+                                System.out.println("Registing " + name);
+                                GameRegistry.registerBlock((Block) o, ItemCCSlab.class,name,(Block) c.getField(ann.first()).get(null),(Block) c.getField(ann.second()).get(null),ann.second().equalsIgnoreCase(f.getName()));
+                            } catch (IllegalAccessException e) {
+                                e.printStackTrace();
+                            } catch (NoSuchFieldException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            //以方块的形式注册
+                            GameRegistry.registerBlock((Block) o, name);
+                        }
                         if (ore != null) OreDictionary.registerOre(ore, (Block) o);
                     } else if (o instanceof Item) {
                         //以物品的形式注册
