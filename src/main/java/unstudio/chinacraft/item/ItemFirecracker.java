@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import unstudio.chinacraft.api.ItemMethod;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;

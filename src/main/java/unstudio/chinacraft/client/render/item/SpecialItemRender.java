@@ -8,10 +8,7 @@ public class SpecialItemRender /*implements IItemRenderer*/ {
     private static final ResourceLocation enchant = new ResourceLocation("textures/misc/enchanted_item_glint.png");
 
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        if ((type == ItemRenderType.EQUIPPED) || (type == ItemRenderType.EQUIPPED_FIRST_PERSON)) {
-            return true;
-        }
-        return false;
+        return (type == ItemRenderType.EQUIPPED) || (type == ItemRenderType.EQUIPPED_FIRST_PERSON);
     }
 
     public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item, ItemRendererHelper helper) {
@@ -48,6 +45,9 @@ public class SpecialItemRender /*implements IItemRenderer*/ {
             case glaive:
                 GL11.glTranslatef(0.03F, -0.4F, 0.08F);
                 break;
+            case staff:
+                GL11.glScalef(1.0F, 1.14F, 1.0F);
+                GL11.glTranslatef(0.14F, -0.3F, 0.08F);
         }
 
         renderer.doRender();
@@ -114,6 +114,6 @@ public class SpecialItemRender /*implements IItemRenderer*/ {
     }
 
     public enum RenderType{
-        huge,spear,glaive,shield,custom
+        huge,spear,glaive,shield,staff,custom
     }*/
 }

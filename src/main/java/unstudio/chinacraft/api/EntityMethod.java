@@ -12,7 +12,13 @@ import java.util.List;
  * 一些关于实体的方法
  */
 public class EntityMethod {
-
+    public static <T extends Entity> List<T> findNear(T player, Class<? extends T> find, double d0, double d1) {
+        double x = player.posX;
+        double y = player.posY;
+        double z = player.posZ;
+        return player.worldObj.getEntitiesWithinAABB(find,
+            new AxisAlignedBB(x - d0, y - d1, z - d0, x + d0, y + d1, z + d0));
+        }
     /**
      * 寻找实体周围的实体
      * @param player
