@@ -57,6 +57,8 @@ public class VersionChecker extends Thread{
         }catch (NullPointerException e){
             latest = true;
             return true;
+        } catch (IllegalStateException e){
+            return false;
         } catch (Exception e) {
             log.log(Level.WARN, "Get Update Info Failed!", e);
             return false;
