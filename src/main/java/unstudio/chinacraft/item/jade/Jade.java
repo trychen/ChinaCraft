@@ -3,6 +3,10 @@ package unstudio.chinacraft.item.jade;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -25,12 +29,12 @@ public class Jade extends Item {
     }
 
     @Override
-    public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int p_77648_4_,
-            int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-        PlayerUseJadeEvent.ItemRightClick e = new PlayerUseJadeEvent.ItemRightClick(entityPlayer, itemStack);
+    public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        PlayerUseJadeEvent.ItemRightClick e = new PlayerUseJadeEvent.ItemRightClick(playerIn, stack);
         if (MinecraftForge.EVENT_BUS.post(e))
-            return false;
+            return EnumActionResult.PASS;
 
-        return true;
+        return EnumActionResult.SUCCESS;
     }
+
 }

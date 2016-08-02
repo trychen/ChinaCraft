@@ -3,7 +3,7 @@ package unstudio.chinacraft.block.decoration;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing.Axis;
 
@@ -97,8 +97,8 @@ public class BlockCCRotatedPillar extends BlockRotatedPillar {
         return i;
     }
 
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
-        return new BlockState(this, AXIS);
+        return new BlockStateContainer(this, AXIS);
     }
 }

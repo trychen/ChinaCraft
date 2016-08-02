@@ -1,22 +1,10 @@
 package unstudio.chinacraft.client.render.item;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemRenderer;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.texture.TextureManager;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-import org.lwjgl.opengl.GL11;
-import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
-
 /**
  * Created by trychen on 16/7/30.
  */
-public class SpecialItemRender implements IItemRenderer {
+public class SpecialItemRender /*implements IItemRenderer*/ {
+    /*
     private static final ResourceLocation enchant = new ResourceLocation("textures/misc/enchanted_item_glint.png");
 
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
@@ -127,5 +115,5 @@ public class SpecialItemRender implements IItemRenderer {
 
     public enum RenderType{
         huge,spear,glaive,shield,custom
-    }
+    }*/
 }

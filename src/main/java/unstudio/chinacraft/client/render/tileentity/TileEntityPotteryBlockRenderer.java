@@ -20,11 +20,11 @@ public class TileEntityPotteryBlockRenderer extends TileEntitySpecialRenderer {
     public TileEntityPotteryBlockRenderer() {}
 
     @Override
-    public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float scale) {
+    public void renderTileEntityAt(TileEntity tile, double x, double y, double z, float scale, int destroyStage) {
         ModelPotteryBase model = PotteryManager.Instance().getBlockPottery(((TilePotteryBase) tile).getPotteryType())
                 .getModel();
         GL11.glPushMatrix();
-        Tessellator tessellator = Tessellator.instance;
+        Tessellator tessellator = Tessellator.getInstance();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.0F, (float) z + 0.5F);
         Minecraft.getMinecraft().renderEngine.bindTexture(textures);
         GL11.glPushMatrix();

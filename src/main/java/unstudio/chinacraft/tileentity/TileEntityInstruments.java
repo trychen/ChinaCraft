@@ -15,9 +15,10 @@ public class TileEntityInstruments extends TileEntity {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound nbt) {
+    public NBTTagCompound writeToNBT(NBTTagCompound nbt) {
         nbt.setInteger("musicCount", this.musicCount);
         super.writeToNBT(nbt);
+        return nbt;
     }
 
     @Override

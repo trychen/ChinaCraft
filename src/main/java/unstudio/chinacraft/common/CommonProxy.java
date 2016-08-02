@@ -1,23 +1,24 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
-
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import unstudio.chinacraft.common.config.ConfigLoader;
+import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.ItemCCBlock;
 import unstudio.chinacraft.tileentity.*;
-import unstudio.chinacraft.common.config.*;
 import unstudio.chinacraft.util.annotation.ItemBlockRegister;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
@@ -26,15 +27,15 @@ public class CommonProxy {
         new FeatureConfig();
 
         ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture,
-                0).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜头盔
+                EntityEquipmentSlot.HEAD).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜头盔
         ChinaCraft.bronzeChestplate = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,
-                ChinaCraft.bronzeArmorTexture, 1).setUnlocalizedName("bronze_body").setMaxStackSize(1)
+                ChinaCraft.bronzeArmorTexture, EntityEquipmentSlot.CHEST).setUnlocalizedName("bronze_body").setMaxStackSize(1)
                         .setCreativeTab(ChinaCraft.tabTool);// 青铜胸甲
         ChinaCraft.bronzeLeggings = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,
-                ChinaCraft.bronzeArmorTexture, 2).setUnlocalizedName("bronze_legs").setMaxStackSize(1)
+                ChinaCraft.bronzeArmorTexture, EntityEquipmentSlot.LEGS).setUnlocalizedName("bronze_legs").setMaxStackSize(1)
                         .setCreativeTab(ChinaCraft.tabTool);// 青铜护腿
         ChinaCraft.bronzeBoots = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture,
-                3).setUnlocalizedName("bronze_boots").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜靴子
+                EntityEquipmentSlot.FEET).setUnlocalizedName("bronze_boots").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜靴子
     }
 
 //    public static void onWailaCall(IWailaRegistrar registrar)

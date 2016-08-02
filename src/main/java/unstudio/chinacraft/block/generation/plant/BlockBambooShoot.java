@@ -4,12 +4,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.IChunkGenerator;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
@@ -24,13 +28,17 @@ import java.util.Random;
 public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGenerator {
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 15);
     public BlockBambooShoot() {
-        super(Material.plants);
-        float f = 0.375F;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
+        super(Material.PLANTS);
         this.setTickRandomly(true);
         setHardness(0.0F);
         setCreativeTab(ChinaCraft.tabFarming);
         setUnlocalizedName("bamboo_shoot");
+    }
+
+    @Override
+    public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
+        float f = 0.375F;
+        return new AxisAlignedBB(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
     }
 
     /**
@@ -75,7 +83,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         Block block = worldIn.getBlockState(pos.add(0, -1, 0)).getBlock();
-        return block.canSustainPlant(worldIn, pos.add(0, -1, 0), EnumFacing.UP, this);
+        return block.canSustainPlant(block.getBlockState().getBaseState(), worldIn, pos.add(0, -1, 0), EnumFacing.UP, this);
     }
 
     /**
@@ -88,8 +96,8 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
     }
 
     @Override
-    public void onNeighborBlockChange(World worldIn, BlockPos pos, IBlockState state, Block neighborBlock) {
-    	checkForDrop(worldIn, pos, state);
+    public void onNeighborChange(IBlockAccess world, BlockPos pos, BlockPos neighbor) {
+        // TODO GG in checkForDrop(world, pos, world.getBlockState(pos));
     }
 
     protected final boolean checkForDrop(World worldIn, BlockPos pos, IBlockState state)
@@ -106,16 +114,6 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
         }
     }
 
-    /**
-     * Returns a bounding box from the pool of bounding boxes (this means this
-     * box can change after the pool has been cleared to be reused)
-     */
-    @Override
-    public AxisAlignedBB getCollisionBoundingBox(World worldIn, BlockPos pos, IBlockState state) {
-    	// TODO Auto-generated method stub
-    	return null;
-    }
-
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
     	// TODO Auto-generated method stub
@@ -128,12 +126,13 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
      * the player can attach torches, redstone wire, etc to this block.
      */
     @Override
-    public boolean isOpaqueCube()
+    public boolean isOpaqueCube(IBlockState state)
     {
         return false;
     }
 
-    public boolean isFullCube()
+    @Override
+    public boolean isFullCube(IBlockState state)
     {
         return false;
     }
@@ -141,7 +140,7 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
     /**
      * The type of render function that is called for this block
      */
-    @Override
+    // TODO @Override
     public int getRenderType() {
         return 3;
     }
@@ -151,21 +150,22 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
      */
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World worldIn, BlockPos pos) {
-    	return Item.getItemFromBlock(ChinaCraft.blockBambooShoot);
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+    	return new ItemStack(Item.getItemFromBlock(ChinaCraft.blockBambooShoot));
     }
 
     /**
      * Returns a integer with hex for 0xrrggbb with this color multiplied
      * against the blocks color. Note only called when first determining what to
      * render.
+     * TODO Dropped
      */
-    @Override
-    @SideOnly(Side.CLIENT)
-    public int colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass) {
-    	// TODO Auto-generated method stub
-    	return worldIn.getBiomeGenForCoords(pos).getGrassColorAtPos(pos);
-    }
+//    @Override
+//    @SideOnly(Side.CLIENT)
+//    public Biome colorMultiplier(IBlockAccess worldIn, BlockPos pos, int renderPass) {
+//      TODO Auto-generated method stub
+//    	return worldIn.getBiomeGenForCoords(pos).getGrassColorAtPos(pos);
+//    }
 
     @Override
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
@@ -178,14 +178,13 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
     }
 
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
-                         IChunkProvider chunkProvider) {
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         int l6 = chunkX * 16 + random.nextInt(16);
         int i11 = random.nextInt(128);
         int l14 = chunkZ * 16 + random.nextInt(16);
         BlockPos pos = new BlockPos(l6, i11, l14);
-        int id = world.getBiomeGenForCoords(pos).biomeID;
-        if ((id == 3 || id == 4 || id == 18 || id == 20 || id == 34 || id == 27 || id == 28 || id == 29)
+        String biomeName = world.getBiomeForCoordsBody(pos).getBiomeName();
+        if ((biomeName.equals("extreme_hills") || biomeName.equals("forest") || biomeName.equals("forest_hills") || biomeName.equals("smaller_extreme_hills") || biomeName.equals("extreme_hills_with_trees") || biomeName.equals("birch_forest") || biomeName.equals("birch_forest_hills") || biomeName.equals("roofed_forest"))
                 && random.nextInt(16) == 0) {
             for (int i = 0; i < 64; ++i)
             {

@@ -3,6 +3,7 @@ package unstudio.chinacraft.block.model;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
@@ -44,13 +45,13 @@ public class BlockCCModel extends Block implements ITileEntityProvider {
 		return texturename;
 	}
 
-	@Override
+	// TODO @Override
     public int getRenderType() {
         return -1;
     }
 
     @Override
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 

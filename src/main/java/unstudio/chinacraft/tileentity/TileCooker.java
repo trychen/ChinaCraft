@@ -6,7 +6,7 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileCooker extends TileEntity{
 	
-	protected boolean isCooking=false;
+	protected boolean isCooking = false;
 	protected CookerType cookerType = CookerType.Unknown;
 	protected int time=0;
 	

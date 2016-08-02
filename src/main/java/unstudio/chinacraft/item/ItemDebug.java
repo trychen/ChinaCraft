@@ -123,7 +123,7 @@ public class ItemDebug extends Item {
             return "portal";
         }else if(material.equals(Material.redstoneLight)){
             return "redstoneLight";
-        }else if(material.equals(Material.rock)){
+        }else if(material.equals(Material.ROCK)){
             return "rock";
         }else if(material.equals(Material.sand)){
             return "sand";
@@ -139,7 +139,7 @@ public class ItemDebug extends Item {
             return "water";
         }else if(material.equals(Material.web)){
             return "web";
-        }else if(material.equals(Material.wood)){
+        }else if(material.equals(Material.WOOD)){
             return "wood";
         }else{
             return "unknown";

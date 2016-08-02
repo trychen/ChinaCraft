@@ -9,7 +9,7 @@ import unstudio.chinacraft.tileentity.TileCooker;
 public class BlockCooker extends BlockContainer {
 
     public BlockCooker() {
-        super(Material.rock);
+        super(Material.ROCK);
     }
 
     @Override

@@ -2,6 +2,7 @@ package unstudio.chinacraft.block.especial;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -10,8 +11,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -19,6 +22,7 @@ import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TilePotteryTable;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockPotteryTable extends Block implements ITileEntityProvider {
@@ -27,12 +31,12 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
     //private IIcon icon;
 
     public BlockPotteryTable() {
-        super(Material.wood);
+        super(Material.WOOD);
         setUnlocalizedName("potterytable");
         setHardness(1.0F);
         setResistance(5.0F);
         setCreativeTab(ChinaCraft.tabCore);
-        setSoundType(SoundType.Stone);
+        setSoundType(SoundType.STONE);
     }
 
     @Override
@@ -41,13 +45,13 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
     	worldIn.setBlockState(pos, state.withProperty(FACING, placer.getHorizontalFacing().getOpposite()), 2);
     }
 
-    @Override
+    // TODO @Override
     public int getRenderType() {
         return -1;
     }
 
     @Override
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
@@ -58,8 +62,8 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public Item getItem(World worldIn, BlockPos pos) {
-        return Item.getItemFromBlock(ChinaCraft.potteryTable);
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+        return new ItemStack(Item.getItemFromBlock(ChinaCraft.potteryTable));
     }
 
     @Override
@@ -68,8 +72,7 @@ public class BlockPotteryTable extends Block implements ITileEntityProvider {
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-                                    EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
         if (worldIn.isRemote)
             return true;
         playerIn.openGui(ChinaCraft.instance, GuiID.GUI_PotteryTable, worldIn, pos.getX(), pos.getY(), pos.getZ());

@@ -1,15 +1,14 @@
 package unstudio.chinacraft.entity;
 
 import net.minecraft.entity.EntityList;
-
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.init.Biomes;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
-import cpw.mods.fml.common.registry.EntityRegistry;
 
 /**
  * Created by Trychen on 2015/10/30.
@@ -22,11 +21,11 @@ public class EntityRegister {
      * 开始注册实体
      */
     public static void init() {
-        id = EntityRegistry.findGlobalUniqueEntityId();
+//        id = EntityRegistry.findGlobalUniqueEntityId();
 
         registerLivingEntity(EntityBlackDog.class, "black_dog", 0x0B0B0B, 0x696969);
          EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
-         EnumCreatureType.creature, BiomeGenBase.forest);
+         EnumCreatureType.CREATURE, Biomes.FOREST);
         registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0x191946, 0x570204);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 
@@ -43,8 +42,8 @@ public class EntityRegister {
      * @param spotColor 怪物蛋颜色2
      */
     public static void registerLivingEntity(Class entityClass, String entityName, int solidColor, int spotColor) {
-        EntityRegistry.registerGlobalEntityID(entityClass, entityName, id);
-        EntityRegistry.registerModEntity(entityClass, entityName, id, ChinaCraft.instance, 64, 1, true);
+//        EntityRegistry.registerGlobalEntityID(entityClass, entityName, id);
+//        EntityRegistry.registerModEntity(entityClass, entityName, id, ChinaCraft.instance, 64, 1, true);
         createEgg(id, solidColor, spotColor);
         id++;
     }
@@ -70,7 +69,7 @@ public class EntityRegister {
      * @param spotColor 颜色2
      */
     public static void createEgg(int randomId, int solidColor, int spotColor) {
-        EntityList.entityEggs.put(Integer.valueOf(randomId),
-                new EntityList.EntityEggInfo(randomId, solidColor, spotColor));
+        EntityList.ENTITY_EGGS.put(String.valueOf(randomId),
+                new EntityList.EntityEggInfo(String.valueOf(randomId), solidColor, spotColor));
     }
 }

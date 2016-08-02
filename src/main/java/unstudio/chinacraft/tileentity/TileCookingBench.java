@@ -3,18 +3,24 @@ package unstudio.chinacraft.tileentity;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.IInteractionObject;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import unstudio.chinacraft.block.especial.BlockCookingBench;
-import cpw.mods.fml.common.registry.GameRegistry;
+import unstudio.chinacraft.inventory.ContainerCookingBench;
 
-public class TileCookingBench extends TileEntity implements ISidedInventory {
+import javax.annotation.Nullable;
+
+public class TileCookingBench extends TileEntity implements ISidedInventory, IInteractionObject {
 
     private static final int[] slotsTop = new int[] { 0 };
     private static final int[] slotsBottom = new int[] { 1 };
@@ -22,24 +28,24 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     public int currentItemBurnTime;
     private ItemStack stack[] = new ItemStack[2];
 
-    public static int getItemBurnTime(ItemStack p_145952_0_) {
-        if (p_145952_0_ == null) {
+    public static int getItemBurnTime(ItemStack stack) {
+        if (stack == null) {
             return 0;
         } else {
-            Item item = p_145952_0_.getItem();
+            Item item = stack.getItem();
 
-            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
+            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.AIR) {
                 Block block = Block.getBlockFromItem(item);
 
-                if (block == Blocks.wooden_slab) {
+                if (block == Blocks.WOODEN_SLAB) {
                     return 150;
                 }
 
-                if (block.getMaterial() == Material.wood) {
+                if (block.getDefaultState().getMaterial() == Material.WOOD) {
                     return 300;
                 }
 
-                if (block == Blocks.coal_block) {
+                if (block == Blocks.COAL_BLOCK) {
                     return 16000;
                 }
             }
@@ -48,24 +54,24 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
                 return 200;
             if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
                 return 200;
-            if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD"))
+            if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD"))
                 return 200;
-            if (item == Items.stick)
+            if (item == Items.STICK)
                 return 100;
-            if (item == Items.coal)
+            if (item == Items.COAL)
                 return 1600;
-            if (item == Items.lava_bucket)
+            if (item == Items.LAVA_BUCKET)
                 return 20000;
-            if (item == Item.getItemFromBlock(Blocks.sapling))
+            if (item == Item.getItemFromBlock(Blocks.SAPLING))
                 return 100;
-            if (item == Items.blaze_rod)
+            if (item == Items.BLAZE_ROD)
                 return 2400;
-            return GameRegistry.getFuelValue(p_145952_0_);
+            return GameRegistry.getFuelValue(stack);
         }
     }
 
-    public static boolean isItemFuel(ItemStack p_145954_0_) {
-        return getItemBurnTime(p_145954_0_) > 0;
+    public static boolean isItemFuel(ItemStack stack) {
+        return getItemBurnTime(stack) > 0;
     }
 
     @Override
@@ -101,7 +107,12 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
         }
     }
 
+    @Nullable
     @Override
+    public ItemStack removeStackFromSlot(int index) {
+        return null;
+    }
+
     public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
         if (this.stack[p_70304_1_] != null) {
             ItemStack itemstack = this.stack[p_70304_1_];
@@ -121,16 +132,6 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public String getInventoryName() {
-        return null;
-    }
-
-    @Override
-    public boolean hasCustomInventoryName() {
-        return false;
-    }
-
-    @Override
     public int getInventoryStackLimit() {
         return 64;
     }
@@ -141,14 +142,38 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory(EntityPlayer player) {
+
+    }
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory(EntityPlayer player) {
+
+    }
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
         return p_94041_1_ == 2 ? false : (p_94041_1_ == 1 ? isItemFuel(p_94041_2_) : true);
+    }
+
+    @Override
+    public int getField(int id) {
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
     }
 
     public boolean isBurning() {
@@ -175,9 +200,9 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound p_145841_1_) {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setShort("BurnTime", (short) this.furnaceBurnTime);
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
+        compound.setShort("BurnTime", (short) this.furnaceBurnTime);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.stack.length; ++i) {
@@ -188,11 +213,11 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
                 nbttaglist.appendTag(nbttagcompound1);
             }
         }
-        p_145841_1_.setTag("Items", nbttaglist);
+        compound.setTag("Items", nbttaglist);
+        return compound;
     }
 
-    @Override
-    public void updateEntity() {
+    public void update() {
         boolean flag = this.furnaceBurnTime > 0;
         boolean flag1 = false;
 
@@ -224,8 +249,7 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
 
             if (flag != this.furnaceBurnTime > 0) {
                 flag1 = true;
-                BlockCookingBench.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord);
+                BlockCookingBench.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.pos);
             }
         }
 
@@ -234,26 +258,46 @@ public class TileCookingBench extends TileEntity implements ISidedInventory {
         }
     }
 
-    @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return p_94128_1_ == 0 ? slotsBottom : slotsTop;
-    }
-
-    @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return this.isItemValidForSlot(p_102007_1_, p_102007_2_);
-    }
-
-    @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return p_102008_3_ != 0 || p_102008_1_ != 1 || p_102008_2_.getItem() == Items.bucket;
-    }
-
     public int getBurnTimeRemainingScaled(int i) {
         if (this.currentItemBurnTime == 0) {
             this.currentItemBurnTime = 200;
         }
 
         return this.furnaceBurnTime * i / this.currentItemBurnTime;
+    }
+
+    @Override
+    public int[] getSlotsForFace(EnumFacing side) {
+        return side == EnumFacing.DOWN ? slotsBottom : slotsTop;
+    }
+
+    @Override
+    public boolean canInsertItem(int index, ItemStack stack, EnumFacing direction) {
+        return this.isItemValidForSlot(index, stack);
+    }
+
+    @Override
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return direction != EnumFacing.DOWN || index != 1 || stack.getItem() == Items.BUCKET;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomName() {
+        return false;
+    }
+
+    @Override
+    public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
+        return new ContainerCookingBench(playerInventory, this);
+    }
+
+    @Override
+    public String getGuiID() {
+        return "chinacraft:cooking_bench";
     }
 }

@@ -1,73 +1,90 @@
 package unstudio.chinacraft.item.combat;
 
-import java.util.List;
-
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.client.resources.I18n;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ModelArmor extends ItemArmor {
-    @SideOnly(Side.CLIENT)
-    protected IIcon itemIcon;
-    private String TextureName = "";
+//    @SideOnly(Side.CLIENT)
+//    protected IIcon itemIcon;
+    private String textureName = "";
     private ModelBiped armorModel;
     private int textureType;
 
-    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, int type,
+    public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, EntityEquipmentSlot type,
             int render_idx) {
         super(armorMaterial, render_idx, type);
         setUnlocalizedName(name);
-        TextureName = textureName;
+        this.textureName = textureName;
         this.textureType = textureType;
         setMaxStackSize(1);
         setCreativeTab(ChinaCraft.tabTool);
     }
 
     @Override
+    public ArmorMaterial getArmorMaterial() {
+        return super.getArmorMaterial();
+    }
+    /*
+        TODO 1.8+ New Texture System
+        @Override
+        @SideOnly(Side.CLIENT)
+        public void registerIcons(IIconRegister iconRegister) {
+            this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
+        }
+
+        @SideOnly(Side.CLIENT)
+        @Override
+        public IIcon getIcon(ItemStack stack, int pass) {
+            return this.itemIcon;
+        }
+    */
+
     @SideOnly(Side.CLIENT)
-    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemstack, int armorSlot) {
+    @Override
+    public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
         if (armorModel != null) {
-            armorModel.bipedHead.showModel = armorSlot == 0;
+            armorModel.bipedHead.showModel = armorSlot.equals(EntityEquipmentSlot.HEAD);
             armorModel.bipedHeadwear.showModel = false;
-            armorModel.bipedBody.showModel = armorSlot == 1 || armorSlot == 2;
-            armorModel.bipedRightArm.showModel = armorSlot == 1;
-            armorModel.bipedLeftArm.showModel = armorSlot == 1;
-            armorModel.bipedRightLeg.showModel = armorSlot == 2 || armorSlot == 3;
-            armorModel.bipedLeftLeg.showModel = armorSlot == 2 || armorSlot == 3;
+            armorModel.bipedBody.showModel = armorSlot.equals(EntityEquipmentSlot.CHEST);
+            armorModel.bipedRightArm.showModel = armorSlot.equals(EntityEquipmentSlot.MAINHAND);
+            armorModel.bipedLeftArm.showModel = armorSlot.equals(EntityEquipmentSlot.OFFHAND);
+            armorModel.bipedRightLeg.showModel = armorSlot.equals(EntityEquipmentSlot.LEGS);
+            armorModel.bipedLeftLeg.showModel = armorSlot.equals(EntityEquipmentSlot.LEGS);
 
             armorModel.isSneak = entityLiving.isSneaking();
             armorModel.isRiding = entityLiving.isRiding();
             armorModel.isChild = entityLiving.isChild();
 
-            armorModel.heldItemRight = 0;
-            armorModel.aimedBow = false;
+            //armorModel.heldItemRight = 0;
+            //armorModel.aimedBow = false;
 
             EntityPlayer player = (EntityPlayer) entityLiving;
 
-            ItemStack held_item = player.getEquipmentInSlot(0);
+            ItemStack held_item = player.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
 
             if (held_item != null) {
-                armorModel.heldItemRight = 1;
+                //armorModel.heldItemRight = 1;
 
                 if (player.getItemInUseCount() > 0) {
 
                     EnumAction enumaction = held_item.getItemUseAction();
 
-                    if (enumaction == EnumAction.bow) {
-                        armorModel.aimedBow = true;
-                    } else if (enumaction == EnumAction.block) {
-                        armorModel.heldItemRight = 3;
+                    if (enumaction == EnumAction.BOW) {
+                        //armorModel.aimedBow = true;
+                    } else if (enumaction == EnumAction.BLOCK) {
+                        //armorModel.heldItemRight = 3;
                     }
                 }
             }
@@ -77,23 +94,11 @@ public class ModelArmor extends ItemArmor {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IIconRegister iconRegister) {
-        this.itemIcon = iconRegister.registerIcon("chinacraft:" + getUnlocalizedName().substring(5));
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public IIcon getIcon(ItemStack stack, int pass) {
-        return this.itemIcon;
-    }
-
-    @Override
-    public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
+    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
         if (textureType == 0) {
-            return String.format("chinacraft:textures/models/armor/%s.png", TextureName);
+            return String.format("chinacraft:textures/models/armor/%s.png", textureName);
         }
-        return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", TextureName, slot == 2 ? 2 : 1);
+        return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", textureName, slot == EntityEquipmentSlot.LEGS ? 2 : 1);
     }
 
     public void setArmorModel(ModelBiped armorModel) {
@@ -102,14 +107,14 @@ public class ModelArmor extends ItemArmor {
 
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        if (StatCollector.canTranslate("item." + TextureName + ".lore")) {
-            p_77624_3_.add(I18n.format("item." + TextureName + ".lore"));
+        if (I18n.hasKey("item." + textureName + ".lore")) {
+            p_77624_3_.add(I18n.format("item." + textureName + ".lore"));
         } else {
             int i = 0;
             while (true) {
                 i++;
-                if (StatCollector.canTranslate("item." + TextureName + ".lore." + i)) {
-                    p_77624_3_.add(I18n.format("item." + TextureName + ".lore." + i));
+                if (I18n.hasKey("item." + textureName + ".lore." + i)) {
+                    p_77624_3_.add(I18n.format("item." + textureName + ".lore." + i));
                 } else {
                     break;
                 }

@@ -5,12 +5,12 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -41,9 +41,8 @@ public class BlockCCSlab extends BlockSlab {
     }
 
     @Override
-    @SideOnly(Side.CLIENT)
-    public Item getItem(World worldIn, BlockPos pos) {
-        return block==null? Item.getItemFromBlock(this): Item.getItemFromBlock(block);
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+        return new ItemStack(block==null? Item.getItemFromBlock(this): Item.getItemFromBlock(block));
     }
 
     public Block getBlockSlab() {
@@ -84,7 +83,7 @@ public class BlockCCSlab extends BlockSlab {
 	}
 
 	@Override
-	public Object getVariant(ItemStack stack) {
+	public Comparable<?> getTypeForItem(ItemStack stack) {
 		// TODO Auto-generated method stub
 		return null;
 	}

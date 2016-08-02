@@ -1,6 +1,7 @@
 package unstudio.chinacraft.block.especial;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,16 +20,16 @@ public class BlockPotteryBase extends BlockContainer {
     private String PotteryType;
 
     public BlockPotteryBase() {
-        super(Material.rock);
+        super(Material.ROCK);
         setUnlocalizedName("pottery");
         setHardness(0.5F);
         setResistance(5.0F);
         setLightLevel(0.0F);
-        setSoundType(SoundType.Stone);
+        setSoundType(SoundType.STONE);
     }
 
     @Override
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 

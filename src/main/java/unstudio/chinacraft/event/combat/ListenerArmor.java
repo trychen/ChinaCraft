@@ -1,10 +1,5 @@
 package unstudio.chinacraft.event.combat;
 
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.eventhandler.EventPriority;
-import cpw.mods.fml.common.gameevent.InputEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.entity.EntityLiving;
@@ -15,19 +10,19 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import org.lwjgl.input.Keyboard;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
 import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.common.network.KeyMessage;
-import unstudio.chinacraft.common.network.KeyMessageHandler;
-
-import java.util.Hashtable;
 
 public class ListenerArmor {
     @SubscribeEvent
@@ -44,22 +39,22 @@ public class ListenerArmor {
             }
         }
         if (event.player.isSneaking()) {
-            event.player.addPotionEffect(new PotionEffect(14, 2));
-            event.player.addPotionEffect(new PotionEffect(2, 2, 3));
-            event.player.addPotionEffect(new PotionEffect(15, 8, 2));
+            event.player.addPotionEffect(new PotionEffect(Potion.getPotionById(14), 2));
+            event.player.addPotionEffect(new PotionEffect(Potion.getPotionById(2), 2, 3));
+            event.player.addPotionEffect(new PotionEffect(Potion.getPotionById(15), 8, 2));
         } else {
-            event.player.addPotionEffect(new PotionEffect(1, 2));
-            event.player.addPotionEffect(new PotionEffect(5, 2));
-            event.player.addPotionEffect(new PotionEffect(8, 2));
+            event.player.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 2));
+            event.player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 2));
+            event.player.addPotionEffect(new PotionEffect(Potion.getPotionById(8), 2));
         }
     }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void preRenderPlayer(RenderPlayerEvent.Pre event) {
-        if (event.entityPlayer.isSneaking()) {
+        if (event.getEntityPlayer().isSneaking()) {
             int i = 4;
-            for (ItemStack itemStack : event.entityPlayer.inventory.armorInventory) {
+            for (ItemStack itemStack : event.getEntityPlayer().inventory.armorInventory) {
                 i--;
                 if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
                     return;
@@ -71,14 +66,14 @@ public class ListenerArmor {
 
     @SubscribeEvent
     public void wearingChinaCrown(LivingHurtEvent event) {
-        if (event.entityLiving instanceof EntityPlayer){
-            EntityPlayer p = (EntityPlayer) event.entityLiving;
+        if (event.getEntityLiving() instanceof EntityPlayer){
+            EntityPlayer p = (EntityPlayer) event.getEntityLiving();
             if (p.inventory.armorInventory[3] != null&&p.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
                 if (p.worldObj.rand.nextInt(2)==1){
                     double percent = (p.worldObj.rand.nextInt(5)+3)/10.0;
-                    if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){
-                        event.source.getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(p), (float) (event.ammount * (1 - percent)));
-                        event.ammount = (float) (event.ammount *  percent);
+                    if (event.getSource().getSourceOfDamage()!=null&&event.getSource().getSourceOfDamage() instanceof EntityLiving){
+                        event.getSource().getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(p), (float) (event.getAmount() * (1 - percent)));
+                        event.setAmount((float) (event.getAmount() *  percent));
                     }
                 }
             }
@@ -98,7 +93,7 @@ public class ListenerArmor {
             }
         }
         if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
-            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) {
+            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.isPressed()) {
                 if(FeatureConfig.EnableDoubleJump) {
                     if (player.motionY < 0.04 && player.isAirBorne) {
                         ChinaCraft.Network.sendToServer(new KeyMessage(0));
@@ -112,8 +107,8 @@ public class ListenerArmor {
     @SubscribeEvent
     public void JumpEvent(LivingEvent.LivingJumpEvent event){
         if(!FeatureConfig.EnableDoubleJump)return;
-        if (event.entityLiving instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) event.entityLiving;
+        if (event.getEntityLiving() instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) event.getEntityLiving();
             int i = 4;
             for (ItemStack itemStack : player.inventory.armorInventory) {
                 i--;
@@ -131,8 +126,8 @@ public class ListenerArmor {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void fall(LivingFallEvent e){
-        if (!(e.entityLiving instanceof EntityPlayer)) return;
-        EntityPlayer player = (EntityPlayer) e.entityLiving;
+        if (!(e.getEntityLiving() instanceof EntityPlayer)) return;
+        EntityPlayer player = (EntityPlayer) e.getEntityLiving();
         int i = 4;
         for (ItemStack itemStack : player.inventory.armorInventory) {
             i--;
@@ -140,7 +135,7 @@ public class ListenerArmor {
                 return;
             }
         }
-        if (e.distance < 5){
+        if (e.getDistance() < 5){
             e.setCanceled(true);
         }
     }

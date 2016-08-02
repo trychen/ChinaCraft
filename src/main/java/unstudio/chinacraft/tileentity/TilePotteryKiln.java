@@ -10,9 +10,11 @@ import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.util.EnumFacing;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import unstudio.chinacraft.block.especial.BlockFirebrickStructure;
-import cpw.mods.fml.common.registry.GameRegistry;
+
+import javax.annotation.Nullable;
 
 public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 
@@ -26,18 +28,18 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
         } else {
             Item item = p_145952_0_.getItem();
 
-            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
+            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.AIR) {
                 Block block = Block.getBlockFromItem(item);
 
-                if (block == Blocks.wooden_slab) {
+                if (block == Blocks.WOODEN_SLAB) {
                     return 150;
                 }
 
-                if (block.getMaterial() == Material.wood) {
+                if (block.getDefaultState().getMaterial() == Material.WOOD) {
                     return 300;
                 }
 
-                if (block == Blocks.coal_block) {
+                if (block == Blocks.COAL_BLOCK) {
                     return 16000;
                 }
             }
@@ -46,17 +48,17 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
                 return 200;
             if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
                 return 200;
-            if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD"))
+            if (item instanceof ItemHoe && ((ItemHoe) item).getMaterialName().equals("WOOD"))
                 return 200;
-            if (item == Items.stick)
+            if (item == Items.STICK)
                 return 100;
-            if (item == Items.coal)
+            if (item == Items.COAL)
                 return 1600;
-            if (item == Items.lava_bucket)
+            if (item == Items.LAVA_BUCKET)
                 return 20000;
-            if (item == Item.getItemFromBlock(Blocks.sapling))
+            if (item == Item.getItemFromBlock(Blocks.SAPLING))
                 return 100;
-            if (item == Items.blaze_rod)
+            if (item == Items.BLAZE_ROD)
                 return 2400;
             return GameRegistry.getFuelValue(p_145952_0_);
         }
@@ -99,7 +101,13 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
         }
     }
 
+    @Nullable
     @Override
+    public ItemStack removeStackFromSlot(int index) {
+        return null;
+    }
+
+    // TODO @Override
     public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
         if (this.stack[p_70304_1_] != null) {
             ItemStack itemstack = this.stack[p_70304_1_];
@@ -119,16 +127,6 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public String getInventoryName() {
-        return null;
-    }
-
-    @Override
-    public boolean hasCustomInventoryName() {
-        return false;
-    }
-
-    @Override
     public int getInventoryStackLimit() {
         return 64;
     }
@@ -139,14 +137,36 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory(EntityPlayer player) {
+    }
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory(EntityPlayer player) {
+    }
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
         return p_94041_1_ == 2 ? false : (p_94041_1_ == 1 ? isItemFuel(p_94041_2_) : true);
+    }
+
+    @Override
+    public int getField(int id) {
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
     }
 
     public boolean isBurning() {
@@ -173,24 +193,24 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound p_145841_1_) {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setShort("BurnTime", (short) this.furnaceBurnTime);
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
+        compound.setShort("BurnTime", (short) this.furnaceBurnTime);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.stack.length; ++i) {
             if (this.stack[i] != null) {
-                NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-                nbttagcompound1.setByte("Slot", (byte) i);
-                this.stack[i].writeToNBT(nbttagcompound1);
-                nbttaglist.appendTag(nbttagcompound1);
+                NBTTagCompound compound_1 = new NBTTagCompound();
+                compound_1.setByte("Slot", (byte) i);
+                this.stack[i].writeToNBT(compound_1);
+                nbttaglist.appendTag(compound_1);
             }
         }
-        p_145841_1_.setTag("Items", nbttaglist);
+        compound.setTag("Items", nbttaglist);
+        return compound;
     }
 
-    @Override
-    public void updateEntity() {
+    public void update() {
         boolean flag = this.furnaceBurnTime > 0;
         boolean flag1 = false;
 
@@ -227,35 +247,16 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 
         if (flag1) {
             this.markDirty();
-            if (this.blockMetadata == 0) {
-                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord - 1);
-            } else if (blockMetadata == 1) {
-                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj,
-                        this.xCoord + 1, this.yCoord, this.zCoord);
-            } else if (blockMetadata == 2) {
-                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
-                        this.yCoord, this.zCoord + 1);
-            } else if (blockMetadata == 3) {
-                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj,
-                        this.xCoord - 1, this.yCoord, this.zCoord);
+            if (this.getBlockMetadata() == 0) {
+                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, pos.south());
+            } else if (getBlockMetadata() == 1) {
+                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, pos.east());
+            } else if (getBlockMetadata() == 2) {
+                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, pos.north());
+            } else if (getBlockMetadata() == 3) {
+                BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, pos.west());
             }
         }
-    }
-
-    @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return null;
-    }
-
-    @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return false;
-    }
-
-    @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return false;
     }
 
     public int getBurnTimeRemainingScaled(int i) {
@@ -266,4 +267,28 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
         return this.furnaceBurnTime * i / this.currentItemBurnTime;
     }
 
+    @Override
+    public int[] getSlotsForFace(EnumFacing side) {
+        return null;
+    }
+
+    @Override
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
+        return false;
+    }
+
+    @Override
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return false;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomName() {
+        return false;
+    }
 }

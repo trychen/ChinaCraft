@@ -12,7 +12,6 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.entity.projectile.EntitySuperArrow;
 
 /**
  * Use for nothing. Created by trychen on 15/12/6.

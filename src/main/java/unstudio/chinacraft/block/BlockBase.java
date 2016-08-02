@@ -10,8 +10,8 @@ public class BlockBase extends Block {
 
     //private IIcon icon;
 
-    public BlockBase(Material p_i45394_1_) {
-        super(p_i45394_1_);
+    public BlockBase(Material material) {
+        super(material);
     }
 
     /*@Override

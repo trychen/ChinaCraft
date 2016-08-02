@@ -1,14 +1,11 @@
 package unstudio.chinacraft.item.combat;
 
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.client.resources.I18n;
-
-import unstudio.chinacraft.client.render.item.SpecialItemRender;
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
-public class BronzeBroadSword extends ItemSword implements ISpecialEquippedRender{
+public class BronzeBroadSword extends ItemSword{
     private String jade = null;
 
     public BronzeBroadSword(ToolMaterial toolMaterial, String name) {
@@ -28,15 +25,5 @@ public class BronzeBroadSword extends ItemSword implements ISpecialEquippedRende
                     + I18n.format("item.jade_" + jade + ".name");
         }
         return super.getItemStackDisplayName(p_77653_1_);
-    }
-
-    @Override
-    public void doRender() {
-
-    }
-
-    @Override
-    public SpecialItemRender.RenderType getSpecialRenderType() {
-        return SpecialItemRender.RenderType.huge;
     }
 }

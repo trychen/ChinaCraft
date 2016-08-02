@@ -1,7 +1,5 @@
 package unstudio.chinacraft.tileentity;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -10,11 +8,13 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
-
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.item.combat.BronzeBroadSword;
 import unstudio.chinacraft.item.combat.Hammer;
 import unstudio.chinacraft.item.jade.Jade;
+
+import javax.annotation.Nullable;
+import java.util.Random;
 
 public class TileJadeBench extends TileEntity implements IInventory {
 
@@ -53,7 +53,13 @@ public class TileJadeBench extends TileEntity implements IInventory {
         }
     }
 
+    @Nullable
     @Override
+    public ItemStack removeStackFromSlot(int index) {
+        return null;
+    }
+
+    // TODO @Override
     public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
         if (p_70304_1_ >= 0 && p_70304_1_ < stack.length) {
             ItemStack itemstack = this.stack[p_70304_1_];
@@ -73,18 +79,6 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public String getInventoryName() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public boolean hasCustomInventoryName() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-    @Override
     public int getInventoryStackLimit() {
         return 64;
     }
@@ -95,14 +89,12 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public void openInventory() {
-        // TODO Auto-generated method stub
+    public void openInventory(EntityPlayer player) {
 
     }
 
     @Override
-    public void closeInventory() {
-        // TODO Auto-generated method stub
+    public void closeInventory(EntityPlayer player) {
 
     }
 
@@ -113,7 +105,26 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public void updateEntity() {
+    public int getField(int id) {
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
+    }
+
+    public void update() {
         if (getStackInSlot(0) != null) {
             if (getStackInSlot(1) != null) {
                 if (getStackInSlot(2) == null) {
@@ -213,8 +224,8 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
-        super.writeToNBT(par1NBTTagCompound);
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
         NBTTagList var2 = new NBTTagList();
         for (int var3 = 0; var3 < this.stack.length; ++var3) {
             if (this.stack[var3] != null) {
@@ -224,6 +235,17 @@ public class TileJadeBench extends TileEntity implements IInventory {
                 var2.appendTag(var4);
             }
         }
-        par1NBTTagCompound.setTag("Items", var2);
+        compound.setTag("Items", var2);
+        return compound;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomName() {
+        return false;
     }
 }

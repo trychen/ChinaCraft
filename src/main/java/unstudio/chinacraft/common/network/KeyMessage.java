@@ -1,12 +1,12 @@
 package unstudio.chinacraft.common.network;
 
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import io.netty.buffer.ByteBuf;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
 /**
  * Created by trychen on 16/7/28.
  */
-public class KeyMessage implements IMessage{
+public class KeyMessage implements IMessage {
     public int key;
 
     public KeyMessage(int key) {

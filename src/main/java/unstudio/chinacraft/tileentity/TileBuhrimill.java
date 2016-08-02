@@ -7,7 +7,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
+import net.minecraft.util.EnumFacing;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
+
+import javax.annotation.Nullable;
 
 public class TileBuhrimill extends TileEntity implements ISidedInventory {
 
@@ -48,9 +51,9 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
         }
     }
 
+    @Nullable
     @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        // TODO 自动生成的方法存根
+    public ItemStack removeStackFromSlot(int index) {
         return null;
     }
 
@@ -60,18 +63,6 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
         if (stack != null && stack.stackSize > this.getInventoryStackLimit()) {
             stack.stackSize = this.getInventoryStackLimit();
         }
-    }
-
-    @Override
-    public String getInventoryName() {
-        // TODO 自动生成的方法存根
-        return null;
-    }
-
-    @Override
-    public boolean hasCustomInventoryName() {
-        // TODO 自动生成的方法存根
-        return false;
     }
 
     @Override
@@ -85,21 +76,38 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {
-        // TODO 自动生成的方法存根
+    public void openInventory(EntityPlayer player) {
 
     }
 
     @Override
-    public void closeInventory() {
-        // TODO 自动生成的方法存根
+    public void closeInventory(EntityPlayer player) {
 
     }
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        // TODO 自动生成的方法存根
         return false;
+    }
+
+    @Override
+    public int getField(int id) {
+        return 0;
+    }
+
+    @Override
+    public void setField(int id, int value) {
+
+    }
+
+    @Override
+    public int getFieldCount() {
+        return 0;
+    }
+
+    @Override
+    public void clear() {
+
     }
 
     @Override
@@ -119,10 +127,10 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
-        super.writeToNBT(par1NBTTagCompound);
-        par1NBTTagCompound.setShort("angle", (short) this.angle);
-        par1NBTTagCompound.setShort("schedule", (short) this.schedule);
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
+        compound.setShort("angle", (short) this.angle);
+        compound.setShort("schedule", (short) this.schedule);
         NBTTagList var2 = new NBTTagList();
         for (int var3 = 0; var3 < this.stack.length; ++var3) {
             if (this.stack[var3] != null) {
@@ -132,12 +140,12 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                 var2.appendTag(var4);
             }
         }
-        par1NBTTagCompound.setTag("Items", var2);
+        compound.setTag("Items", var2);
+        return compound;
     }
 
-    @Override
-    public void updateEntity() {
-        super.updateEntity();
+    public void update() {
+
         if (getStackInSlot(0) != null) {
             if (getStackInSlot(1) != null) {
                 BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0), getStackInSlot(1));
@@ -260,17 +268,27 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return null;
+    public int[] getSlotsForFace(EnumFacing side) {
+        return new int[0];
     }
 
     @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
+    public boolean canInsertItem(int index, ItemStack itemStackIn, EnumFacing direction) {
         return false;
     }
 
     @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
+    public boolean canExtractItem(int index, ItemStack stack, EnumFacing direction) {
+        return false;
+    }
+
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    public boolean hasCustomName() {
         return false;
     }
 }

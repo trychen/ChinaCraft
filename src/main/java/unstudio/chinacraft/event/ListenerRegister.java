@@ -1,8 +1,6 @@
 package unstudio.chinacraft.event;
 
 import net.minecraftforge.common.MinecraftForge;
-
-import cpw.mods.fml.common.FMLCommonHandler;
 import unstudio.chinacraft.util.annotation.AnnotationClassGetter;
 
 import java.util.List;
@@ -22,7 +20,6 @@ public class ListenerRegister {
     }
 
     public static void registerListener(Object listener) {
-        FMLCommonHandler.instance().bus().register(listener);
         MinecraftForge.EVENT_BUS.register(listener);
     }
 

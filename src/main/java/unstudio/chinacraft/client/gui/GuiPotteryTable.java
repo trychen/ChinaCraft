@@ -5,11 +5,10 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.client.resources.I18n;
-
 import org.lwjgl.opengl.GL11;
-
 import unstudio.chinacraft.inventory.ContainerPotteryTable;
+
+import java.io.IOException;
 
 public class GuiPotteryTable extends GuiContainer {
 
@@ -42,7 +41,7 @@ public class GuiPotteryTable extends GuiContainer {
     }
 
     @Override
-    protected void keyTyped(char par1, int par2) {
+    protected void keyTyped(char par1, int par2) throws IOException {
         super.keyTyped(par1, par2);
     }
 }

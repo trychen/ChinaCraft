@@ -1,19 +1,10 @@
 package unstudio.chinacraft.client.render.item;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.client.model.ModelExtendBlock;
-import unstudio.chinacraft.client.model.block.ModelSericultureFrame;
-
 /**
  * 渲染养蚕架的物品
  */
-public class ItemSericultureFrameRenderer implements IItemRenderer {
+public class ItemSericultureFrameRenderer /*implements IItemRenderer*/ {
+    /*
     private ModelExtendBlock model;
     private ResourceLocation texture;
 
@@ -84,5 +75,5 @@ public class ItemSericultureFrameRenderer implements IItemRenderer {
         // Minecraft.getMinecraft().getTextureManager().bindTexture(this.texture);
         // this.model.render(0.0625F);
         // GL11.glPopMatrix();
-    }
+    }*/
 }

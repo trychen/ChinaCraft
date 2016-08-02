@@ -1,18 +1,15 @@
 package unstudio.chinacraft.item.combat;
 
-import java.util.List;
-
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
-import net.minecraft.client.resources.I18n;
-
-import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
-import unstudio.chinacraft.client.render.item.SpecialItemRender;
 import unstudio.chinacraft.common.ChinaCraft;
 
-public class BLGiantSword extends ItemSword implements ISpecialEquippedRender{
+import java.util.List;
+
+public class BLGiantSword extends ItemSword /*implements ISpecialEquippedRender*/{
     public BLGiantSword(ToolMaterial toolMaterial) {
         super(toolMaterial);
         setUnlocalizedName("yanlung_giantknife");
@@ -41,12 +38,4 @@ public class BLGiantSword extends ItemSword implements ISpecialEquippedRender{
         p_77624_3_.add(I18n.format("item.yanlung_giantknife.lore"));
     }
 
-    @Override
-    public void doRender() {
-    }
-
-    @Override
-    public SpecialItemRender.RenderType getSpecialRenderType() {
-        return SpecialItemRender.RenderType.huge;
-    }
 }

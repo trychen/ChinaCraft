@@ -1,18 +1,9 @@
 package unstudio.chinacraft.client.render.item;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.client.model.ModelExtendBlock;
-
 /**
  * Created by trych on 2016/1/2.
  */
-public class ModelBlockItemRenderer implements IItemRenderer {
+public class ModelBlockItemRenderer /*implements IItemRenderer*/ {/*
     private ModelExtendBlock model;
     private ResourceLocation texture;
 
@@ -61,5 +52,5 @@ public class ModelBlockItemRenderer implements IItemRenderer {
         if (type != IItemRenderer.ItemRenderType.INVENTORY) {
             model.render(0.0625F);
         }
-    }
+    }*/
 }

@@ -1,12 +1,11 @@
 package unstudio.chinacraft.common.network;
 
-import java.io.IOException;
-
+import io.netty.buffer.ByteBuf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import io.netty.buffer.ByteBuf;
+import java.io.IOException;
 
 public class RedPacketMessage implements IMessage { // 包类
 
@@ -31,7 +30,7 @@ public class RedPacketMessage implements IMessage { // 包类
     public void toBytes(ByteBuf buf) {
         try {
             (new PacketBuffer(buf)).writeItemStackToBuffer(this.itemstack);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

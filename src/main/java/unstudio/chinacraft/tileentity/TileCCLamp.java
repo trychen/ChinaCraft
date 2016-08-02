@@ -20,9 +20,10 @@ public class TileCCLamp extends TileModelBlock {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound nbtTagCompound) {
-        super.writeToNBT(nbtTagCompound);
+    public NBTTagCompound writeToNBT(NBTTagCompound nbtTagCompound) {
+        nbtTagCompound = super.writeToNBT(nbtTagCompound);
         nbtTagCompound.setBoolean("opened", opened);
+        return nbtTagCompound;
     }
 
     @Override

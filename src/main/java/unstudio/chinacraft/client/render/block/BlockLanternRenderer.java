@@ -1,20 +1,8 @@
 package unstudio.chinacraft.client.render.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
-
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.block.model.BlockCCLantern;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-
 @Deprecated
-public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
-
+public class BlockLanternRenderer /*implements ISimpleBlockRenderingHandler*/ {
+/* TODO F**k ALL
     public final static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     public static void drawInventoryBlock(Block block, int metadata, RenderBlocks renderer) {
@@ -85,5 +73,5 @@ public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
     public int getRenderId() {
         return renderID;
     }
-
+*/
 }

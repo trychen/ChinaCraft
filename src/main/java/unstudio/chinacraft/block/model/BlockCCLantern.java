@@ -1,46 +1,48 @@
 package unstudio.chinacraft.block.model;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class BlockCCLantern extends Block {
 
 
     public BlockCCLantern() {
-        super(Material.wood);
+        super(Material.WOOD);
         setUnlocalizedName("lantern");
         setCreativeTab(ChinaCraft.tabCore);
         setLightLevel(1.0F);
-        setSoundType(SoundType.Wood);
+        setSoundType(SoundType.WOOD);
     }
 
     @Override
-    public void addCollisionBoxesToList(World worldIn, BlockPos pos, IBlockState state, AxisAlignedBB mask,
-                                        List<AxisAlignedBB> list, Entity collidingEntity) {
-        this.setBlockBounds(0.0625F * 3, 0.0F, 0.0625F * 3, 0.0625F * 13, 1.0F, 0.0625F * 13);
-        super.addCollisionBoxesToList(worldIn, pos, state, mask, list, collidingEntity);
+    public void addCollisionBoxToList(IBlockState state, World worldIn, BlockPos pos, AxisAlignedBB entityBox, List<AxisAlignedBB> collidingBoxes, @Nullable Entity entityIn) {
+        //TODO this.setBlockBounds(0.0625F * 3, 0.0F, 0.0625F * 3, 0.0625F * 13, 1.0F, 0.0625F * 13);
+
+        super.addCollisionBoxToList(state, worldIn, pos, entityBox, collidingBoxes, entityIn);
         this.setBlockBoundsForItemRender();
     }
 
-    @Override
+    // TODO @Override
     public void setBlockBoundsForItemRender() {
-        this.setBlockBounds(0.0625F * 3, 0.0F, 0.0625F * 3, 0.0625F * 13, 1.0F, 0.0625F * 13);
+        //TODO this.setBlockBounds(0.0625F * 3, 0.0F, 0.0625F * 3, 0.0625F * 13, 1.0F, 0.0625F * 13);
     }
 
     @Override
-    public boolean isOpaqueCube() {
+    public boolean isOpaqueCube(IBlockState state) {
         return false;
     }
 
-    @Override
+    // TODO @Override
     public int getRenderType() {
         return 1;
     }

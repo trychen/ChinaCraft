@@ -21,10 +21,10 @@ public class EntityBlackDog extends EntityWolf {
     @Override
     public EntityWolf createChild(EntityAgeable p_90011_1_) {
         EntityBlackDog entitywolf = new EntityBlackDog(this.worldObj);
-        String s = this.func_152113_b();
+        String s = this.getEntityString();
 
         if (s != null && s.trim().length() > 0) {
-            entitywolf.func_152115_b(s);
+//            TODO WTF entitywolf.func_152115_b(s);
             entitywolf.setTamed(true);
         }
 
@@ -34,7 +34,7 @@ public class EntityBlackDog extends EntityWolf {
     @Override
     public void onDeath(DamageSource p_70645_1_) {
         if (p_70645_1_.getSourceOfDamage() != null && p_70645_1_.getSourceOfDamage() instanceof EntityPlayer){
-            ((EntityPlayer) p_70645_1_.getSourceOfDamage()).addPotionEffect(new PotionEffect(Potion.wither.getId(), ChinaCraft.rand.nextInt(70)+30));
+            ((EntityPlayer) p_70645_1_.getSourceOfDamage()).addPotionEffect(new PotionEffect(Potion.getPotionFromResourceLocation("minecraft:wither"), ChinaCraft.rand.nextInt(70)+30));
         }
         super.onDeath(p_70645_1_);
     }

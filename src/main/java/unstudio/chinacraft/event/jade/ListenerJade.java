@@ -1,11 +1,11 @@
 package unstudio.chinacraft.event.jade;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumHand;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import unstudio.chinacraft.common.ChinaCraft;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Created by trychen on 15/11/18.
@@ -16,7 +16,7 @@ public class ListenerJade {
         if (event.itemStack.getItem() == ChinaCraft.jadeGreen2Item) {
             System.out.println(event.itemStack.getItemDamage());
             if (event.itemStack.getItemDamage() == 0) {
-                event.entityPlayer.heal(6);
+                event.getEntityPlayer().heal(6);
                 event.itemStack.setItemDamage(event.itemStack.getMaxDamage() - 1);
             }
         }
@@ -24,18 +24,18 @@ public class ListenerJade {
 
     @SubscribeEvent
     public void AttackEntityEvent(LivingHurtEvent event) {
-        if (event.entity instanceof EntityPlayer) {
-            EntityPlayer entityPlayer = (EntityPlayer) event.entity;
-            if (event.entity.worldObj.rand.nextInt(6) == 3) {
-                if (entityPlayer.getHeldItem() != null
-                        && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
-                    event.ammount = 0.0f;
+        if (event.getEntity() instanceof EntityPlayer) {
+            EntityPlayer entityPlayer = (EntityPlayer) event.getEntity();
+            if (event.getEntity().worldObj.rand.nextInt(6) == 3) {
+                if (entityPlayer.getHeldItem(EnumHand.MAIN_HAND) != null
+                        && entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
+                    event.setAmount(0.0f);
                     event.setCanceled(true);
                 } else {
                     for (int time = 0; time < 9; time++) {
                         if (entityPlayer.inventory.mainInventory[time] != null) {
                             if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
-                                event.ammount = 0.0f;
+                                event.setAmount(0.0f);
                                 event.setCanceled(true);
                             }
                         }
@@ -43,22 +43,22 @@ public class ListenerJade {
                 }
                 return;
             }
-            if (entityPlayer.getHeldItem() != null
-                    && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreen2Item)) {
-                if (entityPlayer.getHeldItem().getItemDamage() < entityPlayer.getHeldItem().getMaxDamage()) {
+            if (entityPlayer.getHeldItem(EnumHand.MAIN_HAND) != null
+                    && entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ChinaCraft.jadeGreen2Item)) {
+                if (entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItemDamage() < entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getMaxDamage()) {
                     PlayerUseJadeEvent.MainInventory e = new PlayerUseJadeEvent.MainInventory(entityPlayer,
-                            entityPlayer.getHeldItem());
+                            entityPlayer.getHeldItem(EnumHand.MAIN_HAND));
                     if (MinecraftForge.EVENT_BUS.post(e))
                         return;
-                    if (entityPlayer.getHeldItem().getItemDamage() >= 2)
-                        entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 2);
+                    if (entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItemDamage() >= 2)
+                        entityPlayer.getHeldItem(EnumHand.MAIN_HAND).setItemDamage(entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItemDamage() - 2);
                     else {
-                        entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 1);
+                        entityPlayer.getHeldItem(EnumHand.MAIN_HAND).setItemDamage(entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItemDamage() - 1);
                     }
                 }
             } else {
-                if (entityPlayer.getHeldItem() != null
-                        && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
+                if (entityPlayer.getHeldItem(EnumHand.MAIN_HAND) != null
+                        && entityPlayer.getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
                     for (int time = 0; time < 9; time++) {
                         if (entityPlayer.inventory.mainInventory[time] != null) {
                             if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {

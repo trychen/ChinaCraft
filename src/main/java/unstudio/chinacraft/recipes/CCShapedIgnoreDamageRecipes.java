@@ -38,6 +38,19 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
         return this.recipeOutput;
     }
 
+    @Override
+    public ItemStack[] getRemainingItems(InventoryCrafting inv) {
+        ItemStack[] aitemstack = new ItemStack[inv.getSizeInventory()];
+
+        for (int i = 0; i < aitemstack.length; ++i)
+        {
+            ItemStack itemstack = inv.getStackInSlot(i);
+            aitemstack[i] = net.minecraftforge.common.ForgeHooks.getContainerItem(itemstack);
+        }
+
+        return aitemstack;
+    }
+
     /**
      * Used to check if a recipe matches current crafting inventory
      */
@@ -124,7 +137,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
 
                 if (itemstack1 != null && itemstack1.hasTagCompound())
                 {
-                    itemstack.setTagCompound((NBTTagCompound)itemstack1.stackTagCompound.copy());
+                    itemstack.setTagCompound((NBTTagCompound)itemstack1.getTagCompound().copy());
                 }
             }
         }

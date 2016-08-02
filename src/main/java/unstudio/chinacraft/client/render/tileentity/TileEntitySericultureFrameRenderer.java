@@ -17,7 +17,7 @@ public class TileEntitySericultureFrameRenderer extends TileEntitySpecialRendere
     public TileEntitySericultureFrameRenderer() {}
 
     @Override
-    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
+    public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale, int destroyStage) {
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
         GL11.glPushMatrix();

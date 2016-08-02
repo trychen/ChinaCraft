@@ -1,18 +1,6 @@
 package unstudio.chinacraft.client.render.item;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.entity.Entity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.client.model.block.ModelPotteryBase;
-import unstudio.chinacraft.util.PotteryManager;
-
-public class ItemPotteryBlockRenderer implements IItemRenderer {
+public class ItemPotteryBlockRenderer/* implements IItemRenderer*/ {/*
 
     private ModelPotteryBase model;
     private TileEntity tile;
@@ -48,5 +36,5 @@ public class ItemPotteryBlockRenderer implements IItemRenderer {
                 .bindTexture(new ResourceLocation("chinacraft:textures/models/block/empty.png"));
         model.render((Entity) data[1], 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
         GL11.glPopMatrix();
-    }
+    }*/
 }

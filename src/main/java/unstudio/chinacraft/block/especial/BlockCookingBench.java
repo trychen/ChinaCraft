@@ -1,6 +1,7 @@
 package unstudio.chinacraft.block.especial;
 
 import net.minecraft.block.BlockContainer;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.IBlockState;
@@ -12,14 +13,17 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import unstudio.chinacraft.client.gui.GuiID;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileCookingBench;
 
+import javax.annotation.Nullable;
 import java.util.Random;
 
 public class BlockCookingBench extends BlockContainer {
@@ -29,13 +33,13 @@ public class BlockCookingBench extends BlockContainer {
     //private IIcon top_off, top_on, side, bottom, front_off, front_on;
 
     public BlockCookingBench(boolean fire) {
-        super(Material.rock);
+        super(Material.ROCK);
         this.fire = fire;
         setUnlocalizedName("cooking_bench");
         setHardness(1.5F);
         setResistance(10.0F);
         setLightLevel(fire ? 1.0F : 0.0F);
-        setSoundType(SoundType.Stone);
+        setSoundType(SoundType.STONE);
         setHarvestLevel("pickaxe", 0);
         if (!fire)
             setCreativeTab(ChinaCraft.tabCore);
@@ -96,7 +100,7 @@ public class BlockCookingBench extends BlockContainer {
     }
 
     @Override
-    public void randomDisplayTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+    public void randomDisplayTick(IBlockState state, World worldIn, BlockPos pos, Random rand) {
         if (this.fire) {
             EnumFacing enumfacing = (EnumFacing)state.getValue(FACING);
             double d0 = (double)pos.getX() + 0.5D;
@@ -142,31 +146,34 @@ public class BlockCookingBench extends BlockContainer {
     }
 
     @Override
-    public boolean hasComparatorInputOverride() {
+    public boolean hasComparatorInputOverride(IBlockState state) {
         return true;
     }
 
     @Override
-    public int getComparatorInputOverride(World worldIn, BlockPos pos) {
+    public int getComparatorInputOverride(IBlockState blockState, World worldIn, BlockPos pos) {
         return Container.calcRedstoneFromInventory(
                 (IInventory) worldIn.getTileEntity(pos));
     }
 
     @Override
-    public Item getItem(World worldIn, BlockPos pos) {
-        return Item.getItemFromBlock(ChinaCraft.cooking_bench_off);
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+        return new ItemStack(Item.getItemFromBlock(ChinaCraft.cooking_bench_off));
     }
+
+
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(ChinaCraft.cooking_bench_off);
     }
 
     @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-                                    EnumFacing side, float hitX, float hitY, float hitZ) {
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand,
+                                    @Nullable ItemStack heldItem, EnumFacing side, float hitX, float hitY, float hitZ) {
         if (worldIn.isRemote)
             return true;
         playerIn.openGui(ChinaCraft.instance, GuiID.GUI_CookingBench, worldIn, pos.getX(), pos.getY(), pos.getZ());
         return true;
     }
+
 }

@@ -1,17 +1,16 @@
 package unstudio.chinacraft.inventory;
 
-import java.util.Iterator;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
-import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import unstudio.chinacraft.tileentity.TilePotteryKiln;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Iterator;
 
 public class ContainerPotteryKiln extends Container {
 
@@ -81,14 +80,6 @@ public class ContainerPotteryKiln extends Container {
     }
 
     @Override
-    public void addCraftingToCrafters(ICrafting par1iCrafting) {
-        // TODO Auto-generated method stub
-        super.addCraftingToCrafters(par1iCrafting);
-        par1iCrafting.sendProgressBarUpdate(this, 0, this.tile.furnaceBurnTime);
-        par1iCrafting.sendProgressBarUpdate(this, 1, this.tile.currentItemBurnTime);
-    }
-
-    @Override
     @SideOnly(Side.CLIENT)
     public void updateProgressBar(int par1, int par2) {
         if (par1 == 0) {
@@ -103,9 +94,9 @@ public class ContainerPotteryKiln extends Container {
     public void detectAndSendChanges() {
         // TODO Auto-generated method stub
         super.detectAndSendChanges();
-        Iterator var1 = this.crafters.iterator();
+        Iterator var1 = this.listeners.iterator();
         while (var1.hasNext()) {
-            ICrafting var2 = (ICrafting) var1.next();
+            IContainerListener var2 = (IContainerListener) var1.next();
 
             if (this.lastFurnaceBurnTimet != this.tile.furnaceBurnTime) {
                 var2.sendProgressBarUpdate(this, 0, this.tile.furnaceBurnTime);

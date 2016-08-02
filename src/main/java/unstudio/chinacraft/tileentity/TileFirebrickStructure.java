@@ -1,7 +1,10 @@
 package unstudio.chinacraft.tileentity;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class TileFirebrickStructure extends TileEntity {
 
@@ -18,20 +21,21 @@ public class TileFirebrickStructure extends TileEntity {
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound p_145841_1_) {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setInteger("tilex", x);
-        p_145841_1_.setInteger("tiley", y);
-        p_145841_1_.setInteger("tilez", z);
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
+        compound.setInteger("tilex", x);
+        compound.setInteger("tiley", y);
+        compound.setInteger("tilez", z);
+        return compound;
     }
 
     @Override
-    public boolean canUpdate() {
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
         return false;
     }
 
     public TileEntity getTilePotteryKiln() {
-        return worldObj.getTileEntity(x, y, z);
+        return worldObj.getTileEntity(new BlockPos(x, y, z));
     }
 
     public void setPosition(int x, int y, int z) {

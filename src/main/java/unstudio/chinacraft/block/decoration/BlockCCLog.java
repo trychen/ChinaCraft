@@ -2,7 +2,7 @@ package unstudio.chinacraft.block.decoration;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLog;
-import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 
 /**
@@ -74,9 +74,9 @@ public class BlockCCLog extends BlockLog {
         return i;
     }
 
-    protected BlockState createBlockState()
+    protected BlockStateContainer createBlockState()
     {
-        return new BlockState(this, LOG_AXIS);
+        return new BlockStateContainer(this, LOG_AXIS);
     }
     /*@Override
     @SideOnly(Side.CLIENT)

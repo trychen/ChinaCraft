@@ -1,27 +1,31 @@
 package unstudio.chinacraft.tileentity;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class TilePotteryBase extends TileEntity {
 
     private String potteryType;
 
     @Override
-    public boolean canUpdate() {
+    public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
         return false;
     }
 
     @Override
-    public void writeToNBT(NBTTagCompound p_145841_1_) {
-        super.writeToNBT(p_145841_1_);
-        p_145841_1_.setString("PotteryType", potteryType);
+    public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+        compound = super.writeToNBT(compound);
+        compound.setString("PotteryType", potteryType);
+        return compound;
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound p_145839_1_) {
-        super.readFromNBT(p_145839_1_);
-        potteryType = p_145839_1_.getString("PotteryType");
+    public void readFromNBT(NBTTagCompound compound) {
+        super.readFromNBT(compound);
+        potteryType = compound.getString("PotteryType");
     }
 
     public String getPotteryType() {

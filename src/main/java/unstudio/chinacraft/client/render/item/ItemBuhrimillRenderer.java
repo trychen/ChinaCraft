@@ -1,16 +1,8 @@
 package unstudio.chinacraft.client.render.item;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
-
-import org.lwjgl.opengl.GL11;
-
-import unstudio.chinacraft.client.model.block.ModelBuhrimill;
-import unstudio.chinacraft.client.model.ModelExtendBlock;
-
-public class ItemBuhrimillRenderer implements IItemRenderer {
+@Deprecated
+public class ItemBuhrimillRenderer /*implements IItemRenderer*/ {
+    /* Buggy, unused
     private ModelExtendBlock model;
     private ResourceLocation texture;
 
@@ -82,4 +74,5 @@ public class ItemBuhrimillRenderer implements IItemRenderer {
         // this.model.render(0.0625F);
         // GL11.glPopMatrix();
     }
+    */
 }

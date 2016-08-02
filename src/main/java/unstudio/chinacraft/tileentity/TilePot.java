@@ -8,17 +8,12 @@ public class TilePot extends TileCooker{
 	}
 	
 	@Override
-	public void readFromNBT(NBTTagCompound p_145839_1_) {
-		super.readFromNBT(p_145839_1_);
+	public void readFromNBT(NBTTagCompound compound) {
+		super.readFromNBT(compound);
 	}
 	
 	@Override
-	public void writeToNBT(NBTTagCompound p_145841_1_) {
-		super.writeToNBT(p_145841_1_);
-	}
-	
-	@Override
-	public void updateEntity() {
-		
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
+		return super.writeToNBT(compound);
 	}
 }

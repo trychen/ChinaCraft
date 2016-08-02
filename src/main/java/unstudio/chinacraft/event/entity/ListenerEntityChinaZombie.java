@@ -1,7 +1,7 @@
 package unstudio.chinacraft.event.entity;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 
 /**
@@ -10,7 +10,7 @@ import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 public class ListenerEntityChinaZombie {
     @SubscribeEvent
     public void china(LivingFallEvent event){
-        if (event.entity instanceof EntityChinaZombie){
+        if (event.getEntity() instanceof EntityChinaZombie){
             event.setCanceled(true);
         }
     }

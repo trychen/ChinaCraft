@@ -1,19 +1,8 @@
 package unstudio.chinacraft.client.render.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockLiquid;
-import net.minecraft.client.renderer.EntityRenderer;
-import net.minecraft.client.renderer.RenderBlocks;
-import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.util.IIcon;
-import net.minecraft.world.IBlockAccess;
-
-import unstudio.chinacraft.block.especial.BlockWoodenBucket;
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-
-public class BlockWoodenBucketRenderer implements ISimpleBlockRenderingHandler {
-
+@Deprecated
+public class BlockWoodenBucketRenderer /*implements ISimpleBlockRenderingHandler*/ {
+/* TODO Buggy, disabled
     public final static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
     @Override
@@ -69,5 +58,5 @@ public class BlockWoodenBucketRenderer implements ISimpleBlockRenderingHandler {
     public int getRenderId() {
         return renderID;
     }
-
+*/
 }

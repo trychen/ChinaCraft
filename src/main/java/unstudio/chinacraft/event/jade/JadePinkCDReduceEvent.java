@@ -1,9 +1,9 @@
 package unstudio.chinacraft.event.jade;
 
-import java.util.UUID;
+import net.minecraftforge.fml.common.eventhandler.Cancelable;
+import net.minecraftforge.fml.common.eventhandler.Event;
 
-import cpw.mods.fml.common.eventhandler.Cancelable;
-import cpw.mods.fml.common.eventhandler.Event;
+import java.util.UUID;
 
 @Cancelable
 public class JadePinkCDReduceEvent extends Event {
