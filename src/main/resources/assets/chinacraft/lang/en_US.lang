@@ -34,6 +34,8 @@ item.hammer_bronze.name=Bronze Hammer
 item.hammer_stone.name=Stone Hammer
 item.jade_knife.name=Jade Cutting Knife
 item.art_knife.name=Art Cutting Knife
+item.buddhist_cane.name=Buddhist monk's staff
+item.buddhist_cane.lore=
 item.spiritual_magic_figures.name=Spiritual Magic Paper
 item.spiritual_magic_figures_fire.name=Fire Spiritual Magic Paper
 item.spiritual_magic_figures_fire.lore=To Make Entity be Burn
@@ -231,3 +233,5 @@ entity.chinazombie.name=China Zombie
 
 VersionChecker.perfix=Found New Version!Click to Download.
 VersionChecker.version=Latest Version: !new ,Currect Version: !old .
+
+death.attack.continuedLife=%1$s lost his life in order to heal other creature

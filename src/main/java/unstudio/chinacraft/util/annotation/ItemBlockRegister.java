@@ -76,7 +76,6 @@ public class ItemBlockRegister {
                             SlabRegister ann = f.getAnnotation(SlabRegister.class);
                             name = ann.name();
                             try {
-                                System.out.println("Registing " + name);
                                 GameRegistry.registerBlock((Block) o, ItemCCSlab.class,name,(Block) c.getField(ann.first()).get(null),(Block) c.getField(ann.second()).get(null),ann.second().equalsIgnoreCase(f.getName()));
                             } catch (IllegalAccessException e) {
                                 e.printStackTrace();
