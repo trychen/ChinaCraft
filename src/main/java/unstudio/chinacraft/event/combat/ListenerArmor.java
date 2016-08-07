@@ -90,6 +90,7 @@ public class ListenerArmor {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void key(InputEvent.KeyInputEvent event){
+        if(!FeatureConfig.EnableDoubleJump)return;
         EntityPlayer player = Minecraft.getMinecraft().thePlayer;
         int i = 4;
         for (ItemStack itemStack : player.inventory.armorInventory) {
@@ -98,11 +99,7 @@ public class ListenerArmor {
                 return;
             }
         }
-        if (FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.getIsKeyPressed()||FMLClientHandler.instance().getClient().gameSettings.keyBindAttack.getIsKeyPressed()){
-            event.setCanceled(true);
-        }
 
-        if(!FeatureConfig.EnableDoubleJump)return;
         if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
             if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) {
                 if(FeatureConfig.EnableDoubleJump) {
