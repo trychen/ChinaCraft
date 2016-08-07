@@ -3,10 +3,11 @@ package unstudio.chinacraft.item;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class DouJiangBucket extends Item
+public class DouJiangBucket extends ItemBucketMilk
 {
 
     public DouJiangBucket()
