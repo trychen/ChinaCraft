@@ -19,6 +19,7 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import org.lwjgl.input.Keyboard;
 import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -36,6 +37,7 @@ public class ListenerArmor {
             NBTTagCompound tCompound = event.player.getEntityData();
             if (tCompound.hasKey("nightClothesHasJumped"))tCompound.removeTag("nightClothesHasJumped");
         }
+        if (event.player.isAirBorne||!event.player.onGround) return;
         int i = 4;
         for (ItemStack itemStack : event.player.inventory.armorInventory) {
             i--;
@@ -46,7 +48,7 @@ public class ListenerArmor {
         if (event.player.isSneaking()) {
             event.player.addPotionEffect(new PotionEffect(14, 2));
             event.player.addPotionEffect(new PotionEffect(2, 2, 3));
-            event.player.addPotionEffect(new PotionEffect(15, 8, 2));
+            event.player.addPotionEffect(new PotionEffect(15, 8));
         } else {
             event.player.addPotionEffect(new PotionEffect(1, 2));
             event.player.addPotionEffect(new PotionEffect(5, 2));
@@ -88,7 +90,6 @@ public class ListenerArmor {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void key(InputEvent.KeyInputEvent event){
-        if(!FeatureConfig.EnableDoubleJump)return;
         EntityPlayer player = Minecraft.getMinecraft().thePlayer;
         int i = 4;
         for (ItemStack itemStack : player.inventory.armorInventory) {
@@ -97,6 +98,11 @@ public class ListenerArmor {
                 return;
             }
         }
+        if (FMLClientHandler.instance().getClient().gameSettings.keyBindUseItem.getIsKeyPressed()||FMLClientHandler.instance().getClient().gameSettings.keyBindAttack.getIsKeyPressed()){
+            event.setCanceled(true);
+        }
+
+        if(!FeatureConfig.EnableDoubleJump)return;
         if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
             if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) {
                 if(FeatureConfig.EnableDoubleJump) {
@@ -106,6 +112,21 @@ public class ListenerArmor {
                 }
             }
         }
+    }
+
+    @SubscribeEvent
+    public void attack(AttackEntityEvent e){
+        EntityPlayer player = e.entityPlayer;
+        if (!player.isSneaking()) return;
+        if (player.isAirBorne||!player.onGround) return;
+        int i = 4;
+        for (ItemStack itemStack : player.inventory.armorInventory) {
+            i--;
+            if (itemStack == null || itemStack.getItem() != ChinaCraft.nightClothes[i]) {
+                return;
+            }
+        }
+        e.setCanceled(true);
     }
 
 

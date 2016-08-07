@@ -20,7 +20,7 @@ public class ListenerGreenJade {
         if (e.player.getHeldItem() != null) {
             if (e.player.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
                 if (e.player.isAirBorne && e.player.isSneaking()) {
-                    e.player.motionY = -0.1;
+                    e.player.motionY -= 0.2;
                     e.player.motionX *= 1.02D;
                     e.player.motionZ *= 1.02D;
                 }
@@ -32,35 +32,29 @@ public class ListenerGreenJade {
     public void DoubleJump(LivingEvent.LivingJumpEvent event) {
         if (event.entity instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
-            if (((EntityPlayer) event.entity).getHeldItem() != null) {
+            if (entityPlayer.getHeldItem() != null) {
                 if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                    event.entity.motionY += 0.2;
+                    entityPlayer.motionY += 0.2;
                     FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
                             event.entity.posZ - 0.5);
                     return;
+                } else if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreenItem)) {
+                    entityPlayer.motionY += 0.2;
+                    FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5,
+                            event.entity.posY - 2, event.entity.posZ - 0.5);
+                    return;
                 }
             }
+
             for (int time = 0; time < 9; time++) {
                 if (entityPlayer.inventory.mainInventory[time] != null) {
-                    if (entityPlayer.getHeldItem() != null) {
-                        if (entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                            break;
-                        } else {
-                            if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
-                                event.entity.motionY += 1.8;
-                                FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5,
-                                        event.entity.posY - 2, event.entity.posZ - 0.5);
-                                break;
-                            }
-                        }
-                    } else {
-                        if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
-                            event.entity.motionY *= 1.8;
-                            FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
-                                    event.entity.posZ - 0.5);
-                            break;
-                        }
+                    if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreenItem)) {
+                        entityPlayer.motionY += 0.2;
+                        FxHelper.spawnEffects(entityPlayer.worldObj, event.entity.posX - 0.5, event.entity.posY - 2,
+                                event.entity.posZ - 0.5);
+                        return;
                     }
+
                 }
             }
         }
@@ -79,16 +73,16 @@ public class ListenerGreenJade {
                         if (event.distance < 6f) {
                             int c = EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
                                     entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 4.0f);
-                            entityPlayer.getHeldItem().damageItem(c>1?c/2:1,entityPlayer);
+                            entityPlayer.getHeldItem().damageItem(c > 1 ? c / 2 : 1, entityPlayer);
                         } else {
                             if (event.distance < 30f) {
                                 int c = EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
                                         entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 9.0f);
-                                entityPlayer.getHeldItem().damageItem(c,entityPlayer);
+                                entityPlayer.getHeldItem().damageItem(c, entityPlayer);
                             } else {
                                 int c = EntityMethod.attackAroundEntity(entityPlayer, entityPlayer.posX, entityPlayer.posY,
                                         entityPlayer.posZ, DamageSource.causePlayerDamage(entityPlayer), 17.0f);
-                                entityPlayer.getHeldItem().damageItem(c*2,entityPlayer);
+                                entityPlayer.getHeldItem().damageItem(c * 2, entityPlayer);
                             }
                         }
                     }
@@ -110,7 +104,7 @@ public class ListenerGreenJade {
                     for (EntityMob entityMob : nearbyMobsList) {
                         entityMob.setFire(3);
                     }
-                    entityPlayer.getHeldItem().damageItem(nearbyMobsList.size() > 1?nearbyMobsList.size()/2:1, entityPlayer);
+                    entityPlayer.getHeldItem().damageItem(nearbyMobsList.size() > 1 ? nearbyMobsList.size() / 2 : 1, entityPlayer);
                 }
             }
             if (event.distance > 2.0f) {
