@@ -60,7 +60,6 @@ public class ListenerJade {
                                     itemStack.setItemDamage(itemStack.getItemDamage() - 1);
                                 }
                             } else if ((entityPlayer.getHealth() - event.ammount) < 0){ //如果是致命一击就自动回血
-                                System.out.println("StartHeal");
                                 entityPlayer.heal(5);
                                 itemStack.setItemDamage(itemStack.getMaxDamage() - 1);
                             }
