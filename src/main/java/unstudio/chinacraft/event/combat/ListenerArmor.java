@@ -37,7 +37,7 @@ public class ListenerArmor {
             NBTTagCompound tCompound = event.player.getEntityData();
             if (tCompound.hasKey("nightClothesHasJumped"))tCompound.removeTag("nightClothesHasJumped");
         }
-        if (event.player.isAirBorne||!event.player.onGround) return;
+
         int i = 4;
         for (ItemStack itemStack : event.player.inventory.armorInventory) {
             i--;
@@ -45,7 +45,7 @@ public class ListenerArmor {
                 return;
             }
         }
-        if (event.player.isSneaking()) {
+        if (event.player.isSneaking()&&(event.player.isAirBorne||!event.player.onGround)) {
             event.player.addPotionEffect(new PotionEffect(14, 2));
             event.player.addPotionEffect(new PotionEffect(2, 2, 3));
             event.player.addPotionEffect(new PotionEffect(15, 8));

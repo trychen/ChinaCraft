@@ -1,6 +1,7 @@
 package unstudio.chinacraft.event.jade;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 
@@ -14,9 +15,8 @@ public class ListenerJade {
     @SubscribeEvent
     public void useitem(PlayerUseJadeEvent.ItemRightClick event) {
         if (event.itemStack.getItem() == ChinaCraft.jadeGreen2Item) {
-            System.out.println(event.itemStack.getItemDamage());
             if (event.itemStack.getItemDamage() == 0) {
-                event.entityPlayer.heal(6);
+                event.entityPlayer.heal(5);
                 event.itemStack.setItemDamage(event.itemStack.getMaxDamage() - 1);
             }
         }
@@ -31,29 +31,41 @@ public class ListenerJade {
                         && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordPink)) {
                     event.ammount = 0.0f;
                     event.setCanceled(true);
+                    return;
                 } else {
                     for (int time = 0; time < 9; time++) {
                         if (entityPlayer.inventory.mainInventory[time] != null) {
                             if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadePinkItem)) {
                                 event.ammount = 0.0f;
                                 event.setCanceled(true);
+                                return;
                             }
                         }
                     }
                 }
-                return;
             }
-            if (entityPlayer.getHeldItem() != null
-                    && entityPlayer.getHeldItem().getItem().equals(ChinaCraft.jadeGreen2Item)) {
-                if (entityPlayer.getHeldItem().getItemDamage() < entityPlayer.getHeldItem().getMaxDamage()) {
-                    PlayerUseJadeEvent.MainInventory e = new PlayerUseJadeEvent.MainInventory(entityPlayer,
-                            entityPlayer.getHeldItem());
-                    if (MinecraftForge.EVENT_BUS.post(e))
-                        return;
-                    if (entityPlayer.getHeldItem().getItemDamage() >= 2)
-                        entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 2);
-                    else {
-                        entityPlayer.getHeldItem().setItemDamage(entityPlayer.getHeldItem().getItemDamage() - 1);
+            if (!event.source.isMagicDamage()&&!event.source.isUnblockable()) {
+                for (int time = 0; time < 9; time++) {
+                    if (entityPlayer.inventory.mainInventory[time] != null) {
+                        if (entityPlayer.inventory.mainInventory[time].getItem().equals(ChinaCraft.jadeGreen2Item)) {
+                            ItemStack itemStack = entityPlayer.inventory.mainInventory[time];
+                            if (itemStack.getItemDamage() != 0) {
+                                PlayerUseJadeEvent.MainInventory e = new PlayerUseJadeEvent.MainInventory(entityPlayer,
+                                        itemStack);
+                                if (MinecraftForge.EVENT_BUS.post(e))
+                                    return;
+                                if (itemStack.getItemDamage() >= 2)
+                                    itemStack.setItemDamage(itemStack.getItemDamage() - 2);
+                                else {
+                                    itemStack.setItemDamage(itemStack.getItemDamage() - 1);
+                                }
+                            } else if ((entityPlayer.getHealth() - event.ammount) < 0){ //如果是致命一击就自动回血
+                                System.out.println("StartHeal");
+                                entityPlayer.heal(5);
+                                itemStack.setItemDamage(itemStack.getMaxDamage() - 1);
+                            }
+                            break;
+                        }
                     }
                 }
             } else {

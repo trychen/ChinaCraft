@@ -361,7 +361,7 @@ public class ChinaCraft implements ICollection {
     @Register("JadeGreen")
     public static final Jade jadeGreenItem = new Jade("jade_green");
     @Register("JadeGreen2")
-    public static final Jade jadeGreen2Item = new Jade("jade_green2");
+    public static final Item jadeGreen2Item = new Jade("jade_green2").setMaxDamage(8);
     @Register("JadePink")
     public static final Jade jadePinkItem = new Jade("jade_pink");
     @Register("JadePurple")

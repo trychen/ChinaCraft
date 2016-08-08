@@ -85,8 +85,8 @@ public class ItemBuddhistCane extends ItemCCStaff {
     }
 
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase p_150894_7_) {
-        if ((block instanceof BlockLeaves||block instanceof BlockMushroom||block instanceof BlockBush)&& world.rand.nextBoolean()){
-            if (itemStack.getItemDamage() > 0) itemStack.setItemDamage(itemStack.getItemDamage() - 1);
+        if (itemStack.getItemDamage() > 0&&(block instanceof BlockLeaves||block instanceof BlockMushroom||block instanceof BlockBush)&& world.rand.nextBoolean()){
+             itemStack.setItemDamage(itemStack.getItemDamage() - 1);
             world.spawnParticle("happyVillager", x, y, z, 0, 0, 0);
         }
         return false;

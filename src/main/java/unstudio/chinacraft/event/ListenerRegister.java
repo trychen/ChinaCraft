@@ -1,5 +1,6 @@
 package unstudio.chinacraft.event;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import net.minecraftforge.common.MinecraftForge;
 
 import cpw.mods.fml.common.FMLCommonHandler;

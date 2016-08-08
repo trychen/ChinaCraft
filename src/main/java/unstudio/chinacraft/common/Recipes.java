@@ -259,6 +259,9 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeKnife, 1),
                 new Object[] { " X ", "X#X", '#', Items.stick, 'X', Items.iron_ingot });
 
+        //蝉杖
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buddhistCane,1) , "IAI","BSB" , " S ",'I',Items.gold_ingot,'B',ChinaCraft.tinIngot,'A',Items.ghast_tear,'S',Items.stick);
+
         // 大麦
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.barleyRice), new ItemStack(Items.wheat));
 
