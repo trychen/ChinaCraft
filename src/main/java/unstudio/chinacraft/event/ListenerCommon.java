@@ -1,6 +1,8 @@
 package unstudio.chinacraft.event;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.ClickEvent;
 import net.minecraft.util.ChatComponentText;
@@ -8,6 +10,7 @@ import net.minecraft.util.ChatStyle;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
 
 /**
  * Created by trychen on 16/7/12.
@@ -17,14 +20,15 @@ public class ListenerCommon {
      * 在玩家首次加入世界时,检查是否有新版本
      * @param e 实体加入世界
      */
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void VersionChecker(EntityJoinWorldEvent e) {
         //判断加入的是否为玩家
         if (e.entity instanceof EntityPlayer) {
             EntityPlayer p = (EntityPlayer) e.entity;
-            // 判断是否已经提示过、是否为服务端、是否已经检查过、是否已经是最新版本
-            if (!ChinaCraft.haveWarnedVersionOutOfDate && p.worldObj.isRemote
-                    && !ChinaCraft.versionChecker.isLatestVersion() && ChinaCraft.versionChecker.isChecked()) {
+            // 判断是否开启更新提示、已经提示过、是否为服务端、是否已经检查过、是否已经是最新版本
+            if (FeatureConfig.EnableUpdate&&!ChinaCraft.haveWarnedVersionOutOfDate && p.worldObj.isRemote
+                    && !ChinaCraft.versionChecker.isLatestVersion() && ChinaCraft.versionChecker.isChecked() && !ChinaCraft.VersionCheckerIsLoad) {
                 ClickEvent versionCheckChatClickEvent = new ClickEvent(ClickEvent.Action.OPEN_URL,
                         ChinaCraft.versionChecker.getDownloadUrl());
                 ChatStyle clickableChatStyle = new ChatStyle().setChatClickEvent(versionCheckChatClickEvent);
