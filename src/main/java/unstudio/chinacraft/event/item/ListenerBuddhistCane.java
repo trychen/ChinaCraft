@@ -20,10 +20,12 @@ public class ListenerBuddhistCane {
     public void attack(AttackEntityEvent event){
         if (event.entityPlayer.inventory.getCurrentItem() != null && event.entityPlayer.inventory.getCurrentItem().getItem().equals(ChinaCraft.buddhistCane)){
             if (event.target instanceof EntityPlayer || event.target instanceof EntityAnimal){
-                ((EntityLivingBase) event.target).addPotionEffect(new PotionEffect(6,20,2));
                 event.target.worldObj.spawnParticle("heart",event.target.posX,event.target.posY + event.target.getEyeHeight(),event.target.posZ,1,1,1);
-                if (!event.entityPlayer.worldObj.isRemote) event.entityPlayer.attackEntityFrom(new DamageSource("continuedLife"),0.4f);
-                event.entityPlayer.inventory.getCurrentItem().damageItem(2,event.entityPlayer);
+                if (!event.entityPlayer.worldObj.isRemote) {
+                    ((EntityLivingBase) event.target).addPotionEffect(new PotionEffect(6,20,2));
+                    event.entityPlayer.attackEntityFrom(new DamageSource("continuedLife"), 0.8f);
+                    event.entityPlayer.inventory.getCurrentItem().damageItem(2, event.entityPlayer);
+                }
                 event.setCanceled(true);
             }
         }

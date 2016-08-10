@@ -62,7 +62,7 @@ import java.util.Random;
 public class ChinaCraft implements ICollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "SanpShot-197";
+    public static final String VERSION = "SanpShot-198";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
@@ -84,7 +84,7 @@ public class ChinaCraft implements ICollection {
 
     // 特殊变量
     public static JadePinkSystem jadePinkSystem = new JadePinkSystem();
-    public static VersionChecker versionChecker = new MinecraftModVersionChecker(ChinaCraft.class,"ChinaCraft 华夏文明",PROJECT_ID,log);
+    public static VersionChecker versionChecker;
     public static boolean haveWarnedVersionOutOfDate = false;
     public final static Random rand = new Random();
     // Material
@@ -457,17 +457,20 @@ public class ChinaCraft implements ICollection {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
+
         Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
         Network.registerMessage(new RedPacketMessageHandler(), RedPacketMessage.class, 0, Side.SERVER);
         Network.registerMessage(new KeyMessageHandler(), KeyMessage.class, 1, Side.SERVER);
 
         NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
         WAILAIsLoad = Loader.isModLoaded("Waila");
-
         VersionCheckerIsLoad = Loader.isModLoaded("VersionChecker");
+
+        versionChecker = new MinecraftModVersionChecker(ChinaCraft.class,"ChinaCraft 华夏文明",PROJECT_ID,log,FeatureConfig.EnableSanpShot);
+        if (FeatureConfig.EnableUpdate) versionChecker.start();
+
         // Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class,
         // 1, Side.CLIENT);
-        if (FeatureConfig.EnableUpdate) versionChecker.start();
     }
 
     @EventHandler

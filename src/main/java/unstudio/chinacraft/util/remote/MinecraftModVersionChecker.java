@@ -13,8 +13,8 @@ public class MinecraftModVersionChecker extends VersionChecker{
     private Class mod;
     private String displayName;
 
-    public MinecraftModVersionChecker(Class mod, String displayName, int projectID, Logger log) {
-        super(((Mod) mod.getAnnotation(Mod.class)).version(), projectID, log);
+    public MinecraftModVersionChecker(Class mod, String displayName, int projectID, Logger log, boolean sanpShot) {
+        super(((Mod) mod.getAnnotation(Mod.class)).version(), projectID, log, sanpShot);
         this.mod = mod;
         this.displayName = displayName;
     }

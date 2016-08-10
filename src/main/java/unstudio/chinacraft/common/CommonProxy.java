@@ -23,8 +23,6 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         new ConfigLoader(new Configuration(event.getSuggestedConfigurationFile()));
 
-        new FeatureConfig();
-
         ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture,
                 0).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜头盔
         ChinaCraft.bronzeChestplate = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,

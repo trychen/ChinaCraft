@@ -15,6 +15,7 @@ public class ConfigLoader {
 
     public static void load() {
         mainConfig.load();
+        new FeatureConfig();
         mainConfig.save();
     }
 

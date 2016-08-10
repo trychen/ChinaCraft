@@ -16,14 +16,16 @@ public class VersionChecker extends Thread{
     private String downloadUrl = null;
     private String instruction = null;
     private String changelog = null;
+    private boolean enableSanpShot = false;
     private int date = 0;
     private boolean checked = false;
     protected boolean latest = false;
 
-    public VersionChecker(String nowVersion, int projectID, Logger log) {
+    public VersionChecker(String nowVersion, int projectID, Logger log,boolean enableSanpShot) {
         this.nowVersion = nowVersion;
         this.projectID = projectID;
         this.log = log;
+        this.enableSanpShot = enableSanpShot;
     }
 
     @Override
@@ -67,6 +69,7 @@ public class VersionChecker extends Thread{
 
     protected boolean judgeIfLatest() {
         if (latest) return true;
+        if (!enableSanpShot&&latestVersion.startsWith("SanpShot")) return true;
         if (nowVersion.equals(latestVersion)) return true;
         if (nowVersion.startsWith("Beta")||nowVersion.startsWith("Release")){
             if (latestVersion.startsWith("Beta")||latestVersion.startsWith("Release")){
