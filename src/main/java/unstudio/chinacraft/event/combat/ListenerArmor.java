@@ -132,6 +132,7 @@ public class ListenerArmor {
         if(!FeatureConfig.EnableDoubleJump)return;
         if (event.entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.entityLiving;
+            if (player.getFoodStats().getFoodLevel()<14) return;
             int i = 4;
             for (ItemStack itemStack : player.inventory.armorInventory) {
                 i--;
