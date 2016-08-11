@@ -243,24 +243,24 @@ public class ChinaCraft implements ICollection {
     @Register("BlackBrick")
     public static final Item blackbrick = new ItemBase().setUnlocalizedName("blackbrick").setCreativeTab(ChinaCraft.tabCore).setTextureName("chinacraft:blackbrick");//青砖
 
+    @Register("RiceGrow")
+    public static final CCGrowablePlant riceGrow = new CCGrowablePlant("rice", 5, ChinaCraft.rices, ChinaCraft.lcker); // 水稻作物
     @Register("Rices")
     public static final CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow)
             .setUnlocalizedName("rices"); // 米
     @Register("Lckers")
     public static final Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabFarming); // 米穗
-    // public static final RiceGrow riceGrow = new RiceGrow(); //水稻作物
-    @Register("RiceGrow")
-    public static final CCGrowablePlant riceGrow = new CCGrowablePlant("rice", 5, ChinaCraft.rices, ChinaCraft.lcker); // 水稻作物
-    @Register("Soy")
-    public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow).setUnlocalizedName("soy"); // 大豆
     @Register("SoyPod")
     public static final Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
     @Register("SoyGrow")
     public static final CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物
-    @Register("GlutinousRice")
-    public static final CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
+    // public static final RiceGrow riceGrow = new RiceGrow(); //水稻作物
+    @Register("Soy")
+    public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow).setUnlocalizedName("soy"); // 大豆
     @Register("BlockGlutinousRice")
     public static final CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7, ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
+    @Register("GlutinousRice")
+    public static final CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
     @Register("ItemBamboo")
     public static final Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
     @Register("ItemMulberryLeaf")
