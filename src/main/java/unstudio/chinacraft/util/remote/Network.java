@@ -1,6 +1,7 @@
 package unstudio.chinacraft.util.remote;
 
 import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import unstudio.chinacraft.common.ChinaCraft;
 
@@ -13,7 +14,7 @@ import java.net.URL;
  * Created by trychen on 16/7/19.
  */
 public class Network {
-    private static Logger log = ChinaCraft.log;
+    private static Logger log = LogManager.getLogger("UDMinecraftCore");
 
     /**
      * 向URL发送GET请求

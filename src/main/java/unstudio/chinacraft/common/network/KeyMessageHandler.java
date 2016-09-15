@@ -17,8 +17,8 @@ public class KeyMessageHandler implements IMessageHandler<KeyMessage, IMessage> 
         switch(message.key){
             case 0:
                 NBTTagCompound tCompound = player.getEntityData();
-                if(tCompound.hasKey("nightClothesHasJumped")) {
-                    if (player.motionY < 0.4 && tCompound.getInteger("nightClothesHasJumped") < 2) {
+                if(tCompound.hasKey("chinacraft.nightClothesHasJumped")) {
+                    if (player.motionY < 0.4 && tCompound.getInteger("chinacraft.nightClothesHasJumped") < 2) {
                         player.jump();
                         player.motionX *= 1.3;
                         player.motionY += 0.15;

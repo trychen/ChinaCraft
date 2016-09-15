@@ -65,7 +65,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     @Override
     public String getInventoryName() {
         // TODO 自动生成的方法存根
-        return null;
+        return "Buhrimill";
     }
 
     @Override
@@ -261,7 +261,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
 
     @Override
     public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return null;
+        return new int[]{2, 3};
     }
 
     @Override
