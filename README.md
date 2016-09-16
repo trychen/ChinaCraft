@@ -1,4 +1,5 @@
-#ChinaCraft
+#ChinaCraft  [![Build Status](https://travis-ci.org/UnknownStudio/ChinaCraft.svg?branch=master)](https://travis-ci.org/UnknownStudio/ChinaCraft)
+
 基本信息
 ----
   模组名称：华夏文明
