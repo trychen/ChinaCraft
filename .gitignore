@@ -18,3 +18,7 @@
 
 # Libs Files
 !libs/
+
+# Ci Files
+!.travis.yml
+
