@@ -239,6 +239,8 @@ redpacket.receive_money=您打开红包获得了 %money% 元!
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵尸
 
+Bucket.opps=Opps,木桶着火了,oh,他烧成了灰烬,剩下的还能当化肥来使用
+
 VersionChecker.perfix=发现新版本!点击下载.
 VersionChecker.version=最新版本: !new ,当前版本: !old .
 

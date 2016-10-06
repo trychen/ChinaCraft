@@ -47,6 +47,7 @@ item.spiritual_magic_figures_protect.name=Protect Spiritual Magic Paper
 item.SMFSuper.name=Mess Figures
 item.debug.name=Debug
 
+item.xinjiang_nut_cake.name=XinJiang Nut Cake
 item.china_crown.name=Crown
 item.chinacrown.lore=Symbol of rights
 tile.xinjiang_nut_cake.name=Xinjiang Nut Cake
@@ -69,11 +70,11 @@ item.bronze_ingot.name=Bronze Ingot
 tile.jade_ore.name=Jade Ore
 item.jade.lore=Level:
 
-
 tile.bamboo.name=Bamboo
 tile.bamboo_slab.name=Bamboo Clappers
+tile.bamboo_plank.name=Bamboo Planks
 item.bamboo.name=Bamboo
-item.bamboo_shoot.name=Bamboo Shoot
+tile.bamboo_shoot.name=Bamboo Shoot
 
 tile.azalea.name=Azalea
 tile.bean_bracket.name=Bean Bracket
@@ -116,6 +117,8 @@ gui.potterykiln.title=Pottery Kiln
 
 tile.lantern.name=Lantern
 
+item.wooden_bucket.name=Wooden Bucket
+item.wooden_bucket_water.name=Water Wooden Bucket
 item.bucket_salt.name=A Bucket of salt
 item.salt_powder.name=Salt
 item.doujiang_bucket.name=Soya-bean milk
@@ -230,6 +233,8 @@ redpacket.receive_money=You open the Red Packet to get %money% Money!
 
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie
+
+Bucket.opps=Opps, the wooden bucket on fire, oh, he burned to ashes that the rest can also be used as fertilizer.
 
 VersionChecker.perfix=Found New Version!Click to Download.
 VersionChecker.version=Latest Version: !new ,Currect Version: !old .

@@ -5,9 +5,12 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
@@ -80,7 +83,13 @@ public class ItemWoodenBucket extends Item {
 
                     if (material == Material.water && l == 0) {
                         world.setBlockToAir(i, j, k);
-                        return this.func_150910_a(item, player, ChinaCraft.woodenBucket_Water);
+                        return this.func_150910_a(item, player, ChinaCraft.woodenBucket_Water,1,0);
+                    }
+                    if (material == Material.lava && l == 0) //还要改进 木桶烧掉 还是 给玩家一个木炭 或者一小挫灰烬
+                    {
+                        world.setBlockToAir(i, j, k);
+                        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("Bucket.opps")));
+                        return this.func_150910_a(item, player,Items.dye,1,15) ;
                     }
                 } else {
                     if (this.isFull == Blocks.air) {
@@ -124,11 +133,11 @@ public class ItemWoodenBucket extends Item {
         }
     }
 
-    private ItemStack func_150910_a(ItemStack p_150910_1_, EntityPlayer p_150910_2_, Item p_150910_3_) {
+    private ItemStack func_150910_a(ItemStack p_150910_1_, EntityPlayer p_150910_2_, Item p_150910_3_,int n,int b) {
         if (p_150910_2_.capabilities.isCreativeMode) {
             return p_150910_1_;
         } else if (--p_150910_1_.stackSize <= 0) {
-            return new ItemStack(p_150910_3_);
+            return new ItemStack(p_150910_3_,n,b);
         } else {
             if (!p_150910_2_.inventory.addItemStackToInventory(new ItemStack(p_150910_3_))) {
                 p_150910_2_.dropPlayerItemWithRandomChoice(new ItemStack(p_150910_3_, 1, 0), false);
