@@ -26,7 +26,7 @@ import unstudio.chinacraft.util.annotation.SpecialItemRenderRegister;
 public class ClientProxy extends CommonProxy {
     @Override
     public void preInit(FMLPreInitializationEvent event) {
-        ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("bronze"); // 青铜套装外部材质注册
+        ChinaCraft.bronzeArmorTexture = RenderingRegistry.addNewArmourRendererPrefix("ccbronze"); // 青铜套装外部材质注册
 
         super.preInit(event);
     }
