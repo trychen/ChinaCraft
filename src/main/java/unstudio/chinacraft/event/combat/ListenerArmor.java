@@ -17,12 +17,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import org.lwjgl.input.Keyboard;
 import unstudio.chinacraft.api.ChinaCraftApi;
 import unstudio.chinacraft.api.EntityMethod;
 import unstudio.chinacraft.common.ChinaCraft;
@@ -30,11 +27,11 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.common.network.KeyMessage;
-import unstudio.chinacraft.common.network.KeyMessageHandler;
-
-import java.util.Hashtable;
 
 public class ListenerArmor {
+    /**
+     * 夜行衣穿着检查器
+     */
     @SubscribeEvent
     public void wearingNightClothes(TickEvent.PlayerTickEvent event) {
         NBTTagCompound tCompound = event.player.getEntityData();
@@ -51,16 +48,6 @@ public class ListenerArmor {
             }
         }
         tCompound.setByte("chinacraft.wearingWholeNightClothes",(byte)0);
-
-        if (event.player.isSneaking()&&(event.player.isAirBorne||!event.player.onGround)) {
-            event.player.addPotionEffect(new PotionEffect(14, 2));
-            event.player.addPotionEffect(new PotionEffect(2, 2, 3));
-            event.player.addPotionEffect(new PotionEffect(15, 8));
-        } else {
-            event.player.addPotionEffect(new PotionEffect(1, 2));
-            event.player.addPotionEffect(new PotionEffect(5, 2));
-            event.player.addPotionEffect(new PotionEffect(8, 2));
-        }
     }
 
     @SubscribeEvent
@@ -78,7 +65,6 @@ public class ListenerArmor {
                 diffX = (Math.random() - Math.random()) * 0.01D;
             }
             EntityMethod.repel(event.entityLiving, diffX, diffZ);
-            System.out.println("end");
         }
     }
 
@@ -112,13 +98,14 @@ public class ListenerArmor {
     public void key(InputEvent.KeyInputEvent event){
         if(!FeatureConfig.EnableDoubleJump)return;
         EntityPlayer player = Minecraft.getMinecraft().thePlayer;
+        if (player.getItemInUse() != null) return; //不能拿着物品连跳
         if (!ChinaCraftApi.isWearingWholeNightClothes(player)) return;
 
         if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
-            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) {
+            if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) { //是否按下了跳跃键
                 if(FeatureConfig.EnableDoubleJump) {
                     if (player.motionY < 0.04 && player.isAirBorne) {
-                        ChinaCraft.Network.sendToServer(new KeyMessage(0));
+                        ChinaCraft.Network.sendToServer(new KeyMessage(0));//向服务器发送消息
                     }
                 }
             }
@@ -126,22 +113,12 @@ public class ListenerArmor {
     }
 
     @SubscribeEvent
-    public void attack(AttackEntityEvent e){
-        EntityPlayer player = e.entityPlayer;
-        if (!player.isSneaking()) return;
-        if (player.isAirBorne||!player.onGround) return;
-        if (!ChinaCraftApi.isWearingWholeNightClothes(player)) return;
-        e.setCanceled(true);
-    }
-
-
-    @SubscribeEvent
     public void JumpEvent(LivingEvent.LivingJumpEvent event){
         if(!FeatureConfig.EnableDoubleJump)return;
         if (event.entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.entityLiving;
-            if (player.getFoodStats().getFoodLevel()<14) return;
-
+            if (player.getFoodStats().getFoodLevel()<14) return;//饱食度要大于14
+            if (player.getItemInUse() != null) return; //不能拿着物品连跳
             if (!ChinaCraftApi.isWearingWholeNightClothes(player)) return;
 
             NBTTagCompound tCompound = player.getEntityData();
