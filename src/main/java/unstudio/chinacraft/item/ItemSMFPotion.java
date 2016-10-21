@@ -67,7 +67,6 @@ public class ItemSMFPotion extends Item {
             }
             for (int[] a : effect) {
                 PotionEffect potionEffect = a.length == 2 ? new PotionEffect(a[0], a[1]) : new PotionEffect(a[0], a[1], a[2]);
-                System.out.println(potionEffect);
                 potionEffect.setCurativeItems(new ArrayList<ItemStack>());
                 player.addPotionEffect(potionEffect);
             }
