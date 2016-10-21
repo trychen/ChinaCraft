@@ -60,8 +60,6 @@ public class GuiHandler implements IGuiHandler {
 
         case GuiID.GUI_RedPacket:
             return new GuiRedPacket(player, player.inventory.getCurrentItem());
-        case GuiID.GUI_UpData:
-            return new GuiUpdata();
         }
         return null;
     }
