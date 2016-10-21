@@ -443,13 +443,6 @@ public class ChinaCraft implements ICollection {
     @Register("Debug")
     public static final ItemDebug debug = new ItemDebug(); // 调试物品
 
-    public static void main(String[] args) {
-        // 当直接打开Mod时提示信息
-        JOptionPane.showMessageDialog(null, "This is a Minecraft Forge Mod , you can't run it!",
-                "Chinacraft : mccraft.cn", JOptionPane.OK_OPTION);
-        System.exit(0);
-    }
-
     public static Configuration getMainConfig() {
         return ConfigLoader.getMainConfig();
     }
