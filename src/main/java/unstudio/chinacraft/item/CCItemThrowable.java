@@ -19,6 +19,7 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     private boolean hasGravity = false;
     private boolean stickInWall = true;
     private boolean is3D = true;
+    private EntityProjectile.EnumParticleType particleType = EntityProjectile.EnumParticleType.None;
     private int speed = 10;
 
     /**
@@ -51,6 +52,7 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         projectile.setRotating(this.rotating);
         projectile.damage = this.damage;
         projectile.setIs3D(is3D);
+        projectile.setParticleEffect(particleType);
         projectile.setStickInWall(stickInWall);
         projectile.setHasGravity(hasGravity);
         projectile.setSpeed(speed);
@@ -118,6 +120,11 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
 
     public CCItemThrowable setSpeed(int speed) {
         this.speed = speed;
+        return this;
+    }
+
+    public CCItemThrowable setParticleType(EntityProjectile.EnumParticleType particleType) {
+        this.particleType = particleType;
         return this;
     }
 
