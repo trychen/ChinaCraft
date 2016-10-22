@@ -7,6 +7,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
+import unstudio.chinacraft.entity.projectile.EntityProjectile;
+import unstudio.chinacraft.entity.projectile.EntitySuperArrow;
 import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -32,6 +34,8 @@ public class EntityRegister {
 
         registerModEntity(EntityThrownFirecracker.class, "Entity_Thrown_Firecracker", 350, 30, true);
         registerModEntity(EntityThrownBomb.class, "Entity_Thrown_Bomb", 350, 30, true);
+        registerModEntity(EntitySuperArrow.class, "superArrow",64,3,true);
+        registerModEntity(EntityProjectile.class, "projectile", 64, 3, true);
     }
 
 

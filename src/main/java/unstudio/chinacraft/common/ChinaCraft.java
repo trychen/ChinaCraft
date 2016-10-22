@@ -285,6 +285,8 @@ public class ChinaCraft implements ICollection {
     public static final ItemFirecracker firecracker = new ItemFirecracker();
     @Register("Bomb")
     public static final ItemBomb bomb = new ItemBomb();
+    @Register("FlyingCutter")
+    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,false).setUnlocalizedName("flying_cutter");
     // 防具武器
     @Register("BronzeSword")
     public static final Item bronzeSword = new ItemSword(ChinaCraft.BRONZE).setUnlocalizedName("bronze_sword").setCreativeTab(ChinaCraft.tabTool); // 青铜剑

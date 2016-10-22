@@ -13,9 +13,6 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
-/**
- * Created by trychen on 16/7/30.
- */
 public class SpecialItemRender implements IItemRenderer {
     private static final ResourceLocation enchant = new ResourceLocation("textures/misc/enchanted_item_glint.png");
 
@@ -60,6 +57,11 @@ public class SpecialItemRender implements IItemRenderer {
             case staff:
                 GL11.glScalef(1.0F, 1.14F, 1.0F);
                 GL11.glTranslatef(0.14F, -0.3F, 0.08F);
+                break;
+            case shuriken:
+                GL11.glScalef(0.5F, 0.5F, 0.5F);
+                GL11.glTranslatef(-0.1F, 0.3F, 0.0F);
+                break;
         }
 
         renderer.doRender();
@@ -126,6 +128,6 @@ public class SpecialItemRender implements IItemRenderer {
     }
 
     public enum RenderType{
-        huge,spear,glaive,shield,staff,custom
+        huge,spear,glaive,shield,staff,shuriken,custom
     }
 }
