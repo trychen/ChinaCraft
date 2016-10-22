@@ -13,6 +13,8 @@ import net.minecraft.entity.monster.EntityWitch;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -37,16 +39,15 @@ public class EntitySuperArrow extends EntityArrow {
     private double damage = 2.0D;
     private int knockbackStrength;
 
-    public EntitySuperArrow(World par1world) {
-        super(par1world);
+    public EntitySuperArrow(World p_i1753_1_) {
+        super(p_i1753_1_);
     }
 
     public EntitySuperArrow(World p_i1754_1_, double p_i1754_2_, double p_i1754_4_, double p_i1754_6_) {
         super(p_i1754_1_, p_i1754_2_, p_i1754_4_, p_i1754_6_);
     }
 
-    public EntitySuperArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_,
-            float p_i1755_4_, float p_i1755_5_) {
+    public EntitySuperArrow(World p_i1755_1_, EntityLivingBase p_i1755_2_, EntityLivingBase p_i1755_3_, float p_i1755_4_, float p_i1755_5_) {
         super(p_i1755_1_, p_i1755_2_, p_i1755_3_, p_i1755_4_, p_i1755_5_);
     }
 
@@ -180,7 +181,7 @@ public class EntitySuperArrow extends EntityArrow {
                         movingobjectposition.entityHit.setFire(5);
                     }
 
-                    if (movingobjectposition.entityHit.attackEntityFrom(damagesource, k)) {
+                    if (movingobjectposition.entityHit.attackEntityFrom(damagesource, k + 2)) {
                         if (movingobjectposition.entityHit instanceof EntityLivingBase) {
                             EntityLivingBase entitylivingbase = (EntityLivingBase) movingobjectposition.entityHit;
 

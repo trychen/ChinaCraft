@@ -55,7 +55,6 @@ import unstudio.chinacraft.common.config.ConfigLoader;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import unstudio.forgebukkitbridge.VaultPlugin;
 
-import javax.swing.*;
 import java.util.Random;
 
 @Mod(modid = ChinaCraft.MODID, name = ChinaCraft.NAME, version = ChinaCraft.VERSION)
@@ -286,7 +285,7 @@ public class ChinaCraft implements ICollection {
     @Register("Bomb")
     public static final ItemBomb bomb = new ItemBomb();
     @Register("FlyingCutter")
-    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,false).setUnlocalizedName("flying_cutter");
+    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,true).setUnlocalizedName("flying_cutter");
     // 防具武器
     @Register("BronzeSword")
     public static final Item bronzeSword = new ItemSword(ChinaCraft.BRONZE).setUnlocalizedName("bronze_sword").setCreativeTab(ChinaCraft.tabTool); // 青铜剑
@@ -306,6 +305,8 @@ public class ChinaCraft implements ICollection {
     public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
     @Register("Mace")
     public static final Mace mace = new Mace();
+    @Register("SuperBow")
+    public static final ItemSuperBow superBow = new ItemSuperBow();
     @Register("StoneHammer")
     public static final Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");// 石锤
     @Register("DiamondBronze")
@@ -314,6 +315,8 @@ public class ChinaCraft implements ICollection {
     public static final Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");// 铁锤
     @Register("DiamondHammer")
     public static final Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");// 钻石锤
+    @Register("BronzeShield")
+    public static final CCShield bronzeShield = (CCShield) new CCShield(10, 10, true).setUnlocalizedName("bronze_shield").setTextureName("chinacraft:shield_bronze");
     @Register("ChinaCrown")
     public static final ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown",0, 0, 1);
     public static final ModelArmor[] nightClothes = new ModelArmor[]{
@@ -341,7 +344,7 @@ public class ChinaCraft implements ICollection {
     // public static final ModelArmor nightClothesShoe = new
     // ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe",
     // "nightclothes", 1, 3, 1);
-    public static final ItemSuperBow superBow = new ItemSuperBow();
+
     // 工具
     @Register("BronzePickaxe")
     public static final Item bronzePickaxe = new CCItemPickaxe(ChinaCraft.BRONZE).setUnlocalizedName("bronze_pickaxe").setCreativeTab(ChinaCraft.tabTool);// 青铜稿

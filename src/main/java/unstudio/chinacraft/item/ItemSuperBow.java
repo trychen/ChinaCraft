@@ -21,6 +21,7 @@ public class ItemSuperBow extends ItemBow {
     public ItemSuperBow() {
         this.setMaxDamage(437);
         this.setCreativeTab(ChinaCraft.tabTool);
+        this.setUnlocalizedName("super_bow");
     }
 
     @Override
@@ -50,6 +51,8 @@ public class ItemSuperBow extends ItemBow {
             }
 
             EntitySuperArrow entityarrow = new EntitySuperArrow(world, entityPlayer, f * 2.0F);
+
+            entityarrow.canBePickedUp = 0;
 
             if (f == 1.0F) {
                 entityarrow.setIsCritical(true);
