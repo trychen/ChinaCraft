@@ -29,6 +29,7 @@ public class ItemDebug extends Item {
             float hitX, float hitY, float hitZ) {
         if (world.isRemote)
             return false;
+        player.addChatMessage(new ChatComponentText("========== Debug =========="));
         player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.firstline")));
         player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.blockinfo") + ": "
                 + (StatCollector.canTranslate(world.getBlock(x, y, z).getUnlocalizedName() + ".name")
@@ -62,6 +63,7 @@ public class ItemDebug extends Item {
             // ChatComponentText(StatCollector.translateToLocal("debug.progress")+":
             // "+((TileSericultureFrame)tile).getSchedule()));
         }
+        player.addChatMessage(new ChatComponentText("==========================="));
         return true;
     }
 

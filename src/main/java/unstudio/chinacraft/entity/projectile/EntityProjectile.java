@@ -61,6 +61,7 @@ public class EntityProjectile extends EntityThrowable {
     public boolean accelerate = false;
     public boolean explosive = false;
     public boolean explosiveDamage = true;
+    public String hitSound;
     public int explosiveRadius = 0;
     public int duration = 5;
     public int amplify = 0;
@@ -385,10 +386,14 @@ public class EntityProjectile extends EntityThrowable {
             this.posY -= this.motionY / f2 * 0.05000000074505806D;
             this.posZ -= this.motionZ / f2 * 0.05000000074505806D;
             this.inGround = true;
-            if (isArrow()) {
-                playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+            if (hitSound == null){
+                if (isArrow()) {
+                    playSound("random.bowhit", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+                } else {
+                    playSound("random.break", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+                }
             } else {
-                playSound("random.break", 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
+                playSound(hitSound, 1.0F, 1.2F / (this.rand.nextFloat() * 0.2F + 0.9F));
             }
             this.arrowShake = 7;
             if (!hasGravity()) {

@@ -4,14 +4,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import unstudio.chinacraft.common.ChinaCraft;
 
-public class ItemArtKnife extends Item {
+public class ItemArtKnife extends CCItemThrowable {
 
     public ItemArtKnife() {
+        super(0.5f,false,false);
         setUnlocalizedName("art_knife");
         setMaxStackSize(1);
         setMaxDamage(6);
         setHasSubtypes(false);
         setCreativeTab(ChinaCraft.tabTool);
+        setHitSound("dig.wood");
     }
 
     @Override

@@ -9,19 +9,18 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
 import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
-/**
- * Created by trychen on 16/10/22.
- */
 public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     private float damage = 1.0f;
     private boolean rotating = false;
     private boolean dropItem = false;
-    private boolean hasGravity = false;
+    private boolean hasGravity = true;
+    private String hitSound;
     private boolean stickInWall = true;
     public boolean onlyCanBePickedUpByThrower = true;
     private boolean is3D = true;
     private EntityProjectile.EnumPotionType effect = EntityProjectile.EnumPotionType.None;
     private EntityProjectile.EnumParticleType particleType = EntityProjectile.EnumParticleType.None;
+    private ShootListsner listener;
     private int speed = 10;
 
     /**
@@ -54,12 +53,14 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         projectile.setRotating(this.rotating);
         projectile.damage = this.damage;
         projectile.effect = effect;
+        projectile.hitSound = hitSound;
         projectile.onlyCanBePickedUpByThrower = onlyCanBePickedUpByThrower;
         projectile.setIs3D(is3D);
         projectile.setParticleEffect(particleType);
         projectile.setStickInWall(stickInWall);
         projectile.setHasGravity(hasGravity);
         projectile.setSpeed(speed);
+        if (listener!=null) listener.onShoot(projectile,itemStack);
         if (!player.capabilities.isCreativeMode) {
             player.inventory.consumeInventoryItem(this);
         }
@@ -122,6 +123,11 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         return this;
     }
 
+    public CCItemThrowable setHitSound(String hitSound) {
+        this.hitSound = hitSound;
+        return this;
+    }
+
     public CCItemThrowable setSpeed(int speed) {
         this.speed = speed;
         return this;
@@ -134,6 +140,11 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
 
     public CCItemThrowable setEffect(EntityProjectile.EnumPotionType effect) {
         this.effect = effect;
+        return this;
+    }
+
+    public CCItemThrowable setListener(ShootListsner listener) {
+        this.listener = listener;
         return this;
     }
 
@@ -165,7 +176,15 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         return speed;
     }
 
+    public String getHitSound() {
+        return hitSound;
+    }
+
     public EntityProjectile.EnumPotionType getEffect() {
         return effect;
+    }
+
+    interface ShootListsner{
+        void onShoot(EntityProjectile projectile,ItemStack itemStack);
     }
 }

@@ -33,7 +33,7 @@ public class ListenerShield {
             int i = 1 + MathHelper.floor_float(damage);
             activeItemStack.damageItem(i, player);
 
-            damage = ((CCShield)activeItemStack.getItem()).defense(activeItemStack,player,e.source,e.ammount);
+            e.ammount = ((CCShield)activeItemStack.getItem()).defense(activeItemStack,player,e.source,e.ammount);
 
             if (activeItemStack.stackSize <= 0) {
                 net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(player, activeItemStack);
@@ -64,16 +64,16 @@ public class ListenerShield {
 
             damage = ((CCShield)activeItemStack.getItem()).defense(activeItemStack,player,e.source,e.ammount);
 
-            if (activeItemStack.stackSize <= damage) {
-                net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(player, activeItemStack);
-
-                player.setItemInUse(null,0);
-                if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-                    player.playSound("entity.item.break", 0.8F, 0.8F + player.worldObj.rand.nextFloat() * 0.4F);
+            if (e.source.isProjectile() && damage == 0) {
+                e.setCanceled(true);
+                if (activeItemStack.stackSize <= 0) {
+                    net.minecraftforge.event.ForgeEventFactory.onPlayerDestroyItem(player, activeItemStack);
+                    player.setItemInUse(null,0);
+                    if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+                        player.playSound("entity.item.break", 0.8F, 0.8F + player.worldObj.rand.nextFloat() * 0.4F);
+                    }
                 }
             }
-
-            if (e.source.isProjectile() && damage == 0) e.setCanceled(true);
         }
     }
 }

@@ -41,7 +41,6 @@ import unstudio.chinacraft.entity.EntityRegister;
 import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
-import unstudio.chinacraft.item.jade.JadeKnife;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
 import unstudio.chinacraft.util.remote.Network;
 import unstudio.chinacraft.util.remote.MinecraftModVersionChecker;
@@ -285,7 +284,7 @@ public class ChinaCraft implements ICollection {
     @Register("Bomb")
     public static final ItemBomb bomb = new ItemBomb();
     @Register("FlyingCutter")
-    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,true).setUnlocalizedName("flying_cutter");
+    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,true).setSpeed(18).setUnlocalizedName("flying_cutter");
     // 防具武器
     @Register("BronzeSword")
     public static final Item bronzeSword = new ItemSword(ChinaCraft.BRONZE).setUnlocalizedName("bronze_sword").setCreativeTab(ChinaCraft.tabTool); // 青铜剑
@@ -355,7 +354,7 @@ public class ChinaCraft implements ICollection {
     @Register("BronzeShovel")
     public static final Item bronzeShovel = new ItemSpade(ChinaCraft.BRONZE).setUnlocalizedName("bronze_spade").setCreativeTab(ChinaCraft.tabTool);// 青铜铲
     @Register("JadeKnife")
-    public static final JadeKnife jadeKnife = new JadeKnife();// 玉石切割刀
+    public static final CCItemThrowable jadeKnife = (CCItemThrowable) new CCItemThrowable(1.0f,false,false).setUnlocalizedName("jade_knife").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 玉石切割刀
     @Register("ItemArtKnife")
     public static final ItemArtKnife artKnife = new ItemArtKnife();// 美工切割刀
     @Register("BuddhistCane")
