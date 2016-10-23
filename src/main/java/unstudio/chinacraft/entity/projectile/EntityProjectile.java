@@ -3,20 +3,18 @@ package unstudio.chinacraft.entity.projectile;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Random;
 import java.util.UUID;
+
 import net.minecraft.block.Block;
-import net.minecraft.entity.DataWatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -25,7 +23,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.play.server.S27PacketExplosion;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -35,15 +32,11 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.Explosion;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
-public class EntityProjectile
-        extends EntityThrowable
-{
+public class EntityProjectile extends EntityThrowable {
     private int xTile = -1;
     private int yTile = -1;
     private int zTile = -1;
@@ -53,6 +46,7 @@ public class EntityProjectile
     public int throwableShake = 0;
     public int arrowShake = 0;
     public boolean canBePickedUp = false;
+    public boolean onlyCanBePickedUpByThrower = false;
     public boolean destroyedOnEntityHit = true;
     private EntityLivingBase thrower;
     public EntityItem entityitem;
@@ -74,44 +68,40 @@ public class EntityProjectile
     public ImpactListener callback;
     public ItemStack callbackItem;
 
-    public EntityProjectile(World par1World)
-    {
+    public EntityProjectile(World par1World) {
         super(par1World);
         setSize(0.25F, 0.25F);
     }
 
-    protected void entityInit()
-    {
+    protected void entityInit() {
         this.dataWatcher.addObjectByDataType(21, 5);
         this.dataWatcher.addObject(22, String.valueOf(""));
         this.dataWatcher.addObject(23, Integer.valueOf(5));
-        this.dataWatcher.addObject(24, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(24, Byte.valueOf((byte) 0));
         this.dataWatcher.addObject(25, Integer.valueOf(10));
-        this.dataWatcher.addObject(26, Byte.valueOf((byte)0));
-        this.dataWatcher.addObject(27, Byte.valueOf((byte)0));
-        this.dataWatcher.addObject(28, Byte.valueOf((byte)0));
-        this.dataWatcher.addObject(29, Byte.valueOf((byte)0));
-        this.dataWatcher.addObject(30, Byte.valueOf((byte)0));
-        this.dataWatcher.addObject(31, Byte.valueOf((byte)0));
+        this.dataWatcher.addObject(26, Byte.valueOf((byte) 0));
+        this.dataWatcher.addObject(27, Byte.valueOf((byte) 0));
+        this.dataWatcher.addObject(28, Byte.valueOf((byte) 0));
+        this.dataWatcher.addObject(29, Byte.valueOf((byte) 0));
+        this.dataWatcher.addObject(30, Byte.valueOf((byte) 0));
+        this.dataWatcher.addObject(31, Byte.valueOf((byte) 0));
     }
 
     @SideOnly(Side.CLIENT)
-    public boolean isInRangeToRenderDist(double par1)
-    {
+    public boolean isInRangeToRenderDist(double par1) {
         double d1 = this.boundingBox.getAverageEdgeLength() * 4.0D;
         d1 *= 64.0D;
         return par1 < d1 * d1;
     }
 
-    public EntityProjectile(World par1World, EntityLivingBase par2EntityLiving, ItemStack item)
-    {
+    public EntityProjectile(World par1World, EntityLivingBase par2EntityLiving, ItemStack item) {
         super(par1World);
         this.thrower = par2EntityLiving;
         if (this.thrower != null) {
             this.throwerName = this.thrower.getUniqueID().toString();
         }
         setThrownItem(item);
-        this.dataWatcher.updateObject(27, Byte.valueOf((byte)(getItem() == Items.arrow ? 1 : 0)));
+        this.dataWatcher.updateObject(27, Byte.valueOf((byte) (getItem() == Items.arrow ? 1 : 0)));
         setSize(this.dataWatcher.getWatchableObjectInt(23) / 10, this.dataWatcher.getWatchableObjectInt(23) / 10);
         setLocationAndAngles(par2EntityLiving.posX, par2EntityLiving.posY + par2EntityLiving.getEyeHeight(), par2EntityLiving.posZ, par2EntityLiving.rotationYaw, par2EntityLiving.rotationPitch);
         this.posX -= MathHelper.cos(this.rotationYaw / 180.0F * 3.1415927F) * 0.1F;
@@ -121,17 +111,15 @@ public class EntityProjectile
         this.yOffset = 0.0F;
     }
 
-    public void setThrownItem(ItemStack item)
-    {
+    public void setThrownItem(ItemStack item) {
         this.dataWatcher.updateObject(21, item);
     }
 
-    public void setThrowableHeading(double par1, double par3, double par5, float par7, float par8)
-    {
+    public void setThrowableHeading(double par1, double par3, double par5, float par7, float par8) {
         float f2 = MathHelper.sqrt_double(par1 * par1 + par3 * par3 + par5 * par5);
         float f3 = MathHelper.sqrt_double(par1 * par1 + par5 * par5);
-        float yaw = (float)(Math.atan2(par1, par5) * 180.0D / 3.141592653589793D);
-        float pitch = hasGravity() ? par7 : (float)(Math.atan2(par3, f3) * 180.0D / 3.141592653589793D);
+        float yaw = (float) (Math.atan2(par1, par5) * 180.0D / 3.141592653589793D);
+        float pitch = hasGravity() ? par7 : (float) (Math.atan2(par3, f3) * 180.0D / 3.141592653589793D);
         this.prevRotationYaw = (this.rotationYaw = yaw);
         this.prevRotationPitch = (this.rotationPitch = pitch);
         this.motionX = (MathHelper.sin(yaw / 180.0F * 3.1415927F) * MathHelper.cos(pitch / 180.0F * 3.1415927F));
@@ -149,8 +137,7 @@ public class EntityProjectile
         this.ticksInGround = 0;
     }
 
-    public float getAngleForXYZ(double varX, double varY, double varZ, double horiDist, boolean arc)
-    {
+    public float getAngleForXYZ(double varX, double varY, double varZ, double horiDist, boolean arc) {
         float g = getGravityVelocity();
         float var1 = getSpeed() * getSpeed();
         double var2 = g * horiDist;
@@ -160,12 +147,11 @@ public class EntityProjectile
             return 30.0F;
         }
         float var6 = arc ? var1 + MathHelper.sqrt_double(var4) : var1 - MathHelper.sqrt_double(var4);
-        float var7 = (float)(Math.atan2(var6, var2) * 180.0D / 3.141592653589793D);
+        float var7 = (float) (Math.atan2(var6, var2) * 180.0D / 3.141592653589793D);
         return var7;
     }
 
-    public void shoot(float speed)
-    {
+    public void shoot(float speed) {
         double varX = -MathHelper.sin(this.rotationYaw / 180.0F * 3.1415927F) * MathHelper.cos(this.rotationPitch / 180.0F * 3.1415927F);
         double varZ = MathHelper.cos(this.rotationYaw / 180.0F * 3.1415927F) * MathHelper.cos(this.rotationPitch / 180.0F * 3.1415927F);
         double varY = -MathHelper.sin(this.rotationPitch / 180.0F * 3.1415927F);
@@ -173,8 +159,7 @@ public class EntityProjectile
     }
 
     @SideOnly(Side.CLIENT)
-    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9)
-    {
+    public void setPositionAndRotation2(double par1, double par3, double par5, float par7, float par8, int par9) {
         if ((this.worldObj.isRemote) && (this.inGround)) {
             return;
         }
@@ -182,14 +167,12 @@ public class EntityProjectile
         setRotation(par7, par8);
     }
 
-    public void onUpdate()
-    {
+    public void onUpdate() {
         super.onEntityUpdate();
-        if ((this.prevRotationPitch == 0.0F) && (this.prevRotationYaw == 0.0F))
-        {
+        if ((this.prevRotationPitch == 0.0F) && (this.prevRotationYaw == 0.0F)) {
             float f = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
-            this.prevRotationYaw = (this.rotationYaw = (float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / 3.141592653589793D));
-            this.prevRotationPitch = (this.rotationPitch = (float)(Math.atan2(this.motionY, f) * 180.0D / 3.141592653589793D));
+            this.prevRotationYaw = (this.rotationYaw = (float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / 3.141592653589793D));
+            this.prevRotationPitch = (this.rotationPitch = (float) (Math.atan2(this.motionY, f) * 180.0D / 3.141592653589793D));
             if (isRotating()) {
                 this.rotationPitch -= 20.0F;
             }
@@ -198,8 +181,7 @@ public class EntityProjectile
             setFire(1);
         }
         Block block = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
-        if (((isArrow()) || (sticksToWalls())) && (block != null))
-        {
+        if (((isArrow()) || (sticksToWalls())) && (block != null)) {
             block.setBlockBoundsBasedOnState(this.worldObj, this.xTile, this.yTile, this.zTile);
             AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(this.worldObj, this.xTile, this.yTile, this.zTile);
             if ((axisalignedbb != null) && (axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ)))) {
@@ -209,18 +191,14 @@ public class EntityProjectile
         if (this.arrowShake > 0) {
             this.arrowShake -= 1;
         }
-        if (this.inGround)
-        {
+        if (this.inGround) {
             int j = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-            if ((block == this.inTile) && (j == this.inData))
-            {
+            if ((block == this.inTile) && (j == this.inData)) {
                 this.ticksInGround += 1;
                 if (this.ticksInGround == 1200) {
                     setDead();
                 }
-            }
-            else
-            {
+            } else {
                 this.inGround = false;
                 this.motionX *= this.rand.nextFloat() * 0.2F;
                 this.motionY *= this.rand.nextFloat() * 0.2F;
@@ -228,9 +206,7 @@ public class EntityProjectile
                 this.ticksInGround = 0;
                 this.ticksInAir = 0;
             }
-        }
-        else
-        {
+        } else {
             this.ticksInAir += 1;
             if (this.ticksInAir == 1200) {
                 setDead();
@@ -243,24 +219,19 @@ public class EntityProjectile
             if (movingobjectposition != null) {
                 vec31 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
             }
-            if (!this.worldObj.isRemote)
-            {
+            if (!this.worldObj.isRemote) {
                 Entity entity = null;
                 List list = this.worldObj.getEntitiesWithinAABBExcludingEntity(this, this.boundingBox.addCoord(this.motionX, this.motionY, this.motionZ).expand(1.0D, 1.0D, 1.0D));
                 double d0 = 0.0D;
-                for (int k = 0; k < list.size(); k++)
-                {
-                    Entity entity1 = (Entity)list.get(k);
-                    if ((entity1.canBeCollidedWith()) && ((!entity1.isEntityEqual(this.thrower)) || (this.ticksInAir >= 25)))
-                    {
+                for (int k = 0; k < list.size(); k++) {
+                    Entity entity1 = (Entity) list.get(k);
+                    if ((entity1.canBeCollidedWith()) && ((!entity1.isEntityEqual(this.thrower)) || (this.ticksInAir >= 25))) {
                         float f = 0.3F;
                         AxisAlignedBB axisalignedbb = entity1.boundingBox.expand(f, f, f);
                         MovingObjectPosition movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
-                        if (movingobjectposition1 != null)
-                        {
+                        if (movingobjectposition1 != null) {
                             double d1 = vec3.distanceTo(movingobjectposition1.hitVec);
-                            if ((d1 < d0) || (d0 == 0.0D))
-                            {
+                            if ((d1 < d0) || (d0 == 0.0D)) {
                                 entity = entity1;
                                 d0 = d1;
                             }
@@ -272,13 +243,10 @@ public class EntityProjectile
                 }
             }
             if (movingobjectposition != null) {
-                if ((movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) && (this.worldObj.getBlock(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Blocks.portal))
-                {
+                if ((movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) && (this.worldObj.getBlock(movingobjectposition.blockX, movingobjectposition.blockY, movingobjectposition.blockZ) == Blocks.portal)) {
                     setInPortal();
-                }
-                else
-                {
-                    this.dataWatcher.updateObject(29, Byte.valueOf((byte)0));
+                } else {
+                    this.dataWatcher.updateObject(29, Byte.valueOf((byte) 0));
                     onImpact(movingobjectposition);
                 }
             }
@@ -286,8 +254,9 @@ public class EntityProjectile
             this.posY += this.motionY;
             this.posZ += this.motionZ;
             float f1 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
-            this.rotationYaw = ((float)(Math.atan2(this.motionX, this.motionZ) * 180.0D / 3.141592653589793D));
-            for (this.rotationPitch = ((float)(Math.atan2(this.motionY, f1) * 180.0D / 3.141592653589793D)); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {}
+            this.rotationYaw = ((float) (Math.atan2(this.motionX, this.motionZ) * 180.0D / 3.141592653589793D));
+            for (this.rotationPitch = ((float) (Math.atan2(this.motionY, f1) * 180.0D / 3.141592653589793D)); this.rotationPitch - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
+            }
             while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
                 this.prevRotationPitch += 360.0F;
             }
@@ -300,18 +269,15 @@ public class EntityProjectile
             float f = isArrow() ? 0.0F : 225.0F;
             this.rotationPitch = (this.prevRotationPitch + (this.rotationPitch - this.prevRotationPitch) + f * 0.2F);
             this.rotationYaw = (this.prevRotationYaw + (this.rotationYaw - this.prevRotationYaw) * 0.2F);
-            if (isRotating())
-            {
+            if (isRotating()) {
                 int spin = isBlock() ? 10 : 20;
                 this.rotationPitch -= this.ticksInAir % 15 * spin * getSpeed();
             }
             float f2 = getMotionFactor();
             float f3 = getGravityVelocity();
-            if (isInWater())
-            {
+            if (isInWater()) {
                 if (this.worldObj.isRemote) {
-                    for (int k = 0; k < 4; k++)
-                    {
+                    for (int k = 0; k < 4; k++) {
                         float f4 = 0.25F;
                         this.worldObj.spawnParticle("bubble", this.posX - this.motionX * f4, this.posY - this.motionY * f4, this.posZ - this.motionZ * f4, this.motionX, this.motionY, this.motionZ);
                     }
@@ -324,8 +290,7 @@ public class EntityProjectile
             if (hasGravity()) {
                 this.motionY -= f3;
             }
-            if (this.accelerate)
-            {
+            if (this.accelerate) {
                 this.motionX += this.accelerationX;
                 this.motionY += this.accelerationY;
                 this.motionZ += this.accelerationZ;
@@ -338,8 +303,7 @@ public class EntityProjectile
         }
     }
 
-    public boolean isBlock()
-    {
+    public boolean isBlock() {
         ItemStack item = getItemDisplay();
         if (item == null) {
             return false;
@@ -347,8 +311,7 @@ public class EntityProjectile
         return item.getItem() instanceof ItemBlock;
     }
 
-    private Item getItem()
-    {
+    private Item getItem() {
         ItemStack item = getItemDisplay();
         if (item == null) {
             return null;
@@ -356,27 +319,22 @@ public class EntityProjectile
         return item.getItem();
     }
 
-    protected float getMotionFactor()
-    {
+    protected float getMotionFactor() {
         return this.accelerate ? 0.95F : 1.0F;
     }
 
-    protected void onImpact(MovingObjectPosition movingobjectposition)
-    {
-        if (movingobjectposition.entityHit != null)
-        {
-            if ((this.callback != null) && (this.callbackItem != null) && ((movingobjectposition.entityHit instanceof EntityLivingBase)) && (this.callback.onImpact(this, (EntityLivingBase)movingobjectposition.entityHit, this.callbackItem))) {
+    protected void onImpact(MovingObjectPosition movingobjectposition) {
+        if (movingobjectposition.entityHit != null) {
+            if ((this.callback != null) && (this.callbackItem != null) && ((movingobjectposition.entityHit instanceof EntityLivingBase)) && (this.callback.onImpact(this, (EntityLivingBase) movingobjectposition.entityHit, this.callbackItem))) {
                 return;
             }
             float damage = this.damage;
             if (damage == 0.0F) {
                 damage = 0.001F;
             }
-            if (movingobjectposition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), damage))
-            {
-                if (((movingobjectposition.entityHit instanceof EntityLivingBase)) && ((isArrow()) || (sticksToWalls())))
-                {
-                    EntityLivingBase entityliving = (EntityLivingBase)movingobjectposition.entityHit;
+            if (movingobjectposition.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), damage)) {
+                if (((movingobjectposition.entityHit instanceof EntityLivingBase)) && ((isArrow()) || (sticksToWalls()))) {
+                    EntityLivingBase entityliving = (EntityLivingBase) movingobjectposition.entityHit;
                     if (!this.worldObj.isRemote) {
                         entityliving.setArrowCountInEntity(entityliving.getArrowCountInEntity() + 1);
                     }
@@ -385,33 +343,27 @@ public class EntityProjectile
                     }
                 }
                 if (isBlock()) {
-                    this.worldObj.playAuxSFX(2001, (int)movingobjectposition.entityHit.posX, (int)movingobjectposition.entityHit.posY, (int)movingobjectposition.entityHit.posZ, Item.getIdFromItem(getItem()));
+                    this.worldObj.playAuxSFX(2001, (int) movingobjectposition.entityHit.posX, (int) movingobjectposition.entityHit.posY, (int) movingobjectposition.entityHit.posZ, Item.getIdFromItem(getItem()));
                 } else if ((!isArrow()) && (!sticksToWalls())) {
                     for (int i = 0; i < 8; i++) {
                         this.worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(getItem()), this.posX, this.posY, this.posZ, this.rand.nextGaussian() * 0.15D, this.rand.nextGaussian() * 0.2D, this.rand.nextGaussian() * 0.15D);
                     }
                 }
-                if (this.punch > 0)
-                {
+                if (this.punch > 0) {
                     float f3 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionZ * this.motionZ);
                     if (f3 > 0.0F) {
                         movingobjectposition.entityHit.addVelocity(this.motionX * this.punch * 0.6000000238418579D / f3, 0.1D, this.motionZ * this.punch * 0.6000000238418579D / f3);
                     }
                 }
                 if ((this.effect != EnumPotionType.None) && ((movingobjectposition.entityHit instanceof EntityLivingBase))) {
-                    if (this.effect != EnumPotionType.Fire)
-                    {
+                    if (this.effect != EnumPotionType.Fire) {
                         int p = getPotionEffect(this.effect);
-                        ((EntityLivingBase)movingobjectposition.entityHit).addPotionEffect(new PotionEffect(p, this.duration * 20, this.amplify));
-                    }
-                    else
-                    {
+                        ((EntityLivingBase) movingobjectposition.entityHit).addPotionEffect(new PotionEffect(p, this.duration * 20, this.amplify));
+                    } else {
                         movingobjectposition.entityHit.setFire(this.duration);
                     }
                 }
-            }
-            else if ((hasGravity()) && ((isArrow()) || (sticksToWalls())))
-            {
+            } else if ((hasGravity()) && ((isArrow()) || (sticksToWalls()))) {
                 this.motionX *= -0.1;
                 this.motionY *= -0.1;
                 this.motionZ *= -0.1;
@@ -419,17 +371,15 @@ public class EntityProjectile
                 this.prevRotationYaw += 180.0F;
                 this.ticksInAir = 0;
             }
-        }
-        else if ((isArrow()) || (sticksToWalls()))
-        {
+        } else if ((isArrow()) || (sticksToWalls())) {
             this.xTile = movingobjectposition.blockX;
             this.yTile = movingobjectposition.blockY;
             this.zTile = movingobjectposition.blockZ;
             this.inTile = this.worldObj.getBlock(this.xTile, this.yTile, this.zTile);
             this.inData = this.worldObj.getBlockMetadata(this.xTile, this.yTile, this.zTile);
-            this.motionX = ((float)(movingobjectposition.hitVec.xCoord - this.posX));
-            this.motionY = ((float)(movingobjectposition.hitVec.yCoord - this.posY));
-            this.motionZ = ((float)(movingobjectposition.hitVec.zCoord - this.posZ));
+            this.motionX = ((float) (movingobjectposition.hitVec.xCoord - this.posX));
+            this.motionY = ((float) (movingobjectposition.hitVec.yCoord - this.posY));
+            this.motionZ = ((float) (movingobjectposition.hitVec.zCoord - this.posZ));
             float f2 = MathHelper.sqrt_double(this.motionX * this.motionX + this.motionY * this.motionY + this.motionZ * this.motionZ);
             this.posX -= this.motionX / f2 * 0.05000000074505806D;
             this.posY -= this.motionY / f2 * 0.05000000074505806D;
@@ -442,25 +392,20 @@ public class EntityProjectile
             }
             this.arrowShake = 7;
             if (!hasGravity()) {
-                this.dataWatcher.updateObject(26, Byte.valueOf((byte)1));
+                this.dataWatcher.updateObject(26, Byte.valueOf((byte) 1));
             }
             if (this.inTile != null) {
                 this.inTile.onEntityCollidedWithBlock(this.worldObj, this.xTile, this.yTile, this.zTile, this);
             }
-        }
-        else if (isBlock())
-        {
+        } else if (isBlock()) {
             this.worldObj.playAuxSFX(2001, MathHelper.floor_double(this.posX), MathHelper.floor_double(this.posY), MathHelper.floor_double(this.posZ), Item.getIdFromItem(getItem()));
-        }
-        else
-        {
+        } else {
             for (int i = 0; i < 8; i++) {
                 this.worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(getItem()), this.posX, this.posY, this.posZ, this.rand.nextGaussian() * 0.15D, this.rand.nextGaussian() * 0.2D, this.rand.nextGaussian() * 0.15D);
             }
         }
         if (this.explosive) {
-            if ((this.explosiveRadius != 0) || (this.effect == EnumPotionType.None))
-            {
+            if ((this.explosiveRadius != 0) || (this.effect == EnumPotionType.None)) {
                 boolean terraindamage = (this.worldObj.getGameRules().getGameRuleBooleanValue("mobGriefing")) && (this.explosiveDamage);
                 Explosion explosion = new Explosion(this.worldObj, this, this.posX, this.posY, this.posZ, this.explosiveRadius);
                 explosion.isFlaming = (this.effect == EnumPotionType.Fire);
@@ -469,28 +414,23 @@ public class EntityProjectile
                     explosion.doExplosionA();
                 }
                 explosion.doExplosionB(this.worldObj.isRemote);
-                if (!this.worldObj.isRemote)
-                {
+                if (!this.worldObj.isRemote) {
                     Iterator iterator = this.worldObj.playerEntities.iterator();
-                    while (iterator.hasNext())
-                    {
-                        EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+                    while (iterator.hasNext()) {
+                        EntityPlayer entityplayer = (EntityPlayer) iterator.next();
                         if (entityplayer.getDistanceSq(this.posX, this.posY, this.posZ) < 4096.0D) {
-                            ((EntityPlayerMP)entityplayer).playerNetServerHandler.sendPacket(new S27PacketExplosion(this.posX, this.posY, this.posZ, this.explosiveRadius, explosion.affectedBlockPositions, (Vec3)explosion.func_77277_b().get(entityplayer)));
+                            ((EntityPlayerMP) entityplayer).playerNetServerHandler.sendPacket(new S27PacketExplosion(this.posX, this.posY, this.posZ, this.explosiveRadius, explosion.affectedBlockPositions, (Vec3) explosion.func_77277_b().get(entityplayer)));
                         }
                     }
                 }
                 if ((this.explosiveRadius != 0) && ((isArrow()) || (sticksToWalls()))) {
                     setDead();
                 }
-            }
-            else if (this.effect == EnumPotionType.Fire)
-            {
+            } else if (this.effect == EnumPotionType.Fire) {
                 int i = movingobjectposition.blockX;
                 int j = movingobjectposition.blockY;
                 int k = movingobjectposition.blockZ;
-                switch (movingobjectposition.sideHit)
-                {
+                switch (movingobjectposition.sideHit) {
                     case 0:
                         j--;
                         break;
@@ -512,32 +452,24 @@ public class EntityProjectile
                 if (this.worldObj.isAirBlock(i, j, k)) {
                     this.worldObj.setBlock(i, j, k, Blocks.fire);
                 }
-            }
-            else
-            {
+            } else {
                 AxisAlignedBB axisalignedbb = this.boundingBox.expand(4.0D, 2.0D, 4.0D);
                 List list1 = this.worldObj.getEntitiesWithinAABB(EntityLivingBase.class, axisalignedbb);
-                if ((list1 != null) && (!list1.isEmpty()))
-                {
+                if ((list1 != null) && (!list1.isEmpty())) {
                     Iterator iterator = list1.iterator();
-                    while (iterator.hasNext())
-                    {
-                        EntityLivingBase entitylivingbase = (EntityLivingBase)iterator.next();
+                    while (iterator.hasNext()) {
+                        EntityLivingBase entitylivingbase = (EntityLivingBase) iterator.next();
                         double d0 = getDistanceSqToEntity(entitylivingbase);
-                        if (d0 < 16.0D)
-                        {
+                        if (d0 < 16.0D) {
                             double d1 = 1.0D - Math.sqrt(d0) / 4.0D;
                             if (entitylivingbase == movingobjectposition.entityHit) {
                                 d1 = 1.0D;
                             }
                             int i = getPotionEffect(this.effect);
-                            if (Potion.potionTypes[i].isInstant())
-                            {
+                            if (Potion.potionTypes[i].isInstant()) {
                                 Potion.potionTypes[i].affectEntity(getThrower(), entitylivingbase, this.amplify, d1);
-                            }
-                            else
-                            {
-                                int j = (int)(d1 * this.duration + 0.5D);
+                            } else {
+                                int j = (int) (d1 * this.duration + 0.5D);
                                 if (j > 20) {
                                     entitylivingbase.addPotionEffect(new PotionEffect(i, j, this.amplify));
                                 }
@@ -545,7 +477,7 @@ public class EntityProjectile
                         }
                     }
                 }
-                this.worldObj.playAuxSFX(2002, (int)Math.round(this.posX), (int)Math.round(this.posY), (int)Math.round(this.posZ), getPotionColor(this.effect));
+                this.worldObj.playAuxSFX(2002, (int) Math.round(this.posX), (int) Math.round(this.posY), (int) Math.round(this.posZ), getPotionColor(this.effect));
             }
         }
         if ((!this.worldObj.isRemote) && (!isArrow()) && (!sticksToWalls())) {
@@ -553,17 +485,16 @@ public class EntityProjectile
         }
     }
 
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        par1NBTTagCompound.setShort("xTile", (short)this.xTile);
-        par1NBTTagCompound.setShort("yTile", (short)this.yTile);
-        par1NBTTagCompound.setShort("zTile", (short)this.zTile);
-        par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.inTile));
-        par1NBTTagCompound.setByte("inData", (byte)this.inData);
-        par1NBTTagCompound.setByte("shake", (byte)this.throwableShake);
-        par1NBTTagCompound.setByte("inGround", (byte)(this.inGround ? 1 : 0));
-        par1NBTTagCompound.setByte("isArrow", (byte)(isArrow() ? 1 : 0));
-        par1NBTTagCompound.setTag("direction", newDoubleNBTList(new double[] { this.motionX, this.motionY, this.motionZ }));
+    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
+        par1NBTTagCompound.setShort("xTile", (short) this.xTile);
+        par1NBTTagCompound.setShort("yTile", (short) this.yTile);
+        par1NBTTagCompound.setShort("zTile", (short) this.zTile);
+        par1NBTTagCompound.setByte("inTile", (byte) Block.getIdFromBlock(this.inTile));
+        par1NBTTagCompound.setByte("inData", (byte) this.inData);
+        par1NBTTagCompound.setByte("shake", (byte) this.throwableShake);
+        par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
+        par1NBTTagCompound.setByte("isArrow", (byte) (isArrow() ? 1 : 0));
+        par1NBTTagCompound.setTag("direction", newDoubleNBTList(new double[]{this.motionX, this.motionY, this.motionZ}));
         par1NBTTagCompound.setBoolean("canBePickedUp", this.canBePickedUp);
         if (((this.throwerName == null) || (this.throwerName.length() == 0)) && (this.thrower != null) && ((this.thrower instanceof EntityPlayer))) {
             this.throwerName = this.thrower.getUniqueID().toString();
@@ -589,8 +520,7 @@ public class EntityProjectile
         par1NBTTagCompound.setByte("Sticks", this.dataWatcher.getWatchableObjectByte(30));
     }
 
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound)
-    {
+    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
         this.xTile = par1NBTTagCompound.getShort("xTile");
         this.yTile = par1NBTTagCompound.getShort("yTile");
         this.zTile = par1NBTTagCompound.getShort("zTile");
@@ -611,17 +541,16 @@ public class EntityProjectile
         this.effect = EnumPotionType.values()[(par1NBTTagCompound.getInteger("PotionEffect") % EnumPotionType.values().length)];
         this.dataWatcher.updateObject(22, par1NBTTagCompound.getString("trail"));
         this.dataWatcher.updateObject(23, Integer.valueOf(par1NBTTagCompound.getInteger("size")));
-        this.dataWatcher.updateObject(24, Byte.valueOf((byte)(par1NBTTagCompound.getBoolean("glows") ? 1 : 0)));
+        this.dataWatcher.updateObject(24, Byte.valueOf((byte) (par1NBTTagCompound.getBoolean("glows") ? 1 : 0)));
         this.dataWatcher.updateObject(25, Integer.valueOf(par1NBTTagCompound.getInteger("velocity")));
-        this.dataWatcher.updateObject(26, Byte.valueOf((byte)(par1NBTTagCompound.getBoolean("gravity") ? 1 : 0)));
-        this.dataWatcher.updateObject(28, Byte.valueOf((byte)(par1NBTTagCompound.getBoolean("Render3D") ? 1 : 0)));
-        this.dataWatcher.updateObject(29, Byte.valueOf((byte)(par1NBTTagCompound.getBoolean("Spins") ? 1 : 0)));
-        this.dataWatcher.updateObject(30, Byte.valueOf((byte)(par1NBTTagCompound.getBoolean("Sticks") ? 1 : 0)));
+        this.dataWatcher.updateObject(26, Byte.valueOf((byte) (par1NBTTagCompound.getBoolean("gravity") ? 1 : 0)));
+        this.dataWatcher.updateObject(28, Byte.valueOf((byte) (par1NBTTagCompound.getBoolean("Render3D") ? 1 : 0)));
+        this.dataWatcher.updateObject(29, Byte.valueOf((byte) (par1NBTTagCompound.getBoolean("Spins") ? 1 : 0)));
+        this.dataWatcher.updateObject(30, Byte.valueOf((byte) (par1NBTTagCompound.getBoolean("Sticks") ? 1 : 0)));
         if ((this.throwerName != null) && (this.throwerName.length() == 0)) {
             this.throwerName = null;
         }
-        if (par1NBTTagCompound.hasKey("direction"))
-        {
+        if (par1NBTTagCompound.hasKey("direction")) {
             NBTTagList nbttaglist = par1NBTTagCompound.getTagList("direction", 6);
             this.motionX = nbttaglist.func_150309_d(0);
             this.motionY = nbttaglist.func_150309_d(1);
@@ -636,26 +565,22 @@ public class EntityProjectile
         }
     }
 
-    public EntityLivingBase getThrower()
-    {
+    public EntityLivingBase getThrower() {
         if ((this.throwerName == null) || (this.throwerName.isEmpty())) {
             return null;
         }
-        try
-        {
+        try {
             UUID uuid = UUID.fromString(this.throwerName);
             if ((this.thrower == null) && (uuid != null)) {
                 this.thrower = this.worldObj.func_152378_a(uuid);
             }
+        } catch (IllegalArgumentException ex) {
         }
-        catch (IllegalArgumentException ex) {}
         return this.thrower;
     }
 
-    private int getPotionEffect(EnumPotionType p)
-    {
-        switch (p)
-        {
+    private int getPotionEffect(EnumPotionType p) {
+        switch (p) {
             case Poison:
                 return Potion.poison.id;
             case Hunger:
@@ -674,10 +599,8 @@ public class EntityProjectile
         return 0;
     }
 
-    private int getPotionColor(EnumPotionType p)
-    {
-        switch (p)
-        {
+    private int getPotionColor(EnumPotionType p) {
+        switch (p) {
             case Poison:
                 return 32660;
             case Hunger:
@@ -696,114 +619,76 @@ public class EntityProjectile
         return 0;
     }
 
-//    public void getStatProperties(DataStats stats)
-//    {
-//        this.damage = stats.pDamage;
-//        this.punch = stats.pImpact;
-//        this.accelerate = stats.pXlr8;
-//        this.explosive = stats.pExplode;
-//        this.explosiveRadius = stats.pArea;
-//        this.effect = stats.pEffect;
-//        this.duration = stats.pDur;
-//        this.amplify = stats.pEffAmp;
-//        setParticleEffect(stats.pTrail);
-//        this.dataWatcher.updateObject(23, Integer.valueOf(stats.pSize));
-//        this.dataWatcher.updateObject(24, Byte.valueOf((byte)(stats.pGlows ? 1 : 0)));
-//        setSpeed(stats.pSpeed);
-//        setHasGravity(stats.pPhysics);
-//        setIs3D(stats.pRender3D);
-//        setRotating(stats.pSpin);
-//        setStickInWall(stats.pStick);
-//    }
-
-    public void setParticleEffect(EnumParticleType type)
-    {
+    public void setParticleEffect(EnumParticleType type) {
         this.dataWatcher.updateObject(22, type.particleName);
     }
 
-    public void setHasGravity(boolean bo)
-    {
-        this.dataWatcher.updateObject(26, Byte.valueOf((byte)(bo ? 1 : 0)));
+    public void setHasGravity(boolean bo) {
+        this.dataWatcher.updateObject(26, Byte.valueOf((byte) (bo ? 1 : 0)));
     }
 
-    public void setIs3D(boolean bo)
-    {
-        this.dataWatcher.updateObject(28, Byte.valueOf((byte)(bo ? 1 : 0)));
+    public void setIs3D(boolean bo) {
+        this.dataWatcher.updateObject(28, Byte.valueOf((byte) (bo ? 1 : 0)));
     }
 
-    public void setStickInWall(boolean bo)
-    {
-        this.dataWatcher.updateObject(30, Byte.valueOf((byte)(bo ? 1 : 0)));
+    public void setStickInWall(boolean bo) {
+        this.dataWatcher.updateObject(30, Byte.valueOf((byte) (bo ? 1 : 0)));
     }
 
-    public ItemStack getItemDisplay()
-    {
+    public ItemStack getItemDisplay() {
         return this.dataWatcher.getWatchableObjectItemStack(21);
     }
 
-    public float getBrightness(float par1)
-    {
+    public float getBrightness(float par1) {
         return this.dataWatcher.getWatchableObjectByte(24) == 1 ? 1.0F : super.getBrightness(par1);
     }
 
     @SideOnly(Side.CLIENT)
-    public int getBrightnessForRender(float par1)
-    {
+    public int getBrightnessForRender(float par1) {
         return this.dataWatcher.getWatchableObjectByte(24) == 1 ? 15728880 : super.getBrightnessForRender(par1);
     }
 
-    public boolean hasGravity()
-    {
+    public boolean hasGravity() {
         return this.dataWatcher.getWatchableObjectByte(26) == 1;
     }
 
-    public void setSpeed(int speed)
-    {
+    public void setSpeed(int speed) {
         this.dataWatcher.updateObject(25, Integer.valueOf(speed));
     }
 
-    public float getSpeed()
-    {
+    public float getSpeed() {
         return this.dataWatcher.getWatchableObjectInt(25) / 10.0F;
     }
 
-    public boolean isArrow()
-    {
+    public boolean isArrow() {
         return this.dataWatcher.getWatchableObjectByte(27) == 1;
     }
 
-    public void setRotating(boolean bo)
-    {
-        this.dataWatcher.updateObject(29, Byte.valueOf((byte)(bo ? 1 : 0)));
+    public void setRotating(boolean bo) {
+        this.dataWatcher.updateObject(29, Byte.valueOf((byte) (bo ? 1 : 0)));
     }
 
-    public boolean isRotating()
-    {
+    public boolean isRotating() {
         return this.dataWatcher.getWatchableObjectByte(29) == 1;
     }
 
-    public boolean glows()
-    {
+    public boolean glows() {
         return this.dataWatcher.getWatchableObjectByte(24) == 1;
     }
 
-    public boolean is3D()
-    {
+    public boolean is3D() {
         return (this.dataWatcher.getWatchableObjectByte(28) == 1) || (isBlock());
     }
 
-    public boolean sticksToWalls()
-    {
+    public boolean sticksToWalls() {
         return (is3D()) && (this.dataWatcher.getWatchableObjectByte(30) == 1);
     }
 
-    public void onCollideWithPlayer(EntityPlayer par1EntityPlayer)
-    {
+    public void onCollideWithPlayer(EntityPlayer par1EntityPlayer) {
         if ((this.worldObj.isRemote) || (!this.canBePickedUp) || (!this.inGround) || (this.arrowShake > 0)) {
             return;
         }
-        if (par1EntityPlayer.inventory.addItemStackToInventory(getItemDisplay()))
-        {
+        if ((!onlyCanBePickedUpByThrower || par1EntityPlayer.equals(thrower)) && par1EntityPlayer.inventory.addItemStackToInventory(getItemDisplay())) {
             this.inGround = false;
             playSound("random.pop", 0.2F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             par1EntityPlayer.onItemPickup(this, 1);
@@ -811,37 +696,32 @@ public class EntityProjectile
         }
     }
 
-    protected boolean canTriggerWalking()
-    {
+    protected boolean canTriggerWalking() {
         return false;
     }
 
-    public IChatComponent func_145748_c_()
-    {
+    public IChatComponent func_145748_c_() {
         if (getItemDisplay() != null) {
             return new ChatComponentTranslation(getItemDisplay().getDisplayName(), new Object[0]);
         }
         return super.func_145748_c_();
     }
 
-    public enum EnumPotionType
-    {
-        None,  Fire,  Poison,  Hunger,  Weakness,  Slowness,  Nausea,  Blindness,  Wither;
+    public enum EnumPotionType {
+        None, Fire, Poison, Hunger, Weakness, Slowness, Nausea, Blindness, Wither;
     }
 
-    public enum EnumParticleType
-    {
-        None(""),  Smoke("smoke"),  Portal("portal"),  Redstone("reddust"),  Lightning("magicCrit"),  LargeSmoke("largesmoke"),  Magic("witchMagic"),  Enchant("enchantmenttable"),  Crit("crit");
+    public enum EnumParticleType {
+        None(""), Smoke("smoke"), Portal("portal"), Redstone("reddust"), Lightning("magicCrit"), LargeSmoke("largesmoke"), Magic("witchMagic"), Enchant("enchantmenttable"), Crit("crit");
 
         public String particleName;
 
-        EnumParticleType(String name)
-        {
+        EnumParticleType(String name) {
             this.particleName = name;
         }
     }
 
-    public interface ImpactListener{
+    public interface ImpactListener {
         boolean onImpact(EntityProjectile paramEntityProjectile, EntityLivingBase paramEntityLivingBase, ItemStack paramItemStack);
     }
 }

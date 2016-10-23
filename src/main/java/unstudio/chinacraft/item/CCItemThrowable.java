@@ -18,7 +18,9 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     private boolean dropItem = false;
     private boolean hasGravity = false;
     private boolean stickInWall = true;
+    public boolean onlyCanBePickedUpByThrower = true;
     private boolean is3D = true;
+    private EntityProjectile.EnumPotionType effect = EntityProjectile.EnumPotionType.None;
     private EntityProjectile.EnumParticleType particleType = EntityProjectile.EnumParticleType.None;
     private int speed = 10;
 
@@ -51,6 +53,8 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         projectile.canBePickedUp = player.capabilities.isCreativeMode || this.dropItem;
         projectile.setRotating(this.rotating);
         projectile.damage = this.damage;
+        projectile.effect = effect;
+        projectile.onlyCanBePickedUpByThrower = onlyCanBePickedUpByThrower;
         projectile.setIs3D(is3D);
         projectile.setParticleEffect(particleType);
         projectile.setStickInWall(stickInWall);
@@ -128,6 +132,11 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         return this;
     }
 
+    public CCItemThrowable setEffect(EntityProjectile.EnumPotionType effect) {
+        this.effect = effect;
+        return this;
+    }
+
     public float getDamage() {
         return damage;
     }
@@ -154,5 +163,9 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
 
     public int getSpeed() {
         return speed;
+    }
+
+    public EntityProjectile.EnumPotionType getEffect() {
+        return effect;
     }
 }
