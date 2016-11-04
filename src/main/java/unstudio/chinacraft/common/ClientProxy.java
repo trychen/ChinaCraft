@@ -2,9 +2,14 @@ package unstudio.chinacraft.common;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
+import unstudio.chinacraft.block.decoration.BlockCCDing;
+import unstudio.chinacraft.client.model.block.ModelBuhrimill;
+import unstudio.chinacraft.client.model.block.ModelDing;
 import unstudio.chinacraft.client.model.block.ModelLanternScaldfish;
+import unstudio.chinacraft.client.render.block.BlockLanternRenderer;
 import unstudio.chinacraft.client.render.block.BlockWoodenBucketRenderer;
 import unstudio.chinacraft.client.render.item.*;
 import unstudio.chinacraft.client.render.tileentity.TileEntityBuhrimillRenderer;
@@ -38,8 +43,6 @@ public class ClientProxy extends CommonProxy {
         }
 
         //清理此地材质注册……
-//        ChinaCraft.lanternScaldfishOpenable.setBlockTextureName("lantern_scaldfish");
-        ChinaCraft.lanternScaldfish.setBlockTextureName("lantern_scaldfish_on");
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
         ChinaCraft.chrysanthemum.setBlockTextureName("chinacraft:chrysanthemum");
@@ -140,23 +143,24 @@ public class ClientProxy extends CommonProxy {
         ModelArmorRegister.init();
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ItemBuhrimillRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ModelBlockItemRenderer(new ModelBuhrimill(),
+                new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));
 
-        //ClientRegistry.registerTileEntity(TileCCLamp.class, "tileEntityLamp", new TileEntityModelBlockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
 //        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfishOpenable,
 //                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
 //                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
-        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfish,
+
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfish),
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
                         new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
 
-        ClientRegistry.registerTileEntity(TileModelBlock.class, "tileEntityModelBlock",
-                new TileEntityModelBlockRenderer());
+        RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
+
         ClientRegistry.bindTileEntitySpecialRenderer(TileModelBlock.class, new TileEntityModelBlockRenderer());
 
-        // MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill),new
-        // ItemBuhrimillRenderer());
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.ding), new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
+
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class,
                 new TileEntitySericultureFrameRenderer());

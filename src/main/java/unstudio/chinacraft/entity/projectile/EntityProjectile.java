@@ -669,6 +669,10 @@ public class EntityProjectile extends EntityThrowable {
         return this.dataWatcher.getWatchableObjectByte(27) == 1;
     }
 
+    public void setArrow(boolean bo) {
+        this.dataWatcher.updateObject(27, Byte.valueOf((byte) (bo ? 1 : 0)));
+    }
+
     public void setRotating(boolean bo) {
         this.dataWatcher.updateObject(29, Byte.valueOf((byte) (bo ? 1 : 0)));
     }

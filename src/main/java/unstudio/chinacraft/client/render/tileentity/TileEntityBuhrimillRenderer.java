@@ -35,7 +35,7 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
         modelBuhrimill.i6.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float) Math.PI;
         modelBuhrimill.i7.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float) Math.PI;
         modelBuhrimill.i8.rotateAngleY = ((TileBuhrimill) te).angle / 180F * (float) Math.PI;
-        modelBuhrimill.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        modelBuhrimill.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glPopMatrix();
         GL11.glPopMatrix();
         GL11.glPopMatrix();

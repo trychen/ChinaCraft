@@ -4,13 +4,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
 public class BlockCCModel extends Block {
     private Class<? extends ModelBase> model;
+    private IIcon icon;
 
     /**
      * @param material
@@ -20,16 +23,17 @@ public class BlockCCModel extends Block {
      * @param name
      *            名字
      */
-    public BlockCCModel(Material material, Class<? extends ModelBase> model, String name) {
+    public BlockCCModel(Material material, Class<? extends ModelBase> model, String name, IIcon icon) {
         super(material);
         this.model = model;
+        this.icon = icon;
         setBlockName(name);
-        setBlockTextureName(name);
+        setCreativeTab(CreativeTabs.tabBlock);
     }
 
     @Override
-    public void registerBlockIcons(IIconRegister p_149651_1_) {
-        blockIcon = p_149651_1_.registerIcon("minecraft:redstone_block");
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+        return icon;
     }
 
     @Override

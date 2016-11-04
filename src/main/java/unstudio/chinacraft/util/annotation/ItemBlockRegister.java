@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
+import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
 import unstudio.chinacraft.item.ItemCCSlab;

@@ -1,11 +1,13 @@
 package unstudio.chinacraft.block.especial;
 
+import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,6 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -37,18 +40,18 @@ public class BlockBuhrimill extends BlockContainer {
         setHarvestLevel("pickaxe", 1);
     }
 
-    // @Override
-    // public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_,
-    // int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_,
-    // List p_149743_6_, Entity p_149743_7_) {
-    // this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
-    // super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_,
-    // p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
-    // this.setBlockBounds(0.25F, 0.5F, 0.25F, 0.75F, 0.875F, 0.75F);
-    // super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_,
-    // p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
-    // this.setBlockBoundsForItemRender();
-    // }
+    @Override
+    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_,
+                                        int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_,
+                                        List p_149743_6_, Entity p_149743_7_) {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_,
+                p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
+        this.setBlockBounds(0.25F, 0.5F, 0.25F, 0.75F, 0.875F, 0.75F);
+        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_,
+                p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
+        this.setBlockBoundsForItemRender();
+    }
 
     @Override
     public void setBlockBoundsForItemRender() {
@@ -72,7 +75,7 @@ public class BlockBuhrimill extends BlockContainer {
 
     @Override
     public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_,
-            EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
+                                EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
         int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
 
         if (l == 0) {
@@ -110,7 +113,7 @@ public class BlockBuhrimill extends BlockContainer {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_,
-            float p_149727_7_, float p_149727_8_, float p_149727_9_) {
+                                    float p_149727_7_, float p_149727_8_, float p_149727_9_) {
 
         if (p_149727_5_.isSneaking()) {
             if (world.isRemote)

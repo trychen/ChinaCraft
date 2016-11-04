@@ -48,6 +48,7 @@ public class ItemDebug extends Item {
         player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.hardness") + "&"+StatCollector.translateToLocal("debug.antiknock")+": "+block.getBlockHardness(world,x,y,z)+"  "+block.getExplosionResistance(null)*5F/3F));
         player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.brightness") + "&"+StatCollector.translateToLocal("debug.transmittance")+": "+block.getLightValue()+"  "+block.getLightOpacity()));
         player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.need_tools") + "&"+StatCollector.translateToLocal("debug.need_tools_level")+": "+block.getHarvestTool(metadata)+"  "+block.getHarvestLevel(metadata)));
+//        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("debug.texture")+": "+block.getBlockTextureFromSide(0).getIconName()));
         // player.addChatMessage(new
         // ChatComponentText(String.valueOf(player.inventory.currentItem)));
         TileEntity tile = world.getTileEntity(x, y, z);

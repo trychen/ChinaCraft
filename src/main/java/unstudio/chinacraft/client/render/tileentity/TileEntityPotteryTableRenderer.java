@@ -27,7 +27,7 @@ public class TileEntityPotteryTableRenderer extends TileEntitySpecialRenderer {
         GL11.glScaled(0.5, 0.5, 0.5);
         GL11.glPushMatrix();
         GL11.glRotatef(te.getBlockMetadata() * 90 + 180, 0.0F, 1.0F, 0.0F);
-        model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+        model.render(null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
         GL11.glPopMatrix();
         GL11.glPopMatrix();
         GL11.glPopMatrix();

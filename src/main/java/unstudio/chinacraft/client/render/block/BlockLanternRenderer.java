@@ -12,12 +12,12 @@ import unstudio.chinacraft.block.model.BlockCCLantern;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 
-@Deprecated
 public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
 
     public final static int renderID = RenderingRegistry.getNextAvailableRenderId();
 
-    public static void drawInventoryBlock(Block block, int metadata, RenderBlocks renderer) {
+    @Override
+    public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {
         Tessellator tes = Tessellator.instance;
         GL11.glPushMatrix();
         GL11.glRotatef(90.0F, 0.0F, 1.0F, 0.0F);
@@ -52,15 +52,11 @@ public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
         renderer.renderFaceXPos(block, 0.0D, 0.0D, 0.0D, renderer.overrideBlockTexture != null
                 ? renderer.overrideBlockTexture : renderer.getBlockIconFromSideAndMetadata(block, 5, metadata));
         tes.draw();
-        GL11.glPopMatrix();
-    }
+        GL11.glPopMatrix();}
 
     @Override
-    public void renderInventoryBlock(Block block, int metadata, int modelId, RenderBlocks renderer) {}
-
-    @Override
-    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId,
-            RenderBlocks renderer) {
+    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+        System.out.println(1);
         renderer.renderStandardBlock(block, x, y, z);
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));

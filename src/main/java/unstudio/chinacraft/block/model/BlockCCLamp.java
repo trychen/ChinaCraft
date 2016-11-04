@@ -3,6 +3,7 @@ package unstudio.chinacraft.block.model;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
@@ -18,14 +19,13 @@ public class BlockCCLamp extends BlockCCModel {
      *            名字
      */
     public BlockCCLamp(Material material, Class <? extends ModelBase> model, String name) {
-        super(material, model, name);
+        super(material, model, name, Blocks.redstone_block.getIcon(0,0));
         setLightLevel(5.0f);
-
     }
 
     @Override
     public TileEntity createTileEntity(World world, int metadata) {
-        return new TileCCLamp(this.getModel(), getTextureName());
+        return new TileCCLamp(this.getModel(),this.getTextureName(), false);
     }
 
     @Override

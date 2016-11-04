@@ -12,6 +12,7 @@ import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.projectile.EntityProjectile;
 import unstudio.chinacraft.entity.projectile.EntitySuperArrow;
 
 /**
@@ -25,69 +26,34 @@ public class ItemSuperBow extends ItemBow {
     }
 
     @Override
-    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer entityPlayer, int parInt) {
-        int j = this.getMaxItemUseDuration(itemStack) - parInt;
-
-        ArrowLooseEvent event = new ArrowLooseEvent(entityPlayer, itemStack, j);
+    public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer player, int parInt) {
+        ArrowLooseEvent event = new ArrowLooseEvent(player, itemStack, parInt);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.isCanceled()) {
             return;
         }
-        j = event.charge;
 
-        boolean flag = entityPlayer.capabilities.isCreativeMode
-                || EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemStack) > 0;
-
-        if (flag || entityPlayer.inventory.hasItem(Items.arrow)) {
-            float f = j / 20.0F;
-            f = (f * f + f * 2.0F) / 3.0F;
-
-            if (f < 0.1D) {
-                return;
-            }
-
-            if (f > 1.0F) {
-                f = 1.0F;
-            }
-
-            EntitySuperArrow entityarrow = new EntitySuperArrow(world, entityPlayer, f * 2.0F);
-
-            entityarrow.canBePickedUp = 0;
-
-            if (f == 1.0F) {
-                entityarrow.setIsCritical(true);
-            }
-
-            int k = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemStack);
-
-            if (k > 0) {
-                entityarrow.setDamage(entityarrow.getDamage() + k * 0.5D + 0.5D);
-            }
-
-            int l = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemStack);
-
-            if (l > 0) {
-                entityarrow.setKnockbackStrength(l);
-            }
-
-            if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemStack) > 0) {
-                entityarrow.setFire(100);
-            }
-
-            itemStack.damageItem(1, entityPlayer);
-            world.playSoundAtEntity(entityPlayer, "random.bow", 1.0F,
-                    1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-
-            if (flag) {
-                entityarrow.canBePickedUp = 2;
-            } else {
-                entityPlayer.inventory.consumeInventoryItem(Items.arrow);
-            }
-
-            if (!world.isRemote) {
-                world.spawnEntityInWorld(entityarrow);
-            }
+        if (world.isRemote) {
+            player.swingItem();
+            return;
         }
+
+        EntityProjectile projectile = new EntityProjectile(world, player, new ItemStack(Items.arrow, 1, itemStack.getItemDamage()));
+        projectile.canBePickedUp = player.capabilities.isCreativeMode;
+        projectile.setRotating(false);
+        projectile.damage = 5;
+        projectile.setArrow(true);
+        projectile.hitSound = "arrow.hit";
+        projectile.setParticleEffect(EntityProjectile.EnumParticleType.Crit);
+        projectile.setIs3D(true);
+        projectile.setStickInWall(true);
+        projectile.setHasGravity(false);
+        projectile.setSpeed(24);
+        if (!player.capabilities.isCreativeMode) {
+            player.inventory.consumeInventoryItem(this);
+        }
+        projectile.shoot(2.0F);
+        world.spawnEntityInWorld(projectile);
     }
 
     @Override

@@ -105,24 +105,24 @@ public class CommonProxy {
 //        GameRegistry.registerBlock(ChinaCraft.blackbrickStair,"BlackBrickStair");
 
 //        GameRegistry.registerBlock(ChinaCraft.jadeWorkingTable, "JadeWorkingTable"); // 玉石工作台
-        GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityJadeWorkingTable"); // 玉石工作台TileEntity
+        GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityCCJadeWorkingTable"); // 玉石工作台TileEntity
 
 //!        GameRegistry.registerBlock(ChinaCraft.blockDrum, "Drum");
-        GameRegistry.registerTileEntity(TileDrum.class, "tileEntityDrum");
+        GameRegistry.registerTileEntity(TileDrum.class, "tileEntityCCDrum");
 
 //        GameRegistry.registerBlock(ChinaCraft.buhrimill, ItemCCBlock.class, "Buhrimill"); // 石磨
-        GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityBuhrimill"); // 石磨TileEntity
+        GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityCCBuhrimill"); // 石磨TileEntity
 
 //        GameRegistry.registerBlock(ChinaCraft.lantern, "Lantern"); // 灯笼
 //        GameRegistry.registerBlock(ChinaCraft.cooking_bench_on, "CookingBenchOn");
 //        GameRegistry.registerBlock(ChinaCraft.cooking_bench_off, "CookingBenchOff");
-        GameRegistry.registerTileEntity(TileCookingBench.class, "tileEntityCookingBench");
+        GameRegistry.registerTileEntity(TileCookingBench.class, "tileEntityCCCookingBench");
 
         GameRegistry.registerBlock(ChinaCraft.sericultureFrame, ItemCCBlock.class, "SericultureFrame"); // 养蚕架
         GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame"); // 养蚕架TileEntity
 
 //        GameRegistry.registerBlock(ChinaCraft.potteryTable, ItemCCBlock.class, "PotteryTable"); // 陶瓷工作台
-        GameRegistry.registerTileEntity(TilePotteryTable.class, "tileEntityPotteryTable");
+        GameRegistry.registerTileEntity(TilePotteryTable.class, "tileEntityCCPotteryTable");
 
 //        GameRegistry.registerBlock(ChinaCraft.blockPotteryBase, "Pottery"); // 陶瓷
 //        GameRegistry.registerBlock(ChinaCraft.blockBuckpot, "Buckpot"); // 陶罐
@@ -202,9 +202,9 @@ public class CommonProxy {
 
         // 耐火砖
 //        GameRegistry.registerBlock(ChinaCraft.blockFirebrickStructure, "blockFirebrickStructure");
-        GameRegistry.registerTileEntity(TileFirebrickStructure.class, "tileFirebrickStructure");
+        GameRegistry.registerTileEntity(TileFirebrickStructure.class, "tileCCFirebrickStructure");
 //        GameRegistry.registerBlock(ChinaCraft.blockPotteryKiln, "blockPotteryKiln");
-        GameRegistry.registerTileEntity(TilePotteryKiln.class, "tilePotteryKiln");
+        GameRegistry.registerTileEntity(TilePotteryKiln.class, "tileCCPotteryKiln");
 //        GameRegistry.registerBlock(ChinaCraft.blockFirebrick, "BlockFirebrick");// 耐火砖方块
 //        GameRegistry.registerItem(ChinaCraft.firebrick, "Firebrick");// 耐火砖物品
 //        GameRegistry.registerItem(ChinaCraft.claySandMixture, "ClaySandMixture");// 粘土沙子混合物
@@ -253,6 +253,7 @@ public class CommonProxy {
 //
 //        GameRegistry.registerItem(ChinaCraft.debug, "Debug");
 
+        GameRegistry.registerTileEntity(TileModelBlock.class, "tileEntityCCModelBlock");
         Recipes.init();
 
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER,new ItemStack(ChinaCraft.woodenBucket_Water),new ItemStack(ChinaCraft.woodenBucket));

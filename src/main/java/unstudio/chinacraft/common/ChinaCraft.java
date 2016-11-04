@@ -187,23 +187,26 @@ public class ChinaCraft implements ICollection {
 
 //    public static final BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
 //    public static final BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class, "lantern_scaldfish");
-//    @Register("LanternScaldfish")
-    public static final BlockCCModel lanternScaldfish = (BlockCCModel) new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable").setLightLevel(8.0f);
-//    @Register("itemLanternScaldfish")
-    public static final Item itemLanternScaldfish = new ItemReed(ChinaCraft.lanternScaldfish).setUnlocalizedName("lantern_scaldfish").setCreativeTab(ChinaCraft.tabCore);
+
+    @Register("LanternScaldfish")
+    public static final BlockCCModel lanternScaldfish = (BlockCCModel) new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable", Blocks.redstone_block.getIcon(0,0)).setLightLevel(8.0f);
+
 //!    public static final Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable)
 //!            .setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(ChinaCraft.tabCore);
 
     // TraditionalCarpet
     @Register("red_carpet")
     public static final TraditionalCarpet redCarpet = new TraditionalCarpet("red_carpet", "chinacraft:red_carpet");
-//    public static final TraditionalCarpet silkCarpet = new TraditionalCarpet("slik_carpet", "chinacraft:slik_carpet");
+
     @Register("PotteryTable")
     public static final BlockPotteryTable potteryTable = new BlockPotteryTable(); // 陶瓷工作台
     //    public static final BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     @Register("Buhrimill")
     public static final BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
+    @Register("Lantern")
     public static final BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
+    @Register("Ding")
+    public static final BlockCCDing ding = new BlockCCDing();
     @Register("BlockWoodenBucket")
     public static final BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); // 木桶
     @Register("CookingBenchOff")
@@ -283,8 +286,6 @@ public class ChinaCraft implements ICollection {
     public static final ItemFirecracker firecracker = new ItemFirecracker();
     @Register("Bomb")
     public static final ItemBomb bomb = new ItemBomb();
-    @Register("FlyingCutter")
-    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,true).setSpeed(18).setUnlocalizedName("flying_cutter");
     // 防具武器
     @Register("BronzeSword")
     public static final Item bronzeSword = new ItemSword(ChinaCraft.BRONZE).setUnlocalizedName("bronze_sword").setCreativeTab(ChinaCraft.tabTool); // 青铜剑
@@ -357,6 +358,8 @@ public class ChinaCraft implements ICollection {
     public static final CCItemThrowable jadeKnife = (CCItemThrowable) new CCItemThrowable(1.0f,false,false).setUnlocalizedName("jade_knife").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 玉石切割刀
     @Register("ItemArtKnife")
     public static final ItemArtKnife artKnife = new ItemArtKnife();// 美工切割刀
+    @Register("FlyingCutter")
+    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,true).setSpeed(18).setUnlocalizedName("flying_cutter");
     @Register("BuddhistCane")
     public static final ItemBuddhistCane buddhistCane = new ItemBuddhistCane();
 

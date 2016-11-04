@@ -2,30 +2,39 @@ package unstudio.chinacraft.tileentity;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
+
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Created by trych on 2016/1/28.
  */
 public class TileModelBlock extends TileEntity {
-    private Class<? extends ModelBase> model;
-    private String texture;
+    private ResourceLocation resourceLocation;
+    private ModelBase model;
 
-    /**
-     * @param model
-     *            模型
-     * @param texture
-     *            材质名，不需要加modid
-     */
-    public TileModelBlock(Class<? extends ModelBase> model, String texture) {
-        this.model = model;
-        this.texture = texture;
+    public TileModelBlock(Class<? extends ModelBase> modelClass, String texture) {
+        if (texture != null)
+            resourceLocation = new ResourceLocation("chinacraft:textures/models/block/" + texture + ".png");
+        try {
+            model = modelClass.getDeclaredConstructor().newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    public Class<? extends ModelBase> getModel() {
+    public ModelBase getModel() {
         return model;
     }
 
-    public String getTexture() {
-        return texture;
+    public ResourceLocation getTexture() {
+        return resourceLocation;
     }
 }
