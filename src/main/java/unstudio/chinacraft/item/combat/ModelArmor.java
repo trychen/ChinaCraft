@@ -102,6 +102,6 @@ public class ModelArmor extends ItemArmor {
 
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        ItemLoreHelper.shiftLoreWithStat(p_77624_3_, textureName);
+        ItemLoreHelper.shiftLoreWithStat(p_77624_3_, "item." + textureName);
     }
 }
