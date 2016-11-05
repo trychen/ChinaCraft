@@ -30,6 +30,7 @@ import unstudio.chinacraft.block.generation.BlockCCOre;
 import unstudio.chinacraft.block.generation.plant.BlockBambooShoot;
 import unstudio.chinacraft.block.generation.plant.BlockCCCake;
 import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
+import unstudio.chinacraft.block.model.BlockCCLamp;
 import unstudio.chinacraft.block.model.BlockCCLantern;
 import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.client.model.block.ModelLanternScaldfish;
@@ -186,10 +187,6 @@ public class ChinaCraft implements ICollection {
     public static final JadeWorkingTable jadeWorkingTable = new JadeWorkingTable(); // 玉石工作台
 
 //    public static final BlockInstruments blockDrum = new BlockInstruments("drum", Material.wood, true, "note.drum", 20);
-//    public static final BlockCCLamp lanternScaldfishOpenable = new BlockCCLamp(Material.cake, ModelLanternScaldfish.class, "lantern_scaldfish");
-
-    @Register("LanternScaldfish")
-    public static final BlockCCModel lanternScaldfish = (BlockCCModel) new BlockCCModel(Material.cake, ModelLanternScaldfish.class,"lantern_scaldfish_openable", Blocks.redstone_block.getIcon(0,0)).setLightLevel(8.0f);
 
 //!    public static final Item itemLanternScaldfishOpenable = new ItemReed(ChinaCraft.lanternScaldfishOpenable)
 //!            .setUnlocalizedName("lantern_scaldfish_openable").setCreativeTab(ChinaCraft.tabCore);
@@ -203,8 +200,12 @@ public class ChinaCraft implements ICollection {
     //    public static final BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     @Register("Buhrimill")
     public static final BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
-    @Register("Lantern")
-    public static final BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
+//    @Register("Lantern")
+//    public static final BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
+    @Register("LanternScaldfish")
+    public static final BlockCCLamp lanternScaldfish = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class,"lantern_scaldfish",true).setTexture("lantern_scaldfish_on");
+    @Register("LanternScaldfishOff")
+    public static final BlockCCLamp lanternScaldfishOff = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class, "lantern_scaldfish_openable",false).setTexture("lantern_scaldfish_off").setCreativeTab(null);
     @Register("Ding")
     public static final BlockCCDing ding = new BlockCCDing();
     @Register("BlockWoodenBucket")

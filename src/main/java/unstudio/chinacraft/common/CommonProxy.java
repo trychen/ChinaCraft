@@ -54,7 +54,7 @@ public class CommonProxy {
 //        GameRegistry.registerBlock(ChinaCraft.silverBlock, "SilverBlock");
 //        GameRegistry.registerBlock(ChinaCraft.copperBlock, "CopperBlock");
 
-//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfish, "LanternScaldfish");
+//        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOff, "LanternScaldfish");
 //        GameRegistry.registerBlock(ChinaCraft.lanternScaldfishOpenable, "lanternScaldfishOpenable");
 //        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfish, "itemLanternScaldfish");
 //        GameRegistry.registerItem(ChinaCraft.itemLanternScaldfishOpenable, "itemLanternScaldfishOpenable");

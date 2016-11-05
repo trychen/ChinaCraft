@@ -38,8 +38,6 @@ public class ModelBlockItemRenderer implements IItemRenderer {
         if (type == IItemRenderer.ItemRenderType.INVENTORY) {
             GL11.glScalef(1.2F, 1.2F, 1.2F);
             GL11.glTranslatef(0.0F, -1.05F, 0.00F);
-            // GL11.glRotatef(-45F, 0F, 1F, 0F);
-//            GL11.glRotatef(0F, 0F, 0F, 1F);
             if (renderer != null) renderer.render(type);
             model.render(0.0625F);
         }

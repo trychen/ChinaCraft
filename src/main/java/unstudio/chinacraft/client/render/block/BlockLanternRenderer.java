@@ -56,7 +56,6 @@ public class BlockLanternRenderer implements ISimpleBlockRenderingHandler {
 
     @Override
     public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
-        System.out.println(1);
         renderer.renderStandardBlock(block, x, y, z);
         Tessellator tessellator = Tessellator.instance;
         tessellator.setBrightness(block.getMixedBrightnessForBlock(renderer.blockAccess, x, y, z));

@@ -2,7 +2,6 @@ package unstudio.chinacraft.common;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import unstudio.chinacraft.block.decoration.BlockCCDing;
@@ -146,12 +145,15 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ModelBlockItemRenderer(new ModelBuhrimill(),
                 new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));
 
-        ClientRegistry.bindTileEntitySpecialRenderer(TileCCLamp.class, new TileEntityModelBlockRenderer());
 //        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemLanternScaldfishOpenable,
 //                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
 //                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
 
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfish),
+                new ModelBlockItemRenderer(new ModelLanternScaldfish(),
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
+
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfishOff),
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
                         new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
 

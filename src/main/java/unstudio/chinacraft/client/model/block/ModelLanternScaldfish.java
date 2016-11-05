@@ -1,11 +1,16 @@
 package unstudio.chinacraft.client.model.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
+import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.tileentity.TileModelBlock;
 
-public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock {
+public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock,TileEntityModelBlockRenderer.ModelRenderer {
     // fields
     ModelRenderer Shape1;
     ModelRenderer Shape2;
@@ -20,6 +25,8 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
     ModelRenderer Shape11;
     ModelRenderer Shape12;
     ModelRenderer Shape13;
+
+    ModelRenderer Shape14;
 
     public ModelLanternScaldfish() {
         textureWidth = 64;
@@ -103,24 +110,18 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
         Shape13.setTextureSize(64, 128);
         Shape13.mirror = true;
         setRotation(Shape13, 0F, 0F, 0F);
+        Shape14 = new ModelRenderer(this, 0, 0);
+        Shape14.addBox(0F, 0F, 0F, 1, 6, 1);
+        Shape14.setRotationPoint(-0.5F, 7F, -0.5F);
+        Shape14.setTextureSize(0, 0);
+        Shape14.mirror = true;
+        setRotation(Shape14, 0F, 0F, 0F);
     }
 
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        Shape1.render(f5);
-        Shape2.render(f5);
-        Shape3.render(f5);
-        Shape4.render(f5);
-        Shape5.render(f5);
-        Shape6.render(f5);
-        Shape7.render(f5);
-        Shape8.render(f5);
-        Shape9.render(f5);
-        Shape10.render(f5);
-        Shape11.render(f5);
-        Shape12.render(f5);
-        Shape13.render(f5);
+        render(f5);
     }
 
     private void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -132,7 +133,6 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
     @Override
     public void render(float f5) {
         Shape1.render(f5);
-        Shape2.render(f5);
         Shape3.render(f5);
         Shape4.render(f5);
         Shape5.render(f5);
@@ -144,5 +144,16 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
         Shape11.render(f5);
         Shape12.render(f5);
         Shape13.render(f5);
+        Shape2.render(f5);
+    }
+
+    @Override
+    public void render(TileModelBlock tile, double x, double y, double z) {
+        render(0.0625F);
+        Block b = tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord + 1,tile.zCoord);
+        if  ((System.currentTimeMillis() & 99) == 0 && tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord,tile.zCoord) == ChinaCraft.lanternScaldfish) tile.getWorldObj().spawnParticle("flame",tile.xCoord + 0.5,tile.yCoord + 0.635,tile.zCoord + 0.5,0,0.002,0);
+        if (b == ChinaCraft.lanternScaldfish||b == ChinaCraft.lanternScaldfishOff||b.getRenderType() == 0&&b.renderAsNormalBlock()){
+                Shape14.render(0.0625F);
+        }
     }
 }

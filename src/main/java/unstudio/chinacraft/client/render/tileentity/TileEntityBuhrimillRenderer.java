@@ -22,7 +22,7 @@ public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
         ModelBuhrimill modelBuhrimill = this.model;
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-        Minecraft.getMinecraft().renderEngine.bindTexture(textures);
+        this.bindTexture(textures);
         GL11.glPushMatrix();
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         GL11.glPushMatrix();

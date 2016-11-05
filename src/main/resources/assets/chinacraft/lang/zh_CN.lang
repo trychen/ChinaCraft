@@ -120,6 +120,7 @@ gui.potterytable.title=陶瓷工作台
 gui.potterykiln.title=陶瓷窑
 
 tile.lantern.name=灯笼
+tile.ding.name=鼎
 
 item.bucket_salt.name=盐桶
 item.salt_powder.name=盐

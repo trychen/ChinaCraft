@@ -1,5 +1,3 @@
-
-
 tile.bronze_block.name=Bronze Block
 item.bronze_ingot.name=Bronze Ingot
 item.copper_tin_mixed_powder.name=Copper & Tin Mixed Powder
@@ -118,6 +116,7 @@ gui.potterytable.title=Pottery Table
 gui.potterykiln.title=Pottery Kiln
 
 tile.lantern.name=Lantern
+tile.ding.name=Ding
 
 item.wooden_bucket.name=Wooden Bucket
 item.wooden_bucket_water.name=Water Wooden Bucket
