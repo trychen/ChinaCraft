@@ -1,8 +1,13 @@
 package unstudio.chinacraft.item;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.util.ItemLoreHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemArtKnife extends CCItemThrowable {
 
@@ -26,9 +31,6 @@ public class ItemArtKnife extends CCItemThrowable {
         itemStack.setItemDamage(itemStack.getItemDamage()+1);
         if(itemStack.getItemDamage()>=getMaxDamage())
             itemStack.stackSize=0;
-        //不懂如何添加破坏的声音
         return itemStack;
     }
-
-
 }

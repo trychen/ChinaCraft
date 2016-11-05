@@ -12,6 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import unstudio.chinacraft.api.EntityMethod;
+import unstudio.chinacraft.util.ItemLoreHelper;
 
 import java.util.List;
 
@@ -72,16 +73,7 @@ public class ItemBuddhistCane extends ItemCCStaff {
 
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
-        int i = 0;
-        while (true) {
-            i++;
-            if (StatCollector.canTranslate("item.buddhist_cane.lore." + i)) {
-                p_77624_3_.add(StatCollector.translateToLocal("item.buddhist_cane.lore." + i));
-            } else {
-                break;
-            }
-        }
-        super.addInformation(p_77624_1_, p_77624_2_, p_77624_3_, p_77624_4_);
+        ItemLoreHelper.shiftLoreWithStat(p_77624_3_,getUnlocalizedName());
     }
 
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase p_150894_7_) {

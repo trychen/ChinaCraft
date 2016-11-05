@@ -7,7 +7,10 @@ import net.minecraft.world.World;
 import unstudio.chinacraft.client.render.item.SpecialItemRender;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
+import unstudio.chinacraft.util.ItemLoreHelper;
 import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
+
+import java.util.List;
 
 public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     private float damage = 1.0f;
@@ -186,5 +189,10 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
 
     interface ShootListsner{
         void onShoot(EntityProjectile projectile,ItemStack itemStack);
+    }
+
+    @Override
+    public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+        ItemLoreHelper.shiftLoreWithStat(p_77624_3_,getUnlocalizedName());
     }
 }

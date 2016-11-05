@@ -47,8 +47,13 @@ public class BlockCCLamp extends BlockCCModel {
         if (light && !(player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemBlock)) {
             w.setBlock(x, y, z, ChinaCraft.lanternScaldfishOff);
             return true;
-        } else if (!light&&player.capabilities.isCreativeMode || (player.getHeldItem() != null && player.getHeldItem().getItem() == ItemBlock.getItemFromBlock(Blocks.torch))) {
-            w.setBlock(x, y, z, ChinaCraft.lanternScaldfish);
+        } else if (!light&&player.capabilities.isCreativeMode || player.getHeldItem() != null){
+            if (player.getHeldItem().getItem() == ItemBlock.getItemFromBlock(Blocks.torch)){
+                w.setBlock(x, y, z, ChinaCraft.lanternScaldfish);
+            } else if (player.getHeldItem().getItem() == Items.flint){
+                player.getHeldItem().damageItem(1,player);
+                w.setBlock(x, y, z, ChinaCraft.lanternScaldfish);
+            }
             return true;
         }
         return false;
