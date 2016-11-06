@@ -1,5 +1,6 @@
 package unstudio.chinacraft.block.decoration;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,6 +25,7 @@ import java.util.List;
 public class BlockCCDing extends BlockCCModel {
     public BlockCCDing() {
         super(Material.rock, ModelDing.class, "ding", null);
+        setHardness(5f);
     }
 
     @Override
@@ -33,7 +35,14 @@ public class BlockCCDing extends BlockCCModel {
 
     @Override
     public boolean canPlaceBlockOnSide(World p_149707_1_, int p_149707_2_, int p_149707_3_, int p_149707_4_, int p_149707_5_) {
-        return super.canPlaceBlockOnSide(p_149707_1_,p_149707_2_,p_149707_3_,p_149707_4_,p_149707_5_);
+        return super.canPlaceBlockOnSide(p_149707_1_, p_149707_2_, p_149707_3_, p_149707_4_, p_149707_5_);
+    }
+
+
+    @Override
+    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+        Block b = world.getBlock(x, y + 1, z);
+        return super.canPlaceBlockAt(world, x, y, z) && (b == null || b == Blocks.air);
     }
 
     @Override
@@ -42,8 +51,7 @@ public class BlockCCDing extends BlockCCModel {
     }
 
     @Override
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_,
-                                EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
+    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
         int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
         if (l == 0) p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 0, 2);
         if (l == 1) p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 1, 2);
@@ -56,9 +64,16 @@ public class BlockCCDing extends BlockCCModel {
         return Blocks.mossy_cobblestone.getIcon(p_149691_1_, p_149691_2_);
     }
 
+    public final float[][] BLOCK_BOUNDS = {
+            {0, 0, 0.25F, 1F, 1.35F, 1.75f},
+            {-0.75F, 0, 0, 0.75F, 1.35F, 1.0f},
+            {0, 0, -0.75F, 1F, 1.35F, 0.75F},
+            {0.25F, 0.0F, 0.0F, 1.75F, 1.35F, 1.0F}
+    };
+
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-        int l = p_149719_1_.getTileEntity(p_149719_2_,p_149719_3_,p_149719_4_).getBlockMetadata();
+        int l = p_149719_1_.getTileEntity(p_149719_2_, p_149719_3_, p_149719_4_).getBlockMetadata();
 
 //        switch (l){
 //            case 0:
@@ -75,7 +90,9 @@ public class BlockCCDing extends BlockCCModel {
 //                break;
 //        }
 
-        this.setBlockBounds(l==1?-0.75f:l==3?0.25f:0, 0.0F, l==0?0.25f:l==2?-0.75f:0, l==1?0.75f:l==4?01.75f:1f, 1.35f, l==0?1.75f:l==2?0.75f:1.0f);
+//        this.setBlockBounds(l == 1 ? -0.75f : l == 3 ? 0.25f : 0, 0.0F, l == 0 ? 0.25f : l == 2 ? -0.75f : 0, l == 1 ? 0.75f : l == 4 ? 01.75f : 1f, 1.35f, l == 0 ? 1.75f : l == 2 ? 0.75f : 1.0f);
+
+        this.setBlockBounds(BLOCK_BOUNDS[l][0], BLOCK_BOUNDS[l][1], BLOCK_BOUNDS[l][2], BLOCK_BOUNDS[l][3], BLOCK_BOUNDS[l][4], BLOCK_BOUNDS[l][5]);
     }
 
     public static class ItemCustomRender implements ModelBlockItemRenderer.Custom {
