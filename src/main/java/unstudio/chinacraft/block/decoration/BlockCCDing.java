@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
@@ -26,6 +27,21 @@ public class BlockCCDing extends BlockCCModel {
     }
 
     @Override
+    public boolean canPlaceTorchOnTop(World world, int x, int y, int z) {
+        return false;
+    }
+
+    @Override
+    public boolean canPlaceBlockOnSide(World p_149707_1_, int p_149707_2_, int p_149707_3_, int p_149707_4_, int p_149707_5_) {
+        return super.canPlaceBlockOnSide(p_149707_1_,p_149707_2_,p_149707_3_,p_149707_4_,p_149707_5_);
+    }
+
+    @Override
+    public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_) {
+        return super.onBlockPlaced(p_149660_1_, p_149660_2_, p_149660_3_, p_149660_4_, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
+    }
+
+    @Override
     public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_,
                                 EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
         int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
@@ -41,16 +57,25 @@ public class BlockCCDing extends BlockCCModel {
     }
 
     @Override
-    public void addCollisionBoxesToList(World p_149743_1_, int p_149743_2_, int p_149743_3_, int p_149743_4_, AxisAlignedBB p_149743_5_, List p_149743_6_, Entity p_149743_7_) {
-        int l = p_149743_1_.getTileEntity(p_149743_2_,p_149743_3_,p_149743_4_).getBlockMetadata();
-        if (l == 1){
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.75F, 1.35f, 1.0F);
-            super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
-            this.setBlockBounds(0.0F, 0.0F, 0.0F, 0.75F, 1.35f, 1.0F);
-            super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
-        }
-        if (l == 3) this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.35f, 1.0F);
-        super.addCollisionBoxesToList(p_149743_1_, p_149743_2_, p_149743_3_, p_149743_4_, p_149743_5_, p_149743_6_, p_149743_7_);
+    public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
+        int l = p_149719_1_.getTileEntity(p_149719_2_,p_149719_3_,p_149719_4_).getBlockMetadata();
+
+//        switch (l){
+//            case 0:
+//                this.setBlockBounds(0.0F, 0.0F, 0.25F, 1F, 1.35f, 1.75F);
+//                break;
+//            case 1:
+//                this.setBlockBounds(-0.75F, 0.0F, 0.0F, 0.75F, 1.35f, 1.0F);
+//                break;
+//            case 2:
+//                this.setBlockBounds(0.0F, 0.0F, -0.75F, 1F, 1.35f, 0.75F);
+//                break;
+//            case 3:
+//                this.setBlockBounds(0.25F, 0.0F, 0.0F, 1.75F, 1.35f, 1.0F);
+//                break;
+//        }
+
+        this.setBlockBounds(l==1?-0.75f:l==3?0.25f:0, 0.0F, l==0?0.25f:l==2?-0.75f:0, l==1?0.75f:l==4?01.75f:1f, 1.35f, l==0?1.75f:l==2?0.75f:1.0f);
     }
 
     public static class ItemCustomRender implements ModelBlockItemRenderer.Custom {
