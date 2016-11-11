@@ -259,6 +259,10 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.jadeKnife, 1),
                 new Object[] { " X ", "X#X", '#', Items.stick, 'X', Items.iron_ingot });
 
+        //飞刀
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.flyingCutter, 2),
+                new Object[] { "  I", "S  ","F ", 'S', Items.stick, 'I', Items.iron_ingot, 'F',Items.feather});
+
         //蝉杖
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.buddhistCane,1) , "IAI","BSB" , " S ",'I',Items.gold_ingot,'B',ChinaCraft.tinIngot,'A',Items.ghast_tear,'S',Items.stick);
 

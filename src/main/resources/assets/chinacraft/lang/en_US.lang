@@ -27,7 +27,7 @@ item.night_clothes_leg.name=Night Clothes Legs
 item.night_clothes_shoe.name=Night Clothes Boots
 item.nightclothes.lore=Night is coming, the world is in your control
 item.nightclothes.hidelore.1=Wear complete set can make you more light , and you can double jump at air.
-item.nightclothes.hidelore.2=And Press SHIFT Can You Completely Invisible
+item.nightclothes.hidelore.2=And keep pressing SHIFT can you invisible at night
 item.hammer_diamond.name=Diamond Hammer
 item.hammer_iron.name=Iron Hammer
 item.hammer_bronze.name=Bronze Hammer
@@ -63,7 +63,7 @@ item.firecracker.name=Firecracker
 item.bomb.name=Thrown Bomb
 item.flying_cutter.name=Fly-cutter
 item.flying_cutter.lore=A knife, an injured
-item.flying_cutter.hidelore=Throwable, damage 3, can be pick up
+item.flying_cutter.hidelore=Throwable, damage 4, can be pick up
 
 tile.tin_ore.name=Tin Ore
 item.tin_ingot.name=Tin Ingot

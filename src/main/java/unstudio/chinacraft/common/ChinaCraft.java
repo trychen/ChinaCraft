@@ -360,7 +360,7 @@ public class ChinaCraft implements ICollection {
     @Register("ItemArtKnife")
     public static final ItemArtKnife artKnife = new ItemArtKnife();// 美工切割刀
     @Register("FlyingCutter")
-    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(3.0f,false,true).setSpeed(18).setUnlocalizedName("flying_cutter");
+    public static final CCItemThrowable flyingCutter = (CCItemThrowable) new CCItemThrowable(4.0f,false,true).setSpeed(18).setUnlocalizedName("flying_cutter");
     @Register("BuddhistCane")
     public static final ItemBuddhistCane buddhistCane = new ItemBuddhistCane();
 
