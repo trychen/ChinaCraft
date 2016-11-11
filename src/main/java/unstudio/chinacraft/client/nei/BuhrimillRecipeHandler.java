@@ -6,10 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
 import unstudio.chinacraft.client.gui.GuiBuhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
@@ -21,7 +23,7 @@ import codechicken.nei.recipe.TemplateRecipeHandler;
 public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     @Override
     public void loadTransferRects() {
-        transferRects.add(new RecipeTransferRect(new Rectangle(76 - 5, 21 - 11, 22, 12), "milling"));
+        transferRects.add(new RecipeTransferRect(new Rectangle(76 - 5, 21 - 11, 22, 12), "buhrimill"));
     }
 
     @Override
