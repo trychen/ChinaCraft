@@ -86,8 +86,9 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     @Override
     public void drawExtras(int recipe) {
         // drawProgressBar(X, Y, TX, TY, W, H, Ticks, direction);
-        drawProgressBar(76 - 5, 21 - 11, 176, 14, 22, 12, 48, 0);
-        drawProgressBar(81 - 5, 37 - 11, 176, 0, 14, 14, 48, 7);
+        drawProgressBar(76 - 5, 13, 176, 0, 24, 16, 48, 0);
+        // 齿轮图标, 暂不绘制
+        // drawProgressBar(81 - 7, 37, 176, 14, 16, 20, 48, 3);
     }
 
     @Override
