@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 
 import unstudio.chinacraft.client.gui.GuiBuhrimill;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
+import unstudio.chinacraft.util.ItemStackHelper;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
@@ -70,11 +71,9 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     public void loadUsageRecipes(ItemStack ingredient) {
         List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
         for (BuhrimillRecipe recipe : recipes)
-            if (NEIServerUtils.areStacksSameTypeCrafting(recipe.getInput1(), ingredient)) {
-                SmeltingPair arecipe = new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2(),recipe.getTime()/360);
-                arecipe.setIngredientPermutation(Arrays.asList(arecipe.input1), ingredient);
-                arecipes.add(arecipe);
+            if (ItemStackHelper.isItemEquivalent(recipe.getInput1(), ingredient)) {
+                arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
+                        recipe.getOutput2(), recipe.getTime() / 360));
             }
     }
 
@@ -103,21 +102,25 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         PositionedStack output1;
         PositionedStack output2;
         int roTimes;
-        public SmeltingPair(ItemStack in1, ItemStack out1, ItemStack in2, ItemStack out2 , int roTimes) {
-            in1.stackSize = 1;
-            this.input1 = new PositionedStack(in1, 38, 14);
+        public SmeltingPair(ItemStack in1, ItemStack out1, ItemStack in2, ItemStack out2 , int roTimes) {     
+            this.input1 = new PositionedStack(ItemStackHelper.getEquivalentItemStacks(in1), 38, 14);
             this.output1 = new PositionedStack(out1, 112 - 5, 14);
-            if (in2 != null)this.input2 = new PositionedStack(in2, 38, 39);
+            if (in2 != null)this.input2 = new PositionedStack(ItemStackHelper.getEquivalentItemStacks(in2), 38, 39);
             if (out2 != null)this.output2 = new PositionedStack(out2, 112 - 5, 39);
             this.roTimes = roTimes;
         }
 
         public List<PositionedStack> getIngredients() {
             ArrayList<PositionedStack> list= new ArrayList<>();
+            // 不使用默认的随机循环显示而是按照次序依次循环显示
+            input1.setPermutationToRender((cycleticks / 20) % input1.items.length);
             list.add(input1);
-            if (input2 != null)list.add(input2);
+            if (input2 != null) {
+                input2.setPermutationToRender((cycleticks / 20) % input2.items.length);
+                list.add(input2);
+            }
             if (output2 != null)list.add(output2);
-            return getCycledIngredients(cycleticks / 48, list);
+            return list;
         }
 
         public PositionedStack getResult() {
