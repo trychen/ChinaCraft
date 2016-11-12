@@ -1,4 +1,4 @@
-tile.copper_ore.name=铜矿
+﻿tile.copper_ore.name=铜矿
 tile.copper_block.name=铜块
 tile.bronze_block.name=青铜块
 item.bronze_ingot.name=青铜锭
@@ -185,7 +185,7 @@ tile.buhrimill.name=石磨方块
 item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
 nei.gui.buhrimill.title=石磨合成
-nei.gui.buhrimill.rotime.info=%d圈
+nei.gui.buhrimill.rotime.info=%.1f圈
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台

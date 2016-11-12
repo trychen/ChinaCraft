@@ -43,7 +43,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
             List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
             for (BuhrimillRecipe recipe : recipes) {
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2(), recipe.getTime() / 360));
+                        recipe.getOutput2(), recipe.getTime()));
             }
         } else
             super.loadCraftingRecipes(outputId, results);
@@ -55,7 +55,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         for (BuhrimillRecipe recipe : recipes) {
             if (NEIServerUtils.areStacksSameType(recipe.getOutput1(), result))
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2(), recipe.getTime() / 360));
+                        recipe.getOutput2(), recipe.getTime()));
         }
     }
 
@@ -73,7 +73,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         for (BuhrimillRecipe recipe : recipes)
             if (ItemStackHelper.isItemEquivalent(recipe.getInput1(), ingredient)) {
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
-                        recipe.getOutput2(), recipe.getTime() / 360));
+                        recipe.getOutput2(), recipe.getTime()));
             }
     }
 
@@ -101,13 +101,13 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
         PositionedStack input2;
         PositionedStack output1;
         PositionedStack output2;
-        int roTimes;
-        public SmeltingPair(ItemStack in1, ItemStack out1, ItemStack in2, ItemStack out2 , int roTimes) {     
+        float roTimes;
+        public SmeltingPair(ItemStack in1, ItemStack out1, ItemStack in2, ItemStack out2, int roTimes) {     
             this.input1 = new PositionedStack(ItemStackHelper.getEquivalentItemStacks(in1), 38, 14);
             this.output1 = new PositionedStack(out1, 112 - 5, 14);
             if (in2 != null)this.input2 = new PositionedStack(ItemStackHelper.getEquivalentItemStacks(in2), 38, 39);
             if (out2 != null)this.output2 = new PositionedStack(out2, 112 - 5, 39);
-            this.roTimes = roTimes;
+            this.roTimes = (float) (Math.ceil(roTimes/36.0F) * 0.1F);
         }
 
         public List<PositionedStack> getIngredients() {
