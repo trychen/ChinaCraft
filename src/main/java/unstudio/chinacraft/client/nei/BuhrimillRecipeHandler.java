@@ -14,6 +14,7 @@ import unstudio.chinacraft.recipes.BuhrimillRecipe;
 import unstudio.chinacraft.util.ItemStackHelper;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIClientUtils;
+import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 
@@ -52,7 +53,7 @@ public class BuhrimillRecipeHandler extends TemplateRecipeHandler {
     public void loadCraftingRecipes(ItemStack result) {
         List<BuhrimillRecipe> recipes = BuhrimillRecipe.getRecipes();
         for (BuhrimillRecipe recipe : recipes) {
-            if (ItemStackHelper.isItemEquivalent(recipe.getOutput1(), result))
+            if (NEIServerUtils.areStacksSameType(recipe.getOutput1(), result))
                 arecipes.add(new SmeltingPair(recipe.getInput1(), recipe.getOutput1(), recipe.getInput2(),
                         recipe.getOutput2(), recipe.getTime()));
         }
