@@ -139,45 +139,52 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     public void updateEntity() {
         super.updateEntity();
         if (getStackInSlot(0) != null) {
+            // 双输入
             if (getStackInSlot(1) != null) {
                 BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0), getStackInSlot(1));
                 if (r != null) {
+                    // 检查当前输入槽物品的数量，和输出槽的物品类型是否符合该配方
                     if ((getStackInSlot(0).stackSize - r.getInput1().stackSize) >= 0
                             && (getStackInSlot(1).stackSize - r.getInput2().stackSize) >= 0
-                            && (getStackInSlot(2) == null || getStackInSlot(2).equals(r.getOutput1()))
-                            && (r.getOutput2() == null || getStackInSlot(3) == null
-                                    || getStackInSlot(3).equals(r.getOutput2()))) {
+                            && (getStackInSlot(2) == null || getStackInSlot(2).isItemEqual(r.getOutput1()))
+                            && (getStackInSlot(3) == null || r.getOutput2() == null
+                                    || getStackInSlot(3).isItemEqual(r.getOutput2()))) {
+                        // 在更新输入输出槽前先检查输出槽物品数量是否将要超限
+                        if ((getStackInSlot(2) != null && getStackInSlot(2).stackSize + r.getOutput1().stackSize > r.getOutput1().getMaxStackSize())
+                                || (getStackInSlot(3) != null && r.getOutput2() != null && getStackInSlot(3).stackSize + r.getOutput2().stackSize > r.getOutput2().stackSize))
+                            return;
+                        // 更新输入输出槽
                         if (schedule >= r.getTime()) {
                             schedule = 0;
+                            // 输出槽1
                             if (getStackInSlot(2) != null) {
-                                ItemStack output1 = r.getOutput1();
-                                output1.stackSize = getStackInSlot(2).stackSize + output1.stackSize;
-                                setInventorySlotContents(2, output1);
+                                ItemStack output1 = getStackInSlot(2);
+                                output1.stackSize += r.getOutput1().stackSize;
                             } else {
-                                setInventorySlotContents(2, r.getOutput1());
+                                setInventorySlotContents(2, r.getOutput1().copy());
                             }
+                            // 输出槽2
                             if (r.getOutput2() != null) {
                                 if (getStackInSlot(3) != null) {
-                                    ItemStack output2 = r.getOutput2();
-                                    output2.stackSize = getStackInSlot(3).stackSize + output2.stackSize;
-                                    setInventorySlotContents(3, output2);
+                                    ItemStack output2 = getStackInSlot(3);
+                                    output2.stackSize += r.getOutput2().stackSize;
                                 } else {
-                                    setInventorySlotContents(3, r.getOutput2());
+                                    setInventorySlotContents(3, r.getOutput2().copy());
                                 }
                             }
+                            // 输人槽1
                             if ((getStackInSlot(0).stackSize - r.getInput1().stackSize) == 0) {
                                 setInventorySlotContents(0, null);
                             } else {
                                 ItemStack input1 = getStackInSlot(0);
-                                input1.stackSize = input1.stackSize - r.getInput1().stackSize;
-                                setInventorySlotContents(0, input1);
+                                input1.stackSize -= r.getInput1().stackSize;
                             }
+                            // 输入槽2
                             if ((getStackInSlot(1).stackSize - r.getInput2().stackSize) == 0) {
                                 setInventorySlotContents(1, null);
                             } else {
                                 ItemStack input2 = getStackInSlot(1);
-                                input2.stackSize = input2.stackSize - r.getInput2().stackSize;
-                                setInventorySlotContents(1, input2);
+                                input2.stackSize -= r.getInput2().stackSize;
                             }
                             return;
                         }
@@ -186,36 +193,43 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                     return;
                 }
             } else {
+                // 单输入
                 BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0));
                 if (r != null) {
+                    // 检查当前输入槽物品的数量，和输出槽的物品类型是否符合该配方
                     if ((getStackInSlot(0).stackSize - r.getInput1().stackSize) >= 0
-                            && (getStackInSlot(2) == null || getStackInSlot(2).equals(r.getOutput1()))
-                            && (r.getOutput2() == null || getStackInSlot(3) == null
-                                    || getStackInSlot(3).equals(r.getOutput2()))) {
+                            && (getStackInSlot(2) == null || getStackInSlot(2).isItemEqual(r.getOutput1()))
+                            && (getStackInSlot(3) == null || r.getOutput2() == null
+                                    || getStackInSlot(3).isItemEqual(r.getOutput2()))) {
+                        // 在更新输入输出槽前先检查输出槽物品数量是否将要超限
+                        if ((getStackInSlot(2) != null && getStackInSlot(2).stackSize + r.getOutput1().stackSize > r.getOutput1().getMaxStackSize())
+                                || (getStackInSlot(3) != null && r.getOutput2() != null && getStackInSlot(3).stackSize + r.getOutput2().stackSize > r.getOutput2().stackSize))
+                            return;
+                        // 更新输入输出槽
                         if (schedule >= r.getTime()) {
                             schedule = 0;
+                            // 输出槽1
                             if (getStackInSlot(2) != null) {
-                                ItemStack output1 = r.getOutput1();
-                                output1.stackSize = getStackInSlot(2).stackSize + output1.stackSize;
-                                setInventorySlotContents(2, output1);
+                                ItemStack output1 = getStackInSlot(2);
+                                output1.stackSize += r.getOutput1().stackSize;
                             } else {
-                                setInventorySlotContents(2, r.getOutput1());
+                                setInventorySlotContents(2, r.getOutput1().copy());
                             }
+                            // 输出槽2
                             if (r.getOutput2() != null) {
                                 if (getStackInSlot(3) != null) {
-                                    ItemStack output2 = r.getOutput2();
-                                    output2.stackSize = getStackInSlot(3).stackSize + output2.stackSize;
-                                    setInventorySlotContents(3, output2);
+                                    ItemStack output2 = getStackInSlot(3);
+                                    output2.stackSize += r.getOutput2().stackSize;;
                                 } else {
-                                    setInventorySlotContents(3, r.getOutput2());
+                                    setInventorySlotContents(3, r.getOutput2().copy());
                                 }
                             }
+                            // 输入槽1
                             if ((getStackInSlot(0).stackSize - r.getInput1().stackSize) == 0) {
                                 setInventorySlotContents(0, null);
                             } else {
                                 ItemStack input1 = getStackInSlot(0);
-                                input1.stackSize = input1.stackSize - r.getInput1().stackSize;
-                                setInventorySlotContents(0, input1);
+                                input1.stackSize -= r.getInput1().stackSize;
                             }
                             return;
                         }
@@ -225,6 +239,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                 }
             }
         } else {
+            // 无输入
             schedule = 0;
         }
     }
