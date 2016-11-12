@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.item.ItemStack;
+import unstudio.chinacraft.util.ItemStackHelper;
 
 public class BuhrimillRecipe {
 
@@ -45,7 +46,7 @@ public class BuhrimillRecipe {
 
     public static BuhrimillRecipe getBuhrimillReciper(ItemStack input1) {
         for (BuhrimillRecipe r : recipes) {
-            if (r.getInput1().isItemEqual(input1) && r.getInput2() == null) {
+            if (ItemStackHelper.isItemEquivalent(r.getInput1(), input1) && r.getInput2() == null) {
                 return r;
             }
         }
@@ -54,7 +55,7 @@ public class BuhrimillRecipe {
 
     public static BuhrimillRecipe getBuhrimillReciper(ItemStack input1, ItemStack input2) {
         for (BuhrimillRecipe r : recipes) {
-            if (r.getInput1().isItemEqual(input1) && r.getInput2() != null && r.getInput2().isItemEqual(input2)) {
+            if (ItemStackHelper.isItemEquivalent(r.getInput1(), input1) && r.getInput2() != null && ItemStackHelper.isItemEquivalent(r.getInput2(), input2)) {
                 return r;
             }
         }
@@ -63,11 +64,11 @@ public class BuhrimillRecipe {
 
     public static int getBuhrimillReciperTime(ItemStack input1, ItemStack input2) {
         for (BuhrimillRecipe r : recipes) {
-            if (r.getInput1().isItemEqual(input1) && r.getInput2() != null) {
+            if (ItemStackHelper.isItemEquivalent(r.getInput1(), input1) && r.getInput2() != null) {
                 if (r.getInput2() == null && input2 == null) {
                     return r.getTime();
                 } else {
-                    if (input2 != null && r.getInput2() != null && r.getInput2().isItemEqual(input2)) {
+                    if (input2 != null && r.getInput2() != null && ItemStackHelper.isItemEquivalent(r.getInput2(), input2)) {
                         return r.getTime();
                     }
                 }
