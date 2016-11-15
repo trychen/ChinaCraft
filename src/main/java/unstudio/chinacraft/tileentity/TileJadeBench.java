@@ -15,6 +15,10 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.item.combat.BronzeBroadSword;
 import unstudio.chinacraft.item.combat.Hammer;
 import unstudio.chinacraft.item.jade.Jade;
+import unstudio.chinacraft.recipes.JadeBenchRecipes;
+import unstudio.chinacraft.recipes.JadeBenchRecipes.JadeBenchModifyRecipe;
+import unstudio.chinacraft.recipes.JadeBenchRecipes.JadeBenchOreRecipe;
+import unstudio.chinacraft.util.ItemStackHelper;
 
 public class TileJadeBench extends TileEntity implements IInventory {
 
@@ -114,90 +118,59 @@ public class TileJadeBench extends TileEntity implements IInventory {
 
     @Override
     public void updateEntity() {
-        if (getStackInSlot(0) != null) {
+        if (getStackInSlot(0) != null && getStackInSlot(0).getItem() instanceof Hammer) {
             if (getStackInSlot(1) != null) {
                 if (getStackInSlot(2) == null) {
-                    if (getStackInSlot(0).getItem() instanceof Hammer) {
-                        if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(ChinaCraft.jadeOre))) {
-                            ItemStack newhammer = new ItemStack(getStackInSlot(0).getItem(), 1,
-                                    (getStackInSlot(0).getItemDamage() - 5));
-                            setInventorySlotContents(0, newhammer);
-                            if (getStackInSlot(1).stackSize == 1) {
-                                setInventorySlotContents(1, null);
-                            } else {
-                                ItemStack newJadeOre = new ItemStack(getStackInSlot(1).getItem(),
-                                        getStackInSlot(1).stackSize - 1);
-                                setInventorySlotContents(1, newJadeOre);
-                            }
-                            switch (new Random().nextInt(3)) {
-                            case 0:
-                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
-                                break;
-                            case 1:
-                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreen2Item));
-                                break;
-                            case 2:
-                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadePurpleItem));
-                                break;
-                            case 3:
-                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadePinkItem));
-                                break;
-                            default:
-                                setInventorySlotContents(2, new ItemStack(ChinaCraft.jadeGreenItem));
+                    // Ore recipes
+                    if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(ChinaCraft.jadeOre))) {
+                        int thresholdWeight = new Random().nextInt(JadeBenchRecipes.getTotalWeightedChanceForOre());
+                        for (JadeBenchOreRecipe oreRecipe: JadeBenchRecipes.getOreRecipes()) {
+                            thresholdWeight -= oreRecipe.weightedChance;
+                            if (thresholdWeight <= 0) {
+                                setInventorySlotContents(2, oreRecipe.outputJade);
+                                damageTool(0, 5);
+                                splitStack(1, 1);
                                 break;
                             }
+                        } 
+                    }       
+                } 
+                else {
+                    // Modify Recipes
+                    JadeBenchModifyRecipe modifyRecipe = JadeBenchRecipes.getModifyRecipe(getStackInSlot(1), getStackInSlot(2));
+                    if (modifyRecipe != null) {
+                        if (new Random().nextFloat() < modifyRecipe.epixModifyChance)
+                            setInventorySlotContents(2, modifyRecipe.outputEpixWeapon.copy());
+                        else {
+                            setInventorySlotContents(2, modifyRecipe.outputWeapon.copy());
+                            damageTool(2, getStackInSlot(1).getItemDamage());
                         }
-                    }
-                } else {
-                    if (getStackInSlot(2).getItem() instanceof Jade && getStackInSlot(0).getItem() instanceof Hammer
-                            && getStackInSlot(1).getItem() instanceof ItemSword) {
-                        if (getStackInSlot(1).getItem() instanceof BronzeBroadSword) {
-                            ItemStack newhammer = new ItemStack(getStackInSlot(0).getItem(), 1,
-                                    (getStackInSlot(0).getItemDamage() - 5));
-                            ItemStack sword = getStackInSlot(1).copy();
-                            Item jade = getStackInSlot(2).getItem();
-                            setInventorySlotContents(0, newhammer);
-                            if (getStackInSlot(2).stackSize == 1) {
-                                setInventorySlotContents(1, null);
-                            } else {
-                                setInventorySlotContents(1,
-                                        new ItemStack(getStackInSlot(2).getItem(), getStackInSlot(2).stackSize - 1));
-                            }
-                            if (new Random().nextInt(19) == 3) {
-                                ItemStack newSword = new ItemStack(ChinaCraft.blGiantSword, 1);
-                                setInventorySlotContents(2, newSword);
-                            } else {
-                                if (jade.equals(ChinaCraft.jadeGreenItem)) {
-                                    setInventorySlotContents(2,
-                                            new ItemStack(ChinaCraft.bronzeBroadSwordGreen, 1, sword.getItemDamage()));
-                                } else if (jade.equals(ChinaCraft.jadeGreen2Item)) {
-                                    setInventorySlotContents(2,
-                                            new ItemStack(ChinaCraft.bronzeBroadSwordGreen2, 1, sword.getItemDamage()));
-                                } else if (jade.equals(ChinaCraft.jadePinkItem)) {
-                                    setInventorySlotContents(2,
-                                            new ItemStack(ChinaCraft.bronzeBroadSwordPink, 1, sword.getItemDamage()));
-                                } else if (jade.equals(ChinaCraft.jadeGreen2Item)) {
-                                    setInventorySlotContents(2,
-                                            new ItemStack(ChinaCraft.bronzeBroadSwordPurple, 1, sword.getItemDamage()));
-                                }
-                            }
-                        }
+                        damageTool(0, 5);
+                        splitStack(1, 1);
                     }
                 }
             }
         }
-
-        // if (getStackInSlot(2) != null){
-        // Item item2 = getStackInSlot(2).getItem();
-        // if (item2 == ChinaCraft.jadeGreenItem||item2 ==
-        // ChinaCraft.jadeGreen2Item||item2 == ChinaCraft.jadePinkItem||item2 ==
-        // ChinaCraft.jadePurpleItem){
-        //
-        // }
-        // }
-
     }
 
+    public void splitStack(int slotIndex, int amount) {
+        int newStackSize = this.stack[slotIndex].stackSize - amount;
+        if (newStackSize > 0) 
+            this.stack[slotIndex].stackSize = newStackSize;
+        else
+            this.stack[slotIndex] = null;
+    }
+    
+    public void damageTool(int slotIndex, int damage) {
+        if (this.stack[slotIndex].isItemStackDamageable()) {
+            int newDamage = this.stack[slotIndex].getItemDamage() + damage;
+            if (newDamage > this.stack[slotIndex].getMaxDamage())
+                this.stack[slotIndex] = null;
+            else
+                this.stack[slotIndex].setItemDamage(newDamage);
+        }
+    }
+    
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readFromNBT(par1NBTTagCompound);

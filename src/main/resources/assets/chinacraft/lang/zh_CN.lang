@@ -190,6 +190,8 @@ nei.gui.buhrimill.rotime.info=%.1f圈
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
 gui.jade_table.info=玉石信息
+nei.gui.jadebench.title=玉石加工台
+nei.jadebench.output.info=产物:
 
 tile.cooking_bench.name=灶台
 gui.cooking_bench.title=灶台

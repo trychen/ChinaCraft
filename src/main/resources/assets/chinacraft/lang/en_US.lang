@@ -186,6 +186,8 @@ nei.gui.buhrimill.rotime.info=%.1fround
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
 gui.jade_table.info=Jade Information
+nei.gui.jadebench.title=Jade Worktable Recipes
+nei.jadebench.output.info=Outputs:
 
 tile.cooking_bench.name=Furnace Platform
 gui.cooking_bench.title=Furnace Platform
