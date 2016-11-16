@@ -78,13 +78,11 @@ public class TileJadeBench extends TileEntity implements IInventory {
 
     @Override
     public String getInventoryName() {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public boolean hasCustomInventoryName() {
-        // TODO Auto-generated method stub
         return false;
     }
 
@@ -99,20 +97,13 @@ public class TileJadeBench extends TileEntity implements IInventory {
     }
 
     @Override
-    public void openInventory() {
-        // TODO Auto-generated method stub
-
-    }
+    public void openInventory() {}
 
     @Override
-    public void closeInventory() {
-        // TODO Auto-generated method stub
-
-    }
+    public void closeInventory() {}
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        // TODO Auto-generated method stub
         return false;
     }
 
@@ -136,15 +127,33 @@ public class TileJadeBench extends TileEntity implements IInventory {
                     }       
                 } 
                 else {
-                    // Modify Recipes
+                    // Modify recipes
                     JadeBenchModifyRecipe modifyRecipe = JadeBenchRecipes.getModifyRecipe(getStackInSlot(1), getStackInSlot(2));
                     if (modifyRecipe != null) {
-                        if (new Random().nextFloat() < modifyRecipe.epixModifyChance)
-                            setInventorySlotContents(2, modifyRecipe.outputEpixWeapon.copy());
-                        else {
-                            setInventorySlotContents(2, modifyRecipe.outputWeapon.copy());
-                            damageTool(2, getStackInSlot(1).getItemDamage());
+                        boolean damageFlag = false;
+                        ItemStack outputWeapon;
+                        // Decide the outputStack
+                        if (new Random().nextFloat() < modifyRecipe.epixModifyChance) {
+                            outputWeapon = modifyRecipe.outputEpixWeapon.copy();
+                            damageFlag = false;
                         }
+                        else {
+                            outputWeapon = modifyRecipe.outputWeapon.copy();
+                            damageFlag = true;
+                        }
+                        // Transfer the enchantment
+                        NBTTagList enchList = getStackInSlot(1).getEnchantmentTagList();
+                        if (enchList != null && enchList.tagCount()>0) {
+                            if (!outputWeapon.hasTagCompound())
+                                outputWeapon.setTagCompound(new NBTTagCompound());
+                            if (outputWeapon.getTagCompound().getTag("ench") == null)
+                                outputWeapon.getTagCompound().setTag("ench", new NBTTagList());
+                            for (int i = 0; i < enchList.tagCount(); i++)
+                                outputWeapon.getEnchantmentTagList().appendTag(enchList.getCompoundTagAt(i));
+                        } 
+                        // Update the inventory
+                        setInventorySlotContents(2, outputWeapon);
+                        if (damageFlag) damageTool(2, getStackInSlot(1).getItemDamage());
                         damageTool(0, 5);
                         splitStack(1, 1);
                     }
