@@ -8,9 +8,11 @@ import net.minecraft.util.ResourceLocation;
 
 import unstudio.chinacraft.client.model.entity.ModelBlackDog;
 import unstudio.chinacraft.client.model.entity.ModelChinaZombie;
+import unstudio.chinacraft.client.model.entity.ModelPanda;
 import unstudio.chinacraft.client.model.block.ModelKongmingLantern;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.entity.animal.EntityPanda;
 import unstudio.chinacraft.entity.especial.EntityKongmingLantern;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
@@ -31,6 +33,8 @@ public class EntityRenderingRegistry {
                 "textures/entity/blackwolf/blackwolf.png");
         EntityRenderingHandler(EntityChinaZombie.class, new ModelChinaZombie(), "chinacraft",
                 "textures/entity/chinazombie/chinazombie.png");
+        EntityRenderingHandler(EntityPanda.class, new ModelPanda(), "chinacraft",
+                "textures/entity/panda/panda.png");
         EntityRenderingHandler(EntityKongmingLantern.class, new ModelKongmingLantern(), "chinacraft",
                 "textures/entity/kongminglantern/kongminglantern.png");
         RenderingRegistry.registerEntityRenderingHandler(EntityThrownBomb.class, new RenderSnowball(ChinaCraft.bomb));

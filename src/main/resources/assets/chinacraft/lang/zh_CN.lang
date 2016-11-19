@@ -270,6 +270,7 @@ gui.inventory.shiftfordetail=<按住Shift键查看更多信息>
 
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵尸
+entity.panda.name=熊猫
 
 Bucket.opps=Opps,木桶着火了,oh,他烧成了灰烬,剩下的还能当化肥来使用
 

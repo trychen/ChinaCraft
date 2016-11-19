@@ -6,6 +6,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.world.biome.BiomeGenBase;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.entity.animal.EntityPanda;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
 import unstudio.chinacraft.entity.projectile.EntitySuperArrow;
@@ -30,6 +31,7 @@ public class EntityRegister {
          EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
          EnumCreatureType.creature, BiomeGenBase.forest);
         registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0x191946, 0x570204);
+        registerLivingEntity(EntityPanda.class, "panda", 0xFFFFFF, 0x000000);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 
         registerModEntity(EntityThrownFirecracker.class, "Entity_Thrown_Firecracker", 350, 30, true);

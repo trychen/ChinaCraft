@@ -264,6 +264,7 @@ gui.inventory.shiftfordetail=<Hold Shift for Details>
 
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie
+entity.panda.name=Panda
 
 Bucket.opps=Opps, the wooden bucket on fire, oh, he burned to ashes that the rest can also be used as fertilizer.
 
