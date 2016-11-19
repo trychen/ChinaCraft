@@ -127,7 +127,7 @@ public class ContainerSericultureFrame extends Container {
 
         @Override
         public boolean isItemValid(ItemStack p_75214_1_) {
-            if (p_75214_1_.getItem() == ChinaCraft.silkworm)
+            if (p_75214_1_.getItem() == ChinaCraft.silkworm || p_75214_1_.getItem() == ChinaCraft.itemMoth)
                 return true;
             return false;
         }

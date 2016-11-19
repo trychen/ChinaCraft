@@ -151,9 +151,27 @@ item.wooden_bucket_water.name=木水桶
 item.silkworm_chrysalis.name=蚕蛹
 item.silkworm_young.name=幼蚕
 item.silkworm_graine.name=蚕卵
+item.silkworm_dead.name=死掉的蚕
 item.sericulture_frame.name=养蚕架
 tile.sericulture_frame.name=养蚕架
 gui.sericulture_frame.title=养蚕架
+gui.sericulture_frame.stopWork.lowLight.info=光照不足！
+gui.sericulture_frame.stopWork.highLight.info=光照过强！
+gui.sericulture_frame.stopWork.biome.info=生物群系过差！
+gui.sericulture_frame.stopWork.outputSlotFull.info=产物槽已满！
+gui.sericulture_frame.outputSlotStucks.info=产物槽过满！
+gui.sericulture_frame.noMulberryLeaf.info=桑叶不足！
+gui.sericulture_frame.noRainProtection.info=缺少雨水保护！ 
+tooltip.progress.info=进度: 
+tooltip.generation.info=所属代数: 
+tooltip.productivity.info=产物数量: 
+tooltip.speed.info=生长速度: 
+tooltip.fertility.info=繁殖能力: 
+
+
+
+item.moth.male.name=雄蛾
+item.moth.female.name=雌蛾
 
 tile.lantern_scaldfish.name=元宵灯笼
 item.lantern_scaldfish.name=元宵灯笼

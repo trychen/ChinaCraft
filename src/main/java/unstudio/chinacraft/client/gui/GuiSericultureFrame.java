@@ -25,6 +25,7 @@ public class GuiSericultureFrame extends GuiContainer {
         return false;
     }
 
+    
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -32,7 +33,11 @@ public class GuiSericultureFrame extends GuiContainer {
         this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 3, 4210752);
         this.fontRendererObj.drawString(I18n.format("container.inventory", new Object[0]), 8, this.ySize - 96 + 2,
                 4210752);
-
+        // Draw the status info on the GUI
+        if (!tile.canRun)
+            this.fontRendererObj.drawString(I18n.format(tile.statusInfo), 38, this.ySize - 96 - 18, 0xFF0000);
+        else if (!tile.statusInfo.equals("None"))
+            this.fontRendererObj.drawString(I18n.format(tile.statusInfo), 38, this.ySize - 96 - 18, 0xFFFF00);
     }
 
     @Override
@@ -42,5 +47,11 @@ public class GuiSericultureFrame extends GuiContainer {
         int k = (this.width - this.xSize) / 2;
         int l = (this.height - this.ySize) / 2;
         this.drawTexturedModalRect(k, l, 0, 0, this.xSize, this.ySize);
+        // Draw the progress bar
+        if (tile.isRunning)
+            this.drawTexturedModalRect(k + 122, l + 47, 176, 20, (int) (26 * (tile.getWorldObj().getWorldTime() % 48) / 48.0F), 30);
+        else if (!tile.canRun)
+            this.drawTexturedModalRect(k + 122, l + 47, 176, 0, 26, 20);
     }
+    
 }

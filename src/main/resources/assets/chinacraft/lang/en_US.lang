@@ -147,9 +147,25 @@ item.barley_rice.name=Barley Rice
 item.silkworm_chrysalis.name=Silkworm Chrysalis
 item.silkworm_young.name=Young Silkworm
 item.silkworm_graine.name=Silkworm Graine
+item.silkworm_dead.name=Dead Silkworm
 item.sericulture_frame.name=Sericulture frame
 tile.sericulture_frame.name=Sericulture frame
 gui.sericulture_frame.title=Sericulture frame
+gui.sericulture_frame.stopWork.lowLight.info=Need More Light!
+gui.sericulture_frame.stopWork.highLight.info=Too Much Light!
+gui.sericulture_frame.stopWork.biome.info=Bad Biome!
+gui.sericulture_frame.stopWork.outputSlotFull.info=Output Slot is full!
+gui.sericulture_frame.outputSlotStucks.info=Output Slot Stucks!
+gui.sericulture_frame.noMulberryLeaf.info=No Mulberry Leaf!
+gui.sericulture_frame.noRainProtection.info=No Rain Protection!
+tooltip.progress.info=Progress: 
+tooltip.generation.info=Generation: 
+tooltip.productivity.info=Productivity: 
+tooltip.speed.info=Speed: 
+tooltip.fertility.info=Fertility: 
+
+item.moth.male.name=Male moth
+item.moth.female.name=Female moth
 
 tile.lantern_scaldfish.name=lantern Scaldfish
 item.lantern_scaldfish.name=lantern Scaldfish

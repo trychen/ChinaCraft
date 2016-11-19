@@ -446,6 +446,10 @@ public class ChinaCraft implements ICollection {
     public static final Item silkwormChrysalis = new Item().setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("silkworm_chrysalis"); // 蚕茧
     @Register("silk_yarn")
     public static final Item silkYarn = new ItemBase().setUnlocalizedName("silk_yarn").setTextureName("chinacraft:silk_yarn").setCreativeTab(ChinaCraft.tabFarming);
+    @Register("Silkworm_dead")
+    public static final Item itemSilkwormDead = new Item().setUnlocalizedName("silkworm_dead").setTextureName("chinacraft:silkworm_dead").setCreativeTab(ChinaCraft.tabFarming); // 死亡的蚕
+    @Register("Moth")
+    public static final Item itemMoth = new ItemMoth().setUnlocalizedName("moth"); // 蛾子
     @Register("silk")
     public static final Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); // 丝绸
     @Register("Debug")
