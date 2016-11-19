@@ -15,6 +15,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.item.ItemMoth;
 import unstudio.chinacraft.item.ItemSilkworm;
 
@@ -126,7 +127,7 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                             // 当蚕在当前阶段演化完，正准备进入下一阶段
                             if (x >= ItemSilkworm.lifeSpan[stack.getItemDamage()]) {
                                 if (stack.getItemDamage() >= 2) {
-                                    int count = stack.getTagCompound().getInteger("Productivity");
+                                    int count = FeatureConfig.enableAdvancedSericulture? stack.getTagCompound().getInteger("Productivity"): 1;
                                     if (getStackInSlot(10) == null)
                                         setInventorySlotContents(10, new ItemStack(ChinaCraft.silkwormChrysalis, count)); 
                                     else if (getStackInSlot(10).stackSize + count <= 64)
@@ -136,12 +137,14 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                                         continue;
                                     }        
                                     ItemStack moth = new ItemStack(ChinaCraft.itemMoth, 1, worldObj.rand.nextInt(2));
-                                    NBTTagCompound newNBT = new NBTTagCompound();
-                                    newNBT.setInteger("Generation", stack.getTagCompound().getInteger("Generation"));
-                                    newNBT.setInteger("Productivity", stack.getTagCompound().getInteger("Productivity"));
-                                    newNBT.setInteger("Speed", stack.getTagCompound().getInteger("Speed"));
-                                    newNBT.setInteger("Fertility", stack.getTagCompound().getInteger("Fertility"));
-                                    moth.setTagCompound(newNBT);
+                                    if (FeatureConfig.enableAdvancedSericulture) {
+                                        NBTTagCompound newNBT = new NBTTagCompound();
+                                        newNBT.setInteger("Generation", stack.getTagCompound().getInteger("Generation"));
+                                        newNBT.setInteger("Productivity", stack.getTagCompound().getInteger("Productivity"));
+                                        newNBT.setInteger("Speed", stack.getTagCompound().getInteger("Speed"));
+                                        newNBT.setInteger("Fertility", stack.getTagCompound().getInteger("Fertility"));
+                                        moth.setTagCompound(newNBT);
+                                    }
                                     setInventorySlotContents(i, moth);              
                                 } else {
                                     stack.setItemDamage(stack.getItemDamage() + 1);
@@ -155,40 +158,47 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                                         continue;
                                     }
                                     // 蚕有几率死亡
-                                    if (worldObj.rand.nextInt(300000) < 1 * getBaseMortalityFactor() * getGenerationMortalityFactor(stack.getTagCompound().getInteger("Generation")))
+                                    if (FeatureConfig.enableAdvancedSericulture && worldObj.rand.nextInt(getMortalityDenominator()) < 1 * getBaseMortalityFactor() * getGenerationMortalityFactor(stack.getTagCompound().getInteger("Generation")))
                                         setInventorySlotContents(i, new ItemStack(ChinaCraft.itemSilkwormDead));
                                     // 蚕有几率吃掉桑叶
-                                    if (worldObj.rand.nextInt(4000) < 1) 
+                                    if (worldObj.rand.nextInt(getMulberryLeafEatenDenominator()) < 1) 
                                         decrStackSize(9, 1);
                                 }
-                                x += nbt.getInteger("Speed");
+                                x += FeatureConfig.enableAdvancedSericulture? nbt.getInteger("Speed"): 1;
                                 nbt.setInteger("Schedule", x);
                             }
                             stack.setTagCompound(nbt);
                             isRunning = true;
                         }
-                        else if (stack.getTagCompound().hasKey("Generation")){
+                        else {
                             // 对于蛾子,遍历物品槽找到异性后直接产生后代蚕卵
                             for (int j = 0; j < 9 && j != i; j++)
                                 if (getStackInSlot(j) != null && getStackInSlot(j).getItem() == ChinaCraft.itemMoth && getStackInSlot(j).getItemDamage() == 1 - stack.getItemDamage()) {
-                                    int generation = Math.max(stack.getTagCompound().getInteger("Generation"), getStackInSlot(j).getTagCompound().getInteger("Generation"));
-                                    int productivity = (stack.getTagCompound().getInteger("Productivity") + getStackInSlot(j).getTagCompound().getInteger("Productivity")) / 2;
-                                    int speed = (stack.getTagCompound().getInteger("Speed") + getStackInSlot(j).getTagCompound().getInteger("Speed")) / 2;
-                                    int fertiltiy = (stack.getTagCompound().getInteger("Fertility") + getStackInSlot(j).getTagCompound().getInteger("Fertility")) / 2;
-                                    ItemStack graine = new ItemStack(ChinaCraft.silkworm);
-                                    NBTTagCompound newNBT = new NBTTagCompound();
-                                    newNBT.setInteger("Schedule", 0);
-                                    newNBT.setInteger("Generation", 1 + generation);
-                                    newNBT.setInteger("Productivity", worldObj.rand.nextInt(2) + productivity);
-                                    newNBT.setInteger("Speed", worldObj.rand.nextInt(2) + speed);
-                                    newNBT.setInteger("Fertility", worldObj.rand.nextInt(2) + fertiltiy);
-                                    graine.setTagCompound(newNBT);
-                                    setInventorySlotContents(Math.min(i, j), graine);
-                                    if (worldObj.rand.nextInt(3) < fertiltiy) 
-                                        setInventorySlotContents(Math.max(i, j), graine.copy());
-                                    else
-                                        setInventorySlotContents(Math.max(i, j), null);
-                                    break;
+                                    if (FeatureConfig.enableAdvancedSericulture) {
+                                        int generation = Math.max(stack.getTagCompound().getInteger("Generation"), getStackInSlot(j).getTagCompound().getInteger("Generation"));
+                                        int productivity = (stack.getTagCompound().getInteger("Productivity") + getStackInSlot(j).getTagCompound().getInteger("Productivity")) / 2;
+                                        int speed = (stack.getTagCompound().getInteger("Speed") + getStackInSlot(j).getTagCompound().getInteger("Speed")) / 2;
+                                        int fertiltiy = (stack.getTagCompound().getInteger("Fertility") + getStackInSlot(j).getTagCompound().getInteger("Fertility")) / 2;
+                                        ItemStack graine = new ItemStack(ChinaCraft.silkworm);
+                                        NBTTagCompound newNBT = new NBTTagCompound();
+                                        newNBT.setInteger("Schedule", 0);
+                                        newNBT.setInteger("Generation", 1 + generation);
+                                        newNBT.setInteger("Productivity", worldObj.rand.nextInt(2) + productivity);
+                                        newNBT.setInteger("Speed", worldObj.rand.nextInt(2) + speed);
+                                        newNBT.setInteger("Fertility", worldObj.rand.nextInt(2) + fertiltiy);
+                                        graine.setTagCompound(newNBT);
+                                        setInventorySlotContents(Math.min(i, j), graine);
+                                        if (worldObj.rand.nextInt(3) < fertiltiy) 
+                                            setInventorySlotContents(Math.max(i, j), graine.copy());
+                                        else
+                                            setInventorySlotContents(Math.max(i, j), null);
+                                        break;
+                                    }
+                                    else {
+                                        setInventorySlotContents(Math.max(i, j), new ItemStack(ChinaCraft.silkworm));
+                                        setInventorySlotContents(Math.min(i, j), new ItemStack(ChinaCraft.silkworm));
+                                        break;
+                                    }
                                 }
                         }
                     }
@@ -196,10 +206,12 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
                         // stack无NBT时，设置默认NBT数据如下
                         NBTTagCompound nbt = new NBTTagCompound();
                         if (stack.getItem() == ChinaCraft.silkworm) nbt.setInteger("Schedule", 0);
-                        nbt.setInteger("Generation", 1);
-                        nbt.setInteger("Productivity", 1);
-                        nbt.setInteger("Speed", 1);
-                        nbt.setInteger("Fertility", 1);
+                        if (FeatureConfig.enableAdvancedSericulture) {
+                            nbt.setInteger("Generation", 1);
+                            nbt.setInteger("Productivity", 1);
+                            nbt.setInteger("Speed", 1);
+                            nbt.setInteger("Fertility", 1);
+                        }
                         stack.setTagCompound(nbt);
                     }  
                 }
@@ -262,6 +274,14 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
             return 1;
         else
             return generation - 20;
+    }
+    
+    public int getMortalityDenominator() {
+        return 300000;
+    }
+
+    public int getMulberryLeafEatenDenominator() {
+        return 4000;
     }
     
     @Override

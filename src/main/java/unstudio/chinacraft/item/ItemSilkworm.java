@@ -13,6 +13,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.tileentity.TileSericultureFrame;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -27,31 +28,38 @@ public class ItemSilkworm extends Item {
     public ItemSilkworm() {
         setMaxStackSize(64);
         setHasSubtypes(true);
-        setMaxDamage(99);
-        setNoRepair();
+        setMaxDamage(0);
         setCreativeTab(ChinaCraft.tabFarming);
         setUnlocalizedName("silkworm");
     }
     
     @Override
     public boolean showDurabilityBar(ItemStack stack) {
-        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Schedule"))
-            if (stack.getTagCompound().getInteger("Schedule") > 0)
-                return true;
-        return false;        
+        if (!FeatureConfig.enableAdvancedSericulture)
+            return super.showDurabilityBar(stack);
+        else {
+            if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Schedule"))
+                if (stack.getTagCompound().getInteger("Schedule") > 0)
+                    return true;
+            return false;    
+        }
     }
     
     @Override
     public int getDisplayDamage(ItemStack stack) {
-        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Schedule"))
-            return (int) (1.0F * stack.getTagCompound().getInteger("Schedule") / lifeSpan[stack.getItemDamage()] * stack.getMaxDamage());          
-        return 0;
+        if (!FeatureConfig.enableAdvancedSericulture)
+            return super.getDisplayDamage(stack);
+        else {
+            if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Schedule"))
+                return (int) (1.0F * stack.getTagCompound().getInteger("Schedule") / lifeSpan[stack.getItemDamage()] * stack.getMaxDamage());          
+            return 0;
+        }
     }
     
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
         super.addInformation(stack, player, list, p_77624_4_);
-        if (stack.hasTagCompound()) {
+        if (FeatureConfig.enableAdvancedSericulture && stack.hasTagCompound()) {
             if (stack.getTagCompound().hasKey("Schedule"))
                 list.add(EnumChatFormatting.GREEN + I18n.format("tooltip.progress.info") + (1 + getDisplayDamage(stack)) + "%");
             if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Generation"))

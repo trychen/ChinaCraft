@@ -14,6 +14,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
 
 public class ItemMoth extends Item {
     
@@ -29,15 +30,17 @@ public class ItemMoth extends Item {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean p_77624_4_) {
         super.addInformation(stack, player, list, p_77624_4_);
-        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Generation"))
-            list.add(EnumChatFormatting.YELLOW + I18n.format("tooltip.generation.info") + stack.getTagCompound().getInteger("Generation"));
-        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Productivity"))
-            list.add(EnumChatFormatting.GOLD + I18n.format("tooltip.productivity.info") + stack.getTagCompound().getInteger("Productivity"));
-        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Speed"))
-            list.add(EnumChatFormatting.GOLD + I18n.format("tooltip.speed.info") + stack.getTagCompound().getInteger("Speed"));
-        if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Fertility"))
-            list.add(EnumChatFormatting.GOLD + I18n.format("tooltip.fertility.info") + stack.getTagCompound().getInteger("Fertility"));
-   }
+        if (FeatureConfig.enableAdvancedSericulture) {
+            if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Generation"))
+                list.add(EnumChatFormatting.YELLOW + I18n.format("tooltip.generation.info") + stack.getTagCompound().getInteger("Generation"));
+            if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Productivity"))
+                list.add(EnumChatFormatting.GOLD + I18n.format("tooltip.productivity.info") + stack.getTagCompound().getInteger("Productivity"));
+            if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Speed"))
+                list.add(EnumChatFormatting.GOLD + I18n.format("tooltip.speed.info") + stack.getTagCompound().getInteger("Speed"));
+            if (stack.hasTagCompound() && stack.getTagCompound().hasKey("Fertility"))
+                list.add(EnumChatFormatting.GOLD + I18n.format("tooltip.fertility.info") + stack.getTagCompound().getInteger("Fertility"));
+        }
+    }
     
     @Override
     @SideOnly(Side.CLIENT)
