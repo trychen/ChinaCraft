@@ -1,7 +1,5 @@
 package unstudio.chinacraft.tileentity;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
@@ -109,57 +107,59 @@ public class TileJadeBench extends TileEntity implements IInventory {
 
     @Override
     public void updateEntity() {
-        if (getStackInSlot(0) != null && getStackInSlot(0).getItem() instanceof Hammer) {
-            if (getStackInSlot(1) != null) {
-                if (getStackInSlot(2) == null) {
-                    // Ore recipes
-                    if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(ChinaCraft.jadeOre))) {
-                        int thresholdWeight = new Random().nextInt(JadeBenchRecipes.getTotalWeightedChanceForOre());
-                        for (JadeBenchOreRecipe oreRecipe: JadeBenchRecipes.getOreRecipes()) {
-                            thresholdWeight -= oreRecipe.weightedChance;
-                            if (thresholdWeight <= 0) {
-                                setInventorySlotContents(2, oreRecipe.outputJade);
-                                damageTool(0, 5);
-                                splitStack(1, 1);
-                                break;
+        // Only update on the server side
+        if (!worldObj.isRemote)
+            if (getStackInSlot(0) != null && getStackInSlot(0).getItem() instanceof Hammer) {
+                if (getStackInSlot(1) != null) {
+                    if (getStackInSlot(2) == null) {
+                        // Ore recipes
+                        if (getStackInSlot(1).getItem().equals(Item.getItemFromBlock(ChinaCraft.jadeOre))) {
+                            int thresholdWeight = worldObj.rand.nextInt(JadeBenchRecipes.getTotalWeightedChanceForOre());
+                            for (JadeBenchOreRecipe oreRecipe: JadeBenchRecipes.getOreRecipes()) {
+                                thresholdWeight -= oreRecipe.weightedChance;
+                                if (thresholdWeight <= 0) {
+                                    setInventorySlotContents(2, oreRecipe.outputJade);
+                                    damageTool(0, 5);
+                                    splitStack(1, 1);
+                                    break;
+                                }
+                            } 
+                        }       
+                    } 
+                    else {
+                        // Modify recipes
+                        JadeBenchModifyRecipe modifyRecipe = JadeBenchRecipes.getModifyRecipe(getStackInSlot(1), getStackInSlot(2));
+                        if (modifyRecipe != null) {
+                            boolean damageFlag = false;
+                            ItemStack outputWeapon;
+                            // Decide the outputStack
+                            if (worldObj.rand.nextFloat() < modifyRecipe.epixModifyChance) {
+                                outputWeapon = modifyRecipe.outputEpixWeapon.copy();
+                                damageFlag = false;
                             }
-                        } 
-                    }       
-                } 
-                else {
-                    // Modify recipes
-                    JadeBenchModifyRecipe modifyRecipe = JadeBenchRecipes.getModifyRecipe(getStackInSlot(1), getStackInSlot(2));
-                    if (modifyRecipe != null) {
-                        boolean damageFlag = false;
-                        ItemStack outputWeapon;
-                        // Decide the outputStack
-                        if (new Random().nextFloat() < modifyRecipe.epixModifyChance) {
-                            outputWeapon = modifyRecipe.outputEpixWeapon.copy();
-                            damageFlag = false;
+                            else {
+                                outputWeapon = modifyRecipe.outputWeapon.copy();
+                                damageFlag = true;
+                            }
+                            // Transfer the enchantment
+                            NBTTagList enchList = getStackInSlot(1).getEnchantmentTagList();
+                            if (enchList != null && enchList.tagCount()>0) {
+                                if (!outputWeapon.hasTagCompound())
+                                    outputWeapon.setTagCompound(new NBTTagCompound());
+                                if (outputWeapon.getTagCompound().getTag("ench") == null)
+                                    outputWeapon.getTagCompound().setTag("ench", new NBTTagList());
+                                for (int i = 0; i < enchList.tagCount(); i++)
+                                    outputWeapon.getEnchantmentTagList().appendTag(enchList.getCompoundTagAt(i));
+                            } 
+                            // Update the inventory
+                            setInventorySlotContents(2, outputWeapon);
+                            if (damageFlag) damageTool(2, getStackInSlot(1).getItemDamage());
+                            damageTool(0, 5);
+                            splitStack(1, 1);
                         }
-                        else {
-                            outputWeapon = modifyRecipe.outputWeapon.copy();
-                            damageFlag = true;
-                        }
-                        // Transfer the enchantment
-                        NBTTagList enchList = getStackInSlot(1).getEnchantmentTagList();
-                        if (enchList != null && enchList.tagCount()>0) {
-                            if (!outputWeapon.hasTagCompound())
-                                outputWeapon.setTagCompound(new NBTTagCompound());
-                            if (outputWeapon.getTagCompound().getTag("ench") == null)
-                                outputWeapon.getTagCompound().setTag("ench", new NBTTagList());
-                            for (int i = 0; i < enchList.tagCount(); i++)
-                                outputWeapon.getEnchantmentTagList().appendTag(enchList.getCompoundTagAt(i));
-                        } 
-                        // Update the inventory
-                        setInventorySlotContents(2, outputWeapon);
-                        if (damageFlag) damageTool(2, getStackInSlot(1).getItemDamage());
-                        damageTool(0, 5);
-                        splitStack(1, 1);
                     }
                 }
             }
-        }
     }
 
     public void splitStack(int slotIndex, int amount) {
