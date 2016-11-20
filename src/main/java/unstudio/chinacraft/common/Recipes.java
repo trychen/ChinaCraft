@@ -7,7 +7,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipes;
+import unstudio.chinacraft.recipes.JadeBenchRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 /**
@@ -286,7 +291,29 @@ public class Recipes {
         BuhrimillRecipe.registerBuhrimillReciper(new ItemStack(ChinaCraft.soy),new ItemStack(Items.water_bucket),
                 new ItemStack(ChinaCraft.douJiangBucket), null, 720);
 
-
+        // JadeBenchRecipes
+        JadeBenchRecipes.registerOreRecipe(new ItemStack(ChinaCraft.jadeGreenItem), 25);
+        JadeBenchRecipes.registerOreRecipe(new ItemStack(ChinaCraft.jadeGreen2Item), 25);
+        JadeBenchRecipes.registerOreRecipe(new ItemStack(ChinaCraft.jadePinkItem), 25);
+        JadeBenchRecipes.registerOreRecipe(new ItemStack(ChinaCraft.jadePurpleItem), 25);
+        List<ItemStack> listBronzeBoradSword = new ArrayList<ItemStack>();
+        ItemStack bronzeBroadSword = new ItemStack(ChinaCraft.bronzeBroadSword);
+        ItemStack bronzeBroadSwordGreen = new ItemStack(ChinaCraft.bronzeBroadSwordGreen);
+        ItemStack bronzeBroadSwordGreen2 = new ItemStack(ChinaCraft.bronzeBroadSwordGreen2);
+        ItemStack bronzeBroadSwordPink = new ItemStack(ChinaCraft.bronzeBroadSwordPink);
+        ItemStack bronzeBroadSwordPurple = new ItemStack(ChinaCraft.bronzeBroadSwordPurple);
+        listBronzeBoradSword.add(bronzeBroadSword);
+        listBronzeBoradSword.add(bronzeBroadSwordGreen);
+        listBronzeBoradSword.add(bronzeBroadSwordGreen2);
+        listBronzeBoradSword.add(bronzeBroadSwordPink);
+        listBronzeBoradSword.add(bronzeBroadSwordPurple);
+        for (ItemStack sword: listBronzeBoradSword) {
+            JadeBenchRecipes.registerModifyRecipe(sword, new ItemStack(ChinaCraft.jadeGreenItem), bronzeBroadSwordGreen, new ItemStack(ChinaCraft.blGiantSword), 0.05F);
+            JadeBenchRecipes.registerModifyRecipe(sword, new ItemStack(ChinaCraft.jadeGreen2Item), bronzeBroadSwordGreen2, new ItemStack(ChinaCraft.blGiantSword), 0.05F);
+            JadeBenchRecipes.registerModifyRecipe(sword, new ItemStack(ChinaCraft.jadePinkItem), bronzeBroadSwordPink, new ItemStack(ChinaCraft.blGiantSword), 0.05F);
+            JadeBenchRecipes.registerModifyRecipe(sword, new ItemStack(ChinaCraft.jadePurpleItem), bronzeBroadSwordPurple, new ItemStack(ChinaCraft.blGiantSword), 0.05F);
+        }
+        
         // spiritual_magic_figures
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.spiritualMagicFigures, 3),
                 new Object[] { Items.paper, Items.dye });

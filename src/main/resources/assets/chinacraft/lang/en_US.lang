@@ -147,9 +147,25 @@ item.barley_rice.name=Barley Rice
 item.silkworm_chrysalis.name=Silkworm Chrysalis
 item.silkworm_young.name=Young Silkworm
 item.silkworm_graine.name=Silkworm Graine
+item.silkworm_dead.name=Dead Silkworm
 item.sericulture_frame.name=Sericulture frame
 tile.sericulture_frame.name=Sericulture frame
 gui.sericulture_frame.title=Sericulture frame
+gui.sericulture_frame.stopWork.lowLight.info=Need More Light!
+gui.sericulture_frame.stopWork.highLight.info=Too Much Light!
+gui.sericulture_frame.stopWork.biome.info=Bad Biome!
+gui.sericulture_frame.stopWork.outputSlotFull.info=Output Slot is full!
+gui.sericulture_frame.outputSlotStucks.info=Output Slot Stucks!
+gui.sericulture_frame.noMulberryLeaf.info=No Mulberry Leaf!
+gui.sericulture_frame.noRainProtection.info=No Rain Protection!
+tooltip.progress.info=Progress: 
+tooltip.generation.info=Generation: 
+tooltip.productivity.info=Productivity: 
+tooltip.speed.info=Speed: 
+tooltip.fertility.info=Fertility: 
+
+item.moth.male.name=Male moth
+item.moth.female.name=Female moth
 
 tile.lantern_scaldfish.name=lantern Scaldfish
 item.lantern_scaldfish.name=lantern Scaldfish
@@ -186,6 +202,8 @@ nei.gui.buhrimill.rotime.info=%.1fround
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table
 gui.jade_table.info=Jade Information
+nei.gui.jadebench.title=Jade Worktable Recipes
+nei.jadebench.output.info=Outputs:
 
 tile.cooking_bench.name=Furnace Platform
 gui.cooking_bench.title=Furnace Platform
@@ -242,10 +260,11 @@ redpacket.backpack_full=Failed: %sendee%'s Backpack is full!
 redpacket.received=You received a red Red Packet.!
 redpacket.receive_money=You open the Red Packet to get %money% Money!
 
-gui.inventory.shiftfordetail=Hold Shift for detail
+gui.inventory.shiftfordetail=<Hold Shift for Details>
 
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie
+entity.panda.name=Panda
 
 Bucket.opps=Opps, the wooden bucket on fire, oh, he burned to ashes that the rest can also be used as fertilizer.
 

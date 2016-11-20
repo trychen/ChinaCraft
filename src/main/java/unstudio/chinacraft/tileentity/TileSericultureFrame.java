@@ -1,15 +1,23 @@
 package unstudio.chinacraft.tileentity;
 
-import java.util.Random;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-
+import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
+import unstudio.chinacraft.item.ItemMoth;
+import unstudio.chinacraft.item.ItemSilkworm;
 
 public class TileSericultureFrame extends TileEntity implements ISidedInventory {
 
@@ -18,15 +26,9 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
     private static final int[] slotsBottom = new int[] { 10 };
 
     private ItemStack stack[] = new ItemStack[11];
-    private double mortality = -1;
-
-    public double getMortality() {
-        return mortality;
-    }
-
-    public void setMortality(double mortality) {
-        this.mortality = mortality;
-    }
+    public boolean canRun;
+    public boolean isRunning;
+    public String statusInfo = "None";
 
     @Override
     public int getSizeInventory() {
@@ -108,164 +110,216 @@ public class TileSericultureFrame extends TileEntity implements ISidedInventory 
 
     @Override
     public void updateEntity() {
-        for (int i = 0; i < 9; i++) {
-            ItemStack item = getStackInSlot(i);
-            if (item == null)
-                continue;
-            if (item.getItem() != ChinaCraft.silkworm)
-                continue;
-            // TODO: NullPointerException, getStackInSlot(10) == null
-            if(getStackInSlot(10)!=null&&getStackInSlot(10).stackSize==64)
-                continue;
-            if (item.hasTagCompound()) {
-                NBTTagCompound nbt = item.getTagCompound();
-                int x = nbt.getInteger("Schedule");
-                x++;
-                if (x >= getMaxSchedule(item.getItemDamage())) {
-                    nbt.setInteger("Schedule", 0);
-                    if (item.getItemDamage() >= 2) {
-                        if (getStackInSlot(10) == null) {
-                            setInventorySlotContents(10, new ItemStack(ChinaCraft.silkwormChrysalis));
-                            setInventorySlotContents(i, new ItemStack(ChinaCraft.silkworm));
-                        } else {
-                            getStackInSlot(10).stackSize++;
-                            setInventorySlotContents(i, new ItemStack(ChinaCraft.silkworm));
-                        }
-                    } else {
-                        item.setItemDamage(item.getItemDamage() + 1);
-                    }
-                } else {
-                    nbt.setInteger("Schedule", x);
-                    if (item.getItemDamage() == 1) {
-                        if (getStackInSlot(9) == null || getStackInSlot(9).getItem() != ChinaCraft.itemMulberryLeaf)
-                            continue;
-                        Random r = new Random();
-                        int y = r.nextInt(4000);
-                        if (y < 1) {
-                            getStackInSlot(9).stackSize--;
-                            if(getStackInSlot(9).stackSize==0){
-                                setInventorySlotContents(9,null);
+        if (!worldObj.isRemote) {
+            boolean needUpdate = false;        
+            boolean isRunning = false;
+            if (checkBasicRunningCondition()) {
+                for (int i = 0; i < 9; i++) {
+                    ItemStack stack = getStackInSlot(i);
+                    if (stack == null ||stack.getItem() != ChinaCraft.silkworm && stack.getItem() != ChinaCraft.itemMoth)
+                        continue;
+                    needUpdate = true;
+                    if (stack.hasTagCompound()) {
+                        // 对于蚕卵、蚕和蚕蛹
+                        if (stack.getTagCompound().hasKey("Schedule")) {
+                            NBTTagCompound nbt = stack.getTagCompound();
+                            int x = nbt.getInteger("Schedule");
+                            // 当蚕在当前阶段演化完，正准备进入下一阶段
+                            if (x >= ItemSilkworm.lifeSpan[stack.getItemDamage()]) {
+                                if (stack.getItemDamage() >= 2) {
+                                    int count = FeatureConfig.enableAdvancedSericulture? stack.getTagCompound().getInteger("Productivity"): 1;
+                                    if (getStackInSlot(10) == null)
+                                        setInventorySlotContents(10, new ItemStack(ChinaCraft.silkwormChrysalis, count)); 
+                                    else if (getStackInSlot(10).stackSize + count <= 64)
+                                        getStackInSlot(10).stackSize += count;
+                                    else {
+                                        this.statusInfo = "gui.sericulture_frame.outputSlotStucks.info";
+                                        continue;
+                                    }        
+                                    ItemStack moth = new ItemStack(ChinaCraft.itemMoth, 1, worldObj.rand.nextInt(2));
+                                    if (FeatureConfig.enableAdvancedSericulture) {
+                                        NBTTagCompound newNBT = new NBTTagCompound();
+                                        newNBT.setInteger("Generation", stack.getTagCompound().getInteger("Generation"));
+                                        newNBT.setInteger("Productivity", stack.getTagCompound().getInteger("Productivity"));
+                                        newNBT.setInteger("Speed", stack.getTagCompound().getInteger("Speed"));
+                                        newNBT.setInteger("Fertility", stack.getTagCompound().getInteger("Fertility"));
+                                        moth.setTagCompound(newNBT);
+                                    }
+                                    setInventorySlotContents(i, moth);              
+                                } else {
+                                    stack.setItemDamage(stack.getItemDamage() + 1);
+                                    nbt.setInteger("Schedule", 0);
+                                }
+                            } else {
+                                // 不然的话，如果在蚕的阶段没有桑叶，则工作终止
+                                if (stack.getItemDamage() == 1) {
+                                    if (getStackInSlot(9) == null || getStackInSlot(9).getItem() != ChinaCraft.itemMulberryLeaf) {
+                                        statusInfo = "gui.sericulture_frame.noMulberryLeaf.info";
+                                        continue;
+                                    }
+                                    // 蚕有几率死亡
+                                    if (FeatureConfig.enableAdvancedSericulture && worldObj.rand.nextInt(getMortalityDenominator()) < 1 * getBaseMortalityFactor() * getGenerationMortalityFactor(stack.getTagCompound().getInteger("Generation")))
+                                        setInventorySlotContents(i, new ItemStack(ChinaCraft.itemSilkwormDead));
+                                    // 蚕有几率吃掉桑叶
+                                    if (worldObj.rand.nextInt(getMulberryLeafEatenDenominator()) < 1) 
+                                        decrStackSize(9, 1);
+                                }
+                                x += FeatureConfig.enableAdvancedSericulture? nbt.getInteger("Speed"): 1;
+                                nbt.setInteger("Schedule", x);
                             }
+                            stack.setTagCompound(nbt);
+                            isRunning = true;
+                        }
+                        else {
+                            // 对于蛾子,遍历物品槽找到异性后直接产生后代蚕卵
+                            for (int j = 0; j < 9 && j != i; j++)
+                                if (getStackInSlot(j) != null && getStackInSlot(j).getItem() == ChinaCraft.itemMoth && getStackInSlot(j).getItemDamage() == 1 - stack.getItemDamage()) {
+                                    if (FeatureConfig.enableAdvancedSericulture) {
+                                        int generation = Math.max(stack.getTagCompound().getInteger("Generation"), getStackInSlot(j).getTagCompound().getInteger("Generation"));
+                                        int productivity = (stack.getTagCompound().getInteger("Productivity") + getStackInSlot(j).getTagCompound().getInteger("Productivity")) / 2;
+                                        int speed = (stack.getTagCompound().getInteger("Speed") + getStackInSlot(j).getTagCompound().getInteger("Speed")) / 2;
+                                        int fertiltiy = (stack.getTagCompound().getInteger("Fertility") + getStackInSlot(j).getTagCompound().getInteger("Fertility")) / 2;
+                                        ItemStack graine = new ItemStack(ChinaCraft.silkworm);
+                                        NBTTagCompound newNBT = new NBTTagCompound();
+                                        newNBT.setInteger("Schedule", 0);
+                                        newNBT.setInteger("Generation", 1 + generation);
+                                        newNBT.setInteger("Productivity", worldObj.rand.nextInt(2) + productivity);
+                                        newNBT.setInteger("Speed", worldObj.rand.nextInt(2) + speed);
+                                        newNBT.setInteger("Fertility", worldObj.rand.nextInt(2) + fertiltiy);
+                                        graine.setTagCompound(newNBT);
+                                        setInventorySlotContents(Math.min(i, j), graine);
+                                        if (worldObj.rand.nextInt(3) < fertiltiy) 
+                                            setInventorySlotContents(Math.max(i, j), graine.copy());
+                                        else
+                                            setInventorySlotContents(Math.max(i, j), null);
+                                        break;
+                                    }
+                                    else {
+                                        setInventorySlotContents(Math.max(i, j), new ItemStack(ChinaCraft.silkworm));
+                                        setInventorySlotContents(Math.min(i, j), new ItemStack(ChinaCraft.silkworm));
+                                        break;
+                                    }
+                                }
                         }
                     }
+                    else {
+                        // stack无NBT时，设置默认NBT数据如下
+                        NBTTagCompound nbt = new NBTTagCompound();
+                        if (stack.getItem() == ChinaCraft.silkworm) nbt.setInteger("Schedule", 0);
+                        if (FeatureConfig.enableAdvancedSericulture) {
+                            nbt.setInteger("Generation", 1);
+                            nbt.setInteger("Productivity", 1);
+                            nbt.setInteger("Speed", 1);
+                            nbt.setInteger("Fertility", 1);
+                        }
+                        stack.setTagCompound(nbt);
+                    }  
                 }
-                item.setTagCompound(nbt);
-            } else {
-                NBTTagCompound nbt = new NBTTagCompound();
-                nbt.setInteger("Schedule", 0);
-                item.setTagCompound(nbt);
+            }
+                    
+            if (needUpdate || this.isRunning != isRunning) {
+                this.isRunning = isRunning;
+                worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+                markDirty();
             }
         }
-        // if(mortality == -1) {
-        // mortality = getMortality();
-        // }
-        // if(getStackInSlot(0)!=null&&getStackInSlot(0).getItem().equals(ChinaCraft.silkworm)&&getStackInSlot(0).stackSize>0)
-        // {
-        // float m;
-        // m = mortality +
-        // (worldObj.isRaining()?worldObj.getTopSolidOrLiquidBlock(xCoord,
-        // zCoord) == yCoord?0.2F:0:0);
-        // if((getStackInSlot(1)==null||getStackInSlot(1).stackSize<=0||getStackInSlot(1).getItem()!=ChinaCraft.itemMulberryLeaf)&&getStackInSlot(0).getItemDamage()
-        // == 1) {
-        // m = 10.0F;
-        // }
-        // if(getStackInSlot(1)!=null&&worldObj.rand.nextInt(12000)<getStackInSlot(0).stackSize)
-        // {
-        // getStackInSlot(1).stackSize--;
-        // if(getStackInSlot(1).stackSize<=0) {
-        // setInventorySlotContents(1, null);
-        // }
-        // }
-        // schedule++;
-        // if(schedule >= getMaxSchedule(getStackInSlot(0).getItemDamage())) {
-        // if(getStackInSlot(0).getItemDamage() == 2) {
-        // setInventorySlotContents(2, new
-        // ItemStack(ChinaCraft.silkwormChrysalis,getStackInSlot(0).stackSize));
-        // getStackInSlot(0).setItemDamage(0);
-        // getStackInSlot(0).stackSize=(getStackInSlot(0).stackSize*2)>=64?64:getStackInSlot(0).stackSize*2;
-        // }else {
-        // getStackInSlot(0).setItemDamage(getStackInSlot(0).getItemDamage()+1);
-        // }
-        // }
-        // if(9.325*m>worldObj.rand.nextInt(24000)) {
-        // if(getStackInSlot(0).getItemDamage() == 2){
-        // if(getStackInSlot(2) == null){
-        // setInventorySlotContents(2, new
-        // ItemStack(ChinaCraft.silkwormChrysalis));
-        // }else if(getStackInSlot(2).getItem() == ChinaCraft.itemMulberryLeaf){
-        // getStackInSlot(2).stackSize++;
-        // }
-        // }
-        // getStackInSlot(0).stackSize--;
-        // if(getStackInSlot(0).stackSize<=0) {
-        // setInventorySlotContents(0, null);
-        // }
-        // }
-        // }else{
-        // schedule = 0;
-        // }
     }
 
-    public int getMaxSchedule(int i) {
-        switch (i) {
-        case 0:
-            return 16000;
-        case 1:
-            return 45000;
-        case 2:
-            return 9000;
-        default:
-            return -1;
+    public boolean checkBasicRunningCondition() {
+        boolean newStatus = true;
+        String statusInfo = "None";
+        if (getStackInSlot(10) != null && getStackInSlot(10).stackSize == 64) {
+            newStatus = false;
+            statusInfo = "gui.sericulture_frame.stopWork.outputSlotFull.info";
         }
+        if ((!worldObj.isDaytime() && worldObj.getSavedLightValue(EnumSkyBlock.Block, xCoord, yCoord, zCoord) < 7) || (worldObj.isDaytime() && worldObj.getSavedLightValue(EnumSkyBlock.Sky, xCoord, yCoord, zCoord) < 7 && worldObj.getSavedLightValue(EnumSkyBlock.Block, xCoord, yCoord, zCoord) < 7)) {
+            newStatus = false;
+            statusInfo = "gui.sericulture_frame.stopWork.lowLight.info";
+        }
+        else if (worldObj.getSavedLightValue(EnumSkyBlock.Block, xCoord, yCoord, zCoord) > 12) {
+            newStatus = false;
+            statusInfo = "gui.sericulture_frame.stopWork.highLight.info";
+        }
+        else {
+            BiomeGenBase biome = worldObj.getBiomeGenForCoords(xCoord, zCoord);
+            float temperature = biome.temperature;
+            float rainfall = biome.rainfall;
+            // The temperature and rainfall of Plain are 0.8F, 0.4F
+            if (temperature < 0.34F || temperature > 1.26F || rainfall < 0.09F || rainfall > 0.91F || BiomeDictionary.isBiomeOfType(biome, Type.NETHER) || BiomeDictionary.isBiomeOfType(biome, Type.END) || BiomeDictionary.isBiomeOfType(biome, Type.WASTELAND)) {
+                newStatus = false;
+                statusInfo = "gui.sericulture_frame.stopWork.biome.info";
+            }
+        }
+
+        if (newStatus != this.canRun || !statusInfo.equals(this.statusInfo)) {
+            this.canRun = newStatus;
+            this.statusInfo = statusInfo;
+            worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+            markDirty();         
+        }
+        return newStatus;
+    }
+    
+    public int getBaseMortalityFactor() {
+        if (worldObj.isRaining() && worldObj.canBlockSeeTheSky(xCoord, yCoord, zCoord)) {
+            statusInfo = "gui.sericulture_frame.noRainProtection.info";
+            return 10;
+        }
+        else
+            return 1;
+    }  
+    
+    public int getGenerationMortalityFactor(int generation) {
+        if (generation <= 20)
+            return 1;
+        else
+            return generation - 20;
+    }
+    
+    public int getMortalityDenominator() {
+        return 300000;
     }
 
-    @Deprecated
-    public double getDefaultMortality() {
-        double temperature = worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature < 0 ? 0
-                : worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature > 1.5F ? 1.5F
-                        : worldObj.getBiomeGenForCoords(xCoord, zCoord).temperature;
-        double rainfall = worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall < 0 ? 0
-                : worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall > 1.5F ? 1.5F
-                        : worldObj.getBiomeGenForCoords(xCoord, zCoord).rainfall;
-        int height = yCoord > 128 ? 128 : yCoord;
-        double m = 0;
-        m += -0.422 * Math.pow(temperature, 4) + 1.109 * Math.pow(temperature, 3) - 0.301 * Math.pow(temperature, 2)
-                - 0.620 * temperature + 0.3 < 0 ? 0
-                        : -0.422 * Math.pow(temperature, 4) + 1.109 * Math.pow(temperature, 3)
-                                - 0.301 * Math.pow(temperature, 2) - 0.620 * temperature + 0.3;
-        m += -0.422 * Math.pow(rainfall, 4) + 1.109 * Math.pow(rainfall, 3) - 0.301 * Math.pow(rainfall, 2)
-                - 0.620 * rainfall + 0.3 < 0 ? 0
-                        : -0.422 * Math.pow(rainfall, 4) + 1.109 * Math.pow(rainfall, 3) - 0.301 * Math.pow(rainfall, 2)
-                                - 0.620 * rainfall + 0.3;
-        m += 0.000048828125F * (height - 64F) * (height - 64F);
-        return m;
+    public int getMulberryLeafEatenDenominator() {
+        return 4000;
     }
-
+    
+    @Override
+    public Packet getDescriptionPacket() {
+        NBTTagCompound nbttagcompound = new NBTTagCompound();
+        this.writeToNBT(nbttagcompound);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbttagcompound);
+    }
+    
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        this.readFromNBT(pkt.func_148857_g());
+    }
+    
     @Override
     public void readFromNBT(NBTTagCompound p_145839_1_) {
         super.readFromNBT(p_145839_1_);
         NBTTagList nbttaglist = p_145839_1_.getTagList("Items", 10);
         this.stack = new ItemStack[this.getSizeInventory()];
-
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
             NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
             byte b0 = nbttagcompound1.getByte("Slot");
-
             if (b0 >= 0 && b0 < this.stack.length) {
                 this.stack[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
             }
         }
-        // this.schedule = p_145839_1_.getInteger("schedule");
-        this.mortality = p_145839_1_.getDouble("mortality");
+        this.canRun = p_145839_1_.getBoolean("CanRun");
+        this.isRunning = p_145839_1_.getBoolean("IsRunning");
+        this.statusInfo = p_145839_1_.getString("statusInfo");
     }
 
     @Override
     public void writeToNBT(NBTTagCompound p_145841_1_) {
         super.writeToNBT(p_145841_1_);
-        // p_145841_1_.setInteger("schedule", this.schedule);
-        p_145841_1_.setDouble("mortality", this.mortality);
+        p_145841_1_.setBoolean("CanRun", this.canRun);
+        p_145841_1_.setBoolean("IsRunning", this.isRunning);
+        p_145841_1_.setString("statusInfo", this.statusInfo);
         NBTTagList nbttaglist = new NBTTagList();
-
         for (int i = 0; i < this.stack.length; ++i) {
             if (this.stack[i] != null) {
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();

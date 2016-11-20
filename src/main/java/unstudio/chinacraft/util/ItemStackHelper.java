@@ -8,6 +8,10 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemStackHelper {
     
+    public static boolean isItemEqualWithoutDamage(ItemStack target, ItemStack input) {
+        return target.getItem() == input.getItem();
+    }
+    
     public static boolean isItemEquivalent(ItemStack target, ItemStack input) {
         int[] targetIDs = OreDictionary.getOreIDs(target);
         int[] inputIDs = OreDictionary.getOreIDs(input);
