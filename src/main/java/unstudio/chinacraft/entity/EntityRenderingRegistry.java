@@ -11,12 +11,14 @@ import unstudio.chinacraft.client.model.entity.ModelChinaZombie;
 import unstudio.chinacraft.client.model.block.ModelKongmingLantern;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
+import unstudio.chinacraft.entity.especial.EntityCCPainting;
 import unstudio.chinacraft.entity.especial.EntityKongmingLantern;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
 import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import unstudio.chinacraft.entity.render.RenderCCPainting;
 import unstudio.chinacraft.entity.render.RenderProjectile;
 
 public class EntityRenderingRegistry {
@@ -38,6 +40,8 @@ public class EntityRenderingRegistry {
         RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class,
                 new RenderSnowball(ChinaCraft.firecracker));
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectile.class, new RenderProjectile());
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityCCPainting.class, new RenderCCPainting());
     }
 
     /**

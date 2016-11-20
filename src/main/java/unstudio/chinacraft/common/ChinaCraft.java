@@ -162,6 +162,9 @@ public class ChinaCraft implements ICollection {
     @Register("WoodenWindowFu")
     public static final BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); // 木窗框:福
 
+    @Register("TraditionalPainting")
+    public static final CCItemPainting traditionalPainting = new CCItemPainting("traditional_painting");
+
     @Register("Bamboo")
     public static final Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
     @Register("BlockBambooShoot")
