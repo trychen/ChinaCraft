@@ -12,7 +12,6 @@ import unstudio.chinacraft.client.model.entity.ModelPanda;
 import unstudio.chinacraft.client.model.block.ModelKongmingLantern;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
-<<<<<<< HEAD
 import unstudio.chinacraft.entity.especial.EntityCCPainting;
 import unstudio.chinacraft.entity.animal.EntityPanda;
 import unstudio.chinacraft.entity.especial.EntityKongmingLantern;
