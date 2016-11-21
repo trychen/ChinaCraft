@@ -119,16 +119,11 @@ public class BlockBuhrimill extends BlockContainer implements CCWailaInfoProvide
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer p_149727_5_, int p_149727_6_,
                                     float p_149727_7_, float p_149727_8_, float p_149727_9_) {
-
-        if (p_149727_5_.isSneaking()) {
-            if (world.isRemote)
-                return true;
-            p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
-        } else {
-            if (world.getTileEntity(x, y, z) instanceof TileBuhrimill) {
+        if (!world.isRemote)
+            if (p_149727_5_.isSneaking())
+                p_149727_5_.openGui(ChinaCraft.instance, GuiID.GUI_Buhrimill, world, x, y, z);
+            else if (world.getTileEntity(x, y, z) instanceof TileBuhrimill)
                 ((TileBuhrimill) world.getTileEntity(x, y, z)).addAngle(10);
-            }
-        }
         return true;
     }
 

@@ -5,6 +5,9 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
@@ -127,7 +130,9 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
 
     @Override
     public void updateEntity() {
-        super.updateEntity();
+        // Only update on the server side
+        if (worldObj.isRemote)
+            return;
         if (getStackInSlot(0) != null) {
             // 双输入
             if (getStackInSlot(1) != null) {
@@ -176,12 +181,12 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                                 ItemStack input2 = getStackInSlot(1);
                                 input2.stackSize -= r.getInput2().stackSize;
                             }
+                        } else
                             return;
-                        }
-                    }
-                } else {
+                    } else
+                        return;
+                } else
                     return;
-                }
             } else {
                 // 单输入
                 BuhrimillRecipe r = BuhrimillRecipe.getBuhrimillReciper(getStackInSlot(0));
@@ -221,17 +226,22 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                                 ItemStack input1 = getStackInSlot(0);
                                 input1.stackSize -= r.getInput1().stackSize;
                             }
+                        } else
                             return;
-                        }
-                    }
-                } else {
+                    } else
+                        return;
+                } else
                     return;
-                }
             }
         } else {
             // 无输入
-            schedule = 0;
+            if (schedule != 0)
+                schedule = 0;
+            else
+                return;
         }
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        markDirty();        
     }
 
     public int getMaxSchedule() {
@@ -262,8 +272,22 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
         } else {
             angle = angle + i;
         }
+        worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+        markDirty();
     }
 
+    @Override
+    public Packet getDescriptionPacket() {
+        NBTTagCompound nbttagcompound = new NBTTagCompound();
+        this.writeToNBT(nbttagcompound);
+        return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbttagcompound);
+    }
+    
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        this.readFromNBT(pkt.func_148857_g());
+    }
+    
     @Override
     public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
         return new int[]{2, 3};
