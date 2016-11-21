@@ -7,6 +7,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -16,17 +17,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.client.gui.GuiID;
+import unstudio.chinacraft.client.waila.WailaCompatibility.CCWailaInfoProvider;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mcp.mobius.waila.api.IWailaConfigHandler;
+import mcp.mobius.waila.api.IWailaDataAccessor;
 
-public class BlockBuhrimill extends BlockContainer {
+public class BlockBuhrimill extends BlockContainer implements CCWailaInfoProvider {
 
     private IIcon icon;
 
@@ -181,5 +186,26 @@ public class BlockBuhrimill extends BlockContainer {
     @Override
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
         return icon;
+    }
+
+    @Override
+    public List<String> addWailaBodyInfo(ItemStack stack, List<String> tipList, IWailaDataAccessor accessor,
+            IWailaConfigHandler configHandler) {
+        TileEntity tile = accessor.getTileEntity();
+        if (tile instanceof TileBuhrimill) {
+            TileBuhrimill tileBuhrimill = (TileBuhrimill) tile;
+            int maxSchedule = tileBuhrimill.getMaxSchedule();
+            switch (maxSchedule) {
+            case -1:
+                tipList.add(EnumChatFormatting.GRAY + I18n.format("waila.noneInput.info"));
+                break;
+            case 0:
+                tipList.add(EnumChatFormatting.YELLOW + I18n.format("waila.invalidInput.info"));
+                break;
+            default:
+                tipList.add(EnumChatFormatting.GREEN + I18n.format("waila.progress.info") + 100 * tileBuhrimill.schedule / maxSchedule + "%");
+            }
+        }
+        return tipList;
     }
 }

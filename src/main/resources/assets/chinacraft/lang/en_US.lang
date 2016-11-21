@@ -198,6 +198,9 @@ item.buhrimill.name=Buhrimill
 gui.buhrimill.title=Buhrimill
 nei.gui.buhrimill.title=Buhrimill Recipes
 nei.gui.buhrimill.rotime.info=%.1fround
+waila.empty.info=None Input
+waila.invalidInput.info=Invalid Input!
+waila.progress.info=Progress: 
 
 gui.jade_bench.title=Jade Work Table
 tile.jade_table.name=Jade Work Table

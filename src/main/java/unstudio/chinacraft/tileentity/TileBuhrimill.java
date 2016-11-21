@@ -50,7 +50,6 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
 
     @Override
     public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        // TODO 自动生成的方法存根
         return null;
     }
 
@@ -64,13 +63,11 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
 
     @Override
     public String getInventoryName() {
-        // TODO 自动生成的方法存根
         return "Buhrimill";
     }
 
     @Override
     public boolean hasCustomInventoryName() {
-        // TODO 自动生成的方法存根
         return false;
     }
 
@@ -85,20 +82,13 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {
-        // TODO 自动生成的方法存根
-
-    }
+    public void openInventory() {}
 
     @Override
-    public void closeInventory() {
-        // TODO 自动生成的方法存根
-
-    }
+    public void closeInventory() {}
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        // TODO 自动生成的方法存根
         return false;
     }
 
@@ -260,7 +250,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                 return r.getTime();
             }
         }
-        return 0;
+        return -1;
     }
 
     public void addAngle(int i) {

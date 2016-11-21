@@ -164,7 +164,7 @@ public class ChinaCraft implements ICollection {
 
     @Register("TraditionalPainting")
     public static final CCItemPainting traditionalPainting = new CCItemPainting("traditional_painting");
-
+    
     @Register("Bamboo")
     public static final Block bamboo = new BlockBamboo().setBlockTextureName("chinacraft:bamboo"); // 竹子方块
     @Register("BlockBambooShoot")
@@ -464,15 +464,15 @@ public class ChinaCraft implements ICollection {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
+        WAILAIsLoad = Loader.isModLoaded("Waila");
+        VersionCheckerIsLoad = Loader.isModLoaded("VersionChecker");
+        
         proxy.preInit(event);
 
         Network = NetworkRegistry.INSTANCE.newSimpleChannel("ChinaCraftChannel");
         Network.registerMessage(new RedPacketMessageHandler(), RedPacketMessage.class, 0, Side.SERVER);
         Network.registerMessage(new KeyMessageHandler(), KeyMessage.class, 1, Side.SERVER);
-
-        NEIIsLoad = Loader.isModLoaded("NotEnoughItems");
-        WAILAIsLoad = Loader.isModLoaded("Waila");
-        VersionCheckerIsLoad = Loader.isModLoaded("VersionChecker");
 
         versionChecker = new MinecraftModVersionChecker(ChinaCraft.class,"ChinaCraft 华夏文明",PROJECT_ID,log,FeatureConfig.EnableSanpShot);
         if (FeatureConfig.EnableUpdate) versionChecker.start();

@@ -204,6 +204,9 @@ item.buhrimill.name=石磨
 gui.buhrimill.title=石磨
 nei.gui.buhrimill.title=石磨合成
 nei.gui.buhrimill.rotime.info=%.1f圈
+waila.noneInput.info=无原料
+waila.invalidInput.info=无法研磨！
+waila.progress.info=进度: 
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
