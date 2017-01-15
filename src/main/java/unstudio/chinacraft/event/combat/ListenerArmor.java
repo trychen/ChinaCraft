@@ -12,8 +12,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
@@ -118,7 +116,7 @@ public class ListenerArmor {
         if (event.entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.entityLiving;
             if (player.getFoodStats().getFoodLevel()<14) return;//饱食度要大于14
-            if (player.getItemInUse() != null) return; //不能拿着物品连跳
+            if (player.inventory.getCurrentItem() != null) return; //不能拿着物品连跳
             if (!ChinaCraftApi.isWearingWholeNightClothes(player)) return;
 
             NBTTagCompound tCompound = player.getEntityData();
