@@ -16,15 +16,15 @@ public class ContainerRedPacket extends Container {
 
     public ContainerRedPacket(EntityPlayer player, ItemStack itemStack) {
         this.itemStack = itemStack;
-        Slot slot0 = new Slot(new InventoryBasic("Redpacket", false, 1), 0, 80, 25);
+        Slot slot0 = new Slot(new InventoryBasic("redpacket", false, 1), 0, 80, 25);
         NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
         if (par1NBTTagCompound != null) {
-            NBTTagCompound itemnbt = (NBTTagCompound) par1NBTTagCompound.getTag("Item");
+            NBTTagCompound itemnbt = (NBTTagCompound) par1NBTTagCompound.getTag("item");
             if (itemnbt != null) {
                 ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
                 if (item != null && FeatureConfig.ItemBombInRedPackerExplosion&&item.getItem() == ChinaCraft.bomb){
+                    //炸弹自爆
                     player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
-                    
                     slot0.putStack(null);
                 }
                 else slot0.putStack(item);
@@ -73,7 +73,7 @@ public class ContainerRedPacket extends Container {
             if (getSlot(0).getStack() != null) {
                 getSlot(0).getStack().writeToNBT(nbtitem);
             }
-            nbtitem2.setTag("Item", nbtitem);
+            nbtitem2.setTag("item", nbtitem);
             itemStack.setTagCompound(nbtitem2);
             p_75134_1_.inventory.setInventorySlotContents(p_75134_1_.inventory.currentItem, itemStack);
         }

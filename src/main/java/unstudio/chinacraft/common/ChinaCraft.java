@@ -53,7 +53,6 @@ import unstudio.chinacraft.util.annotation.register.ICollection;
 import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.common.config.ConfigLoader;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
-import unstudio.forgebukkitbridge.VaultPlugin;
 
 import java.util.Random;
 
@@ -66,9 +65,6 @@ public class ChinaCraft implements ICollection {
 
     public static SimpleNetworkWrapper Network;
     public static Logger log = LogManager.getLogger(NAME);
-
-    //Bukkit Vault 支持
-    public static VaultPlugin vault = null;
 
     //其他Mod加载情况
     public static boolean NEIIsLoad = false;
