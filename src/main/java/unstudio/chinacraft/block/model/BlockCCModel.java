@@ -1,8 +1,9 @@
 package unstudio.chinacraft.block.model;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
@@ -16,7 +17,7 @@ import unstudio.chinacraft.tileentity.TileModelBlock;
 import java.util.List;
 
 public class BlockCCModel extends BlockContainer {
-    private Class<? extends ModelBase> model;
+    private Class model;
     private IIcon icon;
     protected String name;
 
@@ -25,17 +26,21 @@ public class BlockCCModel extends BlockContainer {
      * @param model 模型
      * @param name 名字
      */
-    public BlockCCModel(Material material, Class<? extends ModelBase> model, String name, IIcon icon) {
+    public BlockCCModel(Material material, Class model, String name, IIcon icon) {
         super(material);
         this.model = model;
         this.icon = icon;
         this.name = name;
         this.setBlockName(name);
         this.setCreativeTab(ChinaCraft.tabCore);
-        this.blockIcon = icon;
+        try {
+            this.blockIcon = icon;
+        } catch (NoSuchFieldError e){
+        }
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
         return icon;
     }
@@ -43,8 +48,9 @@ public class BlockCCModel extends BlockContainer {
     @Override
     public void registerBlockIcons(IIconRegister p_149651_1_) {
     }
-
-    public Class<? extends ModelBase> getModel() {
+    
+    @SideOnly(Side.CLIENT)
+    public Class getModel() {
         return model;
     }
 
