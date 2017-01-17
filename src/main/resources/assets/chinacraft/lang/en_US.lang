@@ -127,8 +127,11 @@ gui.potterykiln.title=Pottery Kiln
 tile.lantern.name=Lantern
 tile.ding.name=Ding
 
+tile.wooden_bucket.name=Wooden Bucket
 item.wooden_bucket.name=Wooden Bucket
 item.wooden_bucket_water.name=Water Wooden Bucket
+item.wooden_bucket.opps=Opps, the wooden bucket on fire
+
 item.bucket_salt.name=A Bucket of salt
 item.salt_powder.name=Salt
 item.doujiang_bucket.name=Soya-bean milk
@@ -268,8 +271,6 @@ gui.inventory.shiftfordetail=<Hold Shift for Details>
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie
 entity.panda.name=Panda
-
-Bucket.opps=Opps, the wooden bucket on fire, oh, he burned to ashes that the rest can also be used as fertilizer.
 
 VersionChecker.perfix=Found New Version!Click to Download.
 VersionChecker.version=Latest Version: !new ,Currect Version: !old .

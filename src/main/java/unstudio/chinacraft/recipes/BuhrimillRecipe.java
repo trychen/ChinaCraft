@@ -100,4 +100,8 @@ public class BuhrimillRecipe {
     public int getTime() {
         return time;
     }
+
+    public static boolean isInput(ItemStack item){
+        return getBuhrimillReciperTime(item,null) > 0;
+    }
 }

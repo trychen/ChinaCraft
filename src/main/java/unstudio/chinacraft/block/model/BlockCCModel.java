@@ -48,7 +48,7 @@ public class BlockCCModel extends BlockContainer {
     @Override
     public void registerBlockIcons(IIconRegister p_149651_1_) {
     }
-    
+
     @SideOnly(Side.CLIENT)
     public Class getModel() {
         return model;

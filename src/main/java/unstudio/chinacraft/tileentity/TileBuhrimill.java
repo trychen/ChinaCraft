@@ -85,10 +85,12 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void openInventory() {}
+    public void openInventory() {
+    }
 
     @Override
-    public void closeInventory() {}
+    public void closeInventory() {
+    }
 
     @Override
     public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
@@ -143,7 +145,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                             && (getStackInSlot(1).stackSize - r.getInput2().stackSize) >= 0
                             && (getStackInSlot(2) == null || getStackInSlot(2).isItemEqual(r.getOutput1()))
                             && (getStackInSlot(3) == null || r.getOutput2() == null
-                                    || getStackInSlot(3).isItemEqual(r.getOutput2()))) {
+                            || getStackInSlot(3).isItemEqual(r.getOutput2()))) {
                         // 在更新输入输出槽前先检查输出槽物品数量是否将要超限
                         if ((getStackInSlot(2) != null && getStackInSlot(2).stackSize + r.getOutput1().stackSize > r.getOutput1().getMaxStackSize())
                                 || (getStackInSlot(3) != null && r.getOutput2() != null && getStackInSlot(3).stackSize + r.getOutput2().stackSize > r.getOutput2().stackSize))
@@ -195,7 +197,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                     if ((getStackInSlot(0).stackSize - r.getInput1().stackSize) >= 0
                             && (getStackInSlot(2) == null || getStackInSlot(2).isItemEqual(r.getOutput1()))
                             && (getStackInSlot(3) == null || r.getOutput2() == null
-                                    || getStackInSlot(3).isItemEqual(r.getOutput2()))) {
+                            || getStackInSlot(3).isItemEqual(r.getOutput2()))) {
                         // 在更新输入输出槽前先检查输出槽物品数量是否将要超限
                         if ((getStackInSlot(2) != null && getStackInSlot(2).stackSize + r.getOutput1().stackSize > r.getOutput1().getMaxStackSize())
                                 || (getStackInSlot(3) != null && r.getOutput2() != null && getStackInSlot(3).stackSize + r.getOutput2().stackSize > r.getOutput2().stackSize))
@@ -214,7 +216,8 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                             if (r.getOutput2() != null) {
                                 if (getStackInSlot(3) != null) {
                                     ItemStack output2 = getStackInSlot(3);
-                                    output2.stackSize += r.getOutput2().stackSize;;
+                                    output2.stackSize += r.getOutput2().stackSize;
+                                    ;
                                 } else {
                                     setInventorySlotContents(3, r.getOutput2().copy());
                                 }
@@ -241,7 +244,7 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
                 return;
         }
         worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-        markDirty();        
+        markDirty();
     }
 
     public int getMaxSchedule() {
@@ -282,24 +285,30 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
         this.writeToNBT(nbttagcompound);
         return new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 0, nbttagcompound);
     }
-    
+
     @Override
     public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
         this.readFromNBT(pkt.func_148857_g());
     }
-    
+
+    private int[] slots_out = {2, 3};
+    private int[] slots_in = {0, 1};
+    private int[] slots_null = {};
+
     @Override
-    public int[] getAccessibleSlotsFromSide(int p_94128_1_) {
-        return new int[]{2, 3};
+    public int[] getAccessibleSlotsFromSide(int par1) {
+//        return par1 == 0 ? slots_bottom : (par1 == 1 ? slots_top : slots_sides);
+        System.out.println(par1);
+        return par1 == 0 ? slots_out : (par1 == 1 ? slots_null : slots_in);
     }
 
     @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
-        return false;
+    public boolean canInsertItem(int slot, ItemStack item, int side) {
+        return BuhrimillRecipe.isInput(item);
     }
 
     @Override
     public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return false;
+        return p_102008_3_ != 0 || p_102008_1_ != 1;
     }
 }

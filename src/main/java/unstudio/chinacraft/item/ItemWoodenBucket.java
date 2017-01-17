@@ -87,9 +87,15 @@ public class ItemWoodenBucket extends Item {
                     }
                     if (material == Material.lava && l == 0) //还要改进 木桶烧掉 还是 给玩家一个木炭 或者一小挫灰烬
                     {
+                        player.setFire(3);
                         world.setBlockToAir(i, j, k);
-                        player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("Bucket.opps")));
-                        return this.func_150910_a(item, player,Items.dye,1,15) ;
+                        if (!world.isRemote){
+                            player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("item.wooden_bucket.opps")));
+                            if (itemRand.nextBoolean()&&itemRand.nextBoolean())player.inventory.addItemStackToInventory(new ItemStack(Items.stick));
+
+                        }
+                        item.stackSize--;
+                        return item;
                     }
                 } else {
                     if (this.isFull == Blocks.air) {

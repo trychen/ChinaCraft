@@ -1,5 +1,6 @@
 package unstudio.chinacraft.block.especial;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -10,11 +11,9 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumChatFormatting;
@@ -112,6 +111,21 @@ public class BlockBuhrimill extends BlockContainer implements CCWailaInfoProvide
     }
 
     @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        TileBuhrimill tileentity = (TileBuhrimill) world.getTileEntity(x, y, z);
+        ArrayList<ItemStack> is = new ArrayList<>();
+        if (tileentity != null) {
+            for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1) {
+                ItemStack itemstack = tileentity.getStackInSlot(i1);
+                if (itemstack != null && itemstack.stackSize > 0) {
+                        is.add(itemstack);
+                }
+            }
+        }
+        return is;
+    }
+
+    @Override
     public TileEntity createNewTileEntity(World var1, int var2) {
         return new TileBuhrimill();
     }
@@ -129,46 +143,6 @@ public class BlockBuhrimill extends BlockContainer implements CCWailaInfoProvide
 
     @Override
     public void breakBlock(World World, int x, int y, int z, Block Block, int var1) {
-
-        TileBuhrimill tileentity = (TileBuhrimill) World.getTileEntity(x, y, z);
-        Random random = World.rand;
-        if (tileentity != null) {
-            for (int i1 = 0; i1 < tileentity.getSizeInventory(); ++i1) {
-                ItemStack itemstack = tileentity.getStackInSlot(i1);
-
-                if (itemstack != null) {
-                    float f = random.nextFloat() * 0.8F + 0.1F;
-                    float f1 = random.nextFloat() * 0.8F + 0.1F;
-                    float f2 = random.nextFloat() * 0.8F + 0.1F;
-
-                    while (itemstack.stackSize > 0) {
-                        int j1 = random.nextInt(21) + 10;
-
-                        if (j1 > itemstack.stackSize) {
-                            j1 = itemstack.stackSize;
-                        }
-
-                        itemstack.stackSize -= j1;
-                        EntityItem entityitem = new EntityItem(World, x + f, y + f1, z + f2,
-                                new ItemStack(itemstack.getItem(), j1, itemstack.getItemDamage()));
-
-                        if (itemstack.hasTagCompound()) {
-                            entityitem.getEntityItem()
-                                    .setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
-                        }
-
-                        float f3 = 0.05F;
-                        entityitem.motionX = (float) random.nextGaussian() * f3;
-                        entityitem.motionY = (float) random.nextGaussian() * f3 + 0.2F;
-                        entityitem.motionZ = (float) random.nextGaussian() * f3;
-                        World.spawnEntityInWorld(entityitem);
-                    }
-                }
-            }
-
-            World.func_147453_f(x, y, z, Block);
-        }
-
         super.breakBlock(World, x, y, z, Block, var1);
     }
 

@@ -63,6 +63,9 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
         projectile.setStickInWall(stickInWall);
         projectile.setHasGravity(hasGravity);
         projectile.setSpeed(speed);
+        if (itemStack.getEnchantmentTagList() != null){
+            System.out.println(itemStack.getEnchantmentTagList().toString());
+        }
         if (listener!=null) listener.onShoot(projectile,itemStack);
         if (!player.capabilities.isCreativeMode) {
             player.inventory.consumeInventoryItem(this);
@@ -194,5 +197,15 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         ItemLoreHelper.shiftLoreWithStat(p_77624_3_,getUnlocalizedName());
+    }
+
+    @Override
+    public int getItemEnchantability() {
+        return 1;
+    }
+
+    @Override
+    public boolean isItemTool(ItemStack p_77616_1_) {
+        return true;
     }
 }

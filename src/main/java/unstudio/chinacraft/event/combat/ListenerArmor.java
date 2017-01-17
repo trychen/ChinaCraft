@@ -69,7 +69,7 @@ public class ListenerArmor {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void preRenderPlayer(RenderPlayerEvent.Pre event) {
-        if (event.entityPlayer.worldObj.getWorldTime() > 13000 && event.entityPlayer.isSneaking()) {
+        if (event.entityPlayer.worldObj.getWorldTime() > 13500 && event.entityPlayer.worldObj.getWorldTime() < 22300 && event.entityPlayer.isSneaking()) {
             if (!ChinaCraftApi.isWearingWholeNightClothes(event.entityPlayer)) return;
             event.setCanceled(true);
         }

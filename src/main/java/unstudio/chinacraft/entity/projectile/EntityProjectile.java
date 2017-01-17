@@ -366,7 +366,7 @@ public class EntityProjectile extends EntityThrowable {
                 }
             } else if ((hasGravity()) && ((isArrow()) || (sticksToWalls()))) {
                 this.motionX *= -0.1;
-                this.motionY *= -0.1;
+                this.motionY *= -0.12;
                 this.motionZ *= -0.1;
                 this.rotationYaw += 180.0F;
                 this.prevRotationYaw += 180.0F;
