@@ -149,6 +149,8 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
 
     @Override
     public void render(TileModelBlock tile, double x, double y, double z) {
+        double sca = tile.getBlockMetadata() * 0.2;
+        GL11.glScaled(1.0 + sca,1.0,1.0 + sca);
         render(0.0625F);
         Block b = tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord + 1,tile.zCoord);
         if  ((System.currentTimeMillis() & 99) == 0 && tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord,tile.zCoord) == ChinaCraft.lanternScaldfish) tile.getWorldObj().spawnParticle("flame",tile.xCoord + 0.5,tile.yCoord + 0.635,tile.zCoord + 0.5,0,0.002,0);

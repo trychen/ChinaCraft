@@ -12,6 +12,8 @@ import net.minecraft.tileentity.TileEntity;
 
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
+import java.util.Arrays;
+
 public class TileBuhrimill extends TileEntity implements ISidedInventory {
 
     public int angle;
@@ -298,17 +300,21 @@ public class TileBuhrimill extends TileEntity implements ISidedInventory {
     @Override
     public int[] getAccessibleSlotsFromSide(int par1) {
 //        return par1 == 0 ? slots_bottom : (par1 == 1 ? slots_top : slots_sides);
-        System.out.println(par1);
         return par1 == 0 ? slots_out : (par1 == 1 ? slots_null : slots_in);
     }
 
     @Override
     public boolean canInsertItem(int slot, ItemStack item, int side) {
-        return BuhrimillRecipe.isInput(item);
+        if (slot == 0) {
+            return BuhrimillRecipe.getBuhrimillReciperTime(stack[0], item) > 0;
+        } else if (slot == 1) {
+            return BuhrimillRecipe.getBuhrimillReciperTime(item, stack[1]) > 0;
+        }
+        return false;
     }
 
     @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
-        return p_102008_3_ != 0 || p_102008_1_ != 1;
+    public boolean canExtractItem(int slot, ItemStack item, int side) {
+        return side == 0 && (slot==2||slot==3);
     }
 }

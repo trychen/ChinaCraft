@@ -2,8 +2,10 @@ package unstudio.chinacraft.common;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
+import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.block.decoration.BlockCCDing;
 import unstudio.chinacraft.client.model.block.ModelBuhrimill;
 import unstudio.chinacraft.client.model.block.ModelDing;
@@ -151,11 +153,21 @@ public class ClientProxy extends CommonProxy {
 
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfish),
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")).setRenderer(new ModelBlockItemRenderer.Custom() {
+                    @Override
+                    public void render(IItemRenderer.ItemRenderType type) {
+                        GL11.glScaled(1.4f, 1f,1.4f);
+                    }
+                }));
 
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfishOff),
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")).setRenderer(new ModelBlockItemRenderer.Custom() {
+                    @Override
+                    public void render(IItemRenderer.ItemRenderType type) {
+                        GL11.glScaled(1.4f, 1f,1.4f);
+                    }
+                }));
 
         RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
 

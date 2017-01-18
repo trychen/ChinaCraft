@@ -1,6 +1,7 @@
 package unstudio.chinacraft.item;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -45,11 +46,19 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     }
 
     @Override
+    public EnumAction getItemUseAction(ItemStack p_77661_1_) {
+        return EnumAction.block;
+    }
+
+    @Override
     public void onPlayerStoppedUsing(ItemStack itemStack, World worldObj, EntityPlayer player, int p_77615_4_) {
+        if (player.isBlocking()) return;
         if (worldObj.isRemote) {
             player.swingItem();
             return;
         }
+
+        if (player.isSneaking()) return;
 
         EntityProjectile projectile = new EntityProjectile(worldObj, player, new ItemStack(itemStack.getItem(), 1, itemStack.getItemDamage()));
         projectile.canBePickedUp = player.capabilities.isCreativeMode || this.dropItem;
