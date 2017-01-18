@@ -46,13 +46,7 @@ public class CCItemThrowable extends Item implements ISpecialEquippedRender {
     }
 
     @Override
-    public EnumAction getItemUseAction(ItemStack p_77661_1_) {
-        return EnumAction.block;
-    }
-
-    @Override
     public void onPlayerStoppedUsing(ItemStack itemStack, World worldObj, EntityPlayer player, int p_77615_4_) {
-        if (player.isBlocking()) return;
         if (worldObj.isRemote) {
             player.swingItem();
             return;
