@@ -1,7 +1,6 @@
 package unstudio.chinacraft.block.model;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,14 +9,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemFlintAndSteel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.event.ForgeEventFactory;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
@@ -39,7 +35,7 @@ public class BlockCCLamp extends BlockCCModel {
 
     @Override
     public TileEntity createNewTileEntity(World world, int metadata) {
-        return new TileModelBlock(this.getModel(), this.name);
+        return new TileModelBlock();
     }
 
     @Override

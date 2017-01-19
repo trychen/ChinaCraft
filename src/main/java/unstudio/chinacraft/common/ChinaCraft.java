@@ -31,8 +31,6 @@ import unstudio.chinacraft.block.generation.plant.BlockBambooShoot;
 import unstudio.chinacraft.block.generation.plant.BlockCCCake;
 import unstudio.chinacraft.block.generation.plant.BlockFirebrick;
 import unstudio.chinacraft.block.model.BlockCCLamp;
-import unstudio.chinacraft.block.model.BlockCCLantern;
-import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.client.model.block.ModelLanternScaldfish;
 import unstudio.chinacraft.common.network.KeyMessage;
 import unstudio.chinacraft.common.network.KeyMessageHandler;
@@ -205,6 +203,8 @@ public class ChinaCraft implements ICollection {
     public static final BlockCCLamp lanternScaldfish = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class,"lantern_scaldfish",true).setTexture("lantern_scaldfish_on");
     @Register("LanternScaldfishOff")
     public static final BlockCCLamp lanternScaldfishOff = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class, "lantern_scaldfish_openable",false).setTexture("lantern_scaldfish_off").setCreativeTab(null);
+    @Register("Fu")
+    public static final CCItemWord wordFu = new CCItemWord();
     @Register("Ding")
     public static final BlockCCDing ding = new BlockCCDing();
     @Register("BlockWoodenBucket")

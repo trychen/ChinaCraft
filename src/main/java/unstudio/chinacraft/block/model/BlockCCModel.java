@@ -4,11 +4,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import unstudio.chinacraft.common.ChinaCraft;
@@ -50,8 +52,31 @@ public class BlockCCModel extends BlockContainer {
     }
 
     @SideOnly(Side.CLIENT)
-    public Class getModel() {
-        return model;
+    private ModelBase modelBase;
+
+    @SideOnly(Side.CLIENT)
+    public ModelBase getModel() {
+        if (modelBase == null){
+            try {
+                modelBase = (ModelBase) model.newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        return modelBase;
+    }
+
+    @SideOnly(Side.CLIENT)
+    private ResourceLocation resourceLocation;
+
+    @SideOnly(Side.CLIENT)
+    public ResourceLocation getTexture(){
+        if (resourceLocation == null){
+            resourceLocation = new ResourceLocation("chinacraft:textures/models/block/" + this.name + ".png");
+        }
+        return resourceLocation;
     }
 
     @Override
@@ -85,7 +110,7 @@ public class BlockCCModel extends BlockContainer {
      */
     @Override
     public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
-        return new TileModelBlock(model, name);
+        return new TileModelBlock();
     }
 
     public BlockCCModel setTexture(String name){

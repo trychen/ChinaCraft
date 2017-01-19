@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.tileentity.TileEntity;
 import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.client.model.ModelExtendBlock;
 import unstudio.chinacraft.client.render.tileentity.TileEntityModelBlockRenderer;
@@ -148,7 +149,7 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
     }
 
     @Override
-    public void render(TileModelBlock tile, double x, double y, double z) {
+    public void render(TileEntity tile, double x, double y, double z) {
         double sca = tile.getBlockMetadata() * 0.2;
         GL11.glScaled(1.0 + sca,1.0,1.0 + sca);
         render(0.0625F);

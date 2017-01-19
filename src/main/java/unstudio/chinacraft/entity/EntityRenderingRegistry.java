@@ -3,6 +3,7 @@ package unstudio.chinacraft.entity;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderSnowball;
+import net.minecraft.client.renderer.tileentity.RenderItemFrame;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
@@ -14,6 +15,7 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.especial.EntityCCPainting;
 import unstudio.chinacraft.entity.animal.EntityPanda;
+import unstudio.chinacraft.entity.especial.EntityCCWord;
 import unstudio.chinacraft.entity.especial.EntityKongmingLantern;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
@@ -21,6 +23,7 @@ import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import unstudio.chinacraft.entity.render.RenderCCPainting;
+import unstudio.chinacraft.entity.render.RenderCCWord;
 import unstudio.chinacraft.entity.render.RenderProjectile;
 
 public class EntityRenderingRegistry {
@@ -46,6 +49,7 @@ public class EntityRenderingRegistry {
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectile.class, new RenderProjectile());
 
         RenderingRegistry.registerEntityRenderingHandler(EntityCCPainting.class, new RenderCCPainting());
+        RenderingRegistry.registerEntityRenderingHandler(EntityCCWord.class, new RenderCCWord());
     }
 
     /**

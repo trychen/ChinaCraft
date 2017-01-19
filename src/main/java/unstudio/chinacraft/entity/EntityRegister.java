@@ -8,6 +8,7 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.especial.EntityCCPainting;
 import unstudio.chinacraft.entity.animal.EntityPanda;
+import unstudio.chinacraft.entity.especial.EntityCCWord;
 import unstudio.chinacraft.entity.mob.EntityChinaZombie;
 import unstudio.chinacraft.entity.projectile.EntityProjectile;
 import unstudio.chinacraft.entity.projectile.EntitySuperArrow;
@@ -40,6 +41,7 @@ public class EntityRegister {
         registerModEntity(EntitySuperArrow.class, "superArrow",64,3,true);
         registerModEntity(EntityProjectile.class, "projectile", 64, 3, true);
         registerModEntity(EntityCCPainting.class, "ccPainting", 128,1,true);
+        registerModEntity(EntityCCWord.class, "chinese_character", 128,1,false);
 
     }
 
