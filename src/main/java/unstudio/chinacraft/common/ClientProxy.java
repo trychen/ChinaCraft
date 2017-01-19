@@ -153,21 +153,11 @@ public class ClientProxy extends CommonProxy {
 
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfish),
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")).setRenderer(new ModelBlockItemRenderer.Custom() {
-                    @Override
-                    public void render(IItemRenderer.ItemRenderType type) {
-                        GL11.glScaled(1.4f, 1f,1.4f);
-                    }
-                }));
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_on.png")));
 
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.lanternScaldfishOff),
                 new ModelBlockItemRenderer(new ModelLanternScaldfish(),
-                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")).setRenderer(new ModelBlockItemRenderer.Custom() {
-                    @Override
-                    public void render(IItemRenderer.ItemRenderType type) {
-                        GL11.glScaled(1.4f, 1f,1.4f);
-                    }
-                }));
+                        new ResourceLocation("chinacraft:textures/models/block/lantern_scaldfish_off.png")));
 
         RenderingRegistry.registerBlockHandler(new BlockLanternRenderer());
 

@@ -1,6 +1,10 @@
 package unstudio.chinacraft.client.render.item;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemReed;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
@@ -8,6 +12,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import unstudio.chinacraft.client.model.ModelExtendBlock;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by trych on 2016/1/2.
@@ -34,6 +39,13 @@ public class ModelBlockItemRenderer implements IItemRenderer {
     public void renderItem(IItemRenderer.ItemRenderType type, ItemStack item, Object... data) {
         Minecraft.getMinecraft().renderEngine.bindTexture(texture);
         GL11.glRotatef(180F, 1F, 0F, 0F);
+        if (item.getItem() instanceof ItemBlock) {
+            int itemID = Item.getIdFromItem(item.getItem());
+            if ((itemID == Block.getIdFromBlock(ChinaCraft.lanternScaldfish) || (itemID == Block.getIdFromBlock(ChinaCraft.lanternScaldfishOff)))) {
+                float size_added = item.getTagCompound() != null&&item.getTagCompound().hasKey("lampsize")?item.getTagCompound().getInteger("lampsize") * 0.2f:0.2f;
+                GL11.glScalef(1 + size_added, 1f, 1 + size_added);
+            }
+        }
 
         if (type == IItemRenderer.ItemRenderType.INVENTORY) {
             GL11.glScalef(1.2F, 1.2F, 1.2F);
@@ -60,9 +72,9 @@ public class ModelBlockItemRenderer implements IItemRenderer {
             GL11.glTranslatef(0.0F, -1.8F, 0.0F);
             if (renderer != null) renderer.render(type);
         }
-        if (type != IItemRenderer.ItemRenderType.INVENTORY)
+        if (type != IItemRenderer.ItemRenderType.INVENTORY){
             model.render(0.0625F);
-
+        }
     }
 
     public ModelBlockItemRenderer setRenderer(Custom renderer) {

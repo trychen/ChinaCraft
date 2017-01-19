@@ -10,13 +10,16 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class BlockCCLamp extends BlockCCModel {
@@ -101,7 +104,34 @@ public class BlockCCLamp extends BlockCCModel {
     }
 
     @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
+        ItemStack itemStack = super.getPickBlock(target, world, x, y, z, player);
+        if (itemStack.getTagCompound() == null){
+            itemStack.setTagCompound(new NBTTagCompound());
+        }
+        itemStack.getTagCompound().setInteger("lampsize",world.getBlockMetadata(x,y,z));
+        return itemStack;
+    }
+
+    @Override
+    public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
+        ArrayList<ItemStack> is = new ArrayList<>();
+        ItemStack itemStack = new ItemStack(ChinaCraft.lanternScaldfishOff, 1);
+        if (itemStack.getTagCompound() == null){
+            itemStack.setTagCompound(new NBTTagCompound());
+        }
+        itemStack.getTagCompound().setInteger("lampsize",world.getBlockMetadata(x,y,z));
+        is.add(itemStack);
+        return is;
+    }
+
+    @Override
     protected ItemStack createStackedBlock(int p_149644_1_) {
-        return new ItemStack(light ? ChinaCraft.lanternScaldfish : ChinaCraft.lanternScaldfishOff);
+        ItemStack itemStack = new ItemStack(light ? ChinaCraft.lanternScaldfish : ChinaCraft.lanternScaldfishOff);
+        if (itemStack.getTagCompound() == null){
+            itemStack.setTagCompound(new NBTTagCompound());
+        }
+        itemStack.getTagCompound().setInteger("lampsize",2);
+        return itemStack;
     }
 }
