@@ -63,14 +63,6 @@ public class BlockCCLamp extends BlockCCModel {
     }
 
     @Override
-    public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-        Block b = blockAccess.getBlock(x, y + 1, z);
-        blockAccess.getTileEntity(x, y, z);
-        if (b != null && b != Blocks.air) this.setBlockBounds(0.15F, 0, 0.15F, 0.9f, 1f, 0.9f);
-        else this.setBlockBounds(0.15F, 0, 0.15F, 0.9f, 0.85f, 0.9f);
-    }
-
-    @Override
     public boolean onBlockActivated(World w, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_) {
         int blockMetadata = w.getBlockMetadata(x,y,z);
         if ((player.capabilities.isCreativeMode && player.isSneaking()) || (player.getHeldItem() != null && player.getHeldItem().getItem() == ChinaCraft.artKnife)){
