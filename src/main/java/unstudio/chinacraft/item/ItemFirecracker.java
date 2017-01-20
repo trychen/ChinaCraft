@@ -21,6 +21,13 @@ public class ItemFirecracker extends Item {
         if (!world.isRemote) {
             world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
         }
-        return ItemMethod.cutItemStack(stack, player);
+        if (!player.capabilities.isCreativeMode)
+        {
+            --stack.stackSize;
+        }
+
+        return stack;
     }
+
+
 }

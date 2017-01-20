@@ -19,8 +19,13 @@ public class EntityThrownFirecracker extends EntityThrowable {
         super(par2World, par3EntityPlayer);
     }
 
+    public EntityThrownFirecracker(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_) {
+        super(p_i1775_1_, p_i1775_2_, p_i1775_4_, p_i1775_6_);
+    }
+
     @Override
-    protected void entityInit() {}
+    protected void entityInit() {
+    }
 
     @Override
     public void onUpdate() {
@@ -29,10 +34,12 @@ public class EntityThrownFirecracker extends EntityThrowable {
     }
 
     @Override
-    public void readEntityFromNBT(NBTTagCompound nbttagcompound) {}
+    public void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+    }
 
     @Override
-    public void writeEntityToNBT(NBTTagCompound nbttagcompound) {}
+    public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+    }
 
     @Override
     protected void onImpact(MovingObjectPosition mop) {

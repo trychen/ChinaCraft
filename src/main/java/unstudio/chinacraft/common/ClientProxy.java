@@ -24,6 +24,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import unstudio.chinacraft.util.FestivalHelper;
 import unstudio.chinacraft.util.annotation.ClientSideRegister;
 import unstudio.chinacraft.util.annotation.SpecialItemRenderRegister;
 
@@ -186,6 +187,12 @@ public class ClientProxy extends CommonProxy {
 
         //注册物品渲染器
         SpecialItemRenderRegister.registerAll();
+
+        try {
+            FestivalHelper.initFestival();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

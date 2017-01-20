@@ -16,6 +16,10 @@ public class EntityThrownBomb extends EntityThrowable {
         super(par2World, par3EntityPlayer);
     }
 
+    public EntityThrownBomb(World p_i1775_1_, double p_i1775_2_, double p_i1775_4_, double p_i1775_6_) {
+        super(p_i1775_1_, p_i1775_2_, p_i1775_4_, p_i1775_6_);
+    }
+
     @Override
     protected void entityInit() {}
 

@@ -86,7 +86,7 @@ public class ModelDing extends ModelBase implements ModelExtendBlock
       Shape7.setTextureSize(128, 64);
       Shape7.mirror = true;
       setRotation(Shape7, 0F, 0F, 0F);
-      Shape8 = new ModelRenderer(this, 42, 29);
+      Shape8 = new ModelRenderer(this, 42, 30);
       Shape8.addBox(0F, 0F, 0F, 1, 11, 20);
       Shape8.setRotationPoint(6F, 6F, -2F);
       Shape8.setTextureSize(128, 64);
