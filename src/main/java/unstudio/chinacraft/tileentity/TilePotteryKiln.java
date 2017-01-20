@@ -227,16 +227,16 @@ public class TilePotteryKiln extends TileEntity implements ISidedInventory {
 
         if (flag1) {
             this.markDirty();
-            if (this.blockMetadata == 0) {
+            if (this.getBlockMetadata() == 0) {
                 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
                         this.yCoord, this.zCoord - 1);
-            } else if (blockMetadata == 1) {
+            } else if (getBlockMetadata() == 1) {
                 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj,
                         this.xCoord + 1, this.yCoord, this.zCoord);
-            } else if (blockMetadata == 2) {
+            } else if (getBlockMetadata() == 2) {
                 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj, this.xCoord,
                         this.yCoord, this.zCoord + 1);
-            } else if (blockMetadata == 3) {
+            } else if (getBlockMetadata() == 3) {
                 BlockFirebrickStructure.updateFurnaceBlockState(this.furnaceBurnTime > 0, this.worldObj,
                         this.xCoord - 1, this.yCoord, this.zCoord);
             }
