@@ -12,6 +12,6 @@ public class VCModUpdate extends Update {
         updateURL = checker.getDownloadUrl();
         newVersion = checker.getLatestVersion();
         oldVersion = checker.getModAnno().version().replace('-', ' ');
-        changeLog = checker.getInstruction() + "\n" + checker.getChangelog().replaceAll("\r","");
+        changeLog = checker.getInstruction().replaceAll("\r","");
     }
 }

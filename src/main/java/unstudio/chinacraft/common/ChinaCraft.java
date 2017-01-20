@@ -307,16 +307,16 @@ public class ChinaCraft implements ICollection {
     public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
     @Register("Mace")
     public static final Mace mace = new Mace();
-    @Register("SuperBow")
+//    @Register("SuperBow")
     public static final ItemSuperBow superBow = new ItemSuperBow();
     @Register("StoneHammer")
     public static final Hammer hammerStone = new Hammer(ChinaCraft.HAMMERSTONE, "stone");// 石锤
-    @Register("DiamondBronze")
-    public static final Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");// 钻石锤
+    @Register("DiamondHammer")
+    public static final Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");
     @Register("IronHammer")
     public static final Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");// 铁锤
-    @Register("DiamondHammer")
-    public static final Hammer hammerBronze = new Hammer(ChinaCraft.HAMMERIRON, "bronze");// 钻石锤
+    @Register("DiamondBronze")
+    public static final Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");// 钻石锤
     @Register("BronzeShield")
     public static final CCShield bronzeShield = (CCShield) new CCShield(10, 10, true).setUnlocalizedName("bronze_shield").setTextureName("chinacraft:shield_bronze");
     @Register("ChinaCrown")

@@ -271,7 +271,7 @@ redpacket.backpack_full=失败: %sendee% 的背包已满!
 redpacket.received=您收到了一个红包!
 redpacket.receive_money=您打开红包获得了 %money% 元!
 
-gui.inventory.shiftfordetail=<按住Shift键查看更多信息>
+gui.inventory.shiftfordetail=§7§o<按住Shift键查看更多信息>
 
 entity.black_dog.name=黑狗
 entity.chinazombie.name=清朝僵尸

@@ -15,7 +15,6 @@ public class VersionChecker extends Thread{
     private String latestVersion = null;
     private String downloadUrl = null;
     private String instruction = null;
-    private String changelog = null;
     private boolean enableSanpShot = false;
     private int date = 0;
     private boolean checked = false;
@@ -53,8 +52,7 @@ public class VersionChecker extends Thread{
             latestVersion = json.get("version").getAsString();
             downloadUrl = json.get("download_url").getAsString();
             instruction = json.get("instruction").getAsString();
-            changelog = json.get("changelog").getAsString();
-            date = json.get("date").getAsInt();
+            date = json.get("last_update").getAsInt();
             return true;
         }catch (NullPointerException e){
             latest = true;
@@ -110,10 +108,6 @@ public class VersionChecker extends Thread{
 
     public String getInstruction() {
         return instruction;
-    }
-
-    public String getChangelog() {
-        return changelog;
     }
 
     public boolean isNew(String now,String svr){

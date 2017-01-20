@@ -267,7 +267,7 @@ redpacket.backpack_full=Failed: %sendee%'s Backpack is full!
 redpacket.received=You received a red Red Packet.!
 redpacket.receive_money=You open the Red Packet to get %money% Money!
 
-gui.inventory.shiftfordetail=<Hold Shift for Details>
+gui.inventory.shiftfordetail=§7§o<Hold Shift for Details>
 
 entity.black_dog.name=Black Dog
 entity.chinazombie.name=China Zombie
