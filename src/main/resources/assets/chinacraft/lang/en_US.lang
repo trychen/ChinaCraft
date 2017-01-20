@@ -126,6 +126,7 @@ gui.potterykiln.title=Pottery Kiln
 
 tile.lantern.name=Lantern
 tile.ding.name=Ding
+item.ding.name=Ding
 
 tile.wooden_bucket.name=Wooden Bucket
 item.wooden_bucket.name=Wooden Bucket

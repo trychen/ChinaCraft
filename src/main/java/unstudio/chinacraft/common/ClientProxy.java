@@ -2,10 +2,8 @@ package unstudio.chinacraft.common;
 
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.block.decoration.BlockCCDing;
 import unstudio.chinacraft.client.model.block.ModelBuhrimill;
 import unstudio.chinacraft.client.model.block.ModelDing;
@@ -163,7 +161,8 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileModelBlock.class, new TileEntityModelBlockRenderer());
 
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.ding), new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
+//        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.ding), new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
+        MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemDing, new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
 
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class,

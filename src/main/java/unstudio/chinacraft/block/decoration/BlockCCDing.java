@@ -1,14 +1,16 @@
 package unstudio.chinacraft.block.decoration;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.IItemRenderer;
@@ -16,16 +18,35 @@ import org.lwjgl.opengl.GL11;
 import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.client.model.block.ModelDing;
 import unstudio.chinacraft.client.render.item.ModelBlockItemRenderer;
+import unstudio.chinacraft.common.ChinaCraft;
 
-import java.util.List;
+import java.util.Random;
 
 /**
  * Created by trychen on 16/10/29.
  */
 public class BlockCCDing extends BlockCCModel {
+    public static final int[][] field_149981_a = new int[][]{{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
+
     public BlockCCDing() {
-        super(Material.rock, ModelDing.class, "ding", null);
+        super(Material.rock, ModelDing.class,"ding",null);
         setHardness(5f);
+        setCreativeTab(null);
+    }
+
+    @Override
+    public boolean canPlaceBlockOnSide(World w, int x, int y, int z, int a) {
+        return super.canPlaceBlockOnSide(w, x, y, z, a);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+        return Blocks.mossy_cobblestone.getIcon(p_149691_1_, p_149691_2_);
+    }
+
+    @Override
+    public void registerBlockIcons(IIconRegister p_149651_1_) {
     }
 
     @Override
@@ -33,66 +54,66 @@ public class BlockCCDing extends BlockCCModel {
         return false;
     }
 
-    @Override
-    public boolean canPlaceBlockOnSide(World p_149707_1_, int p_149707_2_, int p_149707_3_, int p_149707_4_, int p_149707_5_) {
-        return super.canPlaceBlockOnSide(p_149707_1_, p_149707_2_, p_149707_3_, p_149707_4_, p_149707_5_);
+    public void onNeighborBlockChange(World p_149695_1_, int p_149695_2_, int p_149695_3_, int p_149695_4_, Block p_149695_5_) {
+        int l = p_149695_1_.getBlockMetadata(p_149695_2_, p_149695_3_, p_149695_4_);
+        int i1 = getDirection(l);
+
+        if (isBlockHeadOfDing(l)) {
+            if (p_149695_1_.getBlock(p_149695_2_ - field_149981_a[i1][0], p_149695_3_, p_149695_4_ - field_149981_a[i1][1]) != this) {
+                p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);
+            }
+        } else if (p_149695_1_.getBlock(p_149695_2_ + field_149981_a[i1][0], p_149695_3_, p_149695_4_ + field_149981_a[i1][1]) != this) {
+            p_149695_1_.setBlockToAir(p_149695_2_, p_149695_3_, p_149695_4_);
+
+            if (!p_149695_1_.isRemote) {
+                this.dropBlockAsItem(p_149695_1_, p_149695_2_, p_149695_3_, p_149695_4_, l, 0);
+            }
+        }
     }
-
-
-    @Override
-    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-        Block b = world.getBlock(x, y + 1, z);
-        return super.canPlaceBlockAt(world, x, y, z) && (b == null || b == Blocks.air);
-    }
-
-    @Override
-    public int onBlockPlaced(World p_149660_1_, int p_149660_2_, int p_149660_3_, int p_149660_4_, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_) {
-        return super.onBlockPlaced(p_149660_1_, p_149660_2_, p_149660_3_, p_149660_4_, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
-    }
-
-    @Override
-    public void onBlockPlacedBy(World p_149689_1_, int p_149689_2_, int p_149689_3_, int p_149689_4_, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
-        int l = MathHelper.floor_double(p_149689_5_.rotationYaw * 4.0F / 360.0F + 0.5D) & 3;
-        if (l == 0) p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 0, 2);
-        if (l == 1) p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 1, 2);
-        if (l == 2) p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 2, 2);
-        if (l == 3) p_149689_1_.setBlockMetadataWithNotify(p_149689_2_, p_149689_3_, p_149689_4_, 3, 2);
-    }
-
-    @Override
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
-        return Blocks.mossy_cobblestone.getIcon(p_149691_1_, p_149691_2_);
-    }
-
-    public final float[][] BLOCK_BOUNDS = {
-            {0, 0, 0.25F, 1F, 1.35F, 1.75f},
-            {-0.75F, 0, 0, 0.75F, 1.35F, 1.0f},
-            {0, 0, -0.75F, 1F, 1.35F, 0.75F},
-            {0.25F, 0.0F, 0.0F, 1.75F, 1.35F, 1.0F}
-    };
 
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-        int l = p_149719_1_.getTileEntity(p_149719_2_, p_149719_3_, p_149719_4_).getBlockMetadata();
+        this.setBlockBounds(0.0F, 0.0F, 0.0f, 1F, 1.35f, 1F);
+    }
 
-//        switch (l){
-//            case 0:
-//                this.setBlockBounds(0.0F, 0.0F, 0.25F, 1F, 1.35f, 1.75F);
-//                break;
-//            case 1:
-//                this.setBlockBounds(-0.75F, 0.0F, 0.0F, 0.75F, 1.35f, 1.0F);
-//                break;
-//            case 2:
-//                this.setBlockBounds(0.0F, 0.0F, -0.75F, 1F, 1.35f, 0.75F);
-//                break;
-//            case 3:
-//                this.setBlockBounds(0.25F, 0.0F, 0.0F, 1.75F, 1.35f, 1.0F);
-//                break;
-//        }
+    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+        return isBlockHeadOfDing(p_149650_1_) ? Item.getItemById(0) : ChinaCraft.itemDing;
+    }
 
-//        this.setBlockBounds(l == 1 ? -0.75f : l == 3 ? 0.25f : 0, 0.0F, l == 0 ? 0.25f : l == 2 ? -0.75f : 0, l == 1 ? 0.75f : l == 4 ? 01.75f : 1f, 1.35f, l == 0 ? 1.75f : l == 2 ? 0.75f : 1.0f);
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
+        return new ItemStack(ChinaCraft.itemDing);
+    }
 
-        this.setBlockBounds(BLOCK_BOUNDS[l][0], BLOCK_BOUNDS[l][1], BLOCK_BOUNDS[l][2], BLOCK_BOUNDS[l][3], BLOCK_BOUNDS[l][4], BLOCK_BOUNDS[l][5]);
+    @Override
+    public Item getItem(World p_149694_1_, int p_149694_2_, int p_149694_3_, int p_149694_4_) {
+        return ChinaCraft.itemDing;
+    }
+
+    public boolean isBlockHeadOfDing(int metaDate) {
+        return (metaDate & 8) != 0;
+    }
+
+    public void onBlockHarvested(World p_149681_1_, int p_149681_2_, int p_149681_3_, int p_149681_4_, int p_149681_5_, EntityPlayer p_149681_6_) {
+        if (p_149681_6_.capabilities.isCreativeMode && isBlockHeadOfDing(p_149681_5_)) {
+            int i1 = getDirection(p_149681_5_);
+            p_149681_2_ -= field_149981_a[i1][0];
+            p_149681_4_ -= field_149981_a[i1][1];
+
+            if (p_149681_1_.getBlock(p_149681_2_, p_149681_3_, p_149681_4_) == this) {
+                p_149681_1_.setBlockToAir(p_149681_2_, p_149681_3_, p_149681_4_);
+            }
+        }
+    }
+
+    /**
+     * Drops the block items with a specified chance of dropping the specified items
+     */
+    @Override
+    public void dropBlockAsItemWithChance(World p_149690_1_, int p_149690_2_, int p_149690_3_, int p_149690_4_, int p_149690_5_, float p_149690_6_, int p_149690_7_) {
+        if (!isBlockHeadOfDing(p_149690_5_)) {
+            super.dropBlockAsItemWithChance(p_149690_1_, p_149690_2_, p_149690_3_, p_149690_4_, p_149690_5_, p_149690_6_, 0);
+        }
     }
 
     public static class ItemCustomRender implements ModelBlockItemRenderer.Custom {
@@ -104,5 +125,10 @@ public class BlockCCDing extends BlockCCModel {
                 GL11.glRotatef(90F, 0F, 1F, 0F);
             }
         }
+    }
+
+    public static int getDirection(int p_149895_0_)
+    {
+        return p_149895_0_ & 3;
     }
 }

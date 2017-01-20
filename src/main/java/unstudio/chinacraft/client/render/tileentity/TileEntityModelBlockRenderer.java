@@ -7,12 +7,16 @@ import net.minecraft.tileentity.TileEntity;
 
 import org.lwjgl.opengl.GL11;
 
+import unstudio.chinacraft.block.decoration.BlockCCDing;
 import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
 public class TileEntityModelBlockRenderer extends TileEntitySpecialRenderer {
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
         BlockCCModel block = (BlockCCModel)te.blockType;
+        if (block instanceof BlockCCDing){
+            if (((BlockCCDing) block).isBlockHeadOfDing(te.blockMetadata)) return;
+        }
         ModelBase model = block.getModel();
         GL11.glPushMatrix();
         GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
