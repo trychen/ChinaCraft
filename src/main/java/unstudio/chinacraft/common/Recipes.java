@@ -111,6 +111,7 @@ public class Recipes {
                 Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife}));
 
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemDing), "H J", "MOM", "MCM", 'C', Blocks.coal_block, 'J', ChinaCraft.jadeKnife, 'O', Blocks.obsidian, 'M', Blocks.mossy_cobblestone, 'H', ChinaCraft.hammerDiamond);
 
         // 竹子
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooPlank), ChinaCraft.itemBamboo, ChinaCraft.itemBamboo,

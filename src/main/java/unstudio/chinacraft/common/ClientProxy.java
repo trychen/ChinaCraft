@@ -161,7 +161,7 @@ public class ClientProxy extends CommonProxy {
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileModelBlock.class, new TileEntityModelBlockRenderer());
 
-//        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.ding), new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
+        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.ding), new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemDing, new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
 
 
