@@ -15,7 +15,7 @@ public class TileEntityModelBlockRenderer extends TileEntitySpecialRenderer {
     public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale) {
         BlockCCModel block = (BlockCCModel)te.blockType;
         if (block instanceof BlockCCDing){
-            if (((BlockCCDing) block).isBlockHeadOfDing(te.blockMetadata)) return;
+            if (((BlockCCDing) block).isBlockHeadOfDing(te.getBlockMetadata())) return;
         }
         ModelBase model = block.getModel();
         GL11.glPushMatrix();
@@ -25,6 +25,10 @@ public class TileEntityModelBlockRenderer extends TileEntitySpecialRenderer {
         GL11.glPushMatrix();
         GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
         GL11.glPushMatrix();
+        if (block instanceof BlockCCDing){
+            GL11.glScaled(1f,0.9f,1f);
+            GL11.glTranslatef(0,0.1f,0f);
+        }
         GL11.glRotatef(te.getBlockMetadata() * 90, 0.0F, 1.0F, 0.0F);
         if (model instanceof ModelRenderer){
             ((ModelRenderer)model).render(te,x,y,z);

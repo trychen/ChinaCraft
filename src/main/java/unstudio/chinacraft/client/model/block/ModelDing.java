@@ -253,6 +253,7 @@ public class ModelDing extends ModelBase implements ModelExtendBlock
 
   @Override
   public void render(float f5) {
+
     Shape1.render(f5);
     Shape2.render(f5);
     Shape3.render(f5);
