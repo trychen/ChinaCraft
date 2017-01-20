@@ -29,7 +29,7 @@ public class BlockCCDing extends BlockCCModel {
     public static final int[][] field_149981_a = new int[][]{{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
 
     public BlockCCDing() {
-        super(Material.rock, ModelDing.class,"ding",null);
+        super(Material.rock, ModelDing.class,"ding",Blocks.mossy_cobblestone.getIcon(0, 0));
         setHardness(5f);
         setCreativeTab(null);
     }
@@ -37,16 +37,6 @@ public class BlockCCDing extends BlockCCModel {
     @Override
     public boolean canPlaceBlockOnSide(World w, int x, int y, int z, int a) {
         return super.canPlaceBlockOnSide(w, x, y, z, a);
-    }
-
-    @Override
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
-        return Blocks.mossy_cobblestone.getIcon(p_149691_1_, p_149691_2_);
-    }
-
-    @Override
-    public void registerBlockIcons(IIconRegister p_149651_1_) {
     }
 
     @Override
@@ -73,7 +63,7 @@ public class BlockCCDing extends BlockCCModel {
 
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_) {
-        this.setBlockBounds(0.0F, 0.0F, 0.0f, 1F, 1.35f, 1F);
+        this.setBlockBounds(0.0F, 0.0F, 0.0f, 1F, 1.3f, 1F);
     }
 
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
