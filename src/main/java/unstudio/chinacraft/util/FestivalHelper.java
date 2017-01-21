@@ -20,8 +20,8 @@ import java.util.Calendar;
  */
 public final class FestivalHelper {
     public static void initFestival() throws Exception {
-        Festival festival = Festival.Spring;
-//        Festival festival = getFestival();
+//        Festival festival = Festival.Spring;
+        Festival festival = getFestival();
         if (festival == null) return;
 //        TileEntityRendererDispatcher.instance.mapSpecialRenderers.put(TileEntityChest.class, new unstudio.chinacraft.client.render.tileentity.TileEntityChestRenderer(festival));
 
@@ -89,15 +89,16 @@ public final class FestivalHelper {
     }
 
     public static Festival getFestival() {
-        LunarCalendar calendar = new LunarCalendar(Calendar.getInstance());
-        if ((calendar.getMonth() == 12 && calendar.getDay() == LunarCalendar.monthDays(calendar.getYear(),12)) || (calendar.getMonth() == 1 && calendar.getDay() < 15)){
-            return Festival.Spring;
-        }
-        for (Festival festival : Festival.values()) {
-            if (festival.month == calendar.getMonth() && calendar.getDay() == festival.day) {
-                return festival;
-            }
-        }
-        return null;
+        return Festival.Spring;
+//        LunarCalendar calendar = new LunarCalendar(Calendar.getInstance());
+//        if ((calendar.getMonth() == 12 && calendar.getDay() == LunarCalendar.monthDays(calendar.getYear(),12)) || (calendar.getMonth() == 1 && calendar.getDay() < 15)){
+//            return Festival.Spring;
+//        }
+//        for (Festival festival : Festival.values()) {
+//            if (festival.month == calendar.getMonth() && calendar.getDay() == festival.day) {
+//                return festival;
+//            }
+//        }
+//        return null;
     }
 }
