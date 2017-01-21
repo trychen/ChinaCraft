@@ -60,6 +60,7 @@ tile.xinjiang_nut_cake.name=Xinjiang Nut Cake
 item.apple_cake.name=Apple Cake
 tile.apple_cake.name=Apple Cake
 item.firecracker.name=Firecracker
+item.firecracker.hidelore=All the firecracker will be thrown if you are sneaking
 item.bomb.name=Thrown Bomb
 item.flying_cutter.name=Fly-cutter
 item.flying_cutter.lore=A knife, an injured

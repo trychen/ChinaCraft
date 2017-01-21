@@ -1,5 +1,6 @@
 package unstudio.chinacraft.entity.projectile;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,6 +31,7 @@ public class EntityThrownFirecracker extends EntityThrowable {
     @Override
     public void onUpdate() {
         super.onUpdate();
+        if (worldObj.isRemote && Minecraft.getMinecraft().gameSettings.particleSetting == 0)
         this.worldObj.spawnParticle("mobSpell", this.posX, this.posY, this.posZ, 1.0D, 0.0D, 0.0D);
     }
 
