@@ -29,6 +29,9 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
 
     ModelRenderer Shape14;
 
+    ModelRenderer foot1;
+    ModelRenderer foot2;
+
     public ModelLanternScaldfish() {
         textureWidth = 64;
         textureHeight = 128;
@@ -117,6 +120,18 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
         Shape14.setTextureSize(0, 0);
         Shape14.mirror = true;
         setRotation(Shape14, 0F, 0F, 0F);
+        foot1 = new ModelRenderer(this, 14, 0);
+        foot1.addBox(0F, 0F, 0F, 1, 3, 1);
+        foot1.setRotationPoint(-0.5F, 22F, -0.5F);
+        foot1.setTextureSize(64, 128);
+        foot1.mirror = true;
+        setRotation(foot1, 0F, 0F, 0F);
+        foot2 = new ModelRenderer(this, 14, 6);
+        foot2.addBox(0F, 0F, 0F, 1, 2, 1);
+        foot2.setRotationPoint(-0.5F, 25F, -0.5F);
+        foot2.setTextureSize(64, 128);
+        foot2.mirror = true;
+        setRotation(foot2, 0F, 0F, 0F);
     }
 
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
@@ -151,12 +166,16 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
     @Override
     public void render(TileEntity tile, double x, double y, double z) {
         double sca = tile.getBlockMetadata() * 0.2;
-        GL11.glScaled(1.0 + sca,1.0,1.0 + sca);
-        render(0.0625F);
+        if (tile.getWorldObj().isAirBlock(tile.xCoord,tile.yCoord - 1,tile.zCoord)){
+            foot1.render(0.0625f);
+            foot2.render(0.0625f);
+        }
         Block b = tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord + 1,tile.zCoord);
         if  ((System.currentTimeMillis() & 99) == 0 && tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord,tile.zCoord) == ChinaCraft.lanternScaldfish) tile.getWorldObj().spawnParticle("flame",tile.xCoord + 0.5,tile.yCoord + 0.635,tile.zCoord + 0.5,0,0.002,0);
-        if (b == ChinaCraft.lanternScaldfish||b == ChinaCraft.lanternScaldfishOff||b.getRenderType() == 0&&b.renderAsNormalBlock()){
+        if (b == ChinaCraft.lanternScaldfish||b == ChinaCraft.lanternScaldfishOff||b.getRenderType() == 0 || b.getRenderType() == 11|| b.getRenderType() == 32){
                 Shape14.render(0.0625F);
         }
+        GL11.glScaled(1.0 + sca,1.0,1.0 + sca);
+        render(0.0625F);
     }
 }
