@@ -71,7 +71,7 @@ public class LunarCalendar {
     }
 
     // ====== 传回农历 y年m月的总天数
-    final private static int monthDays(int y, int m) {
+    final public static int monthDays(int y, int m) {
         if ((lunarInfo[y - 1900] & (0x10000 >> m)) == 0)
             return 29;
         else

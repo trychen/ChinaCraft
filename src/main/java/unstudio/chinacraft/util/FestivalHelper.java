@@ -1,8 +1,13 @@
 package unstudio.chinacraft.util;
 
+import net.minecraft.block.BlockDoor;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.IconFlipped;
 import net.minecraft.client.renderer.tileentity.TileEntityChestRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 
 import java.lang.reflect.Field;
@@ -13,10 +18,12 @@ import java.util.Calendar;
  * Created by trychen on 17/1/20.
  */
 public final class FestivalHelper {
-    public static void initFestival() throws Exception{
-//        Festival festival = Festival.Spring;
-        Festival festival = getFestival();
+    public static void initFestival() throws Exception {
+        Festival festival = Festival.Spring;
+//        Festival festival = getFestival();
         if (festival == null) return;
+//        TileEntityRendererDispatcher.instance.mapSpecialRenderers.put(TileEntityChest.class, new unstudio.chinacraft.client.render.tileentity.TileEntityChestRenderer(festival));
+
         Class tileEntityChestRendererClass = TileEntityChestRenderer.class;
         Field isChristmas = tileEntityChestRendererClass.getDeclaredField("field_147509_j");
         Field texture = tileEntityChestRendererClass.getDeclaredField("field_147503_f");
@@ -34,12 +41,30 @@ public final class FestivalHelper {
         isChristmas.setBoolean(TileEntityRendererDispatcher.instance.mapSpecialRenderers.get(TileEntityChest.class), true);
         texture.set(null, festival.texture);
         textureDouble.set(null, festival.doubleTexture);
+
+        Class blockDoorClass = BlockDoor.class;
+        Field a = blockDoorClass.getDeclaredField("field_150017_a");
+        Field b = blockDoorClass.getDeclaredField("field_150016_b");
+        a.setAccessible(true);
+        b.setAccessible(true);
+
+        IIcon[] ai = new IIcon[2];
+        IIcon[] bi = new IIcon[2];
+        ai[0] = Minecraft.getMinecraft().getTextureMapBlocks().registerIcon("door_wood_upper");
+        bi[0] = Minecraft.getMinecraft().getTextureMapBlocks().registerIcon("door_wood_lower");
+        ai[1] = new IconFlipped(ai[0], true, false);
+        bi[1] = new IconFlipped(bi[0], true, false);
+
+        a.set(Blocks.iron_door,ai);
+        b.set(Blocks.iron_door,bi);
+
+        System.out.println("Hooked Successful");
     }
 
-    enum Festival {
-        Spring("christmas", 1, 1);
+    public enum Festival {
+        Spring("spring", 1, 1);
 
-        public final ResourceLocation texture, doubleTexture;
+        public ResourceLocation texture, doubleTexture;
         public final int month, day;
 
         Festival(String texture, int month, int day) {
@@ -49,10 +74,12 @@ public final class FestivalHelper {
             this.day = day;
         }
     }
+
     public static Festival getFestival() {
         LunarCalendar calendar = new LunarCalendar(Calendar.getInstance());
+        if (calendar.getMonth() == 12 && calendar.getDay() == LunarCalendar.monthDays(calendar.getYear(),12))
         for (Festival festival : Festival.values()) {
-            if (festival.month == calendar.getMonth() && calendar.getDay() == festival.day){
+            if (festival.month == calendar.getMonth() && calendar.getDay() == festival.day) {
                 return festival;
             }
         }
