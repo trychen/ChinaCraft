@@ -3,6 +3,7 @@ package unstudio.chinacraft.util;
 import net.minecraft.block.BlockDoor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.IconFlipped;
+import net.minecraft.client.renderer.entity.RenderPig;
 import net.minecraft.client.renderer.tileentity.TileEntityChestRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.init.Blocks;
@@ -42,21 +43,33 @@ public final class FestivalHelper {
         texture.set(null, festival.texture);
         textureDouble.set(null, festival.doubleTexture);
 
-        Class blockDoorClass = BlockDoor.class;
-        Field a = blockDoorClass.getDeclaredField("field_150017_a");
-        Field b = blockDoorClass.getDeclaredField("field_150016_b");
-        a.setAccessible(true);
-        b.setAccessible(true);
+//        Class blockDoorClass = BlockDoor.class;
+//        Field a = blockDoorClass.getDeclaredField("field_150017_a");
+//        Field b = blockDoorClass.getDeclaredField("field_150016_b");
+//        a.setAccessible(true);
+//        b.setAccessible(true);
+//
+//        IIcon[] ai = new IIcon[2];
+//        IIcon[] bi = new IIcon[2];
+//        ai[0] = Minecraft.getMinecraft().getTextureMapBlocks().registerIcon("door_wood_upper");
+//        bi[0] = Minecraft.getMinecraft().getTextureMapBlocks().registerIcon("door_wood_lower");
+//        ai[1] = new IconFlipped(ai[0], true, false);
+//        bi[1] = new IconFlipped(bi[0], true, false);
+//
+//        a.set(Blocks.iron_door,ai);
+//        b.set(Blocks.iron_door,bi);
 
-        IIcon[] ai = new IIcon[2];
-        IIcon[] bi = new IIcon[2];
-        ai[0] = Minecraft.getMinecraft().getTextureMapBlocks().registerIcon("door_wood_upper");
-        bi[0] = Minecraft.getMinecraft().getTextureMapBlocks().registerIcon("door_wood_lower");
-        ai[1] = new IconFlipped(ai[0], true, false);
-        bi[1] = new IconFlipped(bi[0], true, false);
+        Class renderPigClass = RenderPig.class;
+        Field pigTextures;
+        try {
+            pigTextures = renderPigClass.getDeclaredField("field_110887_f");
+        } catch (NoSuchFieldException e){
+            pigTextures = renderPigClass.getDeclaredField("pigTextures");
+        }
+        pigTextures.setAccessible(true);
+        modifiersField.setInt(pigTextures, pigTextures.getModifiers() & ~Modifier.FINAL);
 
-        a.set(Blocks.iron_door,ai);
-        b.set(Blocks.iron_door,bi);
+        pigTextures.set(null, new ResourceLocation("chinacraft:textures/entity/pig/pig.png"));
 
         System.out.println("Hooked Successful");
     }
@@ -77,7 +90,9 @@ public final class FestivalHelper {
 
     public static Festival getFestival() {
         LunarCalendar calendar = new LunarCalendar(Calendar.getInstance());
-        if (calendar.getMonth() == 12 && calendar.getDay() == LunarCalendar.monthDays(calendar.getYear(),12))
+        if ((calendar.getMonth() == 12 && calendar.getDay() == LunarCalendar.monthDays(calendar.getYear(),12)) || (calendar.getMonth() == 1 && calendar.getDay() < 15)){
+            return Festival.Spring;
+        }
         for (Festival festival : Festival.values()) {
             if (festival.month == calendar.getMonth() && calendar.getDay() == festival.day) {
                 return festival;
