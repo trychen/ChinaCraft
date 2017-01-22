@@ -11,6 +11,7 @@ import unstudio.chinacraft.client.model.entity.ModelBlackDog;
 import unstudio.chinacraft.client.model.entity.ModelChinaZombie;
 import unstudio.chinacraft.client.model.entity.ModelPanda;
 import unstudio.chinacraft.client.model.block.ModelKongmingLantern;
+import unstudio.chinacraft.client.model.entity.ModelWord;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.especial.EntityCCPainting;
@@ -43,12 +44,10 @@ public class EntityRenderingRegistry {
                 "textures/entity/panda/panda.png");
         EntityRenderingHandler(EntityKongmingLantern.class, new ModelKongmingLantern(), "chinacraft",
                 "textures/entity/kongminglantern/kongminglantern.png");
+
         RenderingRegistry.registerEntityRenderingHandler(EntityThrownBomb.class, new RenderSnowball(ChinaCraft.bomb));
-
-        RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class,
-                new RenderSnowball(ChinaCraft.firecracker));
+        RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class, new RenderSnowball(ChinaCraft.firecracker));
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectile.class, new RenderProjectile());
-
         RenderingRegistry.registerEntityRenderingHandler(EntityCCPainting.class, new RenderCCPainting());
         RenderingRegistry.registerEntityRenderingHandler(EntityCCWord.class, new RenderCCWord());
     }

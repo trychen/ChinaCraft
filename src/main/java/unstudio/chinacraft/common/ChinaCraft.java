@@ -203,7 +203,7 @@ public class ChinaCraft implements ICollection {
     public static final BlockCCLamp lanternScaldfish = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class,"lantern_scaldfish",true).setTexture("lantern_scaldfish_on");
     @Register("LanternScaldfishOff")
     public static final BlockCCLamp lanternScaldfishOff = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class, "lantern_scaldfish_openable",false).setTexture("lantern_scaldfish_off").setCreativeTab(null);
-    @Register("Fu")
+//    @Register("Fu")
     public static final CCItemWord wordFu = new CCItemWord();
     @Register("BlockDing")
     public static final BlockCCDing ding = new BlockCCDing();

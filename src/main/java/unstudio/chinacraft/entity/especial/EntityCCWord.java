@@ -1,8 +1,13 @@
 package unstudio.chinacraft.entity.especial;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityHanging;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by trychen on 17/1/19.
@@ -19,21 +24,31 @@ public class EntityCCWord extends EntityHanging {
 
     @Override
     public int getWidthPixels() {
-        return 10;
+        return 16;
     }
 
     @Override
     public int getHeightPixels() {
-        return 10;
+        return 16;
     }
 
-    /**
-     * Called when this entity is broken. Entity parameter may be null.
-     *
-     * @param entity
-     */
-    @Override
-    public void onBroken(Entity entity) {
+    public void onBroken(Entity p_110128_1_) {
+        if (p_110128_1_ instanceof EntityPlayer) {
+            EntityPlayer entityplayer = (EntityPlayer) p_110128_1_;
 
+            if (entityplayer.capabilities.isCreativeMode) {
+                return;
+            }
+        }
+
+        this.entityDropItem(new ItemStack(ChinaCraft.wordFu), 0.0F);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public boolean isInRangeToRenderDist(double p_70112_1_)
+    {
+        double d1 = 16.0D;
+        d1 *= 64.0D * this.renderDistanceWeight;
+        return p_70112_1_ < d1 * d1;
     }
 }

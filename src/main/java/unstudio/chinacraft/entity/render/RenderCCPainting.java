@@ -35,7 +35,7 @@ public class RenderCCPainting extends Render {
         GL11.glEnable(GL12.GL_RESCALE_NORMAL);
         this.bindTexture(rs);
         EntityCCPainting.EnumArt enumart = p_76986_1_.art;
-        float f2 = 0.0625F;
+        float f2 = 0.0625F/2;
         GL11.glScalef(f2, f2, f2);
         this.func_77010_a(p_76986_1_, enumart.sizeX, enumart.sizeY, enumart.offsetX, enumart.offsetY);
         GL11.glDisable(GL12.GL_RESCALE_NORMAL);
