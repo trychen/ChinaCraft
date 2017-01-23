@@ -474,9 +474,6 @@ public class ChinaCraft implements ICollection {
 
         versionChecker = new MinecraftModVersionChecker(ChinaCraft.class,"ChinaCraft 华夏文明",PROJECT_ID,log,FeatureConfig.EnableSanpShot);
         if (FeatureConfig.EnableUpdate) versionChecker.start();
-
-        // Network.registerMessage(BaseMessage.Handler.class, BaseMessage.class,
-        // 1, Side.CLIENT);
     }
 
     @EventHandler
