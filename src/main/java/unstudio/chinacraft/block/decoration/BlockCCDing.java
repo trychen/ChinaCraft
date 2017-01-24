@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -29,8 +30,10 @@ public class BlockCCDing extends BlockCCModel {
     public static final int[][] field_149981_a = new int[][]{{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
 
     public BlockCCDing() {
-        super(Material.rock, ModelDing.class,"ding",Blocks.mossy_cobblestone.getIcon(0, 0));
+        super(Material.anvil, ModelDing.class,"ding",Blocks.mossy_cobblestone.getIcon(0, 0));
         setHardness(5f);
+        setResistance(5f);
+        setStepSound(soundTypeAnvil);
         setCreativeTab(null);
     }
 

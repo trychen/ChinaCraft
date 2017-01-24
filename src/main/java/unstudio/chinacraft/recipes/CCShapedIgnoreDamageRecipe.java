@@ -13,7 +13,7 @@ import java.util.HashMap;
 /**
  * Created by AAA on 2016/2/15.
  */
-public class CCShapedIgnoreDamageRecipes implements IRecipe{
+public class CCShapedIgnoreDamageRecipe implements IRecipe{
 
     /** How many horizontal slots this recipe is wide. */
     public final int recipeWidth;
@@ -25,7 +25,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
     private ItemStack recipeOutput;
     private boolean field_92101_f;
 
-    public CCShapedIgnoreDamageRecipes(int p_i1917_1_, int p_i1917_2_, ItemStack[] p_i1917_3_, ItemStack p_i1917_4_)
+    public CCShapedIgnoreDamageRecipe(int p_i1917_1_, int p_i1917_2_, ItemStack[] p_i1917_3_, ItemStack p_i1917_4_)
     {
         this.recipeWidth = p_i1917_1_;
         this.recipeHeight = p_i1917_2_;
@@ -140,13 +140,13 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
         return this.recipeWidth * this.recipeHeight;
     }
 
-    public CCShapedIgnoreDamageRecipes setCopyNBT()
+    public CCShapedIgnoreDamageRecipe setCopyNBT()
     {
         this.field_92101_f = true;
         return this;
     }
 
-    public static CCShapedIgnoreDamageRecipes createRecipe(ItemStack p_92103_1_, Object ... p_92103_2_)
+    public static CCShapedIgnoreDamageRecipe createRecipe(ItemStack p_92103_1_, Object ... p_92103_2_)
     {
         StringBuilder sb = new StringBuilder();
         int i = 0;
@@ -215,7 +215,7 @@ public class CCShapedIgnoreDamageRecipes implements IRecipe{
             }
         }
 
-        CCShapedIgnoreDamageRecipes shapedrecipes = new CCShapedIgnoreDamageRecipes(j, k, aitemstack, p_92103_1_);
+        CCShapedIgnoreDamageRecipe shapedrecipes = new CCShapedIgnoreDamageRecipe(j, k, aitemstack, p_92103_1_);
         return shapedrecipes;
     }
 }

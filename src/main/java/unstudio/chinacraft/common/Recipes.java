@@ -6,7 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
-import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipes;
+import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
@@ -98,16 +98,16 @@ public class Recipes {
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.blackbrick});
 
         // 木窗格
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipes.createRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
                 new Object[]{"HHH", "B#A", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', ChinaCraft.artKnife,
                         'A', ChinaCraft.woodenWindow4, 'B', ChinaCraft.woodenWindow2}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipes.createRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4),
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4),
                 new Object[]{" # ", "#A#", " # ", 'A', ChinaCraft.artKnife, '#', Items.stick}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipes.createRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), new Object[]{"B#B", "#A#", "B#B", 'A',
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), new Object[]{"B#B", "#A#", "B#B", 'A',
                 ChinaCraft.artKnife, '#', Items.stick, 'B', Item.getItemFromBlock(Blocks.log)}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipes.createRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4),
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4),
                 new Object[]{"###", "#A#", "###", 'A', ChinaCraft.artKnife, '#', Items.stick}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipes.createRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A',
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A',
                 Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife}));
 
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
