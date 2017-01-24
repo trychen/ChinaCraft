@@ -15,7 +15,7 @@
   模组内容分类：
   
 -   Core - 核心
--   Machine - 机括化
+-   Machine - 机械
 -   Farming - 农业
 -   Silkworm - 养蚕
 -   Tofu - 豆腐
