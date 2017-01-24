@@ -201,7 +201,7 @@ public class ChinaCraft implements ICollection {
     public static final BlockCCLamp lanternScaldfish = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class,"lantern_scaldfish",true).setTexture("lantern_scaldfish_on");
     @Register("LanternScaldfishOff")
     public static final BlockCCLamp lanternScaldfishOff = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class, "lantern_scaldfish_openable",false).setTexture("lantern_scaldfish_off").setCreativeTab(null);
-    @Register("Fu")
+//    @Register("Fu")
     public static final CCItemWord wordFu = new CCItemWord();
     @Register("BlockDing")
     public static final BlockCCDing ding = new BlockCCDing();
@@ -315,7 +315,7 @@ public class ChinaCraft implements ICollection {
     public static final Hammer hammerIron = new Hammer(ChinaCraft.HAMMERIRON, "iron");// 铁锤
     @Register("DiamondBronze")
     public static final Hammer hammerDiamond = new Hammer(ChinaCraft.HAMMERDIANMOND, "diamond");// 钻石锤
-    @Register("BronzeShield")
+//    @Register("BronzeShield")
     public static final CCShield bronzeShield = (CCShield) new CCShield(10, 10, true).setUnlocalizedName("bronze_shield").setTextureName("chinacraft:shield_bronze");
     @Register("ChinaCrown")
     public static final ModelArmor chinaCrown = new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "china_crown", "chinacrown",0, 0, 1);

@@ -2,7 +2,25 @@
   "firecracker": {
     "category": "master",
     "sounds": [
-      "firecracker/firecracker","firecracker/firecracker1"
+      "firecracker/f1"
+    ]
+  },
+  "firecracker1": {
+    "category": "master",
+    "sounds": [
+      "firecracker/f2"
+    ]
+  },
+  "firecracker2": {
+    "category": "master",
+    "sounds": [
+      "firecracker/f3"
+    ]
+  },
+  "firecracker3": {
+    "category": "master",
+    "sounds": [
+      "firecracker/f4"
     ]
   },
   "records.three_stanzas_of_plum-blossoms": {

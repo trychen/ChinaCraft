@@ -32,7 +32,6 @@ public class BlockCCModel extends BlockContainer {
         super(material);
         this.model = model;
         this.icon = icon;
-        this.blockIcon = icon;
         this.name = name;
         this.setBlockName(name);
         this.setCreativeTab(ChinaCraft.tabCore);

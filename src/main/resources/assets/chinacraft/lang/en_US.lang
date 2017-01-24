@@ -60,6 +60,7 @@ tile.xinjiang_nut_cake.name=Xinjiang Nut Cake
 item.apple_cake.name=Apple Cake
 tile.apple_cake.name=Apple Cake
 item.firecracker.name=Firecracker
+item.firecracker.hidelore=All the firecracker will be thrown if you are sneaking
 item.bomb.name=Thrown Bomb
 item.flying_cutter.name=Fly-cutter
 item.flying_cutter.lore=A knife, an injured
@@ -251,6 +252,10 @@ record.three_stanzas_of_plum-blossoms=Plum-blossom in Three Movements
 record.mountain_stream=Mountain Stream
 record.the_march_of_the_volunteers=March of the Volunteers
 record.spring_festival_overture=Spring festival Overture
+
+splashText.spring.1=Happy Spring Festival!
+splashText.spring.2=Best wishes for you and your family.
+splashText.spring.3=Happy Spring Festival!
 
 item.redpacket.name=Red Packet
 gui.redpacket.title=Red Packet

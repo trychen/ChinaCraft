@@ -11,6 +11,7 @@ import unstudio.chinacraft.client.model.entity.ModelBlackDog;
 import unstudio.chinacraft.client.model.entity.ModelChinaZombie;
 import unstudio.chinacraft.client.model.entity.ModelPanda;
 import unstudio.chinacraft.client.model.block.ModelKongmingLantern;
+import unstudio.chinacraft.client.model.entity.ModelWord;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.entity.animal.EntityBlackDog;
 import unstudio.chinacraft.entity.especial.EntityCCPainting;
@@ -25,6 +26,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 import unstudio.chinacraft.entity.render.RenderCCPainting;
 import unstudio.chinacraft.entity.render.RenderCCWord;
 import unstudio.chinacraft.entity.render.RenderProjectile;
+import unstudio.chinacraft.util.FestivalHelper;
 
 public class EntityRenderingRegistry {
 
@@ -37,17 +39,15 @@ public class EntityRenderingRegistry {
         EntityRenderingHandler(EntityBlackDog.class, new ModelBlackDog(), "chinacraft",
                 "textures/entity/blackwolf/blackwolf.png");
         EntityRenderingHandler(EntityChinaZombie.class, new ModelChinaZombie(), "chinacraft",
-                "textures/entity/chinazombie/chinazombie.png");
-        EntityRenderingHandler(EntityPanda.class, new ModelPanda(), "chinacraft",
-                "textures/entity/panda/panda.png");
+                FestivalHelper.getFestival() == FestivalHelper.Festival.Spring?"textures/entity/chinazombie/spring_chinazombie.png":"textures/entity/chinazombie/chinazombie.png");
+//        EntityRenderingHandler(EntityPanda.class, new ModelPanda(), "chinacraft",
+//                "textures/entity/panda/panda.png");
         EntityRenderingHandler(EntityKongmingLantern.class, new ModelKongmingLantern(), "chinacraft",
                 "textures/entity/kongminglantern/kongminglantern.png");
+
         RenderingRegistry.registerEntityRenderingHandler(EntityThrownBomb.class, new RenderSnowball(ChinaCraft.bomb));
-
-        RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class,
-                new RenderSnowball(ChinaCraft.firecracker));
+        RenderingRegistry.registerEntityRenderingHandler(EntityThrownFirecracker.class, new RenderSnowball(ChinaCraft.firecracker));
         RenderingRegistry.registerEntityRenderingHandler(EntityProjectile.class, new RenderProjectile());
-
         RenderingRegistry.registerEntityRenderingHandler(EntityCCPainting.class, new RenderCCPainting());
         RenderingRegistry.registerEntityRenderingHandler(EntityCCWord.class, new RenderCCWord());
     }

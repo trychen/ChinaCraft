@@ -33,7 +33,7 @@ public class ListenerArmor {
     @SubscribeEvent
     public void wearingNightClothes(TickEvent.PlayerTickEvent event) {
         NBTTagCompound tCompound = event.player.getEntityData();
-        if(FeatureConfig.EnableDoubleJump&&event.phase == TickEvent.Phase.END&&event.side.isServer()&&event.player.onGround) {
+        if(FeatureConfig.enableDoubleJump &&event.phase == TickEvent.Phase.END&&event.side.isServer()&&event.player.onGround) {
             if (tCompound.hasKey("chinacraft.nightClothesHasJumped"))tCompound.removeTag("chinacraft.nightClothesHasJumped");
         }
 
@@ -69,7 +69,8 @@ public class ListenerArmor {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void preRenderPlayer(RenderPlayerEvent.Pre event) {
-        if (event.entityPlayer.worldObj.getWorldTime() > 13500 && event.entityPlayer.worldObj.getWorldTime() < 22300 && event.entityPlayer.isSneaking()) {
+        if (event.entityPlayer.isSneaking()) {
+            if (event.entityPlayer.worldObj.getWorldTime() > 13500 && event.entityPlayer.worldObj.getWorldTime() < 22300) return;
             if (!ChinaCraftApi.isWearingWholeNightClothes(event.entityPlayer)) return;
             event.setCanceled(true);
         }
@@ -94,14 +95,14 @@ public class ListenerArmor {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void key(InputEvent.KeyInputEvent event){
-        if(!FeatureConfig.EnableDoubleJump)return;
+        if(!FeatureConfig.enableDoubleJump)return;
         EntityPlayer player = Minecraft.getMinecraft().thePlayer;
         if (player.getItemInUse() != null) return; //不能拿着物品连跳
         if (!ChinaCraftApi.isWearingWholeNightClothes(player)) return;
 
         if (!FMLClientHandler.instance().isGUIOpen(GuiChat.class)) {
             if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) { //是否按下了跳跃键
-                if(FeatureConfig.EnableDoubleJump) {
+                if(FeatureConfig.enableDoubleJump) {
                     if (player.motionY < 0.04 && player.isAirBorne) {
                         ChinaCraft.Network.sendToServer(new KeyMessage(0));//向服务器发送消息
                     }
@@ -112,7 +113,7 @@ public class ListenerArmor {
 
     @SubscribeEvent
     public void JumpEvent(LivingEvent.LivingJumpEvent event){
-        if(!FeatureConfig.EnableDoubleJump)return;
+        if(!FeatureConfig.enableDoubleJump)return;
         if (event.entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) event.entityLiving;
             if (player.getFoodStats().getFoodLevel()<14) return;//饱食度要大于14

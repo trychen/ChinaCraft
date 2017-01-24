@@ -63,6 +63,7 @@ tile.xinjiang_nut_cake.name=切糕
 item.apple_cake.name=苹果糕
 tile.apple_cake.name=苹果糕
 item.firecracker.name=鞭炮
+item.firecracker.hidelore=按住SHIFT扔，可以一次性把全部都扔出去
 item.bomb.name=投掷性炸弹
 item.flying_cutter.name=飞刀
 item.flying_cutter.lore=出手一刀，例不虚发！
@@ -78,7 +79,7 @@ item.copper_ingot.name=铜锭
 item.copper_powder.name=铜粉
 item.bronze_ingot.name=青铜锭
 tile.jade_ore.name=玉原石
-item.jade.lore=等级:
+item.jade.lore=等级：
 
 tile.bamboo.name=竹子
 tile.bamboo_plank.name=竹板
@@ -163,12 +164,12 @@ gui.sericulture_frame.stopWork.biome.info=生物群系过差！
 gui.sericulture_frame.stopWork.outputSlotFull.info=产物槽已满！
 gui.sericulture_frame.outputSlotStucks.info=产物槽过满！
 gui.sericulture_frame.noMulberryLeaf.info=桑叶不足！
-gui.sericulture_frame.noRainProtection.info=缺少雨水保护！ 
-tooltip.progress.info=进度: 
-tooltip.generation.info=所属代数: 
-tooltip.productivity.info=产物数量: 
-tooltip.speed.info=生长速度: 
-tooltip.fertility.info=繁殖能力: 
+gui.sericulture_frame.noRainProtection.info=缺少雨水保护！
+tooltip.progress.info=进度：
+tooltip.generation.info=所属代数：
+tooltip.productivity.info=产物数量：
+tooltip.speed.info=生长速度：
+tooltip.fertility.info=繁殖能力：
 
 
 
@@ -208,13 +209,13 @@ nei.gui.buhrimill.title=石磨合成
 nei.gui.buhrimill.rotime.info=%.1f圈
 waila.noneInput.info=无原料
 waila.invalidInput.info=无法研磨！
-waila.progress.info=进度: 
+waila.progress.info=进度：
 
 gui.jade_bench.title=玉石加工台
 tile.jade_table.name=玉石加工台
 gui.jade_table.info=玉石信息
 nei.gui.jadebench.title=玉石加工台
-nei.jadebench.output.info=产物:
+nei.jadebench.output.info=产物：
 
 tile.cooking_bench.name=灶台
 gui.cooking_bench.title=灶台
@@ -256,6 +257,10 @@ record.mountain_stream=高山流水
 record.the_march_of_the_volunteers=义勇军进行曲
 record.spring_festival_overture=春节序曲
 
+splashText.spring.1=春节快乐！
+splashText.spring.2=雄鸡歌曙色，妙手绣春光！
+splashText.spring.3=欢欢喜喜迎新年，万事如意平安年
+
 item.redpacket.name=红包
 gui.redpacket.title=红包
 gui.redpacket.wash=请输入祝福语...
@@ -275,6 +280,6 @@ entity.chinazombie.name=清朝僵尸
 entity.panda.name=熊猫
 
 VersionChecker.perfix=发现新版本!点击下载.
-VersionChecker.version=最新版本: !new ,当前版本: !old .
+VersionChecker.version=最新版本：!new ,当前版本：!old .
 
 death.attack.continuedLife=%1$s 为了给其它生物治疗, 失去了生命。

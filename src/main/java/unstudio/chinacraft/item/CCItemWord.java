@@ -1,5 +1,6 @@
 package unstudio.chinacraft.item;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityHanging;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemHangingEntity;
@@ -44,6 +45,10 @@ public class CCItemWord extends ItemHangingEntity {
                 return true;
             }
         }
+    }
+
+    @Override
+    public void registerIcons(IIconRegister p_94581_1_) {
     }
 
     /**

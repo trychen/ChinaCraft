@@ -33,16 +33,15 @@ public class EntityRegister {
          EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
          EnumCreatureType.creature, BiomeGenBase.forest);
         registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0x191946, 0x570204);
-        registerLivingEntity(EntityPanda.class, "panda", 0xFFFFFF, 0x000000);
+//        registerLivingEntity(EntityPanda.class, "panda", 0xFFFFFF, 0x000000);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 
-        registerModEntity(EntityThrownFirecracker.class, "Entity_Thrown_Firecracker", 350, 30, true);
-        registerModEntity(EntityThrownBomb.class, "Entity_Thrown_Bomb", 350, 30, true);
-        registerModEntity(EntitySuperArrow.class, "superArrow",64,3,true);
-        registerModEntity(EntityProjectile.class, "projectile", 64, 3, true);
-        registerModEntity(EntityCCPainting.class, "ccPainting", 128,1,true);
-        registerModEntity(EntityCCWord.class, "chinese_character", 128,1,false);
-
+        registerModEntity(EntityThrownFirecracker.class, "ccFirecracker" , 80, 3, true);
+        registerModEntity(EntityThrownBomb.class, "ccBomb",80, 3, true);
+        registerModEntity(EntitySuperArrow.class, "ccSuperArrow",80, 3, true);
+        registerModEntity(EntityProjectile.class, "ccProjectile",80, 3, true);
+        registerModEntity(EntityCCPainting.class, "ccPainting",128, 1, true);
+        registerModEntity(EntityCCWord.class, "ccWord",80, 3, true);
     }
 
 

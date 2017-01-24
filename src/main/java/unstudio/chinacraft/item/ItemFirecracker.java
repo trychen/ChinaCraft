@@ -7,7 +7,11 @@ import net.minecraft.world.World;
 
 import unstudio.chinacraft.api.ItemMethod;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
+import unstudio.chinacraft.util.ItemLoreHelper;
+
+import java.util.List;
 
 public class ItemFirecracker extends Item {
     public ItemFirecracker() {
@@ -19,15 +23,24 @@ public class ItemFirecracker extends Item {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
         if (!world.isRemote) {
-            world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
+            if (player.isSneaking()){
+                for (int i = 0; i < stack.stackSize; i++) {
+                    world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
+                }
+            } else world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
         }
-        if (!player.capabilities.isCreativeMode)
-        {
-            --stack.stackSize;
+        if (!player.capabilities.isCreativeMode) {
+            if (player.isSneaking()) {
+                stack.stackSize = 0;
+            } else --stack.stackSize;
         }
 
         return stack;
     }
 
-
+    @Override
+    public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+        if (FeatureConfig.enableShiftShootFirecrackers)
+            ItemLoreHelper.shiftLoreWithStat(p_77624_3_, getUnlocalizedName());
+    }
 }

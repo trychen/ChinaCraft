@@ -1,5 +1,6 @@
 package unstudio.chinacraft.item;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,10 @@ public class ItemCCDing extends Item {
     public ItemCCDing(){
         this.setCreativeTab(ChinaCraft.tabCore);
         this.setUnlocalizedName("ding");
+    }
+
+    @Override
+    public void registerIcons(IIconRegister p_94581_1_) {
     }
 
     /**

@@ -12,8 +12,8 @@ import unstudio.chinacraft.client.model.block.ModelBuhrimill;
 import unstudio.chinacraft.tileentity.TileBuhrimill;
 
 public class TileEntityBuhrimillRenderer extends TileEntitySpecialRenderer {
-    public final ModelBuhrimill model = new ModelBuhrimill();
-    public final ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/buhrimill.png");
+    public static final ModelBuhrimill model = new ModelBuhrimill();
+    public static final ResourceLocation textures = new ResourceLocation("chinacraft:textures/models/block/buhrimill.png");
 
     public TileEntityBuhrimillRenderer() {}
 

@@ -92,7 +92,7 @@ public class EntityCCPainting extends EntityHanging {
     }
 
     public enum EnumArt {
-        ZhongKui("ZhongKui", 16, 32, 0, 0);
+        ZhongKui("ZhongKui", 32, 96, 0, 0);
 
         /**
          * Painting Title.
