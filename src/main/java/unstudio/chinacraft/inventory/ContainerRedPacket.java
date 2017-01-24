@@ -1,5 +1,7 @@
 package unstudio.chinacraft.inventory;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.InventoryBasic;
@@ -17,20 +19,10 @@ public class ContainerRedPacket extends Container {
     public ContainerRedPacket(EntityPlayer player) {
         this.itemStack = player.getHeldItem();
         Slot slot0 = new Slot(new InventoryBasic("redpacket", false, 1), 0, 80, 25);
-
-        if (itemStack.hasTagCompound()&&itemStack.getTagCompound().hasKey("item")) {
-            NBTTagCompound itemnbt = itemStack.getTagCompound().getCompoundTag("item");
-            //itemStack.getTagCompound().setTag("item",null);//不知道有没有用的防刷物品措施(抛出空指针异常)
-            ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
-            if (item != null && FeatureConfig.ItemBombInRedPackerExplosion && item.getItem() == ChinaCraft.bomb){
-                //炸弹自爆
-                player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
-                slot0.putStack(null);
-            }
-            else slot0.putStack(item);
-        }
-
         this.addSlotToContainer(slot0);
+
+        load(player);
+
         int var3;
         for (var3 = 0; var3 < 3; ++var3) {
             for (int var4 = 0; var4 < 9; ++var4) {
@@ -54,6 +46,22 @@ public class ContainerRedPacket extends Container {
             } else {
                 this.addSlotToContainer(new Slot(player.inventory, var3, 8 + var3 * 18, 142));
             }
+        }
+    }
+
+    private void load(EntityPlayer player){
+        //不知道有没有用的防刷物品措施
+        if(player.getEntityWorld().isRemote) return;
+
+        if (itemStack.hasTagCompound() && itemStack.getTagCompound().hasKey("item")) {
+            NBTTagCompound itemnbt = itemStack.getTagCompound().getCompoundTag("item");
+            itemStack.getTagCompound().setTag("item",new NBTTagCompound());
+            ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
+            if (item != null && FeatureConfig.ItemBombInRedPackerExplosion && item.getItem() == ChinaCraft.bomb) {
+                //炸弹自爆
+                player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
+                getSlot(0).putStack(null);
+            } else getSlot(0).putStack(item);
         }
     }
 
