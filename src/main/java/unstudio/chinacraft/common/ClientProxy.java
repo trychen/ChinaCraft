@@ -41,7 +41,7 @@ public class ClientProxy extends CommonProxy {
             new NEIAPI().loadConfig();
         }
 
-        //清理此地材质注册……
+        //TODO:清理此地材质注册……
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
         ChinaCraft.chrysanthemum.setBlockTextureName("chinacraft:chrysanthemum");

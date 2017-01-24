@@ -165,7 +165,13 @@ public class ChinaCraft implements ICollection {
     public static final BlockBambooShoot blockBambooShoot = (BlockBambooShoot) new BlockBambooShoot().setBlockTextureName("chinacraft:bamboo_shoot"); // 竹笋
     @Register("BambooPlank")
     public static final Block bambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:bamboo_plank").setBlockName("bamboo_plank")
-            .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹木板
+            .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹板
+    @SlabRegister(name = "BambooSlab",first = "bambooSlab",second = "bambooDoubleSlab")
+    public static final Block bambooSlab = new BlockCCSlab(false,Material.wood).setHardness(2.0F).setResistance(5.0F).setBlockName("bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:bamboo_plank").setCreativeTab(ChinaCraft.tabCore);//竹制半砖
+    @SlabRegister(name = "BambooDoubleSlab",first = "bambooSlab",second = "bambooDoubleSlab")
+    public static final Block bambooDoubleSlab =  new BlockCCSlab(true,Material.wood).setBlockSlab(ChinaCraft.bambooSlab).setHardness(2.0F).setResistance(5.0F).setBlockName("bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:bamboo_plank");//竹制半砖
+    @Register("BambooStair")
+    public static final Block bambooStair = new BlockCCStair(ChinaCraft.bambooPlank,0).setHardness(2.0F).setResistance(5.0F).setBlockName("bamboo_stair").setCreativeTab(ChinaCraft.tabCore);//竹制楼梯
     @Register("MulberryLog")
     public static final Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
     @Register("MulberryLeaf")
@@ -222,7 +228,7 @@ public class ChinaCraft implements ICollection {
     @SlabRegister(name = "BlackBrickDoubleSlab",first = "blackbrickSlab",second = "blackbrickDoubleSlab")
     public static final Block blackbrickDoubleSlab =  new BlockCCSlab(true,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setBlockSlab(ChinaCraft.blackbrickSlab).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block");//青砖半砖
     @Register("BlackBrickStair")
-    public static final Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
+    public static final Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
 
     // 物品
     @OreRegister(name = "CopperIngot",ore = "ingotCopper")

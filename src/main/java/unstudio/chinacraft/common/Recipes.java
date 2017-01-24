@@ -116,6 +116,12 @@ public class Recipes {
         // 竹子
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooPlank), ChinaCraft.itemBamboo, ChinaCraft.itemBamboo,
                 ChinaCraft.itemBamboo, ChinaCraft.itemBamboo);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooSlab, 6),
+                new Object[]{"   ", "   ", "###", '#', ChinaCraft.bambooPlank});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooStair, 4),
+                new Object[]{"#  ", "## ", "###", '#', ChinaCraft.bambooPlank});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooStair, 4),
+                new Object[]{"  #", " ##", "###", '#', ChinaCraft.bambooPlank});
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),

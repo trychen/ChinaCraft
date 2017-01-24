@@ -81,10 +81,10 @@ tile.jade_ore.name=Jade Ore
 item.jade.lore=Level:
 
 tile.bamboo.name=Bamboo
-tile.bamboo_slab.name=Bamboo Clappers
 tile.bamboo_plank.name=Bamboo Planks
 item.bamboo.name=Bamboo
 tile.bamboo_shoot.name=Bamboo Shoot
+item.bamboo_shoot.name=Bamboo Shoot
 
 tile.azalea.name=Azalea
 tile.bean_bracket.name=Bean Bracket
