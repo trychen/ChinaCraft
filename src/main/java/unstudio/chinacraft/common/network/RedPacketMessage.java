@@ -21,6 +21,7 @@ public class RedPacketMessage implements IMessage { // 包类
         this.sender=sender;
         this.wish=wish;
         this.sendee=sendee;
+        this.issend=issend;
     }
 
     @Override

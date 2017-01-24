@@ -14,21 +14,20 @@ public class ContainerRedPacket extends Container {
 
     private ItemStack itemStack;
 
-    public ContainerRedPacket(EntityPlayer player, ItemStack itemStack) {
-        this.itemStack = itemStack;
+    public ContainerRedPacket(EntityPlayer player) {
+        this.itemStack = player.getHeldItem();
         Slot slot0 = new Slot(new InventoryBasic("redpacket", false, 1), 0, 80, 25);
-        NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
-        if (par1NBTTagCompound != null) {
-            NBTTagCompound itemnbt = (NBTTagCompound) par1NBTTagCompound.getTag("item");
-            if (itemnbt != null) {
-                ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
-                if (item != null && FeatureConfig.ItemBombInRedPackerExplosion&&item.getItem() == ChinaCraft.bomb){
-                    //炸弹自爆
-                    player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
-                    slot0.putStack(null);
-                }
-                else slot0.putStack(item);
+
+        if (itemStack.hasTagCompound()&&itemStack.getTagCompound().hasKey("item")) {
+            NBTTagCompound itemnbt = itemStack.getTagCompound().getCompoundTag("item");
+            //itemStack.getTagCompound().setTag("item",null);//不知道有没有用的防刷物品措施(抛出空指针异常)
+            ItemStack item = ItemStack.loadItemStackFromNBT(itemnbt);
+            if (item != null && FeatureConfig.ItemBombInRedPackerExplosion && item.getItem() == ChinaCraft.bomb){
+                //炸弹自爆
+                player.worldObj.createExplosion(player, player.posX, player.posY, player.posZ, 1.5F, true);
+                slot0.putStack(null);
             }
+            else slot0.putStack(item);
         }
 
         this.addSlotToContainer(slot0);
@@ -66,17 +65,11 @@ public class ContainerRedPacket extends Container {
     @Override
     public void onContainerClosed(EntityPlayer p_75134_1_) {
         super.onContainerClosed(p_75134_1_);
-        if (p_75134_1_.inventory.getCurrentItem() != null
-                && p_75134_1_.inventory.getCurrentItem().getItem().equals(ChinaCraft.redPacket)) {
-            NBTTagCompound nbtitem = new NBTTagCompound();
-            NBTTagCompound nbtitem2 = new NBTTagCompound();
-            if (getSlot(0).getStack() != null) {
-                getSlot(0).getStack().writeToNBT(nbtitem);
-            }
-            nbtitem2.setTag("item", nbtitem);
-            itemStack.setTagCompound(nbtitem2);
-            p_75134_1_.inventory.setInventorySlotContents(p_75134_1_.inventory.currentItem, itemStack);
-        }
+        if (p_75134_1_.getHeldItem() == null || !p_75134_1_.getHeldItem().getItem().equals(ChinaCraft.redPacket)) return;
+
+        NBTTagCompound nbtitem = new NBTTagCompound();
+        if (getSlot(0).getStack() != null) getSlot(0).getStack().writeToNBT(nbtitem);
+        p_75134_1_.getHeldItem().setTagInfo("item", nbtitem);
     }
 
     @Override

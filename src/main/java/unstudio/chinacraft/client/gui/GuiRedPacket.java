@@ -1,5 +1,7 @@
 package unstudio.chinacraft.client.gui;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
@@ -24,26 +26,24 @@ public class GuiRedPacket extends GuiContainer {
 
     private GuiTextField wishTextBox;
     private GuiTextField sendeeTextBox;
-
-    private int wishColor = Integer.MAX_VALUE;
-    private String sender="";
-    private int currentItem;
-    private EntityPlayer player;
-    private ItemStack itemStack;
     private GuiButton buttonSend;
 
-    public GuiRedPacket(EntityPlayer player, ItemStack itemStack) {
-        super(new ContainerRedPacket(player, itemStack));
-        this.itemStack = itemStack;
+    private int wishColor = Integer.MAX_VALUE;
+    private String sender="",wish="";
+    private int currentItem;
+    private EntityPlayer player;
+
+    public GuiRedPacket(EntityPlayer player) {
+        super(new ContainerRedPacket(player));
         this.player = player;
+        ItemStack itemStack = player.getHeldItem();
         currentItem = player.inventory.currentItem;
-        NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
-        if (par1NBTTagCompound != null) {
-            NBTTagCompound redpacket = par1NBTTagCompound.getCompoundTag("redpacket");
-            if (redpacket != null) {
+        if (itemStack.hasTagCompound()&&itemStack.getTagCompound().hasKey("redpacket")) {
+                NBTTagCompound redpacket = itemStack.getTagCompound().getCompoundTag("redpacket");
                 sender = redpacket.getString("sender");
-            }
+                wish = redpacket.getString("wish");
         }
+        if (wish == null || wish.isEmpty()) wish=StatCollector.translateToLocal("gui.redpacket.wash");
     }
 
     @Override
@@ -55,25 +55,13 @@ public class GuiRedPacket extends GuiContainer {
         wishTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2 - 80, 65, 160, 16);
         wishTextBox.setFocused(true);
         wishTextBox.setMaxStringLength(64);
+        wishTextBox.setText(wish);
         sendeeTextBox = new GuiTextField(Minecraft.getMinecraft().fontRenderer, this.xSize / 2 + 96, 65, 64, 16);
-        sendeeTextBox.setFocused(false);
         sendeeTextBox.setMaxStringLength(32);
         this.buttonList.add(this.buttonSend = new GuiButton(0, k + this.xSize / 2 + 96, l + 89, 64, 20,
                 StatCollector.translateToLocal("gui.redpacket.send")));
         buttonSend.enabled = false;
         updateButton();
-        NBTTagCompound par1NBTTagCompound = itemStack.getTagCompound();
-        if (par1NBTTagCompound != null) {
-            NBTTagCompound redpacket = par1NBTTagCompound.getCompoundTag("redpacket");
-            if (redpacket != null) {
-                String wish = redpacket.getString("wish");
-                if (wish == null || wish.isEmpty())
-                    wishTextBox.setText(StatCollector.translateToLocal("gui.redpacket.wash"));
-                else
-                    wishTextBox.setText(wish);
-                sendeeTextBox.setText(redpacket.getString("sendee"));
-            }
-        }
         super.initGui();
     }
 
@@ -85,17 +73,12 @@ public class GuiRedPacket extends GuiContainer {
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2) {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-        String s = sender == null ? StatCollector.translateToLocal("item.redpacket.name")
-                : (sender.isEmpty() ? StatCollector.translateToLocal("item.redpacket.name")
-                        : StatCollector.translateToLocal("gui.redpacket.from").replaceAll("%sender%", sender)); // 设置Gui标题
-        this.fontRendererObj.drawString(s, this.xSize / 2 - this.fontRendererObj.getStringWidth(s) / 2, 5,
-                Integer.MAX_VALUE);
         if (sender == null || sender.isEmpty() || sender.equalsIgnoreCase(player.getDisplayName())) {
-            sendeeTextBox.setEnabled(true);
-            wishTextBox.setEnabled(true);
             wishTextBox.drawTextBox();
             sendeeTextBox.drawTextBox();
-            buttonSend.visible = true;
+            String head = StatCollector.translateToLocal("item.redpacket.name");
+            this.fontRendererObj.drawString(head, this.xSize / 2 - this.fontRendererObj.getStringWidth(head) / 2, 5,
+                    Integer.MAX_VALUE);
         } else {
             sendeeTextBox.setEnabled(false);
             sendeeTextBox.setVisible(false);
@@ -103,6 +86,9 @@ public class GuiRedPacket extends GuiContainer {
             wishTextBox.setVisible(false);
             buttonSend.visible = false;
             this.fontRendererObj.drawString(getWish(), this.xSize / 2 - this.fontRendererObj.getStringWidth(getWish()) / 2, 68,
+                    Integer.MAX_VALUE);
+            String head = String.format(StatCollector.translateToLocal("gui.redpacket.from"),sender);
+            this.fontRendererObj.drawString(head, this.xSize / 2 - this.fontRendererObj.getStringWidth(head) / 2, 5,
                     Integer.MAX_VALUE);
         }
     }
@@ -128,9 +114,8 @@ public class GuiRedPacket extends GuiContainer {
         wishTextBox.textboxKeyTyped(par1, par2);
         sendeeTextBox.textboxKeyTyped(par1, par2);
         if (par1 == '\r') {
-
-        }
-        if (par2 == 1) {
+            if(wishTextBox.isFocused()) sendeeTextBox.setFocused(true);
+        }if (par2 == 1) {
             player.closeScreen();
             sendRedPacketToServer(false);
         }
@@ -139,7 +124,11 @@ public class GuiRedPacket extends GuiContainer {
     }
 
     public String getWish() {
-        return wishTextBox.getText().replaceAll("&", "§");
+        return wishTextBox.getText();
+    }
+
+    public String getSendee(){
+        return sendeeTextBox.getText();
     }
 
     @Override
@@ -148,6 +137,7 @@ public class GuiRedPacket extends GuiContainer {
         super.onGuiClosed();
     }
 
+    @SideOnly(Side.CLIENT)
     private void sendRedPacketToServer(boolean isSend) {
         ChinaCraft.Network.sendToServer(new RedPacketMessage(isSend?player.getDisplayName():sender,getWish(),sendeeTextBox.getText(),isSend));
     }
@@ -159,16 +149,19 @@ public class GuiRedPacket extends GuiContainer {
         wishTextBox.mouseClicked(par1 - k, par2 - l, par3);
         sendeeTextBox.mouseClicked(par1 - k, par2 - l, par3);
         super.mouseClicked(par1, par2, par3);
-        // 同样,如果你有多个文本框,则每个都要来一遍
     }
 
     @Override
     protected void actionPerformed(GuiButton button) {
-        if (button.enabled) {
-            if (button.id == 0) {
-                player.closeScreen();
+        if(!button.enabled) return;
+        switch (button.id){
+            case 0:{
                 sendRedPacketToServer(true);
+                player.closeScreen();
+                break;
             }
+            default:
+                break;
         }
     }
 

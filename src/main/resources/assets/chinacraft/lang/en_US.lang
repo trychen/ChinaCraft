@@ -254,18 +254,15 @@ record.spring_festival_overture=Spring festival Overture
 
 item.redpacket.name=Red Packet
 gui.redpacket.title=Red Packet
-gui.redpacket.money=Money:
 gui.redpacket.wash=Please enter a blessing...
 gui.redpacket.sendee=Sendee:
-gui.redpacket.from=From %sender%'s Red Packet
+gui.redpacket.from=From %s's Red Packet
 gui.redpacket.pack=Pack
 gui.redpacket.send=Send
-redpacket.success=Successfully send a Red Packet to %sendee%.
-redpacket.not_enough_money=Failed: You don't have enough money!
-redpacket.not_found_player=Failed: Can't find Player %sendee%!
-redpacket.backpack_full=Failed: %sendee%'s Backpack is full!
+redpacket.success=Successfully send a Red Packet to %s.
+redpacket.not_found_player=Failed: Can't find Player %s!
+redpacket.backpack_full=Failed: %s's Backpack is full!
 redpacket.received=You received a red Red Packet.!
-redpacket.receive_money=You open the Red Packet to get %money% Money!
 
 gui.inventory.shiftfordetail=§7§o<Hold Shift for Details>
 
