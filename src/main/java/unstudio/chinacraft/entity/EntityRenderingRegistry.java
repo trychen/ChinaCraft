@@ -40,8 +40,8 @@ public class EntityRenderingRegistry {
                 "textures/entity/blackwolf/blackwolf.png");
         EntityRenderingHandler(EntityChinaZombie.class, new ModelChinaZombie(), "chinacraft",
                 FestivalHelper.getFestival() == FestivalHelper.Festival.Spring?"textures/entity/chinazombie/spring_chinazombie.png":"textures/entity/chinazombie/chinazombie.png");
-        EntityRenderingHandler(EntityPanda.class, new ModelPanda(), "chinacraft",
-                "textures/entity/panda/panda.png");
+//        EntityRenderingHandler(EntityPanda.class, new ModelPanda(), "chinacraft",
+//                "textures/entity/panda/panda.png");
         EntityRenderingHandler(EntityKongmingLantern.class, new ModelKongmingLantern(), "chinacraft",
                 "textures/entity/kongminglantern/kongminglantern.png");
 
