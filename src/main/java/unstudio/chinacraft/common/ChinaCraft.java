@@ -197,8 +197,6 @@ public class ChinaCraft implements ICollection {
     //    public static final BlockPotteryBase blockPotteryBase = new BlockPotteryBase(); // 陶瓷
     @Register("Buhrimill")
     public static final BlockBuhrimill buhrimill = new BlockBuhrimill(); // 石磨
-//    @Register("Lantern")
-//    public static final BlockCCLantern lantern = new BlockCCLantern(); // 灯笼
     @Register("LanternScaldfish")
     public static final BlockCCLamp lanternScaldfish = (BlockCCLamp) new BlockCCLamp(Material.wood, ModelLanternScaldfish.class,"lantern_scaldfish",true).setTexture("lantern_scaldfish_on");
     @Register("LanternScaldfishOff")

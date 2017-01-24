@@ -3,6 +3,7 @@ package unstudio.chinacraft.block.model;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -19,9 +20,11 @@ import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.tileentity.TileModelBlock;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class BlockCCLamp extends BlockCCModel {
+
     private boolean light;
 
     /**
@@ -33,6 +36,7 @@ public class BlockCCLamp extends BlockCCModel {
         super(material, model, name, null);
         if (light) this.setLightLevel(1.0F);
         this.light = light;
+
     }
 
     @Override
@@ -41,19 +45,20 @@ public class BlockCCLamp extends BlockCCModel {
     }
 
     @Override
-    public int onBlockPlaced(World w, int x, int y, int z, int p_149660_5_, float p_149660_6_, float p_149660_7_, float p_149660_8_, int p_149660_9_) {
-        w.setBlockMetadataWithNotify(x, y, z, 2, 0);
-        return super.onBlockPlaced(w, x, y, z, p_149660_5_, p_149660_6_, p_149660_7_, p_149660_8_, p_149660_9_);
+    public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_) {
+        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 1));
+        p_149666_3_.add(new ItemStack(p_149666_1_, 1, 2));
     }
 
     @Override
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase living, ItemStack item) {
-        if (item.getTagCompound() != null && item.getTagCompound().hasKey("lampsize")) {
-            int size = item.getTagCompound().getInteger("lampsize");
-            world.setBlockMetadataWithNotify(x, y, z, size, 3);
-        } else {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 0);
-        }
+    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase p_149689_5_, ItemStack p_149689_6_) {
+        world.setBlockMetadataWithNotify(x, y, z, p_149689_6_.getItemDamage(), 3);
+    }
+
+    @Override
+    public int damageDropped(int p_149692_1_) {
+        return p_149692_1_;
     }
 
     @Override
@@ -95,34 +100,10 @@ public class BlockCCLamp extends BlockCCModel {
     }
 
     @Override
-    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
-        ItemStack itemStack = super.getPickBlock(target, world, x, y, z, player);
-        if (itemStack.getTagCompound() == null){
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-        itemStack.getTagCompound().setInteger("lampsize",world.getBlockMetadata(x,y,z));
-        return itemStack;
-    }
-
-    @Override
     public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
         ArrayList<ItemStack> is = new ArrayList<>();
-        ItemStack itemStack = new ItemStack(ChinaCraft.lanternScaldfishOff, 1);
-        if (itemStack.getTagCompound() == null){
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-        itemStack.getTagCompound().setInteger("lampsize",world.getBlockMetadata(x,y,z));
+        ItemStack itemStack = new ItemStack(ChinaCraft.lanternScaldfishOff, 1,metadata);
         is.add(itemStack);
         return is;
-    }
-
-    @Override
-    protected ItemStack createStackedBlock(int p_149644_1_) {
-        ItemStack itemStack = new ItemStack(light ? ChinaCraft.lanternScaldfish : ChinaCraft.lanternScaldfishOff);
-        if (itemStack.getTagCompound() == null){
-            itemStack.setTagCompound(new NBTTagCompound());
-        }
-        itemStack.getTagCompound().setInteger("lampsize",2);
-        return itemStack;
     }
 }
