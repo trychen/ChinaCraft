@@ -3,13 +3,12 @@ package unstudio.chinacraft.util.annotation;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.oredict.OreDictionary;
-import unstudio.chinacraft.block.model.BlockCCModel;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
 import unstudio.chinacraft.item.ItemCCSlab;
 import unstudio.chinacraft.util.annotation.register.ICollection;
-import unstudio.chinacraft.util.annotation.register.OreRegister;
 import unstudio.chinacraft.util.annotation.register.Register;
 import unstudio.chinacraft.util.annotation.register.SlabRegister;
 
@@ -41,12 +40,12 @@ public class ItemBlockRegister {
     /**
      * 该方法用于对使用了CC注释注册系统的类进行注册,支持以下的注释
      * @see Register
-     * @see OreRegister
      * @see SlabRegister
      * @param c 类
      */
     public static void register(Class c) {
         for (Field f : c.getDeclaredFields()) {
+            f.setAccessible(true);
             if (f.getDeclaredAnnotations().length > 0) {
                 Object o;
                 try {
@@ -60,16 +59,16 @@ public class ItemBlockRegister {
                     e.printStackTrace();
                     continue;
                 }
-                if (f.isAnnotationPresent(Register.class) || f.isAnnotationPresent(OreRegister.class) || f.isAnnotationPresent(SlabRegister.class)) {
+                if (f.isAnnotationPresent(Register.class) || f.isAnnotationPresent(SlabRegister.class)) {
 
                     String name = null;
                     String ore = null;
+                    Class<? extends ItemBlock> itemClass = ItemBlock.class;
                     if (f.isAnnotationPresent(Register.class)) {
-                        name = f.getAnnotation(Register.class).value();
-                    } else if (f.isAnnotationPresent(OreRegister.class)) {
-                        OreRegister ann = f.getAnnotation(OreRegister.class);
-                        name = ann.name();
-                        ore = ann.ore();
+                        Register anno = f.getAnnotation(Register.class);
+                        name = anno.value();
+                        itemClass = anno.itemClass();
+                        ore = anno.ore();
                     }
 
                     if (o instanceof Block) {
@@ -85,13 +84,13 @@ public class ItemBlockRegister {
                             }
                         } else {
                             //以方块的形式注册
-                            GameRegistry.registerBlock((Block) o, name);
+                            GameRegistry.registerBlock((Block) o, itemClass, name);
                         }
-                        if (ore != null) OreDictionary.registerOre(ore, (Block) o);
+                        if (ore != null&&!ore.isEmpty()) OreDictionary.registerOre(ore, (Block) o);
                     } else if (o instanceof Item) {
                         //以物品的形式注册
                         GameRegistry.registerItem((Item) o, name);
-                        if (ore != null) OreDictionary.registerOre(ore, (Item) o);
+                        if (ore != null&&!ore.isEmpty()) OreDictionary.registerOre(ore, (Item) o);
                     } else {
                         //非可注册的物品
                         new IllegalArgumentException("Can't register field which haven't extended Block").printStackTrace();

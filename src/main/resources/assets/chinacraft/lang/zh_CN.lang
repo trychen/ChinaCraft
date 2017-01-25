@@ -182,6 +182,12 @@ tile.lantern_scaldfish.name=元宵灯笼
 item.lantern_scaldfish.name=元宵灯笼
 tile.lantern_scaldfish_openable.name=元宵灯笼
 item.lantern_scaldfish_openable.name=元宵灯笼
+tile.lantern_scaldfish_0.name=元宵灯笼(小)
+tile.lantern_scaldfish_openable_0.name=元宵灯笼(小)
+tile.lantern_scaldfish_1.name=元宵灯笼(中)
+tile.lantern_scaldfish_openable_1.name=元宵灯笼(中)
+tile.lantern_scaldfish_2.name=元宵灯笼(大)
+tile.lantern_scaldfish_openable_2.name=元宵灯笼(大)
 
 item.silk.black.name=黑色丝绸
 item.silk.red.name=红色丝绸

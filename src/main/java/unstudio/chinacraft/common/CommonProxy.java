@@ -17,6 +17,7 @@ import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import unstudio.chinacraft.event.ListenerRegister;
 import unstudio.chinacraft.item.ItemCCBlock;
+import unstudio.chinacraft.item.ItemCCLamp;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.client.waila.WailaCompatibility;
 import unstudio.chinacraft.common.config.*;
@@ -31,6 +32,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
+        //配置文件载入
         new ConfigLoader(new Configuration(event.getSuggestedConfigurationFile()));
 
         // 由于ChinaCraft主类中ItemSilkworm实例生成的比Config实例要早，因此这些只能被迫在这儿进行
@@ -43,6 +45,7 @@ public class CommonProxy {
         if (ChinaCraft.WAILAIsLoad)
             WailaCompatibility.init();
 
+        //套装载入 TODO:这是一个旧的载入方法
         ChinaCraft.bronzeHelmet = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON, ChinaCraft.bronzeArmorTexture,
                 0).setUnlocalizedName("bronze_helmet").setMaxStackSize(1).setCreativeTab(ChinaCraft.tabTool);// 青铜头盔
         ChinaCraft.bronzeChestplate = (ItemArmor) new ItemArmor(ItemArmor.ArmorMaterial.IRON,
@@ -65,6 +68,7 @@ public class CommonProxy {
         // 初始化监听器
         ListenerRegister.init();
 
+        //注册生成器
         GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
         GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
         GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
@@ -73,24 +77,25 @@ public class CommonProxy {
         GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true), 1);
         GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
 
+        //注册TileEntity
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityCCJadeWorkingTable"); // 玉石工作台TileEntity
         GameRegistry.registerTileEntity(TileDrum.class, "tileEntityCCDrum");
         GameRegistry.registerTileEntity(TileBuhrimill.class, "tileEntityCCBuhrimill"); // 石磨TileEntity
         GameRegistry.registerTileEntity(TileCookingBench.class, "tileEntityCCCookingBench");
         GameRegistry.registerTileEntity(TileSericultureFrame.class, "tileEntitySericultureFrame"); // 养蚕架TileEntity
         GameRegistry.registerTileEntity(TilePotteryTable.class, "tileEntityCCPotteryTable");
+        GameRegistry.registerTileEntity(TileFirebrickStructure.class, "tileCCFirebrickStructure");
+        GameRegistry.registerTileEntity(TilePotteryKiln.class, "tileCCPotteryKiln");
+        GameRegistry.registerTileEntity(TileModelBlock.class, "tileEntityCCModelBlock");
 
-        GameRegistry.registerBlock(ChinaCraft.sericultureFrame, ItemCCBlock.class, "SericultureFrame"); // 养蚕架
+        //GameRegistry.registerBlock(ChinaCraft.sericultureFrame, ItemCCBlock.class, "SericultureFrame"); // 养蚕架
 
         GameRegistry.registerItem(ChinaCraft.nightClothes[0], "NightClothesHead");
         GameRegistry.registerItem(ChinaCraft.nightClothes[1], "NightClothesBody");
         GameRegistry.registerItem(ChinaCraft.nightClothes[2], "NightClothesLeg");
         GameRegistry.registerItem(ChinaCraft.nightClothes[3], "NightClothesShoe");
-        GameRegistry.registerTileEntity(TileFirebrickStructure.class, "tileCCFirebrickStructure");
-        GameRegistry.registerTileEntity(TilePotteryKiln.class, "tileCCPotteryKiln");
-        GameRegistry.registerTileEntity(TileModelBlock.class, "tileEntityCCModelBlock");
 
-        Recipes.init();
+        Recipes.init(); //载入配方
 
         FluidContainerRegistry.registerFluidContainer(FluidRegistry.WATER, new ItemStack(ChinaCraft.woodenBucket_Water),
                 new ItemStack(ChinaCraft.woodenBucket));

@@ -37,11 +37,12 @@ public class ClientProxy extends CommonProxy {
 
     @Override
     public void init(FMLInitializationEvent event) {
+        //载入NEI
         if (ChinaCraft.NEIIsLoad) {
             new NEIAPI().loadConfig();
         }
 
-        //TODO:清理此地材质注册……
+        //TODO:这是旧的材质注册方法
         ChinaCraft.azalea.setBlockTextureName("chinacraft:azalea");
         ChinaCraft.peony.setBlockTextureName("chinacraft:peony");
         ChinaCraft.chrysanthemum.setBlockTextureName("chinacraft:chrysanthemum");
@@ -139,8 +140,10 @@ public class ClientProxy extends CommonProxy {
 
         super.init(event);
 
+        //盔甲模型载入
         ModelArmorRegister.init();
 
+        //石磨渲染器载入
         ClientRegistry.bindTileEntitySpecialRenderer(TileBuhrimill.class, new TileEntityBuhrimillRenderer());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.buhrimill), new ModelBlockItemRenderer(new ModelBuhrimill(),
                 new ResourceLocation("chinacraft:textures/models/block/buhrimill.png")));
@@ -163,19 +166,22 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemDing, new ModelBlockItemRenderer(new ModelDing(), new ResourceLocation("chinacraft:textures/models/block/ding.png")).setRenderer(new BlockCCDing.ItemCustomRender()));
 
 
+        //养蚕架渲染器载入
         ClientRegistry.bindTileEntitySpecialRenderer(TileSericultureFrame.class,
                 new TileEntitySericultureFrameRenderer());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.sericultureFrame), new ItemSericultureFrameRenderer());
 
+        //木桶渲染器载入
         RenderingRegistry.registerBlockHandler(new BlockWoodenBucketRenderer());
         // MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.blockPotteryBase),
         // new ItemPotteryBlockRenderer(new TilePotteryBlock(), 0.0D, -0.1D,
         // 0.0D));
 
+        //陶瓷工作台渲染器载入
         ClientRegistry.bindTileEntitySpecialRenderer(TilePotteryTable.class, new TileEntityPotteryTableRenderer());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ChinaCraft.potteryTable), new ItemPotteryTableRenderer());
-        //MinecraftForgeClient.registerItemRenderer(ChinaCraft.itemPotteryTable, new ItemPotteryTableRenderer());
 
+        //实体渲染器载入
         EntityRenderingRegistry.init();
 
         //实现IClient
