@@ -84,6 +84,8 @@ item.jade.lore=等级：
 tile.bamboo.name=竹子
 tile.bamboo_slab.name=竹制半砖
 tile.bamboo_stair.name=竹制楼梯
+tile.bamboo_fence.name=竹制栅栏
+tile.bamboo_fence_gate.name=竹制栅栏门
 tile.bamboo_plank.name=竹板
 tile.bamboo_shoot.name=竹笋
 item.bamboo.name=竹子
@@ -172,8 +174,6 @@ tooltip.generation.info=所属代数：
 tooltip.productivity.info=产物数量：
 tooltip.speed.info=生长速度：
 tooltip.fertility.info=繁殖能力：
-
-
 
 item.moth.male.name=雄蛾
 item.moth.female.name=雌蛾

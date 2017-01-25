@@ -122,6 +122,10 @@ public class Recipes {
                 new Object[]{"#  ", "## ", "###", '#', ChinaCraft.bambooPlank});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooStair, 4),
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.bambooPlank});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFence, 2),
+                new Object[]{"###", "###", "   ", '#', ChinaCraft.itemBamboo});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFenceGate, 1),
+                new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo,'$',ChinaCraft.bambooPlank});
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),

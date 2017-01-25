@@ -171,6 +171,10 @@ public class ChinaCraft implements ICollection {
     public static final Block bambooDoubleSlab =  new BlockCCSlab(true,Material.wood).setBlockSlab(ChinaCraft.bambooSlab).setHardness(2.0F).setResistance(5.0F).setBlockName("bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:bamboo_plank");//竹制半砖
     @Register("BambooStair")
     public static final Block bambooStair = new BlockCCStair(ChinaCraft.bambooPlank,0).setHardness(2.0F).setResistance(5.0F).setBlockName("bamboo_stair").setCreativeTab(ChinaCraft.tabCore);//竹制楼梯
+    @Register("BambooFenceGate")
+    public static final Block bambooFenceGate = new BlockCCFenceGate(bambooPlank).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("bamboo_fence_gate").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏门
+    @Register("BambooFence")
+    public static final Block bambooFence = new BlockCCFence("chinacraft:bamboo_plank",Material.wood).setGate(bambooFenceGate).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("bamboo_fence").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏
     @Register("MulberryLog")
     public static final Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
     @Register("MulberryLeaf")

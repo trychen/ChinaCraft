@@ -165,7 +165,8 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
 
     @Override
     public void render(TileEntity tile, double x, double y, double z) {
-        double sca = tile.getBlockMetadata() * 0.2;
+        int metadata = tile.getBlockMetadata();
+        double sca = metadata * 0.2;
         if (tile.getWorldObj().isAirBlock(tile.xCoord,tile.yCoord - 1,tile.zCoord)){
             foot1.render(0.0625f);
             foot2.render(0.0625f);
