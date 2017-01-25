@@ -41,7 +41,7 @@ public class ModelBlockItemRenderer implements IItemRenderer {
         if (item.getItem() instanceof ItemBlock) {
             int itemID = Item.getIdFromItem(item.getItem());
             if ((itemID == Block.getIdFromBlock(ChinaCraft.lanternScaldfish) || (itemID == Block.getIdFromBlock(ChinaCraft.lanternScaldfishOff)))) {
-                float size_added = item.getTagCompound() != null&&item.getTagCompound().hasKey("lampsize")?item.getTagCompound().getInteger("lampsize") * 0.2f:0.2f;
+                float size_added = item.getItemDamage() * 0.2f;
                 GL11.glScalef(1 + size_added, 1f, 1 + size_added);
             }
         }
