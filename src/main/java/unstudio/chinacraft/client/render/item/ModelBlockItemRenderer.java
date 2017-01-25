@@ -38,6 +38,7 @@ public class ModelBlockItemRenderer implements IItemRenderer {
     public void renderItem(IItemRenderer.ItemRenderType type, ItemStack item, Object... data) {
         Minecraft.getMinecraft().renderEngine.bindTexture(texture);
         GL11.glRotatef(180F, 1F, 0F, 0F);
+        if (item.getItem() == ChinaCraft.itemDing) GL11.glRotatef(90F, 0F, 1F, 0F);
         if (item.getItem() instanceof ItemBlock) {
             int itemID = Item.getIdFromItem(item.getItem());
             if ((itemID == Block.getIdFromBlock(ChinaCraft.lanternScaldfish) || (itemID == Block.getIdFromBlock(ChinaCraft.lanternScaldfishOff)))) {

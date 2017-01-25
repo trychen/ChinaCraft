@@ -35,7 +35,7 @@ public class BlockBamboo extends Block implements IPlantable {
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 1.0F, 0.5F + f);
         this.setTickRandomly(true);
         setHardness(3.0F);
-        setCreativeTab(ChinaCraft.tabCore);
+        setCreativeTab(ChinaCraft.tabFarming);
         setBlockName("bamboo");
     }
 
