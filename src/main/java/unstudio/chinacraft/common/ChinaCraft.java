@@ -88,14 +88,14 @@ public class ChinaCraft implements ICollection {
     public static final Item.ToolMaterial YANGLONG = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10); // BLGiantSword
     public static final Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
 
-    public static final CreativeTabs tabCore = new CreativeTabs(StatCollector.translateToLocal("core")) {
+    public static final CreativeTabs tabCore = new CreativeTabs("core") {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
             return jadeGreenItem;
         }
     };
-    public static final CreativeTabs tabFarming = new CreativeTabs(StatCollector.translateToLocal("farming")) {
+    public static final CreativeTabs tabFarming = new CreativeTabs("farming") {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
@@ -103,7 +103,7 @@ public class ChinaCraft implements ICollection {
         }
     };
 
-    public static final CreativeTabs tabTool = new CreativeTabs(StatCollector.translateToLocal("tool")) {
+    public static final CreativeTabs tabTool = new CreativeTabs("tool") {
         @Override
         @SideOnly(Side.CLIENT)
         public Item getTabIconItem() {
