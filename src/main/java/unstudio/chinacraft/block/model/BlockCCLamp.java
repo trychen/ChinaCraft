@@ -1,5 +1,7 @@
 package unstudio.chinacraft.block.model;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.model.ModelBase;
@@ -33,7 +35,7 @@ public class BlockCCLamp extends BlockCCModel {
      * @param name     名字
      */
     public BlockCCLamp(Material material, Class<? extends ModelBase> model, String name, boolean light) {
-        super(material, model, name, null);
+        super(material, model, name);
         if (light) this.setLightLevel(1.0F);
         this.light = light;
 
@@ -61,6 +63,7 @@ public class BlockCCLamp extends BlockCCModel {
         return p_149692_1_;
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
         return Blocks.wool.getIcon(0, 14);

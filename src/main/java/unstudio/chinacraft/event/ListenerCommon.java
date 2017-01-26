@@ -60,6 +60,7 @@ public class ListenerCommon {
         }
     }
 
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onSpring(GuiScreenEvent.InitGuiEvent event){
         if (event.gui instanceof GuiMainMenu){

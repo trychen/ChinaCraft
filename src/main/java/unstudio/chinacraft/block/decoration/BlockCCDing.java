@@ -30,7 +30,7 @@ public class BlockCCDing extends BlockCCModel {
     public static final int[][] field_149981_a = new int[][]{{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
 
     public BlockCCDing() {
-        super(Material.anvil, ModelDing.class,"ding",Blocks.mossy_cobblestone.getIcon(0, 0));
+        super(Material.anvil, ModelDing.class,"ding");
         setHardness(5f);
         setResistance(5f);
         setStepSound(soundTypeAnvil);
@@ -76,6 +76,12 @@ public class BlockCCDing extends BlockCCModel {
     @Override
     public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
         return new ItemStack(ChinaCraft.itemDing);
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
+        return Blocks.mossy_cobblestone.getIcon(p_149691_1_, p_149691_2_);
     }
 
     @Override
