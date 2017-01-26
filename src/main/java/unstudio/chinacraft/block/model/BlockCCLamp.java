@@ -98,6 +98,13 @@ public class BlockCCLamp extends BlockCCModel {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
+    public void randomDisplayTick(World world, int x, int y, int z,  Random p_149734_5_) {
+        if(!light) return;
+        world.spawnParticle("flame",x + 0.5,y + 0.635,z + 0.5,0,0.002,0);
+    }
+
+    @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
         return Item.getItemFromBlock(ChinaCraft.lanternScaldfishOff);
     }

@@ -110,7 +110,7 @@ public class Recipes {
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A',
                 Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife}));
 
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish,1,2), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemDing), "H J", "MOM", "MCM", 'C', Blocks.coal_block, 'J', ChinaCraft.jadeKnife, 'O', Blocks.obsidian, 'M', Blocks.mossy_cobblestone, 'H', ChinaCraft.hammerDiamond);
 
         // 竹子

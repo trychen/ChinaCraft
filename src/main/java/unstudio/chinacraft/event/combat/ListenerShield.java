@@ -4,6 +4,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
@@ -23,11 +24,13 @@ public class ListenerShield {
             return;
         }
         EntityPlayer player = (EntityPlayer) e.entityLiving;
-        if (player.getItemInUse() == null) {
+        //if (player.getItemInUse() == null) {
+        if (player.getHeldItem() == null) {
             return;
         }
         float damage = e.ammount;
-        ItemStack activeItemStack = player.getItemInUse();
+        //ItemStack activeItemStack = player.getItemInUse();
+        ItemStack activeItemStack = player.getHeldItem();
 
         if (damage > 0.0F && activeItemStack != null && activeItemStack.getItem() instanceof CCShield) {
             int i = 1 + MathHelper.floor_float(damage);
@@ -52,11 +55,13 @@ public class ListenerShield {
             return;
         }
         EntityPlayer player = (EntityPlayer) e.entityLiving;
-        if (player.getItemInUse() == null) {
+        //if (player.getItemInUse() == null) {
+        if(player.getHeldItem() == null){
             return;
         }
         float damage = e.ammount;
-        ItemStack activeItemStack = player.getItemInUse();
+        //ItemStack activeItemStack = player.getItemInUse();
+        ItemStack activeItemStack = player.getHeldItem();
 
         if (damage > 0.0F && activeItemStack != null && activeItemStack.getItem() instanceof CCShield) {
             int i = 1 + MathHelper.floor_float(damage);

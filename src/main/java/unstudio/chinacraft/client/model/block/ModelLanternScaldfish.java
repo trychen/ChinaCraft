@@ -172,7 +172,6 @@ public class ModelLanternScaldfish extends ModelBase implements ModelExtendBlock
             foot2.render(0.0625f);
         }
         Block b = tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord + 1,tile.zCoord);
-        if  ((System.currentTimeMillis() & 99) == 0 && tile.getWorldObj().getBlock(tile.xCoord,tile.yCoord,tile.zCoord) == ChinaCraft.lanternScaldfish) tile.getWorldObj().spawnParticle("flame",tile.xCoord + 0.5,tile.yCoord + 0.635,tile.zCoord + 0.5,0,0.002,0);
         if (b == ChinaCraft.lanternScaldfish||b == ChinaCraft.lanternScaldfishOff||b.getRenderType() == 0 || b.getRenderType() == 11|| b.getRenderType() == 32){
                 Shape14.render(0.0625F);
         }

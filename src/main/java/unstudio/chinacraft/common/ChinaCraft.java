@@ -267,7 +267,6 @@ public class ChinaCraft implements ICollection {
     public static final Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
     @Register("SoyGrow")
     public static final CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物
-    // public static final RiceGrow riceGrow = new RiceGrow(); //水稻作物
     @Register("Soy")
     public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow).setUnlocalizedName("soy"); // 大豆
     @Register("BlockGlutinousRice")
