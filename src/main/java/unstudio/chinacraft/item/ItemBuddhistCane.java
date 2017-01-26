@@ -22,7 +22,7 @@ import java.util.List;
 public class ItemBuddhistCane extends ItemCCStaff {
     public ItemBuddhistCane() {
         setUnlocalizedName("buddhist_cane");
-        setMaxDamage(2000);
+        setMaxDamage(800);
     }
 
     @Override

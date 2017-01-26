@@ -42,7 +42,7 @@ public class EntityThrownFirecracker extends EntityThrowable {
     @Override
     public void writeEntityToNBT(NBTTagCompound nbttagcompound) {
     }
-    private static final String[] sound = {"chinacraft:firecracker","chinacraft:firecracker1","chinacraft:firecracker2","chinacraft:firecracker3"};
+    private static final String[] sound = {"chinacraft:firecracker","chinacraft:firecracker1","chinacraft:firecracker2"};
     @Override
     protected void onImpact(MovingObjectPosition mop) {
         if (this.worldObj.isRemote) {
