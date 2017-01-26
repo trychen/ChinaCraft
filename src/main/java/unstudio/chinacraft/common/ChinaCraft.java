@@ -498,10 +498,6 @@ public class ChinaCraft implements ICollection {
         proxy.postInit(event);
     }
 
-    @EventHandler
-    public void onServerStarted(FMLServerStartedEvent event) {
-        //vault = ServerManager.getVaultPlugin();
-    }
     @Override
     public boolean canInvoker(Object input) {
         return true;
