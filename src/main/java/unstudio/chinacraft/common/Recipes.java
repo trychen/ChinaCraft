@@ -232,9 +232,6 @@ public class Recipes {
         // 大豆荚
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[]{ChinaCraft.soyPod});
 
-        // 竹子
-        GameRegistry.addSmelting(ChinaCraft.itemBamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
-
         // 木桶
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1),
                 new Object[]{"   ", "# #", " # ", '#', Item.getItemFromBlock(Blocks.log)});
