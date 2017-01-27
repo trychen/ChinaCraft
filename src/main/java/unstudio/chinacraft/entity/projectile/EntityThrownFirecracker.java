@@ -50,7 +50,7 @@ public class EntityThrownFirecracker extends EntityThrowable {
             explosion.isFlaming = true;
             explosion.isSmoking = true;
 
-            this.worldObj.playSound(this.posX, this.posY, this.posZ, sound[this.worldObj.rand.nextInt(3)], 0.5F,
+            this.worldObj.playSound(this.posX, this.posY, this.posZ, sound[this.worldObj.rand.nextInt(2)], 0.5F,
                     0.40000000596046447754F
                             / (this.worldObj.rand.nextFloat() * 0.40000000596046447754F + 0.80000001192092895508F),
                     true);
