@@ -257,6 +257,10 @@ record.mountain_stream=高山流水
 record.the_march_of_the_volunteers=义勇军进行曲
 record.spring_festival_overture=春节序曲
 
+splashText.spring.1=春节快乐！
+splashText.spring.2=雄鸡歌曙色，妙手绣春光！
+splashText.spring.3=欢欢喜喜迎新年，万事如意平安年
+
 item.redpacket.name=红包
 gui.redpacket.title=红包
 gui.redpacket.money=金钱：

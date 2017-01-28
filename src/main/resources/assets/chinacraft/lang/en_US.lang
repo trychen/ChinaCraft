@@ -253,6 +253,10 @@ record.mountain_stream=Mountain Stream
 record.the_march_of_the_volunteers=March of the Volunteers
 record.spring_festival_overture=Spring festival Overture
 
+splashText.spring.1=Happy Spring Festival!
+splashText.spring.2=Best wishes for you and your family.
+splashText.spring.3=Happy Spring Festival!
+
 item.redpacket.name=Red Packet
 gui.redpacket.title=Red Packet
 gui.redpacket.money=Money:
