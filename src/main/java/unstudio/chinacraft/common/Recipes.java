@@ -181,7 +181,7 @@ public class Recipes {
                 ChinaCraft.bronzeBlock);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeSword, 1),
                 new Object[]{" # ", " # ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.mace, 1), new Object[]{" #O", " X#", "X  ", '#', Items.coal,
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.mace, 1), new Object[]{" #O", " X#", "X  ", '#', Items.iron_ingot,
                 'X', Items.stick, 'O', Item.getItemFromBlock(Blocks.obsidian)});
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1),
                 new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick}));
@@ -231,9 +231,6 @@ public class Recipes {
 
         // 大豆荚
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.soy, 2), new Object[]{ChinaCraft.soyPod});
-
-        // 竹子
-        GameRegistry.addSmelting(ChinaCraft.itemBamboo, new ItemStack(ChinaCraft.mulberrySapling), 1.2f);
 
         // 木桶
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenBucket, 1),
