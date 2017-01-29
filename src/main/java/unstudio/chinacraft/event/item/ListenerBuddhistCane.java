@@ -5,6 +5,7 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
@@ -24,7 +25,7 @@ public class ListenerBuddhistCane {
                 if (!event.entityPlayer.worldObj.isRemote) {
                     ((EntityLivingBase) event.target).addPotionEffect(new PotionEffect(6,20,2));
                     event.entityPlayer.attackEntityFrom(new DamageSource("continuedLife"), 0.8f);
-                    event.entityPlayer.inventory.getCurrentItem().damageItem(2, event.entityPlayer);
+                    event.entityPlayer.inventory.getCurrentItem().damageItem(3, event.entityPlayer);
                 }
                 event.setCanceled(true);
             }

@@ -1,5 +1,6 @@
 package unstudio.chinacraft.item;
 
+import com.google.common.collect.Multimap;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.*;
@@ -22,7 +23,7 @@ import java.util.List;
 public class ItemBuddhistCane extends ItemCCStaff {
     public ItemBuddhistCane() {
         setUnlocalizedName("buddhist_cane");
-        setMaxDamage(800);
+        setMaxDamage(730);
     }
 
     @Override
@@ -74,6 +75,12 @@ public class ItemBuddhistCane extends ItemCCStaff {
     @SideOnly(Side.CLIENT)
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         ItemLoreHelper.shiftLoreWithStat(p_77624_3_,getUnlocalizedName());
+    }
+
+    @Override
+    public Multimap getAttributeModifiers(ItemStack stack) {
+        return super.getAttributeModifiers(stack);
+
     }
 
     public boolean onBlockDestroyed(ItemStack itemStack, World world, Block block, int x, int y, int z, EntityLivingBase p_150894_7_) {
