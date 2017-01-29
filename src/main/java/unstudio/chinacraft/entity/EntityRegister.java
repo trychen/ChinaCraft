@@ -30,9 +30,9 @@ public class EntityRegister {
         id = EntityRegistry.findGlobalUniqueEntityId();
 
         registerLivingEntity(EntityBlackDog.class, "black_dog", 0x0B0B0B, 0x696969);
-         EntityRegistry.addSpawn(EntityBlackDog.class, 2, 0, 1,
-         EnumCreatureType.creature, BiomeGenBase.forest);
+         EntityRegistry.addSpawn(EntityBlackDog.class, 2, 3, 7, EnumCreatureType.creature, BiomeGenBase.forest, BiomeGenBase.jungle);
         registerLivingEntity(EntityChinaZombie.class, "chinazombie", 0x191946, 0x570204);
+        EntityRegistry.addSpawn(EntityChinaZombie.class, 3, 0, 1, EnumCreatureType.monster, BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.birchForest, BiomeGenBase.birchForestHills, BiomeGenBase.forestHills, BiomeGenBase.coldTaiga, BiomeGenBase.coldTaigaHills, BiomeGenBase.desert, BiomeGenBase.desertHills, BiomeGenBase.extremeHills, BiomeGenBase.extremeHillsEdge, BiomeGenBase.extremeHillsPlus, BiomeGenBase.jungle, BiomeGenBase.megaTaiga, BiomeGenBase.roofedForest, BiomeGenBase.savanna, BiomeGenBase.savannaPlateau, BiomeGenBase.swampland, BiomeGenBase.taiga, BiomeGenBase.taigaHills);
 //        registerLivingEntity(EntityPanda.class, "panda", 0xFFFFFF, 0x000000);
         // registerLivingEntity(EntityKongmingLantern.class,"kongming_lantern",0x0504FF,0x0025FF);
 

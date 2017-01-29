@@ -5,6 +5,7 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
@@ -13,31 +14,13 @@ import java.util.HashMap;
 /**
  * Created by AAA on 2016/2/15.
  */
-public class CCShapedIgnoreDamageRecipe implements IRecipe{
-
-    /** How many horizontal slots this recipe is wide. */
-    public final int recipeWidth;
-    /** How many vertical slots this recipe uses. */
-    public final int recipeHeight;
-    /** Is a array of ItemStack that composes the recipe. */
-    public final ItemStack[] recipeItems;
-    /** Is the ItemStack that you get when craft the recipe. */
-    private ItemStack recipeOutput;
+public class CCShapedIgnoreDamageRecipe extends ShapedRecipes {
     private boolean field_92101_f;
 
     public CCShapedIgnoreDamageRecipe(int p_i1917_1_, int p_i1917_2_, ItemStack[] p_i1917_3_, ItemStack p_i1917_4_)
     {
-        this.recipeWidth = p_i1917_1_;
-        this.recipeHeight = p_i1917_2_;
-        this.recipeItems = p_i1917_3_;
-        this.recipeOutput = p_i1917_4_;
+        super(p_i1917_1_, p_i1917_2_, p_i1917_3_, p_i1917_4_);
     }
-
-    public ItemStack getRecipeOutput()
-    {
-        return this.recipeOutput;
-    }
-
     /**
      * Used to check if a recipe matches current crafting inventory
      */
@@ -64,6 +47,7 @@ public class CCShapedIgnoreDamageRecipe implements IRecipe{
     /**
      * Checks if the region of a crafting inventory is match for the recipe.
      */
+
     private boolean checkMatch(InventoryCrafting p_77573_1_, int p_77573_2_, int p_77573_3_, boolean p_77573_4_)
     {
         for (int k = 0; k < 3; ++k)
@@ -140,7 +124,7 @@ public class CCShapedIgnoreDamageRecipe implements IRecipe{
         return this.recipeWidth * this.recipeHeight;
     }
 
-    public CCShapedIgnoreDamageRecipe setCopyNBT()
+    public CCShapedIgnoreDamageRecipe func_92100_c()
     {
         this.field_92101_f = true;
         return this;
@@ -155,7 +139,7 @@ public class CCShapedIgnoreDamageRecipe implements IRecipe{
 
         if (p_92103_2_[i] instanceof String[])
         {
-            String[] astring = (String[])((String[])p_92103_2_[i++]);
+            String[] astring = (String[]) p_92103_2_[i++];
 
             for (int l = 0; l < astring.length; ++l)
             {
