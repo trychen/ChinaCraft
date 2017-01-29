@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
@@ -147,8 +148,8 @@ public class Recipes {
                 new Object[]{"###", "# #", "# #", '#', Item.getItemFromBlock(Blocks.cobblestone)});
 
         // 混合粉末
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperPowder,
-                ChinaCraft.copperPowder, ChinaCraft.copperPowder, ChinaCraft.tinPowder);
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ChinaCraft.copperTinMixedPowder, 4), ChinaCraft.copperPowder,
+                ChinaCraft.copperPowder, ChinaCraft.copperPowder, ChinaCraft.tinPowder));
         GameRegistry.addSmelting(ChinaCraft.copperTinMixedPowder, new ItemStack(ChinaCraft.bronzeIngot), 0.8f);
 
 
@@ -187,10 +188,10 @@ public class Recipes {
                 new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1),
                 new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick}));
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blGiantSword, 1),
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.blGiantSword, 1),
                 new Object[]{"#B#", "EDE", "CAC", '#', Item.getItemFromBlock(Blocks.obsidian), 'A', Items.stick, 'B',
                         Items.lava_bucket.setContainerItem(Items.bucket), 'C', Items.iron_ingot, 'D',
-                        Item.getItemFromBlock(Blocks.soul_sand), 'E', ChinaCraft.bronzeBlock});
+                        Item.getItemFromBlock(Blocks.soul_sand), 'E', ChinaCraft.bronzeBlock}));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1),
                 new Object[]{"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 1),
@@ -279,7 +280,7 @@ public class Recipes {
                 new Object[]{"  I", "S  ", "F ", 'S', Items.stick, 'I', Items.iron_ingot, 'F', Items.feather});
 
         //蝉杖
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.buddhistCane, 1), "IAI", "BSB", " S ", 'I', Items.gold_ingot, 'B', ChinaCraft.tinIngot, 'A', Items.ghast_tear, 'S', Items.stick);
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.buddhistCane, 1), "IAI", "BSB", " S ", 'I', Items.gold_ingot, 'B', ChinaCraft.tinIngot, 'A', Items.ghast_tear, 'S', Items.stick));
 
         // 大麦
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.barleyRice), new ItemStack(Items.wheat));

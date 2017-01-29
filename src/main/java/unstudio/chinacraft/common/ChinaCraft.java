@@ -135,7 +135,7 @@ public class ChinaCraft implements ICollection {
     public static final Item tinIngot = new Item().setUnlocalizedName("tin_ingot").setCreativeTab(ChinaCraft.tabCore); // 锡锭
     @Register(value = "SilverIngot",ore = "ingotSilver")
     public static final Item silverIngot = new Item().setUnlocalizedName("silver_ingot").setCreativeTab(ChinaCraft.tabCore); // 银锭
-    @Register("CopperTinMixedPowder")
+    @Register(value = "CopperTinMixedPowder", ore = "dustCopperMixedTin")
     public static final Item copperTinMixedPowder = new Item().setUnlocalizedName("copper_tin_mixed_powder").setCreativeTab(ChinaCraft.tabCore); // 铜锡混合矿粉
     @Register(value = "TinPowder",ore = "dustTin")
     public static final Item tinPowder = new Item().setUnlocalizedName("tin_powder").setCreativeTab(ChinaCraft.tabCore); // 锡粉
