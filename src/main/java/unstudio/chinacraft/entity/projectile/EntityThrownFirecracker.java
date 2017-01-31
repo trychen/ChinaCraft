@@ -46,17 +46,17 @@ public class EntityThrownFirecracker extends EntityThrowable {
     @Override
     protected void onImpact(MovingObjectPosition mop) {
         if (this.worldObj.isRemote) {
-            Explosion explosion = new Explosion(this.worldObj, this, this.posX, this.posY, this.posZ, 0.3945875F);
-            explosion.isFlaming = true;
-            explosion.isSmoking = true;
-
             this.worldObj.playSound(this.posX, this.posY, this.posZ, sound[this.worldObj.rand.nextInt(2)], 1F,
                     0.40000000596046447754F
                             / (this.worldObj.rand.nextFloat() * 0.40000000596046447754F + 0.80000001192092895508F),
                     true);
+            this.worldObj.spawnParticle("explode", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+            Explosion explosion = new Explosion(this.worldObj, this, this.posX, this.posY, this.posZ, 0.3945875F);
+            explosion.isFlaming = true;
+            explosion.isSmoking = true;
             MinecraftForge.EVENT_BUS.post(new ExplosionEvent.Start(this.worldObj, explosion));
             explosion.doExplosionA();
-            this.worldObj.spawnParticle("explode", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+        }else{
             setDead();
         }
     }
