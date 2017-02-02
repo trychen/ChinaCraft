@@ -4,8 +4,6 @@ import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
-import net.minecraft.entity.projectile.EntitySnowball;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -17,13 +15,12 @@ import net.minecraftforge.fluids.FluidRegistry;
 import unstudio.chinacraft.entity.projectile.EntityThrownBomb;
 import unstudio.chinacraft.entity.projectile.EntityThrownFirecracker;
 import unstudio.chinacraft.event.ListenerRegister;
-import unstudio.chinacraft.item.ItemCCBlock;
-import unstudio.chinacraft.item.ItemCCLamp;
 import unstudio.chinacraft.tileentity.*;
 import unstudio.chinacraft.client.waila.WailaCompatibility;
 import unstudio.chinacraft.common.config.*;
 import unstudio.chinacraft.util.annotation.ItemBlockRegister;
 import unstudio.chinacraft.world.gen.WorldGenCCFlower;
+import unstudio.chinacraft.world.gen.WorldGenListener;
 import unstudio.chinacraft.world.gen.WorldGenMulberryTree;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -34,7 +31,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Modifier;
 import java.util.List;
 
 public class CommonProxy {
@@ -76,9 +72,10 @@ public class CommonProxy {
         ListenerRegister.init();
 
         //注册生成器
-        GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
-        GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
-        GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
+//        GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
+//        GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
+//        GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
+        new WorldGenListener();
         GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
         GameRegistry.registerWorldGenerator(new WorldGenCCFlower(), 1);
         GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true), 1);
