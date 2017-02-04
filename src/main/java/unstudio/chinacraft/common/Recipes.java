@@ -102,6 +102,8 @@ public class Recipes {
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
                 new Object[]{"HHH", "B#A", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', ChinaCraft.artKnife,
                         'A', ChinaCraft.woodenWindow4, 'B', ChinaCraft.woodenWindow2}));
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindowfu, 1),
+                new Object[]{"HHH", "B#B", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', ChinaCraft.artKnife, 'B', ChinaCraft.woodenWindow2}));
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4),
                 new Object[]{" # ", "#A#", " # ", 'A', ChinaCraft.artKnife, '#', Items.stick}));
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), new Object[]{"B#B", "#A#", "B#B", 'A',
