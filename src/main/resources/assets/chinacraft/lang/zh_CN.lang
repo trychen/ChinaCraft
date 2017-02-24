@@ -56,7 +56,7 @@ item.SMFSuper.name=混沌符
 item.debug.name=调试
 
 item.china_crown.name=冕冠
-item.chinacrown.lore=权利的象征
+item.chinacrown.lore=权力的象征
 item.chinacrown.hidelore=获得 力量 效果
 item.xinjiang_nut_cake.name=切糕
 tile.xinjiang_nut_cake.name=切糕
@@ -153,7 +153,7 @@ item.barley_rice.name=麦仁
 tile.wooden_bucket.name=木桶
 item.wooden_bucket.name=木桶
 item.wooden_bucket_water.name=木水桶
-item.wooden_bucket.opps=Opps , 木桶着火了 , oh , 他烧成了灰烬
+item.wooden_bucket.opps=木桶着火了，等等，它烧成了灰烬
 
 item.silkworm_chrysalis.name=蚕蛹
 item.silkworm_young.name=幼蚕
