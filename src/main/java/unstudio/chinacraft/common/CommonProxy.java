@@ -76,7 +76,7 @@ public class CommonProxy {
 //        GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
 //        GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
         new WorldGenListener();
-        GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
+        //GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
         GameRegistry.registerWorldGenerator(new WorldGenCCFlower(), 1);
         GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true), 1);
         GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
