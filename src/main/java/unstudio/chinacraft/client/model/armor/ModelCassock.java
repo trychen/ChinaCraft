@@ -3,6 +3,7 @@ package unstudio.chinacraft.client.model.armor;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public class ModelCassock extends ModelBiped {
     //fields
@@ -15,7 +16,7 @@ public class ModelCassock extends ModelBiped {
     ModelRenderer armorOuterLeftArm;
 
     public ModelCassock() {
-        super(0, 0, 256, 128);
+        super(0.0f, 0, 256, 128);
         textureWidth = 256;
         textureHeight = 128;
 
@@ -52,7 +53,7 @@ public class ModelCassock extends ModelBiped {
         armorLeftArm.mirror = true;
 
         armorOuterBody = new ModelRenderer(this, 0, 32);
-        armorOuterBody.addBox(-4.5F, -0.5F, -2.5F, 9, 14, 5);
+        armorOuterBody.addBox(-4.5F, -0.5F, -2.5F, 9, 13, 5);
         armorOuterBody.setRotationPoint(0F, 0F, 0F);
         armorOuterBody.setTextureSize(256, 128);
         armorOuterBody.mirror = true;
@@ -63,8 +64,8 @@ public class ModelCassock extends ModelBiped {
         armorOuterLeftArm.setTextureSize(256, 128);
         armorOuterLeftArm.mirror = true;
 
+        armorLeftArm.addChild(armorOuterLeftArm);
         bipedLeftArm.addChild(armorLeftArm);
-        bipedLeftArm.addChild(armorOuterLeftArm);
 
         bipedBody.addChild(armorInterBody);
         bipedBody.addChild(armorOuterBody);
@@ -78,12 +79,16 @@ public class ModelCassock extends ModelBiped {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+        GL11.glScalef(1.01f, 1.01f , 1.01f);
         armorRightLeg.render(f5);
         armorLeftLeg.render(f5);
         armorInterBody.render(f5);
         armorRightArm.render(f5);
         armorLeftArm.render(f5);
         armorOuterBody.render(f5);
+        GL11.glPushMatrix();
+        GL11.glScalef(1.1f, 1.1f , 1.1f);
         armorOuterLeftArm.render(f5);
+        GL11.glPopMatrix();
     }
 }

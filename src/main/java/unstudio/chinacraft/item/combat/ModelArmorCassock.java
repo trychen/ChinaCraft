@@ -13,17 +13,24 @@ import unstudio.chinacraft.client.model.armor.ModelCassock;
 /**
  * Created by trychen on 17/3/25.
  */
-public class ModelArmorCassock extends ModelArmor{
+public class ModelArmorCassock extends ModelArmor {
     @SideOnly(Side.CLIENT)
     private ModelCassock armorModel = new ModelCassock();
+
     public ModelArmorCassock() {
-        super(ArmorMaterial.CLOTH, "cassock", null, 1,1,1);
+        super(ArmorMaterial.CLOTH, "cassock", null, 1, 1, 1);
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
-        if (armorModel != null){
+        if (armorModel != null) {
+            armorModel.bipedBody.showModel = true;
+            armorModel.bipedRightArm.showModel = true;
+            armorModel.bipedLeftArm.showModel = true;
+            armorModel.bipedRightLeg.showModel = true;
+            armorModel.bipedLeftLeg.showModel = true;
+
             armorModel.isSneak = entityLiving.isSneaking();
             armorModel.isRiding = entityLiving.isRiding();
             armorModel.isChild = entityLiving.isChild();
@@ -47,9 +54,16 @@ public class ModelArmorCassock extends ModelArmor{
                     } else if (enumaction == EnumAction.block) {
                         armorModel.heldItemRight = 3;
                     }
+
+
                 }
+
             }
+
+
         }
+
+
         return armorModel;
     }
 
