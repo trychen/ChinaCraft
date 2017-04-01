@@ -1,9 +1,12 @@
 package unstudio.chinacraft.client.model.armor;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
+@SideOnly(Side.CLIENT)
 public class ModelChinaCrown extends ModelBiped {
     ModelRenderer Shape1;
     ModelRenderer Shape2;
@@ -442,13 +445,13 @@ public class ModelChinaCrown extends ModelBiped {
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         super.render(entity, f, f1, f2, f3, f4, f5);
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-        // Shape1.render(f5);
-        // Shape2.render(f5);
-        // Shape3.render(f5);
-        // Shape4.render(f5);
-        // Shape5.render(f5);
-        // Shape6.render(f5);
-        // Shape7.render(f5);
+        // armorRightLeg.render(f5);
+        // armorBody.render(f5);
+        // armorLeftArm.render(f5);
+        // armorOuterBody.render(f5);
+        // armorLeftOuterArm.render(f5);
+        // armorLeftLeg.render(f5);
+        // armorRightArm.render(f5);
         // Shape8.render(f5);
         // Shape9.render(f5);
         // Shape10.render(f5);

@@ -335,6 +335,9 @@ public class ChinaCraft implements ICollection {
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1)};
+    @Register("Cassock")
+    public static final ModelArmorCassock cassock = new ModelArmorCassock();
+
     @Register("BronzeHelmet")
     public static ItemArmor bronzeHelmet;// 青铜头盔
     @Register("BronzeChestplate")

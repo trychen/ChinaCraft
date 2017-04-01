@@ -20,7 +20,7 @@ import unstudio.chinacraft.util.ItemLoreHelper;
 public class ModelArmor extends ItemArmor {
     @SideOnly(Side.CLIENT)
     protected IIcon itemIcon;
-    private String textureName = "";
+    private String textureName;
     private ModelBiped armorModel;
     private int textureType;
 
