@@ -25,6 +25,7 @@ public class ModelArmorCassock extends ModelArmor {
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
         if (armorModel != null) {
+            armorModel = new ModelCassock();
             armorModel.bipedBody.showModel = true;
             armorModel.bipedRightArm.showModel = true;
             armorModel.bipedLeftArm.showModel = true;

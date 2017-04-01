@@ -7,6 +7,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiChat;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -48,23 +49,6 @@ public class ListenerArmor {
         tCompound.setByte("chinacraft.wearingWholeNightClothes",(byte)0);
     }
 
-    @SubscribeEvent
-    public void attack(LivingHurtEvent event){
-        if (event.source.getEntity() == null) return;
-        if (event.entity instanceof EntityPlayer){
-            if (!ChinaCraftApi.isWearingWholeNightClothes((EntityPlayer) event.entityLiving)) return;
-            EntityLivingBase source = (EntityLivingBase) event.source.getEntity();
-            EntityLivingBase destination = event.entityLiving;
-
-            double diffX = destination.posX - source.posX;
-            double diffZ;
-            for (diffZ = destination.posZ - source.posZ; diffX * diffX + diffZ * diffZ < 1.0E-4D; diffZ = (Math.random() - Math.random()) * 0.01D)
-            {
-                diffX = (Math.random() - Math.random()) * 0.01D;
-            }
-            EntityMethod.repel(event.entityLiving, diffX, diffZ);
-        }
-    }
 
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
@@ -73,22 +57,6 @@ public class ListenerArmor {
             if (event.entityPlayer.worldObj.getWorldTime() < 13500 || event.entityPlayer.worldObj.getWorldTime() > 22300) return;
             if (!ChinaCraftApi.isWearingWholeNightClothes(event.entityPlayer)) return;
             event.setCanceled(true);
-        }
-    }
-
-    @SubscribeEvent
-    public void wearingChinaCrown(LivingHurtEvent event) {
-        if (event.entityLiving instanceof EntityPlayer){
-            EntityPlayer p = (EntityPlayer) event.entityLiving;
-            if (p.inventory.armorInventory[3] != null&&p.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
-                if (p.worldObj.rand.nextInt(2)==1){
-                    double percent = (p.worldObj.rand.nextInt(5)+3)/10.0;
-                    if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){
-                        event.source.getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(p), (float) (event.ammount * (1 - percent)));
-                        event.ammount = (float) (event.ammount *  percent);
-                    }
-                }
-            }
         }
     }
 
@@ -136,5 +104,50 @@ public class ListenerArmor {
         if (e.distance < 5){
             e.setCanceled(true);
         }
+    }
+
+    @SubscribeEvent
+    public void attack(LivingHurtEvent event){
+        if (event.source.getEntity() == null) return;
+        if (!(event.entity instanceof EntityPlayer)) return;
+        EntityPlayer entityPlayer = (EntityPlayer) event.entity;
+        if (!ChinaCraftApi.isWearingWholeNightClothes(entityPlayer)){
+            hurtNightClothes(event);
+        } else if (entityPlayer.inventory.armorInventory[1] != null && entityPlayer.inventory.armorInventory[1].getItem().equals(ChinaCraft.cassock)){
+            hurtCassock(event, entityPlayer);
+        } else if (entityPlayer.inventory.armorInventory[3] != null&& entityPlayer.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
+            hurtChinaCrown(event, entityPlayer);
+        }
+
+    }
+
+    private void hurtChinaCrown(LivingHurtEvent event, EntityPlayer entityPlayer) {
+        if (entityPlayer.worldObj.rand.nextInt(2)==1){
+            double percent = (entityPlayer.worldObj.rand.nextInt(5)+3)/10.0;
+            if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){
+                event.source.getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(entityPlayer), (float) (event.ammount * (1 - percent)));
+                event.ammount = (float) (event.ammount *  percent);
+            }
+        }
+    }
+
+    private void hurtCassock(LivingHurtEvent event, EntityPlayer entityPlayer){
+        if (entityPlayer.getHealth() - event.ammount <= 0){
+            entityPlayer.setHealth(entityPlayer.getMaxHealth() / 2);
+            entityPlayer.inventory.armorInventory[1] = null;
+        }
+    }
+
+    private void hurtNightClothes(LivingHurtEvent event){
+        EntityLivingBase source = (EntityLivingBase) event.source.getEntity();
+        EntityLivingBase destination = event.entityLiving;
+
+        double diffX = destination.posX - source.posX;
+        double diffZ;
+        for (diffZ = destination.posZ - source.posZ; diffX * diffX + diffZ * diffZ < 1.0E-4D; diffZ = (Math.random() - Math.random()) * 0.01D)
+        {
+            diffX = (Math.random() - Math.random()) * 0.01D;
+        }
+        EntityMethod.repel(event.entityLiving, diffX, diffZ);
     }
 }
