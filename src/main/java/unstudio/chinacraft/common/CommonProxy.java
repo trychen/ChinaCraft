@@ -4,6 +4,7 @@ import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -134,9 +135,26 @@ public class CommonProxy {
         } catch (InstantiationException e) {
             e.printStackTrace();
         }
+
+        initBlockFlammbility();
     }
 
     public void postInit(FMLPostInitializationEvent event) {
 
+    }
+
+    private void initBlockFlammbility(){
+        Blocks.fire.setFireInfo(ChinaCraft.bambooPlank,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.bambooSlab,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.bambooDoubleSlab,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.bambooStair,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.bamboo,5,5);
+        Blocks.fire.setFireInfo(ChinaCraft.blockBambooShoot,5,10);
+        Blocks.fire.setFireInfo(ChinaCraft.bambooFence,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.bambooFenceGate,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.mulberryLog,5,5);
+        Blocks.fire.setFireInfo(ChinaCraft.mulberryWood,5,20);
+        Blocks.fire.setFireInfo(ChinaCraft.mulberryLeaf,30,60);
+        Blocks.fire.setFireInfo(ChinaCraft.mulberrySapling,10,30);
     }
 }
