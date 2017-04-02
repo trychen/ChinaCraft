@@ -1,5 +1,6 @@
 package unstudio.chinacraft.common;
 
+import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -142,6 +143,8 @@ public class Recipes {
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.silkYarn, 4), ChinaCraft.silkwormChrysalis);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemSilk, 1, 15),
                 new Object[]{"@@ ", "@@ ", "   ", '@', ChinaCraft.silkYarn});
+        for (int i = 0; i < 16; ++i)
+            GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.itemSilk, 1, BlockColored.func_150031_c(i)), new Object[] {new ItemStack(Items.dye, 1, i), new ItemStack(ChinaCraft.itemSilk,1,0)});
 
         // CookingBench
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooking_bench_off, 1),
