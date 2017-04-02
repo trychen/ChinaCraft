@@ -139,7 +139,7 @@ public class ListenerArmor {
         if (entityPlayer.getHealth() - event.ammount <= 0){
             entityPlayer.setHealth(entityPlayer.getMaxHealth() / 2);
             FxHelper.spawnEffects("blockcrack_" + ModelArmorCassock.getItemId(), entityPlayer.worldObj, entityPlayer.posX - 0.5,
-                    entityPlayer.posY - 2, entityPlayer.posZ - 0.5);
+                    entityPlayer.posY, entityPlayer.posZ - 0.5);
             entityPlayer.inventory.armorInventory[2] = null;
         }
     }

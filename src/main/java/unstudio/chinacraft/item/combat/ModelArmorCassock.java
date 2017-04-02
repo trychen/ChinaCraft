@@ -36,9 +36,6 @@ public class ModelArmorCassock extends ModelArmor {
             armorModel.bipedRightLeg.showModel = true;
             armorModel.bipedLeftLeg.showModel = true;
 
-            armorModel.bipedLeftLeg.childModels.clear();
-            armorModel.bipedRightLeg.childModels.clear();
-
             armorModel.isSneak = entityLiving.isSneaking();
             armorModel.isRiding = entityLiving.isRiding();
             armorModel.isChild = entityLiving.isChild();
