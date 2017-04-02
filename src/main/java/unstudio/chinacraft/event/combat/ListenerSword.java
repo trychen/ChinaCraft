@@ -4,6 +4,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by trychen on 17/4/2.
@@ -11,10 +12,12 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 public class ListenerSword {
     @SubscribeEvent
     public void mace(LivingHurtEvent event){
-        System.out.println(event.source.damageType);
-        System.out.println(event.source.isDamageAbsolute());
-        if (event.source.getSourceOfDamage() == null) return;
-        Entity entity = event.source.getSourceOfDamage();
-
+        if (event.source.isFireDamage() || event.source.isProjectile() || !(event.source.getSourceOfDamage() instanceof EntityPlayer) || event.source.damageType != "player" || event.source.getSourceOfDamage() == null) return;
+        EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
+        if (player.onGround && player.getHeldItem() != null && player.getHeldItem().getItem() == ChinaCraft.mace && player.worldObj.rand.nextBoolean()){
+            player.onCriticalHit(event.entity);
+            event.ammount *= 1.8;
+            player.getHeldItem().damageItem(2, player);
+        }
     }
 }

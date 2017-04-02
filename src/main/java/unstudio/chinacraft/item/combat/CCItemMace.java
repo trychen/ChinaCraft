@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.PotionEffect;
@@ -18,23 +19,16 @@ import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
 public class CCItemMace extends ItemSword implements ISpecialEquippedRender{
     public CCItemMace() {
-        super(ToolMaterial.IRON);
+        super(ToolMaterial.STONE);
         setCreativeTab(ChinaCraft.tabTool);
         setUnlocalizedName("mace");
     }
 
     @Override
-    public boolean hitEntity(ItemStack itemStack, EntityLivingBase target, EntityLivingBase entity) {
-        if (entity instanceof EntityPlayer){
-            if (((EntityPlayer) entity).onGround && target.worldObj.rand.nextBoolean()){
-                ((EntityPlayer)entity).onCriticalHit(target);
-                itemStack.damageItem(3, entity);
-            } else {
-                itemStack.damageItem(1, entity);
-            }
-        } else
-            itemStack.damageItem(5, entity);
-        return true;
+    public boolean getIsRepairable(ItemStack p_82789_1_, ItemStack p_82789_2_) {
+        ItemStack mat = new ItemStack(Blocks.obsidian, 1, net.minecraftforge.oredict.OreDictionary.WILDCARD_VALUE);
+        if (mat != null && net.minecraftforge.oredict.OreDictionary.itemMatches(mat, p_82789_2_, false)) return true;
+        return super.getIsRepairable(p_82789_1_, p_82789_2_);
     }
 
     @Override
@@ -50,11 +44,5 @@ public class CCItemMace extends ItemSword implements ISpecialEquippedRender{
     @Override
     public SpecialItemRender.RenderType getSpecialRenderType() {
         return SpecialItemRender.RenderType.huge;
-    }
-
-    public Multimap getItemAttributeModifiers() {
-        Multimap multimap = super.getItemAttributeModifiers();
-        multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 3.0, 0));
-        return multimap;
     }
 }

@@ -15,6 +15,7 @@ import net.minecraft.block.BlockCake;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.*;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
@@ -80,6 +81,7 @@ public class ChinaCraft implements ICollection {
     public final static Random rand = new Random();
     // Material
     public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 200, 5.2F, 1.8F, 14);
+
     public static final Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); // 石锤
     public static final Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); // 铁锤
     public static final Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F,
@@ -466,6 +468,14 @@ public class ChinaCraft implements ICollection {
     public static final Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); // 丝绸
     @Register("Debug")
     public static final ItemDebug debug = new ItemDebug(); // 调试物品
+
+    static {
+        HAMMERSTONE.setRepairItem(new ItemStack(Blocks.stone));
+        HAMMERIRON.setRepairItem(new ItemStack(Items.iron_ingot));
+        HAMMERDIANMOND.setRepairItem(new ItemStack(Items.diamond));
+        BRONZE.setRepairItem(new ItemStack(ChinaCraft.bronzeIngot));
+        BROAD_BRONZE.setRepairItem(new ItemStack(ChinaCraft.bronzeIngot));
+    }
 
     public static Configuration getMainConfig() {
         return ConfigLoader.getMainConfig();
