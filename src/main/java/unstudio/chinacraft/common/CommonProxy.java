@@ -1,5 +1,6 @@
 package unstudio.chinacraft.common;
 
+import cpw.mods.fml.common.IFuelHandler;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
 import net.minecraft.dispenser.IPosition;
@@ -73,14 +74,8 @@ public class CommonProxy {
         ListenerRegister.init();
 
         //注册生成器
-//        GameRegistry.registerWorldGenerator(ChinaCraft.copperOre, 3);
-//        GameRegistry.registerWorldGenerator(ChinaCraft.tinOre, 3);
-//        GameRegistry.registerWorldGenerator(ChinaCraft.jadeOre, 3);
         new WorldGenListener();
-        //GameRegistry.registerWorldGenerator(ChinaCraft.blockMarble, 127);
-        GameRegistry.registerWorldGenerator(new WorldGenCCFlower(), 1);
         GameRegistry.registerWorldGenerator(new WorldGenMulberryTree(true), 1);
-        GameRegistry.registerWorldGenerator(ChinaCraft.blockBambooShoot, 1);
 
         //注册TileEntity
         GameRegistry.registerTileEntity(TileJadeBench.class, "tileEntityCCJadeWorkingTable"); // 玉石工作台TileEntity
