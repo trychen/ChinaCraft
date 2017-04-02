@@ -47,13 +47,34 @@ public class Recipes {
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ChinaCraft.bomb), Items.gunpowder, Items.iron_ingot));
         // 夜行衣
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[0]),
-                new Object[]{"AAA", "ABA", "   ", 'A', Items.leather, 'B', Items.dye});
+                "AAA",
+                "A A",
+                "   ",
+                'A', new ItemStack(ChinaCraft.itemSilk, 1, 15));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[1]),
-                new Object[]{"ABA", "AAA", "AAA", 'A', Items.leather, 'B', Items.dye});
+                "A A",
+                "AAA",
+                "AAA",
+                'A', new ItemStack(ChinaCraft.itemSilk, 1, 15));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[2]),
-                new Object[]{"AAA", "ABA", "A A", 'A', Items.leather, 'B', Items.dye});
+                "AAA",
+                "A A",
+                "A A",
+                'A', new ItemStack(ChinaCraft.itemSilk, 1, 15));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.nightClothes[3]),
-                new Object[]{"   ", "ABA", "A A", 'A', Items.leather, 'B', Items.dye});
+                "   ",
+                "A A",
+                "A A",
+                'A', new ItemStack(ChinaCraft.itemSilk, 1, 15));
+
+        // 袈裟
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.cassock),
+                "Y Y",
+                "YGR",
+                "YRR",
+                'Y', new ItemStack(ChinaCraft.itemSilk, 1, 4),
+                'G', Items.golden_apple,
+                'R', new ItemStack(ChinaCraft.itemSilk, 1, 14));
 
         // Copper
         GameRegistry.addSmelting(ChinaCraft.copperOre, new ItemStack(ChinaCraft.copperIngot, 1), 1.2f);
@@ -114,7 +135,7 @@ public class Recipes {
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A',
                 Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife}));
 
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish,1,2), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish, 1, 2), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemDing), " J ", "MOM", "MCM", 'C', Blocks.coal_block, 'J', ChinaCraft.jadeKnife, 'O', Blocks.obsidian, 'M', Blocks.mossy_cobblestone);
 
         // 竹子
@@ -127,7 +148,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFence, 2),
                 new Object[]{"###", "###", "   ", '#', ChinaCraft.itemBamboo});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFenceGate, 1),
-                new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo,'$',ChinaCraft.bambooPlank});
+                new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo, '$', ChinaCraft.bambooPlank});
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),
@@ -144,7 +165,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemSilk, 1, 15),
                 new Object[]{"@@ ", "@@ ", "   ", '@', ChinaCraft.silkYarn});
         for (int i = 0; i < 16; ++i)
-            GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.itemSilk, 1, BlockColored.func_150031_c(i)), new Object[] {new ItemStack(Items.dye, 1, i), new ItemStack(ChinaCraft.itemSilk,1,0)});
+            GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.itemSilk, 1, BlockColored.func_150031_c(i)), new Object[]{new ItemStack(Items.dye, 1, i), new ItemStack(ChinaCraft.itemSilk, 1, 0)});
 
         // CookingBench
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.cooking_bench_off, 1),
@@ -219,13 +240,15 @@ public class Recipes {
                 new Object[]{"###", "#X#", " X ", '#', Item.getItemFromBlock(Blocks.cobblestone), 'X', Items.stick}));
 
         // 冕冠
-        GameRegistry
-                .addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.chinaCrown, 1),
-                        new Object[]{"TET", "#X#", "S#S", '#', Item.getItemFromBlock(Blocks.log), 'X',
-                                Items.nether_star.setContainerItem(Items.nether_star),
-                                'T', ChinaCraft.tinIngot, 'E', Item.getItemFromBlock(Blocks.dragon_egg)
-                                .setContainerItem(Item.getItemFromBlock(Blocks.dragon_egg)),
-                                'S', Items.stick}));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.chinaCrown, 1),
+                "TET",
+                "#X#",
+                "S#S",
+                '#', Items.gold_ingot,
+                'X', Items.nether_star.setContainerItem(Items.nether_star),
+                'T', new ItemStack(ChinaCraft.itemSilk, 1, 12),
+                'E', Item.getItemFromBlock(Blocks.dragon_egg).setContainerItem(Item.getItemFromBlock(Blocks.dragon_egg)),
+                'S', new ItemStack(ChinaCraft.itemSilk, 1, 14)));
 
         // TinOre
         GameRegistry.addSmelting(ChinaCraft.tinOre, new ItemStack(ChinaCraft.tinIngot), 0.8f);
