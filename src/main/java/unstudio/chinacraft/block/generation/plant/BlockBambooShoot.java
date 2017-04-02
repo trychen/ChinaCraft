@@ -20,7 +20,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGenerator {
+public class BlockBambooShoot extends BlockBase implements IPlantable{
     public BlockBambooShoot() {
         super(Material.plants);
         float f = 0.375F;
@@ -161,18 +161,5 @@ public class BlockBambooShoot extends BlockBase implements IPlantable, IWorldGen
     @Override
     public int getPlantMetadata(IBlockAccess world, int x, int y, int z) {
         return world.getBlockMetadata(x, y, z);
-    }
-
-    @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator,
-            IChunkProvider chunkProvider) {
-        int l6 = chunkX * 16 + random.nextInt(16);
-        int i11 = random.nextInt(128);
-        int l14 = chunkZ * 16 + random.nextInt(16);
-        int id = world.getBiomeGenForCoords(l6, l14).biomeID;
-        if ((id == 3 || id == 4 || id == 18 || id == 20 || id == 34 || id == 27 || id == 28 || id == 29)
-                && random.nextInt(16) == 0) {
-            new WorldGenFlowers(ChinaCraft.blockBambooShoot).generate(world, random, l6, i11, l14);
-        }
     }
 }

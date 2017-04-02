@@ -15,6 +15,8 @@ public class WorldGenListener{
     private final WorldGenCCOre WORLD_GEN_SILVER_ORE = new WorldGenCCOre(new int[]{0},4,32,0,8, ChinaCraft.silverOre);
     private final WorldGenCCOre WORLD_GEN_JADE_ORE = new WorldGenCCOre(new int[]{0},4,64,32,4, ChinaCraft.jadeOre);
     private final WorldGenCCOre WORLD_GEN_MARBLE_ORE = new WorldGenCCOre(new int[]{0},1,128,32,48, ChinaCraft.blockMarble);
+    private final WorldGenCCFlower WORLD_GEN_CC_FLOWER = new WorldGenCCFlower();
+    private final WorldGenBambooShoot WORLD_GEN_BAMBOO_SHOOT = new WorldGenBambooShoot();
 
     public WorldGenListener()
     {
@@ -28,5 +30,7 @@ public class WorldGenListener{
         WORLD_GEN_SILVER_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
         WORLD_GEN_JADE_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
         WORLD_GEN_MARBLE_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
+        WORLD_GEN_CC_FLOWER.generate(event.world,event.rand,event.worldX,0,event.worldZ);
+        WORLD_GEN_BAMBOO_SHOOT.generate(event.world,event.rand,event.worldX,0,event.worldZ);
     }
 }
