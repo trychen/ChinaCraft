@@ -190,13 +190,13 @@ public class ChinaCraft implements ICollection {
     @Register("BlackBrickStair")
     public static final Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
 
-    @Register("MulberryLog")
+    @Register(value = "MulberryLog",ore = "logWood")
     public static final Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
-    @Register("MulberryLeaf")
+    @Register(value = "MulberryLeaf",ore = "treeLeaves")
     public static final Block mulberryLeaf = new BlockCCLeaves(ChinaCraft.mulberrySapling).setCreativeTab(ChinaCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("chinacraft:mulberry_leaf"); // 桑树树叶
-    @Register("MulberrySapling")
+    @Register(value = "MulberrySapling",ore = "treeSapling")
     public static final Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(ChinaCraft.tabFarming);//桑树树苗
-    @Register("MulberryWood")
+    @Register(value = "MulberryWood",ore = "plankWood")
     public static final Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
 
 
