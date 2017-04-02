@@ -52,7 +52,7 @@ public class WailaCompatibility implements IWailaDataProvider {
             IWailaConfigHandler configHandler) {
         Block block = accessor.getBlock();
         if (block instanceof CCWailaInfoProvider) {
-            return ((CCWailaInfoProvider) block).addWailaBodyInfo(stack, tipList, accessor, configHandler);
+            return ((CCWailaInfoProvider) block).addWailaBodyInfo(stack, tipList, accessor.getTileEntity());
         }
         return tipList;
     }
@@ -68,7 +68,7 @@ public class WailaCompatibility implements IWailaDataProvider {
      * 凡是需要在Waila窗体中添加信息的方块都需实现此接口
      */
     public interface CCWailaInfoProvider {
-        List<String> addWailaBodyInfo(ItemStack stack, List<String> tipList, IWailaDataAccessor accessor, IWailaConfigHandler configHandler);
+        List<String> addWailaBodyInfo(ItemStack stack, List<String> tipList, TileEntity accessor);
     }
     
 }

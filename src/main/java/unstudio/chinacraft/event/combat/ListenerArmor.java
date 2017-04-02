@@ -26,6 +26,8 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import unstudio.chinacraft.common.config.FeatureConfig;
 import unstudio.chinacraft.common.network.KeyMessage;
+import unstudio.chinacraft.entity.fx.FxHelper;
+import unstudio.chinacraft.item.combat.ModelArmorCassock;
 
 public class ListenerArmor {
     /**
@@ -106,16 +108,18 @@ public class ListenerArmor {
         }
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.HIGH)
     public void attack(LivingHurtEvent event){
-        if (event.source.getEntity() == null) return;
         if (!(event.entity instanceof EntityPlayer)) return;
         EntityPlayer entityPlayer = (EntityPlayer) event.entity;
+
         if (!ChinaCraftApi.isWearingWholeNightClothes(entityPlayer)){
             hurtNightClothes(event);
-        } else if (entityPlayer.inventory.armorInventory[1] != null && entityPlayer.inventory.armorInventory[1].getItem().equals(ChinaCraft.cassock)){
+        }
+        if (entityPlayer.inventory.armorInventory[2] != null && entityPlayer.inventory.armorInventory[2].getItem().equals(ChinaCraft.cassock)){
             hurtCassock(event, entityPlayer);
-        } else if (entityPlayer.inventory.armorInventory[3] != null&& entityPlayer.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
+        }
+        if (entityPlayer.inventory.armorInventory[3] != null&& entityPlayer.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
             hurtChinaCrown(event, entityPlayer);
         }
 
@@ -134,11 +138,14 @@ public class ListenerArmor {
     private void hurtCassock(LivingHurtEvent event, EntityPlayer entityPlayer){
         if (entityPlayer.getHealth() - event.ammount <= 0){
             entityPlayer.setHealth(entityPlayer.getMaxHealth() / 2);
-            entityPlayer.inventory.armorInventory[1] = null;
+            FxHelper.spawnEffects("blockcrack_" + ModelArmorCassock.getItemId(), entityPlayer.worldObj, entityPlayer.posX - 0.5,
+                    entityPlayer.posY - 2, entityPlayer.posZ - 0.5);
+            entityPlayer.inventory.armorInventory[2] = null;
         }
     }
 
     private void hurtNightClothes(LivingHurtEvent event){
+        if (event.source.getEntity() == null && !(event.source.getEntity() instanceof EntityLivingBase)) return;
         EntityLivingBase source = (EntityLivingBase) event.source.getEntity();
         EntityLivingBase destination = event.entityLiving;
 

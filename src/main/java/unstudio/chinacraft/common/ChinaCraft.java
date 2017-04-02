@@ -16,7 +16,6 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.*;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
@@ -315,7 +314,7 @@ public class ChinaCraft implements ICollection {
     @Register("JiuQuTang")
     public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
     @Register("Mace")
-    public static final Mace mace = new Mace();
+    public static final CCItemMace mace = new CCItemMace();
 //    @Register("SuperBow")
     public static final ItemSuperBow superBow = new ItemSuperBow();
     @Register("StoneHammer")
