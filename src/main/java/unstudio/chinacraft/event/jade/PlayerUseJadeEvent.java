@@ -2,6 +2,7 @@ package unstudio.chinacraft.event.jade;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
@@ -26,10 +27,12 @@ public class PlayerUseJadeEvent extends PlayerEvent {
     }
 
     @Cancelable
-    public static class MainInventory extends PlayerUseJadeEvent {
+    public static class Hurt extends PlayerUseJadeEvent {
+        public LivingHurtEvent hurtEvent;
 
-        public MainInventory(EntityPlayer player, ItemStack itemStack) {
-            super(player, itemStack);
+        public Hurt(LivingHurtEvent event, EntityPlayer entityPlayer, ItemStack itemStack) {
+            super(entityPlayer, itemStack);
+            this.hurtEvent = event;
         }
     }
 }

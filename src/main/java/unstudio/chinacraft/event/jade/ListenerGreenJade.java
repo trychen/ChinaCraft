@@ -16,19 +16,6 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 
 public class ListenerGreenJade {
     @SubscribeEvent
-    public void PlayerTick(TickEvent.PlayerTickEvent e) {
-        if (e.player.getHeldItem() != null) {
-            if (e.player.getHeldItem().getItem().equals(ChinaCraft.bronzeBroadSwordGreen)) {
-                if (e.player.isAirBorne && e.player.isSneaking()) {
-                    e.player.motionY -= 0.2;
-                    e.player.motionX *= 1.02D;
-                    e.player.motionZ *= 1.02D;
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
     public void DoubleJump(LivingEvent.LivingJumpEvent event) {
         if (event.entity instanceof EntityPlayer) {
             EntityPlayer entityPlayer = (EntityPlayer) event.entity;
