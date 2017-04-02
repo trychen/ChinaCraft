@@ -7,8 +7,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import unstudio.chinacraft.client.model.armor.ModelCassock;
+import unstudio.chinacraft.common.ChinaCraft;
 
 /**
  * Created by trychen on 17/3/25.
@@ -16,6 +18,8 @@ import unstudio.chinacraft.client.model.armor.ModelCassock;
 public class ModelArmorCassock extends ModelArmor {
     @SideOnly(Side.CLIENT)
     private ModelCassock armorModel = new ModelCassock();
+
+    private static Integer itemId;
 
     public ModelArmorCassock() {
         super(ArmorMaterial.CLOTH, "cassock", null, 1, 1, 1);
@@ -31,6 +35,9 @@ public class ModelArmorCassock extends ModelArmor {
             armorModel.bipedLeftArm.showModel = true;
             armorModel.bipedRightLeg.showModel = true;
             armorModel.bipedLeftLeg.showModel = true;
+
+            armorModel.bipedLeftLeg.childModels.clear();
+            armorModel.bipedRightLeg.childModels.clear();
 
             armorModel.isSneak = entityLiving.isSneaking();
             armorModel.isRiding = entityLiving.isRiding();
@@ -71,5 +78,12 @@ public class ModelArmorCassock extends ModelArmor {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         return "chinacraft:textures/models/armor/cassock.png";
+    }
+
+    public static int getItemId() {
+        if (itemId == null){
+            itemId = Item.getIdFromItem(ChinaCraft.cassock);
+        }
+        return itemId;
     }
 }

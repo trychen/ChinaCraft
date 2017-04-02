@@ -158,9 +158,7 @@ public class BlockBuhrimill extends BlockContainer implements CCWailaInfoProvide
     }
 
     @Override
-    public List<String> addWailaBodyInfo(ItemStack stack, List<String> tipList, IWailaDataAccessor accessor,
-            IWailaConfigHandler configHandler) {
-        TileEntity tile = accessor.getTileEntity();
+    public List<String> addWailaBodyInfo(ItemStack stack, List<String> tipList, TileEntity tile) {
         if (tile instanceof TileBuhrimill) {
             TileBuhrimill tileBuhrimill = (TileBuhrimill) tile;
             int maxSchedule = tileBuhrimill.getMaxSchedule();
