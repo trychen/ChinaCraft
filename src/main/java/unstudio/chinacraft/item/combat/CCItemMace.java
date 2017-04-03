@@ -15,6 +15,7 @@ import net.minecraft.util.StatCollector;
 
 import unstudio.chinacraft.client.render.item.SpecialItemRender;
 import unstudio.chinacraft.common.ChinaCraft;
+import unstudio.chinacraft.entity.fx.FxHelper;
 import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
 public class CCItemMace extends ItemSword implements ISpecialEquippedRender{
@@ -34,6 +35,13 @@ public class CCItemMace extends ItemSword implements ISpecialEquippedRender{
     @Override
     public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
         p_77624_3_.add(StatCollector.translateToLocal("item.mace.lore"));
+    }
+
+    @Override
+    public boolean hitEntity(ItemStack p_77644_1_, EntityLivingBase p_77644_2_, EntityLivingBase p_77644_3_) {
+        FxHelper.spawnEffects("blockcrack_" + ModelArmorCassock.getItemId(), p_77644_3_.worldObj, p_77644_3_.posX - 0.5,
+                p_77644_3_.posY, p_77644_3_.posZ - 0.5);
+        return super.hitEntity(p_77644_1_, p_77644_2_, p_77644_3_);
     }
 
     @Override

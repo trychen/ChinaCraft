@@ -12,7 +12,7 @@ import unstudio.chinacraft.common.ChinaCraft;
 public class ListenerSword {
     @SubscribeEvent
     public void mace(LivingHurtEvent event){
-        if (event.source.isFireDamage() || event.source.isProjectile() || !(event.source.getSourceOfDamage() instanceof EntityPlayer) || event.source.damageType != "player" || event.source.getSourceOfDamage() == null) return;
+        if (event.source.isFireDamage() || event.source.isProjectile() || !(event.source.getSourceOfDamage() instanceof EntityPlayer) && !event.source.damageType.equals("player") || event.source.getSourceOfDamage() == null) return;
         EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
         if (player.onGround && player.getHeldItem() != null && player.getHeldItem().getItem() == ChinaCraft.mace && player.worldObj.rand.nextBoolean()){
             player.onCriticalHit(event.entity);

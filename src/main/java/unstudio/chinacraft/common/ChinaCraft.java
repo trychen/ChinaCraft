@@ -383,7 +383,7 @@ public class ChinaCraft implements ICollection {
     @Register("JadeGreen")
     public static final Jade jadeGreenItem = new Jade("jade_green");
     @Register("JadeGreen2")
-    public static final Item jadeGreen2Item = new Jade("jade_green2").setMaxDamage(8);
+    public static final Item jadeGreen2Item = new Jade("jade_green2").setMaxDamage(56);
     @Register("JadePink")
     public static final Jade jadePinkItem = new Jade("jade_pink");
     @Register("JadePurple")
@@ -474,7 +474,6 @@ public class ChinaCraft implements ICollection {
         HAMMERIRON.setRepairItem(new ItemStack(Items.iron_ingot));
         HAMMERDIANMOND.setRepairItem(new ItemStack(Items.diamond));
         BRONZE.setRepairItem(new ItemStack(ChinaCraft.bronzeIngot));
-        BROAD_BRONZE.setRepairItem(new ItemStack(ChinaCraft.bronzeIngot));
     }
 
     public static Configuration getMainConfig() {
