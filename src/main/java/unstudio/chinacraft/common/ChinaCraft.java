@@ -314,7 +314,7 @@ public class ChinaCraft implements ICollection {
     @Register("YanLungGiantknife")
     public static final BLGiantSword blGiantSword = new BLGiantSword(ChinaCraft.YANGLONG); // 炎龙巨刀
     @Register("JiuQuTang")
-    public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
+    public static final CCItemJiuQuTang jiuquTang = new CCItemJiuQuTang();// 九曲镋
     @Register("Mace")
     public static final CCItemMace mace = new CCItemMace();
 //    @Register("SuperBow")

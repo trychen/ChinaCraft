@@ -195,7 +195,7 @@ public class Recipes {
         // Item.getItemFromBlock(Blocks.stone)});
 
         // 九曲镋刀
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.jiuqu_tang, 1), new Object[]{"#T#", "###",
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.jiuquTang, 1), new Object[]{"#T#", "###",
                 " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick, 'T', ChinaCraft.tinIngot}));
 
         // 青铜

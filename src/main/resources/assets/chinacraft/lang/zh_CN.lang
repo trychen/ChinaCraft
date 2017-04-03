@@ -24,7 +24,7 @@ item.bronze_body.name=青铜胸甲
 item.bronze_legs.name=青铜护腿
 item.bronze_boots.name=青铜靴子
 item.night_clothes_head.name=夜行衣头罩
-item.night_clothes_body.name=夜行衣胸衣
+item.night_clothes_body.name夜行衣胸衣
 item.night_clothes_leg.name=夜行衣绑腿
 item.night_clothes_shoe.name=夜行衣护脚
 item.nightclothes.lore=窃以无形，行如飞马
@@ -62,9 +62,8 @@ item.debug.name=调试
 
 item.china_crown.name=冕冠
 item.chinacrown.lore=权力的象征
-item.chinacrown.hidelore=获得 力量 效果
+item.chinacrown.hidelore=承受三倍的伤害造成双倍伤害
 item.xinjiang_nut_cake.name=切糕
-tile.xinjiang_nut_cake.name=切糕
 item.apple_cake.name=苹果糕
 tile.apple_cake.name=苹果糕
 item.firecracker.name=鞭炮

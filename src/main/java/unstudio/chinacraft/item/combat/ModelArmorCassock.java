@@ -22,7 +22,7 @@ public class ModelArmorCassock extends ModelArmor {
     private static Integer itemId;
 
     public ModelArmorCassock() {
-        super(ArmorMaterial.CLOTH, "cassock", null, 1, 1, 1);
+        super(ArmorMaterial.CLOTH, "cassock", "cassock", 1, 1, 1);
     }
 
     @Override

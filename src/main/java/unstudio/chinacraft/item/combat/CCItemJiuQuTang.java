@@ -9,9 +9,9 @@ import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 /**
  * Created by Huangshize .
  */
-public class JiuQu_tang extends ItemSword implements ISpecialEquippedRender{
+public class CCItemJiuQuTang extends ItemSword implements ISpecialEquippedRender{
 
-    public JiuQu_tang() {
+    public CCItemJiuQuTang() {
         super(ToolMaterial.IRON);
         setUnlocalizedName("jiuqu_tang");
         setMaxStackSize(1);

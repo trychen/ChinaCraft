@@ -109,7 +109,7 @@ public class ListenerArmor {
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
-    public void attack(LivingHurtEvent event){
+    public void hurt(LivingHurtEvent event){
         if (!(event.entity instanceof EntityPlayer)) return;
         EntityPlayer entityPlayer = (EntityPlayer) event.entity;
 
@@ -120,19 +120,25 @@ public class ListenerArmor {
             hurtCassock(event, entityPlayer);
         }
         if (entityPlayer.inventory.armorInventory[3] != null&& entityPlayer.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
-            hurtChinaCrown(event, entityPlayer);
+            hurtChinaCrown(event);
         }
-
     }
 
-    private void hurtChinaCrown(LivingHurtEvent event, EntityPlayer entityPlayer) {
-        if (entityPlayer.worldObj.rand.nextInt(2)==1){
-            double percent = (entityPlayer.worldObj.rand.nextInt(5)+3)/10.0;
-            if (event.source.getSourceOfDamage()!=null&&event.source.getSourceOfDamage() instanceof EntityLiving){
-                event.source.getSourceOfDamage().attackEntityFrom(DamageSource.causePlayerDamage(entityPlayer), (float) (event.ammount * (1 - percent)));
-                event.ammount = (float) (event.ammount *  percent);
-            }
+    @SubscribeEvent(priority = EventPriority.HIGH)
+    public void attack(LivingHurtEvent event){
+        if (event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer) return;
+        EntityPlayer entityPlayer = (EntityPlayer) event.source.getEntity();
+        if (entityPlayer.inventory.armorInventory[3] != null&& entityPlayer.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
+            attackWithChinaCrown(event);
         }
+    }
+
+    private void attackWithChinaCrown(LivingHurtEvent event) {
+        event.ammount *= 2;
+    }
+
+    private void hurtChinaCrown(LivingHurtEvent event) {
+        event.ammount *= 3;
     }
 
     private void hurtCassock(LivingHurtEvent event, EntityPlayer entityPlayer){
