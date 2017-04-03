@@ -30,7 +30,7 @@ public class ListenerJade {
         if (event.source.getEntity() != null && !event.source.isProjectile() && event.source.damageType.equals("player") && event.source.getEntity() instanceof EntityPlayer){
             EntityPlayer entityPlayer = (EntityPlayer) event.source.getEntity();
             ItemStack heldItemStack = entityPlayer.getHeldItem();
-            if (heldItemStack.getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
+            if (heldItemStack!= null && heldItemStack.getItem().equals(ChinaCraft.bronzeBroadSwordGreen2)) {
                 if (event.entity.worldObj.rand.nextInt(6) == 3) {
                     /**
                      * Green2 Sword， 一定几率吸血

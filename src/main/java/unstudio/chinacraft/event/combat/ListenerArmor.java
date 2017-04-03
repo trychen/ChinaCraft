@@ -126,9 +126,9 @@ public class ListenerArmor {
 
     @SubscribeEvent(priority = EventPriority.HIGH)
     public void attack(LivingHurtEvent event){
-        if (event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer) return;
+        if (event.source.getEntity() == null || !(event.source.getEntity() instanceof EntityPlayer)) return;
         EntityPlayer entityPlayer = (EntityPlayer) event.source.getEntity();
-        if (entityPlayer.inventory.armorInventory[3] != null&& entityPlayer.inventory.armorInventory[3].getItem().equals(ChinaCraft.chinaCrown)){
+        if (entityPlayer.inventory.armorInventory[3] != null && entityPlayer.inventory.armorInventory[3].getItem() == ChinaCraft.chinaCrown){
             attackWithChinaCrown(event);
         }
     }
