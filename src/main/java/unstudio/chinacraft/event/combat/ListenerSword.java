@@ -14,9 +14,9 @@ public class ListenerSword {
     public void mace(LivingHurtEvent event){
         if (event.source.isFireDamage() || event.source.isProjectile() || !(event.source.getSourceOfDamage() instanceof EntityPlayer) && !event.source.damageType.equals("player") || event.source.getSourceOfDamage() == null) return;
         EntityPlayer player = (EntityPlayer) event.source.getSourceOfDamage();
-        if (player.onGround && player.getHeldItem() != null && player.getHeldItem().getItem() == ChinaCraft.mace && player.worldObj.rand.nextBoolean()){
+        if (player.onGround && player.getHeldItem() != null && player.getHeldItem().getItem() == ChinaCraft.mace && player.worldObj.rand.nextInt(3) == 0 ){
             player.onCriticalHit(event.entity);
-            event.ammount *= 1.8;
+            event.ammount *= 2.5;
             player.getHeldItem().damageItem(2, player);
         }
     }

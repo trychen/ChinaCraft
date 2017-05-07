@@ -20,7 +20,7 @@ import unstudio.chinacraft.util.annotation.register.ISpecialEquippedRender;
 
 public class CCItemMace extends ItemSword implements ISpecialEquippedRender{
     public CCItemMace() {
-        super(ToolMaterial.STONE);
+        super(ChinaCraft.MACE);
         setCreativeTab(ChinaCraft.tabTool);
         setUnlocalizedName("mace");
     }
@@ -39,8 +39,6 @@ public class CCItemMace extends ItemSword implements ISpecialEquippedRender{
 
     @Override
     public boolean hitEntity(ItemStack p_77644_1_, EntityLivingBase p_77644_2_, EntityLivingBase p_77644_3_) {
-        FxHelper.spawnEffects("blockcrack_" + ModelArmorCassock.getItemId(), p_77644_3_.worldObj, p_77644_3_.posX - 0.5,
-                p_77644_3_.posY, p_77644_3_.posZ - 0.5);
         return super.hitEntity(p_77644_1_, p_77644_2_, p_77644_3_);
     }
 

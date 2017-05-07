@@ -94,6 +94,7 @@ tile.bamboo_plank.name=竹板
 tile.bamboo_shoot.name=竹笋
 item.bamboo.name=竹子
 item.bamboo_shoot.name=竹笋
+tile.peeled_bamboo_plank.name=竹板 (已杀青)
 
 tile.azalea.name=映山红
 tile.beanBracket.name=作物支架
@@ -110,6 +111,7 @@ tile.prunusMumeSapling=梅花树苗
 tile.teaBush=茶树
 
 tile.wooden_window.name=木窗格
+tile.bamboo_window.name=竹窗格
 
 tile.mulberry_log.name=桑树原木
 tile.mulberry_leaf.name=桑叶
@@ -118,6 +120,7 @@ tile.mulberry_sapling.name=桑树苗
 tile.mulberry_wood.name=桑木板
 
 tile.marble.name=大理石
+tile.marble_wall.name=大理石墙
 tile.smooth_marble.name=平滑大理石块
 tile.pillar_marble.name=条纹大理石块
 tile.chiseled_marble.name=錾制大理石块
@@ -125,7 +128,10 @@ tile.marble_slab.name=大理石半砖
 tile.marble_stair.name=大理石楼梯
 tile.firebrick.name=耐火砖
 item.blackbrick.name=青砖
-tile.blackbrick_block.name=青砖
+tile.blackbrick_block.name=青砖块
+tile.blackbrick_wall.name=青砖墙
+tile.blackbrick_mossy_block.name=苔石青砖
+tile.blackbrick_blacker_block.name=深色青砖块
 tile.blackbrick_slab.name=青砖半砖
 tile.blackbrick_stair.name=青砖楼梯
 

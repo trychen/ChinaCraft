@@ -17,7 +17,7 @@ import unstudio.chinacraft.common.ChinaCraft;
  */
 public class ModelArmorCassock extends ModelArmor {
     @SideOnly(Side.CLIENT)
-    private ModelCassock armorModel = new ModelCassock();
+    private ModelCassock armorModel;
 
     private static Integer itemId;
 
@@ -73,6 +73,7 @@ public class ModelArmorCassock extends ModelArmor {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         return "chinacraft:textures/models/armor/cassock.png";
     }

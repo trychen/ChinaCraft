@@ -9,11 +9,11 @@ import unstudio.chinacraft.common.ChinaCraft;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockWoodenWindow extends BlockPane {
+public class CCWindow extends BlockPane {
 
-    public BlockWoodenWindow(String arg1, String arg2) {
+    public CCWindow(String name, String arg1, String arg2) {
         super(arg1, arg2, Material.wood, true);
-        setBlockName(StatCollector.translateToLocal("wooden_window"));
+        setBlockName(StatCollector.translateToLocal(name));
         setHardness(0.3F);
         setStepSound(soundTypeWood);
         setCreativeTab(ChinaCraft.tabCore);

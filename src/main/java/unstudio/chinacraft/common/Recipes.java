@@ -103,6 +103,11 @@ public class Recipes {
                 new Object[]{"#  ", "## ", "###", '#', ChinaCraft.blockMarble});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4),
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.blockMarble});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleWall),
+                "###",
+                "###",
+                '#', ChinaCraft.smoothMarble
+        );
 
         //青砖
         for (int i = 1; i <= 8; i++) {
@@ -119,6 +124,13 @@ public class Recipes {
                 new Object[]{"#  ", "## ", "###", '#', ChinaCraft.blackbrick});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickStair, 4),
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.blackbrick});
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.blackbrickMossyBlock), ChinaCraft.blackbrickBlock, Item.getItemFromBlock(Blocks.mossy_cobblestone));
+        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.blackbrickBlackerBlock), ChinaCraft.blackbrickBlock, Items.clay_ball);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickWall),
+                "###",
+                "###",
+                '#', ChinaCraft.blackbrickBlock
+        );
 
         // 木窗格
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
@@ -135,6 +147,25 @@ public class Recipes {
         GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A',
                 Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife}));
 
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooWindow1, 1),
+                "HHH",
+                " # ",
+                "HHH",
+                'H', ChinaCraft.peeledBambooPlank,
+                '#', ChinaCraft.artKnife));
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooWindow2, 1),
+                "HHH",
+                "H#H",
+                "HHH",
+                'H', ChinaCraft.peeledBambooPlank,
+                '#', ChinaCraft.artKnife));
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooWindow3, 1),
+                " H ",
+                "H#H",
+                " H ",
+                'H', ChinaCraft.peeledBambooPlank,
+                '#', ChinaCraft.artKnife));
+
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish, 1, 2), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemDing), " J ", "MOM", "MCM", 'C', Blocks.coal_block, 'J', ChinaCraft.jadeKnife, 'O', Blocks.obsidian, 'M', Blocks.mossy_cobblestone);
 
@@ -149,6 +180,12 @@ public class Recipes {
                 new Object[]{"###", "###", "   ", '#', ChinaCraft.itemBamboo});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFenceGate, 1),
                 new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo, '$', ChinaCraft.bambooPlank});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 9),
+                "###",
+                "#K#",
+                "###",
+                '#', ChinaCraft.bambooPlank,
+                'K', ChinaCraft.artKnife);
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),
@@ -374,6 +411,5 @@ public class Recipes {
                 ChinaCraft.spiritualMagicFigures, Items.iron_ingot, Items.iron_ingot, Items.iron_ingot});
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.smfSuper),
                 new Object[]{ChinaCraft.blackDogBlood, ChinaCraft.spiritualMagicFigures});
-
     }
 }

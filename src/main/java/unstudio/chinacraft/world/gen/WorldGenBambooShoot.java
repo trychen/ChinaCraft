@@ -18,8 +18,12 @@ public class WorldGenBambooShoot extends WorldGenerator{
         int y1 = world.getHeightValue(x1,z1)+1;
         int id = world.getBiomeGenForCoords(x1, z1).biomeID;
         if ((id == 3 || id == 4 || id == 18 || id == 20 || id == 34 || id == 27 || id == 28 || id == 29)
-                && random.nextInt(16) == 0)
+                && random.nextInt(16) == 0) try {
             new WorldGenFlowers(ChinaCraft.blockBambooShoot).generate(world, random, x1, y1, z1);
+        } catch (RuntimeException e) {
+            //TODO: unknown exception
+            e.printStackTrace();
+        }
         return true;
     }
 }

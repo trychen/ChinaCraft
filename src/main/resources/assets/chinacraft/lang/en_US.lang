@@ -87,10 +87,11 @@ tile.jade_ore.name=Jade Ore
 item.jade.lore=Level:
 
 tile.bamboo.name=Bamboo
-tile.bamboo_plank.name=Bamboo Planks
+tile.bamboo_plank.name=Bamboo Plank
 item.bamboo.name=Bamboo
 tile.bamboo_shoot.name=Bamboo Shoot
 item.bamboo_shoot.name=Bamboo Shoot
+tile.peeled_bamboo_window.name=Peeled Bamboo Plank
 
 tile.azalea.name=Azalea
 tile.bean_bracket.name=Bean Bracket
@@ -115,6 +116,7 @@ tile.mulberry_sapling.name=Mulberry Sapling
 tile.mulberry_wood.name=Mulberry Wood
 
 tile.marble.name=Marble
+tile.marble_wall.name=Marble Wall
 tile.smooth_marble.name=Smooth Marble
 tile.pillar_marble.name=Marble Pillar
 tile.chiseled_marble.name=Chiseled Marble
@@ -123,6 +125,9 @@ tile.marble_stair.name=Marble Stair
 tile.firebrick.name=Firebrick
 item.blackbrick.name=Black Brick
 tile.blackbrick_block.name=Black Brick
+tile.blackbrick_mossy_block.name=Mossy Black Brick
+tile.blackbrick_wall.name=Black Brick Wall
+tile.blackbrick_blacker_block.name=Blacker Black Brick
 tile.blackbrick_slab.name=Black Brick Slab
 tile.blackbrick_stair.name=Black Brick Stair
 
