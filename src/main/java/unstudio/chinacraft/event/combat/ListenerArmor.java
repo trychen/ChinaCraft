@@ -6,6 +6,7 @@ import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -14,6 +15,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
+import net.minecraftforge.client.event.RenderHandEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -53,11 +55,24 @@ public class ListenerArmor {
 
 
     @SideOnly(Side.CLIENT)
+    private static Minecraft mc = Minecraft.getMinecraft();
+
+    @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void preRenderPlayer(RenderPlayerEvent.Pre event) {
-        if (event.entityPlayer.isSneaking()) {
-            if (event.entityPlayer.worldObj.getWorldTime() < 13500 || event.entityPlayer.worldObj.getWorldTime() > 22300) return;
-            if (!ChinaCraftApi.isWearingWholeNightClothes(event.entityPlayer)) return;
+        if (mc.thePlayer.isSneaking()) {
+            if (mc.thePlayer.worldObj.getWorldTime() < 13500 || mc.thePlayer.worldObj.getWorldTime() > 22300) return;
+            if (!ChinaCraftApi.isWearingWholeNightClothes(mc.thePlayer)) return;
+            event.setCanceled(true);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public void preRenderPlayer(RenderHandEvent event) {
+        if (mc.thePlayer.isSneaking()) {
+            if (mc.thePlayer.worldObj.getWorldTime() < 13500 || mc.thePlayer.worldObj.getWorldTime() > 22300) return;
+            if (!ChinaCraftApi.isWearingWholeNightClothes(mc.thePlayer)) return;
             event.setCanceled(true);
         }
     }
