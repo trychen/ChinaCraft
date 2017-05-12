@@ -148,6 +148,7 @@ item.bucket_salt.name=盐桶
 item.salt_powder.name=盐
 item.doujiang_bucket.name=豆浆桶
 item.rices.name=大米
+tile.rice.name=大米
 item.lcker.name=米穗
 item.soy.name=大豆
 tile.soy.name=大豆

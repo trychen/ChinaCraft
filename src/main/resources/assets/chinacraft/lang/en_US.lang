@@ -149,6 +149,7 @@ item.bucket_salt.name=Bucket of Salt
 item.salt_powder.name=Salt
 item.doujiang_bucket.name=Bucket of Soybean Milk
 item.rices.name=Rices
+tile.rice.name=Rice
 item.lcker.name=Rice Ear
 item.soy.name=Soy
 item.soy_pod.name=Pod
