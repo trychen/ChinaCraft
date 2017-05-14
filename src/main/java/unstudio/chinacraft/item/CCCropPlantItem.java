@@ -16,6 +16,16 @@ public class CCCropPlantItem extends Item implements IPlantable {
 
     private Block bb;
 
+    public CCCropPlantItem() {
+        this.setCreativeTab(ChinaCraft.tabFarming);
+    }
+
+    /**
+     * this constructor is no safe, the block may no init. so it may crash because bb is null.
+     * safe method is use {@link unstudio.chinacraft.util.annotation.register.CorpPlant}
+     * @param b
+     */
+    @Deprecated
     public CCCropPlantItem(Block b) {
         this.setCreativeTab(ChinaCraft.tabFarming);
         this.bb = b;
@@ -56,4 +66,8 @@ public class CCCropPlantItem extends Item implements IPlantable {
         return 0;
     }
 
+    public CCCropPlantItem setPlantBlock(Block bb) {
+        this.bb = bb;
+        return this;
+    }
 }

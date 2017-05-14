@@ -80,12 +80,12 @@ public class CCGrowablePlant extends BlockCrops {
 
     @Override
     protected Item func_149865_P() {
-        return dropItem;
+        return baseItem;
     }
 
     @Override
     public Item getItemDropped(int par1, Random par2Random, int par3) {
-        return par1 >= 5 ? baseItem : null;
+        return par1 == 7 ? dropItem : baseItem;
     }
 
     @Override
