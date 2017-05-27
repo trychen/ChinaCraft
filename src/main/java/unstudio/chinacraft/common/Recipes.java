@@ -5,10 +5,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import unstudio.chinacraft.recipes.CCShapedIgnoreDamageRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRecipes;
 import unstudio.chinacraft.recipes.BuhrimillRecipe;
 
@@ -133,38 +133,38 @@ public class Recipes {
         );
 
         // 木窗格
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
-                new Object[]{"HHH", "B#A", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', ChinaCraft.artKnife,
-                        'A', ChinaCraft.woodenWindow4, 'B', ChinaCraft.woodenWindow2}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindowfu, 1),
-                new Object[]{"HHH", "B#B", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', ChinaCraft.artKnife, 'B', ChinaCraft.woodenWindow2}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4),
-                new Object[]{" # ", "#A#", " # ", 'A', ChinaCraft.artKnife, '#', Items.stick}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), new Object[]{"B#B", "#A#", "B#B", 'A',
-                ChinaCraft.artKnife, '#', Items.stick, 'B', Item.getItemFromBlock(Blocks.log)}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4),
-                new Object[]{"###", "#A#", "###", 'A', ChinaCraft.artKnife, '#', Items.stick}));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), new Object[]{" A ", "A#A", " A ", 'A',
-                Item.getItemFromBlock(Blocks.planks), '#', ChinaCraft.artKnife}));
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindowdragon, 1),
+                "HHH", "B#A", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE),
+                        'A', ChinaCraft.woodenWindow4, 'B', ChinaCraft.woodenWindow2);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindowfu, 1),
+                "HHH", "B#B", "HHH", 'H', Item.getItemFromBlock(Blocks.log), '#',new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE), 'B', ChinaCraft.woodenWindow2);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4),
+                " # ", "#A#", " # ", 'A', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE), '#', Items.stick);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), "B#B", "#A#", "B#B", 'A',
+                ChinaCraft.artKnife, '#', Items.stick, 'B', Item.getItemFromBlock(Blocks.log));
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4),
+                new Object[]{"###", "#A#", "###", 'A', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE), '#', Items.stick});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), " A ", "A#A", " A ", 'A',
+                Item.getItemFromBlock(Blocks.planks), '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
 
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooWindow1, 1),
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooWindow1, 1),
                 "HHH",
                 " # ",
                 "HHH",
                 'H', ChinaCraft.peeledBambooPlank,
-                '#', ChinaCraft.artKnife));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooWindow2, 1),
+                '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooWindow2, 1),
                 "HHH",
                 "H#H",
                 "HHH",
                 'H', ChinaCraft.peeledBambooPlank,
-                '#', ChinaCraft.artKnife));
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooWindow3, 1),
+                '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooWindow3, 1),
                 " H ",
                 "H#H",
                 " H ",
                 'H', ChinaCraft.peeledBambooPlank,
-                '#', ChinaCraft.artKnife));
+                '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
 
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish, 1, 2), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemDing), " J ", "MOM", "MCM", 'C', Blocks.coal_block, 'J', ChinaCraft.jadeKnife, 'O', Blocks.obsidian, 'M', Blocks.mossy_cobblestone);
@@ -180,12 +180,12 @@ public class Recipes {
                 new Object[]{"###", "###", "   ", '#', ChinaCraft.itemBamboo});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFenceGate, 1),
                 new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo, '$', ChinaCraft.bambooPlank});
-        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 8),
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 8),
                 "###",
                 "#K#",
                 "###",
                 '#', ChinaCraft.bambooPlank,
-                'K', ChinaCraft.artKnife));
+                'K', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),
