@@ -141,7 +141,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow4, 4),
                 " # ", "#A#", " # ", 'A', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE), '#', Items.stick);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow3, 4), "B#B", "#A#", "B#B", 'A',
-                ChinaCraft.artKnife, '#', Items.stick, 'B', Item.getItemFromBlock(Blocks.log));
+                new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE), '#', Items.stick, 'B', Item.getItemFromBlock(Blocks.log));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow2, 4),
                 new Object[]{"###", "#A#", "###", 'A', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE), '#', Items.stick});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.woodenWindow1, 4), " A ", "A#A", " A ", 'A',
