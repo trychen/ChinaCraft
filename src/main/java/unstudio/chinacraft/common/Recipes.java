@@ -180,12 +180,12 @@ public class Recipes {
                 new Object[]{"###", "###", "   ", '#', ChinaCraft.itemBamboo});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFenceGate, 1),
                 new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo, '$', ChinaCraft.bambooPlank});
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 9),
+        GameRegistry.addRecipe(CCShapedIgnoreDamageRecipe.createRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 8),
                 "###",
                 "#K#",
                 "###",
                 '#', ChinaCraft.bambooPlank,
-                'K', ChinaCraft.artKnife);
+                'K', ChinaCraft.artKnife));
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),
@@ -199,7 +199,7 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.sericultureFrame, 1),
                 new Object[]{"@#@", "@#@", "@#@", '#', Item.getItemFromBlock(Blocks.wooden_slab), '@', Items.stick});
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.silkYarn, 4), ChinaCraft.silkwormChrysalis);
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemSilk, 1, 15),
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemSilk, 1, 0),
                 new Object[]{"@@ ", "@@ ", "   ", '@', ChinaCraft.silkYarn});
         for (int i = 0; i < 16; ++i)
             GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.itemSilk, 1, BlockColored.func_150031_c(i)), new Object[]{new ItemStack(Items.dye, 1, i), new ItemStack(ChinaCraft.itemSilk, 1, 0)});
