@@ -100,8 +100,6 @@ public class Recipes {
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleSlab, 6),
                 new Object[]{"   ", "   ", "###", '#', ChinaCraft.blockMarble});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4),
-                new Object[]{"#  ", "## ", "###", '#', ChinaCraft.blockMarble});
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleStair, 4),
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.blockMarble});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.marbleWall),
                 "###",
@@ -120,8 +118,6 @@ public class Recipes {
                 new Object[]{"## ", "## ", "   ", '#', ChinaCraft.blackbrick});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickSlab, 6),
                 new Object[]{"   ", "   ", "###", '#', ChinaCraft.blackbrick});
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickStair, 4),
-                new Object[]{"#  ", "## ", "###", '#', ChinaCraft.blackbrick});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.blackbrickStair, 4),
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.blackbrick});
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.blackbrickMossyBlock), ChinaCraft.blackbrickBlock, Item.getItemFromBlock(Blocks.mossy_cobblestone));
@@ -151,41 +147,49 @@ public class Recipes {
                 "HHH",
                 " # ",
                 "HHH",
-                'H', ChinaCraft.peeledBambooPlank,
+                'H', ChinaCraft.peeledBamboo,
                 '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooWindow2, 1),
                 "HHH",
                 "H#H",
                 "HHH",
-                'H', ChinaCraft.peeledBambooPlank,
+                'H', ChinaCraft.peeledBamboo,
                 '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooWindow3, 1),
                 " H ",
                 "H#H",
                 " H ",
-                'H', ChinaCraft.peeledBambooPlank,
+                'H', ChinaCraft.peeledBamboo,
                 '#', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
 
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.lanternScaldfish, 1, 2), "WYW", "WTW", "WYW", 'W', new ItemStack(Blocks.wool, 1, 14), 'Y', new ItemStack(Blocks.wool, 1, 4), 'T', Blocks.torch);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.itemDing), " J ", "MOM", "MCM", 'C', Blocks.coal_block, 'J', ChinaCraft.jadeKnife, 'O', Blocks.obsidian, 'M', Blocks.mossy_cobblestone);
 
         // 竹子
-        GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.bambooPlank), ChinaCraft.itemBamboo, ChinaCraft.itemBamboo, ChinaCraft.itemBamboo, ChinaCraft.itemBamboo);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooPlank, 1),
+                "##",
+                "##",
+                '#', ChinaCraft.itemBamboo);
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooSlab, 6), "   ", "   ", "###", '#', ChinaCraft.bambooPlank);
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooStair, 4),
-                new Object[]{"#  ", "## ", "###", '#', ChinaCraft.bambooPlank});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooStair, 4),
                 new Object[]{"  #", " ##", "###", '#', ChinaCraft.bambooPlank});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFence, 2),
                 new Object[]{"###", "###", "   ", '#', ChinaCraft.itemBamboo});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bambooFenceGate, 1),
                 new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.itemBamboo, '$', ChinaCraft.bambooPlank});
-        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 8),
-                "###",
-                "#K#",
-                "###",
-                '#', ChinaCraft.bambooPlank,
-                'K', new ItemStack(ChinaCraft.artKnife,1, OreDictionary.WILDCARD_VALUE));
+
+        GameRegistry.addSmelting(ChinaCraft.itemBamboo,new ItemStack(ChinaCraft.peeledBamboo),0f);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooPlank, 1),
+                "##",
+                "##",
+                '#', ChinaCraft.peeledBamboo);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooSlab, 6), "   ", "   ", "###", '#', ChinaCraft.peeledBambooPlank);
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooStair, 4),
+                new Object[]{"  #", " ##", "###", '#', ChinaCraft.peeledBambooPlank});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooFence, 2),
+                new Object[]{"###", "###", "   ", '#', ChinaCraft.peeledBamboo});
+        GameRegistry.addRecipe(new ItemStack(ChinaCraft.peeledBambooFenceGate, 1),
+                new Object[]{"#$#", "#$#", "   ", '#', ChinaCraft.peeledBamboo, '$', ChinaCraft.peeledBambooPlank});
 
         // mulberry
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.mulberryWood, 4),

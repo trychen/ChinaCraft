@@ -189,6 +189,17 @@ public class ChinaCraft implements ICollection {
     @Register("PeeledBambooPlank")
     public static final Block peeledBambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:peeled_bamboo_plank").setBlockName("peeled_bamboo_plank")
             .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹板
+    @SlabRegister(name = "PeeledBambooSlab",first = "peeledBambooSlab",second = "peeledBambooDoubleSlab")
+    public static final Block peeledBambooSlab = new BlockCCSlab(false,Material.wood).setHardness(2.0F).setResistance(5.0F).setBlockName("peeled_bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:peeled_bamboo_plank").setCreativeTab(ChinaCraft.tabCore);//竹制半砖
+    @SlabRegister(name = "PeeledBambooDoubleSlab",first = "peeledBambooSlab",second = "peeledBambooDoubleSlab")
+    public static final Block peeledBambooDoubleSlab =  new BlockCCSlab(true,Material.wood).setBlockSlab(ChinaCraft.peeledBambooSlab).setHardness(2.0F).setResistance(5.0F).setBlockName("peeled_bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:peeled_bamboo_plank");//竹制半砖
+    @Register("PeeledBambooStair")
+    public static final Block peeledBambooStair = new BlockCCStair(ChinaCraft.peeledBambooPlank,0).setHardness(2.0F).setResistance(5.0F).setBlockName("peeled_bamboo_stair").setCreativeTab(ChinaCraft.tabCore);//竹制楼梯
+    @Register("PeeledBambooFenceGate")
+    public static final Block peeledBambooFenceGate = new BlockCCFenceGate(peeledBambooPlank).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("peeled_bamboo_fence_gate").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏门
+    @Register("PeeledBambooFence")
+    public static final Block peeledBambooFence = new BlockCCFence("chinacraft:peeled_bamboo_plank",Material.wood).setGate(peeledBambooFenceGate).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("peeled_bamboo_fence").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏
+
     @Register("PeedledBambooWindow1")
     public static final CCWindow peeledBambooWindow1 = new CCWindow("bamboo_window","chinacraft:peeled_bamboo_window_1", "chinacraft:peeled_bamboo_window_top");
     @Register("PeedledBambooWindow2")
@@ -297,6 +308,8 @@ public class ChinaCraft implements ICollection {
     public static final CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7, ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
     @Register("ItemBamboo")
     public static final Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    @Register("PeeledBamboo")
+    public static final Item peeledBamboo = new ItemBase().setTextureName("chinacraft:peeled_bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("peeled_bamboo"); // 竹子
     @Register("ItemMulberryLeaf")
     public static final Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabFarming); // 桑叶
     @Register("BlackDogBlood")
