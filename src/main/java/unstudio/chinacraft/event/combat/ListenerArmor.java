@@ -89,7 +89,7 @@ public class ListenerArmor {
             if (FMLClientHandler.instance().getClient().gameSettings.keyBindJump.getIsKeyPressed()) { //是否按下了跳跃键
                 if(FeatureConfig.enableDoubleJump) {
                     if (player.motionY < 0.04 && player.isAirBorne) {
-                        ChinaCraft.Network.sendToServer(new KeyMessage(0));//向服务器发送消息
+                        ChinaCraft.Network.sendToServer(new KeyMessage(KeyMessage.KEY_DOUBLE_JUMP));//向服务器发送消息
                     }
                 }
             }

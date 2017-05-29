@@ -71,7 +71,7 @@ public class ListenerJade {
                         itemStack.damageItem(1, entityPlayer);
                         if(!e.entity.worldObj.isRemote) {
 //                            e.entity.worldObj.spawnParticle("magicCrit", e.entity.worldObj, e.entity.posX - 0.5, e.entity.posY + 1, e.entity.posZ - 0.5);
-                            FxHelper.spawnEffects("magicCrit", e.entity);
+                            FxHelper.spawnEffectsOnHead("magicCrit", e.entity);
                         }
                     }
                 } else if (itemStack.getItem() == ChinaCraft.jadePurpleItem) {

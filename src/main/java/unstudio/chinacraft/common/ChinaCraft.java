@@ -59,7 +59,7 @@ import java.util.Random;
 public class ChinaCraft implements ICollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "0.4.205";
+    public static final String VERSION = "0.4.206";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
@@ -73,6 +73,7 @@ public class ChinaCraft implements ICollection {
 
     @SidedProxy(clientSide = "unstudio.chinacraft.common.ClientProxy", serverSide = "unstudio.chinacraft.common.CommonProxy")
     public static CommonProxy proxy;
+    
     @Instance("chinacraft")
     public static ChinaCraft instance;
 
@@ -338,6 +339,12 @@ public class ChinaCraft implements ICollection {
     public static final CCItemJiuQuTang jiuquTang = new CCItemJiuQuTang();// 九曲镋
     @Register("Mace")
     public static final CCItemMace mace = new CCItemMace();
+    @Register("BuddhistMonksKnife")
+    public static final CCBuddhistMonksKnife buddhistMonksKnife = new CCBuddhistMonksKnife(Item.ToolMaterial.WOOD);
+    @Register("CrashBuddhistMonksKnife")
+    public static final CCBuddhistMonksKnife crashBuddhistMonksKnife = (CCBuddhistMonksKnife) new CCBuddhistMonksKnife(Item.ToolMaterial.IRON).setUnlocalizedName("crash_buddhist_monks_knife").setMaxDamage(450);
+    @Register("JointStaff")
+    public static final CCJointStaff jointStaff = new CCJointStaff();
 //    @Register("SuperBow")
     public static final ItemSuperBow superBow = new ItemSuperBow();
     @Register("StoneHammer")
