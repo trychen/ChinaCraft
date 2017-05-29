@@ -21,7 +21,6 @@ public class WorldGenCCFlower extends WorldGenerator{
 
     @Override
     public boolean generate(World world, Random random, int x, int y, int z) {
-        if(random.nextInt(9)==0) return true;
         if (world.provider.dimensionId != 0) return true;
 
         for (int i = 0; i <= 15; i++) {
