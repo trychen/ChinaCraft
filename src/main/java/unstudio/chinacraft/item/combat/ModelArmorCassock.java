@@ -17,7 +17,7 @@ import unstudio.chinacraft.common.ChinaCraft;
  */
 public class ModelArmorCassock extends ModelArmor {
     @SideOnly(Side.CLIENT)
-    private ModelCassock armorModel;
+    private ModelCassock armorModel = new ModelCassock();
 
     private static Integer itemId;
 
@@ -49,26 +49,16 @@ public class ModelArmorCassock extends ModelArmor {
 
             if (held_item != null) {
                 armorModel.heldItemRight = 1;
-
                 if (player.getItemInUseCount() > 0) {
-
                     EnumAction enumaction = held_item.getItemUseAction();
-
                     if (enumaction == EnumAction.bow) {
                         armorModel.aimedBow = true;
                     } else if (enumaction == EnumAction.block) {
                         armorModel.heldItemRight = 3;
                     }
-
-
                 }
-
             }
-
-
         }
-
-
         return armorModel;
     }
 
