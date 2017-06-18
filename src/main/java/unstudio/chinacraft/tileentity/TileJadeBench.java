@@ -4,23 +4,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 import unstudio.chinacraft.common.ChinaCraft;
-import unstudio.chinacraft.item.combat.BronzeBroadSword;
 import unstudio.chinacraft.item.combat.Hammer;
-import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.recipes.JadeBenchRecipes;
 import unstudio.chinacraft.recipes.JadeBenchRecipes.JadeBenchModifyRecipe;
 import unstudio.chinacraft.recipes.JadeBenchRecipes.JadeBenchOreRecipe;
-import unstudio.chinacraft.util.ItemStackHelper;
 
 public class TileJadeBench extends TileEntity implements IInventory {
 
-    private ItemStack stack[] = new ItemStack[3];
+    private ItemStack[] stack = new ItemStack[3];
 
     @Override
     public int getSizeInventory() {
