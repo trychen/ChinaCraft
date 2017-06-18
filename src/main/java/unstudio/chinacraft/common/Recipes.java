@@ -348,12 +348,38 @@ public class Recipes {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.jadeKnife, 1),
                 new Object[]{" X ", "X#X", '#', Items.stick, 'X', Items.iron_ingot}));
 
-        //飞刀
+        // 飞刀
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.flyingCutter, 2),
                 new Object[]{"  I", "S  ", "F  ", 'S', Items.stick, 'I', Items.iron_ingot, 'F', Items.feather}));
 
-        //蝉杖
+        // 蝉杖
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.buddhistCane, 1), "IAI", "BSB", " S ", 'I', Items.gold_ingot, 'B', ChinaCraft.tinIngot, 'A', Items.ghast_tear, 'S', Items.stick));
+
+        // 戒刀
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.buddhistMonksKnife),
+                " P ",
+                "PDP",
+                " A ",
+                'P', ChinaCraft.peeledBambooPlank,
+                'A', ChinaCraft.artKnife,
+                'D', Items.diamond
+        ));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.crashBuddhistMonksKnife),
+                " P ",
+                "TDT",
+                " A ",
+                'P', ChinaCraft.peeledBambooPlank,
+                'A', ChinaCraft.artKnife,
+                'D', Items.diamond,
+                'T', ChinaCraft.silverIngot
+        ));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.jointStaff),
+                " II",
+                "ISI",
+                "II ",
+                'S', Items.stick,
+                'I', Items.iron_ingot
+        ));
 
         // 大麦
         GameRegistry.addShapelessRecipe(new ItemStack(ChinaCraft.barleyRice), new ItemStack(Items.wheat));

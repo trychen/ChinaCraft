@@ -99,8 +99,9 @@ tile.bamboo_fence_gate.name=竹制栅栏门
 tile.bamboo_plank.name=竹板
 tile.bamboo_shoot.name=竹笋
 item.bamboo.name=竹子
+item.peeled_bamboo.name=已杀青的竹子
 item.bamboo_shoot.name=竹笋
-tile.peeled_bamboo_plank.name=竹板 (已杀青)
+tile.peeled_bamboo_plank.name=已杀青的竹板
 
 tile.azalea.name=映山红
 tile.beanBracket.name=作物支架
