@@ -43,7 +43,7 @@ public class EntityMethod {
                 AxisAlignedBB.getBoundingBox(x - d0, y - d1, z - d0, x + d0, y + d1, z + d0));
     }
 
-    public static <T> List<T> findNear(EntityPlayer player, Class<? extends T> find, double d0, double d1) {
+    public static <T> List<T> findNear(Entity player, Class<? extends T> find, double d0, double d1) {
         double x = player.posX;
         double y = player.posY;
         double z = player.posZ;

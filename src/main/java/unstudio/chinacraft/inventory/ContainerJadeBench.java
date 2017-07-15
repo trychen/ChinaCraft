@@ -72,4 +72,22 @@ public class ContainerJadeBench extends Container {
         }
         return var3;
     }
+
+    @Override
+    public void onContainerClosed(EntityPlayer p_75134_1_) {
+        super.onContainerClosed(p_75134_1_);
+
+        if (!this.tile.getWorldObj().isRemote)
+        {
+            for (int i = 0; i < 9; ++i)
+            {
+                ItemStack itemstack = this.tile.getStackInSlotOnClosing(i);
+
+                if (itemstack != null)
+                {
+                    p_75134_1_.dropPlayerItemWithRandomChoice(itemstack, false);
+                }
+            }
+        }
+    }
 }

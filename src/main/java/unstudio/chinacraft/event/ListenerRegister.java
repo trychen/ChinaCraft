@@ -28,6 +28,6 @@ public class ListenerRegister {
     }
 
     public static List<Class<?>> getListeners(){
-        return  AnnotationClassGetter.getClasses("unstudio.chinacraft.event");
+        return AnnotationClassGetter.getClasses("unstudio.chinacraft.event");
     }
 }

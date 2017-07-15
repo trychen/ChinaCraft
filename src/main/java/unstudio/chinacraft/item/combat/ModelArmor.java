@@ -20,8 +20,11 @@ import unstudio.chinacraft.util.ItemLoreHelper;
 public class ModelArmor extends ItemArmor {
     @SideOnly(Side.CLIENT)
     protected IIcon itemIcon;
-    private String textureName = "";
+    @SideOnly(Side.CLIENT)
     private ModelBiped armorModel;
+
+    private String textureName;
+
     private int textureType;
 
     public ModelArmor(ArmorMaterial armorMaterial, String name, String textureName, int textureType, int type,
@@ -89,6 +92,7 @@ public class ModelArmor extends ItemArmor {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public String getArmorTexture(ItemStack stack, Entity entity, int slot, String layer) {
         if (textureType == 0) {
             return String.format("chinacraft:textures/models/armor/%s.png", textureName);
@@ -96,6 +100,7 @@ public class ModelArmor extends ItemArmor {
         return String.format("chinacraft:textures/models/armor/%s_layer_%d.png", textureName, slot == 2 ? 2 : 1);
     }
 
+    @SideOnly(Side.CLIENT)
     public void setArmorModel(ModelBiped armorModel) {
         this.armorModel = armorModel;
     }

@@ -1,4 +1,4 @@
-#ChinaCraft  [![Build Status](https://travis-ci.org/UnknownStudio/ChinaCraft.svg?branch=master)](https://travis-ci.org/UnknownStudio/ChinaCraft)
+# ChinaCraft  [![Build Status](https://travis-ci.org/UnknownStudio/ChinaCraft.svg?branch=master)](https://travis-ci.org/UnknownStudio/ChinaCraft)
 
 
 

@@ -43,20 +43,19 @@ public class ItemLoreHelper {
             }
         }
         
-        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT))
-            if (StatCollector.canTranslate(itemName + ".hidelore")){
+        if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT) || Keyboard.isKeyDown(Keyboard.KEY_RSHIFT)) {
+            if (StatCollector.canTranslate(itemName + ".hidelore")) {
                 lores.add("");
                 lores.add(EnumChatFormatting.WHITE + StatCollector.translateToLocal(itemName + ".hidelore"));
-            }
-            else {
+            } else {
                 int i = 1;
-                while (StatCollector.canTranslate(itemName + ".hidelore." + i)){
-                    if (i==1) lores.add("");
+                while (StatCollector.canTranslate(itemName + ".hidelore." + i)) {
+                    if (i == 1) lores.add("");
                     lores.add(EnumChatFormatting.WHITE + StatCollector.translateToLocal(itemName + ".hidelore." + i));
                     i++;
                 }
             }
-        else {
+        } else if (StatCollector.canTranslate(itemName + ".hidelore") || StatCollector.canTranslate(itemName + ".hidelore.1")){
             lores.add("");
             lores.add(StatCollector.translateToLocal("gui.inventory.shiftfordetail"));
         }

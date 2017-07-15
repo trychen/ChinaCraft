@@ -2,12 +2,15 @@ package unstudio.chinacraft.util.annotation;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.oredict.OreDictionary;
 import unstudio.chinacraft.common.ChinaCraft;
 import unstudio.chinacraft.common.Recipes;
+import unstudio.chinacraft.item.CCCropPlantItem;
 import unstudio.chinacraft.item.ItemCCSlab;
+import unstudio.chinacraft.util.annotation.register.CorpPlant;
 import unstudio.chinacraft.util.annotation.register.ICollection;
 import unstudio.chinacraft.util.annotation.register.Register;
 import unstudio.chinacraft.util.annotation.register.SlabRegister;
@@ -88,6 +91,27 @@ public class ItemBlockRegister {
                         }
                         if (ore != null&&!ore.isEmpty()) OreDictionary.registerOre(ore, (Block) o);
                     } else if (o instanceof Item) {
+
+                        if (f.isAnnotationPresent(CorpPlant.class)){
+                            if (o instanceof CCCropPlantItem) {
+                                CorpPlant ann = f.getAnnotation(CorpPlant.class);
+                                try {
+                                    Object obj = c.getField(ann.value()).get(null);
+                                    if (obj instanceof Block) {
+                                        ((CCCropPlantItem) o).setPlantBlock((Block) obj);
+                                    } else {
+                                        new IllegalArgumentException(f.getName() + "'s @CorpPlant.value() refers to an none-block field").printStackTrace();
+                                    }
+                                } catch (NoSuchFieldException e) {
+                                    e.printStackTrace();
+                                } catch (IllegalAccessException e) {
+                                    e.printStackTrace();
+                                }
+                            } else {
+                                new IllegalArgumentException(f.getName() + " is not a CCCropPlantItem").printStackTrace();
+                            }
+                        }
+
                         //以物品的形式注册
                         GameRegistry.registerItem((Item) o, name);
                         if (ore != null&&!ore.isEmpty()) OreDictionary.registerOre(ore, (Item) o);

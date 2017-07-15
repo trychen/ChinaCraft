@@ -13,7 +13,7 @@ public class ItemArtKnife extends Item {
     public ItemArtKnife() {
         setUnlocalizedName("art_knife");
         setMaxStackSize(1);
-        setMaxDamage(6);
+        setMaxDamage(64);
         setHasSubtypes(false);
         setCreativeTab(ChinaCraft.tabTool);
     }

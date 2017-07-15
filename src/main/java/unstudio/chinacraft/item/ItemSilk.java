@@ -15,8 +15,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemSilk extends Item {
 
-    public static final String[] silk_name = new String[] { "black", "red", "green", "brown", "blue", "purple", "cyan",
-            "silver", "gray", "pink", "lime", "yellow", "lightBlue", "magenta", "orange", "white" };
+    public static final String[] silk_name = new String[] { "white", "orange", "magenta", "lightBlue", "yellow", "lime", "pink",
+            "gray", "silver", "cyan", "purple", "blue", "brown",  "green", "red", "black" };
     private IIcon[] silk_icon;
 
     public ItemSilk() {

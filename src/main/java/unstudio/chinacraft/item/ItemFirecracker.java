@@ -25,7 +25,11 @@ public class ItemFirecracker extends Item {
         if (!world.isRemote) {
             if (player.isSneaking()){
                 for (int i = 0; i < stack.stackSize; i++) {
-                    world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
+                    EntityThrownFirecracker entityThrownFirecracker = new EntityThrownFirecracker(world, player);
+                    entityThrownFirecracker.motionX *= world.rand.nextGaussian();
+                    entityThrownFirecracker.motionY += 0.3;
+                    entityThrownFirecracker.motionZ *= world.rand.nextGaussian();
+                    world.spawnEntityInWorld(entityThrownFirecracker);
                 }
             } else world.spawnEntityInWorld(new EntityThrownFirecracker(world, player));
         }

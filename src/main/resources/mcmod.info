@@ -3,11 +3,15 @@
   "modid": "chinacraft",
   "name": "ChinaCraft",
   "description": "A mod with Chinese features.",
+<<<<<<< HEAD
   "version": "Beta 0.3.202",
+=======
+  "version": "Beta 0.4.206",
+>>>>>>> dev
   "mcversion": "1.7.10",
   "url": "http://mccraft.cn/project/chinacraft",
   "updateUrl": "",
-  "authorList": ["Mouse","Trychen","Huangshize","Mcdarc","Lasm_Gratel"],
+  "authorList": ["Mouse","Trychen","Huangshize","Mcdarc","Lasm_Gratel", "and so on, more see url.(no order)"],
   "logoFile": "assets/chinacraft/logo.png",
   "screenshots": [],
   "dependencies": []

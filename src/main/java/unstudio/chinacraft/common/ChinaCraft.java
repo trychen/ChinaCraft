@@ -15,13 +15,14 @@ import net.minecraft.block.BlockCake;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.*;
-import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import unstudio.chinacraft.block.BlockBase;
+import unstudio.chinacraft.block.CCBlockWall;
 import unstudio.chinacraft.block.CCFlower;
 import unstudio.chinacraft.block.CCGrowablePlant;
 import unstudio.chinacraft.block.decoration.*;
@@ -41,6 +42,7 @@ import unstudio.chinacraft.item.*;
 import unstudio.chinacraft.item.combat.*;
 import unstudio.chinacraft.item.jade.Jade;
 import unstudio.chinacraft.item.jade.JadePinkSystem;
+import unstudio.chinacraft.util.annotation.register.CorpPlant;
 import unstudio.chinacraft.util.remote.Network;
 import unstudio.chinacraft.util.remote.MinecraftModVersionChecker;
 import unstudio.chinacraft.util.remote.VersionChecker;
@@ -57,7 +59,7 @@ import java.util.Random;
 public class ChinaCraft implements ICollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "0.3.200";
+    public static final String VERSION = "0.4.206";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
@@ -71,6 +73,7 @@ public class ChinaCraft implements ICollection {
 
     @SidedProxy(clientSide = "unstudio.chinacraft.common.ClientProxy", serverSide = "unstudio.chinacraft.common.CommonProxy")
     public static CommonProxy proxy;
+    
     @Instance("chinacraft")
     public static ChinaCraft instance;
 
@@ -81,12 +84,14 @@ public class ChinaCraft implements ICollection {
     public final static Random rand = new Random();
     // Material
     public static final Item.ToolMaterial BRONZE = EnumHelper.addToolMaterial("BRONZE", 2, 200, 5.2F, 1.8F, 14);
-    public static final Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("HAMMERSIONE", 1, 240, 4.0F, 2.0F, 5); // 石锤
-    public static final Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("HAMMERIRON", 2, 475, 6.0F, 3.0F, 14); // 铁锤
-    public static final Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("HAMMERDIAMOND", 3, 2096, 8.0F, 4.0F,
+
+    public static final Item.ToolMaterial HAMMERSTONE = EnumHelper.addToolMaterial("CC_HAMMER_SIONE", 1, 240, 4.0F, 2.0F, 5); // 石锤
+    public static final Item.ToolMaterial HAMMERIRON = EnumHelper.addToolMaterial("CC_HAMMER_IRON", 2, 475, 6.0F, 3.0F, 14); // 铁锤
+    public static final Item.ToolMaterial HAMMERDIANMOND = EnumHelper.addToolMaterial("CC_HAMMER_DIAMOND", 3, 2096, 8.0F, 4.0F,
             10); // 钻石锤
-    public static final Item.ToolMaterial YANGLONG = EnumHelper.addToolMaterial("yanlong", 3, 2568, 8.0F, 6.0F, 10); // BLGiantSword
-    public static final Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
+    public static final Item.ToolMaterial YANGLONG = EnumHelper.addToolMaterial("CC_YANG_LONG", 3, 2568, 8.0F, 6.0F, 10); // BLGiantSword
+    public static final Item.ToolMaterial BROAD_BRONZE = EnumHelper.addToolMaterial("CC_BROAD_BRONZE", 2, 230, 6.0F, 2.5F, 1);
+    public static final Item.ToolMaterial MACE = EnumHelper.addToolMaterial("CC_MACE", 2, 450, 2.0F, 2F, 4);
 
     public static final CreativeTabs tabCore = new CreativeTabs("core") {
         @Override
@@ -159,6 +164,8 @@ public class ChinaCraft implements ICollection {
     public static final Block marbleSlab = new BlockCCSlab(false, Material.rock).setHarvestLevelReturnBlock("pickaxe", 1).setCreativeTab(ChinaCraft.tabCore).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
     @SlabRegister(name = "MarbleDoubleSlab", first = "marbleSlab", second = "marbleDoubleSlab")
     public static final Block marbleDoubleSlab = new BlockCCSlab(true, Material.rock).setBlockSlab(ChinaCraft.marbleSlab).setHarvestLevelReturnBlock("pickaxe", 1).setHardness(2.0F).setResistance(10.0F).setStepSound(Block.soundTypePiston).setBlockName("marble_slab").setBlockTextureName("chinacraft:smooth_marble"); // 大理石半砖
+    @Register("MarbleWall")
+    public static final Block marbleWall = new CCBlockWall(smoothMarble).setBlockName("marble_wall"); // 大理石墙
 
 //    @Register("TraditionalPainting")
     public static final CCItemPainting traditionalPainting = new CCItemPainting("traditional_painting");
@@ -180,38 +187,64 @@ public class ChinaCraft implements ICollection {
     public static final Block bambooFenceGate = new BlockCCFenceGate(bambooPlank).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("bamboo_fence_gate").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏门
     @Register("BambooFence")
     public static final Block bambooFence = new BlockCCFence("chinacraft:bamboo_plank",Material.wood).setGate(bambooFenceGate).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("bamboo_fence").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏
+    @Register("PeeledBambooPlank")
+    public static final Block peeledBambooPlank = new BlockBase(Material.wood).setBlockTextureName("chinacraft:peeled_bamboo_plank").setBlockName("peeled_bamboo_plank")
+            .setCreativeTab(ChinaCraft.tabCore).setStepSound(Block.soundTypeWood); // 竹板
+    @SlabRegister(name = "PeeledBambooSlab",first = "peeledBambooSlab",second = "peeledBambooDoubleSlab")
+    public static final Block peeledBambooSlab = new BlockCCSlab(false,Material.wood).setHardness(2.0F).setResistance(5.0F).setBlockName("peeled_bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:peeled_bamboo_plank").setCreativeTab(ChinaCraft.tabCore);//竹制半砖
+    @SlabRegister(name = "PeeledBambooDoubleSlab",first = "peeledBambooSlab",second = "peeledBambooDoubleSlab")
+    public static final Block peeledBambooDoubleSlab =  new BlockCCSlab(true,Material.wood).setBlockSlab(ChinaCraft.peeledBambooSlab).setHardness(2.0F).setResistance(5.0F).setBlockName("peeled_bamboo_slab").setStepSound(Block.soundTypeWood).setBlockTextureName("chinacraft:peeled_bamboo_plank");//竹制半砖
+    @Register("PeeledBambooStair")
+    public static final Block peeledBambooStair = new BlockCCStair(ChinaCraft.peeledBambooPlank,0).setHardness(2.0F).setResistance(5.0F).setBlockName("peeled_bamboo_stair").setCreativeTab(ChinaCraft.tabCore);//竹制楼梯
+    @Register("PeeledBambooFenceGate")
+    public static final Block peeledBambooFenceGate = new BlockCCFenceGate(peeledBambooPlank).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("peeled_bamboo_fence_gate").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏门
+    @Register("PeeledBambooFence")
+    public static final Block peeledBambooFence = new BlockCCFence("chinacraft:peeled_bamboo_plank",Material.wood).setGate(peeledBambooFenceGate).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setBlockName("peeled_bamboo_fence").setCreativeTab(ChinaCraft.tabCore);//竹制栅栏
+
+    @Register("PeedledBambooWindow1")
+    public static final CCWindow peeledBambooWindow1 = new CCWindow("bamboo_window","chinacraft:peeled_bamboo_window_1", "chinacraft:peeled_bamboo_window_top");
+    @Register("PeedledBambooWindow2")
+    public static final CCWindow peeledBambooWindow2 = new CCWindow("bamboo_window","chinacraft:peeled_bamboo_window_2", "chinacraft:peeled_bamboo_window_top");
+    @Register("PeedledBambooWindow3")
+    public static final CCWindow peeledBambooWindow3 = new CCWindow("bamboo_window", "chinacraft:peeled_bamboo_window_3", "chinacraft:peeled_bamboo_window_top");
 
     @Register("BlackBrickBlock")
     public static final Block blackbrickBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
+    @Register("BlackBrickMossyBlock")
+    public static final Block blackbrickMossyBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_mossy_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block_mossy").setCreativeTab(ChinaCraft.tabCore);//青砖块
+    @Register("BlackBrickBlackerBlock")
+    public static final Block blackbrickBlackerBlock = new BlockBase(Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(12.0F).setBlockName("blackbrick_blacker_block").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_blacker_block").setCreativeTab(ChinaCraft.tabCore);//青砖块
     @SlabRegister(name = "BlackBrickSlab",first = "blackbrickSlab",second = "blackbrickDoubleSlab")
     public static final Block blackbrickSlab = new BlockCCSlab(false,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block").setCreativeTab(ChinaCraft.tabCore);//青砖半砖
     @SlabRegister(name = "BlackBrickDoubleSlab",first = "blackbrickSlab",second = "blackbrickDoubleSlab")
     public static final Block blackbrickDoubleSlab =  new BlockCCSlab(true,Material.rock).setHarvestLevelReturnBlock("pickaxe", 0).setBlockSlab(ChinaCraft.blackbrickSlab).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_slab").setStepSound(Block.soundTypeStone).setBlockTextureName("chinacraft:blackbrick_block");//青砖半砖
     @Register("BlackBrickStair")
     public static final Block blackbrickStair = new BlockCCStair(ChinaCraft.blackbrickBlock,0).setHarvestLevelReturnBlock("pickaxe", 0).setHardness(2.0F).setResistance(10.0F).setBlockName("blackbrick_stair").setCreativeTab(ChinaCraft.tabCore);
+    @Register("BlackBrickWall")
+    public static final Block blackbrickWall = new CCBlockWall(blackbrickBlock).setBlockName("blackbrick_wall");
 
-    @Register("MulberryLog")
+    @Register(value = "MulberryLog",ore = "logWood")
     public static final Block mulberryLog = new BlockCCLog("chinacraft:mulberry_log_top", "chinacraft:mulberry_log").setCreativeTab(ChinaCraft.tabCore).setBlockName("mulberry_log"); // 桑树原木
-    @Register("MulberryLeaf")
+    @Register(value = "MulberryLeaf",ore = "treeLeaves")
     public static final Block mulberryLeaf = new BlockCCLeaves(ChinaCraft.mulberrySapling).setCreativeTab(ChinaCraft.tabFarming).setBlockName("mulberry_leaf").setBlockTextureName("chinacraft:mulberry_leaf"); // 桑树树叶
-    @Register("MulberrySapling")
+    @Register(value = "MulberrySapling",ore = "treeSapling")
     public static final Block mulberrySapling = new BlockCCSapling(WorldGenMulberryTree.class).setBlockTextureName("chinacraft:mulberry_sapling").setBlockName("mulberry_sapling").setCreativeTab(ChinaCraft.tabFarming);//桑树树苗
-    @Register("MulberryWood")
+    @Register(value = "MulberryWood",ore = "plankWood")
     public static final Block mulberryWood = new BlockBase(Material.wood).setBlockName("mulberry_wood").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundTypeWood).setCreativeTab(ChinaCraft.tabCore).setBlockTextureName("chinacraft:mulberry_wood"); // 桑树木板
 
 
     @Register("WoodenWindow1")
-    public static final BlockWoodenWindow woodenWindow1 = new BlockWoodenWindow("chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); // 木窗框1
+    public static final CCWindow woodenWindow1 = new CCWindow("wooden_window", "chinacraft:wooden_window_1", "chinacraft:wooden_window_top"); // 木窗框1
     @Register("WoodenWindow2")
-    public static final BlockWoodenWindow woodenWindow2 = new BlockWoodenWindow("chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); // 木窗框2
+    public static final CCWindow woodenWindow2 = new CCWindow("wooden_window", "chinacraft:wooden_window_2", "chinacraft:wooden_window_top"); // 木窗框2
     @Register("WoodenWindow3")
-    public static final BlockWoodenWindow woodenWindow3 = new BlockWoodenWindow("chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); // 木窗框3
+    public static final CCWindow woodenWindow3 = new CCWindow("wooden_window", "chinacraft:wooden_window_3", "chinacraft:wooden_window_top"); // 木窗框3
     @Register("WoodenWindow4")
-    public static final BlockWoodenWindow woodenWindow4 = new BlockWoodenWindow("chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); // 木窗框3
+    public static final CCWindow woodenWindow4 = new CCWindow("wooden_window", "chinacraft:wooden_window_4", "chinacraft:wooden_window_top"); // 木窗框3
     @Register("WoodenWindowDragon")
-    public static final BlockWoodenWindow woodenWindowdragon = new BlockWoodenWindow("chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); // 木窗框Logo
+    public static final CCWindow woodenWindowdragon = new CCWindow("wooden_window", "chinacraft:wooden_window_dragon", "chinacraft:wooden_window_top"); // 木窗框Logo
     @Register("WoodenWindowFu")
-    public static final BlockWoodenWindow woodenWindowfu = new BlockWoodenWindow("chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); // 木窗框:福
+    public static final CCWindow woodenWindowfu = new CCWindow("wooden_window", "chinacraft:wooden_window_fu", "chinacraft:wooden_window_top"); // 木窗框:福
 
     @Register("Azalea")
     public static final CCFlower azalea = new CCFlower("azalea");
@@ -255,26 +288,29 @@ public class ChinaCraft implements ICollection {
 
     @Register("SericultureFrame")
     public static final BlockSericultureFrame sericultureFrame = new BlockSericultureFrame(); // 养蚕架
-
-    @Register("RiceGrow")
-    public static final CCGrowablePlant riceGrow = new CCGrowablePlant("rice", 5, ChinaCraft.rices, ChinaCraft.lcker); // 水稻作物
     @Register("Rices")
-    public static final CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.riceGrow)
-            .setUnlocalizedName("rices"); // 米
+    @CorpPlant("riceGrow")
+    public static final CCCropPlantItem rices = (CCCropPlantItem) new CCCropPlantItem().setUnlocalizedName("rices"); // 米
     @Register("Lckers")
     public static final Item lcker = new Item().setUnlocalizedName("lcker").setCreativeTab(ChinaCraft.tabFarming); // 米穗
+    @Register("RiceGrow")
+    public static final CCGrowablePlant riceGrow = new CCGrowablePlant("rice", 5, ChinaCraft.rices, ChinaCraft.lcker); // 水稻作物
     @Register("SoyPod")
     public static final Item soyPod = new Item().setUnlocalizedName("soy_pod").setCreativeTab(ChinaCraft.tabFarming); // 大豆荚
     @Register("SoyGrow")
     public static final CCGrowablePlant soyGrow = new CCGrowablePlant("soy", 5, ChinaCraft.soyPod, ChinaCraft.soyPod); // 大豆作物
     @Register("Soy")
-    public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.soyGrow).setUnlocalizedName("soy"); // 大豆
+    @CorpPlant("soyGrow")
+    public static final CCCropPlantItem soy = (CCCropPlantItem) new CCCropPlantItem().setUnlocalizedName("soy"); // 大豆
+    @Register("GlutinousRice")
+    @CorpPlant("blockGlutinousRice")
+    public static final CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem().setUnlocalizedName("glutinous_rice"); // 糯米
     @Register("BlockGlutinousRice")
     public static final CCGrowablePlant blockGlutinousRice = new CCGrowablePlant("glutinous_rice", 7, ChinaCraft.glutinousRice, ChinaCraft.glutinousRice);// 糯米作物
-    @Register("GlutinousRice")
-    public static final CCCropPlantItem glutinousRice = (CCCropPlantItem) new CCCropPlantItem(ChinaCraft.blockGlutinousRice).setUnlocalizedName("glutinous_rice"); // 糯米
     @Register("ItemBamboo")
     public static final Item itemBamboo = new ItemBase().setTextureName("chinacraft:bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("bamboo"); // 竹子
+    @Register("PeeledBamboo")
+    public static final Item peeledBamboo = new ItemBase().setTextureName("chinacraft:peeled_bamboo").setCreativeTab(ChinaCraft.tabFarming).setUnlocalizedName("peeled_bamboo"); // 竹子
     @Register("ItemMulberryLeaf")
     public static final Item itemMulberryLeaf = new Item().setUnlocalizedName("mulberry_leaf").setCreativeTab(ChinaCraft.tabFarming); // 桑叶
     @Register("BlackDogBlood")
@@ -313,9 +349,15 @@ public class ChinaCraft implements ICollection {
     @Register("YanLungGiantknife")
     public static final BLGiantSword blGiantSword = new BLGiantSword(ChinaCraft.YANGLONG); // 炎龙巨刀
     @Register("JiuQuTang")
-    public static final JiuQu_tang jiuqu_tang = new JiuQu_tang();// 九曲镋
+    public static final CCItemJiuQuTang jiuquTang = new CCItemJiuQuTang();// 九曲镋
     @Register("Mace")
-    public static final Mace mace = new Mace();
+    public static final CCItemMace mace = new CCItemMace();
+    @Register("BuddhistMonksKnife")
+    public static final CCBuddhistMonksKnife buddhistMonksKnife = new CCBuddhistMonksKnife(Item.ToolMaterial.WOOD);
+    @Register("CrashBuddhistMonksKnife")
+    public static final CCBuddhistMonksKnife crashBuddhistMonksKnife = (CCBuddhistMonksKnife) new CCBuddhistMonksKnife(Item.ToolMaterial.IRON).setUnlocalizedName("crash_buddhist_monks_knife").setMaxDamage(450);
+    @Register("JointStaff")
+    public static final CCJointStaff jointStaff = new CCJointStaff();
 //    @Register("SuperBow")
     public static final ItemSuperBow superBow = new ItemSuperBow();
     @Register("StoneHammer")
@@ -335,6 +377,9 @@ public class ChinaCraft implements ICollection {
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_body", "nightclothes", 1, 1, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_leg", "nightclothes", 1, 2, 1),
             new ModelArmor(ItemArmor.ArmorMaterial.CLOTH, "night_clothes_shoe", "nightclothes", 1, 3, 1)};
+    @Register("Cassock")
+    public static final ModelArmorCassock cassock = new ModelArmorCassock();
+
     @Register("BronzeHelmet")
     public static ItemArmor bronzeHelmet;// 青铜头盔
     @Register("BronzeChestplate")
@@ -379,7 +424,7 @@ public class ChinaCraft implements ICollection {
     @Register("JadeGreen")
     public static final Jade jadeGreenItem = new Jade("jade_green");
     @Register("JadeGreen2")
-    public static final Item jadeGreen2Item = new Jade("jade_green2").setMaxDamage(8);
+    public static final Item jadeGreen2Item = new Jade("jade_green2").setMaxDamage(56);
     @Register("JadePink")
     public static final Jade jadePinkItem = new Jade("jade_pink");
     @Register("JadePurple")
@@ -464,6 +509,13 @@ public class ChinaCraft implements ICollection {
     public static final Item itemSilk = new ItemSilk().setUnlocalizedName("silk"); // 丝绸
     @Register("Debug")
     public static final ItemDebug debug = new ItemDebug(); // 调试物品
+
+    static {
+        HAMMERSTONE.setRepairItem(new ItemStack(Blocks.stone));
+        HAMMERIRON.setRepairItem(new ItemStack(Items.iron_ingot));
+        HAMMERDIANMOND.setRepairItem(new ItemStack(Items.diamond));
+        BRONZE.setRepairItem(new ItemStack(ChinaCraft.bronzeIngot));
+    }
 
     public static Configuration getMainConfig() {
         return ConfigLoader.getMainConfig();
