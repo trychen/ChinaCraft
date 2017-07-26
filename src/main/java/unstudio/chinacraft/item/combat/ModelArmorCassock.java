@@ -17,7 +17,7 @@ import unstudio.chinacraft.common.ChinaCraft;
  */
 public class ModelArmorCassock extends ModelArmor {
     @SideOnly(Side.CLIENT)
-    private ModelCassock armorModel = new ModelCassock();
+    private Object armorModel;
 
     private static Integer itemId;
 
@@ -28,38 +28,38 @@ public class ModelArmorCassock extends ModelArmor {
     @Override
     @SideOnly(Side.CLIENT)
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, int armorSlot) {
-        if (armorModel != null) {
-            armorModel = new ModelCassock();
-            armorModel.bipedBody.showModel = true;
-            armorModel.bipedRightArm.showModel = true;
-            armorModel.bipedLeftArm.showModel = true;
-            armorModel.bipedRightLeg.showModel = true;
-            armorModel.bipedLeftLeg.showModel = true;
+        if (armorModel == null) armorModel = new ModelCassock();
+        ModelCassock model = (ModelCassock) armorModel;
+        model = new ModelCassock();
+        model.bipedBody.showModel = true;
+        model.bipedRightArm.showModel = true;
+        model.bipedLeftArm.showModel = true;
+        model.bipedRightLeg.showModel = true;
+        model.bipedLeftLeg.showModel = true;
 
-            armorModel.isSneak = entityLiving.isSneaking();
-            armorModel.isRiding = entityLiving.isRiding();
-            armorModel.isChild = entityLiving.isChild();
+        model.isSneak = entityLiving.isSneaking();
+        model.isRiding = entityLiving.isRiding();
+        model.isChild = entityLiving.isChild();
 
-            armorModel.heldItemRight = 0;
-            armorModel.aimedBow = false;
+        model.heldItemRight = 0;
+        model.aimedBow = false;
 
-            EntityPlayer player = (EntityPlayer) entityLiving;
+        EntityPlayer player = (EntityPlayer) entityLiving;
 
-            ItemStack held_item = player.getEquipmentInSlot(0);
+        ItemStack held_item = player.getEquipmentInSlot(0);
 
-            if (held_item != null) {
-                armorModel.heldItemRight = 1;
-                if (player.getItemInUseCount() > 0) {
-                    EnumAction enumaction = held_item.getItemUseAction();
-                    if (enumaction == EnumAction.bow) {
-                        armorModel.aimedBow = true;
-                    } else if (enumaction == EnumAction.block) {
-                        armorModel.heldItemRight = 3;
-                    }
+        if (held_item != null) {
+            model.heldItemRight = 1;
+            if (player.getItemInUseCount() > 0) {
+                EnumAction enumaction = held_item.getItemUseAction();
+                if (enumaction == EnumAction.bow) {
+                    model.aimedBow = true;
+                } else if (enumaction == EnumAction.block) {
+                    model.heldItemRight = 3;
                 }
             }
         }
-        return armorModel;
+        return model;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class ModelArmorCassock extends ModelArmor {
     }
 
     public static int getItemId() {
-        if (itemId == null){
+        if (itemId == null) {
             itemId = Item.getIdFromItem(ChinaCraft.cassock);
         }
         return itemId;

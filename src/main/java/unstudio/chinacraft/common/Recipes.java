@@ -259,10 +259,7 @@ public class Recipes {
                 new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick}));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.bronzeBroadSword, 1),
                 new Object[]{" ##", " X#", "X  ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick}));
-        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.blGiantSword, 1),
-                new Object[]{"#B#", "EDE", "CAC", '#', Item.getItemFromBlock(Blocks.obsidian), 'A', Items.stick, 'B',
-                        Items.lava_bucket.setContainerItem(Items.bucket), 'C', Items.iron_ingot, 'D',
-                        Item.getItemFromBlock(Blocks.soul_sand), 'E', ChinaCraft.bronzeBlock}));
+
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzePickaxe, 1),
                 new Object[]{"###", " X ", " X ", '#', ChinaCraft.bronzeIngot, 'X', Items.stick});
         GameRegistry.addRecipe(new ItemStack(ChinaCraft.bronzeAxe, 1),
@@ -288,13 +285,12 @@ public class Recipes {
 
         // 冕冠
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(ChinaCraft.chinaCrown, 1),
-                "TET",
+                "T#T",
                 "#X#",
                 "S#S",
                 '#', Items.gold_ingot,
-                'X', Items.nether_star.setContainerItem(Items.nether_star),
+                'X', Items.nether_star,
                 'T', new ItemStack(ChinaCraft.itemSilk, 1, 12),
-                'E', Item.getItemFromBlock(Blocks.dragon_egg).setContainerItem(Item.getItemFromBlock(Blocks.dragon_egg)),
                 'S', new ItemStack(ChinaCraft.itemSilk, 1, 14)));
 
         // TinOre
