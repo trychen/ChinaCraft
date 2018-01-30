@@ -136,7 +136,7 @@ tile.marble_stair.name=大理石階梯
 tile.firebrick.name=耐火磚
 item.blackbrick.name=青磚
 tile.blackbrick_block.name=青磚
-tile.blackbrick_wall.name=青磚強
+tile.blackbrick_wall.name=青磚牆
 tile.blackbrick_mossy_block.name=苔石青磚
 tile.blackbrick_blacker_block.name=深色青磚
 tile.blackbrick_slab.name=青磚半磚
@@ -291,12 +291,12 @@ item.redpacket.name=紅包
 gui.redpacket.title=紅包
 gui.redpacket.wash=請輸入祝福語……
 gui.redpacket.sendee=收件人：
-gui.redpacket.from=來自 %s 的紅包
+gui.redpacket.from=來自%s的紅包
 gui.redpacket.pack=打包
 gui.redpacket.send=發送
-redpacket.success=成功發送紅包給 %s.
-redpacket.not_found_player=失敗：沒有找到玩家 %s！
-redpacket.backpack_full=失敗：%s 的背包已滿！
+redpacket.success=成功發送紅包給%s。
+redpacket.not_found_player=失敗：沒有找到玩家%s！
+redpacket.backpack_full=失敗：%s的背包已滿！
 redpacket.received=您收到了一個紅包！
 
 gui.inventory.shiftfordetail=§7§o<按住Shift鍵查看更多資訊>
@@ -306,6 +306,6 @@ entity.chinazombie.name=清朝僵屍
 entity.panda.name=熊貓
 
 VersionChecker.perfix=發現新版本！點擊下載。
-VersionChecker.version=最新版本：！new，當前版本：！old。
+VersionChecker.version=最新版本：!new，當前版本：!old。
 
 death.attack.continuedLife=%1$s為了給其它生物治療，失去了生命。
