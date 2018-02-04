@@ -3,11 +3,7 @@
   "modid": "chinacraft",
   "name": "ChinaCraft",
   "description": "A mod with Chinese features.",
-<<<<<<< HEAD
-  "version": "Beta 0.3.202",
-=======
-  "version": "Beta 0.4.206",
->>>>>>> dev
+  "version": "Beta 0.4.207",
   "mcversion": "1.7.10",
   "url": "http://mccraft.cn/project/chinacraft",
   "updateUrl": "",

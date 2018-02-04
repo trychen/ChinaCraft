@@ -33,14 +33,6 @@
         "stream": true
       }
     ]},
-  "records.the_march_of_the_volunteers": {
-    "category": "record",
-    "sounds": [
-      {
-        "name": "records/the_march_of_the_volunteers",
-        "stream": true
-      }
-    ]},
   "records.spring_festival_overture": {
     "category": "record",
     "sounds": [

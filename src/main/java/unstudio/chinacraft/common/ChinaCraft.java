@@ -59,7 +59,7 @@ import java.util.Random;
 public class ChinaCraft implements ICollection {
     public static final String MODID = "chinacraft";
     public static final String NAME = "ChinaCraft";
-    public static final String VERSION = "0.4.206";
+    public static final String VERSION = "0.4.207";
     public static final int PROJECT_ID = 1;
 
     public static SimpleNetworkWrapper Network;
@@ -490,8 +490,6 @@ public class ChinaCraft implements ICollection {
     public static final CCMusicDisc three_stanzas = new CCMusicDisc("three_stanzas_of_plum-blossoms");
     @Register("mountain_stream")
     public static final CCMusicDisc mountain_stream = new CCMusicDisc("mountain_stream");
-    @Register("the_march_of_the_volunteers")
-    public static final CCMusicDisc the_march_of_the_volunteers = new CCMusicDisc("the_march_of_the_volunteers");
     @Register("spring_festival_overture")
     public static final CCMusicDisc spring_festival_overture = new CCMusicDisc("spring_festival_overture");
 

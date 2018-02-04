@@ -15,7 +15,7 @@ public class WorldGenCCFlower extends WorldGenerator{
         int z = blockZ + random.nextInt(16);
         int y = world.getHeightValue(x, z) +1;
 
-        if (world.isAirBlock(x, y, z) && block.canBlockStay(world, x, y, z))
+        if (world.isAirBlock(x, y, z) && (!world.provider.hasNoSky || y < 255) && block.canBlockStay(world, x, y, z))
             world.setBlock(x, y, z, block, 0, 3);
     }
 
