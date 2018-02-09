@@ -279,6 +279,10 @@ public class ChinaCraft implements ICollection {
     public static final BlockCCDing ding = new BlockCCDing();
     @Register("Ding")
     public static final ItemCCDing itemDing = new ItemCCDing();
+//    @Register("BlockLatticeDoor")
+//    public static BlockLatticeDoor latticeDoor = new BlockLatticeDoor();
+//    @Register("LatticeDoor")
+//    public static CCItemLatticeDoor itemLatticeDoor = new CCItemLatticeDoor();
     @Register("BlockWoodenBucket")
     public static final BlockWoodenBucket blockWoodenBucket = new BlockWoodenBucket(); // 木桶
     @Register("CookingBenchOff")
