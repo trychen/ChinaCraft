@@ -25,12 +25,15 @@ public class WorldGenListener{
 
     @SubscribeEvent
     public void onOreGenPost(OreGenEvent.Post event){
-        WORLD_GEN_COPPER_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
-        WORLD_GEN_TIN_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
-        WORLD_GEN_SILVER_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
-        WORLD_GEN_JADE_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
-        WORLD_GEN_MARBLE_ORE.generate(event.world,event.rand,event.worldX,0,event.worldZ);
-        WORLD_GEN_CC_FLOWER.generate(event.world,event.rand,event.worldX,0,event.worldZ);
-        WORLD_GEN_BAMBOO_SHOOT.generate(event.world,event.rand,event.worldX,0,event.worldZ);
+        try {
+            WORLD_GEN_COPPER_ORE.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+            WORLD_GEN_TIN_ORE.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+            WORLD_GEN_SILVER_ORE.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+            WORLD_GEN_JADE_ORE.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+            WORLD_GEN_MARBLE_ORE.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+            WORLD_GEN_BAMBOO_SHOOT.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+            WORLD_GEN_CC_FLOWER.generate(event.world, event.rand, event.worldX, 0, event.worldZ);
+        } finally {
+        }
     }
 }
