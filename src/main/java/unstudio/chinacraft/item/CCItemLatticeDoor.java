@@ -2,10 +2,12 @@ package unstudio.chinacraft.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.NotImplementedException;
 import unstudio.chinacraft.common.ChinaCraft;
 
 public class CCItemLatticeDoor extends Item {
@@ -19,20 +21,21 @@ public class CCItemLatticeDoor extends Item {
             return false;
         } else {
             ++y;
-            Block block = ChinaCraft.latticeDoor;
-
-            if (player.canPlayerEdit(x, y, z, meta, itemStack) && player.canPlayerEdit(x, y + 1, z, meta, itemStack)) {
-                if (!block.canPlaceBlockAt(w, x, y, z)) {
-                    return false;
-                } else {
-                    int i1 = MathHelper.floor_double((double) ((player.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
-                    placeDoorBlock(w, x, y, z, i1, block);
-                    --itemStack.stackSize;
-                    return true;
-                }
-            } else {
-                return false;
-            }
+            throw new NotImplementedException("Feature Not Implemented");
+//            Block block = ChinaCraft.latticeDoor;
+//            Block block = Blocks.air;
+//            if (player.canPlayerEdit(x, y, z, meta, itemStack) && player.canPlayerEdit(x, y + 1, z, meta, itemStack)) {
+//                if (!block.canPlaceBlockAt(w, x, y, z)) {
+//                    return false;
+//                } else {
+//                    int i1 = MathHelper.floor_double((double) ((player.rotationYaw + 180.0F) * 4.0F / 360.0F) - 0.5D) & 3;
+//                    placeDoorBlock(w, x, y, z, i1, block);
+//                    --itemStack.stackSize;
+//                    return true;
+//                }
+//            } else {
+//                return false;
+//            }
         }
     }
 
