@@ -97,7 +97,12 @@ tile.bamboo_plank.name=Bamboo Plank
 item.bamboo.name=Bamboo
 tile.bamboo_shoot.name=Bamboo Shoot
 item.bamboo_shoot.name=Bamboo Shoot
-tile.peeled_bamboo_window.name=Peeled Bamboo Plank
+tile.bamboo_window.name=Bamboo Window
+tile.peeled_bamboo_plank.name=Peeled Bamboo Plank
+tile.peeled_bamboo_slab.name=Peeled Bamboo Slab
+tile.peeled_bamboo_stair.name=Peeled Bamboo Stair
+tile.peeled_bamboo_fence_gate.name=Peeled Bamboo Fence Gate
+tile.peeled_bamboo_fence.name=Peeled Bamboo Fence
 
 tile.azalea.name=Azalea
 tile.bean_bracket.name=Bean Bracket

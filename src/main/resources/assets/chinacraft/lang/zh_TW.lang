@@ -101,7 +101,12 @@ tile.bamboo_plank.name=竹板
 tile.bamboo_shoot.name=竹笋
 item.bamboo.name=竹子
 item.bamboo_shoot.name=竹笋
-tile.peeled_bamboo_window.name=已殺青的竹板
+tile.bamboo_window.name=竹板窗
+tile.peeled_bamboo_plank.name=已殺青的竹板
+tile.peeled_bamboo_slab.name=已殺青的竹製半磚
+tile.peeled_bamboo_stair.name=已殺青的竹製階梯
+tile.peeled_bamboo_fence_gate.name=已殺青的竹製柵欄門
+tile.peeled_bamboo_fence.name=已杀青的竹製柵欄
 
 tile.azalea.name=映山紅
 tile.beanBracket.name=作物支架
